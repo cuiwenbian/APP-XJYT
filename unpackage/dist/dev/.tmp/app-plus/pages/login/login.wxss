@@ -1,0 +1,48 @@
+
+page{
+	background: #121212;
+}
+.logo{
+	width:185rpx;
+	height:185rpx;
+	margin-top:176rpx;
+	margin-left: calc((100% - 185rpx)/2);
+}
+.fil{
+	height:100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	color: #fff;
+	font-size: 64rpx;
+	margin-bottom: 50rpx;
+}
+.enter{
+	
+	width:600rpx;
+	height:100rpx;
+	margin: 0 auto;
+}
+.title{
+	float:left;
+	color: #fff;
+	width:150rpx;
+	line-height: 80rpx;
+	font-size: 30rpx;
+}
+.number{
+	float:right;
+	width:450rpx;
+	height:80rpx;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #34b5c1;
+	color:#646464;
+	font-size: 24rpx;
+}
+.btn{
+	width:600rpx;
+	height:100rpx;
+	background: #464545;
+	margin-top:50rpx;
+}
+
+

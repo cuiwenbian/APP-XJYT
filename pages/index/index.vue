@@ -3,10 +3,7 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
-<<<<<<< HEAD
-            
-=======
->>>>>>> a6c65eea4cea694ea38ce062fef55d13707a81bb
+
 		</view>
 	</view>
 </template>

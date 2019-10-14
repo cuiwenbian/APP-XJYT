@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/register/register",
     "pages/index/index",
     "mill/mill/mill",
     "mill/pay/pay",
@@ -16,10 +18,7 @@
     "my/my/my"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "xjyt",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#7a7e83",
