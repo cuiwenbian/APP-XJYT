@@ -1,7 +1,5 @@
 <template>
-	<view class="c">
-		我的
-	</view>
+    <!-- 已完成订单详情 -->
 </template>
 
 <script>
