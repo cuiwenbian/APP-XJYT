@@ -5,14 +5,64 @@
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
-		},
-		{
-			"path": "pages/my/my",
-			"style": {
-				"navigationBarTitleText": "我的"
-			}
 		}
 	],
+    "subPackages":[
+             {
+                 "root":"mill",
+                 "pages":[
+                     {
+                         "path":"pay/pay",
+                         "style":{"navigationBarTitleText":"买单"}
+                     },
+                     {
+                         "path":"staypay/staypay",
+                         "style":{"navigationBarTitleText":"待付款订单详情"}
+                     },
+                     {
+                         "path":"stayconfirm/stayconfirm",
+                         "style":{"navigationBarTitleText":"待确认订单详情"}
+                     },
+                     {
+                         "path":"stayaudit/stayaudit",
+                         "style":{"navigationBarTitleText":"待审核订单详情"}
+                     },
+                     {
+                         "path":"completed/completed",
+                         "style":{"navigationBarTitleText":"已完成订单详情"}
+                     },
+                     {
+                         "path":"sale/sale",
+                         "style":{"navigationBarTitleText":"卖单"}
+                     },
+                     {
+                         "path":"salepay/salepay",
+                         "style":{"navigationBarTitleText":"待付款订单详情"}
+                     },
+                     {
+                         "path":"saleconfirm/saleconfirm",
+                         "style":{"navigationBarTitleText":"待付款订单详情"}
+                     },
+                     {
+                         "path":"saleaudit/saleaudit",
+                         "style":{"navigationBarTitleText":"待审核订单详情"}
+                     },
+                     {
+                         "path":"salecompleted/salecompleted",
+                         "style":{"navigationBarTitleText":"已完成订单详情"}
+                     }
+                 ]
+             },
+             {
+                 "root":"my/my",
+                 "pages":[
+                     {
+                         "path":"my",
+                         "style":{"navigationBarTitleText":"我的"}
+                     }
+                 ]
+             }
+    ],
 	"tabBar": {
 	    "color": "#7a7e83",
 	    "selectedColor": "#0faeff",
