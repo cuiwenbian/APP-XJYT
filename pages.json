@@ -12,6 +12,10 @@
                  "root":"mill",
                  "pages":[
                      {
+                         "path":"mill/mill",
+                         "style":{"navigationBarTitleText":"矿机"}
+                     },
+                     {
                          "path":"pay/pay",
                          "style":{"navigationBarTitleText":"买单"}
                      },
@@ -50,6 +54,10 @@
                      {
                          "path":"salecompleted/salecompleted",
                          "style":{"navigationBarTitleText":"已完成订单详情"}
+                     },
+                     {
+                         "path":"assets/assets",
+                         "style":{"navigationBarTitleText":"资产"}
                      }
                  ]
              },
@@ -73,11 +81,21 @@
 	        "iconPath": "static/images/hu.png",
 	        "selectedIconPath": "static/images/hu.png"
 	    }, {
-	        "pagePath": "pages/my/my",
+	        "pagePath": "my/my/my",
 	        "text": "我的",
 	        "iconPath": "static/images/hu.png",
 	        "selectedIconPath": "static/images/hu.png"
-	    }]
+	    }, {
+            "pagePath":"mill/mill/mill",
+            "text":"矿机",
+            "iconPath": "static/images/hu.png",
+            "selectedIconPath": "static/images/hu.png"
+        },{
+            "pagePath":"mill/assets/assets",
+            "text":"资产",
+            "iconPath": "static/images/hu.png",
+            "selectedIconPath": "static/images/hu.png"
+        }]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

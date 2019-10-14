@@ -1,5 +1,5 @@
 <template>
-    <!-- 我的 -->
+    <text>矿机</text>
 </template>
 
 <script>

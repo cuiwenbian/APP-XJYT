@@ -1,3 +1,64 @@
 {
+  "pages": [
+    "pages/index/index",
+    "mill/mill/mill",
+    "mill/pay/pay",
+    "mill/staypay/staypay",
+    "mill/stayconfirm/stayconfirm",
+    "mill/stayaudit/stayaudit",
+    "mill/completed/completed",
+    "mill/sale/sale",
+    "mill/salepay/salepay",
+    "mill/saleconfirm/saleconfirm",
+    "mill/saleaudit/saleaudit",
+    "mill/salecompleted/salecompleted",
+    "mill/assets/assets",
+    "my/my/my"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "xjyt",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7a7e83",
+    "selectedColor": "#0faeff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
+      },
+      {
+        "pagePath": "my/my/my",
+        "text": "我的",
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
+      },
+      {
+        "pagePath": "mill/mill/mill",
+        "text": "矿机",
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
+      },
+      {
+        "pagePath": "mill/assets/assets",
+        "text": "资产",
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
+      }
+    ]
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "APP-XJYT",
+  "compilerVersion": "2.3.3",
   "usingComponents": {}
 }
