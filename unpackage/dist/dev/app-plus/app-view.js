@@ -1075,7 +1075,24 @@ function gz$gwx_3(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_3)return __WXML_GLOBAL__.ops_cached.$gwx_3
 __WXML_GLOBAL__.ops_cached.$gwx_3=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'矿机'])
+Z([3,'box'])
+Z([3,'box1'])
+Z([3,'tab'])
+Z([3,'colo'])
+Z([3,'矿机交易'])
+Z([3,'many'])
+Z([a,[[2,'+'],[[7],[3,'many']],[1,'台']]])
+Z([3,'box2'])
+Z([3,'market'])
+Z([3,'primary'])
+Z([3,'买单'])
+Z([3,'primary1'])
+Z([3,'卖单'])
+Z([3,'box3'])
+Z([3,'sold'])
+Z([3,'可出售'])
+Z([3,'btn'])
+Z([3,'去交易'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_3);return __WXML_GLOBAL__.ops_cached.$gwx_3
 }
 function gz$gwx_4(){
@@ -1145,6 +1162,8 @@ function gz$gwx_13(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_13)return __WXML_GLOBAL__.ops_cached.$gwx_13
 __WXML_GLOBAL__.ops_cached.$gwx_13=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'lo'])
+Z([3,'c'])
 Z([3,'w de'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_13);return __WXML_GLOBAL__.ops_cached.$gwx_13
 }
@@ -1186,9 +1205,55 @@ e_[x[1]]={f:m1,j:[],i:[],ti:[],ic:[]}
 d_[x[2]]={}
 var m2=function(e,s,r,gg){
 var z=gz$gwx_3()
-var hG=_n('text')
-var oH=_oz(z,0,e,s,gg)
+var hG=_n('view')
+_rz(z,hG,'class',0,e,s,gg)
+var oH=_n('view')
+_rz(z,oH,'class',1,e,s,gg)
+var cI=_n('view')
+_rz(z,cI,'class',2,e,s,gg)
+var oJ=_n('text')
+_rz(z,oJ,'class',3,e,s,gg)
+var lK=_oz(z,4,e,s,gg)
+_(oJ,lK)
+_(cI,oJ)
+var aL=_n('text')
+_rz(z,aL,'class',5,e,s,gg)
+var tM=_oz(z,6,e,s,gg)
+_(aL,tM)
+_(cI,aL)
+_(oH,cI)
 _(hG,oH)
+var eN=_n('view')
+_rz(z,eN,'class',7,e,s,gg)
+var bO=_n('view')
+_rz(z,bO,'class',8,e,s,gg)
+var oP=_n('button')
+_rz(z,oP,'class',9,e,s,gg)
+var xQ=_oz(z,10,e,s,gg)
+_(oP,xQ)
+_(bO,oP)
+var oR=_n('button')
+_rz(z,oR,'class',11,e,s,gg)
+var fS=_oz(z,12,e,s,gg)
+_(oR,fS)
+_(bO,oR)
+_(eN,bO)
+_(hG,eN)
+var cT=_n('view')
+_rz(z,cT,'class',13,e,s,gg)
+var hU=_n('view')
+_rz(z,hU,'class',14,e,s,gg)
+var oV=_n('text')
+var cW=_oz(z,15,e,s,gg)
+_(oV,cW)
+_(hU,oV)
+var oX=_n('button')
+_rz(z,oX,'class',16,e,s,gg)
+var lY=_oz(z,17,e,s,gg)
+_(oX,lY)
+_(hU,oX)
+_(cT,hU)
+_(hG,cT)
 _(r,hG)
 return r
 }
@@ -1196,110 +1261,114 @@ e_[x[2]]={f:m2,j:[],i:[],ti:[],ic:[]}
 d_[x[3]]={}
 var m3=function(e,s,r,gg){
 var z=gz$gwx_4()
-var oJ=_n('view')
-_rz(z,oJ,'class',0,e,s,gg)
-_(r,oJ)
+var t1=_n('view')
+_rz(z,t1,'class',0,e,s,gg)
+_(r,t1)
 return r
 }
 e_[x[3]]={f:m3,j:[],i:[],ti:[],ic:[]}
 d_[x[4]]={}
 var m4=function(e,s,r,gg){
 var z=gz$gwx_5()
-var aL=_n('view')
-_rz(z,aL,'class',0,e,s,gg)
-_(r,aL)
+var b3=_n('view')
+_rz(z,b3,'class',0,e,s,gg)
+_(r,b3)
 return r
 }
 e_[x[4]]={f:m4,j:[],i:[],ti:[],ic:[]}
 d_[x[5]]={}
 var m5=function(e,s,r,gg){
 var z=gz$gwx_6()
-var eN=_n('view')
-_rz(z,eN,'class',0,e,s,gg)
-_(r,eN)
+var x5=_n('view')
+_rz(z,x5,'class',0,e,s,gg)
+_(r,x5)
 return r
 }
 e_[x[5]]={f:m5,j:[],i:[],ti:[],ic:[]}
 d_[x[6]]={}
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
-var oP=_n('view')
-_rz(z,oP,'class',0,e,s,gg)
-_(r,oP)
+var f7=_n('view')
+_rz(z,f7,'class',0,e,s,gg)
+_(r,f7)
 return r
 }
 e_[x[6]]={f:m6,j:[],i:[],ti:[],ic:[]}
 d_[x[7]]={}
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
-var oR=_n('view')
-_rz(z,oR,'class',0,e,s,gg)
-_(r,oR)
+var h9=_n('view')
+_rz(z,h9,'class',0,e,s,gg)
+_(r,h9)
 return r
 }
 e_[x[7]]={f:m7,j:[],i:[],ti:[],ic:[]}
 d_[x[8]]={}
 var m8=function(e,s,r,gg){
 var z=gz$gwx_9()
-var cT=_n('view')
-_rz(z,cT,'class',0,e,s,gg)
-_(r,cT)
+var cAB=_n('view')
+_rz(z,cAB,'class',0,e,s,gg)
+_(r,cAB)
 return r
 }
 e_[x[8]]={f:m8,j:[],i:[],ti:[],ic:[]}
 d_[x[9]]={}
 var m9=function(e,s,r,gg){
 var z=gz$gwx_10()
-var oV=_n('view')
-_rz(z,oV,'class',0,e,s,gg)
-_(r,oV)
+var lCB=_n('view')
+_rz(z,lCB,'class',0,e,s,gg)
+_(r,lCB)
 return r
 }
 e_[x[9]]={f:m9,j:[],i:[],ti:[],ic:[]}
 d_[x[10]]={}
 var m10=function(e,s,r,gg){
 var z=gz$gwx_11()
-var oX=_n('view')
-_rz(z,oX,'class',0,e,s,gg)
-_(r,oX)
+var tEB=_n('view')
+_rz(z,tEB,'class',0,e,s,gg)
+_(r,tEB)
 return r
 }
 e_[x[10]]={f:m10,j:[],i:[],ti:[],ic:[]}
 d_[x[11]]={}
 var m11=function(e,s,r,gg){
 var z=gz$gwx_12()
-var aZ=_n('view')
-_rz(z,aZ,'class',0,e,s,gg)
-_(r,aZ)
+var bGB=_n('view')
+_rz(z,bGB,'class',0,e,s,gg)
+_(r,bGB)
 return r
 }
 e_[x[11]]={f:m11,j:[],i:[],ti:[],ic:[]}
 d_[x[12]]={}
 var m12=function(e,s,r,gg){
 var z=gz$gwx_13()
-var e2=_n('text')
-var b3=_oz(z,0,e,s,gg)
-_(e2,b3)
-_(r,e2)
+var xIB=_n('view')
+_rz(z,xIB,'class',0,e,s,gg)
+var oJB=_n('text')
+_rz(z,oJB,'class',1,e,s,gg)
+var fKB=_oz(z,2,e,s,gg)
+_(oJB,fKB)
+_(xIB,oJB)
+_(r,xIB)
 return r
 }
 e_[x[12]]={f:m12,j:[],i:[],ti:[],ic:[]}
 d_[x[13]]={}
 var m13=function(e,s,r,gg){
 var z=gz$gwx_14()
-var x5=_n('view')
-_rz(z,x5,'class',0,e,s,gg)
-var o6=_mz(z,'image',['class',1,'src',1],[],e,s,gg)
-_(x5,o6)
-var f7=_n('view')
-_rz(z,f7,'class',3,e,s,gg)
-var c8=_n('text')
-_rz(z,c8,'class',4,e,s,gg)
-var h9=_oz(z,5,e,s,gg)
-_(c8,h9)
-_(f7,c8)
-_(x5,f7)
-_(r,x5)
+var hMB=_n('view')
+_rz(z,hMB,'class',0,e,s,gg)
+var oNB=_mz(z,'image',['class',1,'src',1],[],e,s,gg)
+_(hMB,oNB)
+var cOB=_n('view')
+_rz(z,cOB,'class',3,e,s,gg)
+var oPB=_n('text')
+_rz(z,oPB,'class',4,e,s,gg)
+var lQB=_oz(z,5,e,s,gg)
+_(oPB,lQB)
+_(cOB,oPB)
+_(hMB,cOB)
+_(r,hMB)
 return r
 }
 e_[x[13]]={f:m13,j:[],i:[],ti:[],ic:[]}
@@ -1325,106 +1394,9 @@ return root;
 }
 
 
-var BASE_DEVICE_WIDTH = 750;
-var isIOS=navigator.userAgent.match("iPhone");
-var deviceWidth = window.screen.width || 375;
-var deviceDPR = window.devicePixelRatio || 2;
-var checkDeviceWidth = window.__checkDeviceWidth__ || function() {
-var newDeviceWidth = window.screen.width || 375
-var newDeviceDPR = window.devicePixelRatio || 2
-var newDeviceHeight = window.screen.height || 375
-if (window.screen.orientation && /^landscape/.test(window.screen.orientation.type || '')) newDeviceWidth = newDeviceHeight
-if (newDeviceWidth !== deviceWidth || newDeviceDPR !== deviceDPR) {
-deviceWidth = newDeviceWidth
-deviceDPR = newDeviceDPR
-}
-}
-checkDeviceWidth()
-var eps = 1e-4;
-var transformRPX = window.__transformRpx__ || function(number, newDeviceWidth) {
-if ( number === 0 ) return 0;
-number = number / BASE_DEVICE_WIDTH * ( newDeviceWidth || deviceWidth );
-number = Math.floor(number + eps);
-if (number === 0) {
-if (deviceDPR === 1 || !isIOS) {
-return 1;
-} else {
-return 0.5;
-}
-}
-return number;
-}
-var setCssToHead = function(file, _xcInvalid, info) {
-var Ca = {};
-var css_id;
-var info = info || {};
-var _C= [[[2,1],],[],];
-function makeup(file, opt) {
-var _n = typeof(file) === "number";
-if ( _n && Ca.hasOwnProperty(file)) return "";
-if ( _n ) Ca[file] = 1;
-var ex = _n ? _C[file] : file;
-var res="";
-for (var i = ex.length - 1; i >= 0; i--) {
-var content = ex[i];
-if (typeof(content) === "object")
-{
-var op = content[0];
-if ( op == 0 )
-res = transformRPX(content[1], opt.deviceWidth) + "px" + res;
-else if ( op == 1)
-res = opt.suffix + res;
-else if ( op == 2 ) 
-res = makeup(content[1], opt) + res;
-}
-else
-res = content + res
-}
-return res;
-}
-var rewritor = function(suffix, opt, style){
-opt = opt || {};
-suffix = suffix || "";
-opt.suffix = suffix;
-if ( opt.allowIllegalSelector != undefined && _xcInvalid != undefined )
-{
-if ( opt.allowIllegalSelector )
-console.warn( "For developer:" + _xcInvalid );
-else
-{
-console.error( _xcInvalid + "This wxss file is ignored." );
-return;
-}
-}
-Ca={};
-css = makeup(file, opt);
-if ( !style ) 
-{
-var head = document.head || document.getElementsByTagName('head')[0];
-window.__rpxRecalculatingFuncs__ = window.__rpxRecalculatingFuncs__ || [];
-style = document.createElement('style');
-style.type = 'text/css';
-style.setAttribute( "wxss:path", info.path );
-head.appendChild(style);
-window.__rpxRecalculatingFuncs__.push(function(size){
-opt.deviceWidth = size.width;
-rewritor(suffix, opt, style);
-});
-}
-if (style.styleSheet) {
-style.styleSheet.cssText = css;
-} else {
-if ( style.childNodes.length == 0 )
-style.appendChild(document.createTextNode(css));
-else 
-style.childNodes[0].nodeValue = css;
-}
-}
-return rewritor;
-}
-setCssToHead([])();setCssToHead([[2,0]],undefined,{path:"./app.wxss"})();
+undefined
 
-__wxAppCode__['app.wxss']=setCssToHead([[2,0]],undefined,{path:"./app.wxss"});    
+__wxAppCode__['app.wxss']=undefined;    
 __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
 __wxAppCode__['mill/assets/assets.wxss']=undefined;    
@@ -1466,7 +1438,7 @@ __wxAppCode__['mill/staypay/staypay.wxml']=$gwx('./mill/staypay/staypay.wxml');
 __wxAppCode__['my/my/my.wxss']=undefined;    
 __wxAppCode__['my/my/my.wxml']=$gwx('./my/my/my.wxml');
 
-__wxAppCode__['pages/index/index.wxss']=setCssToHead([".",[1],"content { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"logo { height: ",[0,200],"; width: ",[0,200],"; margin-top: ",[0,200],"; margin-left: auto; margin-right: auto; margin-bottom: ",[0,50],"; }\n.",[1],"text-area { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"title { font-size: ",[0,36],"; color: #8f8f94; }\n",],undefined,{path:"./pages/index/index.wxss"});    
+__wxAppCode__['pages/index/index.wxss']=undefined;    
 __wxAppCode__['pages/index/index.wxml']=$gwx('./pages/index/index.wxml');
 
 ;var __pageFrameEndTime__ = Date.now();

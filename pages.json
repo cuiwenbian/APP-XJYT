@@ -12,8 +12,8 @@
                  "root":"mill",
                  "pages":[
                      {
-                         "path":"mill/mill",
-                         "style":{"navigationBarTitleText":"矿机"}
+                         "path":"mill/mill"
+
                      },
                      {
                          "path":"pay/pay",
@@ -98,9 +98,6 @@
         }]
 	},
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "xjyt",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationStyle": "custom"
 	}
 }

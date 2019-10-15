@@ -1,13 +1,12 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-<<<<<<< HEAD
-            
-=======
->>>>>>> a6c65eea4cea694ea38ce062fef55d13707a81bb
-		</view>
+		<swiper class="activeImg" indicator-dots="true" autoplay="true" interval="2000" circular="true">
+		    <block v-for="(item, id) in bnrUrl" :key="id">
+		        <swiper-item>
+		            <image :src="item.url" class="u-img-slide" mode="aspectFill"></image>
+		        </swiper-item>
+		    </block>
+		</swiper>
 	</view>
 </template>
 
@@ -15,12 +14,12 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				"bnrUrl":[{
+                    "url":"../../static/images/lb.png"
+                }]
 			}
 		},
-		onLoad() {
 
-		},
 		methods: {
 
 		}
@@ -28,29 +27,16 @@
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+    .big{
+        
+    }
+    .activeImg{
+      width:720rpx;
+      height:270rpx;
+      margin:0rpx auto;
+    }
+    .u-img-slide {
+      width: 100%;
+      height:100%;
+    }
 </style>

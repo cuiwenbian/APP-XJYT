@@ -1,1 +1,1 @@
-<text>矿机</text>
+<view class="box"><view class="box1"><view class="tab"><text class="colo">矿机交易</text><text class="many">{{many+"台"}}</text></view></view><view class="box2"><view class="market"><button class="primary">买单</button><button class="primary1">卖单</button></view></view><view class="box3"><view class="sold"><text>可出售</text><button class="btn">去交易</button></view></view></view>
