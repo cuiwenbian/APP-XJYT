@@ -18,7 +18,7 @@
     position: absolute;
     top: 64%;
     left: 47%;
-    font-size: 14rpx;
+    font-size: 24rpx;
     color: #DCB16E;
 }
 .box2{
@@ -61,7 +61,7 @@
 }
 .btn {
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
     right: 6%;
     width: 160rpx;
     height: 70rpx;

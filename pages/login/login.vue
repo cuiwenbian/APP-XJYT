@@ -4,26 +4,49 @@
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
 		<view class='fil'>Filecoin</view>
 		<view class="enter">
-			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
-			<input class="number" type="text" value="" placeholder="请输入手机号" />
+			<image class="icon" src="../../static/images/phone.png" mode=""></image>
+			<input class="number" type="text" value="" placeholder="请输入手机号码" />
 		</view>
 		<view class="enter">
-			<text class="title">登录密码</text>
-			<input class="number" type="text" value="" placeholder="6-16位数字,英文"/>
+			<image class="icon" src="../../static/images/lock.png" mode=""></image>
+			<input class="number" type="text" value="" placeholder="请输入密码" />
 		</view>
-		<view class="enter">
-			<text class="title">确认密码</text>
-			<input class="number" type="text" value="" placeholder="请再次输入登录密码"/>
+		<view class="tip">
+			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
+			<navigator url="../getBackPassword/getBackPassword" class="tips">忘记密码</navigator>
 		</view>
-		<view class="enter">
-			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<input class="number" type="text" value="" placeholder="请输入短信验证码"/>
+		<view class='btn' type="primary" @click="login">登录</view>
+		<navigator url="../register/register" class="register">
+			注册
+		</navigator>
+		<view class="agree">
+			<view class="check"></view>
+			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
 		</view>
-		<button class='btn' type="primary"></button>
+		
 	</view>
 </template>
 
 <script>
+	export default {
+		data() {
+			return {
+			};
+		},
+		methods:{
+			agree(){
+				uni.navigateTo({
+					url:'../agreement/agreement'
+				});
+			},
+			login(){
+				uni.reLaunch({
+					url:'../index/index'
+				});
+			},
+			
+		}
+	}
 </script>
 
 <style>
@@ -33,7 +56,7 @@
 	.logo{
 		width:185rpx;
 		height:185rpx;
-		margin-top:176rpx;
+		margin-top:135rpx;
 		margin-left: calc((100% - 185rpx)/2);
 		
 	}
@@ -43,35 +66,80 @@
 		text-align: center;
 		color: #fff;
 		font-size: 64rpx;
-		margin-bottom: 50rpx;
+		margin-bottom: 100rpx;
 	}
 	.enter{
 		
 		width:600rpx;
 		height:100rpx;
-		margin: 0 auto;
+		margin: 30rpx auto;
+		border-bottom: 1px solid #555555;
 	}
-	.title{
+	.icon{
 		float:left;
-		color: #fff;
-		width:150rpx;
-		line-height: 80rpx;
-		font-size: 30rpx;
+	    display: block;
+		width:50rpx;
+		height:50rpx;
+		margin-top:25rpx;
 	}
 	.number{
 		float:right;
-		width:450rpx;
-		height:80rpx;
-		line-height: 80rpx;
-		border-bottom: 1rpx solid #34b5c1;
+		width:520rpx;
+		height:100rpx;
 		color:#646464;
-		font-size: 24rpx;
+		font-size: 30rpx;
+	}
+	.tip{
+		width:600rpx;
+		margin: 0 auto;
+		height:20rpx;
+		display: flex;
+		font-size: 28rpx;
+		justify-content: space-between;
+	}
+	.tips{
+		line-height: 20rpx;
+		color:#646464;
 	}
 	.btn{
-		width:600rpx;
-		height:100rpx;
-		background: #464545;
-		margin-top:50rpx;
+		width:680rpx;
+		height:80rpx;
+		background: #fff;
+		border-radius: 50rpx;
+		margin:80rpx auto;
+		color:#333;
+		text-align: center;
+		line-height: 80rpx;
 	}
-	
+	.register{
+		width:150rpx;
+		height:57rpx;
+		border-radius: 30rpx;
+		border: 1px solid #fff;
+		margin:0 auto;
+		color:#fff;
+		font-size: 26rpx;
+		line-height: 57rpx;
+		text-align: center;
+	}
+	.agree{
+		width:320rpx;
+		height:30rpx;
+		color:#fff;
+		font-size: 16rpx;
+		position: fixed;
+		bottom:50rpx;
+		left:calc((100% - 320rpx)/2);
+	}
+	.check{
+		float: left;
+		width:20rpx;
+		height:20rpx;
+		margin-right: 10rpx;     
+		outline: 0;
+		border: 1px solid #d1d1d1;
+		background-color: #fff;
+		border-radius: 3px;
+		margin-top:5rpx;
+	}
 </style>

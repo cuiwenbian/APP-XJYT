@@ -3,6 +3,10 @@
     "pages/login/login",
     "pages/register/register",
     "pages/index/index",
+    "pages/getBackPassword/getBackPassword",
+    "pages/setNewPassword/setNewPassword",
+    "pages/agreement/agreement",
+    "pages/otherLogin/otherLogin",
     "mill/mill/mill",
     "mill/pay/pay",
     "mill/staypay/staypay",
@@ -15,10 +19,27 @@
     "mill/saleaudit/saleaudit",
     "mill/salecompleted/salecompleted",
     "mill/assets/assets",
-    "my/my/my"
+    "my/my/my",
+    "my/personal/personal",
+    "my/add-address/add-address",
+    "my/address/address",
+    "my/change-loginPassword/change-loginPassword",
+    "my/change-password/change-password",
+    "my/edit-address/edit-address",
+    "my/email/email",
+    "my/identity/identity",
+    "my/login-password/login-password",
+    "my/my-machine/my-machine",
+    "my/my-wallet/my-wallet",
+    "my/suggest/suggest",
+    "my/trade-password/trade-password",
+    "my/transfer/transfer"
   ],
   "window": {
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "微商",
+    "navigationBarBackgroundColor": "#121212",
+    "backgroundColor": "#121212"
   },
   "tabBar": {
     "color": "#7a7e83",

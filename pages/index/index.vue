@@ -122,7 +122,7 @@
         margin-top: 20rpx;
     }
     .borx {
-         width: 1470rpx;
+        width: 735rpx;
         height: 608rpx;
         background-color: #007AFF;
     }
