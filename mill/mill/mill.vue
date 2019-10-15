@@ -1,5 +1,5 @@
 <template>
-    <view class="box">     
+    <view class="container">     
         <view class="box1">
             <view class="tab">
                 <text class="colo">矿机交易</text>
@@ -38,10 +38,7 @@
 </script>
 
 <style>
-    .box{
-        width: 100%;
-        height: 100%;
-    }
+
     .box1{
         height: 280rpx;
         background-color:#091219;
@@ -100,10 +97,7 @@
         line-height: 120rpx;
         width: 40rpx;
         font-size: 36rpx;
-        padding-bottom7-7
-        \
-        
-        : 44rpx;
+        padding-bottom : 44rpx;
         border-bottom: 1rpx solid #DCB16E;
     }
     .btn {

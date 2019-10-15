@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"content{ width:100%; height:100%; background: #121212; }\n",],undefined,{path:"./pages/register/register.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/register/register.wxml') } }));

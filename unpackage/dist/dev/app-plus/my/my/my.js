@@ -1,1 +1,2 @@
+setCssToHead([".",[1],"lo{ height: ",[0,200],"; }\n.",[1],"c{ background-color: red; }\n",],undefined,{path:"./my/my/my.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./my/my/my.wxml') } }));
