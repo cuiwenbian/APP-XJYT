@@ -1145,12 +1145,213 @@ function gz$gwx_13(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_13)return __WXML_GLOBAL__.ops_cached.$gwx_13
 __WXML_GLOBAL__.ops_cached.$gwx_13=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'w de'])
+Z([3,'_div'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_13);return __WXML_GLOBAL__.ops_cached.$gwx_13
 }
 function gz$gwx_14(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_14)return __WXML_GLOBAL__.ops_cached.$gwx_14
 __WXML_GLOBAL__.ops_cached.$gwx_14=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_14);return __WXML_GLOBAL__.ops_cached.$gwx_14
+}
+function gz$gwx_15(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_15)return __WXML_GLOBAL__.ops_cached.$gwx_15
+__WXML_GLOBAL__.ops_cached.$gwx_15=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_15);return __WXML_GLOBAL__.ops_cached.$gwx_15
+}
+function gz$gwx_16(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_16)return __WXML_GLOBAL__.ops_cached.$gwx_16
+__WXML_GLOBAL__.ops_cached.$gwx_16=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_16);return __WXML_GLOBAL__.ops_cached.$gwx_16
+}
+function gz$gwx_17(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_17)return __WXML_GLOBAL__.ops_cached.$gwx_17
+__WXML_GLOBAL__.ops_cached.$gwx_17=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_17);return __WXML_GLOBAL__.ops_cached.$gwx_17
+}
+function gz$gwx_18(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_18)return __WXML_GLOBAL__.ops_cached.$gwx_18
+__WXML_GLOBAL__.ops_cached.$gwx_18=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_18);return __WXML_GLOBAL__.ops_cached.$gwx_18
+}
+function gz$gwx_19(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_19)return __WXML_GLOBAL__.ops_cached.$gwx_19
+__WXML_GLOBAL__.ops_cached.$gwx_19=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_19);return __WXML_GLOBAL__.ops_cached.$gwx_19
+}
+function gz$gwx_20(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_20)return __WXML_GLOBAL__.ops_cached.$gwx_20
+__WXML_GLOBAL__.ops_cached.$gwx_20=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_20);return __WXML_GLOBAL__.ops_cached.$gwx_20
+}
+function gz$gwx_21(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_21)return __WXML_GLOBAL__.ops_cached.$gwx_21
+__WXML_GLOBAL__.ops_cached.$gwx_21=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_21);return __WXML_GLOBAL__.ops_cached.$gwx_21
+}
+function gz$gwx_22(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_22)return __WXML_GLOBAL__.ops_cached.$gwx_22
+__WXML_GLOBAL__.ops_cached.$gwx_22=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_22);return __WXML_GLOBAL__.ops_cached.$gwx_22
+}
+function gz$gwx_23(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_23)return __WXML_GLOBAL__.ops_cached.$gwx_23
+__WXML_GLOBAL__.ops_cached.$gwx_23=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'container'])
+Z([3,'top'])
+Z([3,'bg'])
+Z([3,'__e'])
+Z([3,'avator'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'personal']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'nickname'])
+Z([3,'用户昵称'])
+Z([3,'phone'])
+Z([3,'134****8943'])
+Z([3,'line'])
+Z([3,'list'])
+Z([3,'listItem'])
+Z([3,'pic'])
+Z([3,'../../static/images/FIL.png'])
+Z(z[3])
+Z([3,'txt'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'wallet']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'我的钱包'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'address']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'提币地址'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'certification']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'实名认证'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'mymachine']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'我的矿机'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'tradePassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'交易密码'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'loginPassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'登录密码'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'bindEmail']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'邮箱绑定'])
+Z(z[12])
+Z(z[13])
+Z(z[14])
+Z(z[3])
+Z(z[16])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'suggest']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'建议反馈'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_23);return __WXML_GLOBAL__.ops_cached.$gwx_23
+}
+function gz$gwx_24(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_24)return __WXML_GLOBAL__.ops_cached.$gwx_24
+__WXML_GLOBAL__.ops_cached.$gwx_24=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_24);return __WXML_GLOBAL__.ops_cached.$gwx_24
+}
+function gz$gwx_25(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_25)return __WXML_GLOBAL__.ops_cached.$gwx_25
+__WXML_GLOBAL__.ops_cached.$gwx_25=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_25);return __WXML_GLOBAL__.ops_cached.$gwx_25
+}
+function gz$gwx_26(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_26)return __WXML_GLOBAL__.ops_cached.$gwx_26
+__WXML_GLOBAL__.ops_cached.$gwx_26=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_26);return __WXML_GLOBAL__.ops_cached.$gwx_26
+}
+function gz$gwx_27(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_27)return __WXML_GLOBAL__.ops_cached.$gwx_27
+__WXML_GLOBAL__.ops_cached.$gwx_27=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_27);return __WXML_GLOBAL__.ops_cached.$gwx_27
+}
+function gz$gwx_28(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_28)return __WXML_GLOBAL__.ops_cached.$gwx_28
+__WXML_GLOBAL__.ops_cached.$gwx_28=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'_div'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_28);return __WXML_GLOBAL__.ops_cached.$gwx_28
+}
+function gz$gwx_29(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_29)return __WXML_GLOBAL__.ops_cached.$gwx_29
+__WXML_GLOBAL__.ops_cached.$gwx_29=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'container'])
+Z([3,'pass'])
+Z([3,'icon'])
+Z([3,'../../static/images/call.png'])
+Z([3,'phone'])
+Z([3,'请输入手机号'])
+Z([3,'text'])
+Z([3,''])
+Z([3,'line'])
+Z(z[1])
+Z(z[2])
+Z([3,'../../static/images/code.png'])
+Z([3,'getcode'])
+Z([3,'获取验证码'])
+Z([3,'code'])
+Z([3,'请输入手机验证码'])
+Z(z[6])
+Z(z[7])
+Z([3,'__e'])
+Z([3,'next'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'next']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'primary'])
+Z([3,'下一步'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_29);return __WXML_GLOBAL__.ops_cached.$gwx_29
+}
+function gz$gwx_30(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_30)return __WXML_GLOBAL__.ops_cached.$gwx_30
+__WXML_GLOBAL__.ops_cached.$gwx_30=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'content'])
 Z([3,'logo'])
@@ -1158,11 +1359,93 @@ Z([3,'/static/logo.png'])
 Z([3,'text-area'])
 Z([3,'title'])
 Z([a,[[7],[3,'title']]])
-})(__WXML_GLOBAL__.ops_cached.$gwx_14);return __WXML_GLOBAL__.ops_cached.$gwx_14
+})(__WXML_GLOBAL__.ops_cached.$gwx_30);return __WXML_GLOBAL__.ops_cached.$gwx_30
 }
-function gz$gwx_15(){
-if( __WXML_GLOBAL__.ops_cached.$gwx_15)return __WXML_GLOBAL__.ops_cached.$gwx_15
-__WXML_GLOBAL__.ops_cached.$gwx_15=[];
+function gz$gwx_31(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_31)return __WXML_GLOBAL__.ops_cached.$gwx_31
+__WXML_GLOBAL__.ops_cached.$gwx_31=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'container'])
+Z([3,'logo'])
+Z([3,'../../static/images/FIL.png'])
+Z([3,'fil'])
+Z([3,'Filecoin'])
+Z([3,'enter'])
+Z([3,'icon'])
+Z([3,'../../static/images/phone.png'])
+Z([3,'number'])
+Z([3,'请输入手机号码'])
+Z([3,'text'])
+Z([3,''])
+Z(z[5])
+Z(z[6])
+Z([3,'../../static/images/lock.png'])
+Z(z[8])
+Z([3,'请输入密码'])
+Z(z[10])
+Z(z[11])
+Z([3,'tip'])
+Z([3,'tips'])
+Z([3,'../otherLogin/otherLogin'])
+Z([3,'快速登录'])
+Z(z[20])
+Z([3,'../getBackPassword/getBackPassword'])
+Z([3,'忘记密码'])
+Z([3,'__e'])
+Z([3,'btn'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'login']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'primary'])
+Z([3,'登录'])
+Z([3,'register'])
+Z([3,'../register/register'])
+Z([3,'注册'])
+Z([3,'agree'])
+Z([3,'check'])
+Z([3,'我已阅读并同意【'])
+Z(z[26])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'agree']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'color:#34b5c1;'])
+Z([3,'星际云通用户协议'])
+Z([3,'】'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_31);return __WXML_GLOBAL__.ops_cached.$gwx_31
+}
+function gz$gwx_32(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_32)return __WXML_GLOBAL__.ops_cached.$gwx_32
+__WXML_GLOBAL__.ops_cached.$gwx_32=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'container'])
+Z([3,'logo'])
+Z([3,'../../static/images/FIL.png'])
+Z([3,'fil'])
+Z([3,'Filecoin'])
+Z([3,'enter'])
+Z([3,'icon'])
+Z([3,'../../static/images/phone.png'])
+Z([3,'number'])
+Z([3,'请输入手机号码'])
+Z([3,'text'])
+Z([3,''])
+Z(z[5])
+Z([3,'position:relative;'])
+Z(z[6])
+Z([3,'../../static/images/lock.png'])
+Z([3,'getcode'])
+Z([3,'获取验证码'])
+Z(z[8])
+Z([3,'请输入验证码'])
+Z(z[10])
+Z(z[11])
+Z([3,'btn'])
+Z([3,'primary'])
+Z([3,'立刻登录'])
+Z([3,'goback'])
+Z([3,'../login/login'])
+Z([3,'已有账号，返回登录'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_32);return __WXML_GLOBAL__.ops_cached.$gwx_32
+}
+function gz$gwx_33(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_33)return __WXML_GLOBAL__.ops_cached.$gwx_33
+__WXML_GLOBAL__.ops_cached.$gwx_33=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'container'])
 Z([3,'logo'])
@@ -1191,31 +1474,55 @@ Z([3,'请再次输入登录密码'])
 Z(z[10])
 Z(z[11])
 Z(z[5])
+Z([3,'position:relative;'])
 Z(z[6])
 Z([3,'验  证  码'])
+Z([3,'getcode'])
+Z([3,'获取验证码'])
 Z(z[8])
 Z([3,'请输入短信验证码'])
 Z(z[10])
 Z(z[11])
 Z([3,'btn'])
 Z([3,'primary'])
-})(__WXML_GLOBAL__.ops_cached.$gwx_15);return __WXML_GLOBAL__.ops_cached.$gwx_15
+Z([3,'注册'])
+Z([3,'goback'])
+Z([3,'../login/login'])
+Z([3,'已有账号，返回登录'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_33);return __WXML_GLOBAL__.ops_cached.$gwx_33
 }
-function gz$gwx_16(){
-if( __WXML_GLOBAL__.ops_cached.$gwx_16)return __WXML_GLOBAL__.ops_cached.$gwx_16
-__WXML_GLOBAL__.ops_cached.$gwx_16=[];
+function gz$gwx_34(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_34)return __WXML_GLOBAL__.ops_cached.$gwx_34
+__WXML_GLOBAL__.ops_cached.$gwx_34=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'container'])
-Z([3,'content'])
-Z([3,'icon'])
-Z([3,'zhuce'])
-})(__WXML_GLOBAL__.ops_cached.$gwx_16);return __WXML_GLOBAL__.ops_cached.$gwx_16
+Z([3,'pass'])
+Z([3,'title'])
+Z([3,'新密码'])
+Z([3,'phone'])
+Z([3,'6-16位数字、字母'])
+Z([3,'text'])
+Z([3,''])
+Z([3,'line'])
+Z(z[1])
+Z(z[2])
+Z([3,'确认密码'])
+Z(z[4])
+Z([3,'请再次输入新密码'])
+Z(z[6])
+Z(z[7])
+Z([3,'__e'])
+Z([3,'next'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'next']],[[4],[[5],[1,'$event']]]]]]]]]]])
+Z([3,'primary'])
+Z([3,'确认'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_34);return __WXML_GLOBAL__.ops_cached.$gwx_34
 }
 __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);console.error(e);}
 }}}()
-var x=['./mill/assets/assets.wxml','./mill/completed/completed.wxml','./mill/mill/mill.wxml','./mill/pay/pay.wxml','./mill/sale/sale.wxml','./mill/saleaudit/saleaudit.wxml','./mill/salecompleted/salecompleted.wxml','./mill/saleconfirm/saleconfirm.wxml','./mill/salepay/salepay.wxml','./mill/stayaudit/stayaudit.wxml','./mill/stayconfirm/stayconfirm.wxml','./mill/staypay/staypay.wxml','./my/my/my.wxml','./pages/index/index.wxml','./pages/login/login.wxml','./pages/register/register.wxml'];d_[x[0]]={}
+var x=['./mill/assets/assets.wxml','./mill/completed/completed.wxml','./mill/mill/mill.wxml','./mill/pay/pay.wxml','./mill/sale/sale.wxml','./mill/saleaudit/saleaudit.wxml','./mill/salecompleted/salecompleted.wxml','./mill/saleconfirm/saleconfirm.wxml','./mill/salepay/salepay.wxml','./mill/stayaudit/stayaudit.wxml','./mill/stayconfirm/stayconfirm.wxml','./mill/staypay/staypay.wxml','./my/add-address/add-address.wxml','./my/address/address.wxml','./my/change-loginPassword/change-loginPassword.wxml','./my/change-password/change-password.wxml','./my/edit-address/edit-address.wxml','./my/email/email.wxml','./my/identity/identity.wxml','./my/login-password/login-password.wxml','./my/my-machine/my-machine.wxml','./my/my-wallet/my-wallet.wxml','./my/my/my.wxml','./my/personal/personal.wxml','./my/suggest/suggest.wxml','./my/trade-password/trade-password.wxml','./my/transfer/transfer.wxml','./pages/agreement/agreement.wxml','./pages/getBackPassword/getBackPassword.wxml','./pages/index/index.wxml','./pages/login/login.wxml','./pages/otherLogin/otherLogin.wxml','./pages/register/register.wxml','./pages/setNewPassword/setNewPassword.wxml'];d_[x[0]]={}
 var m0=function(e,s,r,gg){
 var z=gz$gwx_1()
 var oB=_n('text')
@@ -1328,9 +1635,8 @@ e_[x[11]]={f:m11,j:[],i:[],ti:[],ic:[]}
 d_[x[12]]={}
 var m12=function(e,s,r,gg){
 var z=gz$gwx_13()
-var e2=_n('text')
-var b3=_oz(z,0,e,s,gg)
-_(e2,b3)
+var e2=_n('view')
+_rz(z,e2,'class',0,e,s,gg)
 _(r,e2)
 return r
 }
@@ -1338,97 +1644,499 @@ e_[x[12]]={f:m12,j:[],i:[],ti:[],ic:[]}
 d_[x[13]]={}
 var m13=function(e,s,r,gg){
 var z=gz$gwx_14()
-var x5=_n('view')
-_rz(z,x5,'class',0,e,s,gg)
-var o6=_mz(z,'image',['class',1,'src',1],[],e,s,gg)
-_(x5,o6)
-var f7=_n('view')
-_rz(z,f7,'class',3,e,s,gg)
-var c8=_n('text')
-_rz(z,c8,'class',4,e,s,gg)
-var h9=_oz(z,5,e,s,gg)
-_(c8,h9)
-_(f7,c8)
-_(x5,f7)
-_(r,x5)
+var o4=_n('view')
+_rz(z,o4,'class',0,e,s,gg)
+_(r,o4)
 return r
 }
 e_[x[13]]={f:m13,j:[],i:[],ti:[],ic:[]}
 d_[x[14]]={}
 var m14=function(e,s,r,gg){
 var z=gz$gwx_15()
-var cAB=_n('view')
-_rz(z,cAB,'class',0,e,s,gg)
-var oBB=_mz(z,'image',['mode',-1,'class',1,'src',1],[],e,s,gg)
-_(cAB,oBB)
-var lCB=_n('view')
-_rz(z,lCB,'class',3,e,s,gg)
-var aDB=_oz(z,4,e,s,gg)
-_(lCB,aDB)
-_(cAB,lCB)
-var tEB=_n('view')
-_rz(z,tEB,'class',5,e,s,gg)
-var eFB=_n('text')
-_rz(z,eFB,'class',6,e,s,gg)
-var bGB=_oz(z,7,e,s,gg)
-_(eFB,bGB)
-_(tEB,eFB)
-var oHB=_mz(z,'input',['class',8,'placeholder',1,'type',2,'value',3],[],e,s,gg)
-_(tEB,oHB)
-_(cAB,tEB)
-var xIB=_n('view')
-_rz(z,xIB,'class',12,e,s,gg)
-var oJB=_n('text')
-_rz(z,oJB,'class',13,e,s,gg)
-var fKB=_oz(z,14,e,s,gg)
-_(oJB,fKB)
-_(xIB,oJB)
-var cLB=_mz(z,'input',['class',15,'placeholder',1,'type',2,'value',3],[],e,s,gg)
-_(xIB,cLB)
-_(cAB,xIB)
-var hMB=_n('view')
-_rz(z,hMB,'class',19,e,s,gg)
-var oNB=_n('text')
-_rz(z,oNB,'class',20,e,s,gg)
-var cOB=_oz(z,21,e,s,gg)
-_(oNB,cOB)
-_(hMB,oNB)
-var oPB=_mz(z,'input',['class',22,'placeholder',1,'type',2,'value',3],[],e,s,gg)
-_(hMB,oPB)
-_(cAB,hMB)
-var lQB=_n('view')
-_rz(z,lQB,'class',26,e,s,gg)
-var aRB=_n('text')
-_rz(z,aRB,'class',27,e,s,gg)
-var tSB=_oz(z,28,e,s,gg)
-_(aRB,tSB)
-_(lQB,aRB)
-var eTB=_mz(z,'input',['class',29,'placeholder',1,'type',2,'value',3],[],e,s,gg)
-_(lQB,eTB)
-_(cAB,lQB)
-var bUB=_mz(z,'button',['class',33,'type',1],[],e,s,gg)
-_(cAB,bUB)
-_(r,cAB)
+var o6=_n('view')
+_rz(z,o6,'class',0,e,s,gg)
+_(r,o6)
 return r
 }
 e_[x[14]]={f:m14,j:[],i:[],ti:[],ic:[]}
 d_[x[15]]={}
 var m15=function(e,s,r,gg){
 var z=gz$gwx_16()
-var xWB=_n('view')
-_rz(z,xWB,'class',0,e,s,gg)
-var oXB=_n('view')
-_rz(z,oXB,'class',1,e,s,gg)
-var fYB=_n('view')
-_rz(z,fYB,'class',2,e,s,gg)
-var cZB=_oz(z,3,e,s,gg)
-_(fYB,cZB)
-_(oXB,fYB)
-_(xWB,oXB)
-_(r,xWB)
+var c8=_n('view')
+_rz(z,c8,'class',0,e,s,gg)
+_(r,c8)
 return r
 }
 e_[x[15]]={f:m15,j:[],i:[],ti:[],ic:[]}
+d_[x[16]]={}
+var m16=function(e,s,r,gg){
+var z=gz$gwx_17()
+var o0=_n('view')
+_rz(z,o0,'class',0,e,s,gg)
+_(r,o0)
+return r
+}
+e_[x[16]]={f:m16,j:[],i:[],ti:[],ic:[]}
+d_[x[17]]={}
+var m17=function(e,s,r,gg){
+var z=gz$gwx_18()
+var oBB=_n('view')
+_rz(z,oBB,'class',0,e,s,gg)
+_(r,oBB)
+return r
+}
+e_[x[17]]={f:m17,j:[],i:[],ti:[],ic:[]}
+d_[x[18]]={}
+var m18=function(e,s,r,gg){
+var z=gz$gwx_19()
+var aDB=_n('view')
+_rz(z,aDB,'class',0,e,s,gg)
+_(r,aDB)
+return r
+}
+e_[x[18]]={f:m18,j:[],i:[],ti:[],ic:[]}
+d_[x[19]]={}
+var m19=function(e,s,r,gg){
+var z=gz$gwx_20()
+var eFB=_n('view')
+_rz(z,eFB,'class',0,e,s,gg)
+_(r,eFB)
+return r
+}
+e_[x[19]]={f:m19,j:[],i:[],ti:[],ic:[]}
+d_[x[20]]={}
+var m20=function(e,s,r,gg){
+var z=gz$gwx_21()
+var oHB=_n('view')
+_rz(z,oHB,'class',0,e,s,gg)
+_(r,oHB)
+return r
+}
+e_[x[20]]={f:m20,j:[],i:[],ti:[],ic:[]}
+d_[x[21]]={}
+var m21=function(e,s,r,gg){
+var z=gz$gwx_22()
+var oJB=_n('view')
+_rz(z,oJB,'class',0,e,s,gg)
+_(r,oJB)
+return r
+}
+e_[x[21]]={f:m21,j:[],i:[],ti:[],ic:[]}
+d_[x[22]]={}
+var m22=function(e,s,r,gg){
+var z=gz$gwx_23()
+var cLB=_n('view')
+_rz(z,cLB,'class',0,e,s,gg)
+var hMB=_n('view')
+_rz(z,hMB,'class',1,e,s,gg)
+var oNB=_n('view')
+_rz(z,oNB,'class',2,e,s,gg)
+_(hMB,oNB)
+var cOB=_mz(z,'view',['bindtap',3,'class',1,'data-event-opts',2],[],e,s,gg)
+_(hMB,cOB)
+var oPB=_n('view')
+_rz(z,oPB,'class',6,e,s,gg)
+var lQB=_oz(z,7,e,s,gg)
+_(oPB,lQB)
+_(hMB,oPB)
+var aRB=_n('view')
+_rz(z,aRB,'class',8,e,s,gg)
+var tSB=_oz(z,9,e,s,gg)
+_(aRB,tSB)
+_(hMB,aRB)
+_(cLB,hMB)
+var eTB=_n('view')
+_rz(z,eTB,'class',10,e,s,gg)
+_(cLB,eTB)
+var bUB=_n('view')
+_rz(z,bUB,'class',11,e,s,gg)
+var oVB=_n('view')
+_rz(z,oVB,'class',12,e,s,gg)
+var xWB=_mz(z,'image',['mode',-1,'class',13,'src',1],[],e,s,gg)
+_(oVB,xWB)
+var oXB=_mz(z,'view',['bindtap',15,'class',1,'data-event-opts',2],[],e,s,gg)
+var fYB=_oz(z,18,e,s,gg)
+_(oXB,fYB)
+_(oVB,oXB)
+_(bUB,oVB)
+var cZB=_n('view')
+_rz(z,cZB,'class',19,e,s,gg)
+var h1B=_mz(z,'image',['mode',-1,'class',20,'src',1],[],e,s,gg)
+_(cZB,h1B)
+var o2B=_mz(z,'view',['bindtap',22,'class',1,'data-event-opts',2],[],e,s,gg)
+var c3B=_oz(z,25,e,s,gg)
+_(o2B,c3B)
+_(cZB,o2B)
+_(bUB,cZB)
+var o4B=_n('view')
+_rz(z,o4B,'class',26,e,s,gg)
+var l5B=_mz(z,'image',['mode',-1,'class',27,'src',1],[],e,s,gg)
+_(o4B,l5B)
+var a6B=_mz(z,'view',['bindtap',29,'class',1,'data-event-opts',2],[],e,s,gg)
+var t7B=_oz(z,32,e,s,gg)
+_(a6B,t7B)
+_(o4B,a6B)
+_(bUB,o4B)
+var e8B=_n('view')
+_rz(z,e8B,'class',33,e,s,gg)
+var b9B=_mz(z,'image',['mode',-1,'class',34,'src',1],[],e,s,gg)
+_(e8B,b9B)
+var o0B=_mz(z,'view',['bindtap',36,'class',1,'data-event-opts',2],[],e,s,gg)
+var xAC=_oz(z,39,e,s,gg)
+_(o0B,xAC)
+_(e8B,o0B)
+_(bUB,e8B)
+var oBC=_n('view')
+_rz(z,oBC,'class',40,e,s,gg)
+var fCC=_mz(z,'image',['mode',-1,'class',41,'src',1],[],e,s,gg)
+_(oBC,fCC)
+var cDC=_mz(z,'view',['bindtap',43,'class',1,'data-event-opts',2],[],e,s,gg)
+var hEC=_oz(z,46,e,s,gg)
+_(cDC,hEC)
+_(oBC,cDC)
+_(bUB,oBC)
+var oFC=_n('view')
+_rz(z,oFC,'class',47,e,s,gg)
+var cGC=_mz(z,'image',['mode',-1,'class',48,'src',1],[],e,s,gg)
+_(oFC,cGC)
+var oHC=_mz(z,'view',['bindtap',50,'class',1,'data-event-opts',2],[],e,s,gg)
+var lIC=_oz(z,53,e,s,gg)
+_(oHC,lIC)
+_(oFC,oHC)
+_(bUB,oFC)
+var aJC=_n('view')
+_rz(z,aJC,'class',54,e,s,gg)
+var tKC=_mz(z,'image',['mode',-1,'class',55,'src',1],[],e,s,gg)
+_(aJC,tKC)
+var eLC=_mz(z,'view',['bindtap',57,'class',1,'data-event-opts',2],[],e,s,gg)
+var bMC=_oz(z,60,e,s,gg)
+_(eLC,bMC)
+_(aJC,eLC)
+_(bUB,aJC)
+var oNC=_n('view')
+_rz(z,oNC,'class',61,e,s,gg)
+var xOC=_mz(z,'image',['mode',-1,'class',62,'src',1],[],e,s,gg)
+_(oNC,xOC)
+var oPC=_mz(z,'view',['bindtap',64,'class',1,'data-event-opts',2],[],e,s,gg)
+var fQC=_oz(z,67,e,s,gg)
+_(oPC,fQC)
+_(oNC,oPC)
+_(bUB,oNC)
+_(cLB,bUB)
+_(r,cLB)
+return r
+}
+e_[x[22]]={f:m22,j:[],i:[],ti:[],ic:[]}
+d_[x[23]]={}
+var m23=function(e,s,r,gg){
+var z=gz$gwx_24()
+var hSC=_n('view')
+_rz(z,hSC,'class',0,e,s,gg)
+_(r,hSC)
+return r
+}
+e_[x[23]]={f:m23,j:[],i:[],ti:[],ic:[]}
+d_[x[24]]={}
+var m24=function(e,s,r,gg){
+var z=gz$gwx_25()
+var cUC=_n('view')
+_rz(z,cUC,'class',0,e,s,gg)
+_(r,cUC)
+return r
+}
+e_[x[24]]={f:m24,j:[],i:[],ti:[],ic:[]}
+d_[x[25]]={}
+var m25=function(e,s,r,gg){
+var z=gz$gwx_26()
+var lWC=_n('view')
+_rz(z,lWC,'class',0,e,s,gg)
+_(r,lWC)
+return r
+}
+e_[x[25]]={f:m25,j:[],i:[],ti:[],ic:[]}
+d_[x[26]]={}
+var m26=function(e,s,r,gg){
+var z=gz$gwx_27()
+var tYC=_n('view')
+_rz(z,tYC,'class',0,e,s,gg)
+_(r,tYC)
+return r
+}
+e_[x[26]]={f:m26,j:[],i:[],ti:[],ic:[]}
+d_[x[27]]={}
+var m27=function(e,s,r,gg){
+var z=gz$gwx_28()
+var b1C=_n('view')
+_rz(z,b1C,'class',0,e,s,gg)
+_(r,b1C)
+return r
+}
+e_[x[27]]={f:m27,j:[],i:[],ti:[],ic:[]}
+d_[x[28]]={}
+var m28=function(e,s,r,gg){
+var z=gz$gwx_29()
+var x3C=_n('view')
+_rz(z,x3C,'class',0,e,s,gg)
+var o4C=_n('view')
+_rz(z,o4C,'class',1,e,s,gg)
+var f5C=_mz(z,'image',['mode',-1,'class',2,'src',1],[],e,s,gg)
+_(o4C,f5C)
+var c6C=_mz(z,'input',['class',4,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(o4C,c6C)
+var h7C=_n('view')
+_rz(z,h7C,'class',8,e,s,gg)
+_(o4C,h7C)
+_(x3C,o4C)
+var o8C=_n('view')
+_rz(z,o8C,'class',9,e,s,gg)
+var c9C=_mz(z,'image',['mode',-1,'class',10,'src',1],[],e,s,gg)
+_(o8C,c9C)
+var o0C=_n('view')
+_rz(z,o0C,'class',12,e,s,gg)
+var lAD=_oz(z,13,e,s,gg)
+_(o0C,lAD)
+_(o8C,o0C)
+var aBD=_mz(z,'input',['class',14,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(o8C,aBD)
+_(x3C,o8C)
+var tCD=_mz(z,'view',['bindtap',18,'class',1,'data-event-opts',2,'type',3],[],e,s,gg)
+var eDD=_oz(z,22,e,s,gg)
+_(tCD,eDD)
+_(x3C,tCD)
+_(r,x3C)
+return r
+}
+e_[x[28]]={f:m28,j:[],i:[],ti:[],ic:[]}
+d_[x[29]]={}
+var m29=function(e,s,r,gg){
+var z=gz$gwx_30()
+var oFD=_n('view')
+_rz(z,oFD,'class',0,e,s,gg)
+var xGD=_mz(z,'image',['class',1,'src',1],[],e,s,gg)
+_(oFD,xGD)
+var oHD=_n('view')
+_rz(z,oHD,'class',3,e,s,gg)
+var fID=_n('text')
+_rz(z,fID,'class',4,e,s,gg)
+var cJD=_oz(z,5,e,s,gg)
+_(fID,cJD)
+_(oHD,fID)
+_(oFD,oHD)
+_(r,oFD)
+return r
+}
+e_[x[29]]={f:m29,j:[],i:[],ti:[],ic:[]}
+d_[x[30]]={}
+var m30=function(e,s,r,gg){
+var z=gz$gwx_31()
+var oLD=_n('view')
+_rz(z,oLD,'class',0,e,s,gg)
+var cMD=_mz(z,'image',['mode',-1,'class',1,'src',1],[],e,s,gg)
+_(oLD,cMD)
+var oND=_n('view')
+_rz(z,oND,'class',3,e,s,gg)
+var lOD=_oz(z,4,e,s,gg)
+_(oND,lOD)
+_(oLD,oND)
+var aPD=_n('view')
+_rz(z,aPD,'class',5,e,s,gg)
+var tQD=_mz(z,'image',['mode',-1,'class',6,'src',1],[],e,s,gg)
+_(aPD,tQD)
+var eRD=_mz(z,'input',['class',8,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(aPD,eRD)
+_(oLD,aPD)
+var bSD=_n('view')
+_rz(z,bSD,'class',12,e,s,gg)
+var oTD=_mz(z,'image',['mode',-1,'class',13,'src',1],[],e,s,gg)
+_(bSD,oTD)
+var xUD=_mz(z,'input',['class',15,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(bSD,xUD)
+_(oLD,bSD)
+var oVD=_n('view')
+_rz(z,oVD,'class',19,e,s,gg)
+var fWD=_mz(z,'navigator',['class',20,'url',1],[],e,s,gg)
+var cXD=_oz(z,22,e,s,gg)
+_(fWD,cXD)
+_(oVD,fWD)
+var hYD=_mz(z,'navigator',['class',23,'url',1],[],e,s,gg)
+var oZD=_oz(z,25,e,s,gg)
+_(hYD,oZD)
+_(oVD,hYD)
+_(oLD,oVD)
+var c1D=_mz(z,'view',['bindtap',26,'class',1,'data-event-opts',2,'type',3],[],e,s,gg)
+var o2D=_oz(z,30,e,s,gg)
+_(c1D,o2D)
+_(oLD,c1D)
+var l3D=_mz(z,'navigator',['class',31,'url',1],[],e,s,gg)
+var a4D=_oz(z,33,e,s,gg)
+_(l3D,a4D)
+_(oLD,l3D)
+var t5D=_n('view')
+_rz(z,t5D,'class',34,e,s,gg)
+var e6D=_n('view')
+_rz(z,e6D,'class',35,e,s,gg)
+_(t5D,e6D)
+var b7D=_n('text')
+var o8D=_oz(z,36,e,s,gg)
+_(b7D,o8D)
+var x9D=_mz(z,'text',['bindtap',37,'data-event-opts',1,'style',2],[],e,s,gg)
+var o0D=_oz(z,40,e,s,gg)
+_(x9D,o0D)
+_(b7D,x9D)
+var fAE=_oz(z,41,e,s,gg)
+_(b7D,fAE)
+_(t5D,b7D)
+_(oLD,t5D)
+_(r,oLD)
+return r
+}
+e_[x[30]]={f:m30,j:[],i:[],ti:[],ic:[]}
+d_[x[31]]={}
+var m31=function(e,s,r,gg){
+var z=gz$gwx_32()
+var hCE=_n('view')
+_rz(z,hCE,'class',0,e,s,gg)
+var oDE=_mz(z,'image',['mode',-1,'class',1,'src',1],[],e,s,gg)
+_(hCE,oDE)
+var cEE=_n('view')
+_rz(z,cEE,'class',3,e,s,gg)
+var oFE=_oz(z,4,e,s,gg)
+_(cEE,oFE)
+_(hCE,cEE)
+var lGE=_n('view')
+_rz(z,lGE,'class',5,e,s,gg)
+var aHE=_mz(z,'image',['mode',-1,'class',6,'src',1],[],e,s,gg)
+_(lGE,aHE)
+var tIE=_mz(z,'input',['class',8,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(lGE,tIE)
+_(hCE,lGE)
+var eJE=_mz(z,'view',['class',12,'style',1],[],e,s,gg)
+var bKE=_mz(z,'image',['mode',-1,'class',14,'src',1],[],e,s,gg)
+_(eJE,bKE)
+var oLE=_n('view')
+_rz(z,oLE,'class',16,e,s,gg)
+var xME=_oz(z,17,e,s,gg)
+_(oLE,xME)
+_(eJE,oLE)
+var oNE=_mz(z,'input',['class',18,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(eJE,oNE)
+_(hCE,eJE)
+var fOE=_mz(z,'view',['class',22,'type',1],[],e,s,gg)
+var cPE=_oz(z,24,e,s,gg)
+_(fOE,cPE)
+_(hCE,fOE)
+var hQE=_mz(z,'navigator',['class',25,'url',1],[],e,s,gg)
+var oRE=_oz(z,27,e,s,gg)
+_(hQE,oRE)
+_(hCE,hQE)
+_(r,hCE)
+return r
+}
+e_[x[31]]={f:m31,j:[],i:[],ti:[],ic:[]}
+d_[x[32]]={}
+var m32=function(e,s,r,gg){
+var z=gz$gwx_33()
+var oTE=_n('view')
+_rz(z,oTE,'class',0,e,s,gg)
+var lUE=_mz(z,'image',['mode',-1,'class',1,'src',1],[],e,s,gg)
+_(oTE,lUE)
+var aVE=_n('view')
+_rz(z,aVE,'class',3,e,s,gg)
+var tWE=_oz(z,4,e,s,gg)
+_(aVE,tWE)
+_(oTE,aVE)
+var eXE=_n('view')
+_rz(z,eXE,'class',5,e,s,gg)
+var bYE=_n('text')
+_rz(z,bYE,'class',6,e,s,gg)
+var oZE=_oz(z,7,e,s,gg)
+_(bYE,oZE)
+_(eXE,bYE)
+var x1E=_mz(z,'input',['class',8,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(eXE,x1E)
+_(oTE,eXE)
+var o2E=_n('view')
+_rz(z,o2E,'class',12,e,s,gg)
+var f3E=_n('text')
+_rz(z,f3E,'class',13,e,s,gg)
+var c4E=_oz(z,14,e,s,gg)
+_(f3E,c4E)
+_(o2E,f3E)
+var h5E=_mz(z,'input',['class',15,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(o2E,h5E)
+_(oTE,o2E)
+var o6E=_n('view')
+_rz(z,o6E,'class',19,e,s,gg)
+var c7E=_n('text')
+_rz(z,c7E,'class',20,e,s,gg)
+var o8E=_oz(z,21,e,s,gg)
+_(c7E,o8E)
+_(o6E,c7E)
+var l9E=_mz(z,'input',['class',22,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(o6E,l9E)
+_(oTE,o6E)
+var a0E=_mz(z,'view',['class',26,'style',1],[],e,s,gg)
+var tAF=_n('text')
+_rz(z,tAF,'class',28,e,s,gg)
+var eBF=_oz(z,29,e,s,gg)
+_(tAF,eBF)
+_(a0E,tAF)
+var bCF=_n('view')
+_rz(z,bCF,'class',30,e,s,gg)
+var oDF=_oz(z,31,e,s,gg)
+_(bCF,oDF)
+_(a0E,bCF)
+var xEF=_mz(z,'input',['class',32,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(a0E,xEF)
+_(oTE,a0E)
+var oFF=_mz(z,'view',['class',36,'type',1],[],e,s,gg)
+var fGF=_oz(z,38,e,s,gg)
+_(oFF,fGF)
+_(oTE,oFF)
+var cHF=_mz(z,'navigator',['class',39,'url',1],[],e,s,gg)
+var hIF=_oz(z,41,e,s,gg)
+_(cHF,hIF)
+_(oTE,cHF)
+_(r,oTE)
+return r
+}
+e_[x[32]]={f:m32,j:[],i:[],ti:[],ic:[]}
+d_[x[33]]={}
+var m33=function(e,s,r,gg){
+var z=gz$gwx_34()
+var cKF=_n('view')
+_rz(z,cKF,'class',0,e,s,gg)
+var oLF=_n('view')
+_rz(z,oLF,'class',1,e,s,gg)
+var lMF=_n('text')
+_rz(z,lMF,'class',2,e,s,gg)
+var aNF=_oz(z,3,e,s,gg)
+_(lMF,aNF)
+_(oLF,lMF)
+var tOF=_mz(z,'input',['class',4,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(oLF,tOF)
+var ePF=_n('view')
+_rz(z,ePF,'class',8,e,s,gg)
+_(oLF,ePF)
+_(cKF,oLF)
+var bQF=_n('view')
+_rz(z,bQF,'class',9,e,s,gg)
+var oRF=_n('text')
+_rz(z,oRF,'class',10,e,s,gg)
+var xSF=_oz(z,11,e,s,gg)
+_(oRF,xSF)
+_(bQF,oRF)
+var oTF=_mz(z,'input',['class',12,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+_(bQF,oTF)
+_(cKF,bQF)
+var fUF=_mz(z,'view',['bindtap',16,'class',1,'data-event-opts',2,'type',3],[],e,s,gg)
+var cVF=_oz(z,20,e,s,gg)
+_(fUF,cVF)
+_(cKF,fUF)
+_(r,cKF)
+return r
+}
+e_[x[33]]={f:m33,j:[],i:[],ti:[],ic:[]}
 if(path&&e_[path]){
 window.__wxml_comp_version__=0.02
 return function(env,dd,global){$gwxc=0;var root={"tag":"wx-page"};root.children=[]
@@ -1589,17 +2297,71 @@ __wxAppCode__['mill/stayconfirm/stayconfirm.wxml']=$gwx('./mill/stayconfirm/stay
 __wxAppCode__['mill/staypay/staypay.wxss']=undefined;    
 __wxAppCode__['mill/staypay/staypay.wxml']=$gwx('./mill/staypay/staypay.wxml');
 
-__wxAppCode__['my/my/my.wxss']=undefined;    
+__wxAppCode__['my/add-address/add-address.wxss']=undefined;    
+__wxAppCode__['my/add-address/add-address.wxml']=$gwx('./my/add-address/add-address.wxml');
+
+__wxAppCode__['my/address/address.wxss']=undefined;    
+__wxAppCode__['my/address/address.wxml']=$gwx('./my/address/address.wxml');
+
+__wxAppCode__['my/change-loginPassword/change-loginPassword.wxss']=undefined;    
+__wxAppCode__['my/change-loginPassword/change-loginPassword.wxml']=$gwx('./my/change-loginPassword/change-loginPassword.wxml');
+
+__wxAppCode__['my/change-password/change-password.wxss']=undefined;    
+__wxAppCode__['my/change-password/change-password.wxml']=$gwx('./my/change-password/change-password.wxml');
+
+__wxAppCode__['my/edit-address/edit-address.wxss']=undefined;    
+__wxAppCode__['my/edit-address/edit-address.wxml']=$gwx('./my/edit-address/edit-address.wxml');
+
+__wxAppCode__['my/email/email.wxss']=undefined;    
+__wxAppCode__['my/email/email.wxml']=$gwx('./my/email/email.wxml');
+
+__wxAppCode__['my/identity/identity.wxss']=undefined;    
+__wxAppCode__['my/identity/identity.wxml']=$gwx('./my/identity/identity.wxml');
+
+__wxAppCode__['my/login-password/login-password.wxss']=undefined;    
+__wxAppCode__['my/login-password/login-password.wxml']=$gwx('./my/login-password/login-password.wxml');
+
+__wxAppCode__['my/my-machine/my-machine.wxss']=undefined;    
+__wxAppCode__['my/my-machine/my-machine.wxml']=$gwx('./my/my-machine/my-machine.wxml');
+
+__wxAppCode__['my/my-wallet/my-wallet.wxss']=undefined;    
+__wxAppCode__['my/my-wallet/my-wallet.wxml']=$gwx('./my/my-wallet/my-wallet.wxml');
+
+__wxAppCode__['my/my/my.wxss']=setCssToHead([".",[1],"top{ width:100%; height:",[0,580],"; position: relative; }\n.",[1],"bg{ width:",[0,2000],"; height:",[0,1500],"; position: relative; top:",[0,-1150],"; left:",[0,-620],"; border-radius: 50%; background: #4CD964; overflow: hidden; }\n.",[1],"avator{ width:",[0,150],"; height:",[0,150],"; background: #007AFF; z-index: 9; position: absolute; left:",[0,300],"; bottom:",[0,150],"; border-radius: 50%; }\n.",[1],"nickname{ width:100%; height:",[0,30],"; position: absolute; bottom: ",[0,90],"; text-align: center; line-height: ",[0,30],"; font-size: ",[0,32],"; }\n.",[1],"phone{ width:100%; height:",[0,30],"; position: absolute; bottom: ",[0,30],"; text-align: center; line-height: ",[0,30],"; font-size: ",[0,32],"; }\n.",[1],"line{ width:100%; height:",[0,40],"; background: #EDEEEE; }\n.",[1],"list{ width:100%; height:",[0,500],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack:justify; -webkit-justify-content:space-between; -ms-flex-pack:justify; justify-content:space-between; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; padding:",[0,30],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"listItem{ width:25%; height:50%; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"pic{ display: block; width:",[0,100],"; height:",[0,100],"; margin: ",[0,30]," auto; }\n.",[1],"txt{ line-height: ",[0,20],"; font-size: ",[0,30],"; text-align: center; }\n",],undefined,{path:"./my/my/my.wxss"});    
 __wxAppCode__['my/my/my.wxml']=$gwx('./my/my/my.wxml');
+
+__wxAppCode__['my/personal/personal.wxss']=undefined;    
+__wxAppCode__['my/personal/personal.wxml']=$gwx('./my/personal/personal.wxml');
+
+__wxAppCode__['my/suggest/suggest.wxss']=undefined;    
+__wxAppCode__['my/suggest/suggest.wxml']=$gwx('./my/suggest/suggest.wxml');
+
+__wxAppCode__['my/trade-password/trade-password.wxss']=undefined;    
+__wxAppCode__['my/trade-password/trade-password.wxml']=$gwx('./my/trade-password/trade-password.wxml');
+
+__wxAppCode__['my/transfer/transfer.wxss']=undefined;    
+__wxAppCode__['my/transfer/transfer.wxml']=$gwx('./my/transfer/transfer.wxml');
+
+__wxAppCode__['pages/agreement/agreement.wxss']=undefined;    
+__wxAppCode__['pages/agreement/agreement.wxml']=$gwx('./pages/agreement/agreement.wxml');
+
+__wxAppCode__['pages/getBackPassword/getBackPassword.wxss']=setCssToHead(["body{ background:#EDEEEE; }\n.",[1],"pass{ width:100%; height:",[0,120],"; background: #FFFFFF; position: relative; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-left: ",[0,48],"; margin-top:",[0,30],"; }\n.",[1],"phone{ float: right; width:",[0,600],"; height:",[0,120],"; font-size: ",[0,30],"; }\n.",[1],"code{ float: right; width:",[0,380],"; height:",[0,120],"; font-size: ",[0,30],"; }\n.",[1],"getcode{ float: right; border-radius: ",[0,10],"; width:",[0,200],"; height:",[0,60],"; margin-right:",[0,24],"; margin-top:",[0,30],"; border: 1px solid #f1f1f1; font-size: ",[0,30],"; color:#C7C529; text-align: center; line-height: ",[0,60],"; background: #EDEDED; }\n.",[1],"line{ width:",[0,650],"; height:",[0,1],"; border-bottom: ",[0,1]," solid #EDEDED; position: absolute; left:",[0,48],"; bottom:0; }\n.",[1],"next{ margin: ",[0,100]," auto; width:",[0,600],"; height:",[0,100],"; background: #444343; border-radius: ",[0,10],"; text-align: center; line-height: ",[0,100],"; color: #fff; }\n",],undefined,{path:"./pages/getBackPassword/getBackPassword.wxss"});    
+__wxAppCode__['pages/getBackPassword/getBackPassword.wxml']=$gwx('./pages/getBackPassword/getBackPassword.wxml');
 
 __wxAppCode__['pages/index/index.wxss']=setCssToHead([".",[1],"content { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"logo { height: ",[0,200],"; width: ",[0,200],"; margin-top: ",[0,200],"; margin-left: auto; margin-right: auto; margin-bottom: ",[0,50],"; }\n.",[1],"text-area { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"title { font-size: ",[0,36],"; color: #8f8f94; }\n",],undefined,{path:"./pages/index/index.wxss"});    
 __wxAppCode__['pages/index/index.wxml']=$gwx('./pages/index/index.wxml');
 
-__wxAppCode__['pages/login/login.wxss']=setCssToHead(["body{ background: #121212; }\n.",[1],"logo{ width:",[0,185],"; height:",[0,185],"; margin-top:",[0,176],"; margin-left: calc((100% - ",[0,185],")/2); }\n.",[1],"fil{ height:",[0,100],"; line-height: ",[0,100],"; text-align: center; color: #fff; font-size: ",[0,64],"; margin-bottom: ",[0,50],"; }\n.",[1],"enter{ width:",[0,600],"; height:",[0,100],"; margin: 0 auto; }\n.",[1],"title{ float:left; color: #fff; width:",[0,150],"; line-height: ",[0,80],"; font-size: ",[0,30],"; }\n.",[1],"number{ float:right; width:",[0,450],"; height:",[0,80],"; line-height: ",[0,80],"; border-bottom: ",[0,1]," solid #34b5c1; color:#646464; font-size: ",[0,24],"; }\n.",[1],"btn{ width:",[0,600],"; height:",[0,100],"; background: #464545; margin-top:",[0,50],"; }\n",],undefined,{path:"./pages/login/login.wxss"});    
+__wxAppCode__['pages/login/login.wxss']=setCssToHead(["body{ background: #121212; }\n.",[1],"logo{ width:",[0,185],"; height:",[0,185],"; margin-top:",[0,135],"; margin-left: calc((100% - ",[0,185],")/2); }\n.",[1],"fil{ height:",[0,100],"; line-height: ",[0,100],"; text-align: center; color: #fff; font-size: ",[0,64],"; margin-bottom: ",[0,100],"; }\n.",[1],"enter{ width:",[0,600],"; height:",[0,100],"; margin: ",[0,30]," auto; border-bottom: 1px solid #555555; }\n.",[1],"icon{ float:left; display: block; width:",[0,50],"; height:",[0,50],"; margin-top:",[0,25],"; }\n.",[1],"number{ float:right; width:",[0,520],"; height:",[0,100],"; color:#646464; font-size: ",[0,30],"; }\n.",[1],"tip{ width:",[0,600],"; margin: 0 auto; height:",[0,20],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; font-size: ",[0,28],"; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"tips{ line-height: ",[0,20],"; color:#646464; }\n.",[1],"btn{ width:",[0,680],"; height:",[0,80],"; background: #fff; border-radius: ",[0,50],"; margin:",[0,80]," auto; color:#333; text-align: center; line-height: ",[0,80],"; }\n.",[1],"register{ width:",[0,150],"; height:",[0,57],"; border-radius: ",[0,30],"; border: 1px solid #fff; margin:0 auto; color:#fff; font-size: ",[0,26],"; line-height: ",[0,57],"; text-align: center; }\n.",[1],"agree{ width:",[0,320],"; height:",[0,30],"; color:#fff; font-size: ",[0,16],"; position: fixed; bottom:",[0,50],"; left:calc((100% - ",[0,320],")/2); }\n.",[1],"check{ float: left; width:",[0,20],"; height:",[0,20],"; margin-right: ",[0,10],"; outline: 0; border: 1px solid #d1d1d1; background-color: #fff; border-radius: 3px; margin-top:",[0,5],"; }\n",],undefined,{path:"./pages/login/login.wxss"});    
 __wxAppCode__['pages/login/login.wxml']=$gwx('./pages/login/login.wxml');
 
-__wxAppCode__['pages/register/register.wxss']=setCssToHead([".",[1],"content{ width:100%; height:100%; background: #121212; }\n",],undefined,{path:"./pages/register/register.wxss"});    
+__wxAppCode__['pages/otherLogin/otherLogin.wxss']=setCssToHead(["body{ background: #121212; }\n.",[1],"logo{ width:",[0,185],"; height:",[0,185],"; margin-top:",[0,135],"; margin-left: calc((100% - ",[0,185],")/2); }\n.",[1],"fil{ height:",[0,100],"; line-height: ",[0,100],"; text-align: center; color: #fff; font-size: ",[0,64],"; margin-bottom: ",[0,100],"; }\n.",[1],"enter{ width:",[0,600],"; height:",[0,100],"; margin: ",[0,30]," auto; border-bottom: 1px solid #555555; }\n.",[1],"icon{ float:left; display: block; width:",[0,50],"; height:",[0,50],"; margin-top:",[0,25],"; }\n.",[1],"number{ float:right; width:",[0,520],"; height:",[0,100],"; color:#646464; font-size: ",[0,30],"; }\n.",[1],"getcode{ float: right; border-radius: ",[0,50],"; width:",[0,200],"; height:",[0,60],"; font-size: ",[0,30],"; color:#646464; text-align: center; line-height: ",[0,60],"; background: #808080; position: absolute; bottom: ",[0,20],"; right:0; }\n.",[1],"btn{ width:",[0,680],"; height:",[0,80],"; background: #fff; border-radius: ",[0,50],"; margin:",[0,80]," auto; color:#333; text-align: center; line-height: ",[0,80],"; }\n.",[1],"goback{ width:",[0,280],"; height:",[0,57],"; border-radius: ",[0,30],"; border: 1px solid #fff; margin:",[0,80]," auto; color:#fff; font-size: ",[0,26],"; line-height: ",[0,57],"; text-align: center; }\n",],undefined,{path:"./pages/otherLogin/otherLogin.wxss"});    
+__wxAppCode__['pages/otherLogin/otherLogin.wxml']=$gwx('./pages/otherLogin/otherLogin.wxml');
+
+__wxAppCode__['pages/register/register.wxss']=setCssToHead(["body{ background: #121212; }\n.",[1],"logo{ width:",[0,185],"; height:",[0,185],"; margin-top:",[0,135],"; margin-left: calc((100% - ",[0,185],")/2); }\n.",[1],"fil{ height:",[0,100],"; line-height: ",[0,100],"; text-align: center; color: #fff; font-size: ",[0,64],"; margin-bottom: ",[0,50],"; }\n.",[1],"enter{ width:",[0,600],"; height:",[0,100],"; margin: 0 auto; }\n.",[1],"title{ float:left; color: #fff; width:",[0,150],"; line-height: ",[0,80],"; font-size: ",[0,30],"; }\n.",[1],"number{ float:right; width:",[0,450],"; height:",[0,80],"; line-height: ",[0,80],"; border-bottom: ",[0,1]," solid #555555; color:#646464; font-size: ",[0,24],"; }\n.",[1],"getcode{ float: right; border-radius: ",[0,50],"; width:",[0,200],"; height:",[0,60],"; font-size: ",[0,30],"; color:#646464; text-align: center; line-height: ",[0,60],"; background: #808080; position: absolute; bottom: ",[0,40],"; right:0; }\n.",[1],"btn{ width:",[0,680],"; height:",[0,80],"; background: #fff; border-radius: ",[0,50],"; margin:",[0,80]," auto; color:#333; text-align: center; line-height: ",[0,80],"; }\n.",[1],"goback{ width:",[0,280],"; height:",[0,57],"; border-radius: ",[0,30],"; border: 1px solid #fff; margin:",[0,80]," auto; color:#fff; font-size: ",[0,26],"; line-height: ",[0,57],"; text-align: center; }\n",],undefined,{path:"./pages/register/register.wxss"});    
 __wxAppCode__['pages/register/register.wxml']=$gwx('./pages/register/register.wxml');
+
+__wxAppCode__['pages/setNewPassword/setNewPassword.wxss']=setCssToHead(["body{ background:#EDEEEE; }\n.",[1],"pass{ width:100%; height:",[0,120],"; background: #FFFFFF; position: relative; }\n.",[1],"title{ float: left; width:",[0,140],"; height: ",[0,120],"; line-height: ",[0,120],"; margin-left: ",[0,48],"; font-size:",[0,34],"; }\n.",[1],"phone{ float: right; width:",[0,540],"; height:",[0,120],"; font-size: ",[0,30],"; }\n.",[1],"line{ width:",[0,650],"; height:",[0,1],"; border-bottom: ",[0,1]," solid #EDEDED; position: absolute; left:",[0,48],"; bottom:0; }\n.",[1],"next{ margin: ",[0,100]," auto; width:",[0,600],"; height:",[0,100],"; background: #444343; border-radius: ",[0,10],"; text-align: center; line-height: ",[0,100],"; color: #fff; }\n",],undefined,{path:"./pages/setNewPassword/setNewPassword.wxss"});    
+__wxAppCode__['pages/setNewPassword/setNewPassword.wxml']=$gwx('./pages/setNewPassword/setNewPassword.wxml');
 
 ;var __pageFrameEndTime__ = Date.now();
 (function() {

@@ -3,19 +3,43 @@
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": "登录"
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/register/register",
 			"style": {
-				"navigationBarTitleText": "注册"
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/getBackPassword/getBackPassword",
+			"style": {
+				"navigationBarTitleText": "找回密码"
+			}
+		},
+		{
+			"path": "pages/setNewPassword/setNewPassword",
+			"style": {
+				"navigationBarTitleText": "设置新密码"
+			}
+		},
+		{
+			"path": "pages/agreement/agreement",
+			"style": {
+				"navigationBarTitleText": "用户协议"
+			}
+		},
+		{
+			"path": "pages/otherLogin/otherLogin",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		}
 	],
@@ -74,12 +98,69 @@
                  ]
              },
              {
-                 "root":"my/my",
+                 "root":"my",
                  "pages":[
                      {
-                         "path":"my",
-                         "style":{"navigationBarTitleText":"我的"}
-                     }
+                         "path":"my/my",
+                         "style":{"navigationStyle": "custom"}
+                     },
+					 {
+					     "path":"personal/personal",
+					     "style":{"navigationBarTitleText":"个人资料"}
+					 },
+					 {
+					     "path":"add-address/add-address",
+					     "style":{"navigationBarTitleText":"新增提币地址"}
+					 },
+					 {
+					     "path":"address/address",
+					     "style":{"navigationBarTitleText":"提币地址"}
+					 },
+					 {
+					     "path":"change-loginPassword/change-loginPassword",
+					     "style":{"navigationBarTitleText":"修改登录密码"}
+					 },
+					 {
+					     "path":"change-password/change-password",
+					     "style":{"navigationBarTitleText":"修改交易密码"}
+					 },
+					 {
+					     "path":"edit-address/edit-address",
+					     "style":{"navigationBarTitleText":"编辑提币地址"}
+					 },
+					 {
+					     "path":"email/email",
+					     "style":{"navigationBarTitleText":"邮箱认证"}
+					 },
+					 {
+					     "path":"identity/identity",
+					     "style":{"navigationBarTitleText":"身份认证"}
+					 },
+					 {
+					     "path":"login-password/login-password",
+					     "style":{"navigationBarTitleText":"登录密码"}
+					 },
+					 {
+					     "path":"my-machine/my-machine",
+					     "style":{"navigationBarTitleText":"我的矿机"}
+					 },
+					 {
+					     "path":"my-wallet/my-wallet",
+					     "style":{"navigationBarTitleText":"我的钱包"}
+					 },
+					 {
+					     "path":"suggest/suggest",
+					     "style":{"navigationBarTitleText":"建议反馈"}
+					 },
+					 {
+					     "path":"trade-password/trade-password",
+					     "style":{"navigationBarTitleText":"设置交易密码"}
+					 },
+					 {
+					     "path":"transfer/transfer",
+					     "style":{"navigationBarTitleText":"转账"}
+					 }
+					 
                  ]
              }
     ],
@@ -110,6 +191,9 @@
         }]
 	},
 	"globalStyle": {
-		"navigationStyle": "custom"
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "微商",
+		"navigationBarBackgroundColor": "#121212",
+		"backgroundColor": "#121212"
 	}
 }
