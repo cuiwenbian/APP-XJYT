@@ -48,8 +48,8 @@
                  "root":"mill",
                  "pages":[
                      {
-                         "path":"mill/mill",
-                         "style":{"navigationBarTitleText":"矿机"}
+                         "path":"mill/mill"
+
                      },
                      {
                          "path":"pay/pay",
