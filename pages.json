@@ -41,7 +41,11 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}
+		},
+        {
+            "path":"pages/news/news",
+            "style":"热门新闻"
+        }
 	],
     "subPackages":[
              {

@@ -4,7 +4,7 @@
         <view class="box1">
             <view class="tab">
                 <text class="colo">矿机交易</text>
-                <text class="many">{{many}}台</text>
+                <text class="many">{{many}}<text>台</text></text>
             </view>
         </view>
         <view class="box2">
@@ -25,10 +25,33 @@
                 <view class="xia"></view>
             </view>
         </view>
+        
+        <view class="order"> 
+            <text class="mation">买家姓名</text>
+            <text class="contact">联系方式</text>
+            <view class="line"></view>
+            
+            <view class="edit">订单编号</view>
+            <view class="numbe">矿机数量</view>
+            <view class="trading">交易总价</view>
+            <view class="date">创建日期</view>
+            <view class="line1"></view>
+        </view>
+        <view class="hz">
+            <button class="btn1">取消订单</button>
+            <button class="btn2">查看详细</button>
+        </view>
     </view>
 </template>
 
 <script>
+    export default {
+    	data() {
+    		return {
+                many:'0'
+    		};
+        }
+    }
 </script>
 
 <style>
@@ -103,5 +126,70 @@
         margin-top: 90rpx;
         border: hidden;
     }
-
+    .order{
+        width: 100%;
+        height: 238rpx;
+        position: relative;
+    }
+    .mation{
+        float: left;
+        font-size: 28rpx;
+        padding-left: 82rpx;
+    }
+    .contact{
+        float: right;
+        font-size: 28rpx;
+        padding-right: 208rpx;
+    }
+    .line{
+        position: absolute;
+        top: 90rpx;
+        left: 20rpx;
+        width: 92%;
+        border: 1rpx solid #CCCCCC;
+        margin: 0 auto;
+    }
+    .edit{
+        position: absolute;
+        top: 142rpx;
+        font-size: 28rpx;
+        left: 82rpx;
+    }
+        
+    .numbe{
+        position: absolute;
+        top: 246rpx;
+        font-size: 28rpx;
+        left: 82rpx;
+    }
+    .trading{
+        position: absolute;
+        top: 350rpx;
+        font-size: 28rpx;
+        left: 82rpx;
+    }
+    .date{
+        position: absolute;
+        top: 456rpx;
+        font-size: 28rpx;
+        left: 82rpx;
+    }
+    .line1 {
+        position: absolute;
+        top: 500rpx;
+        left: 20rpx;
+        width: 92%;
+        border: 1rpx solid #CCCCCC;
+    }
+    .hz{
+        position: relative;
+    }
+    .btn1{
+        display: none;
+        color: #007AFF;
+        width: 40rpx;
+        height: 20rpx;
+        position: absolute;
+        top: 480rpx;
+    }
 </style>
