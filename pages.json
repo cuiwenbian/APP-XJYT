@@ -52,7 +52,10 @@
                  "root":"mill",
                  "pages":[
                      {
-                         "path":"mill/mill"
+                         "path":"mill/mill",
+						 "style": {
+						 	"navigationStyle": "custom"
+						 }
 
                      },
                      {

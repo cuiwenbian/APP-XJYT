@@ -3,12 +3,12 @@
 	<view class="container">
 		<view class="line"></view>
 		<view class="list">
-			<image class="icon" src="../../static/images/code.png" mode=""></image>
+			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
 			<input class="enter" type="text" value="" placeholder="请输入邮箱地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
-			<image class="icon" src="../../static/images/code.png" mode=""></image>
+			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" value="" placeholder="请输入邮箱验证码" />
 			<view class="getcode">获取验证码</view>
 		</view>

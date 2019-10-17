@@ -7,14 +7,14 @@
 		<view class='enter enters'>
 		  <view>
 		  <text class='enter-2'>姓名</text>
-		  <input class="weui-input1 input1" placeholder="请填写真实姓名" maxlength="11" @input='getName' focus="true"/>
+		  <input class="weui-input1 input1" placeholder="请输入您的姓名" maxlength="11" @input='getName' focus="true"/>
 		  </view>
 		</view>
 		
 		<view class='enter'>
 		  <view>
 		  <text class='enter-2 '>身份证号</text>
-		  <input class="weui-input1" placeholder="请填写完整的身份证号" type="idcard" @input='getIdcard'  />
+		  <input class="weui-input1" placeholder="请输入您的身份证号码" type="idcard" @input='getIdcard'  />
 		  </view>
 		</view>
 		<view class="line">上传身份证</view>
@@ -113,9 +113,7 @@
 	  padding-left: 30rpx;
 	  box-sizing: border-box;
 	  background: #fff;
-	
 	  overflow: hidden;
-	  
 	}
 	.enters{
 		border-bottom: 1rpx solid #f2f2f2;

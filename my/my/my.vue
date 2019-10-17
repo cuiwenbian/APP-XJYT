@@ -1,8 +1,11 @@
 <template>
 	<!-- 我的 -->
-    <view class="container">
+    <view class="container" >
+		 <view class="height"></view>
 		<view class="top">
-			<view class="bg"></view>
+			<view class="bg">
+				<image class="logout" src="../../static/images/logout.png" mode=""></image>
+			</view>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/a.jpg" mode=""></image></view>
 			<view class="nickname">用户昵称</view>
 			<view class="phone">134****8943</view>
@@ -107,6 +110,10 @@
 </script>
 
 <style>
+	.height {
+		height: var(--status-bar-height);
+		background: #121212;
+	}
 	.top{
 		width:100%;
 		height:580rpx;
@@ -118,7 +125,14 @@
 		border-bottom-left-radius: 60%;
 		border-bottom-right-radius: 60%;
 		background-image: url('../../static/images/tu1.png');
-		
+		position: relative;
+	}
+	.logout{
+		width:50rpx;
+		height:50rpx;
+		position: absolute;
+		right:20rpx;
+		top:20rpx;
 	}
 	.avator{
 		width:150rpx;
