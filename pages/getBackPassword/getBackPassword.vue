@@ -3,7 +3,7 @@
 	<view class="container" >
 		<view class="pass">
 			<image class="icon" src="../../static/images/call.png" mode=""></image>
-			<input class="phone" type="text" value="" placeholder="请输入手机号" />
+			<input class="phone" type="number" value="" placeholder="请输入手机号" />
 			<view class="line"></view>
 		</view>
 		<view class="pass">
@@ -86,11 +86,11 @@
 	.next{
 		margin: 100rpx auto;
 		width:600rpx;
-		height:100rpx;
+		height:90rpx;
 		background: #444343;
 		border-radius: 10rpx;
 	    text-align: center;
-		line-height: 100rpx;
+		line-height: 90rpx;
 		color: #fff;
 	}
 </style>

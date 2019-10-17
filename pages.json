@@ -122,7 +122,7 @@
 					 },
 					 {
 					     "path":"change-loginPassword/change-loginPassword",
-					     "style":{"navigationBarTitleText":"修改登录密码"}
+					     "style":{"navigationBarTitleText":"设置登录密码"}
 					 },
 					 {
 					     "path":"change-password/change-password",
@@ -142,7 +142,7 @@
 					 },
 					 {
 					     "path":"login-password/login-password",
-					     "style":{"navigationBarTitleText":"登录密码"}
+					     "style":{"navigationBarTitleText":"修改登录密码"}
 					 },
 					 {
 					     "path":"my-machine/my-machine",
@@ -197,7 +197,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "微商",
+		"navigationBarTitleText": "xjyt",
 		"navigationBarBackgroundColor": "#121212",
 		"backgroundColor": "#121212"
 	}

@@ -5,7 +5,7 @@
 		<view class='fil'>Filecoin</view>
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
-			<input class="number" type="text" value="" placeholder="请输入手机号码" />
+			<input class="number" type="number" value="" placeholder="请输入手机号码" />
 		</view>
 		<view class="enter">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
@@ -126,7 +126,7 @@
 		width:320rpx;
 		height:30rpx;
 		color:#fff;
-		font-size: 16rpx;
+		font-size: 18rpx;
 		position: fixed;
 		bottom:50rpx;
 		left:calc((100% - 320rpx)/2);

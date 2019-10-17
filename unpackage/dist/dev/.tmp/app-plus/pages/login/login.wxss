@@ -80,7 +80,7 @@ page{
 	width:320rpx;
 	height:30rpx;
 	color:#fff;
-	font-size: 16rpx;
+	font-size: 18rpx;
 	position: fixed;
 	bottom:50rpx;
 	left:calc((100% - 320rpx)/2);

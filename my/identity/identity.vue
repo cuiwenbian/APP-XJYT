@@ -1,9 +1,317 @@
 <template>
 	<!-- 身份认证 -->
+	<view class="container">
+		<view class="line">
+			基本资料
+		</view>
+		<view class='enter enters'>
+		  <view>
+		  <text class='enter-2'>姓名</text>
+		  <input class="weui-input1 input1" placeholder="请填写真实姓名" maxlength="11" @input='getName' focus="true"/>
+		  </view>
+		</view>
+		
+		<view class='enter'>
+		  <view>
+		  <text class='enter-2 '>身份证号</text>
+		  <input class="weui-input1" placeholder="请填写完整的身份证号" type="idcard" @input='getIdcard'  />
+		  </view>
+		</view>
+		<view class="line">上传身份证</view>
+		<view class="uploadfile">
+			<view class="list" >
+				<text class='tips'>上传身份证<text style='color:red'>人像</text>面</text>
+				<image class="up-card" src="../../static/images/shen1.jpg" mode=""></image>
+				<view class='shen1-1'  :data-flag='positive'>+</view>
+				<text class="click" >点击上传</text>
+			</view>
+			<view class="list">
+				<text class='tips'>上传身份证<text style='color:red'>国徽</text>面</text>
+				<image class="up-card" src="../../static/images/shen2.jpg" mode=""></image>
+				<view class='shen1-1'  :data-flag='positive'>+</view>
+				<text class="click" >点击上传</text>
+			</view>
+		</view>
+		<!-- <view class="line">上传身份证</view>	
+		 <view class="containers" v-show="p_flag" @click='chooseImageTap' :data-flag='positive'>
+		  <text class='container1'>上传身份证<text style='color:red'>人像</text>面</text>
+		  <image class='shen1' src='../../static/images/shen1.jpg'></image>
+		  <button class='shen1-1'  :data-flag='positive'><image class='shen1-1-1' src='../../static/images/jia.jpg'></image></button>
+		  <text class="click" >点击上传</text>
+		</view>
+		<view class="containers" v-show="!p_flag" @click='chooseImageTap' :data-flag='positive'>
+		 <text class='container1'>上传身份证<text style='color:red'>人像</text>面</text>
+		 <image class='prev' :src="p_url" :data-src="p_url" @click='chooseImageTap' :data-flag='positive' style="width:250px;height:150px;"></image>
+		</view>
+		
+		<view class="containers" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverse'>
+		  <text class='container2'>上传身份证<text style='color:red'>国徽</text>面</text>
+		  <image class='shen1' src='../../static/images/shen1.jpg'></image>
+		  <button class='shen1-1'><image class='shen1-1-1' src='../../static/images/jia.jpg'></image></button>
+		  <text class="click" >点击上传</text>
+		</view>
+		<view class="containers" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverse'>
+		  <text class='container2'>上传身份证<text style='color:red'>国徽</text>面</text>
+		   <image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverse' style="width:250px;height:150px;"></image>
+		</view> -->
+		
+		<view class="line2">
+		   <view class="reque">拍摄图片要求</view>
+		</view> 
+		<view class="idcard">
+		  <view class="id1">
+		  <image class="c" src='../../static/images/card.png'></image>
+		  <view class="biaozhun">
+		     <image class="y" src='../../static/images/yes.png'></image>
+		     <view class='pai'>标准拍摄</view>
+		  </view>
+		  </view>
+		   <view class="id1">
+		   <image class="c" src='../../static/images/card2.png'></image>
+		  <view class="biaozhun">
+		     <image class="y" src='../../static/images/no.png'></image>
+		     <view class='pai'>边框缺失</view>
+		  </view>
+		   </view>
+		    <view class="id1">
+		    <image class="c" src='../../static/images/card3.png'></image>
+		  <view class="biaozhun">
+		     <image class="y" src='../../static/images/no.png'></image>
+		     <view class='pai'>照片模糊</view>
+		  </view>
+		    </view>
+		     <view class="id1">
+		     <image class="c" src='../../static/images/card4.png'></image>
+		  <view class="biaozhun">
+		     <image class="y" src='../../static/images/no.png'></image>
+		     <view class='pai'>闪光强烈</view>
+		  </view>
+		     </view>
+		</view>
+		<view class='out2'>
+		 <button :class=' name && idcard && imgs.length===2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		</view>
+		
+	</view>
 </template>
 
 <script>
 </script>
 
 <style>
+	page{
+	  background: #EDEDED;
+	}
+	.line{
+		line-height: 80rpx;
+		font-size: 32rpx;
+		color:#797979;
+		padding-left: 24rpx;
+		box-sizing: border-box;
+	}
+	.enter{
+	  padding-left: 30rpx;
+	  box-sizing: border-box;
+	  background: #fff;
+	
+	  overflow: hidden;
+	  
+	}
+	.enters{
+		border-bottom: 1rpx solid #f2f2f2;
+	}
+	
+	.enter-2{
+	  display:block;
+	
+	  float: left;
+	
+	  font-size: 32rpx;
+	
+	  margin-top: 30rpx;
+	
+	  color: #434343;
+	
+	  margin-bottom: 30rpx;
+	
+	}
+	.weui-input1{
+	  ime-mode:disabled;
+	
+	  font-size: 30rpx; 
+	
+	  display:block;
+	
+	  float:left;
+	
+	  margin-top: 24rpx;
+	
+	  margin-left: 30rpx;
+	
+	}
+	.input1{
+	  margin-left:97rpx;
+	}
+	.uploadfile{
+		width:100%;
+		height:350rpx;
+		
+	}
+	.list{
+		width:50%;
+		height:100%;
+		line-height: 100rpx;
+		text-align: center;
+		float: left;
+		position: relative;
+	}
+	.tips{
+		display: block;
+		width:100%;
+		height:100rpx;
+		line-height: 100rpx;
+		font-size: 30rpx;
+		text-align: center;
+	}
+	.up-card{
+		display: block;
+		width:250rpx;
+		height:150rpx;
+		margin:20rpx auto;
+		
+	}
+	.shen1-1{
+	  width: 50rpx;
+	  height: 50rpx;
+	  background: #fff;
+	  border-radius: 50rpx;
+	  position:absolute;
+	  top:170rpx;
+	  left:158rpx;
+	  border:none;
+	  text-align: center;
+	  line-height: 50rpx;
+	}
+	.click{
+		display: block;
+		width:150rpx;
+		height:30rpx;
+		font-size: 28rpx;
+		text-align: center;
+		position: absolute;
+		bottom:120rpx;
+		left:115rpx;
+	}
+	
+	.line2{
+	  width:100%;
+	  height:2rpx;
+	  border-top:2rpx solid #ccc;
+	  position: relative;
+	  margin-top:50rpx;
+	}
+	.reque{
+	  width:200rpx;
+	  height:40rpx;
+	  background: #f2f2f2;
+	  font-size: 28rpx;
+	  text-align: center;
+	  position: absolute;
+	  top:-20rpx;
+	  left:275rpx;
+	}
+	.idcard{
+	   width:650rpx;
+	   height:150rpx;
+	   margin:50rpx auto 0;
+	   display: flex;
+	   justify-content: space-between;
+	
+	}
+	.id1{
+	  width:130rpx;
+	  height:150rpx;
+	}
+	.c{
+	  width:100%;
+	  height:80rpx;
+	}
+	.biaozhun{
+	  width:100%;
+	  height:70rpx;
+	}
+	.y{
+	  float: left;
+	  width:30rpx;
+	  height:30rpx;
+	  margin-top:20rpx;
+	}
+	.pai{
+	  float:left;
+	  font-size: 24rpx;
+	  margin-left:10rpx;
+	  line-height: 70rpx;
+	}
+	.out2{
+	  margin: 100rpx 0 ;
+	
+	  overflow: hidden;
+	}
+	.changeBtn1{
+	  
+	
+	  display: flex;
+	
+	  width: 80%;
+	
+	  height: 80rpx;
+	
+	  font-size: 30rpx;
+	
+	  margin:25rpx auto;
+	
+	  background-color:#DCDCDC;
+	
+	  color: #fff;
+	
+	  margin-bottom: 25rpx;
+	
+	  flex-direction: column;
+	
+	  justify-content: center;
+	
+	  align-items: center;
+	  
+	  border-radius: 15rpx;
+	  border: none;
+	}
+	.changeBtn2{
+	  
+	
+	  display: flex;
+	
+	  width: 80%;
+	
+	  height: 80rpx;
+	
+	  font-size: 30rpx;
+	
+	  margin:25rpx auto;
+	
+	  background-color:#30bcd5;
+	
+	  color: #fff;
+	
+	  margin-bottom: 25rpx;
+	
+	  flex-direction: column;
+	
+	  justify-content: center;
+	
+	  align-items: center;
+	  
+	  border-radius: 15rpx;
+	  
+	  border: none;
+	}
 </style>

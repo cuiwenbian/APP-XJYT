@@ -1,0 +1,9 @@
+
+.baot {
+    width: 430rpx;
+    height: 158rpx;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+}
+
