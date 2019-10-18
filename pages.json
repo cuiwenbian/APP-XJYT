@@ -152,6 +152,10 @@
 					     "style":{"navigationBarTitleText":"我的矿机"}
 					 },
 					 {
+					     "path":"machine-detail/machine-detail",
+					     "style":{"navigationBarTitleText":"矿机详情"}
+					 },
+					 {
 					     "path":"my-wallet/my-wallet",
 					     "style":{"navigationBarTitleText":"我的钱包"}
 					 },

@@ -1,4 +1,58 @@
 
+page{
+    background: #EDEEEE;
+}
+.t{
+	height:30rpx;
+}
+.suggest-list{
+	width:100%;
+	height:280rpx;
+	background: #fff;
+	padding: 0 48rpx;
+}
+.time{
+	height:90rpx;
+	width:calc(100% - 96rpx);
+	border-bottom:1rpx solid #f2f2f2;
+}
+.submit-time{
+	line-height: 90rpx;
+	float:left;
+	font-size: 30rpx;
+}
+.status{
+	line-height: 90rpx;
+	float: right;
+	color:#DCB16E;
+	font-size: 30rpx;
+}
+.question{
+	margin-top:20rpx;
+	width:calc(100% - 96rpx);
+	background: #000000;
+}
+.tit{
+	width:100rpx;
+	height:45rpx;
+	float: left;
+	line-height: 45rpx;
+	font-size: 28rpx;
+}
+.answer{
+	width:554rpx;
+	float: left;
+	line-height: 45rpx;
+	font-size: 28rpx;
+}
+.answer1{
+	width:500rpx;
+	float: right;
+	font-size: 28rpx;
+	line-height: 60rpx;
+	height:180rpx;
+	overflow: hidden;
+}
 .box{
 	height:200rpx;
 }
@@ -76,11 +130,11 @@
 	font-size: 30rpx;
 }
 .close{
-	width:35rpx;
-	height:30rpx;
+	width:40rpx;
+	height:40rpx;
 	position: absolute;
-	top:10rpx;
+	top:20rpx;
 	right:20rpx;
-	color:#797979;
+	/* color:#797979; */
 }
 
