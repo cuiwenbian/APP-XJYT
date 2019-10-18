@@ -8,7 +8,7 @@
         </view>
         <view class="btn">
             <button class="primary">提交</button>
-            <button class="primary1">转账</button>
+            <button class="primary1" @click="btn">转账</button>
         </view>
         <view class="haide">
             <text class="income">收入记录</text>
@@ -24,6 +24,13 @@
                 num:'0.000000',
                 ber:'100.00',
                 nuber:'100.00'
+            }
+        },
+        methods:{
+            btn(){
+                uni.navigateTo({
+                    url:'/my/transfer/transfer'
+                })
             }
         }
     }

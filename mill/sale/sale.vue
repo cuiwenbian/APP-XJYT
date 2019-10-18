@@ -1,5 +1,5 @@
 <template>
-    <!-- 买单 -->
+    <!-- 卖单 -->
     <view class="container">
         <view class="box1">
             <view class="tab">
