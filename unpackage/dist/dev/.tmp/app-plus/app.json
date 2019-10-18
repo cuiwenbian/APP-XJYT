@@ -7,6 +7,7 @@
     "pages/setNewPassword/setNewPassword",
     "pages/agreement/agreement",
     "pages/otherLogin/otherLogin",
+    "pages/news/news",
     "mill/mill/mill",
     "mill/pay/pay",
     "mill/staypay/staypay",
@@ -37,7 +38,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "微商",
+    "navigationBarTitleText": "xjyt",
     "navigationBarBackgroundColor": "#121212",
     "backgroundColor": "#121212"
   },
@@ -53,12 +54,6 @@
         "selectedIconPath": "static/images/hu.png"
       },
       {
-        "pagePath": "my/my/my",
-        "text": "我的",
-        "iconPath": "static/images/hu.png",
-        "selectedIconPath": "static/images/hu.png"
-      },
-      {
         "pagePath": "mill/mill/mill",
         "text": "矿机",
         "iconPath": "static/images/hu.png",
@@ -67,6 +62,12 @@
       {
         "pagePath": "mill/assets/assets",
         "text": "资产",
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
+      },
+      {
+        "pagePath": "my/my/my",
+        "text": "我的",
         "iconPath": "static/images/hu.png",
         "selectedIconPath": "static/images/hu.png"
       }

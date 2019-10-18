@@ -1,11 +1,11 @@
 <template>
-	<!-- 注册 -->
+	<!-- 注册 --> 
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
 		<view class='fil'>Filecoin</view>
 		<view class="enter">
 			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
-			<input class="number" type="text" value="" placeholder="请输入手机号" />
+			<input class="number" type="number" value="" placeholder="请输入手机号" />
 		</view>
 		<view class="enter">
 			<text class="title">登录密码</text>

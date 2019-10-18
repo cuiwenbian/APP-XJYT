@@ -52,7 +52,10 @@
                  "root":"mill",
                  "pages":[
                      {
-                         "path":"mill/mill"
+                         "path":"mill/mill",
+						 "style": {
+						 	"navigationStyle": "custom"
+						 }
 
                      },
                      {
@@ -122,7 +125,7 @@
 					 },
 					 {
 					     "path":"change-loginPassword/change-loginPassword",
-					     "style":{"navigationBarTitleText":"修改登录密码"}
+					     "style":{"navigationBarTitleText":"设置登录密码"}
 					 },
 					 {
 					     "path":"change-password/change-password",
@@ -142,7 +145,7 @@
 					 },
 					 {
 					     "path":"login-password/login-password",
-					     "style":{"navigationBarTitleText":"登录密码"}
+					     "style":{"navigationBarTitleText":"修改登录密码"}
 					 },
 					 {
 					     "path":"my-machine/my-machine",
@@ -178,11 +181,6 @@
 	        "iconPath": "static/images/hu.png",
 	        "selectedIconPath": "static/images/hu.png"
 	    }, {
-	        "pagePath": "my/my/my",
-	        "text": "我的",
-	        "iconPath": "static/images/hu.png",
-	        "selectedIconPath": "static/images/hu.png"
-	    }, {
             "pagePath":"mill/mill/mill",
             "text":"矿机",
             "iconPath": "static/images/hu.png",
@@ -192,11 +190,17 @@
             "text":"资产",
             "iconPath": "static/images/hu.png",
             "selectedIconPath": "static/images/hu.png"
-        }]
+        },{
+	        "pagePath": "my/my/my",
+	        "text": "我的",
+	        "iconPath": "static/images/hu.png",
+	        "selectedIconPath": "static/images/hu.png"
+	    }
+		]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "微商",
+		"navigationBarTitleText": "xjyt",
 		"navigationBarBackgroundColor": "#121212",
 		"backgroundColor": "#121212"
 	}
