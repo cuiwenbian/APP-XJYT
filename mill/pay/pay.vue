@@ -2,16 +2,10 @@
     <!-- 买单 -->
     <view class="container">
         <view class="box1">
-            <view class="tab">
-                <text class="colo">矿机交易</text>
-                <text class="many">{{many}}<text>台</text></text>
-            </view>
-        </view>
-        <view class="box2">
-            <view class="market">
-                <button class="primary" >买单</button>
-                <button class="primary1">卖单</button>
-            </view>
+            <view class="colo">买单数量</view>
+            <view class="many">{{many}}台</view>		
+			<view class="colo1">买</view>
+			<view class="many1">卖出</view>
         </view>
         <view class="box3">
             <view class="sold">
@@ -27,14 +21,19 @@
         </view>
         
         <view class="order"> 
-            <text class="mation">买家姓名</text>
-            <text class="contact">联系方式</text>
+			<view class="top">
+				<text class="mation">买家姓名</text>
+				<text class="contact">联系方式</text>
+			</view>
+			
             <view class="line"></view>
-            
-            <view class="edit">订单编号</view>
-            <view class="numbe">矿机数量</view>
-            <view class="trading">交易总价</view>
-            <view class="date">创建日期</view>
+            <view class="xi">
+				<view class="edit">订单编号</view>
+				<view class="numbe">矿机数量</view>
+				<view class="trading">交易总价</view>
+				<view class="date">创建日期</view>
+			</view>
+
             <view class="line1"></view>
         </view>
         <view class="hz">
@@ -57,57 +56,39 @@
 <style>
     .box1{
         height: 280rpx;
-        background-color:#091219;
-        position: relative;
-    }
-    .tab {
-        width: 100%;
     }
     .colo {
-        position: absolute;
-        top: 42%;
-        left: 41%;
-        font-size: 16px;
-        color: #FFFFFF;
+		float: left;
+		width: 50%;
+		height: 40rpx;
+		padding-left: 48rpx;
+		padding-top: 80rpx;
+        font-size: 24px;
     }
-    .many{
-        position: absolute;
-        top: 64%;
-        left: 47%;
-        font-size: 14rpx;
+   .many{
+		float: left;
+		width: 36%;
+		height: 60rpx;
+		padding-left: 62rpx;
+		padding-top: 40rpx;
+        font-size: 28rpx;
         color: #DCB16E;
-    }
-    .box2{
-        height: 200rpx;
-        background-color: #FFFFFF;
-        position: relative;
-    }
-    .market {
-        width: 100%;
-    }
-    .primary {
-        position: absolute;
-        top: 20%;
-        left: 5%;
-        width: 300rpx;
-        height: 120rpx;
-        line-height: 120rpx;
-        
-    }
-    .primary1 {
-        position: absolute;
-        top: 20%;
-        left: 57%;
-        width: 300rpx;
-        height: 120rpx;
-        line-height: 120rpx;
-       background-color: #091219;
-        color: #FFFFFF;
-    }
+    }    
+	.colo1{
+		height: 60rpx;
+		padding-top: 80rpx;
+		padding-left: 552rpx;
+	}
+	.many1{
+		float: right;
+		width: 10%;
+		height: 60rpx;
+		padding-right: 140rpx;
+	}
     .box3 {
         height: 90rpx;
         background-color: #F6F6F6;
-        position: relative;
+
     }
     .box3 text {
         float: left;
@@ -129,12 +110,19 @@
     .order{
         width: 100%;
         height: 238rpx;
-        position: relative;
+
     }
+	.top{
+		height: 88rpx;
+	}
+	.xi {
+		height: 360rpx;
+	}
     .mation{
         float: left;
+		height: 40rpx;
         font-size: 28rpx;
-        padding-left: 82rpx;
+        padding-left: 48rpx;
     }
     .contact{
         float: right;
@@ -142,53 +130,59 @@
         padding-right: 208rpx;
     }
     .line{
-        position: absolute;
-        top: 90rpx;
-        left: 20rpx;
         width: 92%;
         border: 1rpx solid #CCCCCC;
         margin: 0 auto;
     }
     .edit{
-        position: absolute;
-        top: 142rpx;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
         font-size: 28rpx;
-        left: 82rpx;
     }
         
     .numbe{
-        position: absolute;
-        top: 246rpx;
+		float: left;
+		height: 90rpx;
+		line-height: 90rpx;
+		width: 100%;
+		padding-left: 48rpx;
         font-size: 28rpx;
-        left: 82rpx;
+
     }
     .trading{
-        position: absolute;
-        top: 350rpx;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
         font-size: 28rpx;
-        left: 82rpx;
+
     }
     .date{
-        position: absolute;
-        top: 456rpx;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
         font-size: 28rpx;
-        left: 82rpx;
+
     }
     .line1 {
-        position: absolute;
-        top: 500rpx;
-        left: 20rpx;
         width: 92%;
+		margin: 0 auto;
         border: 1rpx solid #CCCCCC;
     }
     .hz{
-        position: relative;
-        
+        width: 100%;
+		height: 80rpx;
     }
     .btn1{
-        position: relative;
-        top: 300rpx;
-        left: 84rpx;
+		float: left;
+		margin-left: 340rpx;
+		margin-top: 40rpx;
         width: 160rpx;
         height: 60rpx;
         font-size: 26rpx;
@@ -196,9 +190,9 @@
         color: #CCCCCC;
     }
     .btn2 {
-        position: absolute;
-        top: 300rpx;
-        left: 550rpx;
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 40rpx;
         width: 160rpx;
         height: 60rpx;
         font-size: 26rpx;
