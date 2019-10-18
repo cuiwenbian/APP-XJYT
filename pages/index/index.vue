@@ -18,33 +18,53 @@
             </swiper-item>
         </swiper>
         
-        <view class="notice">
-            <image src="../../static/images/notice.png"></image>
-            <view class="bgc">
-                <image src="../../static/images/juxing.png">
-                    <text>重大通知：明天是2019年10月15日，星期二</text>
-                </image>
-            </view>
+        <view class="notice"> 
+           <image class="g" src="../../static/images/notice.png"></image>
+           <text class="i"></text>
+           <text class="m">重大通知：明天是2019年10月15日，星期二</text>
         </view>
         <view class="bor"></view>
+
         <view class="borx">
             <view class="price">
-                <text class="bot">
-                    今日币价:<text class="Todayprice">{{Todayprice}}</text>
-                </text>
-                <text class="bot1">
-                    昨日交易:<text class="yesterdayprice , yesterday"> +{{yesterdayprice}}  +{{yesterday}}</text>
-                </text>
+                <text class="bot">今日币价:</text>
+                <text class="Todayprice">{{Todayprice}}</text>
             </view>
+            <view class="price1">
+                <text class="bot1">
+                    昨日交易:
+                </text>
+                <text class="yesterdayprice , yesterday"> +{{yesterdayprice}}  +{{yesterday}}</text>
+            </view>
+        </view>
+        
+        <view class="gg">
+            
         </view>
         
         <view class="bor1"></view>
         <view class="information">
             <view class="Small">
                 <image src="../../static/images/information.png" mode="">
-                    <text>热门资讯</text>
+                    <text>热门资讯</text>            
                 </image>
             </view>
+            <view class="bt">
+                <text class="tex">时代都i阿松大就安排时间第哦啊hi烦恼的大数据大家阿松i的脚手架滴哦祭祀哦大家都怕是怕佛奥反扒批发按时递交世界第哦啊就是滴哦就爱哦大脚世界的i哦啊是降低哦阿森纳都俺是男滴哦纳斯哦对你啊iOS电脑爱哦电脑i哦啊十多年i哦阿森纳都i哦按段i哦爱上你io</text>
+                <image class="ig" src="../../static/images/kuangji.png"></image>
+                <view class="yu">6月</view>
+                <image class="yj" src="../../static/images/eye.png"> <text class="yjj">1000人看过</text></image>      
+            </view>
+            <text class="b"></text>
+            <view class="bt">
+                <text class="tex">时代都i阿松大就安排时间第哦啊hi烦恼的大数据大家阿松i的脚手架滴哦祭祀哦大家都怕是怕佛奥反扒批发按时递交世界第哦啊就是滴哦就爱哦大脚世界的i哦啊是降低哦阿森纳都俺是男滴哦纳斯哦对你啊iOS电脑爱哦电脑i哦啊十多年i哦阿森纳都i哦按段i哦爱上你io</text>
+                <image class="ig" src="../../static/images/kuangji.png"></image>
+                <view class="yu">6月</view>
+                <image class="yj" src="../../static/images/eye.png"> 
+                <text class="yjj">1000人看过</text>
+                </image>      
+            </view>
+            <text class="b"></text>
         </view>
 	</view>
 </template>
@@ -82,36 +102,30 @@
       height:100%;
     }
     .notice{
-        width: 100%;
         height: 60rpx;
-        position: relative;
-        top: 10rpx;
     }
-    .notice image {
-        position: absolute;
-        left: 3%;
-        top: 2%;
+    .g {
         width: 28rpx;
         height: 28rpx;
+        float: left;
+        padding-left: 23rpx;
+        padding-top: 17rpx;
     }
-    .bgc {
-        position: absolute;
-        left: 10%;
-        width: 668rpx;
-        height: 40rpx;
-        background-color: #272727;
+    .i{
+        width: 600rpx;
+        height: 40rpx;        
+        background-color: #BCBCBC;
+        margin-left: 52rpx;
+        padding-top: 20rpx;
+        border-radius: 50rpx;  
     }
-    .bgc image {
-        
-        width: 40rpx;
-    }
-    .bgc  text {
+    .m {
+        float: left;
+        padding-top: 17rpx;
+        margin-left: 32rpx;
+        font-size: 24rpx;
+
         color: #FFFFFF;
-        position: absolute;
-        bottom: 2rpx;
-        font-size: 26rpx; 
-        padding-bottom: 4rpx;
-        padding-left: 16rpx;
     }
     .bor {
         width: 94%;
@@ -125,47 +139,42 @@
         margin-top: 20rpx;
     }
     .borx {
-        width: 735rpx;
-        height: 608rpx;
-        background-color: #007AFF;
+        width: 100%;
+        height: 140rpx;
+
     }
     .price{
-        margin-top: 20rpx;
-        position: relative;
-       
-        
+        padding-left: 24rpx;
     }
+    /* 白 */
     .bot{
-        display: block;
-        position: relative;
-        left: 20rpx;
-        top: 20rpx;
+        float: left;
+        line-height: 120rpx;
         font-size: 34rpx;
-        width: 160rpx;
         color: #FFFFFF;
     }
-    .Todayprice {
-        display: block;
-        position: absolute;
-        top: -17rpx;
-        left: 146rpx;
-        font-size: 56rpx;
-        color: #DCB16E;
+    /* 2 */
+    .price1{
+        float: right;
+        padding-right: 24rpx;
     }
+    /* 黄 */
+    
     .bot1 {
-        position: absolute;
-        top: 17rpx;
-        left: 370rpx;
         color: #FFFFFF;
         margin-bottom: 12rpx;
         font-size: 34rpx;
     }
     .yesterdayprice {
         font-size: 34rpx;
+        line-height: 120rpx;
         color: #DCB16E;
     }
+    .gg{
+        width: 100%;
+        height: 608rpx;
+    }
     .Small{
-        position: relative;
         margin-top: 14rpx;
     }
     .Small image{
@@ -174,14 +183,54 @@
         margin-left: 20rpx;
     }
     .Small text {
-        position: absolute;
-        top: -2rpx;
-        left: 80rpx;
         display: block;
         color: #FFFFFF;
         font-size: 32rpx;
         width: 134rpx;
         border-bottom: 1rpx solid #CCCCCC;
         padding-bottom: 14rpx;
+    }
+    .bt{
+        height: 200rpx;
+    }
+    .tex {
+        line-height: 40rpx;
+        text-indent: 34rpx;
+        font-size: 32rpx;
+        color: #FFFFFF;
+        float: left;
+        padding-top: 20rpx;
+        margin-left: 46rpx;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        white-space: normal !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .ig {
+        width: 190rpx;
+        height: 127rpx;
+        float: right;
+        padding-right: 46rpx;
+        padding-top: 20rpx;
+    }
+    .yu {
+        font-size: 16rpx;
+        color: #CCCCCC;
+    }
+    .yj {
+        width: 40rpx;
+        height: 22rpx;
+    }
+    .yjj {
+        font-size: 16rpx;
+        color: #CCCCCC;
+    }
+    .b {
+        width: 94%; 
+        margin: 0 auto;
+        border-bottom:2rpx solid #CCCCCC;
     }
 </style>
