@@ -45,27 +45,25 @@
         <view class="bor1"></view>
         <view class="information">
             <view class="Small">
-                <image src="../../static/images/information.png" mode="">
-                    <text>热门资讯</text>            
-                </image>
+                <image src="../../static/images/information.png" mode=""></image>
+				<text class="te">热门资讯</text> 
             </view>
-            <view class="bt">
-                <text class="tex">时代都i阿松大就安排时间第哦啊hi烦恼的大数据大家阿松i的脚手架滴哦祭祀哦大家都怕是怕佛奥反扒批发按时递交世界第哦啊就是滴哦就爱哦大脚世界的i哦啊是降低哦阿森纳都俺是男滴哦纳斯哦对你啊iOS电脑爱哦电脑i哦啊十多年i哦阿森纳都i哦按段i哦爱上你io</text>
-                <image class="ig" src="../../static/images/kuangji.png"></image>
-                <view class="yu">6月</view>
-                <image class="yj" src="../../static/images/eye.png"> <text class="yjj">1000人看过</text></image>      
-            </view>
-            <text class="b"></text>
-            <view class="bt">
-                <text class="tex">时代都i阿松大就安排时间第哦啊hi烦恼的大数据大家阿松i的脚手架滴哦祭祀哦大家都怕是怕佛奥反扒批发按时递交世界第哦啊就是滴哦就爱哦大脚世界的i哦啊是降低哦阿森纳都俺是男滴哦纳斯哦对你啊iOS电脑爱哦电脑i哦啊十多年i哦阿森纳都i哦按段i哦爱上你io</text>
-                <image class="ig" src="../../static/images/kuangji.png"></image>
-                <view class="yu">6月</view>
-                <image class="yj" src="../../static/images/eye.png"> 
-                <text class="yjj">1000人看过</text>
-                </image>      
-            </view>
-            <text class="b"></text>
+		</view>
+        <view class="bt">
+			<view class="left">
+				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
+				<view>
+					<text class="yu">6月</text>
+					<image class="yj" src="../../static/images/eye.png"> 
+					</image>
+					<text class="yjj">1000人看过</text>
+				</view>
+			</view>
+			<view class="right">
+				<image class="ig" src="../../static/images/kuangji.png"></image>
+			</view>
         </view>
+        <text class="b"></text>
 	</view>
 </template>
 
@@ -93,13 +91,13 @@
 		height: var(--status-bar-height);
 	}
     .swiper{
-      width:720rpx;
-      height:270rpx;
-      margin:20rpx auto;
+		width:720rpx;
+		height:270rpx;
+		margin:20rpx auto;
     }
-    swiper-item image {
-      width: 100%;
-      height:100%;
+	swiper-item image {
+		width: 100%;
+		height:100%;
     }
     .notice{
         height: 60rpx;
@@ -128,7 +126,7 @@
         color: #FFFFFF;
     }
     .bor {
-        width: 94%;
+			width: 94%;
         margin: 0 auto;
         border: 2rpx solid #CcCcCc;
     }
@@ -159,7 +157,12 @@
         padding-right: 24rpx;
     }
     /* 黄 */
-    
+    .Todayprice{
+			float: left;
+			line-height: 120rpx;
+			font-size: 56rpx;
+			color: #DCB16E;
+	}
     .bot1 {
         color: #FFFFFF;
         margin-bottom: 12rpx;
@@ -170,37 +173,48 @@
         line-height: 120rpx;
         color: #DCB16E;
     }
-    .gg{
+	.gg{
         width: 100%;
         height: 608rpx;
     }
+	.information{
+		width: 100%;
+		height: 80rpx;
+	}
     .Small{
         margin-top: 14rpx;
     }
     .Small image{
         width: 40rpx;
         height: 40rpx;
+		float: left;
         margin-left: 20rpx;
     }
-    .Small text {
+    .te {
+		float: left;
         display: block;
         color: #FFFFFF;
         font-size: 32rpx;
         width: 134rpx;
+		margin-left: 20rpx;
         border-bottom: 1rpx solid #CCCCCC;
         padding-bottom: 14rpx;
     }
     .bt{
-        height: 200rpx;
+		width: 100%;
+        height: 600rpx;
     }
+	.left {
+		float: left;
+		width: 60%;
+	}
     .tex {
-        line-height: 40rpx;
         text-indent: 34rpx;
-        font-size: 32rpx;
+        font-size: 28rpx;
         color: #FFFFFF;
-        float: left;
         padding-top: 20rpx;
-        margin-left: 46rpx;
+        padding-left: 24rpx;
+		
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -209,22 +223,34 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
+	.right {
+		width: 40%;
+		float: right;
+	}
     .ig {
         width: 190rpx;
         height: 127rpx;
-        float: right;
-        padding-right: 46rpx;
-        padding-top: 20rpx;
+		padding-top: 30rpx;
+		padding-left: 48rpx;
     }
-    .yu {
+ 
+	.yu {
+		float: left;
+		padding-top: 40rpx;
+		padding-left: 48rpx;
         font-size: 16rpx;
         color: #CCCCCC;
     }
     .yj {
         width: 40rpx;
         height: 22rpx;
+		padding-left: 140rpx;
+		padding-top: 46rpx;
     }
     .yjj {
+		float: right;
+		padding-right: 40rpx;
+		padding-top: 40rpx;
         font-size: 16rpx;
         color: #CCCCCC;
     }
