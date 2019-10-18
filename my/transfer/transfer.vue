@@ -49,7 +49,7 @@
 	.box1{
 		width:654rpx;
 		height:292rpx;
-		margin:20rpx auto;
+		margin:0 auto;
 		background: #fff;
 		border-radius: 12rpx;
 		
@@ -100,6 +100,7 @@
 		font-size: 30rpx;
 	}
 	.tip{
+		margin-top:20rpx;
 		margin-left:48rpx;
 		line-height: 50rpx;
 		font-size:28rpx;

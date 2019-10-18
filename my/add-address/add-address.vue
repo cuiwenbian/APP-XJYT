@@ -23,7 +23,7 @@
 		background: #EDEEEE;
 	}
 	.line{
-		height:80rpx;
+		height:50rpx;
 	}
 	.list{
 		width:100%;
