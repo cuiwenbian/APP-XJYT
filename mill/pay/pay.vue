@@ -183,13 +183,27 @@
     }
     .hz{
         position: relative;
+        
     }
     .btn1{
-        display: none;
-        color: #007AFF;
-        width: 40rpx;
-        height: 20rpx;
+        position: relative;
+        top: 300rpx;
+        left: 84rpx;
+        width: 160rpx;
+        height: 60rpx;
+        font-size: 26rpx;
+        line-height: 60rpx;
+        color: #CCCCCC;
+    }
+    .btn2 {
         position: absolute;
-        top: 480rpx;
+        top: 300rpx;
+        left: 550rpx;
+        width: 160rpx;
+        height: 60rpx;
+        font-size: 26rpx;
+        line-height: 60rpx;
+        color: #FFFFFF;
+        background-color: #091219;
     }
 </style>
