@@ -56,7 +56,6 @@
 						 "style": {
 						 	"navigationStyle": "custom"
 						 }
-
                      },
                      {
                          "path":"pay/pay",
@@ -100,7 +99,7 @@
                      },
                      {
                          "path":"assets/assets",
-                         "style":{"navigationBarTitleText":"资产"}
+                         "style":{"navigationStyle": "custom"}
                      }
                  ]
              },
@@ -176,29 +175,29 @@
              }
     ],
 	"tabBar": {
-	    "color": "#7a7e83",
-	    "selectedColor": "#0faeff",
-	    "backgroundColor": "#ffffff",
+	    "color": "#8a8a8a",
+	    "selectedColor": "#3cbfb1",
+	    "backgroundColor": "#121212",
 	    "list": [{
 	        "pagePath": "pages/index/index",
 	        "text": "首页",
-	        "iconPath": "static/images/hu.png",
-	        "selectedIconPath": "static/images/hu.png"
+	        "iconPath": "static/images/tab1.png",
+	        "selectedIconPath": "static/images/tab-index.png"
 	    }, {
             "pagePath":"mill/mill/mill",
             "text":"矿机",
-            "iconPath": "static/images/hu.png",
-            "selectedIconPath": "static/images/hu.png"
+            "iconPath": "static/images/tab2.png",
+            "selectedIconPath": "static/images/tab-machine.png"
         },{
             "pagePath":"mill/assets/assets",
             "text":"资产",
-            "iconPath": "static/images/hu.png",
-            "selectedIconPath": "static/images/hu.png"
+            "iconPath": "static/images/tab3.png",
+            "selectedIconPath": "static/images/tab-captial.png"
         },{
 	        "pagePath": "my/my/my",
 	        "text": "我的",
-	        "iconPath": "static/images/hu.png",
-	        "selectedIconPath": "static/images/hu.png"
+	        "iconPath": "static/images/tab4.png",
+	        "selectedIconPath": "static/images/tab-mine.png"
 	    }
 		]
 	},

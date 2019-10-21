@@ -19,9 +19,9 @@
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		<view class="agree">
+		<view class="agree" @click="agree">
 			<view class="check"></view>
-			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+			<text>我已阅读并同意【<text style="color: #34b5c1;" >星际云通用户协议</text>】</text>
 		</view>
 		
 	</view>

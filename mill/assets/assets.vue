@@ -1,5 +1,6 @@
 <template>
     <view class="container">
+		 <view class="height"></view>
         <view class="box">
             <text class="assets">总资产</text>
             <view class="number">{{num}}  FIL</view>
@@ -37,6 +38,10 @@
 </script>
 
 <style>
+	.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+	}
     .box{
         width: 100%;
         height: 400rpx;

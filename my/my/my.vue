@@ -3,9 +3,9 @@
     <view class="container" >
 		 <view class="height"></view>
 		<view class="top">
-			<view class="bg">
+			<image class="bg" src="../../static/images/my-background.png" mode="">
 				<image class="logout" src="../../static/images/logout.png" mode=""></image>
-			</view>
+			</image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/a.jpg" mode=""></image></view>
 			<view class="nickname">用户昵称</view>
 			<view class="phone">134****8943</view>
@@ -13,35 +13,35 @@
 		<view class="line"></view>
     	<view class="list">
     		<view class="listItem" @click="wallet">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-wallet.png" mode=""></image>
 				<view class="txt"  >我的钱包</view>
 			</view>
 			<view class="listItem" @click="address">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-address.png" mode=""></image>
 				<view class="txt" >提币地址</view> 
 			</view>
 			<view class="listItem" @click="certification">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-identity.png" mode=""></image>
 				<view class="txt" >实名认证</view>
 			</view>
 			<view class="listItem" @click="mymachine">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-machine.png" mode=""></image>
 				<view class="txt" >我的矿机</view>
 			</view>
 			<view class="listItem" @click="tradePassword">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-password.png" mode=""></image>
 				<view class="txt" >交易密码</view>
 			</view>
 			<view class="listItem" @click="loginPassword">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-password.png" mode=""></image>
 				<view class="txt" >登录密码</view>
 			</view>
 			<view class="listItem"  @click="bindEmail">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-email.png" mode=""></image>
 				<view class="txt">邮箱绑定</view>
 			</view>
 			<view class="listItem" @click="suggest">
-				<image class="pic" src="../../static/images/FIL.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-suggest.png" mode=""></image>
 				<view class="txt" >建议反馈</view>
 			</view>
 			
@@ -121,10 +121,7 @@
 	}
 	.bg{
 		width:100%;
-		height:380rpx;
-		border-bottom-left-radius: 60%;
-		border-bottom-right-radius: 60%;
-		background-image: url('../../static/images/tu1.png');
+		height:480rpx;
 		position: relative;
 	}
 	.logout{
@@ -171,7 +168,7 @@
 	}
 	.line{
 		width:100%;
-		height:40rpx;
+		height:10rpx;
 		background: #EDEEEE;
 	}
 	.list{
@@ -180,7 +177,7 @@
 		display: flex;
 		justify-content:space-between;
 		flex-wrap: wrap;
-		padding:30rpx;
+		padding:50rpx;
 		box-sizing: border-box;
 	}
 	.listItem{
@@ -190,13 +187,13 @@
 	}
 	.pic{
 		display: block;
-		width:100rpx;
-		height:100rpx;
+		width:45rpx;
+		height:45rpx;
 		margin: 30rpx auto;
 	}
 	.txt{
 		line-height: 20rpx;
-		font-size: 30rpx;
+		font-size: 28rpx;
 		text-align: center;
 	}
 </style>

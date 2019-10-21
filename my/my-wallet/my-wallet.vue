@@ -2,6 +2,7 @@
 	<!-- 我的钱包 -->
 	<view class="container">
 		<view class="bg">
+			<view class="line"></view>
 			<view class="txt">Filecoin</view>
 			<view class="mess">
 				<view class="num"><text class="number">&nbsp;322&nbsp;</text>个</view>
@@ -34,10 +35,13 @@
 	.bg{
 		width:100%;
 		height:300rpx;
-		background-color: #333333;
+		background-image: url('../../static/images/wallet-bg.png');
+	}
+	.line{
+		height:100rpx;
 	}
 	.txt{
-		line-height: 120rpx;
+		line-height: 50rpx;
 		margin-left:56rpx;
 	}
 	.mess{
