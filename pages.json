@@ -101,6 +101,18 @@
                      {
                          "path":"assets/assets",
                          "style":{"navigationBarTitleText":"资产"}
+                     },
+                     {
+                         "path":"sell/sell",
+                         "style":{"navigationBarTitleText":"出售"}
+                     },
+                     {
+                         "path":"validation/validation",
+                         "style":{"navigationBarTitleText":"验证"}
+                     },
+                     {
+                         "path":"confirm/confirm",
+                         "style":{"navigationBarTitleText":"确认订单"}
                      }
                  ]
              },

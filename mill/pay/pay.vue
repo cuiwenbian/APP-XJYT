@@ -5,40 +5,107 @@
             <view class="colo">买单数量</view>
             <view class="many">{{many}}台</view>		
 			<view class="colo1">买</view>
-			<view class="many1">卖出</view>
+			<view class="many1">买 出</view>
         </view>
         <view class="box3">
-            <view class="sold">
-                <text class="bt">待付款</text>
-                <view class="xia"></view>
-                <text>待确认</text>
-                <view class="xia"></view>
-                <text>待付款</text>
-                <view class="xia"></view>
-                <text>待付款</text>
-                <view class="xia"></view>
+            <view class="swiper-tab">
+            	<view v-for="(item, index) in navList" :key="index" class="tab-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
+            		{{item.text}}
+            	</view>
             </view>
-        </view>
-        
-        <view class="order"> 
-			<view class="top">
-				<text class="mation">买家姓名</text>
-				<text class="contact">联系方式</text>
-			</view>
-			
-            <view class="line"></view>
-            <view class="xi">
-				<view class="edit">订单编号</view>
-				<view class="numbe">矿机数量</view>
-				<view class="trading">交易总价</view>
-				<view class="date">创建日期</view>
-			</view>
+            <view class="list" v-if="tabCurrentIndex === 0">
+                <scroll-view scroll-y='true'>
+				<view class="order"> 
+					<view class="top">
+						<text class="mation">买家姓名</text>
+						<text class="cont">联系方式</text>
+					</view>
+					
+					<view class="line"></view>
+					<view class="xi">
+						<view class="edit">订单编号</view>
+						<view class="numbe">矿机数量</view>
+						<view class="trading">交易总价</view>
+						<view class="date">创建日期</view>
+					</view>
 
-            <view class="line1"></view>
-        </view>
-        <view class="hz">
-            <button class="btn1">取消订单</button>
-            <button class="btn2">查看详细</button>
+					<view class="line1"></view>
+				</view>
+				<view class="hz">
+					<button class="btn1">取消订单</button>
+					<button class="btn2">查看详细</button>
+				</view>
+                </scroll-view>
+            </view>
+            <view class="list" v-if="tabCurrentIndex === 1">
+                <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="list" v-if="tabCurrentIndex === 2">
+                <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="list" v-if="tabCurrentIndex === 3">
+                <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
+                </scroll-view>
+            </view>
         </view>
     </view>
 </template>
@@ -47,8 +114,41 @@
     export default {
     	data() {
     		return {
-                many:'0'
+                many:'0',
+                tabCurrentIndex:0,
+                navList: [
+                	{
+                		state: 0,
+                		text: '可出售'
+                	
+                	},
+                	{
+                		state: 1,
+                		text: '出售中'
+                		
+                	},
+                	{
+                		state: 2,
+                		text: '已完成'
+                		
+                	},
+                    {
+                        state: 3,
+                        text:  '待付款'
+                    }
+                	
+                ]
     		};
+        },
+        methods:{
+            tabClick:function (index) {
+                var that = this
+                if (this.tabCurrentIndex === index) {
+                    return false
+                }else {
+                    that.tabCurrentIndex =index
+                }
+            }
         }
     }
 </script>
@@ -88,24 +188,12 @@
     .box3 {
         height: 90rpx;
         background-color: #F6F6F6;
+        position: relative;
+    }
 
-    }
-    .box3 text {
-        float: left;
-        padding-left: 90rpx;
-        line-height: 90rpx;
-        font-size: 28rpx;
-        padding-bottom : 40rpx;
-        
-    }
-    .xia {
-        display: block;
-        float: left;
-        width: 90rpx;
-        border-bottom: 2rpx solid #DCB16E;
-        margin-left: -84rpx;
-        margin-top: 90rpx;
-        border: hidden;
+
+    .list{
+      height: auto;
     }
     .order{
         width: 100%;
@@ -121,12 +209,14 @@
     .mation{
         float: left;
 		height: 40rpx;
+        line-height: 90rpx;
         font-size: 28rpx;
         padding-left: 48rpx;
     }
-    .contact{
+    .cont{
         float: right;
         font-size: 28rpx;
+        line-height: 90rpx;
         padding-right: 208rpx;
     }
     .line{
@@ -172,7 +262,7 @@
     }
     .line1 {
         width: 92%;
-		margin: 0 auto;
+		margin: 6rpx auto;
         border: 1rpx solid #CCCCCC;
     }
     .hz{
@@ -199,5 +289,32 @@
         line-height: 60rpx;
         color: #FFFFFF;
         background-color: #091219;
+    }
+    .swiper-tab {
+     
+        display: flex;
+         
+        flex-direction: row;
+         
+        line-height: 80rpx;
+    
+        background: #CCCCCC;  
+    }
+    .tab-item {
+ 
+         width: 33.3%;
+         height:auto;
+         text-align: center;
+         
+         font-size: 34rpx;
+         
+         color: #777;
+    }
+    .current {
+     
+        color: #fff;
+         
+        border-bottom: 5rpx solid #fff;
+     
     }
 </style>
