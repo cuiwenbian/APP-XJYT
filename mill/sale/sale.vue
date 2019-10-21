@@ -18,7 +18,7 @@
 				<view class="order"> 
 					<view class="top">
 						<text class="mation">买家姓名</text>
-						<text class="contact">联系方式</text>
+						<text class="cont">联系方式</text>
 					</view>
 					
 					<view class="line"></view>
@@ -39,14 +39,71 @@
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
                 <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
                 </scroll-view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 2">
                 <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
                 </scroll-view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 3">
                 <scroll-view scroll-y='true'>
+                    <view class="order">
+                    	<view class="top">
+                    		<text class="mation">买家姓名</text>
+                    		<text class="cont">联系方式</text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">订单编号</view>
+                    		<view class="numbe">矿机数量</view>
+                    		<view class="trading">交易总价</view>
+                    		<view class="date">创建日期</view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    <view class="hz">
+                    	<button class="btn2">查看详细</button>
+                    </view>
                 </scroll-view>
             </view>
         </view>
@@ -82,6 +139,16 @@
                 	
                 ]
     		};
+        },
+        methods:{
+            tabClick:function (index) {
+                var that = this
+                if (this.tabCurrentIndex === index) {
+                    return false
+                }else {
+                    that.tabCurrentIndex =index
+                }
+            }
         }
     }
 </script>
@@ -123,13 +190,7 @@
         background-color: #F6F6F6;
         position: relative;
     }
-    .box3 text {
-        float: left;
-        padding-left: 90rpx;
-        line-height: 90rpx;
-        font-size: 28rpx;
-        padding-bottom : 40rpx;
-    }
+
 
     .list{
       height: auto;
@@ -148,12 +209,14 @@
     .mation{
         float: left;
 		height: 40rpx;
+        line-height: 90rpx;
         font-size: 28rpx;
         padding-left: 48rpx;
     }
-    .contact{
+    .cont{
         float: right;
         font-size: 28rpx;
+        line-height: 90rpx;
         padding-right: 208rpx;
     }
     .line{
@@ -199,7 +262,7 @@
     }
     .line1 {
         width: 92%;
-		margin: 0 auto;
+		margin: 6rpx auto;
         border: 1rpx solid #CCCCCC;
     }
     .hz{
