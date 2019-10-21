@@ -1,11 +1,21 @@
 <template>
     <view class="container">
+<<<<<<< HEAD
 		 <view class="height"></view>
         <view class="box">
             <text class="assets">总资产</text>
             <view class="number">{{num}}  FIL</view>
             <text class="coin">可用币  {{ber}}</text>
             <text class="lock">锁定  {{nuber}}</text>
+=======
+        <view class="box">
+			<view class="assets">总资产</view>
+			<view class="number">{{num}}  FIL</view>
+			<view>
+				<text class="coin">可用币  {{ber}}</text>
+				<text class="lock">锁定  {{nuber}}</text>
+			</view>
+>>>>>>> 7ec722ab74137067b8a6a3450cad9a5a313da32a
         </view>
         <view class="btn">
             <button class="primary">提交</button>
@@ -46,52 +56,50 @@
         width: 100%;
         height: 400rpx;
         background-color: #121212;
-        position: relative;
     }
     .assets{
-        position: absolute;
-        top: 20%;
-        left: 42%;
+		height: 60rpx;
+		width: 100%;
+		float: left;
+		padding-left: 312rpx;
+		padding-top: 80rpx;
         color: #FFFFFF;
     }
     .number{
-        position: absolute;
-        top: 40%;
-        left: 40%;
+		height: 300rpx;
+		padding-left: 268rpx;
+		padding-top: 40rpx;
         color: #F0AD4E;
     }
     .coin{
-        position: absolute;
-        top: 86%;
-        left: 6%;
+		float: left;
+		padding-left: 48rpx;
         font-size: 24rpx;
         color: #FFFFFF;
     }
     .lock {
-        position: absolute;
-        top: 86%;
-        left: 78%;
+		float: right;
+		padding-right: 48rpx;
         font-size: 24rpx;
         color: #FFFFFF;
     }
     .btn {
         height: 150rpx;
         width: 100%;
-        position: relative;
     }
     .primary{
         width: 220rpx;
         height: 88rpx;
-        position: absolute;
-        top: 20%;
-        left: 6%;
+		float: left;
+		margin-left: 48rpx;
+		margin-top: 40rpx;
     }
     .primary1 {
         width: 220rpx;
         height: 88rpx;
-        position: absolute;
-        top: 20%;
-        left: 66%;
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 40rpx;
         background-color: #121212;
         color: #FFFFFF;
     }

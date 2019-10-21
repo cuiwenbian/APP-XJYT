@@ -18,34 +18,52 @@
             </swiper-item>
         </swiper>
         
-        <view class="notice">
-            <image src="../../static/images/notice.png"></image>
-            <view class="bgc">
-                <image src="../../static/images/juxing.png">
-                    <text>重大通知：明天是2019年10月15日，星期二</text>
-                </image>
-            </view>
+        <view class="notice"> 
+           <image class="g" src="../../static/images/notice.png"></image>
+           <text class="i"></text>
+           <text class="m">重大通知：明天是2019年10月15日，星期二</text>
         </view>
         <view class="bor"></view>
+
         <view class="borx">
             <view class="price">
-                <text class="bot">
-                    今日币价:<text class="Todayprice">{{Todayprice}}</text>
-                </text>
-                <text class="bot1">
-                    昨日交易:<text class="yesterdayprice , yesterday"> +{{yesterdayprice}}  +{{yesterday}}</text>
-                </text>
+                <text class="bot">今日币价:</text>
+                <text class="Todayprice">{{Todayprice}}</text>
             </view>
+            <view class="price1">
+                <text class="bot1">
+                    昨日交易:
+                </text>
+                <text class="yesterdayprice , yesterday"> +{{yesterdayprice}}  +{{yesterday}}</text>
+            </view>
+        </view>
+        
+        <view class="gg">
+            
         </view>
         
         <view class="bor1"></view>
         <view class="information">
             <view class="Small">
-                <image src="../../static/images/information.png" mode="">
-                    <text>热门资讯</text>
-                </image>
+                <image src="../../static/images/information.png" mode=""></image>
+				<text class="te">热门资讯</text> 
             </view>
+		</view>
+        <view class="bt">
+			<view class="left">
+				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
+				<view>
+					<text class="yu">6月</text>
+					<image class="yj" src="../../static/images/eye.png"> 
+					</image>
+					<text class="yjj">1000人看过</text>
+				</view>
+			</view>
+			<view class="right">
+				<image class="ig" src="../../static/images/kuangji.png"></image>
+			</view>
         </view>
+        <text class="b"></text>
 	</view>
 </template>
 
@@ -73,48 +91,42 @@
 		height: var(--status-bar-height);
 	}
     .swiper{
-      width:720rpx;
-      height:270rpx;
-      margin:20rpx auto;
+		width:720rpx;
+		height:270rpx;
+		margin:20rpx auto;
     }
-    swiper-item image {
-      width: 100%;
-      height:100%;
+	swiper-item image {
+		width: 100%;
+		height:100%;
     }
     .notice{
-        width: 100%;
         height: 60rpx;
-        position: relative;
-        top: 10rpx;
     }
-    .notice image {
-        position: absolute;
-        left: 3%;
-        top: 2%;
+    .g {
         width: 28rpx;
         height: 28rpx;
+        float: left;
+        padding-left: 23rpx;
+        padding-top: 17rpx;
     }
-    .bgc {
-        position: absolute;
-        left: 10%;
-        width: 668rpx;
-        height: 40rpx;
-        background-color: #272727;
+    .i{
+        width: 600rpx;
+        height: 40rpx;        
+        background-color: #BCBCBC;
+        margin-left: 52rpx;
+        padding-top: 20rpx;
+        border-radius: 50rpx;  
     }
-    .bgc image {
-        
-        width: 40rpx;
-    }
-    .bgc  text {
+    .m {
+        float: left;
+        padding-top: 17rpx;
+        margin-left: 32rpx;
+        font-size: 24rpx;
+
         color: #FFFFFF;
-        position: absolute;
-        bottom: 2rpx;
-        font-size: 26rpx; 
-        padding-bottom: 4rpx;
-        padding-left: 16rpx;
     }
     .bor {
-        width: 94%;
+			width: 94%;
         margin: 0 auto;
         border: 2rpx solid #CcCcCc;
     }
@@ -125,63 +137,126 @@
         margin-top: 20rpx;
     }
     .borx {
-        width: 735rpx;
-        height: 608rpx;
-        background-color: #007AFF;
+        width: 100%;
+        height: 140rpx;
+
     }
     .price{
-        margin-top: 20rpx;
-        position: relative;
-       
-        
+        padding-left: 24rpx;
     }
+    /* 白 */
     .bot{
-        display: block;
-        position: relative;
-        left: 20rpx;
-        top: 20rpx;
+        float: left;
+        line-height: 120rpx;
         font-size: 34rpx;
-        width: 160rpx;
         color: #FFFFFF;
     }
-    .Todayprice {
-        display: block;
-        position: absolute;
-        top: -17rpx;
-        left: 146rpx;
-        font-size: 56rpx;
-        color: #DCB16E;
+    /* 2 */
+    .price1{
+        float: right;
+        padding-right: 24rpx;
     }
+    /* 黄 */
+    .Todayprice{
+			float: left;
+			line-height: 120rpx;
+			font-size: 56rpx;
+			color: #DCB16E;
+	}
     .bot1 {
-        position: absolute;
-        top: 17rpx;
-        left: 370rpx;
         color: #FFFFFF;
         margin-bottom: 12rpx;
         font-size: 34rpx;
     }
     .yesterdayprice {
         font-size: 34rpx;
+        line-height: 120rpx;
         color: #DCB16E;
     }
+	.gg{
+        width: 100%;
+        height: 608rpx;
+    }
+	.information{
+		width: 100%;
+		height: 80rpx;
+	}
     .Small{
-        position: relative;
         margin-top: 14rpx;
     }
     .Small image{
         width: 40rpx;
         height: 40rpx;
+		float: left;
         margin-left: 20rpx;
     }
-    .Small text {
-        position: absolute;
-        top: -2rpx;
-        left: 80rpx;
+    .te {
+		float: left;
         display: block;
         color: #FFFFFF;
         font-size: 32rpx;
         width: 134rpx;
+		margin-left: 20rpx;
         border-bottom: 1rpx solid #CCCCCC;
         padding-bottom: 14rpx;
+    }
+    .bt{
+		width: 100%;
+        height: 600rpx;
+    }
+	.left {
+		float: left;
+		width: 60%;
+	}
+    .tex {
+        text-indent: 34rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        padding-top: 20rpx;
+        padding-left: 24rpx;
+		
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        white-space: normal !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+	.right {
+		width: 40%;
+		float: right;
+	}
+    .ig {
+        width: 190rpx;
+        height: 127rpx;
+		padding-top: 30rpx;
+		padding-left: 48rpx;
+    }
+ 
+	.yu {
+		float: left;
+		padding-top: 40rpx;
+		padding-left: 48rpx;
+        font-size: 16rpx;
+        color: #CCCCCC;
+    }
+    .yj {
+        width: 40rpx;
+        height: 22rpx;
+		padding-left: 140rpx;
+		padding-top: 46rpx;
+    }
+    .yjj {
+		float: right;
+		padding-right: 40rpx;
+		padding-top: 40rpx;
+        font-size: 16rpx;
+        color: #CCCCCC;
+    }
+    .b {
+        width: 94%; 
+        margin: 0 auto;
+        border-bottom:2rpx solid #CCCCCC;
     }
 </style>

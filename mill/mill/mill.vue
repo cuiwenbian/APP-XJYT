@@ -1,10 +1,8 @@
 <template>
     <view class="container">     
         <view class="box1">
-            <view class="tab">
-                <text class="colo">矿机交易</text>
-                <text class="many">{{many}}<text>台</text></text>
-            </view>
+            <view class="colo">矿机交易</view>
+            <view class="many">{{many}}台</view>
         </view>
         <view class="box2">
             <view class="market">
@@ -13,10 +11,8 @@
             </view>
         </view>
         <view class="box3">
-            <view class="sold">
-                <text>可出售</text>
-                <button class="btn">去交易</button>
-            </view>
+            <text>可出售</text>
+            <button class="btn">去交易</button>
         </view>
         <view class="pagex" v-for="(item , index) in user_id" :key="index">
             <view class="page1">
@@ -60,69 +56,66 @@
     .box1{
         height: 280rpx;
         background-color:#091219;
-        position: relative;
-    }
-    .tab {
-        width: 100%;
     }
     .colo {
-        position: absolute;
-        top: 42%;
-        left: 41%;
-        font-size: 16px;
+		float: left;
+		width: 100%;
+		height: 40rpx;
+		padding-left: 288rpx;
+		padding-top: 80rpx;
+        font-size: 24px;
         color: #FFFFFF;
     }
-    .many{
-        position: absolute;
-        top: 64%;
-        left: 47%;
-        font-size: 24rpx;
+   .many{
+		float: left;
+		width: 100%;
+		height: 60rpx;
+		padding-left: 348rpx;
+		padding-top: 40rpx;
+        font-size: 28rpx;
         color: #DCB16E;
     }
-    .box2{
-        height: 200rpx;
-        background-color: #FFFFFF;
-        position: relative;
+    .box2 {
+        height: 150rpx;
+        width: 100%;
     }
     .market {
         width: 100%;
     }
-    .primary {
-        position: absolute;
-        top: 20%;
-        left: 5%;
-        width: 300rpx;
-        height: 120rpx;
-        line-height: 120rpx;
-        
+    .primary{
+        width: 220rpx;
+        height: 88rpx;
+		float: left;
+		margin-left: 48rpx;
+		margin-top: 40rpx;
     }
     .primary1 {
-        position: absolute;
-        top: 20%;
-        left: 57%;
-        width: 300rpx;
-        height: 120rpx;
-        line-height: 120rpx;
-       background-color: #091219;
+        width: 220rpx;
+        height: 88rpx;
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 40rpx;
+        background-color: #121212;
         color: #FFFFFF;
     }
     .box3 {
+		width: 100%;
         height: 120rpx;
         background-color: #F6F6F6;
-        position: relative;
     }
     .box3 text {
+		width: 108rpx;
         line-height: 120rpx;
-        width: 40rpx;
+		float: left;
         font-size: 36rpx;
-        padding-bottom : 44rpx;
+		margin-left: 48rpx;
         border-bottom: 1rpx solid #DCB16E;
-        border: hidden;
+        /* border: hidden; */
     }
     .btn {
-        position: absolute;
-        bottom: 10%;
-        right: 6%;
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 30rpx;
         width: 160rpx;
         height: 70rpx;
         line-height: 70rpx;
