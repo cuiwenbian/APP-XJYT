@@ -4,8 +4,8 @@
     "iPhone",
     "iPad"
   ],
-  "id": "",
-  "name": "APP-XJYT",
+  "id": "__UNI__75A073F",
+  "name": "neil-modal",
   "version": {
     "name": "1.0.0",
     "code": "100"
@@ -40,8 +40,6 @@
       "style": "light",
       "background": "#121212"
     },
-    "usingComponents": true,
-    "nvueCompiler": "uni-app",
     "distribute": {
       "google": {
         "permissions": [
@@ -80,7 +78,7 @@
     },
     "allowsInlineMediaPlayback": true,
     "safearea": {
-      "background": "#121212",
+      "background": "#ffffff",
       "bottom": {
         "offset": "auto"
       }
@@ -88,11 +86,8 @@
     "uni-app": {
       "compilerVersion": "2.3.3",
       "control": "v8",
-      "nvueCompiler": "uni-app",
-      "renderer": "auto",
-      "nvue": {
-        "flex-direction": "column"
-      }
+      "nvueCompiler": "weex",
+      "renderer": "auto"
     },
     "secondwebview": {
       "id": "1",

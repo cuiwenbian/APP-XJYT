@@ -1,21 +1,13 @@
 <template>
     <view class="container">
-<<<<<<< HEAD
+
 		 <view class="height"></view>
         <view class="box">
             <text class="assets">总资产</text>
             <view class="number">{{num}}  FIL</view>
             <text class="coin">可用币  {{ber}}</text>
             <text class="lock">锁定  {{nuber}}</text>
-=======
-        <view class="box">
-			<view class="assets">总资产</view>
-			<view class="number">{{num}}  FIL</view>
-			<view>
-				<text class="coin">可用币  {{ber}}</text>
-				<text class="lock">锁定  {{nuber}}</text>
-			</view>
->>>>>>> 7ec722ab74137067b8a6a3450cad9a5a313da32a
+
         </view>
         <view class="btn">
             <button class="primary">提交</button>

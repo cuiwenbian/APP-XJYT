@@ -5,22 +5,22 @@
 		<view class='fil'>Filecoin</view>
 		<view class="enter">
 			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
-			<input class="number" type="number" value="" placeholder="请输入手机号" />
+			<input class="number" type="number" @input='getPhoneValue' @blur="getNumber" :value="phone" placeholder="请输入手机号" />
 		</view>
 		<view class="enter">
 			<text class="title">登录密码</text>
-			<input class="number" type="text" value="" placeholder="6-16位数字,英文"/>
+			<input class="number" type="password" @input='getPwdValue' @blur="getPassword" :value="pwd" placeholder="6-16位数字,英文"/>
 		</view>
 		<view class="enter">
 			<text class="title">确认密码</text>
-			<input class="number" type="text" value="" placeholder="请再次输入登录密码"/>
+			<input class="number" type="password" @input='getPwdValue1' :value="pwd1" placeholder="请再次输入登录密码"/>
 		</view>
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<view class="getcode">获取验证码</view>
-			<input class="number" type="text" value="" placeholder="请输入短信验证码"/>
+			<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
+			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
-		<view class='btn' type="primary">注册</view>
+		<view class='btn' type="primary" @click='register'>注册</view>
 		<navigator url='../login/login' class="goback">
 			已有账号，返回登录
 		</navigator>
@@ -28,6 +28,170 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				phone:'',
+				pwd:'',
+				pwd1:'',
+				code:'',
+				iscode: '',//用于存放验证码接口里获取到的code
+				codename: ' 获取验证码 '
+			}
+		},
+		onLoad: function (options) {
+		  this.disabled = true
+		},
+		methods:{
+			getPhoneValue:function(e){
+				this.phone=e.detail.value
+			},
+			getNumber:function(e){
+				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+				this.phone=e.detail.value
+				
+				   if(!myreg.test(this.phone)){
+					  uni.showModal({
+					  	title:'请输入正确的手机号'
+					  })
+				   }
+				 
+			},
+			getPwdValue:function(e){
+				this.pwd=e.detail.value
+			},
+			getPassword:function(e){
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				this.pwd=e.detail.value
+				if(!str.test(this.pwd)){
+					uni.showModal({
+						title:'密码格式不正确'
+					})
+				}
+			},
+			getPwdValue1:function(e){
+				this.pwd1=e.detail.value
+			},
+			getCodeValue:function(e){
+				this.code=e.detail.value
+			},
+			getCode: function () {
+			      var _this = this;
+			      //判断手机号格式
+			      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+			      if (this.phone == "") {
+			        uni.showToast({
+			          title: '手机号不能为空',
+			          icon: 'none',
+			          duration: 1000
+			        })
+			        return false;
+			      } else if (!myreg.test(this.phone)) {
+			        uni.showToast({
+			          title: '请输入正确的手机号',
+			          icon: 'none',
+			          duration: 1000
+			        })
+			        return false;
+			      } else {
+			        uni.request({
+			          method: 'POST',
+			          data: {
+			            mobile: this.phone,
+			          },
+			            //短信接口
+			          'url': _this.url + 'service/users/sms/',
+			            
+			          header: {
+			            "Content-Type": "application/x-www-form-urlencoded"
+			          },
+			
+			          success(res) {
+			            //根据code判断
+			            console.log(res)
+			            var ocode = res.data.code
+			            console.log(ocode)
+			            if (ocode == 201) {
+			              _this.iscode = res.data.data[0].code,
+			              console.log(res.data.data[0].code)
+			            } else if (ocode == 400) {
+			              uni.showToast({
+			                title: '手机号已绑定',
+			                icon: 'none',
+			                duration: 2000
+			              })
+			              return false;
+			            }
+			            console.log(res)
+			            var num = 61;
+			            var timer = setInterval(function () {
+			              num--;
+			              if (num <= 0) {
+			                clearInterval(timer);
+			                _this.codename = '重新发送',
+			                _this.disabled = false
+			
+			              } else {
+			                _this.codename = num + "s"
+			                
+			              }
+			            }, 1000)
+			          }
+			        })
+			
+			      }
+			
+			
+			},
+			//获取验证码
+			getCodeBtn: function(e){
+			  
+			      this.getCode();
+			      var _this = this
+			      _this.disabled = true
+				
+			},
+			register(){
+				if(this.phone==""){
+					uni.showModal({
+						title:"请输入手机号"
+					})
+					return false
+				}
+				if(this.pwd==""){
+					uni.showModal({
+						title:"请输入登录密码"
+					})
+					return false
+				}
+				if(this.pwd1==""){
+					uni.showModal({
+						title:"请确认登录密码"
+					})
+					return false
+				}
+				if(this.pwd1!==this.pwd){
+					uni.showModal({
+						title:"两次密码不一致"
+					})
+					return false
+				}
+				if(this.code==""){
+					uni.showModal({
+						title:"验证码不能为空"
+					})
+					return false
+				}
+				if(this.code!==this.iscode){
+					uni.showModal({
+						title:"验证码错误"
+					})
+					return false
+				}
+				
+			}
+		}
+	}
 </script>
 
 <style>
@@ -83,7 +247,7 @@
 		line-height: 60rpx;
 		background: #808080;
 		position: absolute;
-		bottom: 40rpx;
+		bottom: 20rpx;
 		right:0;
 	}
 	.btn{

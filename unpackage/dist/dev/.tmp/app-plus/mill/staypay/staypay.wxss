@@ -1,0 +1,51 @@
+
+.box{
+    width: 100%;
+}
+.box1 {
+    height: 120rpx;
+}
+.typ {
+    font-size: 28rpx;
+    margin-left: 46rpx;
+    line-height: 120rpx;
+}
+.mill {
+    height: 85rpx;
+    line-height: 85rpx;
+    font-size: 28rpx;
+    margin-left: 46rpx;
+}
+.state {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    margin-left: 320rpx;
+}
+.box2 {
+    height: 105rpx;
+}
+.trading { 
+    font-size: 28rpx;
+    line-height: 105rpx;
+    margin-left: 46rpx;
+}
+.rmb {
+    font-size: 28rpx;
+    line-height: 105rpx;
+    margin-left: 226rpx;
+}
+.x {
+    height: 125rpx;
+}
+.Serial {
+    font-size: 28rpx;
+    line-height: 125rpx;
+    margin-left: 46rpx;
+}
+.primary{
+    font-size: 16rpx;
+    width: 60rpx;
+    height: 40rpx;
+    border-radius: 30rpx;
+}
+

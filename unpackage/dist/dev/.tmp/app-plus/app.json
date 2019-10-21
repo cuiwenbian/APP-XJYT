@@ -44,43 +44,43 @@
     "backgroundColor": "#121212"
   },
   "tabBar": {
-    "color": "#8a8a8a",
-    "selectedColor": "#3cbfb1",
-    "backgroundColor": "#121212",
+    "color": "#7a7e83",
+    "selectedColor": "#0faeff",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/images/tab1.png",
-        "selectedIconPath": "static/images/tab-index.png"
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
       },
       {
         "pagePath": "mill/mill/mill",
         "text": "矿机",
-        "iconPath": "static/images/tab2.png",
-        "selectedIconPath": "static/images/tab-machine.png"
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
       },
       {
         "pagePath": "mill/assets/assets",
         "text": "资产",
-        "iconPath": "static/images/tab3.png",
-        "selectedIconPath": "static/images/tab-captial.png"
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
       },
       {
         "pagePath": "my/my/my",
         "text": "我的",
-        "iconPath": "static/images/tab4.png",
-        "selectedIconPath": "static/images/tab-mine.png"
+        "iconPath": "static/images/hu.png",
+        "selectedIconPath": "static/images/hu.png"
       }
     ]
   },
-  "nvueCompiler": "uni-app",
+  "nvueCompiler": "weex",
   "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "APP-XJYT",
+  "appname": "neil-modal",
   "compilerVersion": "2.3.3",
   "usingComponents": {}
 }
