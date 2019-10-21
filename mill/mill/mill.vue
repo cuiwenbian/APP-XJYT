@@ -63,7 +63,7 @@
 		height: 40rpx;
 		padding-left: 288rpx;
 		padding-top: 80rpx;
-        font-size: 24px;
+        font-size: 24rpx;
         color: #FFFFFF;
     }
    .many{
@@ -83,6 +83,7 @@
         width: 100%;
     }
     .primary{
+        box-sizing: border-box;
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -91,6 +92,7 @@
 		margin-top: 40rpx;
     }
     .primary1 {
+        box-sizing: border-box;
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -106,6 +108,7 @@
         background-color: #F6F6F6;
     }
     .box3 text {
+        box-sizing: border-box;
 		width: 108rpx;
         line-height: 120rpx;
 		float: left;
@@ -115,6 +118,7 @@
         /* border: hidden; */
     }
     .btn {
+        box-sizing: border-box;
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 30rpx;
@@ -124,12 +128,14 @@
         font-size: 24rpx;
     }
     .pagex {
+        box-sizing: border-box;
         width: 100%;
         margin-left: -10rpx;
         margin-right: 10rpx;
         display: inline-block;
     }
     .page1 {
+        box-sizing: border-box;
         height: 180rpx;
         margin-left: 50rpx;
         margin-top: 40rpx;
@@ -143,6 +149,7 @@
         float: left;
     }
     .info{
+        box-sizing: border-box;
         width: 70%;
         height: 100%;
         float: right;
