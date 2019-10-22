@@ -1,5 +1,5 @@
 <template>
-	<!-- 注册 --> 
+	<!-- 注册 -->
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
 		<view class='fil'>Filecoin</view>
@@ -20,7 +20,13 @@
 			<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
-		<view class='btn' type="primary" @click='register'>注册</view>
+		<view class='btn' @click='register'>注册</view>
+		<neil-modal 
+		    :show="show" 
+		    title="标题" 
+		    content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
+		    :show-cancel="false">
+		</neil-modal>
 		<navigator url='../login/login' class="goback">
 			已有账号，返回登录
 		</navigator>
@@ -31,6 +37,7 @@
 	export default{
 		data(){
 			return{
+				show:false,
 				phone:'',
 				pwd:'',
 				pwd1:'',
@@ -48,12 +55,13 @@
 			},
 			getNumber:function(e){
 				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-				this.phone=e.detail.value
-				
+				this.phone=e.detail.value	
 				   if(!myreg.test(this.phone)){
-					  uni.showModal({
-					  	title:'请输入正确的手机号'
-					  })
+					   uni.showToast({
+					   	title:'请输入正确的手机号',
+					   	icon:'none',
+					   	duration:2000
+					   })
 				   }
 				 
 			},
@@ -64,8 +72,10 @@
 				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
 				this.pwd=e.detail.value
 				if(!str.test(this.pwd)){
-					uni.showModal({
-						title:'密码格式不正确'
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
 					})
 				}
 			},
@@ -95,34 +105,31 @@
 			        return false;
 			      } else {
 			        uni.request({
+						//短信接口
+					  url: _this.url + 'users/regist/sms/',
 			          method: 'POST',
 			          data: {
 			            mobile: this.phone,
 			          },
-			            //短信接口
-			          'url': _this.url + 'service/users/sms/',
-			            
 			          header: {
 			            "Content-Type": "application/x-www-form-urlencoded"
 			          },
-			
 			          success(res) {
 			            //根据code判断
 			            console.log(res)
-			            var ocode = res.data.code
+			            var ocode = res.statusCode
 			            console.log(ocode)
-			            if (ocode == 201) {
-			              _this.iscode = res.data.data[0].code,
-			              console.log(res.data.data[0].code)
+			            if (ocode == 200) {
+			              _this.iscode = res.data.data,
+			              console.log(res.data.data)
 			            } else if (ocode == 400) {
 			              uni.showToast({
-			                title: '手机号已绑定',
+			                title: '手机号已注册',
 			                icon: 'none',
 			                duration: 2000
 			              })
 			              return false;
 			            }
-			            console.log(res)
 			            var num = 61;
 			            var timer = setInterval(function () {
 			              num--;
@@ -141,54 +148,97 @@
 			
 			      }
 			
-			
 			},
 			//获取验证码
 			getCodeBtn: function(e){
-			  
 			      this.getCode();
 			      var _this = this
 			      _this.disabled = true
-				
 			},
 			register(){
 				if(this.phone==""){
-					uni.showModal({
-						title:"请输入手机号"
+					uni.showToast({
+					  title: '请输入手机号',
+					  icon: 'none',
+					  duration: 2000
 					})
 					return false
 				}
 				if(this.pwd==""){
-					uni.showModal({
-						title:"请输入登录密码"
+					uni.showToast({
+					  title: '请输入登录密码',
+					  icon: 'none',
+					  duration: 2000
 					})
 					return false
 				}
 				if(this.pwd1==""){
-					uni.showModal({
-						title:"请确认登录密码"
+					uni.showToast({
+					  title: '请确认登录密码',
+					  icon: 'none',
+					  duration: 2000
 					})
 					return false
 				}
 				if(this.pwd1!==this.pwd){
-					uni.showModal({
-						title:"两次密码不一致"
+					uni.showToast({
+						title:'两次密码不一致',
+						icon:'none',
+						duration:2000
 					})
 					return false
 				}
 				if(this.code==""){
-					uni.showModal({
-						title:"验证码不能为空"
+					uni.showToast({
+						title:"验证码不能为空",
+						icon:'none',
+						duration:2000
 					})
 					return false
 				}
-				if(this.code!==this.iscode){
-					uni.showModal({
-						title:"验证码错误"
+				console.log(this.iscode);
+				console.log(this.code);
+				if(this.code!=this.iscode){
+					uni.showToast({
+						title:'验证码错误',
+						icon:'none',
+						duration:2000
 					})
 					return false
 				}
-				
+				uni.request({
+					url:this.url+'users/regist/',
+					method: 'POST',
+					data: {
+						mobile:this.phone,
+						password:this.pwd,
+						sec_password:this.pwd1,
+						code:this.code
+					},
+					headers: {
+					    "Content-Type": "application/json"
+					},
+					success: res => {
+						uni.setStorageSync('token',res.data.token)
+						console.log(res)
+						console.log(res.statusCode)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'验证码已过期',
+								icon:'none'
+							})
+						}
+						if(res.statusCode==201){
+							uni.navigateTo({
+								url:'../login/login'
+							})
+						}
+						
+					},
+				    fail: () => {},
+					complete: () => {}
+				});
+				 
 			}
 		}
 	}
@@ -203,7 +253,6 @@
 		height:185rpx;
 		margin-top:135rpx;
 		margin-left: calc((100% - 185rpx)/2);
-		
 	}
 	.fil{
 		height:100rpx;

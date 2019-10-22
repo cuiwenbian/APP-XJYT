@@ -10,7 +10,7 @@
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
 			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
-			<input class="number" style="width:350rpx;float: left;margin-left:10rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
+			<input class="number" style="width:350rpx;float: left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
 		<view class="btn" type="primary" @click="login">立刻登录</view>
 		<navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
@@ -24,7 +24,7 @@ export default {
 			phone: '', //手机号
 			code: '', //验证码
 			iscode: '', //用于存放验证码接口里获取到的code
-			codename: ' 获取验证码 '
+			codename: ' 获取验证码'
 		};
 	},
 	onLoad: function(options) {
@@ -42,7 +42,6 @@ export default {
 			this.code = e.detail.value;
 		},
 		getCode: function () {
-		
 		      var _this = this;
 		      //判断手机号格式
 		      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
@@ -67,7 +66,7 @@ export default {
 		            mobile: this.phone,
 		          },
 		            //短信接口
-		          'url': _this.url + 'service/users/sms/',
+		          'url': _this.url + 'users/forgot/sms/',
 		            
 		          header: {
 		            "Content-Type": "application/x-www-form-urlencoded"
@@ -76,14 +75,14 @@ export default {
 		          success(res) {
 		            //根据code判断
 		            console.log(res)
-		            var ocode = res.data.code
+		            var ocode = res.statusCode;
 		            console.log(ocode)
-		            if (ocode == 201) {
-		              _this.iscode = res.data.data[0].code,
-		              console.log(res.data.data[0].code)
+		            if (ocode == 200) {
+		              _this.iscode = res.data.data,
+		              console.log(res.data.data)
 		            } else if (ocode == 400) {
 		              uni.showToast({
-		                title: '手机号已绑定',
+		                title: '用户不存在',
 		                icon: 'none',
 		                duration: 2000
 		              })
@@ -97,8 +96,6 @@ export default {
 		                clearInterval(timer);
 		                _this.codename = '重新发送',
 		                _this.disabled = false
-		            
-		
 		
 		              } else {
 		                _this.codename = num + "s"
@@ -112,7 +109,7 @@ export default {
 		},
 		//获取验证码
 		getCodeNumber: function(e) {
-			console.log("111")
+			
 			this.getCode();
 			var _this = this;
 			_this.disabled = true;
@@ -155,50 +152,28 @@ export default {
 			} else {
 				uni.setStorageSync('phone', this.phone);
 				uni.request({
-					method: 'POST',
-					data: {
-						code: this.code,
-						mobile: this.phone
+					url:this.url+'users/login/',
+					method:'POST',
+					data:{
+						mobile:this.phone,
+						code:this.code
 					},
-					//绑定接口
-					url: _this.domain + 'service/users/registers/',
-
 					success(res) {
-						_this.statusCode = res.statusCode;
-						let statusCode = res.statusCode;
-						if (parseInt(statusCode) === 200) {
+						console.log(res)
+						if(res.statusCode==400){
 							uni.showToast({
-								title: '绑定成功',
-								icon: 'success',
-								duration: 1000
-							});
-							setTimeout(function() {
-								uni.redirectTo({
-									url: '../index/index'
-								});
-							}, 2000);
-							uni.request({
-								//登录接口
-								url: _this.domain + 'service/users/login/',
-								method: 'POST',
-								data: {
-									open_id: open_id
-								},
-								header: {
-									'content-type': 'application/json' // 默认值
-								},
-								success: res => {
-									uni.setStorageSync('token', res.data.data[0].token);
-								}
-							});
+								title:'验证码不正确',
+								icon:'none'
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../index/index'
+							})
 						}
 					}
-				});
-				uni.showToast({
-					title: '绑定成功',
-					icon: 'success',
-					duration: 1000
-				});
+				})
+				
 			}
 		}
 	}
