@@ -33,7 +33,7 @@
 				</view>
 				<view class="hz">
 					<button class="btn1">取消订单</button>
-					<button class="btn2">查看详细</button>
+					<button class="btn2" @click="btn">查看详细</button>
 				</view>
                 </scroll-view>
             </view>
@@ -56,7 +56,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn2">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -79,7 +79,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn3">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -102,7 +102,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn4">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -119,22 +119,22 @@
                 navList: [
                 	{
                 		state: 0,
-                		text: '可出售'
+                		text: '待付款'
                 	
                 	},
                 	{
                 		state: 1,
-                		text: '出售中'
+                		text: '待确认'
                 		
                 	},
                 	{
                 		state: 2,
-                		text: '已完成'
+                		text: '待审核'
                 		
                 	},
                     {
                         state: 3,
-                        text:  '待付款'
+                        text:  '已完成'
                     }
                 	
                 ]
@@ -148,6 +148,26 @@
                 }else {
                     that.tabCurrentIndex =index
                 }
+            },
+            btn:function () {
+                uni.navigateTo({
+                    url:"../staypay/staypay"
+                })
+            },
+            btn2:function() {
+                uni.navigateTo({
+                    url:'../stayconfirm/stayconfirm'
+                })
+            },
+            btn3:function () {
+                uni.navigateTo({
+                    url:'../stayaudit/stayaudit'
+                })
+            },
+            btn4:function(){
+                uni.navigateTo({
+                    url:'../completed/completed'
+                })
             }
         }
     }
@@ -181,9 +201,9 @@
 	}
 	.many1{
 		float: right;
-		width: 10%;
+		width: 12%;
 		height: 60rpx;
-		padding-right: 140rpx;
+		padding-right: 128rpx;
 	}
     .box3 {
         height: 90rpx;

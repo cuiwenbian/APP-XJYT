@@ -77,6 +77,7 @@
     .primary{
         width: 220rpx;
         height: 88rpx;
+        line-height: 88rpx;
 		float: left;
 		margin-left: 48rpx;
 		margin-top: 40rpx;
@@ -84,6 +85,7 @@
     .primary1 {
         width: 220rpx;
         height: 88rpx;
+        line-height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 40rpx;

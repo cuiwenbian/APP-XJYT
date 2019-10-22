@@ -1,0 +1,77 @@
+
+page {
+    background-color: #DCDCDC;
+}
+.box1 {
+    margin-bottom: 40rpx;
+    height: 120rpx;
+    background-color: #fff;
+}
+.name {
+    float: left;
+    width: 120rpx;
+    color: #CCCCCC;
+    line-height: 120rpx;
+    padding-left: 48rpx;
+}
+.pag {
+    float: left;
+    color: #CCCCCC;
+    line-height: 120rpx;
+    padding-left: 120rpx;
+}
+.box {
+    background-color: #fff;
+    height: 180rpx;
+}
+.left {
+    line-height: 180rpx;
+}
+.img{
+    float: left;
+    width: 145rpx;
+    height: 126rpx;
+    margin-left: 48rpx;
+    margin-top: 36rpx;
+    margin-right: 24rpx;
+    border: 1rpx solid #CCCCCC;
+    padding: 0 14rpx 0 14rpx;
+}
+.info {
+    font-size: 28rpx;
+}
+.right {
+    padding-top: 18rpx;
+}
+.all{
+    font-size: 24rpx;
+    color: #C0C0C0;
+}
+.area {
+    font-size: 24rpx;
+    color: #C0C0C0;
+}
+.y {
+    width: 90%;
+    height: 30rpx;
+    border-bottom: 2rpx solid #C0C0C0;
+    margin: 0 auto;
+}
+.boxx {
+    height: 215rpx;
+    margin-top: 40rpx;
+    background-color: #fff;
+}
+.uu {
+    float: left;
+    width: 100%;
+    color: #CCCCCC;
+    padding-left: 48rpx;
+    padding-top: 20rpx;
+    font-size: 32rpx;
+}
+.ui {
+    color: #000000;
+    padding-left: 60rpx;
+}
+

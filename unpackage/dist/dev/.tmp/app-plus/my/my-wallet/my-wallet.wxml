@@ -1,0 +1,1 @@
+<view class="container"><view class="bg"><view class="txt">Filecoin</view><view class="mess"><view class="num"><text class="number">322</text>个</view><view data-event-opts="{{[['tap',[['transfer',['$event']]]]]}}" class="trade" bindtap="__e">转账</view></view></view><view class="income">收支记录</view></view>

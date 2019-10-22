@@ -6,8 +6,8 @@
         </view>
         <view class="box2">
             <view class="market">
-                <button class="primary" >买单</button>
-                <button class="primary1">卖单</button>
+                <button class="primary" @click="pay">买单</button>
+                <button class="primary1" @click="sale">卖单</button>
             </view>
         </view>
         <view class="box3">
@@ -46,7 +46,16 @@
     
     	},
     	methods: {
-    
+            pay:function () {
+                uni.navigateTo({
+                    url:'../pay/pay'
+                })
+            },
+            sale:function() {
+                uni.navigateTo({
+                    url:'../sale/sale'
+                })
+            }
     	}
     }
 </script>
@@ -61,8 +70,8 @@
 		float: left;
 		width: 100%;
 		height: 40rpx;
-		padding-left: 288rpx;
-		padding-top: 80rpx;
+        text-align: center;
+        padding-top: 60rpx;
         font-size: 24rpx;
         color: #FFFFFF;
     }
@@ -115,7 +124,6 @@
         font-size: 36rpx;
 		margin-left: 48rpx;
         border-bottom: 1rpx solid #DCB16E;
-        /* border: hidden; */
     }
     .btn {
         box-sizing: border-box;

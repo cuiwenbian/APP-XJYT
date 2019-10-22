@@ -66,7 +66,7 @@
             <view class="xn"></view>
             <view class="haide">
                 <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
-                <button class="primary">确定出售</button>
+                <button class="primary" @click="btn">确定出售</button>
             </view>
         </view>
     </view>
@@ -92,6 +92,11 @@
                 let total_price = this.total_price
                 this.total_price = e.detail.value
                 this.sun = getRmb.getrmb(e.detail.value)
+            },
+            btn:function () {
+                uni.navigateTo({
+                    url:"../validation/validation"
+                })
             }
         }
     }
