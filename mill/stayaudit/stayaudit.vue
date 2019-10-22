@@ -98,6 +98,9 @@
                 </view>
             </view>
         </view>
+        <view class="box4">
+            <button class="primary1">审核中</button>
+        </view>
     </view>
 </template>
 
@@ -225,5 +228,16 @@
     .box4 {
         height: 80rpx;
         line-height: 80rpx;
+    }
+    .primary1 {
+        width: 180rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        margin-top: 12rpx;
+        color: #FFFFFF;
+        font-size: 28rpx;
+        float: right;
+        margin-right: 48rpx;
+        background-color: #121212;
     }
 </style>
