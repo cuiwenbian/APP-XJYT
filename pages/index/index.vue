@@ -103,7 +103,7 @@
             	var open_id = uni.getStorageSync('openid');
             	var token = uni.getStorageSync('token');
             	uni.request({
-            			url: this.domain + 'service/home/seven/' + open_id,
+            			url: '',
             			method: 'GET',
             			header: {
             			  "token": token,

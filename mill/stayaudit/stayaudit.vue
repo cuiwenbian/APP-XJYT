@@ -124,7 +124,7 @@
         },
         methods:{
             btn:function () {
-                var that = this
+
             }
         }
     }
