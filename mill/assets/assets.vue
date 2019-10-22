@@ -1,12 +1,13 @@
 <template>
     <view class="container">
+
+		 <view class="height"></view>
         <view class="box">
-			<view class="assets">总资产</view>
-			<view class="number">{{num}}  FIL</view>
-			<view>
-				<text class="coin">可用币  {{ber}}</text>
-				<text class="lock">锁定  {{nuber}}</text>
-			</view>
+            <text class="assets">总资产</text>
+            <view class="number">{{num}}  FIL</view>
+            <text class="coin">可用币  {{ber}}</text>
+            <text class="lock">锁定  {{nuber}}</text>
+
         </view>
         <view class="btn">
             <button class="primary">提交</button>
@@ -39,17 +40,20 @@
 </script>
 
 <style>
+	.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+	}
     .box{
         width: 100%;
         height: 400rpx;
         background-color: #121212;
     }
     .assets{
+        text-align: center;
 		height: 60rpx;
 		width: 100%;
 		float: left;
-		padding-left: 312rpx;
-		padding-top: 80rpx;
         color: #FFFFFF;
     }
     .number{
@@ -76,18 +80,20 @@
     }
     .primary{
         width: 220rpx;
+
         height: 88rpx;
-        line-height: 88rpx;
 		float: left;
 		margin-left: 48rpx;
+
 		margin-top: 40rpx;
     }
     .primary1 {
         width: 220rpx;
+
         height: 88rpx;
-        line-height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
+
 		margin-top: 40rpx;
         background-color: #121212;
         color: #FFFFFF;

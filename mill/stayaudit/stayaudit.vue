@@ -140,6 +140,7 @@
         background-color: #fff;
     }
     .small {
+        box-sizing: border-box;
         width: 100%;
         height: 110rpx;
         line-height: 110rpx;
@@ -148,6 +149,7 @@
         font-size: 32rpx;
     }
     .small1{
+        box-sizing: border-box;
         width: 100%;
         float: left;
         height: 110rpx;
@@ -156,11 +158,13 @@
         font-size: 32rpx;
     }
     .smallx {
+        box-sizing: border-box;
         float: right;
         font-size: 32rpx;
         padding-right: 170rpx;
     }
     .smallxx {
+        box-sizing: border-box;
         padding-left: 40rpx;
     }
     .primary {

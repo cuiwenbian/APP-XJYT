@@ -5,11 +5,11 @@
 		<view class='fil'>Filecoin</view>
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
-			<input class="number" type="number" value="" placeholder="请输入手机号码" />
+			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
 		</view>
 		<view class="enter">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<input class="number" type="text" value="" placeholder="请输入密码" />
+			<input class="number" type="text" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
 		</view>
 		<view class="tip">
 			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
@@ -19,37 +19,122 @@
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		<view class="agree">
-			<view class="check"></view>
-			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+		<view class="agree" >
+			<!-- <view class="check"></view> -->
+			<label>
+				<checkbox  :checked="check"/><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+			</label>
+			
 		</view>
-		
+		<neil-modal 
+		    :show="show" 
+		    @close="closeModal" 
+		    title="标题" 
+		    content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
+		    @cancel="bindBtn('cancel')" 
+		    @confirm="bindBtn('confirm')">
+		</neil-modal>
+		<uni-popup ref="popup" type="center" custom="true">
+			<view class='pop'>标题</view>
+		</uni-popup>
 	</view>
 </template>
 
 <script>
+	import neilModal from '@/components/neil-modal/neil-modal.vue';
+	import uniPopup from "@/components/uni-popup/uni-popup.vue"
 	export default {
 		data() {
 			return {
+				show:false,
+				phone:'',
+				password:'',
+				
 			};
 		},
+		
+		components: {
+			neilModal,
+		    uniPopup
+		},
 		methods:{
-			agree(){
-				uni.navigateTo({
-					url:'../agreement/agreement'
-				});
+			getPhoneValue:function(e){
+				this.phone=e.detail.value
 			},
-			login(){
+			getNumber:function(e){
+				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+				this.phone=e.detail.value
+			
+				   if(!myreg.test(this.phone)){
+					 uni.showToast({
+					 	title:'请输入正确的手机号',
+						icon:'none',
+						mask:true,
+						duration:2000
+					 })
+				   }
+				  return false
+				
+			},
+			getPasswordValue:function(e){
+				this.password=e.detail.value
+				console.log(this.password)
+			},
+			login() {
+				//this.$refs.popup.open()
+				if(this.phone==""){
+					uni.showToast({
+						icon:'none',
+						title:'请输入手机号'
+					})
+					return false;
+				}
+				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;	
+				if(!myreg.test(this.phone)){
+					 uni.showToast({
+					 	title:'请输入正确的手机号',
+						icon:'none',
+						mask:true,
+						duration:2000
+					 })
+					  return false
+				 }
+				 
+				if(!this.password){
+					uni.showToast({
+						icon:'none',
+						title:'请输入密码'
+					})
+					return false
+				}
+				uni.request({
+					url: '',
+					method: 'GET',
+					data: {
+						
+					},
+					success: res => {
+						
+					},
+					fail: () => {},
+					complete: () => {}
+				});
 				uni.reLaunch({
 					url:'../index/index'
 				});
 			},
+			agree(){
+				uni.navigateTo({
+					url:'../agreement/agreement'
+				});
+			}
 			
 		}
 	}
 </script>
 
 <style>
+	
 	page{
 		background: #121212;
 	}
@@ -58,7 +143,6 @@
 		height:185rpx;
 		margin-top:135rpx;
 		margin-left: calc((100% - 185rpx)/2);
-		
 	}
 	.fil{
 		height:100rpx;
@@ -123,13 +207,13 @@
 		text-align: center;
 	}
 	.agree{
-		width:320rpx;
+		width:340rpx;
 		height:30rpx;
 		color:#fff;
 		font-size: 18rpx;
 		position: fixed;
 		bottom:50rpx;
-		left:calc((100% - 320rpx)/2);
+		left:calc((100% - 340rpx)/2);
 	}
 	.check{
 		float: left;
@@ -141,5 +225,36 @@
 		background-color: #fff;
 		border-radius: 3px;
 		margin-top:5rpx;
+	}
+	/* #ifdef H5 */
+	checkbox .uni-checkbox-input{
+		border-radius: 50%;
+	}
+	checkbox .uni-checkbox-input.uni-checkbox-input-checked{
+		border:1px solid #ff4500;
+		background: #ff4500;
+		color:#fff !important;
+	}
+	checkbox .uni-checkbox-input.uni-checkbox-input-checked:after{
+		font-size: 36rpx;
+	}
+	/* #endif */
+	/* #ifdef APP-PLUS||MP-WEIXIN */
+	checkbox .wx-checkbox-input{             
+		width:30rpx;
+		height:30rpx;
+		border-radius: 10rpx;
+	}
+	/* 选中后的背景样式 */
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked{    
+		border:1px solid #ff4500;
+		background: #ff4500;
+		color:#fff !important;
+	}
+	/* 选中后的对勾样式 */
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked:after{
+		width:30rpx;
+		height:30rpx;
+		font-size: 36rpx;
 	}
 </style>

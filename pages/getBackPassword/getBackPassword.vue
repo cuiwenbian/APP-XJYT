@@ -3,13 +3,13 @@
 	<view class="container" >
 		<view class="pass">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
-			<input class="phone" type="number" value="" placeholder="请输入手机号" />
+			<input class="phone" maxlength="11" type="number" :value="phone" @input="getPhoneValue" placeholder="请输入手机号" />
 			<view class="line"></view>
 		</view>
 		<view class="pass">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<view class="getcode">获取验证码</view>
-			<input class="code" type="text" value="" placeholder="请输入手机验证码" />
+			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
+			<input class="code" type="text"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
 		<view class="next" type="primary" @click="next">下一步</view>
 	</view>
@@ -19,14 +19,135 @@
 	export default {
 		data() {
 			return {
+				phone: '', //手机号
+				code: '', //验证码
+				iscode: '', //用于存放验证码接口里获取到的code
+				codename: ' 获取验证码 '
 			};
 		},
+		onLoad: function(options) {
+			this.disabled = true;
+		},
 		methods:{
-			next(){
-				uni.navigateTo({
-					url:'../setNewPassword/setNewPassword'
-				});
+			getPhoneValue: function(e) {
+				if (e.detail.value.length == 11) {
+					this.disabled = false;
+				}
+				this.phone = e.detail.value;
+				console.log(this.phone);
 			},
+			getCodeValue: function(e) {
+				this.code = e.detail.value;
+			},
+			getCode: function () {
+			
+			      var _this = this;
+			      //判断手机号格式
+			      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+			      if (this.phone == "") {
+			        uni.showToast({
+			          title: '手机号不能为空',
+			          icon: 'none',
+			          duration: 1000
+			        })
+			        return false;
+			      } else if (!myreg.test(this.phone)) {
+			        uni.showToast({
+			          title: '请输入正确的手机号',
+			          icon: 'none',
+			          duration: 1000
+			        })
+			        return false;
+			      } else {
+			        uni.request({
+			          method: 'POST',
+			          data: {
+			            mobile: this.phone,
+			          },
+			            //短信接口
+			          'url': _this.url + 'service/users/sms/',
+			            
+			          header: {
+			            "Content-Type": "application/x-www-form-urlencoded"
+			          },
+			
+			          success(res) {
+			            //根据code判断
+			            console.log(res)
+			            var ocode = res.data.code
+			            console.log(ocode)
+			            if (ocode == 201) {
+			              _this.iscode = res.data.data[0].code,
+			              console.log(res.data.data[0].code)
+			            } else if (ocode == 400) {
+			              uni.showToast({
+			                title: '手机号已绑定',
+			                icon: 'none',
+			                duration: 2000
+			              })
+			              return false;
+			            }
+			            console.log(res)
+			            var num = 61;
+			            var timer = setInterval(function () {
+			              num--;
+			              if (num <= 0) {
+			                clearInterval(timer);
+			                _this.codename = '重新发送',
+			                _this.disabled = false
+			            
+			
+			
+			              } else {
+			                _this.codename = num + "s"
+			                
+			              }
+			            }, 1000)
+			          }
+			        })
+			
+			      }	
+			},
+			//获取验证码
+			getCodeNumber: function(e) {
+				this.getCode();
+				var _this = this;
+				_this.disabled = true;
+			},
+			//提交表单信息
+			next: function() {
+				var _this = this;
+				// var pre = that.data;
+				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+			
+				if (this.phone == '') {
+					uni.showToast({
+						title: '手机号不能为空',
+						icon: 'none',
+						duration: 1000
+					});
+					return false;
+				} else if (!myreg.test(this.phone)) {
+					uni.showToast({
+						title: '请输入正确的手机号',
+						icon: 'none',
+						duration: 1000
+					});
+					return false;
+				}
+				if (this.code == '') {
+					uni.showToast({
+						title: '验证码不能为空',
+						icon: 'none',
+						duration: 1000
+					});
+					return false;
+				} 
+				uni.navigateTo({
+					url:'../setNewPassword/setNewPassword?code='+this.code,
+				});
+			}
+			
 			
 		}
 	}

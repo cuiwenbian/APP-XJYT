@@ -77,13 +77,13 @@
       }
     ]
   },
-  "nvueCompiler": "uni-app",
+  "nvueCompiler": "weex",
   "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "APP-XJYT",
+  "appname": "neil-modal",
   "compilerVersion": "2.3.6",
   "usingComponents": {}
 }

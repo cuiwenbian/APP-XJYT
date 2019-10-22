@@ -1,7 +1,7 @@
 <template>
     <!-- 卖出待审核详情订单 -->
     <view class="container">
-        <view class="box">
+       <view class="box">
             <view class="small">
                 <text>交易类型:
                     <text class="smallxx">{{type}}</text>
@@ -45,10 +45,11 @@
                 <button class="primary" @click="btn">查看全部^</button>
             </view>
         </view>
-        <view class="box1">
+       <view class="box1">
             买家信息
-        </view>
-        <view class="box2">
+        </view> 
+
+      <view class="box2">
             <view class="bx">姓名:
                 <text class="bxx">{{name}}</text>
             </view>
@@ -59,7 +60,7 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3">
+         <view class="box3">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
@@ -140,6 +141,7 @@
         background-color: #fff;
     }
     .small {
+        box-sizing: border-box;
         width: 100%;
         height: 110rpx;
         line-height: 110rpx;
@@ -148,6 +150,7 @@
         font-size: 32rpx;
     }
     .small1{
+        box-sizing: border-box;
         width: 100%;
         float: left;
         height: 80rpx;
@@ -158,9 +161,11 @@
     .smallx {
         float: right;
         font-size: 32rpx;
+        box-sizing: border-box;
         padding-right: 170rpx;
     }
     .smallxx {
+        box-sizing: border-box;
         padding-left: 40rpx;
     }
     .primary {

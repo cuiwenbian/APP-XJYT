@@ -49,7 +49,7 @@ page{
 	line-height: 60rpx;
 	background: #808080;
 	position: absolute;
-	bottom: 40rpx;
+	bottom: 20rpx;
 	right:0;
 }
 .btn{

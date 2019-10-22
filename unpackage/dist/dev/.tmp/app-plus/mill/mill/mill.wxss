@@ -7,9 +7,9 @@
 		float: left;
 		width: 100%;
 		height: 40rpx;
-        text-align: center;
-        padding-top: 60rpx;
-        font-size: 24rpx;
+        font-size: 28rpx;
+		text-align: center;	
+		padding-top: 120rpx;
         color: #FFFFFF;
 }
 .many{
@@ -17,6 +17,8 @@
 		width: 100%;
 		height: 60rpx;
 		padding-left: 348rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 		padding-top: 40rpx;
         font-size: 28rpx;
         color: #DCB16E;
@@ -29,8 +31,7 @@
         width: 100%;
 }
 .primary{
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -39,8 +40,6 @@
 		margin-top: 40rpx;
 }
 .primary1 {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -56,8 +55,6 @@
         background-color: #F6F6F6;
 }
 .box3 text {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
 		width: 108rpx;
         line-height: 120rpx;
 		float: left;
@@ -66,8 +63,6 @@
         border-bottom: 1rpx solid #DCB16E;
 }
 .btn {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 30rpx;
@@ -76,53 +71,43 @@
         line-height: 70rpx;
         font-size: 24rpx;
 }
-.pagex {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+    /*    .pagex {
+
         width: 100%;
-        margin-left: -10rpx;
-        margin-right: 10rpx;
-        display: inline-block;
-}
-.page1 {
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        display: block;
+    }
+    .page1 {
+
         height: 180rpx;
-        margin-left: 50rpx;
-        margin-top: 40rpx;
+
         padding-right: 40rpx;
         padding-bottom: 20rpx;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-}
-.img{
+
+    }
+    .img{
         width: 20%;
         height: 100%;
         float: left;
-}
-.info{
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+    }
+    .info{
+
         width: 70%;
         height: 100%;
         float: right;
-        margin-left: 30rpx;
-}
-.obg{
+    }
+    .obg{
         font-size: 30rpx;
         line-height: 50rpx;
-}
-.obh_one {
+    }
+    .obh_one {
         font-size: 24rpx;
         line-height: 50rpx;
-}
-.days{
+    }
+    .days{
         color: #5ca614;
-}
-.obg_one{
+    }
+    .obg_one{
         font-size: 24rpx;
         line-height: 50rpx;
-}
+    } */
 
