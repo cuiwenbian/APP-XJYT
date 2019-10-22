@@ -61,8 +61,8 @@
 		float: left;
 		width: 100%;
 		height: 40rpx;
-		padding-left: 288rpx;
-		padding-top: 80rpx;
+		text-align: center;	
+		padding-top: 40rpx;
         font-size: 24rpx;
         color: #FFFFFF;
     }
@@ -83,7 +83,7 @@
         width: 100%;
     }
     .primary{
-        box-sizing: border-box;
+
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -92,7 +92,6 @@
 		margin-top: 40rpx;
     }
     .primary1 {
-        box-sizing: border-box;
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
@@ -108,17 +107,15 @@
         background-color: #F6F6F6;
     }
     .box3 text {
-        box-sizing: border-box;
 		width: 108rpx;
         line-height: 120rpx;
 		float: left;
         font-size: 36rpx;
-		margin-left: 48rpx;
+		padding-left: 48rpx;
         border-bottom: 1rpx solid #DCB16E;
         /* border: hidden; */
     }
     .btn {
-        box-sizing: border-box;
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 30rpx;

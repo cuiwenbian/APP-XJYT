@@ -35,13 +35,6 @@
         background-color: #F6F6F6;
         position: relative;
 }
-.box3 text {
-        float: left;
-        padding-left: 90rpx;
-        line-height: 90rpx;
-        font-size: 28rpx;
-        padding-bottom : 40rpx;
-}
 .list{
       height: auto;
 }
@@ -58,12 +51,14 @@
 .mation{
         float: left;
 		height: 40rpx;
+        line-height: 90rpx;
         font-size: 28rpx;
         padding-left: 48rpx;
 }
-.contact{
+.cont{
         float: right;
         font-size: 28rpx;
+        line-height: 90rpx;
         padding-right: 208rpx;
 }
 .line{
@@ -105,7 +100,7 @@
 }
 .line1 {
         width: 92%;
-		margin: 0 auto;
+		margin: 6rpx auto;
         border: 1rpx solid #CCCCCC;
 }
 .hz{

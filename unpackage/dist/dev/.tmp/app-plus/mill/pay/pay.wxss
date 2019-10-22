@@ -33,22 +33,10 @@
 .box3 {
         height: 90rpx;
         background-color: #F6F6F6;
+        position: relative;
 }
-.box3 text {
-        float: left;
-        padding-left: 90rpx;
-        line-height: 90rpx;
-        font-size: 28rpx;
-        padding-bottom : 40rpx;
-}
-.xia {
-        display: block;
-        float: left;
-        width: 90rpx;
-        border-bottom: 2rpx solid #DCB16E;
-        margin-left: -84rpx;
-        margin-top: 90rpx;
-        border: hidden;
+.list{
+      height: auto;
 }
 .order{
         width: 100%;
@@ -63,12 +51,14 @@
 .mation{
         float: left;
 		height: 40rpx;
+        line-height: 90rpx;
         font-size: 28rpx;
         padding-left: 48rpx;
 }
-.contact{
+.cont{
         float: right;
         font-size: 28rpx;
+        line-height: 90rpx;
         padding-right: 208rpx;
 }
 .line{
@@ -110,7 +100,7 @@
 }
 .line1 {
         width: 92%;
-		margin: 0 auto;
+		margin: 6rpx auto;
         border: 1rpx solid #CCCCCC;
 }
 .hz{
@@ -137,5 +127,45 @@
         line-height: 60rpx;
         color: #FFFFFF;
         background-color: #091219;
+}
+.swiper-tab {
+     
+        display: -webkit-box;
+     
+        display: -webkit-flex;
+     
+        display: -ms-flexbox;
+     
+        display: flex;
+         
+        -webkit-box-orient: horizontal;
+         
+        -webkit-box-direction: normal;
+         
+        -webkit-flex-direction: row;
+         
+            -ms-flex-direction: row;
+         
+                flex-direction: row;
+         
+        line-height: 80rpx;
+    
+        background: #CCCCCC;
+}
+.tab-item {
+ 
+         width: 33.3%;
+         height:auto;
+         text-align: center;
+         
+         font-size: 34rpx;
+         
+         color: #777;
+}
+.current {
+     
+        color: #fff;
+         
+        border-bottom: 5rpx solid #fff;
 }
 
