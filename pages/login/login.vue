@@ -257,4 +257,5 @@
 		height:30rpx;
 		font-size: 36rpx;
 	}
+    /* #endif */
 </style>

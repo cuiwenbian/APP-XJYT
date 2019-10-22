@@ -1,6 +1,29 @@
 
+.qiun-charts {
+    	width: 750rpx;
+    	height: 500rpx;
+    	background-color: #FFFFFF;
+}
+.charts {
+    	width: 750rpx;
+    	height: 500rpx;
+    	background-color: #FFFFFF;
+}
 page {
         background-color: #121212;
+}
+.charts {
+      width: 100%;
+      height: 600rpx;
+      padding-left:20rpx;
+      padding-right: 20rpx;
+      /* padding-top:10rpx; */
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background: -webkit-gradient(linear,left top, left bottom,from(#28c1d8), to(#86ced9));
+      background: -o-linear-gradient(top,#28c1d8, #86ced9);
+      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      position: relative;
 }
 .height {
 		height: var(--status-bar-height);
@@ -58,19 +81,22 @@ swiper-item image {
 .price{
         padding-left: 24rpx;
 }
-	/* 白 */
+    
+    /* 白 */
 .bot{
         float: left;
         line-height: 120rpx;
         font-size: 34rpx;
         color: #FFFFFF;
 }
-	/* 2 */
+    
+    /* 2 */
 .price1{
         float: right;
         padding-right: 24rpx;
 }
-	/* 黄 */
+    
+    /* 黄 */
 .Todayprice{
 			float: left;
 			line-height: 120rpx;
