@@ -65,7 +65,7 @@
 			            mobile: this.phone,
 			          },
 			            //短信接口
-			          'url': _this.url + 'service/users/sms/',
+			          'url': _this.url + 'users/forgot/sms/',
 			            
 			          header: {
 			            "Content-Type": "application/x-www-form-urlencoded"
@@ -74,14 +74,14 @@
 			          success(res) {
 			            //根据code判断
 			            console.log(res)
-			            var ocode = res.data.code
+			            var ocode = res.statusCode
 			            console.log(ocode)
-			            if (ocode == 201) {
-			              _this.iscode = res.data.data[0].code,
-			              console.log(res.data.data[0].code)
+			            if (ocode == 200) {
+			              _this.iscode = res.data.data,
+			              console.log(res.data.data)
 			            } else if (ocode == 400) {
 			              uni.showToast({
-			                title: '手机号已绑定',
+			                title: '用户不存在',
 			                icon: 'none',
 			                duration: 2000
 			              })
@@ -143,8 +143,16 @@
 					});
 					return false;
 				} 
+				if(this.code!=this.iscode){
+					uni.showToast({
+						title:'验证码错误',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
 				uni.navigateTo({
-					url:'../setNewPassword/setNewPassword?code='+this.code,
+					url:'../setNewPassword/setNewPassword?code='+this.code+'&phone='+this.phone,
 				});
 			}
 			

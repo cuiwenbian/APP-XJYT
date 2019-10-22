@@ -3,18 +3,107 @@
 	<view class="container" >
 		<view class="pass">
 			<text class="title">新密码</text>
-			<input class="phone" type="text" value="" placeholder="6-16位数字、字母" />
+			<input class="phone" type="text" :value="newPwd" @blur="passwordWrong" @input="newpassword" placeholder="6-16位数字、字母" />
 			<view class="line"></view>
 		</view>
 		<view class="pass">
 			<text class="title">确认密码</text>
-			<input class="phone" type="text" value="" placeholder="请再次输入新密码" />
+			<input class="phone" type="text" :value="newPwd1" @input="newpassword1" placeholder="请再次输入新密码" />
 		</view>
-		<view class="next" type="primary" @click="next">确认</view>
+		<view class="next" @click="next">确认</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				newPwd:'',
+				newPwd1:'',
+				iscode:'',
+				phone:''
+			}
+		},
+		onLoad(options) {
+			this.iscode=options.code;
+			this.phone=options.phone;
+			console.log(this.iscode)
+			console.log(this.phone)
+		},
+		methods:{
+			newpassword:function(e){
+				this.newPwd=e.detail.value
+			},
+			passwordWrong:function(e){
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				this.newPwd=e.detail.value
+				if(!str.test(this.newPwd)){
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
+					})
+				}
+			},
+			newpassword1:function(e){
+				this.newPwd1=e.detail.value
+			},
+			next(){
+				var _this=this;
+				if(this.newPwd==""){
+					uni.showToast({
+						title:"请输入新密码",
+						icon:"none",
+						duration:2000
+					})
+					return false
+				}
+				if(this.newPwd1==""){
+					uni.showToast({
+						title:'请确认密码',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.newPwd1!==this.newPwd){
+					uni.showToast({
+						title:'两次密码不一致',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				if(!str.test(this.newPwd)){
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				uni.request({
+					url:this.url+'users/forgot/change/',
+					method:'POST',
+					data:{
+						mobile:this.phone,
+						password:this.newPwd,
+						sec_password:this.newPwd1
+					},
+					header:{
+						
+					},
+					success(res) {
+						console.log(res)
+						uni.navigateTo({
+							url:'../login/login'
+						})
+					}
+				})
+			}
+		}
+	}
 </script>
 
 <style>

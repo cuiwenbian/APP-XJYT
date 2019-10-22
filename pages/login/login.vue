@@ -22,11 +22,11 @@
 		<view class="agree" >
 			<!-- <view class="check"></view> -->
 			<label>
-				<checkbox  :checked="check"/><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
 			</label>
 			
 		</view>
-		<neil-modal 
+		<!-- <neil-modal 
 		    :show="show" 
 		    @close="closeModal" 
 		    title="标题" 
@@ -36,11 +36,12 @@
 		</neil-modal>
 		<uni-popup ref="popup" type="center" custom="true">
 			<view class='pop'>标题</view>
-		</uni-popup>
+		</uni-popup> -->
 	</view>
 </template>
 
 <script>
+	
 	import neilModal from '@/components/neil-modal/neil-modal.vue';
 	import uniPopup from "@/components/uni-popup/uni-popup.vue"
 	export default {
@@ -108,20 +109,36 @@
 					return false
 				}
 				uni.request({
-					url: '',
-					method: 'GET',
+					url: this.url+'users/login/',
+					method: 'POST',
 					data: {
-						
+						mobile:this.phone,
+						password:this.password
+					},
+					headers: {
+					    "Content-Type": "application/json"
 					},
 					success: res => {
+						// plus.storage('token',res.data.token)
+						// uni.setStorage('token',res.data.token)
+						console.log(res)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'用户信息不存在',
+								icon:'none'
+							})
+						}
+						if(res.statusCode==200){
+							uni.reLaunch({
+								url:'../index/index'
+							});
+						}
 						
 					},
-					fail: () => {},
+		            fail: () => {},
 					complete: () => {}
 				});
-				uni.reLaunch({
-					url:'../index/index'
-				});
+				
 			},
 			agree(){
 				uni.navigateTo({
@@ -257,4 +274,5 @@
 		height:30rpx;
 		font-size: 36rpx;
 	}
+	/* #endif */
 </style>
