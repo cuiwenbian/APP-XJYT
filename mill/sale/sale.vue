@@ -33,7 +33,7 @@
 				</view>
 				<view class="hz">
 					<button class="btn1">取消订单</button>
-					<button class="btn2">查看详细</button>
+					<button class="btn2" @click="btn">查看详细</button>
 				</view>
                 </scroll-view>
             </view>
@@ -56,7 +56,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn1">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -79,7 +79,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn2">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -102,7 +102,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn3">查看详细</button>
                     </view>
                 </scroll-view>
             </view>
@@ -148,6 +148,26 @@
                 }else {
                     that.tabCurrentIndex =index
                 }
+            },
+            btn:function(){
+                uni.navigateTo({
+                    url:'../salepay/salepay'
+                })
+            },
+            btn1:function(){
+                uni.navigateTo({
+                    url:'../saleconfirm/saleconfirm'
+                })
+            },
+            btn2:function(){
+                uni.navigateTo({
+                    url:'../saleaudit/saleaudit'
+                })
+            },
+            btn3:function(){
+                uni.navigateTo({
+                    url:'../salecompleted/salecompleted'
+                })
             }
         }
     }

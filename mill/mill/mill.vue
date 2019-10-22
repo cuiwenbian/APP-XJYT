@@ -4,17 +4,17 @@
             <view class="colo">矿机交易</view>
             <view class="many">{{many}}台</view>
         </view>
-        <view class="box2">
+       <view class="box2">
             <view class="market">
-                <button class="primary" >买单</button>
-                <button class="primary1">卖单</button>
+                <button class="primary" @click="pay">买单</button>
+                <button class="primary1" @click="sale">卖单</button>
             </view>
         </view>
-        <view class="box3">
+       <view class="box3">
             <text>可出售</text>
             <button class="btn">去交易</button>
         </view>
-        <view class="pagex" v-for="(item , index) in user_id" :key="index">
+       <view class="pagex" v-for="(item , index) in user_id" :key="index">
             <view class="page1">
                 <view class="img">
                     <image src="../../static/images/kuangji.png"></image>
@@ -46,7 +46,16 @@
     
     	},
     	methods: {
-    
+            pay:function () {
+                uni.navigateTo({
+                    url:'../pay/pay'
+                })
+            },
+            sale:function() {
+                uni.navigateTo({
+                    url:'../sale/sale'
+                })
+            }
     	}
     }
 </script>
@@ -61,9 +70,9 @@
 		float: left;
 		width: 100%;
 		height: 40rpx;
+        font-size: 28rpx;
 		text-align: center;	
-		padding-top: 40rpx;
-        font-size: 24rpx;
+		padding-top: 120rpx;
         color: #FFFFFF;
     }
    .many{
@@ -71,6 +80,7 @@
 		width: 100%;
 		height: 60rpx;
 		padding-left: 348rpx;
+        box-sizing: border-box;
 		padding-top: 40rpx;
         font-size: 28rpx;
         color: #DCB16E;
@@ -111,9 +121,8 @@
         line-height: 120rpx;
 		float: left;
         font-size: 36rpx;
-		padding-left: 48rpx;
+		margin-left: 48rpx;
         border-bottom: 1rpx solid #DCB16E;
-        /* border: hidden; */
     }
     .btn {
 		float: right;
@@ -124,21 +133,18 @@
         line-height: 70rpx;
         font-size: 24rpx;
     }
-    .pagex {
-        box-sizing: border-box;
+/*    .pagex {
+
         width: 100%;
-        margin-left: -10rpx;
-        margin-right: 10rpx;
-        display: inline-block;
+        display: block;
     }
     .page1 {
-        box-sizing: border-box;
+
         height: 180rpx;
-        margin-left: 50rpx;
-        margin-top: 40rpx;
+
         padding-right: 40rpx;
         padding-bottom: 20rpx;
-        display: flex;
+
     }
     .img{
         width: 20%;
@@ -146,11 +152,10 @@
         float: left;
     }
     .info{
-        box-sizing: border-box;
+
         width: 70%;
         height: 100%;
         float: right;
-        margin-left: 30rpx;
     }
     .obg{
         font-size: 30rpx;
@@ -166,5 +171,5 @@
     .obg_one{
         font-size: 24rpx;
         line-height: 50rpx;
-    }
+    } */
 </style>

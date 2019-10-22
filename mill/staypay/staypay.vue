@@ -89,7 +89,7 @@
             </view>
         </view>
         <view class="box4">
-            <button class="primary1">删除订单</button>
+            <button class="primary1">待付款</button>
         </view>
     </view>
 </template>

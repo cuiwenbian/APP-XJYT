@@ -50,11 +50,10 @@
         background-color: #121212;
     }
     .assets{
+        text-align: center;
 		height: 60rpx;
 		width: 100%;
 		float: left;
-		padding-left: 312rpx;
-		padding-top: 80rpx;
         color: #FFFFFF;
     }
     .number{
@@ -81,16 +80,20 @@
     }
     .primary{
         width: 220rpx;
+
         height: 88rpx;
 		float: left;
 		margin-left: 48rpx;
+
 		margin-top: 40rpx;
     }
     .primary1 {
         width: 220rpx;
+
         height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
+
 		margin-top: 40rpx;
         background-color: #121212;
         color: #FFFFFF;

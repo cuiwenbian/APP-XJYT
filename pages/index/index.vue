@@ -39,11 +39,18 @@
         </view>
         
         <view class="gg">
-            
+            <div class="charts">
+            	<view class="qiun-columns">
+            			<view class="qiun-charts" >
+            				<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
+            			</view>
+            	</view>
+            	
+            </div>
         </view>
         
         <view class="bor1"></view>
-        <view class="information">
+        <view class="information" v-for="(item , index) in user_id" :key="index">
             <view class="Small">
                 <image src="../../static/images/information.png" mode=""></image>
 				<text class="te">热门资讯</text> 
@@ -68,24 +75,131 @@
 </template>
 
 <script>
+    import uCharts from '../../common/u-charts.js';
+    var _self;
+    var canvaLineA=null;
 	export default {
 		data() {
 			return {      
                 Todayprice:"0.05",
                 yesterdayprice:"0.52",
-                yesterday:"1.0%"
+                yesterday:"1.0%",
+                seven_profit:'',
+                total_profit:'',
+                cWidth:'',
+                cHeight:'',
+                pixelRatio:1,
 			}
+            
 		},
-
+            onLoad() {
+            	_self = this;
+            	this.cWidth=uni.upx2px(750);
+            	this.cHeight=uni.upx2px(500);
+            	this.getServerData();
+            },
 		methods: {
-
+            getServerData(){
+            	var open_id = uni.getStorageSync('openid');
+            	var token = uni.getStorageSync('token');
+            	uni.request({
+            			url: this.domain + 'service/home/seven/' + open_id,
+            			method: 'GET',
+            			header: {
+            			  "token": token,
+            			},
+            			success: function(res) {
+            				console.log(res.data.data[0])
+            				var data = res.data.data[0];
+            				_self.seven_profit=data.seven_profit;
+            				_self.total_profit=data.total_profit;
+            				let LineA={seven_list:[]};
+            				//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+            				LineA.seven_list=res.data.data.seven_list;
+            				_self.showLineA("canvasLineA",data);
+            			},
+            			fail: () => {
+            				_self.tips="网络错误，小程序端请检查合法域名";
+            			},
+            		});
+            	},
+            	showLineA(canvasId,chartData){
+            	
+            		canvaLineA=new uCharts({
+            			$this:_self,
+            			canvasId: canvasId,
+            			type: 'line',
+            			fontSize:11,
+            			legend:{show:false},
+            			dataLabel:false,
+            			dataPointShape:false,
+            			background:'#FFFFFF',
+            			pixelRatio:_self.pixelRatio,
+            			categories: ["2012", "2013", "2014", "2015", "2016", "2017"],//数据类别(饼图.圆环图不需要)
+            			series: [   //数据列表
+            			          {
+            			            name: "FIL数量", //数据名称
+            			            data: [35, 20, 50, 37, 4, 20], //数据
+            			            color: "#fff" //颜色,不传入则使用系统默认配色方案
+            			          }
+            			],
+            			animation: true,
+            			xAxis: {
+            				type:'grid',						
+            				gridColor:'#f1f1f1',
+            				disableGrid:true,
+            				gridType:'solid',
+            				dashLength:8
+            			},
+            			yAxis: {
+                            // disabled:true, //不绘制Y轴网格
+            				gridType:'solid',
+            				gridColor:'#f1f1f1',
+            				dashLength:8,
+            				splitNumber:5,
+            				min:0,
+            				max:80,
+            				format:(val)=>{return val.toFixed(0)}
+            			},
+            			width: _self.cWidth*_self.pixelRatio,
+            			height: _self.cHeight*_self.pixelRatio,
+            			extra: {
+            				line:{
+            					type: 'straight',
+            					width:"0.5rpx"
+            				}
+            			}
+            		});
+            		
+            	}
 		}
 	}
 </script>
 
 <style>
+    .qiun-charts {
+    	width: 750upx;
+    	height: 500upx;
+    	background-color: #FFFFFF;
+    }
+    
+    .charts {
+    	width: 750upx;
+    	height: 500upx;
+    	background-color: #FFFFFF;
+    }
     page {
         background-color: #121212;
+    }
+    .charts {
+      width: 100%;
+      height: 600rpx;
+      padding-left:20rpx;
+      padding-right: 20rpx;
+      /* padding-top:10rpx; */
+      box-sizing: border-box;
+      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      position: relative;
     }
 	.height {
 		height: var(--status-bar-height);
