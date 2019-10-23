@@ -4,7 +4,9 @@
         <view class="box1">
             <view class="colo">买单数量</view>
             <view class="many">{{many}}台</view>		
-			<view class="colo1">买</view>
+			<view class="colo1">
+                <image class="dx" src="../../static/images/mai.png" mode=""></image>
+            </view>
 			<view class="many1">买 出</view>
         </view>
         <view class="box3">
@@ -32,7 +34,7 @@
 					<view class="line1"></view>
 				</view>
 				<view class="hz">
-					<button class="btn1">取消订单</button>
+					<button class="btn1">申诉</button>
 					<button class="btn2" @click="btn">查看详细</button>
 				</view>
                 </scroll-view>
@@ -189,7 +191,7 @@
 		float: left;
 		width: 36%;
 		height: 60rpx;
-		padding-left: 62rpx;
+		padding-left: 120rpx;
 		padding-top: 40rpx;
         font-size: 28rpx;
         color: #DCB16E;
@@ -199,9 +201,13 @@
 		padding-top: 80rpx;
 		padding-left: 552rpx;
 	}
+    .dx {
+        width: 60rpx;
+        height: 60rpx;
+    }
 	.many1{
 		float: right;
-		width: 12%;
+		width: 90rpx;
 		height: 60rpx;
 		padding-right: 128rpx;
 	}

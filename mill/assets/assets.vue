@@ -24,10 +24,26 @@
     export default {
         data(){
             return {
-                num:'0.000000',
-                ber:'100.00',
-                nuber:'100.00'
+                num:'',
+                ber:'',
+                nuber:''
             }
+        },
+        onLoad:function (opetions) {
+            this.num = opetions.num
+            this.ber = opetions.ber
+            this.nuber = opetions.nuber
+            uni.request({
+                url:this.url + "assets/?num" + this.num + this.nuber,
+                method:'GET',
+                header:{
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Authorization":"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjE3NjIxODk4NTg3IiwiZXhwIjoxNTcyMDcyODU2LCJ1c2VyX2lkIjoyLCJtb2JpbGUiOiIxNzYyMTg5ODU4NyJ9.GY5K2WX5zenC_EkJ6hhIMcEebLBkMfuNgpLBXrK9tIo"
+                },
+                success(res) {
+                    
+                }
+            })
         },
         methods:{
             btn(){

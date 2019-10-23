@@ -21,7 +21,18 @@
         <view class="notice"> 
            <image class="g" src="../../static/images/notice.png"></image>
            <text class="i"></text>
-           <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+           
+           <swiper :indicator-dots="true" autoplay :interval="3000" :duration="1000">
+               <swiper-item>
+                   <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+               </swiper-item>
+               <swiper-item>
+                    <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+               </swiper-item>
+               <swiper-item>
+                    <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+               </swiper-item><marquee></marquee>
+           </swiper>
         </view>
         <view class="bor"></view>
 
@@ -90,7 +101,7 @@
                 cHeight:'',
                 pixelRatio:1,
 			}
-            
+             
 		},
             onLoad() {
             	_self = this;
@@ -139,7 +150,7 @@
             			series: [   //数据列表
             			          {
             			            name: "FIL数量", //数据名称
-            			            data: [35, 20, 50, 37, 4, 20], //数据
+            			            data: [], //数据
             			            color: "#fff" //颜色,不传入则使用系统默认配色方案
             			          }
             			],
