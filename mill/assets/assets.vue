@@ -30,17 +30,18 @@
             }
         },
         onLoad:function (opetions) {
-            this.num = opetions.num
-            this.ber = opetions.ber
-            this.nuber = opetions.nuber
+            var that = this
             uni.request({
-                url:this.url + "assets/?num" + this.num + this.nuber,
+                url:this.url + "assets/",
                 method:'GET',
                 header:{
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "Authorization":"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjE3NjIxODk4NTg3IiwiZXhwIjoxNTcyMDcyODU2LCJ1c2VyX2lkIjoyLCJtb2JpbGUiOiIxNzYyMTg5ODU4NyJ9.GY5K2WX5zenC_EkJ6hhIMcEebLBkMfuNgpLBXrK9tIo"
+                    "Authorization":"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtb2JpbGUiOiIxNzYyMTg5ODU4NyIsInVzZXJuYW1lIjoiMTc2MjE4OTg1ODciLCJleHAiOjE1NzIwODI5MDIsInVzZXJfaWQiOjJ9.FFfjob0pZwdT_N4BAbf30SjtNXRthMEqA4cvMsPhGsE"
                 },
                 success(res) {
+                    console.log(res)
+                    that.num = res.data.availed_num
+                    that.ber = res.data.fil_count
+                    that.nuber = res.data.locked_num
                     
                 }
             })
@@ -67,6 +68,7 @@
     }
     .assets{
         text-align: center;
+        padding-top: 80rpx;
 		height: 60rpx;
 		width: 100%;
 		float: left;
@@ -125,7 +127,7 @@
         margin-left: 46rpx;
         line-height: 80rpx;
         border-bottom: 1rpx solid #B39C01;
-        border: hidden;
+        /* border: hidden; */
     }
     .pointed {
         font-size: 30rpx;
@@ -133,6 +135,6 @@
         margin-left: 110rpx;
         line-height: 80rpx;
         border-bottom: 1rpx solid #B39C01;
-        border: hidden;
+        /* border: hidden; */
     }
 </style>
