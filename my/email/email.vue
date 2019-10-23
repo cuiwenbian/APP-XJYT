@@ -4,19 +4,131 @@
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
-			<input class="enter" type="text" value="" placeholder="请输入邮箱地址" />
+			<input class="enter" type="text" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<input class="enter enter1" type="text" value="" placeholder="请输入邮箱验证码" />
-			<view class="getcode">获取验证码</view>
+			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
+			<view class="getcode" @click="sendcode" v-show="send">获取验证码</view>
+			<view class="getcode" v-show="alreadysend">{{second+"s"}}</view>
 		</view>
 		<view class="save"  @click="save">确认</view>
 	</view>
 </template>
 
 <script>
+	var check= require("../../common/utils.js");
+	export default{
+		data(){
+			return{
+				email:'',
+				emailCode:'',
+				send:true,
+				alreadysend:false,
+				second:120
+			}
+		},
+		methods:{
+			getEmailValue:function(e){
+				this.email=e.detail.value
+			},
+			getEmailStyle:function(e){
+				var flag=check.checkEmail(this.email);
+				if(!flag){
+				  uni.showToast({
+				    title: '邮箱格式不正确', 
+				    icon: 'none',
+				    duration: 2000
+				  })
+				  return false
+				}
+			},
+			getEmailCode:function(e){
+				this.emailCode=e.detail.value
+			},
+			sendcode:function(){
+				var that=this; 
+				 if(!that.email){
+				   uni.showToast({
+				     title: '请输入邮箱',
+				     icon:'none',
+				     duration: 2000
+				   })
+				   return false
+				 }
+				 var flag=check.checkEmail(that.email);
+				 if(!flag){
+				   uni.showToast({
+				     title: '邮箱格式不正确', 
+				     icon: 'none',
+				     duration: 2000
+				   })
+				   return false
+				 }
+				 uni.request({
+					 //绑定邮箱验证码
+				 	url: this.urll+'binding/',
+				 	method:'POST',
+				 	data:{
+						email:that.email
+						
+					},
+				 	 success:function(res){
+				 		 console.log(res)
+				 	     that.send= false,
+				 	     that.alreadySend= true,
+				 	     check.timer(that);
+				 	 },
+				 	 fail: function(err){
+				 	     console.log(err)
+				 	}
+				 	
+				 })
+								
+			},
+			save:function(){
+				console.log(this.global_.token)
+				console.log('JWT'+this.global_.token)
+				if(this.email==''){
+					uni.showToast({
+						title:'请输入邮箱地址',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.emailCode==''){
+					uni.showToast({
+						title:'请输入验证码',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				uni.request({
+					url:this.urll+'linkemail/',
+					method:"POST",
+					data:{
+						email:this.email,
+						email_msg:this.emailCode,
+					},
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../my/my'
+							})
+						}
+					}
+				})
+			}
+		}
+		
+	}
 </script>
 
 <style>

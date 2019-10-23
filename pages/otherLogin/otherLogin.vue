@@ -67,7 +67,6 @@ export default {
 		          },
 		            //短信接口
 		          'url': _this.url + 'users/forgot/sms/',
-		            
 		          header: {
 		            "Content-Type": "application/x-www-form-urlencoded"
 		          },
@@ -109,7 +108,6 @@ export default {
 		},
 		//获取验证码
 		getCodeNumber: function(e) {
-			
 			this.getCode();
 			var _this = this;
 			_this.disabled = true;
@@ -157,9 +155,12 @@ export default {
 					data:{
 						mobile:this.phone,
 						code:this.code
-					},
+					}, 
 					success(res) {
-						console.log(res)
+						console.log(res);
+						_this.global_.phone=this.phone;
+						_this.global_.token=res.data.data;
+						console.log(res.data.data)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码不正确',
@@ -167,7 +168,7 @@ export default {
 							})
 						}
 						if(res.statusCode==200){
-							uni.navigateTo({
+							uni.switchTab({
 								url:'../index/index'
 							})
 						}

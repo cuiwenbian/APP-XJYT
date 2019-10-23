@@ -4,18 +4,63 @@
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">提币地址</view>
-			<input class="enter" type="text" value="" placeholder="请输入提币地址" />
+			<input class="enter" type="text" :value="adr" @input="getAddress" placeholder="请输入提币地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list"> 
 			<view class="txt">地址备注</view>
-			<input class="enter" type="text" value="" placeholder="请输入备注名称" />
+			<input class="enter" type="text" :value="remark" @input="getRemark" placeholder="请输入备注名称" />
 		</view>
 		<view class="save"  @click="save">保存</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				adr:'',
+				remark:''
+			}
+		},
+		methods:{
+			getAddress:function(e){
+				this.adr=e.detail.value
+			},
+			getRemark:function(e){
+				this.remark=e.detail.value
+			},
+			save:function(){
+				if(this.adr==''){
+					uni.showToast({
+						title:'提币地址不能为空',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.remark==""){
+					uni.showToast({
+						title:'备注名称不能为空',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				uni.request({
+					url:this.url+'',
+					method:'POST',
+					data:{
+						
+					},
+					header:{},
+					success(res) {
+						console.log(res)
+					}
+				})
+			}
+		}
+	}
 </script>
 
 <style>

@@ -92,12 +92,14 @@
 			}
             
 		},
-            onLoad() {
-            	_self = this;
-            	this.cWidth=uni.upx2px(750);
-            	this.cHeight=uni.upx2px(500);
-            	this.getServerData();
-            },
+        onLoad() {
+            _self = this;
+            this.cWidth=uni.upx2px(750);
+            this.cHeight=uni.upx2px(500);
+            this.getServerData();
+			console.log(this.global_.token);
+			console.log(this.global_.phone)
+        },
 		methods: {
             getServerData(){
             	var open_id = uni.getStorageSync('openid');

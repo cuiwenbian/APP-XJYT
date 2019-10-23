@@ -5,8 +5,8 @@
 			<!-- <mt-cell-swipe> -->
 			  <view class="list">
 			  	<view class="left">
-			  		<view class="nickname">地址昵称</view>
-			  		<view class="adr">地址：xxxxxxxxxxxxxxxxx</view>
+			  		<view class="nickname" >地址昵称: {{nickname}}</view>
+			  		<view class="adr">地址：{{address}}</view>
 			  	</view>
 			  	<view class="right" @click="edit"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
 			  </view>
@@ -28,6 +28,8 @@
 export default {
 	data() {
 		return {
+			nickname:'ss',
+			address:'dss12gfgytnmkihqss3sss',
 			allList: [
 				// 模拟从后台获取过来的数据格式
 				{
@@ -46,12 +48,24 @@ export default {
 					endTime: '23:59'
 				}
 			],
-			flag: true,
+			flag: false,
 			right:''
 		};
 	},
+	onLoad() {
+		uni.request({
+			url:this.url+'walletaddress/',
+			method:'GET',
+			data:{},
+			header:{
+				token:this.global_.token
+			},
+			success(res) {
+				console.log(res)
+			}
+		})
+	},
 	methods: {
-		
 		add: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address',

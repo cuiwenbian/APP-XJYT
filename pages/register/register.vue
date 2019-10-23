@@ -156,6 +156,7 @@
 			      _this.disabled = true
 			},
 			register(){
+				var _self=this;
 				if(this.phone==""){
 					uni.showToast({
 					  title: '请输入手机号',
@@ -219,9 +220,12 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
-						uni.setStorageSync('token',res.data.token)
-						console.log(res)
+						_self.global_.phone=this.phone;
+						_self.global_.token=res.data.token;
+						// uni.setStorageSync('token',res.data.token)
+						console.log(res) 
 						console.log(res.statusCode)
+						
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码已过期',

@@ -61,7 +61,7 @@
 	export default{
 		data(){
 		  return{
-			  flag:true,
+			  flag:false,
 			  hidden:true
 		  }	
 		},
@@ -71,7 +71,8 @@
 			},
 			close:function(){
 				this.hidden=true
-			}
+			},
+			
 		}
 	}
 </script>

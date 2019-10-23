@@ -1,0 +1,202 @@
+
+.qiun-charts {
+    	width: 750rpx;
+    	height: 500rpx;
+    	background-color: #FFFFFF;
+}
+.charts {
+    	width: 750rpx;
+    	height: 500rpx;
+    	background-color: #FFFFFF;
+}
+page {
+        background-color: #121212;
+}
+.charts {
+      width: 100%;
+      height: 600rpx;
+      padding-left:20rpx;
+      padding-right: 20rpx;
+      /* padding-top:10rpx; */
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background: -webkit-gradient(linear,left top, left bottom,from(#28c1d8), to(#86ced9));
+      background: -o-linear-gradient(top,#28c1d8, #86ced9);
+      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      position: relative;
+}
+.height {
+		height: var(--status-bar-height);
+}
+.swiper{
+		width:720rpx;
+		height:270rpx;
+		margin:20rpx auto;
+}
+swiper-item image {
+		width: 100%;
+		height:100%;
+}
+.notice{
+        height: 60rpx;
+}
+.g {
+        width: 28rpx;
+        height: 28rpx;
+        float: left;
+        padding-left: 23rpx;
+        padding-top: 17rpx;
+}
+.i{
+        width: 600rpx;
+        height: 40rpx;        
+        background-color: #BCBCBC;
+        margin-left: 52rpx;
+        padding-top: 20rpx;
+        border-radius: 50rpx;
+}
+.m {
+        float: left;
+        padding-top: 17rpx;
+        margin-left: 32rpx;
+        font-size: 24rpx;
+
+        color: #FFFFFF;
+}
+.bor {
+			width: 94%;
+        margin: 0 auto;
+        border: 2rpx solid #CcCcCc;
+}
+.bor1 {
+        width: 94%;
+        margin: 0 auto;
+        border: 2rpx solid #CCCCCC;
+        margin-top: 20rpx;
+}
+.borx {
+        width: 100%;
+        height: 140rpx;
+}
+.price{
+        padding-left: 24rpx;
+}
+    
+    /* 白 */
+.bot{
+        float: left;
+        line-height: 120rpx;
+        font-size: 34rpx;
+        color: #FFFFFF;
+}
+    
+    /* 2 */
+.price1{
+        float: right;
+        padding-right: 24rpx;
+}
+    
+    /* 黄 */
+.Todayprice{
+			float: left;
+			line-height: 120rpx;
+			font-size: 56rpx;
+			color: #DCB16E;
+}
+.bot1 {
+        color: #FFFFFF;
+        margin-bottom: 12rpx;
+        font-size: 34rpx;
+}
+.yesterdayprice {
+        font-size: 34rpx;
+        line-height: 120rpx;
+        color: #DCB16E;
+}
+.gg{
+        width: 100%;
+        height: 608rpx;
+}
+.information{
+		width: 100%;
+		height: 80rpx;
+}
+.Small{
+        margin-top: 14rpx;
+}
+.Small image{
+        width: 40rpx;
+        height: 40rpx;
+		float: left;
+        margin-left: 20rpx;
+}
+.te {
+		float: left;
+        display: block;
+        color: #FFFFFF;
+        font-size: 32rpx;
+        width: 134rpx;
+		margin-left: 20rpx;
+        border-bottom: 1rpx solid #CCCCCC;
+        padding-bottom: 14rpx;
+}
+.bt{
+		width: 100%;
+        height: 600rpx;
+}
+.left {
+		float: left;
+		width: 60%;
+}
+.tex {
+        text-indent: 34rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        padding-top: 20rpx;
+        padding-left: 24rpx;
+		
+        display: -webkit-box;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        word-wrap: break-word;
+        white-space: normal !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+}
+.right {
+		width: 40%;
+		float: right;
+}
+.ig {
+        width: 190rpx;
+        height: 127rpx;
+		padding-top: 30rpx;
+		padding-left: 48rpx;
+}
+.yu {
+		float: left;
+		padding-top: 40rpx;
+		padding-left: 48rpx;
+        font-size: 16rpx;
+        color: #CCCCCC;
+}
+.yj {
+        width: 40rpx;
+        height: 22rpx;
+		padding-left: 140rpx;
+		padding-top: 46rpx;
+}
+.yjj {
+		float: right;
+		padding-right: 40rpx;
+		padding-top: 40rpx;
+        font-size: 16rpx;
+        color: #CCCCCC;
+}
+.b {
+        width: 94%; 
+        margin: 0 auto;
+        border-bottom:2rpx solid #CCCCCC;
+}
+

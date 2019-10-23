@@ -24,7 +24,6 @@
 			<label>
 				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
 			</label>
-			
 		</view>
 		<!-- <neil-modal 
 		    :show="show" 
@@ -50,10 +49,8 @@
 				show:false,
 				phone:'',
 				password:'',
-				
 			};
-		},
-		
+		},	
 		components: {
 			neilModal,
 		    uniPopup
@@ -65,7 +62,6 @@
 			getNumber:function(e){
 				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
 				this.phone=e.detail.value
-			
 				   if(!myreg.test(this.phone)){
 					 uni.showToast({
 					 	title:'请输入正确的手机号',
@@ -82,6 +78,7 @@
 				console.log(this.password)
 			},
 			login() {
+				var _self=this;
 				//this.$refs.popup.open()
 				if(this.phone==""){
 					uni.showToast({
@@ -119,8 +116,6 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
-						// plus.storage('token',res.data.token)
-						// uni.setStorage('token',res.data.token)
 						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({

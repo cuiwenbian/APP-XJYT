@@ -57,7 +57,7 @@
 			}
 		},
 		onLoad() {
-	
+	        
 		},
 		methods: {
 	        personal:function(){
