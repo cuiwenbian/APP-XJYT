@@ -20,7 +20,7 @@
             	</view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 0">
-                <scroll-view scroll-y='true'>
+                
                     <view>
                     	<view v-if="flag" >
                     		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
@@ -49,7 +49,7 @@
                     		</view>
                     	</view>
                     </view>
-                </scroll-view>
+
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
                 <scroll-view scroll-y='true'>
@@ -352,7 +352,7 @@
          
         line-height: 80rpx;
     
-        background: #CCCCCC;  
+        background: #EDEDED;  
     }
     .tab-item {
      
@@ -366,9 +366,9 @@
     }
     .current {
      
-        color: #fff;
+        color: #B39C01;
          
-        border-bottom: 5rpx solid #fff;
+        border-bottom: 2rpx solid #B39C01;
      
     }
 </style>

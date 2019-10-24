@@ -181,9 +181,9 @@
 		float: left;
 		width: 50%;
 		height: 40rpx;
-		padding-left: 48rpx;
-		padding-top: 80rpx;
-        font-size: 24px;
+		margin-left: 60rpx;
+		margin-top: 60rpx;
+        font-size: 36rpx;
     }
    .many{
 		float: left;
@@ -196,8 +196,8 @@
     }    
 	.colo1{
 		height: 60rpx;
-		padding-top: 80rpx;
-		padding-left: 552rpx;
+		padding-top: 60rpx;
+		padding-left: 540rpx;
 	}
     .dx {
         width: 60rpx;
@@ -205,9 +205,11 @@
     }
 	.many1{
 		float: right;
-		width: 10%;
+		width: 90rpx;
 		height: 60rpx;
-		padding-right: 140rpx;
+        padding-top: 28rpx;
+		padding-right: 128rpx;
+        font-size: 32rpx;
 	}
     .box3 {
         height: 90rpx;
@@ -322,7 +324,7 @@
          
         line-height: 80rpx;
     
-        background: #CCCCCC;  
+        background: #EDEDED;  
     }
     .tab-item {
  
@@ -336,9 +338,9 @@
     }
     .current {
      
-        color: #fff;
+        color: #B39C01;
          
-        border-bottom: 5rpx solid #fff;
+        border-bottom: 5rpx solid #B39C01;
      
     }
 </style>
