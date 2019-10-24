@@ -47,7 +47,7 @@
 	export default{
 		data(){
 			return{
-				flag:true,
+				flag:false,
 				selectShow: false,
 				//控制下拉列表的显示隐藏，false隐藏、true显示
 				selectData: ['十二月', '十一月', '十月', '九月', '八月', '七月', '六月', '五月', '四月', '三月', '二月', '一月'],
