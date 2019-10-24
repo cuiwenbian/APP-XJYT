@@ -4,19 +4,19 @@
 		<view class="t"></view>
 		<view class="box">
 			<view class="desc">当前可转</view>
-			<view class="num"><text class="number">156.00</text>个</view>
+			<view class="num"><text class="number">{{bar}}</text>个</view>
 		</view>
 		<view class="t"></view>
 		<view class="box1">
 			<view class="top">
 				<view class="lab">转账地址</view>
 				<input class="address" type="text" placeholder="请输入转账地址">
-				<image class="right" src="../../static/images/jiantou3.png" mode=""></image>
+				<image class="right" src="../../static/images/jiantou3.png" mode="" @click="link"></image>
 			</view>
 			<view class="top1">
 				<view class="lab">提币数量</view>
-				<input class="address" type="text" placeholder="请输入提币数量">
-				<view class="all">全部</view>
+				<input class="address" type="text" v-model="moder" placeholder="请输入提币数量">
+				<view class="all" @click="fusre">全部</view>
 			</view>
 		</view>
 		<view class="tip">
@@ -27,6 +27,31 @@
 </template>
 
 <script>
+    export default {
+        data() {
+            return {
+                bar:'',
+                moder:''
+            }
+        },
+        onLoad(res) {
+            var that = this
+            console.log(res)
+            that.bar = res.sole
+        },
+        methods:{
+            link() {
+                uni.navigateTo({
+                    url:'../address/address'
+                })
+            },
+            fusre(){
+                
+                this.moder = this.bar
+            }
+        }
+
+    }
 </script>
 
 <style>
