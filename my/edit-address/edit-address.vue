@@ -4,18 +4,69 @@
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">提币地址</view>
-			<input class="enter" type="text" value="xxxxxxxxxxxxxx" />
+			<input class="enter" type="text" :value="address" @input='getAddress'/>
 		</view>
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">地址备注</view>
-			<input class="enter" type="text" value="zhangsan"  />
+			<input class="enter" type="text" :value="nickname" @input='getRemark' />
 		</view>
 		<view class="save"  @click="save">保存</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				nickname:'',
+				address:''
+			}
+		},
+		onLoad(options) {
+			this.nickname=options.nickname;
+			this.address=options.address;
+		},
+		methods:{
+			getAddress:function(e){
+				this.address=e.detail.value
+			},
+			getRemark:function(e){
+				this.nickname=e.detail.value
+			},
+			save:function(){
+				if(this.address==''){
+					uni.showToast({
+						title:'请输入提币地址',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.nickname==''){
+					uni.showToast({
+						title:'请输入地址备注',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				uni.request({
+					url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+					method:'PUT',
+					data:{
+						
+					},
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+					}
+				})
+			}
+		}
+	}
 </script>
 
 <style>

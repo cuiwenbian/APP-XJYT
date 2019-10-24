@@ -1,0 +1,103 @@
+
+page {
+    background-color: #DCDCDC;
+}
+.box {
+    height: 560rpx;
+    width: 100%;
+    background-color: #fff;
+}
+.small {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 110rpx;
+    line-height: 110rpx;
+    float: left;
+    padding-left: 48rpx;
+    font-size: 32rpx;
+}
+.small1{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    float: left;
+    height: 80rpx;
+    padding-left: 48rpx;
+    display: none;
+    font-size: 32rpx;
+}
+.smallx {
+    float: right;
+    font-size: 32rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-right: 170rpx;
+}
+.smallxx {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-left: 40rpx;
+}
+.primary {
+    width: 180rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 22rpx;
+}
+.box1 {
+    height: 100rpx;
+    padding-left: 48rpx;
+    line-height: 100rpx;
+}
+.box2 {
+    height: 180rpx;
+    width: 100%;
+    background-color: #fff;
+}
+.bx {
+    height: 90rpx;
+    line-height: 90rpx;
+    padding-left: 48rpx;
+    font-size: 32rpx;
+}
+.bxx {
+    padding-left: 30rpx;
+}
+.box3{
+    width: 100%;
+    height: 300rpx;
+    background-color: #fff;
+}
+.small2 {
+    height: ;
+}
+.img {
+    width: 220rpx;
+    height: 200rpx;
+    float: left;
+    padding-left: 48rpx;
+    padding-top: 40rpx;
+}
+.small2 {
+    float: left;
+    padding-left: 20rpx;
+    padding-top: 40rpx;
+}
+.small3 {
+    float: left;
+
+    padding-top: 40rpx;
+}
+.smal {
+    padding-left: 20rpx;
+}
+.smalx {
+    padding-left: 20rpx;
+    color: #CCCCCC;
+}
+.box4 {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+

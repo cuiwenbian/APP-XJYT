@@ -10,8 +10,7 @@
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<view class="getcode" @click="sendcode" v-show="send">获取验证码</view>
-			<view class="getcode" v-show="alreadysend">{{second+"s"}}</view>
+			<view class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="save"  @click="save">确认</view>
 	</view>
@@ -24,10 +23,12 @@
 			return{
 				email:'',
 				emailCode:'',
-				send:true,
-				alreadysend:false,
-				second:120
+				codename: ' 获取验证码',
 			}
+		},
+		onLoad() {
+			var _this=this;
+			_this.disabled = true;
 		},
 		methods:{
 			getEmailValue:function(e){
@@ -72,13 +73,32 @@
 				 	method:'POST',
 				 	data:{
 						email:that.email
-						
 					},
 				 	 success:function(res){
 				 		 console.log(res)
-				 	     that.send= false,
-				 	     that.alreadySend= true,
-				 	     check.timer(that);
+						 if(res.statusCode==200){
+							var num = 121;
+							var timer = setInterval(function () {
+							  num--;
+							  if (num <= 0) {
+							    clearInterval(timer);
+							    that.codename = '重新发送',
+							    that.disabled = false
+										
+							  } else {
+							    that.codename = num + "s"
+							    
+							  }
+							}, 1000)
+						 }
+						 if(res.statusCode==401){
+						 	uni.showToast({
+						 		title:'该邮箱已被使用',
+						 		icon:'none',
+						 		duration:2000
+						 	})
+							return false
+						 }
 				 	 },
 				 	 fail: function(err){
 				 	     console.log(err)
@@ -88,8 +108,6 @@
 								
 			},
 			save:function(){
-				console.log(this.global_.token)
-				console.log('JWT'+this.global_.token)
 				if(this.email==''){
 					uni.showToast({
 						title:'请输入邮箱地址',
@@ -119,10 +137,11 @@
 					success(res) {
 						console.log(res)
 						if(res.statusCode==200){
-							uni.navigateTo({
+							uni.switchTab({
 								url:'../my/my'
 							})
 						}
+						
 					}
 				})
 			}

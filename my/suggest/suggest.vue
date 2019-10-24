@@ -46,9 +46,9 @@
 			</view>
 			<view  :class="hidden?'cover1':'cover'">
 				<view class="frame">
-					<input class="title" type="text" value="" placeholder="标题"/>
-					<textarea class="area" value="" placeholder="问题描述"/>
-					<view class="submit">提交</view>
+					<input class="title" type="text" :value="title" @input='getTitleContent' placeholder="标题"/>
+					<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述"/>
+					<view class="submit" @click='submit'>提交</view>
 					<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
 				</view>
 			</view>
@@ -61,17 +61,84 @@
 	export default{
 		data(){
 		  return{
-			  flag:false,
-			  hidden:true
+			  flag:true,
+			  hidden:true,
+			  title:'',
+			  desc:''
 		  }	
 		},
+		onLoad() {
+			var _this=this;
+			uni.request({
+				url:this.urll+'advicefeedback/',
+				method:'GET',
+				data:{
+					title:this.title,
+					message:this.desc
+				},
+				header:{
+					Authorization:'JWT'+' '+this.global_.token
+				},
+				success(res) {
+					console.log(res)
+					if(res.data.data==''){
+						_this.flag=false
+					}
+					
+				}
+			})
+		},
 		methods:{
+			getTitleContent:function(e){
+				this.title=e.detail.value
+				console.log(this.title)
+			},
+			getDescContent:function(e){
+				this.desc=e.detail.value
+				console.log(this.desc)
+			},
 			addMessage:function(){
 				this.hidden=false
 			},
 			close:function(){
 				this.hidden=true
 			},
+			submit:function(){
+				var _this=this;
+				if(this.title==''){
+					uni.showToast({
+						title:'标题不能为空',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.desc==''){
+					uni.showToast({
+						title:'请描述您的问题',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+			    uni.request({
+			    	url:this.urll+'advicefeedback/',
+					method:'POST',
+					data:{
+						title:this.title,
+						message:this.desc
+					},
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						_this.hidden=true;
+						
+						
+					}
+			    })
+			}
 			
 		}
 	}

@@ -4,25 +4,24 @@
 		<view class="line"></view>
 		<view class="list">
 			<text class="title">邮箱：</text>
-			<text class="email" >1345****5454@163.com</text>
+			<text class="email" >{{email}}</text>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" value="" placeholder="请输入邮箱验证码" />
-			<view class="getcode">获取验证码</view>
+			<input class="code" type="text" @input="getCodeValue" :value="code" placeholder="请输入邮箱验证码" />
+			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="set">设置交易密码</view>
 		<view class="list">
-			<input class="code" type="text" value="" placeholder="请输入交易密码,6位数字组合" />
+			<input class="code" type="text" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" value="" placeholder="请再次输入交易密码" />
+			<input class="code" type="text" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
-		<view class="save"  @click="save">确认</view>
-		<view class="forget" @click="forget">修改交易密码</view>
+		<view class="save"  @click="setPwd">确认</view>
 	</view>
 </template>
 
@@ -30,16 +29,141 @@
 	export default{
 		data(){
 			return{
-				hidden:true
+				hidden:true,
+				email:'',
+				email1:'',
+				code:'',
+				codename: ' 获取验证码',
+				password:'',
+				password1:''
 			}
+		},
+		onLoad() {
+			var _this=this;
+			_this.disabled = true;
+			uni.request({
+				url:this.urll+'setmoney/',
+				method:'GET',
+				header:{
+					Authorization:'JWT'+' '+this.global_.token
+				},
+				success(res) {
+					console.log(res)
+					var email=res.data.data;
+					var email1=res.data.data;
+					_this.email1=email1;
+					var l = email.split('@');
+					email = l[0].substr(0, l[0].length - 5) + '****@' + l[1]
+					_this.email=email
+				}
+			})
 		},
 		methods:{
 			show:function(){
 				this.hidden=false;
 			},
-			forget:function(){
-				uni.navigateTo({
-					url:'../change-password/change-password'
+			getCodeValue: function(e) {
+				this.code = e.detail.value;
+			},
+			getPassword:function(e){
+				this.password=e.detail.value
+			},
+			getPassword1:function(e){
+				this.password1=e.detail.value
+			},
+			getCode: function () {
+			      var _this = this;
+			      
+			        uni.request({
+			          method: 'POST',
+			          data: {
+			            email: this.email1,
+			          },
+			            //短信接口
+			          url:this.urll+'setemail/',
+			          header: {
+			             Authorization:'JWT'+' '+this.global_.token
+			          },
+			          success(res) {
+			            //根据code判断
+			            console.log(res)
+			            var num = 121;
+			            var timer = setInterval(function () {
+			              num--;
+			              if (num <= 0) {
+			                clearInterval(timer);
+			                _this.codename = '重新发送',
+			                _this.disabled = false
+			
+			              } else {
+			                _this.codename = num + "s"
+			                
+			              }
+			            }, 1000)
+			          }
+			        })
+			
+			},
+			//获取验证码
+			getCodeNumber: function(e) {
+				this.getCode();
+				var _this = this;
+				_this.disabled = true;
+			},
+			setPwd:function(){
+				if(this.code==''){
+					uni.showToast({
+						icon:'none',
+						title:'请输入验证码',
+						duration:2000
+					})
+					return false;
+				}
+				if(this.password==''){
+					uni.showToast({
+						icon:'none',
+						title:'请输入交易密码',
+						duration:2000
+					})
+					return false;
+				}
+				if(this.password1==''){
+					uni.showToast({
+						icon:'none',
+						title:'请确认交易密码',
+						duration:2000
+					})
+					return false;
+				}
+				if(this.password1!==this.password){
+					uni.showToast({
+						icon:'none',
+						title:'两次密码不一致',
+						duration:2000
+					})
+					return false;
+				}
+				uni.request({
+					url:this.urll+'setmoneypw/',
+					method:'POST',
+					data:{
+						email:this.email1,
+						email_msg:this.code,
+						password1:this.password,
+						password2:this.password1
+						
+					},
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==200){
+							uni.switchTab({
+								url:'../my/my'
+							})
+						}
+					}
 				})
 			}
 		}
@@ -114,11 +238,5 @@
 		line-height: 90rpx;
 		color: #fff;
 	}
-	.forget{
-		line-height: 100rpx;
-		float: right;
-		margin-right:48rpx;
-		color:#8080FF;
-		font-size: 28rpx;
-	}
+	
 </style>

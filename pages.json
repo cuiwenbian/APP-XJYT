@@ -153,6 +153,10 @@
 					     "style":{"navigationBarTitleText":"邮箱认证"}
 					 },
 					 {
+					     "path":"unbindemail/unbindemail",
+					     "style":{"navigationBarTitleText":"解绑邮箱"}
+					 },
+					 {
 					     "path":"identity/identity",
 					     "style":{"navigationBarTitleText":"身份认证"}
 					 },

@@ -48,17 +48,16 @@ export default {
 					endTime: '23:59'
 				}
 			],
-			flag: false,
+			flag: true,
 			right:''
 		};
 	},
 	onLoad() {
 		uni.request({
-			url:this.url+'walletaddress/',
+			url:this.urll+'walletaddress/',
 			method:'GET',
-			data:{},
 			header:{
-				token:this.global_.token
+				Authorization:'JWT'+' '+this.global_.token
 			},
 			success(res) {
 				console.log(res)
@@ -76,11 +75,19 @@ export default {
 		},
 		edit: function() {
 			uni.navigateTo({
-				url: '../edit-address/edit-address',
+				url: '../edit-address/edit-address?nickname='+this.nickname+'&address='+this.address,
 				success: res => {},
 				fail: () => {},
 				complete: () => {}
 			});
+		},
+		delete:function(){
+			uni.showModal({
+				title:'提示',
+				content:'确定删除该地址',
+				confirmText:'确定',
+				cancelText:'取消'
+			})
 		}
 	}
 };
@@ -123,6 +130,7 @@ export default {
 .left {
 	float: left;
 	width: 88%;
+	
 }
 .right {
 	float: left;

@@ -116,10 +116,18 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
+						_self.global_.phone=this.phone;
+						_self.global_.token=res.data.token;
 						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'用户信息不存在',
+								icon:'none'
+							})
+						}
+						if(res.statusCode==402){
+							uni.showToast({
+								title:'密码错误',
 								icon:'none'
 							})
 						}

@@ -8,7 +8,7 @@
 			</image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/a.jpg" mode=""></image></view>
 			<view class="nickname">用户昵称</view>
-			<view class="phone">134****8943</view>
+			<view class="phone">{{phone}}</view>
 		</view>
 		<view class="line"></view>
     	<view class="list">
@@ -53,11 +53,11 @@
 	export default {
 		data() {
 			return {
-				
+				phone:this.global_.phone
 			}
 		},
-		onLoad() {
-	        
+		onShow() {
+	       
 		},
 		methods: {
 	        personal:function(){
@@ -76,8 +76,33 @@
 				})
 			},
 			tradePassword:function(){
-				uni.navigateTo({
-					url:'../trade-password/trade-password'
+				uni.request({
+					url:this.urll+'setmoney/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'用户未绑定邮箱',
+								icon:'none',
+								duration:2000
+							})
+							return false
+						}
+						if(res.statusCode==201){
+							uni.navigateTo({
+								url:'../change-password/change-password'
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../trade-password/trade-password'
+							})
+						}
+					}
 				})
 			},
 			loginPassword:function(){
@@ -86,9 +111,28 @@
 				})
 			},
 			bindEmail:function(){
-				uni.navigateTo({
-					url:'../email/email'
+				uni.request({
+					url:this.urll+'setmoney/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==200||res.statusCode==201){
+							uni.navigateTo({
+								url:'../unbindemail/unbindemail'
+								
+							})
+						}
+						if(res.statusCode==400){
+							uni.navigateTo({
+								url:'../email/email'
+							})
+						}
+					}
 				})
+				
 			},
 			suggest:function(){
 				uni.navigateTo({
