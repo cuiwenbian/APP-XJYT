@@ -77,7 +77,7 @@
 		<view class='out2'>
 		 <button :class=' name && idcard && imgs.length===2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		</view>
-		
+
 	</view>
 </template>
 
@@ -92,6 +92,8 @@
 				picPaths: [], //网络路径
 				positive: 'positive',
 				reverse: 'reverse',
+				pos:'',
+				rev:'',
 				type:'',
 				p_flag: true,
 				r_flag: true,
@@ -115,7 +117,8 @@
 			      itemList: ['从相册中选择', '拍照'],
 			      itemColor: "#00000",
 			      success: function(res) {
-					console.log(res)
+					//console.log('添加上传图片')
+					//console.log(res)
 			        if (!res.cancel) {
 			          if (res.tapIndex == 0) {
 						  console.log(flag)
@@ -150,6 +153,8 @@
 			      sizeType: ['original', 'compressed'],
 			      sourceType: [type],
 			      success: function (res) {
+					console.log('图片本地路径1')
+					console.log(res)
 			        for (var i = imgsPaths.length-1;i>=0;i--){
 			          for (var j in imgsPaths[i]){
 			              if(j=='positive'){
@@ -166,7 +171,6 @@
 			      }
 			    })
 			  },
-			
 			chooseWxImage2: function(type) {
 			    var that = this;
 			    var imgsPaths = that.imgs;
@@ -176,6 +180,8 @@
 			      sizeType: ['original', 'compressed'],
 			      sourceType: [type],
 			      success: function (res) {
+					  console.log('图片本地路径2')
+					  console.log(res)
 			        for (var i = imgsPaths.length-1; i >= 0; i--) {
 			          for (var j in imgsPaths[i]) {
 			            if (j == 'reverse') {
@@ -188,60 +194,55 @@
 			          that.r_url=res.tempFilePaths[0],
 			          that.r_flag=false,
 			          that.imgs=that.imgs
-			          
-			          console.log(imgsPaths)
+					  that.rev=imgsPaths[1].reverse;
+					  that.pos=imgsPaths[0].positive;
+					  
+			         console.log('cwb')
+					  console.log(imgsPaths)
 			        }
 			      })
 			},
-			  //上传服务器
+			 //上传服务器
 			upImgs: function (imgpaths,index) {
 			    var that = this;
+				let token=this.global_.token;
 			    for(var key in imgpaths[index]){
 			      uni.uploadFile({
-			        url: this.urll + 'service/users/picture/' + open_id + '/',//上传接口
+			        url: this.urll + 'realname/',//上传接口
 			        filePath: imgpaths[index][key],
 			        name: key,
 			        header: {
-			          Authorization:'JWT'+' '+this.global_.token
+			          Authorization:'JWT'+' '+token
 			        },
 			        formData: null,
 			        success: function (res) {
+					  console.log('网络路径')
+					  console.log(token)
 			          console.log(res) //接口返回网络路径
 			        },
 			        fail: function (res) {
 			          console.log(res)
 			        },
 			        complete: function (e) {
+						
 			          index++;
 			          if (index == imgpaths.length) {
-			            uni.request({
-			              url: that.urll + 'realname/',
-						  method:'POST',
-			              data: { name: that.name, idcard: that.idcard },
-			              header: {
-			                Authorization:'JWT'+' '+this.global_.token
-			              },
-			              success: function (res) {
-			                uni.showModal({
-			                  content: '提交成功，等待审核',
-							  showCancel:false,
-			                  success(res) {
-			                    if (res.confirm) {
-			                      console.log('用户点击确定'),
-			                        uni.navigateBack({
-			                          delta: 1
-			                        })
-			                    }
-			                  },
-			                  fail(res) {
-			                    if (res.cancel) {
-			                      console.log('用户点击取消')
-			                    }
-			                  }
-			                })
-			
-			              }
-			            })
+			           uni.request({
+			             url: that.urll + 'realname/',
+			             method:'POST',
+			             data: {
+			           	  name: that.name, 
+			           	  idcard: that.idcard
+			           	  // positive:that.imageBase64List,
+			           	  // reverse:that.imageBase64List1
+			           	  },
+			             header: {
+			               Authorization:'JWT'+' '+token
+			             },
+			             success: function (res) {
+			               console.log(res)
+			             }
+			           })
 			          } else {
 			            that.upImgs(imgpaths, index)
 			          }
@@ -252,19 +253,22 @@
 			  },
 			submitt: function(){
 			   var that = this;
+			   console.log(that.pos)
+			   console.log(that.rev)
+			  
 			   if(!that.name){
 			     uni.showToast({
 			       title: '用户名不能为空',
 			       icon:'none'
 			     });
-			     return
+			     return false
 			   }
 			   if(!that.idcard){
 			     uni.showToast({
 			       title: '身份证号不能为空',
 			       icon:'none'
 			     });
-			     return
+			     return  false
 			   }
 			   var flag=check.checkIdcard(that.idcard);
 			   if(!flag){
@@ -273,16 +277,17 @@
 			       icon: 'none',
 			       duration: 2000
 			     })
-			     return
+			     return false
 			   }
 			   if(that.imgs.length !==2){
 			     uni.showToast({
 			       title: '身份证照不全',
 			       icon:'none'
 			     });
-			     return
+			     return false
 			   }
-			   that.upImgs(that.imgs,0)
+			 
+			    that.upImgs(that.imgs,0)
 			}
 		}
 	}

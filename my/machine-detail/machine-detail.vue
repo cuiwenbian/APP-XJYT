@@ -128,7 +128,20 @@
 			};
 		},
 		onLoad(options) {
-			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	  
+			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
+			  uni.request({
+			  	url:this.urll+'usermachineinfo/',
+				method:'GET',
+				data:{
+				
+				},
+				header:{
+					Authorization:'JWT'+' '+this.global_.token
+				},
+				success(res) {
+					console.log(res)
+				}
+			  })
 		},
 		methods: {
 			changeTab(e) {
@@ -157,8 +170,9 @@
 	
 	.navbar {
 		display: flex;
-		height: 120rpx;
-		background: #797979;
+		height: 80rpx;
+		background: #CCCCCC;
+		color:a0a0a0;
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 		position: relative;
 		z-index: 10;
@@ -171,7 +185,7 @@
 			align-items: center;
 			height: 100%;
 			font-size: 34rpx;
-			color: #777;
+			color: #121212;
 			position: relative;
 	}
 	.current{

@@ -9,7 +9,7 @@
 		</view>
 		<view class="enter">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<input class="number" type="text" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
+			<input class="number" type="password" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
 		</view>
 		<view class="tip">
 			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
@@ -75,7 +75,6 @@
 			},
 			getPasswordValue:function(e){
 				this.password=e.detail.value
-				console.log(this.password)
 			},
 			login() {
 				var _self=this;
@@ -119,7 +118,7 @@
 						_self.global_.phone=this.phone;
 						_self.global_.token=res.data.token;
 						console.log(res)
-						if(res.statusCode==400){
+						if(res.statusCode==401){
 							uni.showToast({
 								title:'用户信息不存在',
 								icon:'none'

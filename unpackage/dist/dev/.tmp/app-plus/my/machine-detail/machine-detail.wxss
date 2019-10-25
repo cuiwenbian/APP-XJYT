@@ -14,8 +14,9 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	height: 120rpx;
-	background: #797979;
+	height: 80rpx;
+	background: #CCCCCC;
+	color:a0a0a0;
 	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 	        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 	position: relative;
@@ -40,7 +41,7 @@
 		        align-items: center;
 		height: 100%;
 		font-size: 34rpx;
-		color: #777;
+		color: #121212;
 		position: relative;
 }
 .current{
