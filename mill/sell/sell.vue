@@ -1,61 +1,27 @@
 <template>
     <view class="container">
-        <view class="box">
-            <view class="left">
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="right">
-                    <text class="info">{{ma}}</text>
+       <view  class="pagex" v-for="(item , index) in user_id" :key="index">
+           <view class="page1" >
+                <view class="img">
+                    <image class="por" src="../../static/images/kuangji.png"></image>
                 </view>
-                <view >
-                    <text class="all">已运行{{t}}天 | 剩余{{l}}天</text>
-                </view>
-                <view>
-                    <text class="area">
-                        储存{{nc}}T | 总容量{{c}}T
-                    </text>
-                </view>
-            </view>
-            <view class="y"></view>
-        </view>
-        <view class="box">
-            <view class="left">
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="right">
-                    <text class="info">{{ma}}</text>
-                </view>
-                <view >
-                    <text class="all">已运行{{t}}天 | 剩余{{l}}天</text>
-                </view>
-                <view>
-                    <text class="area">
-                        储存{{nc}}T | 总容量{{c}}T
-                    </text>
+                <view class="info">
+                    <view class="obg">
+                        {{item.name}} {{item.number}}
+                    </view>
+                <view class='boo_img3'  @tap='select'>
+                    <image v-if="lo" class="tee" src="../../static/images/zu7.png"></image>
+                    <image v-else  class='te' src='../../static/images/tuo5.png'></image>
+				</view>
+                    <view class="obg_one">
+                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
+                    </view>
+
+                    <view class="obg_two">
+                        储存{{item.freedisk}}T | 总容量{{item.disk}}
+                    </view>                    
                 </view>
             </view>
-            <view class="y"></view>
-        </view>
-        <view class="box">
-            <view class="left">
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="right">
-                    <text class="info">{{ma}}</text>
-                </view>
-                <view >
-                    <text class="all">已运行{{t}}天 | 剩余{{l}}天</text>
-                </view>
-                <view>
-                    <text class="area">
-                        储存{{nc}}T | 总容量{{c}}T
-                    </text>
-                </view>
-            </view>
-            <view class="y"></view>
         </view>
         <view class="Serial"></view>
         <view class="box1">
@@ -65,7 +31,7 @@
             </view>
             <view class="xn"></view>
             <view class="haide">
-                <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
+                <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" value="total_price" />
                 <button class="primary" @click="btn">确定出售</button>
             </view>
         </view>
@@ -77,15 +43,33 @@
     export default {
         data() {
             return {
-                ma:"星际王者矿机专业版 MC19090212256",
-                t:"50",
-                l:"40",
-                nc:"3.5",
-                c:"4",
-                total_price:'',
-                san:"3",
+                name:'',
+                number:'',
+                user_id:'',
+                data:'',
+                usedata:'',
+                freedisk:'',
+                disk:'',
+                
+                san:'',
                 sun:''
             }
+        },
+        onLoad(options) {
+            console.log(options)
+            uni.request({
+                url:this.urll + 'buildorders/',
+                method:'GET',
+                header:{
+                     Authorization: 'JWT'+' '+this.global_.token
+                },
+                data:{
+                    
+                },
+                success(res) {
+                    console.log(res)
+                }
+            })
         },
         methods: {
             getPriceValue: function (e) {
@@ -97,41 +81,76 @@
                 uni.navigateTo({
                     url:"../validation/validation"
                 })
-            }
+            },
         }
     }
 </script>
 
 <style>
-    .box {
-        height: 180rpx;
+.pagex {
+
+        width: 100%;
+        display: block;
     }
-    .left {
-        line-height: 180rpx;
+    .page1 {
+
+        height: 180rpx;
+
+        padding-right: 40rpx;
+        padding-bottom: 20rpx;
+
     }
     .img{
+        width: 20%;
+
+    },
+    .molis{
+        float: right;
+        margin-bottom: 60rpx;
+    }
+    .por{
         float: left;
         width: 145rpx;
         height: 126rpx;
+        margin-top: 20rpx;
         margin-left: 48rpx;
-        margin-top: 36rpx;
-        margin-right: 24rpx;
-        border: 1rpx solid #CCCCCC;
-        padding: 0 14rpx 0 14rpx;
     }
-    .info {
-        font-size: 28rpx;
+    .info{
+        width: 70%;
+        height: 100%;
+        float: right;
     }
-    .right {
-        padding-top: 18rpx;
+    .obg{
+        margin-top: 20rpx;
+        font-size: 30rpx;
+        
     }
-    .all{
+    .te{
+      display: block;
+      float: right;
+      margin-top: -4rpx;
+      width:40rpx;
+      height:40rpx;
+      margin-right:28rpx;
+    }
+    .tee{
+        float: right;
+        margin-top: -4rpx;
+        width: 40rpx;
+        height: 40rpx;
+        margin-right: 20rpx;
+        /* display: none; */
+    }
+    .obh_one {
         font-size: 24rpx;
-        color: #C0C0C0;
+
     }
-    .area {
+    .days{
+        color: #5ca614;
+    }
+    .obg_one{
         font-size: 24rpx;
-        color: #C0C0C0;
+
     }
     .y {
         width: 90%;
@@ -140,7 +159,7 @@
         margin: 0 auto;
     }
     .Serial{
-        height: 462rpx;
+        height: 820rpx;
         background-color: #CCCCCC;
     }
     .box1 {

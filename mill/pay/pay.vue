@@ -17,7 +17,8 @@
             </view>
             <view class="list" v-if="tabCurrentIndex === 0">
                 <scroll-view scroll-y='true'>
-				<view class="order"> 
+
+				<view  class="order" > 
 					<view class="top">
 						<text class="mation">买家姓名</text>
 						<text class="cont">联系方式</text>
@@ -118,6 +119,7 @@
     		return {
                 many:'0',
                 tabCurrentIndex:0,
+                flag:false,
                 navList: [
                 	{
                 		state: 0,
@@ -141,6 +143,20 @@
                 	
                 ]
     		};
+        },
+        onLoad(options) {
+            console.log(options)
+            uni.request({
+                url:this.urll + 'buyall/101',
+                method:'GET',
+                header:{
+                     Authorization: 'JWT'+' '+this.global_.token
+                },
+                data:{},
+                success(res) {
+                    console.log(res)
+                }
+            })
         },
         methods:{
             tabClick:function (index) {
@@ -184,7 +200,7 @@
 		width: 50%;
 		height: 40rpx;
 		margin-left: 60rpx;
-		margin-top: 60rpx;
+		margin-top: 80rpx;
         font-size: 36rpx;
     }
    .many{
@@ -198,7 +214,7 @@
     }    
 	.colo1{
 		height: 60rpx;
-		padding-top: 60rpx;
+		padding-top: 80rpx;
 		padding-left: 540rpx;
 	}
     .dx {
@@ -218,7 +234,16 @@
         background-color: #F6F6F6;
         position: relative;
     }
-
+    .transfer{
+    	width:130rpx;
+    	height:130rpx;
+    	display: block;
+    	margin: 150rpx auto 20rpx;
+    }
+    .infoo{
+    	text-align: center;
+    	font-size: 32rpx;
+    }
 
     .list{
       height: auto;

@@ -140,6 +140,18 @@
                 ]
     		};
         },
+        onLoad(options) {
+            uni.request({
+                url: this.urll + 'saleall/101',
+                method:'GET',
+                header:{
+                    Authorization: 'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res)
+                }
+            })
+        },
         methods:{
             tabClick:function (index) {
                 var that = this

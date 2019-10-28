@@ -1,0 +1,66 @@
+
+.box {
+	height: 200rpx;
+}
+.none {
+	display: block;
+	width: 150rpx;
+	height: 150rpx;
+	margin: 0 auto;
+}
+.tips {
+	margin-top: 50rpx;
+	text-align: center;
+	color: #797979;
+	font-size: 28rpx;
+}
+.newadd {
+	width: 200rpx;
+	height: 70rpx;
+	background: #03143b;
+	border-radius: 50rpx;
+	color: #fff;
+	text-align: center;
+	line-height: 70rpx;
+	margin: 80rpx auto;
+	font-size: 30rpx;
+}
+.list {
+	width: calc(100% - 48rpx);
+	height: 140rpx;
+	border-bottom: 1rpx solid #f2f2f2;
+	margin-left: 48rpx;
+}
+.left {
+	float: left;
+	width: 88%;
+}
+.right {
+	float: left;
+	width: 12%;
+}
+.nickname {
+	line-height: 80rpx;
+	font-size: 30rpx;
+}
+.adr {
+	line-height: 40rpx;
+	font-size: 30rpx;
+}
+.edit {
+	width: 50rpx;
+	height: 50rpx;
+	margin-top: 45rpx;
+}
+.delete {
+	height: 140rpx;
+	line-height: 140rpx;
+	position: absolute;
+	right: 0;
+	width: 0;
+	top: 0;
+	background: red;
+	color: #fff;
+	text-align: center;
+}
+

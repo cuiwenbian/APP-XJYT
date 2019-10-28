@@ -19,22 +19,22 @@
         </swiper>
         
         <view class="notice"> 
-           <image class="g" src="../../static/images/notice.png"></image>
-           <text class="i"></text>
            
-           <swiper :indicator-dots="true" autoplay :interval="3000" :duration="1000">
+           <swiper class="lbb" indicator-dots autoplay :interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)" >
                <swiper-item>
-                   <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+                   <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
                </swiper-item>
                <swiper-item>
-                    <text class="m">重大通知：明天是2019年10月15日，星期二</text>
+                    <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
                </swiper-item>
                <swiper-item>
-                    <text class="m">重大通知：明天是2019年10月15日，星期二</text>
-               </swiper-item><marquee></marquee>
+                    <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
+               </swiper-item>
+               <view class="bor"></view>
            </swiper>
+           
         </view>
-        <view class="bor"></view>
+        
 
         <view class="borx">
             <view class="price">
@@ -61,12 +61,10 @@
         </view>
         
         <view class="bor1"></view>
-        <view class="information" v-for="(item , index) in user_id" :key="index">
             <view class="Small">
                 <image src="../../static/images/information.png" mode=""></image>
 				<text class="te">热门资讯</text> 
             </view>
-		</view>
         <view class="bt">
 			<view class="left">
 				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
@@ -82,6 +80,18 @@
 			</view>
         </view>
         <text class="b"></text>
+        <view class="left">
+        	<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
+        	<view>
+        		<text class="yu">6月</text>
+        		<image class="yj" src="../../static/images/eye.png"> 
+        		</image>
+        		<text class="yjj">1000人看过</text>
+        	</view>
+        </view>
+        <view class="right">
+        	<image class="ig" src="../../static/images/kuangji.png"></image>
+        </view>
 	</view>
 </template>
 
@@ -113,13 +123,11 @@
         },
 		methods: {
             getServerData(){
-            	var open_id = uni.getStorageSync('openid');
-            	var token = uni.getStorageSync('token');
             	uni.request({
             			url: '',
-            			method: 'GET',
+            			method: '',
             			header: {
-            			  "token": token,
+            			  
             			},
             			success: function(res) {
             				console.log(res.data.data[0])
@@ -184,7 +192,7 @@
             			}
             		});
             		
-            	}
+            }
 		}
 	}
 </script>
@@ -226,15 +234,19 @@
 		width: 100%;
 		height:100%;
     }
-    .notice{
-        height: 60rpx;
+    .lbb{
+        height: 80rpx;
+        line-height: 80rpx;
     }
+ /*   .notice{
+        height: 60rpx;
+    } */
     .g {
         width: 28rpx;
         height: 28rpx;
         float: left;
         padding-left: 23rpx;
-        padding-top: 17rpx;
+        padding-top: 40rpx;
     }
     .i{
         width: 600rpx;
@@ -247,13 +259,13 @@
     .m {
         float: left;
         padding-top: 17rpx;
-        margin-left: 32rpx;
+        margin-left: 90rpx;
         font-size: 24rpx;
 
         color: #FFFFFF;
     }
     .bor {
-			width: 94%;
+		width: 94%;
         margin: 0 auto;
         border: 2rpx solid #CcCcCc;
     }
@@ -304,11 +316,10 @@
         width: 100%;
         height: 608rpx;
     }
-	.information{
-		width: 100%;
-		height: 80rpx;
-	}
+
     .Small{
+        width: 100%;
+		height: 80rpx;
         margin-top: 14rpx;
     }
     .Small image{
@@ -329,7 +340,7 @@
     }
     .bt{
 		width: 100%;
-        height: 600rpx;
+        height: 200rpx;
     }
 	.left {
 		float: left;
@@ -382,8 +393,10 @@
         color: #CCCCCC;
     }
     .b {
+        display: block;
         width: 94%; 
         margin: 0 auto;
+        margin-top: 20rpx;
         border-bottom:2rpx solid #CCCCCC;
     }
 </style>

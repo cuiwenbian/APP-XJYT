@@ -21,12 +21,12 @@
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
-		<neil-modal 
+<!-- 		<neil-modal 
 		    :show="show" 
 		    title="标题" 
 		    content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
 		    :show-cancel="false">
-		</neil-modal>
+		</neil-modal> -->
 		<navigator url='../login/login' class="goback">
 			已有账号，返回登录
 		</navigator>

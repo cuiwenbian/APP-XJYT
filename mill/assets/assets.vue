@@ -20,7 +20,6 @@
             	</view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 0">
-                
                     <view>
                     	<view v-if="flag" >
                     		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
@@ -96,7 +95,7 @@
                 url:this.url + "assets/",
                 method:'GET',
                 header:{
-                    Authorization:"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtb2JpbGUiOiIxNzYyMTg5ODU4NyIsInVzZXJuYW1lIjoiMTc2MjE4OTg1ODciLCJleHAiOjE1NzIwODI5MDIsInVzZXJfaWQiOjJ9.FFfjob0pZwdT_N4BAbf30SjtNXRthMEqA4cvMsPhGsE"
+                    Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
                     that.num = res.data.availed_num
@@ -108,7 +107,7 @@
                 url:this.url + 'month/profit/',
                 method:'GET',
                 header:{
-                    Authorization:"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtb2JpbGUiOiIxNzYyMTg5ODU4NyIsInVzZXJuYW1lIjoiMTc2MjE4OTg1ODciLCJleHAiOjE1NzIwODI5MDIsInVzZXJfaWQiOjJ9.FFfjob0pZwdT_N4BAbf30SjtNXRthMEqA4cvMsPhGsE"
+                    Authorization:'JWT'+' '+this.global_.token
                 },
                 success: (res) => {
                     console.log(res)
