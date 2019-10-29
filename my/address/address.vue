@@ -2,17 +2,23 @@
 	<!-- 提币地址 -->
 	<view class="container">
 		<view v-if="flag" style="position: relative;">
-			<!-- <mt-cell-swipe> -->
-			  <view class="list">
-			  	<view class="left">
-			  		<view class="nickname" >地址昵称: {{nickname}}</view>
-			  		<view class="adr">地址：{{address}}</view>
-			  	</view>
-			  	<view class="right" @click="edit"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
-			  </view>
-			  <!-- </mt-cell-swipe> -->
+			<view class="height"></view>
+			<uni-nav-bar left-icon="back"  right-text="添加" click-left='back' click-right='add' title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
+			<block v-for="(item,index) in address_out" :key='index'>
+			<uniSwipeAction :options="options" @click="click" @change="change"  >
+				<view class="list">
+					<view class="left">
+						<view class="nickname" :value='nickname'>地址昵称: {{ item.wallet_value }}</view>
+						<view class="adr" :value='address'>地址：{{item.wallet_key }}</view>
+					</view>
+					<view class="right" @click="edit"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
+				</view>
+			</uniSwipeAction>
+			</block>
 		</view>
 		<view v-else>
+			<view class="height"></view>
+			<uni-nav-bar left-icon="back"   click-left='back'  title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/address.png" mode=""></image>
@@ -25,34 +31,29 @@
 <script src="../../static/js/jquery.min.js"></script>
 <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-export default {
+	import {uniSwipeAction} from "../../components/uni-swipe-action/uni-swipe-action.vue"
+	import {uniNavBar} from "../../components/uni-nav-bar/uni-nav-bar.vue"
+ export default {
 	data() {
 		return {
-			nickname:'ss',
-			address:'dss12gfgytnmkihqss3sss',
-			allList: [
-				// 模拟从后台获取过来的数据格式
-				{
-					repeatList: ['周一', '周三'],
-					startTime: '00:00',
-					endTime: '20:20'
-				},
-				{
-					repeatList: ['周二', '周四', '周五'],
-					startTime: '12:00',
-					endTime: '23:59'
-				},
-				{
-					repeatList: ['周六', '周日'],
-					startTime: '00:00',
-					endTime: '23:59'
-				}
-			],
+			options:[
+			        {
+			            text: '删除',
+			            style: {
+			                backgroundColor: '#dd524d'
+			            }
+			        }
+			 ],
+			nickname:'',
+			address:'',
+			address_out:'',
 			flag: true,
 			right:''
 		};
 	},
+	components: {uniSwipeAction,uniNavBar},
 	onLoad() {
+		var that=this;
 		uni.request({
 			url:this.urll+'walletaddress/',
 			method:'GET',
@@ -61,10 +62,34 @@ export default {
 			},
 			success(res) {
 				console.log(res)
+				if(res.data.data==''){
+					that.flag=false
+				}
+				that.address_out=res.data.data
+				
+				console.log(that.address_out)
+				
+				
 			}
 		})
 	},
 	methods: {
+		click:function(e){
+			console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
+			uni.request({
+				url:this.urll+'updatadeleteaddress/',
+				method:'DELETE',
+				data:{
+					
+				},
+				header:{
+					Authorization:'JWT'+' '+this.global_.token
+				},
+				success(res) {
+					console.log(res)
+				}
+			})
+		},
 		add: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address',
@@ -73,7 +98,14 @@ export default {
 				complete: () => {}
 			});
 		},
+		back: function() {
+			uni.navigateBack({
+				delta:1
+			})
+		},
 		edit: function() {
+			console.log(this.nickname)
+			console.log(this.address)
 			uni.navigateTo({
 				url: '../edit-address/edit-address?nickname='+this.nickname+'&address='+this.address,
 				success: res => {},
@@ -94,7 +126,10 @@ export default {
 </script>
 
 <style>
-	
+	.height {
+		height: var(--status-bar-height);
+		background: #121212;
+	}
 .box {
 	height: 200rpx;
 }
@@ -130,7 +165,6 @@ export default {
 .left {
 	float: left;
 	width: 88%;
-	
 }
 .right {
 	float: left;

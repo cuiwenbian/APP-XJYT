@@ -35,6 +35,7 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
+				var that=this;
 				if(this.address==''){
 					uni.showToast({
 						title:'请输入提币地址',
@@ -55,7 +56,8 @@
 					url:this.urll+'updatadeleteaddress/',   //编辑地址接口
 					method:'PUT',
 					data:{
-						
+						wallet_value:that.nickname,
+						wallet_key:that.address
 					},
 					header:{
 						Authorization:'JWT'+' '+this.global_.token

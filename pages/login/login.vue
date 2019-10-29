@@ -6,16 +6,16 @@
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
 			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
-		</view>
+		</view> 
 		<view class="enter">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
 			<input class="number" type="password" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
 		</view>
-		<view class="tip">
+		<view class="tip"> 
 			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
 			<navigator url="../getBackPassword/getBackPassword" class="tips">忘记密码</navigator>
 		</view>
-		<view class='btn' type="primary" @click="login">登录</view>
+		<view class='btn' type="primary" @click.once="login">登录</view>
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
@@ -25,36 +25,23 @@
 				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
 			</label>
 		</view>
-		<!-- <neil-modal 
-		    :show="show" 
-		    @close="closeModal" 
-		    title="标题" 
-		    content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
-		    @cancel="bindBtn('cancel')" 
-		    @confirm="bindBtn('confirm')">
-		</neil-modal>
-		<uni-popup ref="popup" type="center" custom="true">
-			<view class='pop'>标题</view>
-		</uni-popup> -->
+		
 	</view>
 </template>
 
 <script>
 	
-	import neilModal from '@/components/neil-modal/neil-modal.vue';
-	import uniPopup from "@/components/uni-popup/uni-popup.vue"
+	
 	export default {
 		data() {
 			return {
 				show:false,
 				phone:'',
 				password:'',
+				
 			};
 		},	
-		components: {
-			neilModal,
-		    uniPopup
-		},
+		
 		methods:{
 			getPhoneValue:function(e){
 				this.phone=e.detail.value

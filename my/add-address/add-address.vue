@@ -59,7 +59,7 @@
 					},
 					success(res) {
 						console.log(res)
-						uni.reLaunch({
+						uni.navigateBack({
 							delta:1
 						})
 						uni.showToast({

@@ -1,0 +1,2 @@
+setCssToHead(["body,body{ height: 100%; width:16rem; overflow:hidden; }\n.",[1],"_ul{ width:16rem; height:28.4rem; }\n.",[1],"_li{ width:20rem; height:2rem; line-height: 2rem; background:pink; }\n.",[1],"div1{ width:16rem; height:2rem; float:left; }\n.",[1],"del{ width:4rem; height:2rem; background:red; float:left; text-align: center; line-height: 2rem; color:#fff; }\n",],undefined,{path:"./my/touchmove/touchmove.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./my/touchmove/touchmove.wxml') } }));

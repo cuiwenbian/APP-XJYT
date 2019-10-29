@@ -79,7 +79,7 @@
 		  return{
 			  flag:false,
 			  user_machine:'',
-			 
+			  machine_id:''
 		  }	
 		},
 		onLoad() {
@@ -91,8 +91,10 @@
 					 Authorization:'JWT'+' '+this.global_.token
 				},
 				success: res => {
+					console.log(res)
 					this.user_machine=res.data.data
-					console.log(this.user_machine)
+					this.machine_id=res.data.data[0].machine_id
+					console.log(this.machine_id)
 					
 				},
 				fail: () => {},
@@ -102,7 +104,7 @@
 		methods:{
 			select:function(){
 				uni.navigateTo({
-					url:'../machine-detail/machine-detail'
+					url:'../machine-detail/machine-detail?machine_id='+this.machine_id
 				})
 			}
 		}
@@ -182,13 +184,10 @@
 	  color: #e5543f;
 	}
 	.obg3{
-	
 	  position: relative;
-	
 	  display: block;
-	  
 	  float: right;
-	  margin-right: 25rpx;
+	  /* margin-right: 25rpx; */
 	  font-size : 30rpx;
 	  margin-top: 18rpx;
 	  color: #61e458;

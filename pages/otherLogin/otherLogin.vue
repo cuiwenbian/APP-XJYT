@@ -9,10 +9,10 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click.once="getCodeNumber" :disabled="disabled">{{ codename }}</view>
 			<input class="number" style="width:350rpx;float: left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
-		<view class="btn" type="primary" @click="login">立刻登录</view>
+		<view class="btn" type="primary" @click.once="login">立刻登录</view>
 		<navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
 	</view>
 </template>

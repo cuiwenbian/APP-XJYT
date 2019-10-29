@@ -97,6 +97,13 @@
 								duration:2000
 							})
 						}
+						if(res.statusCode==202){
+							uni.showToast({
+								title:'新旧密码一样',
+								icon:'none',
+								duration:2000
+							})
+						}
 						if(res.statusCode==200){
 							uni.switchTab({
 								url:'../my/my'

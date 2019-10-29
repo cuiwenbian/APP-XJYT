@@ -9,11 +9,11 @@
 		</view>
 		<!-- 显示区域 -->
 		<view class="list"  v-if="tabCurrentIndex === 0">
-	
-				 <view class='pagex' v-for="item in machine_config" :key="id" >
+			
+				 <view class='pagex' v-for="item in machine_config" :key='machine_id'>
 					<view class="nav_right_items">
 						<text class='te'>名称 ：</text>
-						<text class='te1'>{{item.machine_name}}</text>
+						<text class='te1'>{{item.name}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
@@ -54,46 +54,46 @@
 				   
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
-						<text class='te1'>{{item.area_name}}</text>
+						<text class='te1'>{{item.area}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>矿场 ：</text>
-						<text class='te1'>{{item.machine_area_name}}</text>
+						<text class='te1'>{{item.machine_area}}</text>
 					</view>
 					<view class="line1"></view>
-				  </view>
+				</view>
 			   
 			   
 		</view>
 		<view class="list"  v-if="tabCurrentIndex === 1">
-			 <view class='pagex' v-for="item in machine_status" :key="id" >
+			 <view class='pagex' v-for="item in machine_status"  :key='id'>
 					  <view class="nav_right_items">
-					 <!--界面跳转 -->
+
 						 <text class='te'>CPU占有率 ：</text>
-						 <text class='te1'>{{item.cpu}}</text>
+						 <text class='te1'>{{item.cpu_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-							   <view class="nav_right_items">
-					 <!--界面跳转 -->
+					  <view class="nav_right_items">
+					
 						 <text class='te'>硬盘占有率 ：</text>
-						 <text class='te1'>{{item.hard_disk}}</text>
+						 <text class='te1'>{{item.data_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-							   <view class="nav_right_items">
-					 <!--界面跳转 -->
+					  <view class="nav_right_items">
+					 
 						 <text class='te'>网络占有率 ：</text>
-						 <text class='te1'>{{item.net}}</text>
+						 <text class='te1'>{{item.memory_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-							   <view class="nav_right_items">
-					 <!--界面跳转 -->
+					  <view class="nav_right_items">
+					 
 						 <text class='te'>内存占有率 ：</text>
-						 <text class='te1'>{{item.memory}}</text>
+						 <text class='te1'>{{item.vf_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-				  </view>
-		</view>
+			 </view>
+		</view> 
 		<view class="list"  v-if="tabCurrentIndex === 2">
 			
 		</view>
@@ -107,6 +107,7 @@
 				tabCurrentIndex: 0,
 				machine_config:'',
 				machine_status:'',
+				machine_id:'',
 				navList: [
 					{
 						state: 0,
@@ -126,23 +127,36 @@
 					
 				]
 			};
-		},
+		}, 
 		onLoad(options) {
+			var that=this;
+			 this.machine_id=options.machine_id;
+			 console.log(this.machine_id)
 			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
 			  uni.request({
-			  	url:this.urll+'usermachineinfo/',
+			  	url:this.urll+'usermachineinfo/'+'1/'+ this.machine_id,
 				method:'GET',
-				data:{
-				
-				},
 				header:{
-					Authorization:'JWT'+' '+this.global_.token
+					Authorization:'JWT'+' '+this.global_.token 
 				},
 				success(res) {
 					console.log(res)
+					that.machine_config=res.data
+					console.log(that.machine_config)
 				}
-			  })
-		},
+			  }) 
+			  uni.request({
+			  	url:this.urll+'usermachineinfo/'+'2/'+ this.machine_id,
+			  	method:'GET',
+			  	header:{
+			  		Authorization:'JWT'+' '+this.global_.token 
+			  	},
+			  	success(res) {
+			  		console.log(res)
+					that.machine_status=res.data
+			  	}			
+			  }) 
+		}, 
 		methods: {
 			changeTab(e) {
 				this.tabCurrentIndex = e.target.current;

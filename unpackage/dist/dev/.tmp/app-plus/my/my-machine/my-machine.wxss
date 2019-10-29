@@ -68,13 +68,10 @@
   color: #e5543f;
 }
 .obg3{
-
   position: relative;
-
   display: block;
-  
   float: right;
-  margin-right: 25rpx;
+  /* margin-right: 25rpx; */
   font-size : 30rpx;
   margin-top: 18rpx;
   color: #61e458;

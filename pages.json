@@ -134,7 +134,7 @@
 					 },
 					 {
 					     "path":"address/address",
-					     "style":{"navigationBarTitleText":"提币地址"}
+					     "style":{"navigationStyle": "custom"}
 					 },
 					 {
 					     "path":"change-loginPassword/change-loginPassword",
@@ -187,6 +187,10 @@
 					 {
 					     "path":"transfer/transfer",
 					     "style":{"navigationBarTitleText":"转账"}
+					 },
+					 {
+					     "path":"touchmove/touchmove",
+					     "style":{"navigationBarTitleText":"左滑"}
 					 }
 					 
                  ]

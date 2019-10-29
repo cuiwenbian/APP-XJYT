@@ -1,0 +1,31 @@
+
+page,page{
+    height: 100%;
+    width:16rem;
+    overflow:hidden;
+}
+._ul{
+    width:16rem;
+    height:28.4rem;
+}
+._li{
+    width:20rem;
+    height:2rem;
+    line-height: 2rem;
+    background:pink;
+}
+.div1{
+    width:16rem;
+    height:2rem;
+    float:left;
+}
+.del{
+    width:4rem;
+    height:2rem;
+    background:red;
+    float:left;
+    text-align: center;
+    line-height: 2rem;
+    color:#fff;
+}
+

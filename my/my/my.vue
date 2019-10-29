@@ -76,6 +76,7 @@
 				})
 			},
 			tradePassword:function(){
+				var that=this;
 				uni.request({
 					url:this.urll+'setmoney/',
 					method:'GET',
@@ -84,7 +85,7 @@
 					},
 					success(res) {
 						console.log(res)
-						if(res.statusCode==400){
+						if(res.statusCode==302){
 							uni.showToast({
 								title:'用户未绑定邮箱',
 								icon:'none',
@@ -92,16 +93,30 @@
 							})
 							return false
 						}
-						if(res.statusCode==201){
+						if(res.statusCode==400){
 							uni.navigateTo({
 								url:'../change-password/change-password'
 							})
+							// uni.request({
+							// 	url:that.urll+'updatapasswod/',
+							// 	method:'GET',
+							// 	header:{
+							// 		Authorization:'JWT'+' '+that.global_.token
+							// 	},
+							// 	success(res) {
+							// 		console.log(res)
+							// 		if(res.statusCode==200){
+										
+							// 		}
+							// 	}
+							// })
+							 
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
 								url:'../trade-password/trade-password'
 							})
-						}
+						} 
 					}
 				})
 			},
@@ -112,7 +127,7 @@
 			},
 			bindEmail:function(){
 				uni.request({
-					url:this.urll+'setmoney/',
+					url:this.urll+'linkemail/',
 					method:'GET',
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
@@ -121,13 +136,13 @@
 						console.log(res)
 						if(res.statusCode==200||res.statusCode==201){
 							uni.navigateTo({
-								url:'../unbindemail/unbindemail'
+								url:'../email/email'
 								
 							})
 						}
 						if(res.statusCode==400){
 							uni.navigateTo({
-								url:'../email/email'
+								url:'../unbindemail/unbindemail'
 							})
 						}
 					}
@@ -140,9 +155,38 @@
 				})
 			},
 			certification:function(){
-				uni.navigateTo({
-					url:'../identity/identity'
+				uni.request({
+				  url: this.urll + 'realname/',
+				  method:'GET',
+				  header: {
+				   Authorization:'JWT'+' '+this.global_.token
+				  },
+				  success: function (res) {
+				    console.log(res)
+					if(res.statusCode==202){
+						uni.showToast({
+							title:'已实名认证',
+							icon:'none',
+							duration:2000
+						})
+						return false
+					} 
+					if(res.statusCode==205){
+						uni.showToast({
+							title:'身份认证审核中，请等待',
+							icon:'none',
+							duration:2000
+						})
+						return false
+					}
+					if(res.statusCode==200){
+						uni.navigateTo({
+							url:'../identity/identity'
+						})
+					}
+				  }
 				})
+				
 			},
 			mymachine:function(){
 				uni.navigateTo({

@@ -39,7 +39,8 @@
     "my/my-wallet/my-wallet",
     "my/suggest/suggest",
     "my/trade-password/trade-password",
-    "my/transfer/transfer"
+    "my/transfer/transfer",
+    "my/touchmove/touchmove"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -85,6 +86,6 @@
     "autoclose": false
   },
   "appname": "neil-modal",
-  "compilerVersion": "2.3.6",
+  "compilerVersion": "2.3.7",
   "usingComponents": {}
 }

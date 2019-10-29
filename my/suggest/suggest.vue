@@ -1,6 +1,6 @@
 <template>
 	<!-- 建议反馈 -->
-	<view class="container">
+	<view class="container" style="position: relative;">
 		<view v-if='flag' >
 			<view class='t'></view>
 			<view class="suggest-list" style='line-height: 280rpx;font-size: 30rpx;'>
@@ -53,7 +53,12 @@
 				</view>
 			</view>
 		</view>
-		
+		<view class="shade" v-show="shade">
+			<view class="pop">
+				<view class='pop-title'>用户身份未认证</view>
+				<view class='pop-btn' @click='identity'>去认证</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -64,7 +69,8 @@
 			  flag:true,
 			  hidden:true,
 			  title:'',
-			  desc:''
+			  desc:'',
+			  shade:false
 		  }	
 		},
 		onLoad() {
@@ -83,6 +89,8 @@
 					console.log(res)
 					if(res.data.data==''){
 						_this.flag=false
+					}else{
+						_this.flag=true
 					}
 					
 				}
@@ -133,11 +141,22 @@
 					},
 					success(res) {
 						console.log(res)
-						_this.hidden=true;
+						this.message=res.data.data.message;
+						this.desc=res.data.data.title;
+						console.log(this.message)
+						console.log(this.title)
+						if(res.statusCode==200){
+							 _this.hidden=true;
+						}
 						
-						
+							
 					}
 			    })
+			},
+			identity:function(){
+				uni.navigateTo({
+					url:'../identity/identity'
+				})
 			}
 			
 		}
@@ -281,5 +300,37 @@
 		top:20rpx;
 		right:20rpx;
 		/* color:#797979; */
+	}
+	.shade{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.5);
+	}
+	.pop{
+		width:500rpx;
+		height:250rpx;
+		margin:450rpx auto 0;
+		background: #fff;
+		border-radius: 20rpx;
+	}
+	.pop-title{
+		text-align: center;
+		font-size: 32rpx;
+		color:#121212;
+		line-height: 150rpx;
+	}
+	.pop-btn{
+		width:126rpx;
+		height:56rpx;
+		margin:20rpx auto 0;
+		border-radius: 10rpx;
+		background: #121212;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 56rpx;
 	}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<!-- 设置交易密码 -->
-	<view class="container">
+	<view class="container" style='position: relative;'>
 		<view class="line"></view>
 		<view class="list">
 			<text class="title">邮箱：</text>
@@ -17,11 +17,17 @@
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
-		<view class="list">
+		<view class="list"> 
 			<input class="code" type="text" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>
+		<view class="shade" v-show="shade">
+			<view class="pop">
+				<view class='pop-title'>资金密码设置成功</view>
+				<view class='pop-btn'>确定</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -35,9 +41,10 @@
 				code:'',
 				codename: ' 获取验证码',
 				password:'',
-				password1:''
+				password1:'',
+				shade:false
 			}
-		},
+		}, 
 		onLoad() {
 			var _this=this;
 			_this.disabled = true;
@@ -144,7 +151,7 @@
 					return false;
 				}
 				uni.request({
-					url:this.urll+'setmoneypw/',
+					url:this.urll+'setmoney/', 
 					method:'POST',
 					data:{
 						email:this.email1,
@@ -238,5 +245,36 @@
 		line-height: 90rpx;
 		color: #fff;
 	}
-	
+	.shade{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.5);
+	}
+	.pop{
+		width:500rpx;
+		height:250rpx;
+		margin:450rpx auto 0;
+		background: #fff;
+		border-radius: 20rpx;
+	}
+	.pop-title{
+		text-align: center;
+		font-size: 32rpx;
+		color:#121212;
+		line-height: 150rpx;
+	}
+	.pop-btn{
+		width:126rpx;
+		height:56rpx;
+		margin:20rpx auto 0;
+		border-radius: 10rpx;
+		background: #121212;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 56rpx;
+	}
 </style>

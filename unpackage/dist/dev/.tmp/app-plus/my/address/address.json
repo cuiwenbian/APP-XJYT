@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "提币地址",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  }
 }

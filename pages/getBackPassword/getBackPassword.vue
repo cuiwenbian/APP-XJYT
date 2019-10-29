@@ -8,7 +8,7 @@
 		</view>
 		<view class="pass">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click.once="getCodeNumber" :disabled="disabled">{{ codename }}</view>
 			<input class="code" type="text"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
 		<view class="next" type="primary" @click="next">下一步</view>

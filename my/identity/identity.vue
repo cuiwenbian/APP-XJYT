@@ -1,6 +1,6 @@
 <template>
 	<!-- 身份认证 -->
-	<view class="container">
+	<view class="container" style='position: relative;'>
 		<view class="line">
 			基本资料
 		</view>
@@ -77,7 +77,12 @@
 		<view class='out2'>
 		 <button :class=' name && idcard && imgs.length===2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		</view>
-
+        <view class="shade" v-show="shade">
+        	<view class="pop">
+        		<view class='pop-title'>提交成功，等待审核</view>
+        		<view class='pop-btn' @click="sure">确定</view>
+        	</view>
+        </view>
 	</view>
 </template>
 
@@ -98,7 +103,8 @@
 				p_flag: true,
 				r_flag: true,
 				p_url:'',
-				r_url:''
+				r_url:'',
+				shade:false
 			}
 		},
 		methods:{
@@ -207,6 +213,7 @@
 			    var that = this;
 				let token=this.global_.token;
 			    for(var key in imgpaths[index]){
+					console.log(key)
 			      uni.uploadFile({
 			        url: this.urll + 'realname/',//上传接口
 			        filePath: imgpaths[index][key],
@@ -234,13 +241,17 @@
 			           	  name: that.name, 
 			           	  idcard: that.idcard
 			           	  // positive:that.imageBase64List,
-			           	  // reverse:that.imageBase64List1
+			           	 //reverse:that.imageBase64List1
 			           	  },
 			             header: {
 			               Authorization:'JWT'+' '+token
 			             },
 			             success: function (res) {
 			               console.log(res)
+						   if(res.statusCode==200){
+							   console.log(that.shade)
+							  that.shade=true
+						   }
 			             }
 			           })
 			          } else {
@@ -288,6 +299,12 @@
 			   }
 			 
 			    that.upImgs(that.imgs,0)
+			},
+			sure:function(){
+				console.log('等待审核')
+				uni.switchTab({
+					url:'../my/my'
+				})
 			}
 		}
 	}
@@ -371,7 +388,6 @@
 		width:250rpx;
 		height:150rpx;
 		margin:20rpx auto;
-		
 	}
 	.shen1-1{
 	  width: 50rpx;
@@ -506,5 +522,37 @@
 	  border-radius: 15rpx;
 	  
 	  border: none;
+	}
+	.shade{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.5);
+	}
+	.pop{
+		width:500rpx;
+		height:250rpx;
+		margin:450rpx auto 0;
+		background: #fff;
+		border-radius: 20rpx;
+	}
+	.pop-title{
+		text-align: center;
+		font-size: 32rpx;
+		color:#121212;
+		line-height: 150rpx;
+	}
+	.pop-btn{
+		width:126rpx;
+		height:56rpx;
+		margin:20rpx auto 0;
+		border-radius: 10rpx;
+		background: #121212;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 56rpx;
 	}
 </style>
