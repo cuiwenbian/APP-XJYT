@@ -27,11 +27,11 @@
 				codename: ' 获取验证码',
 			}
 		},
-		onLoad() {
+		onShow() {
 			var _this=this;
 			_this.disabled = true;
 			uni.request({
-				url:this.urll+'setmoney/',
+				url:this.urll+'delemail/',
 				method:'GET',
 				header:{
 					Authorization:'JWT'+' '+this.global_.token
@@ -39,11 +39,12 @@
 				success(res) {
 					console.log(res)
 					var email=res.data.data;
+					console.log(email)
 					var email1=res.data.data;
 					_this.email1=email1;
 					var l = email.split('@');
-					email = l[0].substr(0, l[0].length - 5) + '****@' + l[1]
-					_this.email=email
+					email = l[0].substr(0, l[0].length - 5) + '****@' + l[1];
+					_this.email=email;
 				}
 			})
 		},
@@ -65,7 +66,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 				 	 success:function(res){
-				 		 console.log(res)
+				 		 //console.log(res)
 				 	     var num = 121;
 				 	     var timer = setInterval(function () {
 				 	       num--;
@@ -109,7 +110,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
+						//console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码错误',

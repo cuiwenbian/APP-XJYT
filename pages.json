@@ -181,6 +181,10 @@
 					     "style":{"navigationBarTitleText":"建议反馈"}
 					 },
 					 {
+					     "path":"suggest-detail/suggest-detail",
+					     "style":{"navigationBarTitleText":"反馈详情"}
+					 },
+					 {
 					     "path":"trade-password/trade-password",
 					     "style":{"navigationBarTitleText":"设置交易密码"}
 					 },

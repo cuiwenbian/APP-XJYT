@@ -10,7 +10,7 @@
 			<text class="title">确认密码</text>
 			<input class="phone" type="text" :value="newPwd1" @input="newpassword1" placeholder="请再次输入新密码" />
 		</view>
-		<view class="next" @click.once="next">确认</view>
+		<view class="next" @click="next">确认</view>
 	</view>
 </template>
 

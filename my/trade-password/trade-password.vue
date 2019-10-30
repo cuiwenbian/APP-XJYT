@@ -49,7 +49,7 @@
 			var _this=this;
 			_this.disabled = true;
 			uni.request({
-				url:this.urll+'setmoney/',
+				url:this.urll+'delemail/',
 				method:'GET',
 				header:{
 					Authorization:'JWT'+' '+this.global_.token
@@ -156,8 +156,8 @@
 					data:{
 						email:this.email1,
 						email_msg:this.code,
-						password1:this.password,
-						password2:this.password1
+						password:this.password,
+						password1:this.password1
 						
 					},
 					header:{
@@ -166,6 +166,11 @@
 					success(res) {
 						console.log(res)
 						if(res.statusCode==200){
+							uni.showToast({
+								title:'资金密码已设置',
+								icon:'none',
+								duration:2000
+							})
 							uni.switchTab({
 								url:'../my/my'
 							})

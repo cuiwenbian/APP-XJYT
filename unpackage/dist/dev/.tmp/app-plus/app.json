@@ -38,6 +38,7 @@
     "my/machine-detail/machine-detail",
     "my/my-wallet/my-wallet",
     "my/suggest/suggest",
+    "my/suggest-detail/suggest-detail",
     "my/trade-password/trade-password",
     "my/transfer/transfer",
     "my/touchmove/touchmove"

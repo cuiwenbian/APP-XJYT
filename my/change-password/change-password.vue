@@ -90,14 +90,14 @@
 					},
 					success(res) {
 						console.log(res)
-						if(res.statusCode==400){
+						if(res.data.msg='密码错误'){
 							uni.showToast({
 								title:'现有密码错误',
 								icon:'none',
 								duration:2000
 							})
 						}
-						if(res.statusCode==202){
+						if(res.data.non_field_errors='新旧密码一样'){
 							uni.showToast({
 								title:'新旧密码一样',
 								icon:'none',
@@ -105,6 +105,11 @@
 							})
 						}
 						if(res.statusCode==200){
+							uni.showToast({
+								title:'资金密码已修改',
+								icon:'none',
+								duration:2000
+							})
 							uni.switchTab({
 								url:'../my/my'
 							})

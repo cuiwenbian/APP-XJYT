@@ -1,21 +1,23 @@
 <template>
 	<!-- 提币地址 -->
-	<view class="container">
-		<view v-if="flag" style="position: relative;">
+	<view class="container" style="position: relative;">
+		<view v-if="flag" >
 			<view class="height"></view>
-			<uni-nav-bar left-icon="back"  right-text="添加" click-left='back' click-right='add' title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
-			<block v-for="(item,index) in address_out" :key='index'>
-			<uniSwipeAction :options="options" @click="click" @change="change"  >
+			<uni-nav-bar left-icon="back"  right-text="添加"  click-left='back' click-right='add' title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
+			<block v-for="item in address_out" :key='item.id'>
+			<uniSwipeAction :options="options" @click="click(item)">
 				<view class="list">
 					<view class="left">
 						<view class="nickname" :value='nickname'>地址昵称: {{ item.wallet_value }}</view>
 						<view class="adr" :value='address'>地址：{{item.wallet_key }}</view>
 					</view>
-					<view class="right" @click="edit"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
+					<view class="right" @click="edit(item)" :data-item="item"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
 				</view>
 			</uniSwipeAction>
 			</block>
+			<view class="newadd" @click="add">新建地址</view>
 		</view>
+		
 		<view v-else>
 			<view class="height"></view>
 			<uni-nav-bar left-icon="back"   click-left='back'  title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
@@ -26,6 +28,7 @@
 			</view>
 			<view class="newadd" @click="add">新建地址</view>
 		</view>
+		
 	</view>
 </template>
 <script src="../../static/js/jquery.min.js"></script>
@@ -44,15 +47,20 @@
 			            }
 			        }
 			 ],
-			nickname:'',
-			address:'',
+			wallet_value:'',
+			wallet_key:'',
 			address_out:'',
 			flag: true,
-			right:''
+			right:'',
+			id:'',
+			shade:true,
+			password:'654321',
+			user_id:''
 		};
 	},
 	components: {uniSwipeAction,uniNavBar},
-	onLoad() {
+	
+	onShow() {
 		var that=this;
 		uni.request({
 			url:this.urll+'walletaddress/',
@@ -62,34 +70,50 @@
 			},
 			success(res) {
 				console.log(res)
+				if(res.statusCode==200){
+					uni.showModal({
+						title:'未设置资金密码'
+					})
+				}
 				if(res.data.data==''){
 					that.flag=false
 				}
 				that.address_out=res.data.data
-				
-				console.log(that.address_out)
-				
-				
 			}
 		})
 	},
 	methods: {
-		click:function(e){
-			console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
+		//点击删除按钮
+		click:function(item){
+			var that=this;
+			that.id=item.id;
+			// console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
 			uni.request({
 				url:this.urll+'updatadeleteaddress/',
 				method:'DELETE',
 				data:{
-					
+					id:that.id,
+					password:that.password
 				},
 				header:{
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
 					console.log(res)
+					if(res.statusCode==204){
+						that.onShow()
+					}
+					if(res.statusCode==200){
+						uni.showToast({
+							title:'资金密码错误',
+							icon:'none',
+							duration:2000
+						})
+					}
 				}
 			})
 		},
+		//点击添加按钮
 		add: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address',
@@ -103,11 +127,15 @@
 				delta:1
 			})
 		},
-		edit: function() {
-			console.log(this.nickname)
-			console.log(this.address)
+		//点击编辑按钮
+		edit: function(item) {
+			var that=this;
+			that.id=item.id;
+			that.wallet_key=item.wallet_key;
+			that.wallet_value=item.wallet_value;
+			that.user_id=item.user_id;
 			uni.navigateTo({
-				url: '../edit-address/edit-address?nickname='+this.nickname+'&address='+this.address,
+				url: '../edit-address/edit-address?id='+that.id+'&wallet_key='+that.wallet_key+'&wallet_value='+that.wallet_value+'&user_id='+that.user_id,
 				success: res => {},
 				fail: () => {},
 				complete: () => {}
@@ -129,7 +157,46 @@
 	.height {
 		height: var(--status-bar-height);
 		background: #121212;
+		z-index:99;
 	}
+	.shade{
+			position: absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background: rgba(0,0,0,0.5);
+		}
+		.pop{
+			width:70%;
+			height:250rpx;
+			margin:450rpx auto 0;
+			background: #fff;
+			border-radius: 20rpx;
+		}
+		.pop-title{
+			text-align: center;
+			font-size: 32rpx;
+			color:#121212;
+			line-height: 150rpx;
+		}
+		.pop-bottom{
+			width:100%;
+			height:56rpx;
+			display: flex;
+			justify-content: space-between;
+			/* margin:20rpx auto 0; */
+		}
+		.pop-btn{
+			width:126rpx;
+			height:56rpx;
+			border-radius: 10rpx;
+			background: #121212;
+			color: #fff;
+			font-size: 30rpx;
+			text-align: center;
+			line-height: 56rpx;
+		}
 .box {
 	height: 200rpx;
 }
@@ -194,4 +261,5 @@
 	color: #fff;
 	text-align: center;
 }
+
 </style>

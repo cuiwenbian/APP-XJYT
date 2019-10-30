@@ -20,7 +20,7 @@
 			<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
-		<view class='btn' @click.once='register'>注册</view>
+		<view class='btn' @click='register'>注册</view>
 		<neil-modal 
 		    :show="show" 
 		    title="标题" 

@@ -93,6 +93,9 @@
 				success: res => {
 					console.log(res)
 					this.user_machine=res.data.data
+					if(res.data.data==''){
+						this.flag=true
+					}
 					this.machine_id=res.data.data[0].machine_id
 					console.log(this.machine_id)
 					
