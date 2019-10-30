@@ -1,6 +1,6 @@
 <template>
     <view class="container">
-       <view  class="pagex" v-for="(item , index) in user_id" :key="index">
+       <view  class="pagex" v-for="(item , index) in data" :key="index">
            <view class="page1" >
                 <view class="img">
                     <image class="por" src="../../static/images/kuangji.png"></image>
@@ -9,21 +9,16 @@
                     <view class="obg">
                         {{item.name}} {{item.number}}
                     </view>
-                <view class='boo_img3'  @tap='select'>
-                    <image v-if="lo" class="tee" src="../../static/images/zu7.png"></image>
-                    <image v-else  class='te' src='../../static/images/tuo5.png'></image>
-				</view>
                     <view class="obg_one">
-                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
+                        <text class="days">已运行{{item.usedays}}天</text> | 剩余{{item.residuedays}}天
                     </view>
-
-                    <view class="obg_two">
-                        储存{{item.freedisk}}T | 总容量{{item.disk}}
+       
+                    <view>
+                        储存{{item.usedisk}}T | 总容量{{item.data_hard_disk}}
                     </view>                    
                 </view>
             </view>
         </view>
-        <view class="Serial"></view>
         <view class="box1">
             <view class="hide">
                 <text class="adr">数量：{{san}}台</text>
@@ -31,7 +26,7 @@
             </view>
             <view class="xn"></view>
             <view class="haide">
-                <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" value="total_price" />
+                <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
                 <button class="primary" @click="btn">确定出售</button>
             </view>
         </view>
@@ -43,43 +38,54 @@
     export default {
         data() {
             return {
-                name:'',
-                number:'',
-                user_id:'',
-                data:'',
-                usedata:'',
-                freedisk:'',
-                disk:'',
-                
                 san:'',
-                sun:''
+                sun:'',
+                data:'',
+                total_price:'',
+                machine_id:'',
+                arr:[],
+               
             }
         },
-        onLoad(options) {
-            console.log(options)
-            uni.request({
-                url:this.urll + 'buildorders/',
-                method:'GET',
-                header:{
-                     Authorization: 'JWT'+' '+this.global_.token
-                },
-                data:{
-                    
-                },
-                success(res) {
-                    console.log(res)
-                }
-            })
+        onLoad(option) {
+            let arr = []
+            var that = this
+            var data = JSON.parse(option.tar);
+            console.log(option)
+            // console.log(option.tar)
+            
+            that.data=data;
+            console.log(that.data)
+            that.san = data.length
+             console.log(that.data.length)
+            for (let i = 0; i < that.data.length; i++) {
+               
+                console.log(that.data)
+                    console.log(that.data[i].machine_id)
+                    arr.push(that.data[i].machine_id)
+                    console.log(that.data[i].machine_id)
+            }
+            this.arr = arr
         },
         methods: {
             getPriceValue: function (e) {
+                var that = this
                 let total_price = this.total_price
                 this.total_price = e.detail.value
                 this.sun = getRmb.getrmb(e.detail.value)
+                console.log(that.total_price)
             },
             btn:function () {
+                var that = this
+                console.log(that.arr)
+                var sunt = JSON.stringify(that.san) 
+                var tilo = JSON.stringify(that.total_price) 
+                var a = that.arr.join(',')
+                var app = JSON.stringify(a)
+                console.log(app)
+
                 uni.navigateTo({
-                    url:"../validation/validation"
+                    url:"../validation/validation?app=" + app + '&sunt='+ sunt + '&tilo='+tilo
                 })
             },
         }
@@ -88,9 +94,9 @@
 
 <style>
 .pagex {
-
-        width: 100%;
         display: block;
+        width: 100%;
+
     }
     .page1 {
 
@@ -126,7 +132,7 @@
         
     }
     .te{
-      display: block;
+
       float: right;
       margin-top: -4rpx;
       width:40rpx;
@@ -139,7 +145,6 @@
         width: 40rpx;
         height: 40rpx;
         margin-right: 20rpx;
-        /* display: none; */
     }
     .obh_one {
         font-size: 24rpx;
@@ -158,16 +163,13 @@
         border-bottom: 2rpx solid #C0C0C0;
         margin: 0 auto;
     }
-    .Serial{
-        height: 820rpx;
-        background-color: #CCCCCC;
-    }
     .box1 {
         height: 226rpx;
+        margin-top: 420rpx;
         width: 100%;
     }
     .hide {
-        height: 106rpx;
+        display: block;
         border-bottom: 2rpx solid #CCCCCC;
     }
     .adr {
@@ -179,7 +181,7 @@
     }
     .dj {
         float: left;
-        padding-left: 54rpx;
+        margin-left: 40rpx;
         line-height: 106rpx;
         font-size: 30rpx;
         color: #CCCCCC;
@@ -187,6 +189,7 @@
     .haide {
         width: 100%;
         height: 120rpx;
+        border-bottom: 2rpx solid #CCCCCC;
     }
     .put {
         float: left;

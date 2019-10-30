@@ -55,7 +55,7 @@
                 selectilall: false,
                 machine_id:'',
                 lo: false,
-                arr:[]
+                arr:[],
     		}
     	},
     	onLoad(options) {
@@ -116,14 +116,7 @@
                 console.log(that.arr)
                 var a = that.arr.join(',')
                 console.log(a)
-                if(that.arr == 0) {
-                    uni.showModal({
-                        title:'请选择矿机',
-                        icon:'none'
-                    })
-                    
-                }
-            
+
                 uni.request({
                     url:this.urll + 'buildorders/',
                     method:'GET',
@@ -135,24 +128,24 @@
                     },
                     success(res) {
                         console.log(res)
+                        console.log(res.data)
+                        var asr = JSON.stringify(res.data.data)
+                        console.log(asr)
                         if(res.statusCode == 400) {
-                            uni.navigateTo({
-                                  url:'../sell/sell'
+                            uni.showModal({
+                                title:'未进行实名认证',
+                                confirmText:'去验证',
                             })
-                            // uni.showModal({
-                            //     content:'未进行实名认证',
-                            //     confirmText:'去验证',
-                            //     success(res) {
-                            //         console.log(res)
-                            //         console.log(res.cancal)
-                            //         if(res.confirm ==true) {
-                            //             uni.navigateTo({
-                            //                 url:'../../my/identity/identity'
-                            //             })
-                            //         }
-                            //     }
+                        }else if(that.arr == 0) {
+                            uni.showToast({
+                                title:'请选择矿机',
+                                icon:'none'
+                            })
+                        }else if(res.statusCode == 200){
+                            uni.navigateTo({
+                                url:'../sell/sell?tar=' + asr
                                 
-                            // })
+                            })
                         }
                     }
                 })

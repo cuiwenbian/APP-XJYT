@@ -1,8 +1,8 @@
 <template>
     <view class="container">
         <view class="box">
-            <text class="name">姓名</text><input type="text" placeholder="请输入买家姓名" class="inp" @input="end">
-            <view class="name1">联系方式<input type="number" placeholder="请输入手机号" class="int"/></view>
+            <text class="name">姓名</text><input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
+            <view class="name1">联系方式<input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/></view>
         </view>
         <view>
             <text class="stop">提示:交易需要买家和卖家进行实名认证</text>
@@ -18,24 +18,75 @@
     export default {
         data() {
             return {
-                
+                name:'',
+                coloe:''
             }
+        },
+        onLoad(option) {
+            var that = this
+            console.log(option)
+            var data = JSON.parse(option.app)
+            var date = JSON.parse(option.sunt)
+            var datr = JSON.parse(option.tilo)
+            that.data = data
+            that.date = date
+            that.datr = datr
+            console.log(that.data)
+            console.log(that.date)
+            console.log(that.datr)
         },
         methods:{
             end:function (e) {
-                this.name = e.detail.value.length
+                var that = this
+                this.name = e.detail.value
+                console.log(that.name)
+            },
+            ennd:function(e){
+                var that = this
+                this.coloe = e.detail.value
+                console.log(that.coloe)
             },
             end1:function () {
-                if(this.name > 0) {
-                    uni.showToast({
-                        title:"用户不存在",
-                        icon:"none"
-                    })
-                }else {
-                    uni.navigateTo({
-                        url:'../confirm/confirm'
-                    })
-                }
+                var that = this
+                var name = that.name
+                var cool = that.coloe
+                var data = that.data
+                var date = that.date
+                var datr = that.datr
+                uni.request({
+                    url:this.urll + 'buildorders/',
+                    method:'POST',
+                    header:{
+                        Authorization: 'JWT'+' '+this.global_.token
+                    },
+                    data:{
+                        name:name,
+                        machine_id_list:data,
+                        mobile:cool,
+                        sale_num:date,
+                        sale_money:datr
+                    },
+                    success(res) {
+                        console.log(res)
+                        console.log(res.data)
+                        var posf = JSON.stringify(res.data.data)
+                        console.log(posf)
+                        if(res.statusCode == 400) {
+                            uni.showToast({
+                                title:'买家信息不存在',
+                                icon:'none'
+                            })
+                        }else if(res.statusCode == 200){
+                            uni.navigateTo({
+                                url:'../confirm/confirm?ront=' + posf
+                            })
+                        }
+                        // uni.navigateTo({
+                        //     url:'../confirm/confirm'
+                        // })
+                    }
+                })
+
             }
         }
     }

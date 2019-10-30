@@ -19,20 +19,8 @@
         </swiper>
         
         <view class="notice"> 
-           
-           <swiper class="lbb" indicator-dots autoplay :interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)" >
-               <swiper-item>
-                   <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
-               </swiper-item>
-               <swiper-item>
-                    <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
-               </swiper-item>
-               <swiper-item>
-                    <image class="g" src="../../static/images/notice.png"><text class="m">重大通知：明天是2019年10月15日，星期二</text></image>
-               </swiper-item>
-               <view class="bor"></view>
-           </swiper>
-           
+           <image class="g" src="../../static/images/notice.png"></image>   
+           <text class="clor">{{notice}}</text>
         </view>
         
 
@@ -110,21 +98,38 @@
                 cWidth:'',
                 cHeight:'',
                 pixelRatio:1,
+                notice:''
 			}
              
 		},
         onLoad() {
             _self = this;
+            var that = this
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
             this.getServerData();
 			console.log(this.global_.token);
 			console.log(this.global_.phone)
+            
+            uni.request({
+                url:this.url + 'home/',
+                method:'GET',
+                header:{
+                    Authorization:'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res)
+                    console.log(res.data.data[length].notice)
+                    that.notice = res.data.data[0].notice
+                   
+                }
+            })
         },
 		methods: {
             getServerData(){
             	uni.request({
             			url: '',
+                        msg:'',
             			method: '',
             			header: {
             			  
@@ -233,14 +238,10 @@
 	swiper-item image {
 		width: 100%;
 		height:100%;
-    }
-    .lbb{
-        height: 80rpx;
-        line-height: 80rpx;
-    }
- /*   .notice{
+   }
+   .notice{
         height: 60rpx;
-    } */
+    }
     .g {
         width: 28rpx;
         height: 28rpx;
@@ -262,6 +263,9 @@
         margin-left: 90rpx;
         font-size: 24rpx;
 
+        color: #FFFFFF;
+    }
+    .clor{
         color: #FFFFFF;
     }
     .bor {
