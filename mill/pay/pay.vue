@@ -135,6 +135,7 @@
                 many:'0',
                 tabCurrentIndex:0,
                 contion:'',
+                kolo:'',
                 flag:false,
                 navList: [
                 	{
@@ -169,13 +170,24 @@
                 header:{
                      Authorization: 'JWT'+' '+this.global_.token
                 },
-                data:{},
                 success(res) {
                     console.log(res)
                     var contion = res.data.data
                     console.log(contion)
                     that.contion = contion
                     console.log(contion[0].name)
+                }
+            })
+            uni.request({
+                url:this.urll + 'buyall/101',
+                method:'GET',
+                header:{
+                    Authorization: 'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res)
+                    var kolo = res.data.data
+                    that.kolo = kolo
                 }
             })
         },
