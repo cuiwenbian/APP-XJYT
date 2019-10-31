@@ -1,20 +1,21 @@
 <template>
 	<!-- 建议反馈 -->
 	<view class="container" style="position: relative;">
-		<view v-if='flag' >
+		<view v-if='flag' v-for="item in messages" :key='item.id' @click='detail(item)'>
 			<view class='t'></view>
 			<view class="suggest-list">
 				<view class='time'>
-					   <view class="submit-time">提交时间：xxxx-xx-xx xx:xx</view>
-					   <view class='status'>已回复</view>
+					   <view class="submit-time">提交时间：{{item.add_time}}</view>
+					   <view class='status' v-show="item.company_submit==1">提交成功</view>
+					   <view class='status' v-show='item.company_submit==2'>已回复</view>
 				</view>
 				<view class="question">
 					<view class='tit'>标题：</view>
-					<view class='answer'>闪退怎么回事</view>
+					<view class='answer'>{{item.title}}</view>
 				</view>
 				<view class="question">
 					<view class='tit'>描述：</view>
-					<view class='answer'>描述描述描述描述描述描述描述描述描述描述描述描述</view>
+					<view class='answer'>{{item.message}}</view>
 				</view>
 			</view>
 		</view>
@@ -23,19 +24,19 @@
 			<view>
 				<image class="none" src="../../static/images/machine.png" mode=""></image>
 				<view class="tips">
-					您还没有提交反馈！
+					您还没有提交反馈!
 				</view>
 			</view>
-			<view class="newadd" @click="addMessage">
-				提交建议
-			</view>
-			<view  :class="hidden?'cover1':'cover'">
-				<view class="frame">
-					<input class="title" type="text" :value="title" @input='getTitleContent' placeholder="标题"/>
-					<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述"/>
-					<view class="submit" @click='submit'>提交</view>
-					<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
-				</view>
+		</view>
+		<view class="newadd" @click="addMessage">
+			提交建议
+		</view>
+		<view  :class="hidden?'cover1':'cover'">
+			<view class="frame">
+				<input class="title" type="text" :value="title" @input='getTitleContent' placeholder="标题"/>
+				<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述"/>
+				<view class="submit" @click='submit'>提交</view>
+				<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
 			</view>
 		</view>
 		<view class="shade" v-show="shade">
@@ -55,7 +56,9 @@
 			  hidden:true,
 			  title:'',
 			  desc:'',
-			  shade:false
+			  shade:false,
+			  messages:'',
+			  id:''
 		  }	
 		},
 		onLoad() {
@@ -71,7 +74,9 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					console.log(res)
+					console.log(res);
+					// console.log(res.data.data[0])
+					_this.messages=res.data.data;
 					if(res.data.data==''){
 						_this.flag=false
 					}else{
@@ -126,17 +131,27 @@
 					},
 					success(res) {
 						console.log(res)
-						this.message=res.data.data.message;
-						this.desc=res.data.data.title;
-						console.log(this.message)
-						console.log(this.title)
+						
 						if(res.statusCode==200){
 							 _this.hidden=true;
 						}
-						
+						uni.showToast({
+							title:'提交成功',
+							icon:'none',
+							duration:2000
+						})
+						var page = getCurrentPages().pop();
+						if (page == undefined || page == null) return; 
+						page.onLoad(); 
 							
 					}
 			    })
+			},
+			detail:function(item){
+				var mes=JSON.stringify(item);
+				uni.navigateTo({
+					url:'../suggest-detail/suggest-detail?message='+mes
+				})
 			},
 			identity:function(){
 				uni.navigateTo({
@@ -157,30 +172,40 @@
 	}
 	.suggest-list{
 		width:100%;
-		height:280rpx;
+		height:auto;
+		/* height:280rpx; */
 		background: #fff;
-		padding: 0 48rpx;
+		padding: 20rpx 48rpx;
+		overflow: hidden;
+		box-sizing: content-box;
 	}
 	.time{
 		height:90rpx;
 		width:calc(100% - 96rpx);
 		border-bottom:1rpx solid #f2f2f2;
+		
 	}
 	.submit-time{
+		height:90rpx;
+		width:520rpx;
 		line-height: 90rpx;
 		float:left;
-		font-size: 30rpx;
+		font-size: 28rpx;
+		
 	}
 	.status{
+		height:90rpx;
 		line-height: 90rpx;
 		float: right;
 		color:#DCB16E;
-		font-size: 30rpx;
+		font-size: 28rpx;
 	}
 	.question{
+		
 		margin-top:20rpx;
+		margin-bottom:20rpx;
 		width:calc(100% - 96rpx);
-		background: #000000;
+		
 	}
 	.tit{
 		width:100rpx;
@@ -190,19 +215,13 @@
 		font-size: 28rpx;
 	}
 	.answer{
+		height: auto;
 		width:554rpx;
 		float: left;
 		line-height: 45rpx;
 		font-size: 28rpx;
 	}
-	.answer1{
-		width:500rpx;
-		float: right;
-		font-size: 28rpx;
-		line-height: 60rpx;
-		height:180rpx;
-		overflow: hidden;
-	}
+	
 	.box{
 		height:200rpx;
 	}

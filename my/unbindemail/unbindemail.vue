@@ -10,7 +10,7 @@
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<view class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click.once="sendcode" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="save"  @click="unbind">确认</view>
 	</view>
@@ -56,7 +56,7 @@
 				var that=this; 
 				 uni.request({
 					 //解除绑定邮箱验证码
-				 	url: this.urll+'deleteemail/',
+				 	url: this.url+'deleteemail/',
 				 	method:'POST',
 				 	data:{
 						email:that.email,
@@ -66,7 +66,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 				 	 success:function(res){
-				 		 //console.log(res)
+				 		 console.log(res)
 				 	     var num = 121;
 				 	     var timer = setInterval(function () {
 				 	       num--;
@@ -100,7 +100,7 @@
 					return false
 				}
 				uni.request({
-					url:this.urll+'delemail/',      //解除绑定接口
+					url:this.url+'delemail/',      //解除绑定接口
 					method:"POST",
 					data:{
 						email:this.email1,
@@ -110,7 +110,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						//console.log(res)
+						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码错误',
@@ -120,6 +120,11 @@
 							return false
 						}
 						if(res.statusCode==200){
+							uni.showToast({
+								title:'邮箱已解绑',
+								icon:'none',
+								duration:2000
+							})
 							uni.switchTab({
 								url:'../my/my'
 							})

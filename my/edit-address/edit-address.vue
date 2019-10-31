@@ -86,6 +86,9 @@
 							uni.navigateBack({
 								delta:1
 							})
+							var page = getCurrentPages().pop();
+							if (page == undefined || page == null) return; 
+							page.onLoad(); 
 						}
 					}
 				})

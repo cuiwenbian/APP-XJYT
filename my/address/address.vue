@@ -50,7 +50,7 @@
 			wallet_value:'',
 			wallet_key:'',
 			address_out:'',
-			flag: true,
+			flag: false,
 			right:'',
 			id:'',
 			shade:true,
@@ -60,7 +60,7 @@
 	},
 	components: {uniSwipeAction,uniNavBar},
 	
-	onShow() {
+	onLoad() {
 		var that=this;
 		uni.request({
 			url:this.urll+'walletaddress/',
@@ -70,15 +70,16 @@
 			},
 			success(res) {
 				console.log(res)
-				if(res.statusCode==200){
-					uni.showModal({
-						title:'未设置资金密码'
-					})
-				}
+				
 				if(res.data.data==''){
 					that.flag=false
+				}else{
+					that.flag=true
 				}
 				that.address_out=res.data.data
+				var page = getCurrentPages().pop();
+				if (page == undefined || page == null) return; 
+				page.onLoad();
 			}
 		})
 	},
@@ -101,7 +102,14 @@
 				success(res) {
 					console.log(res)
 					if(res.statusCode==204){
-						that.onShow()
+						uni.showToast({
+							title:'删除成功',
+							icon:'none',
+							duration:2000
+						})
+					var page = getCurrentPages().pop();
+					if (page == undefined || page == null) return; 
+					page.onLoad(); 
 					}
 					if(res.statusCode==200){
 						uni.showToast({
@@ -116,7 +124,7 @@
 		//点击添加按钮
 		add: function() {
 			uni.navigateTo({
-				url: '../add-address/add-address',
+				url: '../add-address/add-address?flag='+this.flag,
 				success: res => {},
 				fail: () => {},
 				complete: () => {}

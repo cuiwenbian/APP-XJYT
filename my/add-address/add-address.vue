@@ -20,8 +20,12 @@
 		data(){
 			return{
 				adr:'',
-				remark:''
+				remark:'',
+				flag:''
 			}
+		},
+		onLoad(option) {
+			this.flag=option.flag
 		},
 		methods:{
 			getAddress:function(e){
@@ -59,14 +63,20 @@
 					},
 					success(res) {
 						console.log(res)
-						uni.navigateBack({
-							delta:1
-						})
-						uni.showToast({
-							title:'添加成功',
-							icon:'none',
-							duration:2000
-						})
+						if(res.statusCode==200){
+							uni.navigateBack({
+								delta:1
+							})
+							uni.showToast({
+								title:'添加成功',
+								icon:'none',
+								duration:2000
+							})
+							var page = getCurrentPages().pop();
+							if (page == undefined || page == null) return; 
+							page.onLoad(); 
+						}
+						
 					}
 				})
 			}

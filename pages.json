@@ -165,6 +165,10 @@
 					     "style":{"navigationBarTitleText":"修改登录密码"}
 					 },
 					 {
+					     "path":"change-pass/change-pass",
+					     "style":{"navigationBarTitleText":"修改登录密码"}
+					 },
+					 {
 					     "path":"my-machine/my-machine",
 					     "style":{"navigationBarTitleText":"我的矿机"}
 					 },
@@ -189,12 +193,12 @@
 					     "style":{"navigationBarTitleText":"设置交易密码"}
 					 },
 					 {
-					     "path":"transfer/transfer",
-					     "style":{"navigationBarTitleText":"转账"}
+					     "path":"change-otherPassword/change_otherPassword",
+					     "style":{"navigationBarTitleText":"修改交易密码"}
 					 },
 					 {
-					     "path":"touchmove/touchmove",
-					     "style":{"navigationBarTitleText":"左滑"}
+					     "path":"transfer/transfer",
+					     "style":{"navigationBarTitleText":"转账"}
 					 }
 					 
                  ]

@@ -203,7 +203,7 @@
 					  that.rev=imgsPaths[1].reverse;
 					  that.pos=imgsPaths[0].positive;
 					  
-			         console.log('cwb')
+			          console.log('cwb')
 					  console.log(imgsPaths)
 			        }
 			      })
@@ -223,41 +223,52 @@
 			        },
 			        formData: null,
 			        success: function (res) {
-					  console.log('网络路径')
-					  console.log(token)
-			          console.log(res) //接口返回网络路径
-			        },
-			        fail: function (res) {
-			          console.log(res)
-			        },
-			        complete: function (e) {
-						
-			          index++;
-			          if (index == imgpaths.length) {
-			           uni.request({
-			             url: that.urll + 'realname/',
-			             method:'POST',
-			             data: {
-			           	  name: that.name, 
-			           	  idcard: that.idcard
-			           	  // positive:that.imageBase64List,
-			           	 //reverse:that.imageBase64List1
-			           	  },
-			             header: {
-			               Authorization:'JWT'+' '+token
-			             },
-			             success: function (res) {
-			               console.log(res)
-						   if(res.statusCode==200){
-							   console.log(that.shade)
-							  that.shade=true
-						   }
-			             }
-			           })
-			          } else {
-			            that.upImgs(imgpaths, index)
-			          }
-			        }
+					 console.log('网络路径')
+			         console.log(res) //接口返回网络路径
+					 if(res.statusCode==400){
+						 uni.showToast({
+						 	title:'图片太大，请重新上传',
+						 	icon:'none',
+						 	duration:2000
+						 })
+						 return false
+					 }
+					 index++;
+					 if (index == imgpaths.length) {
+					  uni.request({
+					    url: that.urll + 'realname/',
+					    method:'POST',
+					    data: {
+					  	  name: that.name, 
+					  	  idcard: that.idcard
+					  	  },
+					    header: {
+					      Authorization:'JWT'+' '+token
+					    },
+					    success: function (res) {
+					      console.log(res)
+					 	if(res.statusCode==400){
+					 		uni.showToast({
+					 			title:'图片太大，请重新上传',
+					 			icon:'none',
+					 			duration:2000
+					 		})
+					 		return false				 							 
+					 	}	
+					 	if(res.statusCode==200){
+					 		  console.log(that.shade)
+					 		  that.shade=true
+					 	}					   
+					    }
+					  })
+					 } else {
+					   that.upImgs(imgpaths, index)
+					 }
+			       },
+			       fail: function (res) {
+			          console.log(res)	  
+			       },
+			       
 			      })
 			    }
 			   

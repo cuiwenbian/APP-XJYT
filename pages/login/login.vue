@@ -19,7 +19,7 @@
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		<view class="agree" >
+		<view class="agree">
 			<!-- <view class="check"></view> -->
 			<label>
 				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
@@ -92,7 +92,7 @@
 					return false
 				}
 				uni.request({
-					url: this.url+'users/login/',
+					url: this.urll+'users/login/',
 					method: 'POST',
 					data: {
 						mobile:this.phone,

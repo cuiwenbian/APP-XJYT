@@ -3,45 +3,196 @@
 	<view class="container">
 		<view class="line"></view>
 		<view class="list">
-			<text class="email" >134****5459</text>
+			<text class="email1" >手机号：{{phone}}</text>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" value="" placeholder="请输入手机验证码" />
-			<view class="getcode">获取验证码</view>
+				<input class="code" type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
+				<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
 		</view>
 		<view class="set">设置登录密码</view>
 		<view class="list">
 			<view class="title">登录密码</view>
-			<input class="code" type="text" value="" placeholder="6-16位数字,字母" />
+			<input class="code" type="text" :value="pwd" @input='getLoginPassword'  placeholder="6-16位数字,字母" />
 			<!-- <image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image> -->
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" value="" placeholder="请再次输入登录密码" />
+			<input class="code" type="text" :value="pwd1" @input='getLoginPassword1' placeholder="请再次输入登录密码" />
 			<!-- <image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image> -->
 		</view>
 		<view class="save"  @click="save">确认</view>
 		
 	</view>
-</template>
-
+</template> 
+ 
 <script>
 	export default{
 		data(){
 			return{
-				hidden:true
+				hidden:true,
+				phone:this.global_.phone,
+				codename: ' 获取验证码 ',
+				pwd:'',
+				pwd1:'',
+				iscode:'',
+				code:''
 			}
 		},
 		methods:{
+			getLoginPassword:function(e){
+				this.pwd=e.detail.value
+			},
+			getLoginPassword1:function(e){
+				this.pwd1=e.detail.value
+			},
+			getCodeValue:function(e){
+				this.code=e.detail.value
+			},
 			show:function(){
 				this.hidden=false;
 			},
-			forget:function(){
+			other:function(){
 				uni.navigateTo({
-					url:'../change-password/change-password'
+					url:'../change-pass/change-pass'
 				})
+			},
+			getCode: function () {
+			      var _this = this;
+			     
+			        uni.request({
+						//短信接口
+					  url: _this.urll + 'users/login/sms/',
+			          method: 'POST',
+			          data: {
+			            mobile: this.phone,
+			          },
+			          header: {
+			            "Content-Type": "application/x-www-form-urlencoded"
+			          },
+			          success(res) {
+			            //根据code判断
+			            console.log(res)
+			            var ocode = res.statusCode
+			            console.log(ocode)
+			            if (ocode == 200) {
+			              _this.iscode = res.data.data,
+			              console.log(res.data.data)
+			            } 
+			            var num = 61;
+			            var timer = setInterval(function () {
+			              num--;
+			              if (num <= 0) {
+			                clearInterval(timer);
+			                _this.codename = '重新发送',
+			                _this.disabled = false
+			
+			              } else {
+			                _this.codename = num + "s"
+			                
+			              }
+			            }, 1000)
+			          }
+			        })
+			
+			      
+			
+			},
+			//获取验证码
+			getCodeBtn: function(e){
+			      this.getCode();
+			      var _this = this
+			      _this.disabled = true
+			},
+			save(){
+				var _self=this;
+				
+				if(this.pwd==""){
+					uni.showToast({
+					  title: '请输入登录密码',
+					  icon: 'none',
+					  duration: 2000
+					})
+					return false
+				}
+				if(this.pwd1==""){
+					uni.showToast({
+					  title: '请确认登录密码',
+					  icon: 'none',
+					  duration: 2000
+					})
+					return false
+				}
+				if(this.pwd1!==this.pwd){
+					uni.showToast({
+						title:'两次密码不一致',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.code==""){
+					uni.showToast({
+						title:"验证码不能为空",
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				console.log(this.iscode);
+				console.log(this.code);
+				if(this.code!=this.iscode){
+					uni.showToast({
+						title:'验证码错误',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				uni.request({
+					url:this.urll+'updataloginpassword/',
+					method: 'POST',
+					data: {
+						mobile:this.phone,
+						password:this.pwd,
+						password1:this.pwd1,
+						code:this.code
+					},
+					headers: {
+					    "Content-Type": "application/json"
+					},
+					success: res => {
+			
+						console.log(res) 
+						if(res.statusCode==200){
+							uni.showToast({
+								title:'登陆密码修改成功',
+								icon:'none',
+								duration:2000
+							})
+							uni.switchTab({
+								url:'../my/my'
+							})
+						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'验证码已过期',
+								icon:'none'
+							})
+						}
+						// if(res.statusCode==201){
+						// 	uni.navigateTo({
+						// 		url:'../login/login'
+						// 	})
+						// }
+						
+					},
+				    fail: () => {},
+					complete: () => {}
+				});
+				 
 			}
+			
 		}
 	}
 </script>
@@ -61,13 +212,18 @@
 		padding-left:48rpx;
 		box-sizing: border-box;
 	}
-	.title,.email{
+	.title{
 		float: left;
 		width:150rpx;
 	    line-height: 100rpx;
 	    font-size:30rpx;
 	    color:#333333;
 		
+	}
+	.email1{
+		line-height: 100rpx;
+		font-size:30rpx;
+		color:#333333;
 	}
 	.code{
 		float: left;

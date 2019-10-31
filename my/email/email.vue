@@ -69,7 +69,7 @@
 				 }
 				 uni.request({
 					 //绑定邮箱验证码
-				 	url: this.urll+'binding/',
+				 	url: this.url+'binding/',
 				 	method:'POST',
 				 	data:{
 						email:that.email
@@ -137,6 +137,11 @@
 					success(res) {
 						console.log(res)
 						if(res.statusCode==200){
+							uni.showToast({
+								title:'邮箱已绑定',
+								icon:'none',
+								duration:2000
+							})
 							uni.switchTab({
 								url:'../my/my'
 							})

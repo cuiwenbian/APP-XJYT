@@ -1,5 +1,5 @@
 <template>
-	<!-- 修改资金密码 -->
+	<!-- 根据现有密码  修改资金密码 -->
 	<view class="container">
 		<view class="line">验证现有密码</view>
 		<view class="list">
@@ -119,7 +119,7 @@
 			},
 			other:function(){
 				uni.navigateTo({
-					url:'../trade-password/trade-password'
+					url:'../change-otherPassword/change_otherPassword'
 				})
 			}
 		}
