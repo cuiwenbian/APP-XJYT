@@ -1,7 +1,11 @@
 {
   "navigationStyle": "custom",
+<<<<<<< HEAD
   "usingComponents": {
     "neil-modal": "/components/neil-modal/neil-modal",
     "uni-popup": "/components/uni-popup/uni-popup"
   }
+=======
+  "usingComponents": {}
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }

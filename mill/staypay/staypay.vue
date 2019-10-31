@@ -99,21 +99,25 @@
         data(){
             return {
                 type:'买入',
-                state:'待审核',
-                mill:'10',
-                price:'20000',
+                state:'',
+                mill:'',
+                price:'',
                 rmb:'',
-                x:'xxxxxxxxxxxxxx',
-                time:'2019.10.21',
-                name:'张三',
-                contact:'xxxxxxx',
-                num:'4T',
-                day:'56',
-                remaining:'305'
+                x:'',
+                time:'',
+                name:'',
+                contact:'',
+                num:'',
+                day:'',
+                remaining:''
             }
         },
         onLoad(option) {
+            var that = this
             console.log(option)
+            var ction = JSON.parse(option.mvvp)
+            that.ction = ction
+            console.log(ction)
         },
         methods:{
             btn:function () {

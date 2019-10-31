@@ -1,35 +1,21 @@
 <template>
 	<!-- 建议反馈 -->
-	<view class="container">
-		<view v-if='flag' >
-			<view class='t'></view>
-			<view class="suggest-list" style='line-height: 280rpx;font-size: 30rpx;'>
-				请耐心等待平台回复...
-			</view>
-			<view class='t'></view>
-			<view class="suggest-list" >
-				<view class='top' style='height:20rpx;'></view>
-				<view style="width:calc(100% - 96rpx);">
-					<view class='tit' style='width:150rpx;line-height: 60rpx;color:#DCB16E'>平台回复：</view>
-					<view class='answer1'>平台回复平台回复平台回复平台回复平台回复平台回复平
-					台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复平台回复
-					</view>
-				</view>
-				<view class="submit-time">xxxx-xx-xx xx:xx</view>
-			</view>
+	<view class="container" style="position: relative;">
+		<view v-if='flag' v-for="item in messages" :key='item.id' @click='detail(item)'>
 			<view class='t'></view>
 			<view class="suggest-list">
 				<view class='time'>
-					   <view class="submit-time">提交时间：xxxx-xx-xx xx:xx</view>
-					   <view class='status'>已回复</view>
+					   <view class="submit-time">提交时间：{{item.add_time}}</view>
+					   <view class='status' v-show="item.company_submit==1">提交成功</view>
+					   <view class='status' v-show='item.company_submit==2'>已回复</view>
 				</view>
 				<view class="question">
 					<view class='tit'>标题：</view>
-					<view class='answer'>闪退怎么回事</view>
+					<view class='answer'>{{item.title}}</view>
 				</view>
 				<view class="question">
 					<view class='tit'>描述：</view>
-					<view class='answer'>描述描述描述描述描述描述描述描述描述描述描述描述</view>
+					<view class='answer'>{{item.message}}</view>
 				</view>
 			</view>
 		</view>
@@ -38,22 +24,27 @@
 			<view>
 				<image class="none" src="../../static/images/machine.png" mode=""></image>
 				<view class="tips">
-					您还没有提交反馈！
-				</view>
-			</view>
-			<view class="newadd" @click="addMessage">
-				提交建议
-			</view>
-			<view  :class="hidden?'cover1':'cover'">
-				<view class="frame">
-					<input class="title" type="text" value="" placeholder="标题"/>
-					<textarea class="area" value="" placeholder="问题描述"/>
-					<view class="submit">提交</view>
-					<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
+					您还没有提交反馈!
 				</view>
 			</view>
 		</view>
-		
+		<view class="newadd" @click="addMessage">
+			提交建议
+		</view>
+		<view  :class="hidden?'cover1':'cover'">
+			<view class="frame">
+				<input class="title" type="text" :value="title" @input='getTitleContent' placeholder="标题"/>
+				<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述"/>
+				<view class="submit" @click='submit'>提交</view>
+				<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
+			</view>
+		</view>
+		<view class="shade" v-show="shade">
+			<view class="pop">
+				<view class='pop-title'>用户身份未认证</view>
+				<view class='pop-btn' @click='identity'>去认证</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -61,17 +52,112 @@
 	export default{
 		data(){
 		  return{
-			  flag:false,
-			  hidden:true
+			  flag:true,
+			  hidden:true,
+			  title:'',
+			  desc:'',
+			  shade:false,
+			  messages:'',
+			  id:''
 		  }	
 		},
+		onLoad() {
+			var _this=this;
+			uni.request({
+				url:this.urll+'advicefeedback/',
+				method:'GET',
+				data:{
+					title:this.title,
+					message:this.desc
+				},
+				header:{
+					Authorization:'JWT'+' '+this.global_.token
+				},
+				success(res) {
+					console.log(res);
+					// console.log(res.data.data[0])
+					_this.messages=res.data.data;
+					if(res.data.data==''){
+						_this.flag=false
+					}else{
+						_this.flag=true
+					}
+					
+				}
+			})
+		},
 		methods:{
+			getTitleContent:function(e){
+				this.title=e.detail.value
+				console.log(this.title)
+			},
+			getDescContent:function(e){
+				this.desc=e.detail.value
+				console.log(this.desc)
+			},
 			addMessage:function(){
 				this.hidden=false
 			},
 			close:function(){
 				this.hidden=true
 			},
+			submit:function(){
+				var _this=this;
+				if(this.title==''){
+					uni.showToast({
+						title:'标题不能为空',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.desc==''){
+					uni.showToast({
+						title:'请描述您的问题',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+			    uni.request({
+			    	url:this.urll+'advicefeedback/',
+					method:'POST',
+					data:{
+						title:this.title,
+						message:this.desc
+					},
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						
+						if(res.statusCode==200){
+							 _this.hidden=true;
+						}
+						uni.showToast({
+							title:'提交成功',
+							icon:'none',
+							duration:2000
+						})
+						var page = getCurrentPages().pop();
+						if (page == undefined || page == null) return; 
+						page.onLoad(); 
+							
+					}
+			    })
+			},
+			detail:function(item){
+				var mes=JSON.stringify(item);
+				uni.navigateTo({
+					url:'../suggest-detail/suggest-detail?message='+mes
+				})
+			},
+			identity:function(){
+				uni.navigateTo({
+					url:'../identity/identity'
+				})
+			}
 			
 		}
 	}
@@ -86,30 +172,40 @@
 	}
 	.suggest-list{
 		width:100%;
-		height:280rpx;
+		height:auto;
+		/* height:280rpx; */
 		background: #fff;
-		padding: 0 48rpx;
+		padding: 20rpx 48rpx;
+		overflow: hidden;
+		box-sizing: content-box;
 	}
 	.time{
 		height:90rpx;
 		width:calc(100% - 96rpx);
 		border-bottom:1rpx solid #f2f2f2;
+		
 	}
 	.submit-time{
+		height:90rpx;
+		width:520rpx;
 		line-height: 90rpx;
 		float:left;
-		font-size: 30rpx;
+		font-size: 28rpx;
+		
 	}
 	.status{
+		height:90rpx;
 		line-height: 90rpx;
 		float: right;
 		color:#DCB16E;
-		font-size: 30rpx;
+		font-size: 28rpx;
 	}
 	.question{
+		
 		margin-top:20rpx;
+		margin-bottom:20rpx;
 		width:calc(100% - 96rpx);
-		background: #000000;
+		
 	}
 	.tit{
 		width:100rpx;
@@ -119,19 +215,13 @@
 		font-size: 28rpx;
 	}
 	.answer{
+		height: auto;
 		width:554rpx;
 		float: left;
 		line-height: 45rpx;
 		font-size: 28rpx;
 	}
-	.answer1{
-		width:500rpx;
-		float: right;
-		font-size: 28rpx;
-		line-height: 60rpx;
-		height:180rpx;
-		overflow: hidden;
-	}
+	
 	.box{
 		height:200rpx;
 	}
@@ -214,5 +304,37 @@
 		top:20rpx;
 		right:20rpx;
 		/* color:#797979; */
+	}
+	.shade{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.5);
+	}
+	.pop{
+		width:500rpx;
+		height:250rpx;
+		margin:450rpx auto 0;
+		background: #fff;
+		border-radius: 20rpx;
+	}
+	.pop-title{
+		text-align: center;
+		font-size: 32rpx;
+		color:#121212;
+		line-height: 150rpx;
+	}
+	.pop-btn{
+		width:126rpx;
+		height:56rpx;
+		margin:20rpx auto 0;
+		border-radius: 10rpx;
+		background: #121212;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 56rpx;
 	}
 </style>

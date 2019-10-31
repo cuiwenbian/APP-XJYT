@@ -102,11 +102,19 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
+<<<<<<< HEAD
 /******/ 		var cssChunks = {"components/neil-modal/neil-modal":1,"components/uni-popup/uni-popup":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
 /******/ 				var href = "" + ({"components/neil-modal/neil-modal":"components/neil-modal/neil-modal","components/uni-popup/uni-popup":"components/uni-popup/uni-popup"}[chunkId]||chunkId) + ".wxss";
+=======
+/******/ 		var cssChunks = {"components/uni-swipe-action/uni-swipe-action":1,"components/uni-nav-bar/uni-nav-bar":1,"components/uni-icons/uni-icons":1,"components/uni-status-bar/uni-status-bar":1};
+/******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
+/******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
+/******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
+/******/ 				var href = "" + ({"components/uni-swipe-action/uni-swipe-action":"components/uni-swipe-action/uni-swipe-action","components/uni-nav-bar/uni-nav-bar":"components/uni-nav-bar/uni-nav-bar","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar"}[chunkId]||chunkId) + ".wxss";
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

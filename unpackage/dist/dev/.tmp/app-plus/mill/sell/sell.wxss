@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 .pagex {
         display: block;
         width: 100%;
@@ -105,5 +106,87 @@
         margin-top: 8rpx;
         width: 375rpx;
         height: 123rpx;
+=======
+.box {
+    height: 180rpx;
+}
+.left {
+    line-height: 180rpx;
+}
+.img{
+    float: left;
+    width: 145rpx;
+    height: 126rpx;
+    margin-left: 48rpx;
+    margin-top: 36rpx;
+    margin-right: 24rpx;
+    border: 1rpx solid #CCCCCC;
+    padding: 0 14rpx 0 14rpx;
+}
+.info {
+    font-size: 28rpx;
+}
+.right {
+    padding-top: 18rpx;
+}
+.all{
+    font-size: 24rpx;
+    color: #C0C0C0;
+}
+.area {
+    font-size: 24rpx;
+    color: #C0C0C0;
+}
+.y {
+    width: 90%;
+    height: 30rpx;
+    border-bottom: 2rpx solid #C0C0C0;
+    margin: 0 auto;
+}
+.Serial{
+    height: 462rpx;
+    background-color: #CCCCCC;
+}
+.box1 {
+    height: 226rpx;
+    width: 100%;
+}
+.hide {
+    height: 106rpx;
+    border-bottom: 2rpx solid #CCCCCC;
+}
+.adr {
+    width: 220rpx;
+    line-height: 106rpx;
+    float: left;
+    padding-left: 54rpx;
+    font-size: 34rpx;
+}
+.dj {
+    float: left;
+    padding-left: 54rpx;
+    line-height: 106rpx;
+    font-size: 30rpx;
+    color: #CCCCCC;
+}
+.haide {
+    width: 100%;
+    height: 120rpx;
+}
+.put {
+    float: left;
+    text-align: center;
+    width: 370rpx;
+    height: 123rpx;
+}
+.primary {
+    float: right;
+    line-height: 123rpx;
+    color: #FFFFFF;
+    background-color: #121212;
+    margin-top: 8rpx;
+    width: 375rpx;
+    height: 123rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 

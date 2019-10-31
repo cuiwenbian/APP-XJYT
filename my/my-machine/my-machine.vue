@@ -3,54 +3,53 @@
 	<view class="container">	
 	<view v-if="flag==false">
 		<view class='qaz'>
-			<block v-for="(item, index) in user_id" :key="index" @tap="select">	
-				<view class='page' @click.stop='userinfo' :id='item.machine_id'>
+			<block v-for="(item, index) in user_machine" :key="index" >	
+				<view class='page' @tap="select" :id='item.machine_id'>
 				  <view class='page1'>
 				  <view>
-				   <view v-if="item.machine_status == '10'">
+				   <view v-if="item.status == '10'">
 					  <image  class='te2' src='../../static/images/tuo8.png'></image>
 				  </view>
-				  <view v-else-if="item.machine_status == '6' || item.machine_status == '7' || item.machine_status == '5' ">
+				  <view v-else-if="item.status == '6' || item.status == '7' || item.status == '5' ">
 					<image  class='te2' src='../../static/images/tuo10.png'></image>
 				  </view>
 				
-				 <view v-if="item.machine_status == '11'">
+				 <view v-if="item.status == '11'">
 					<image  class='te2' src='../../static/images/tuo7.png'></image>
 				  </view>
-				  <view v-if="item.machine_status == '12'">
+				  <view v-if="item.status == '12'">
 					<image  class='te2' src='../../static/images/tuo9.png'></image>
 				  </view>
 				  </view>
 				   <view><image class='te' src='../../static/images/jian.png'></image></view>
-					  <image  class='te1' src='../../static/images/zu6.png'></image>
+					  <image  class='te1' src='../../static/images/kuangji.png'></image>
 					  <text class='obg'>{{item.number}}</text>
-					  <text class='obg1'>{{item.machine_name}}</text>
-					  
+					  <text class='obg1'>{{item.type}}</text>
 					  <!-- <text class='obg2'>{{numberUtil.numberFormat(item.fs_used)}}T/{{numberUtil.numberFormat(item.fs_total)}}T</text> -->
-					  <text class='obg2'>{{item.fs_used}}T/{{item.fs_total}}T</text>     
+					  <text class='obg2'>{{item.machine_disk}}T/{{item.disk}}T</text>     
 				<view>
 				
-				  <view v-if="item.machine_status == '10'">
+				  <view v-if="item.status == '10'">
 					 <text class='obg3'>正在挖矿</text>
 				  </view>
 				
-				 <view v-if="item.machine_status == '11'">
+				 <view v-if="item.status == '11'">
 					<text class='obg3'>警告</text>
 				  </view>
 				  
-				  <view v-if="item.machine_status == '12'">
+				  <view v-if="item.status == '12'">
 					<text class='obg3'>异常</text>
 				  </view>
 				
-				  <view v-if="item.machine_status == '7'">
+				  <view v-if="item.status == '7'">
 					<text class='obg3'>准备上线</text>
 				  </view>
 				
-				  <view v-if="item.machine_status == '5'">
+				  <view v-if="item.status == '5'">
 					<text class='obg3'>备货中</text>
 				  </view>
 				
-				  <view v-if="item.machine_status == '6'">
+				  <view v-if="item.status == '6'">
 					<text class='obg3'>备货完成</text>
 				  </view>
 				
@@ -78,8 +77,39 @@
 	export default{
 		data(){
 		  return{
-			  flag:true
+			  flag:false,
+			  user_machine:'',
+			  machine_id:''
 		  }	
+		},
+		onLoad() {
+			uni.request({
+				url: this.urll+'usermachine/',
+				method: 'GET',
+				data: {},
+				header:{
+					 Authorization:'JWT'+' '+this.global_.token
+				},
+				success: res => {
+					console.log(res)
+					this.user_machine=res.data.data
+					if(res.data.data==''){
+						this.flag=true
+					}
+					this.machine_id=res.data.data[0].machine_id
+					console.log(this.machine_id)
+					
+				},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
+		methods:{
+			select:function(){
+				uni.navigateTo({
+					url:'../machine-detail/machine-detail?machine_id='+this.machine_id
+				})
+			}
 		}
 	}
 </script>
@@ -157,13 +187,10 @@
 	  color: #e5543f;
 	}
 	.obg3{
-	
 	  position: relative;
-	
 	  display: block;
-	  
 	  float: right;
-	  margin-right: 25rpx;
+	  /* margin-right: 25rpx; */
 	  font-size : 30rpx;
 	  margin-top: 18rpx;
 	  color: #61e458;

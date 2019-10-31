@@ -17,7 +17,7 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
+			<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>

@@ -134,7 +134,7 @@
 					 },
 					 {
 					     "path":"address/address",
-					     "style":{"navigationBarTitleText":"提币地址"}
+					     "style":{"navigationStyle": "custom"}
 					 },
 					 {
 					     "path":"change-loginPassword/change-loginPassword",
@@ -153,11 +153,19 @@
 					     "style":{"navigationBarTitleText":"邮箱认证"}
 					 },
 					 {
+					     "path":"unbindemail/unbindemail",
+					     "style":{"navigationBarTitleText":"解绑邮箱"}
+					 },
+					 {
 					     "path":"identity/identity",
 					     "style":{"navigationBarTitleText":"身份认证"}
 					 },
 					 {
 					     "path":"login-password/login-password",
+					     "style":{"navigationBarTitleText":"修改登录密码"}
+					 },
+					 {
+					     "path":"change-pass/change-pass",
 					     "style":{"navigationBarTitleText":"修改登录密码"}
 					 },
 					 {
@@ -177,8 +185,16 @@
 					     "style":{"navigationBarTitleText":"建议反馈"}
 					 },
 					 {
+					     "path":"suggest-detail/suggest-detail",
+					     "style":{"navigationBarTitleText":"反馈详情"}
+					 },
+					 {
 					     "path":"trade-password/trade-password",
 					     "style":{"navigationBarTitleText":"设置交易密码"}
+					 },
+					 {
+					     "path":"change-otherPassword/change_otherPassword",
+					     "style":{"navigationBarTitleText":"修改交易密码"}
 					 },
 					 {
 					     "path":"transfer/transfer",

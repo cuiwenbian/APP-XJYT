@@ -6,6 +6,7 @@
 		float: left;
 		width: 50%;
 		height: 40rpx;
+<<<<<<< HEAD
 		margin-left: 60rpx;
 		margin-top: 60rpx;
         font-size: 36rpx;
@@ -22,6 +23,11 @@
 .cool{
         margin-left: 40rpx;
         color: #B5B5B5;
+=======
+		padding-left: 48rpx;
+		padding-top: 80rpx;
+        font-size: 24px;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .many{
 		float: left;
@@ -34,8 +40,13 @@
 }
 .colo1{
 		height: 60rpx;
+<<<<<<< HEAD
 		padding-top: 60rpx;
 		padding-left: 540rpx;
+=======
+		padding-top: 80rpx;
+		padding-left: 552rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .dx {
         width: 60rpx;
@@ -43,11 +54,17 @@
 }
 .many1{
 		float: right;
+<<<<<<< HEAD
 		width: 90rpx;
 		height: 60rpx;
         padding-top: 28rpx;
 		padding-right: 128rpx;
         font-size: 32rpx;
+=======
+		width: 10%;
+		height: 60rpx;
+		padding-right: 140rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .box3 {
         height: 90rpx;
@@ -57,11 +74,18 @@
 .list{
       height: auto;
 }
+<<<<<<< HEAD
     /*    .order{
         width: 100%;
         margin-bottom: 40rpx;
 
     } */
+=======
+.order{
+        width: 100%;
+        height: 238rpx;
+}
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .top{
 		height: 88rpx;
 }
@@ -79,7 +103,11 @@
         float: right;
         font-size: 28rpx;
         line-height: 90rpx;
+<<<<<<< HEAD
         margin-right: 80rpx;
+=======
+        padding-right: 208rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .line{
         width: 92%;
@@ -170,7 +198,11 @@
          
         line-height: 80rpx;
     
+<<<<<<< HEAD
         background: #EDEDED;
+=======
+        background: #CCCCCC;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .tab-item {
  
@@ -184,8 +216,14 @@
 }
 .current {
      
+<<<<<<< HEAD
         color: #B39C01;
          
         border-bottom: 5rpx solid #B39C01;
+=======
+        color: #fff;
+         
+        border-bottom: 5rpx solid #fff;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 

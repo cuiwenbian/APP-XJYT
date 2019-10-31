@@ -271,4 +271,39 @@ page{
   
   border: none;
 }
+<<<<<<< HEAD
+=======
+.shade{
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.5);
+}
+.pop{
+	width:500rpx;
+	height:250rpx;
+	margin:450rpx auto 0;
+	background: #fff;
+	border-radius: 20rpx;
+}
+.pop-title{
+	text-align: center;
+	font-size: 32rpx;
+	color:#121212;
+	line-height: 150rpx;
+}
+.pop-btn{
+	width:126rpx;
+	height:56rpx;
+	margin:20rpx auto 0;
+	border-radius: 10rpx;
+	background: #121212;
+	color: #fff;
+	font-size: 30rpx;
+	text-align: center;
+	line-height: 56rpx;
+}
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 

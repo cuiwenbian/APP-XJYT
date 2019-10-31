@@ -31,13 +31,26 @@
     "my/change-password/change-password",
     "my/edit-address/edit-address",
     "my/email/email",
+<<<<<<< HEAD
     "my/identity/identity",
     "my/login-password/login-password",
+=======
+    "my/unbindemail/unbindemail",
+    "my/identity/identity",
+    "my/login-password/login-password",
+    "my/change-pass/change-pass",
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
     "my/my-machine/my-machine",
     "my/machine-detail/machine-detail",
     "my/my-wallet/my-wallet",
     "my/suggest/suggest",
+<<<<<<< HEAD
     "my/trade-password/trade-password",
+=======
+    "my/suggest-detail/suggest-detail",
+    "my/trade-password/trade-password",
+    "my/change-otherPassword/change_otherPassword",
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
     "my/transfer/transfer"
   ],
   "window": {
@@ -84,6 +97,10 @@
     "autoclose": false
   },
   "appname": "neil-modal",
+<<<<<<< HEAD
   "compilerVersion": "2.3.6",
+=======
+  "compilerVersion": "2.3.7",
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
   "usingComponents": {}
 }

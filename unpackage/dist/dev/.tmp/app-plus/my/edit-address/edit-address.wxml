@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <view class="container"><view class="line"></view><view class="list"><view class="txt">提币地址</view><input class="enter" type="text" value="xxxxxxxxxxxxxx"/></view><view class="line"></view><view class="list"><view class="txt">地址备注</view><input class="enter" type="text" value="zhangsan"/></view><view data-event-opts="{{[['tap',[['save',['$event']]]]]}}" class="save" bindtap="__e">保存</view></view>
+=======
+<view class="container"><view class="line"></view><view class="list"><view class="txt">提币地址</view><input class="enter" type="text" data-event-opts="{{[['input',[['getAddress',['$event']]]]]}}" value="{{address}}" bindinput="__e"/></view><view class="line"></view><view class="list"><view class="txt">地址备注</view><input class="enter" type="text" data-event-opts="{{[['input',[['getRemark',['$event']]]]]}}" value="{{nickname}}" bindinput="__e"/></view><view data-event-opts="{{[['tap',[['save',['$event']]]]]}}" class="save" bindtap="__e">保存</view></view>
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc

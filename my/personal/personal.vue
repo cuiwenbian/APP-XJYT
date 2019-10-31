@@ -4,24 +4,31 @@
 		<view class="pass top" >
 			<text class="title title1">头像</text>
 			<image class="more more1" src="../../static/images/jiantou3.png" mode=""></image>
-			<view class="avator"><image class="pic" src="../../static/images/FIL.png" mode=""></image></view>
+			<view class="avator"><image class="pic" src="../../static/images/avator.jpg" mode=""></image></view>
 		</view>
 		<view class="linee"></view>
 		<view class="pass">
 			<text class="title">昵称</text>
 			<image class="more" src="../../static/images/jiantou3.png" mode=""></image>
-			<view class="info">张三</view>
+			<view class="info">nickname</view>
 			<view class="line"></view>
 		</view>
 		<view class="pass">
 			<text class="title">手机号</text>
-			<view class="info1">123****6554</view>
+			<view class="info1">{{phone}}</view>
 		</view>
 		<view class="next" type="primary" @click="save">保存</view>
 	</view>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				phone:this.global_.phone
+			}
+		}
+	}
 </script>
 
 <style>

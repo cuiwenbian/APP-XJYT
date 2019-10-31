@@ -30,6 +30,7 @@
 .market {
         width: 100%;
 }
+<<<<<<< HEAD
 .transfer{
     	width:130rpx;
     	height:130rpx;
@@ -56,6 +57,8 @@
         margin-right: 20rpx;
         /* display: none; */
 }
+=======
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .primary{
 
         width: 220rpx;
@@ -97,17 +100,27 @@
         line-height: 70rpx;
         font-size: 24rpx;
 }
+<<<<<<< HEAD
 .pagex {
 
         width: 100%;
         display: block;
 }
 .page1 {
+=======
+    /*    .pagex {
+
+        width: 100%;
+        display: block;
+    }
+    .page1 {
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 
         height: 180rpx;
 
         padding-right: 40rpx;
         padding-bottom: 20rpx;
+<<<<<<< HEAD
 }
 .img{
         width: 20%;
@@ -141,4 +154,34 @@
 .obg_one{
         font-size: 24rpx;
 }
+=======
+
+    }
+    .img{
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .info{
+
+        width: 70%;
+        height: 100%;
+        float: right;
+    }
+    .obg{
+        font-size: 30rpx;
+        line-height: 50rpx;
+    }
+    .obh_one {
+        font-size: 24rpx;
+        line-height: 50rpx;
+    }
+    .days{
+        color: #5ca614;
+    }
+    .obg_one{
+        font-size: 24rpx;
+        line-height: 50rpx;
+    } */
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 

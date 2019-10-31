@@ -198,20 +198,18 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.ter[0].order_num
+                        order_num:that.contion[0].order_num
                     },
                     success(res) {
                         console.log(res) 
                         console.log(res.data.data)
                         var ord = JSON.stringify(res.data.data)
                         uni.navigateTo({
-                            url:'../saleconfirm/saleconfirm?mvvp=' + ord
+                            url:"../staypay/staypay?mvvp=" + ord
                         })
                     }
                 })
-                uni.navigateTo({
-                    url:"../staypay/staypay"
-                })
+                
             },
             btn2:function() {
                 uni.navigateTo({

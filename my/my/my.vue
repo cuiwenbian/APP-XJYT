@@ -1,20 +1,20 @@
 <template>
 	<!-- 我的 -->
-    <view class="container" >
+    <view class="container" style="position: relative;">
 		 <view class="height"></view>
 		<view class="top">
 			<image class="bg" src="../../static/images/my-background.png" mode="">
-				<image class="logout" src="../../static/images/logout.png" mode=""></image>
+				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
 			</image>
-			<view class="avator" @click="personal"><image class="img" src="../../static/images/a.jpg" mode=""></image></view>
-			<view class="nickname">用户昵称</view>
-			<view class="phone">134****8943</view>
+			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.jpg" mode=""></image></view>
+			<view class="nickname">nickname</view>
+			<view class="phone">{{phone}}</view>
 		</view>
 		<view class="line"></view>
     	<view class="list">
     		<view class="listItem" @click="wallet">
 				<image class="pic" src="../../static/images/my-wallet.png" mode=""></image>
-				<view class="txt"  >我的钱包</view>
+				<view class="txt">我的钱包</view>
 			</view>
 			<view class="listItem" @click="address">
 				<image class="pic" src="../../static/images/my-address.png" mode=""></image>
@@ -43,9 +43,18 @@
 			<view class="listItem" @click="suggest">
 				<image class="pic" src="../../static/images/my-suggest.png" mode=""></image>
 				<view class="txt" >建议反馈</view>
-			</view>
-			
+			</view>	
     	</view>
+		<view class="shade" v-show="shade">
+			<view class="pop">
+				<view class='pop-title'>确定退出登录？</view>
+				<view class="pops">
+					<view class='pop-btn' @click="cancel">取消</view>
+					<view class='pop-btn' @click="sure">确定</view>
+				</view>
+				
+			</view>
+		</view>
     </view>
 </template>
 <!-- 我的 -->
@@ -53,13 +62,29 @@
 	export default {
 		data() {
 			return {
-				
+				phone:this.global_.phone,
+				shade:false
 			}
 		},
-		onLoad() {
-	        
+		onShow() {
+	       
 		},
 		methods: {
+			cancel:function(){
+				this.shade==false
+			},
+			sure:function(){
+				uni.request({
+					url:this.urll+'',
+					method:'POST',
+					header:{
+						
+					},
+					success(res) {
+						
+					}
+				})
+			},
 	        personal:function(){
 				uni.navigateTo({
 					url:'../personal/personal'
@@ -71,24 +96,116 @@
 				})
 			},
 			address:function(){
-				uni.navigateTo({
-					url:'../address/address'
+				uni.request({
+					url:this.urll+'walletaddress/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'用户未实名认证',
+								icon:'none',
+								duration:2000
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../address/address'
+							})
+						}
+						if(res.statusCode==302){
+							uni.showToast({
+								title:'用户未设置资金密码',
+								icon:'none',
+								duration:2000
+							})
+						}
+						
+					}
 				})
+				
 			},
 			tradePassword:function(){
-				uni.navigateTo({
-					url:'../trade-password/trade-password'
+				var that=this;
+				uni.request({
+					url:this.urll+'setmoney/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==302){
+							uni.showToast({
+								title:'用户未绑定邮箱',
+								icon:'none',
+								duration:2000
+							})
+							return false
+						}
+						if(res.statusCode==400){
+							uni.navigateTo({
+								url:'../change-password/change-password'
+							})
+							 
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../trade-password/trade-password'
+							})
+						} 
+					}
 				})
 			},
 			loginPassword:function(){
-				uni.navigateTo({
-					url:'../login-password/login-password'
+				uni.request({
+					url:this.urll+'updataloginpassword/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==400){
+							uni.navigateTo({
+								url:'../change-loginPassword/change-loginPassword'
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../login-password/login-password'
+							})
+						}
+					}
 				})
+				
 			},
 			bindEmail:function(){
-				uni.navigateTo({
-					url:'../email/email'
+				uni.request({
+					url:this.urll+'linkemail/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==200||res.statusCode==201){
+							uni.navigateTo({
+								url:'../email/email'
+								
+							})
+						}
+						if(res.statusCode==400){
+							uni.navigateTo({
+								url:'../unbindemail/unbindemail'
+							})
+						}
+					}
 				})
+				
 			},
 			suggest:function(){
 				uni.navigateTo({
@@ -96,20 +213,94 @@
 				})
 			},
 			certification:function(){
-				uni.navigateTo({
-					url:'../identity/identity'
+				uni.request({
+				  url: this.urll + 'realname/',
+				  method:'GET',
+				  header: {
+				   Authorization:'JWT'+' '+this.global_.token
+				  },
+				  success: function (res) {
+				    console.log(res)
+					if(res.statusCode==202){
+						uni.showToast({
+							title:'已实名认证',
+							icon:'none',
+							duration:2000
+						})
+						return false
+					} 
+					if(res.statusCode==205){
+						uni.showToast({
+							title:'身份认证审核中，请等待',
+							icon:'none',
+							duration:2000
+						})
+						return false
+					}
+					if(res.statusCode==200){
+						uni.navigateTo({
+							url:'../identity/identity'
+						})
+					}
+				  }
 				})
+				
 			},
 			mymachine:function(){
 				uni.navigateTo({
 					url:'../my-machine/my-machine'
 				})
+			},
+			logout:function(){
+				this.shade==true
 			}
 		}
 	}
 </script>
 
 <style>
+	.shade{
+		width:100%;
+		height:100%;
+		position: absolute;
+		left:0;
+		top:0;
+		z-index:99
+	}
+	.pop{
+		width:500rpx;
+		height:200rpx;
+		margin:500rpx auto;
+		padding:0 40rpx;
+		box-sizing: border-box;
+		background: #DCDCDC;
+		border-radius: 10rpx;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	.pop-title{
+		height:100rpx;
+		line-height: 80rpx;
+		text-align: center;
+		font-size: 34rpx;
+	}
+	.pops{
+		height:100rpx;
+		width:100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	.pop-btn{
+		width:120rpx;
+		height:60rpx;
+		border-radius: 20rpx;
+		background:#121212;
+		line-height: 60rpx;
+		font-size: 30rpx;
+		color:#fff;
+		text-align: center;
+	}
 	.height {
 		height: var(--status-bar-height);
 		background: #121212;

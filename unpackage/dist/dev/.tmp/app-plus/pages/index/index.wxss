@@ -45,7 +45,11 @@ swiper-item image {
         height: 28rpx;
         float: left;
         padding-left: 23rpx;
+<<<<<<< HEAD
         padding-top: 40rpx;
+=======
+        padding-top: 17rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .i{
         width: 600rpx;
@@ -58,16 +62,25 @@ swiper-item image {
 .m {
         float: left;
         padding-top: 17rpx;
+<<<<<<< HEAD
         margin-left: 90rpx;
+=======
+        margin-left: 32rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
         font-size: 24rpx;
 
         color: #FFFFFF;
 }
+<<<<<<< HEAD
 .clor{
         color: #FFFFFF;
 }
 .bor {
 		width: 94%;
+=======
+.bor {
+			width: 94%;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
         margin: 0 auto;
         border: 2rpx solid #CcCcCc;
 }
@@ -120,9 +133,17 @@ swiper-item image {
         width: 100%;
         height: 608rpx;
 }
+<<<<<<< HEAD
 .Small{
         width: 100%;
 		height: 80rpx;
+=======
+.information{
+		width: 100%;
+		height: 80rpx;
+}
+.Small{
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
         margin-top: 14rpx;
 }
 .Small image{
@@ -143,7 +164,11 @@ swiper-item image {
 }
 .bt{
 		width: 100%;
+<<<<<<< HEAD
         height: 200rpx;
+=======
+        height: 600rpx;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .left {
 		float: left;
@@ -196,10 +221,15 @@ swiper-item image {
         color: #CCCCCC;
 }
 .b {
+<<<<<<< HEAD
         display: block;
         width: 94%; 
         margin: 0 auto;
         margin-top: 20rpx;
+=======
+        width: 94%; 
+        margin: 0 auto;
+>>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
         border-bottom:2rpx solid #CCCCCC;
 }
 
