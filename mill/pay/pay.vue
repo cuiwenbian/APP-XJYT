@@ -16,29 +16,44 @@
             	</view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 0">
-                <scroll-view scroll-y='true'>
-
-				<view  class="order" > 
-					<view class="top">
-						<text class="mation">买家姓名</text>
-						<text class="cont">联系方式</text>
-					</view>
-					
-					<view class="line"></view>
-					<view class="xi">
-						<view class="edit">订单编号</view>
-						<view class="numbe">矿机数量</view>
-						<view class="trading">交易总价</view>
-						<view class="date">创建日期</view>
-					</view>
-
-					<view class="line1"></view>
-				</view>
-				<view class="hz">
-					<button class="btn1">申诉</button>
-					<button class="btn2" @click="btn">查看详细</button>
-				</view>
+                <scroll-view scroll-y='true' >
+                <view v-for="(item , index) in contion" :key="index">
+                    <view  class="order" >
+                    	<view class="top">
+                    		<text class="mation">
+                                买家姓名: <text class="cool">{{item.name}}</text>
+                            </text>
+                    		<text class="cont">
+                                联系方式: <text class="cool">{{item.mobile}}</text>
+                            </text>
+                    	</view>
+                    	
+                    	<view class="line"></view>
+                    	<view class="xi">
+                    		<view class="edit">
+                                订单编号:<text class="cool">{{item.order_num}}</text>
+                            </view>
+                    		<view class="numbe">
+                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                            </view>
+                    		<view class="trading">
+                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                            </view>
+                    		<view class="date">
+                                创建日期:<text class="cool">{{item.set_time}}</text>
+                            </view>
+                    	</view>
+                    
+                    	<view class="line1"></view>
+                    </view>
+                    
+                    <view class="hz">
+                    	<button class="btn1">申诉</button>
+                    	<button class="btn2" @click="btn">查看详细</button>
+                    </view>
+                </view>
                 </scroll-view>
+                <view class="too"></view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
                 <scroll-view scroll-y='true'>
@@ -119,6 +134,7 @@
     		return {
                 many:'0',
                 tabCurrentIndex:0,
+                contion:'',
                 flag:false,
                 navList: [
                 	{
@@ -145,6 +161,7 @@
     		};
         },
         onLoad(options) {
+            var that = this
             console.log(options)
             uni.request({
                 url:this.urll + 'buyall/101',
@@ -155,6 +172,10 @@
                 data:{},
                 success(res) {
                     console.log(res)
+                    var contion = res.data.data
+                    console.log(contion)
+                    that.contion = contion
+                    console.log(contion[0].name)
                 }
             })
         },
@@ -168,6 +189,26 @@
                 }
             },
             btn:function () {
+                var that = this
+                console.log(that.contion[0].order_num)
+                uni.request({
+                    url:this.urll + 'salemessage/',
+                    method:'GET',
+                    header:{
+                        Authorization: 'JWT'+' '+this.global_.token
+                    },
+                    data:{
+                        order_num:that.ter[0].order_num
+                    },
+                    success(res) {
+                        console.log(res) 
+                        console.log(res.data.data)
+                        var ord = JSON.stringify(res.data.data)
+                        uni.navigateTo({
+                            url:'../saleconfirm/saleconfirm?mvvp=' + ord
+                        })
+                    }
+                })
                 uni.navigateTo({
                     url:"../staypay/staypay"
                 })
@@ -217,6 +258,15 @@
 		padding-top: 80rpx;
 		padding-left: 540rpx;
 	}
+    .too {
+        height: 40rpx;
+        margin-top: 40rpx;
+        background-color: #EDEDED;
+    }
+    .cool{
+        margin-left: 40rpx;
+        color: #B5B5B5;
+    }
     .dx {
         width: 60rpx;
         height: 60rpx;
@@ -270,7 +320,7 @@
         float: right;
         font-size: 28rpx;
         line-height: 90rpx;
-        padding-right: 208rpx;
+        padding-right: 60rpx;
     }
     .line{
         width: 92%;

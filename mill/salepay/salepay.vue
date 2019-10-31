@@ -1,130 +1,143 @@
 <template>
     <!-- 卖出待付款详情订单 -->
     <view class="container">
-        <view class="box">
-            <view class="small">
-                <text>交易类型:
-                    <text class="smallxx">{{type}}</text>
-                </text>
-                <text class="smallx">状态:
-                    <text class="smallxx">{{state}}</text>
-                </text>
-            </view>
-            <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
-            </view>
-            <view class="small">
-                <text>交易总价:&nbsp;&nbsp;&nbsp;
-                    <text class="smallxx">{{price}}</text>
-                </text>
-                <text class="smallx">人民币:
-                    <text class="smallxx">{{rmb}}</text>
-                </text>
-            </view>
-            <view class="small">
-                <text>
-                    订单编号:<text class="smallxx">{{x}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    创建时间:<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    支付时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    确认时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view>
-                <button class="primary" @click="btn">查看全部^</button>
-            </view>
-        </view>
-        <view class="box1">
-            买家信息
-        </view>
-        <view class="box2">
-            <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
-            </view>
-            <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
-            </view>
-        </view>
-        <view class="box1">
-            商品信息
-        </view>
-        <view class="box3">
-            <view>
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
+        <view >
+            <view class="box">
+                <view class="small">
+                    <text>交易类型:
+                        <text class="smallxx">{{type}}</text>
+                    </text>
+                    <text class="smallx">状态:
+                        <text class="smallxx">{{state}}</text>
+                    </text>
                 </view>
-                <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                <view class="small">
+                    矿机数量:<text class="smallxx">{{mill}}</text>台
+                </view>
+                <view class="small">
+                    <text>交易总价:&nbsp;&nbsp;&nbsp;
+                        <text class="smallxx">{{price}}</text>
+                    </text>
+                    <text class="smallx1">人民币:
+                        <text class="lop">{{rmb}}</text>
+                    </text>
+                </view>
+                <view class="small">
+                    <text>
+                        订单编号:<text class="smallxx">{{x}}</text>
+                    </text>
+                </view>
+                <view class="small1">
+                    <text>
+                        创建时间:<text class="smallxx">{{time}}</text>
+                    </text>
+                </view>
+                <view class="small1">
+                    <text>
+                        支付时间：<text class="smallxx">{{time}}</text>
+                    </text>
+                </view>
+                <view class="small1">
+                    <text>
+                        确认时间：<text class="smallxx">{{time}}</text>
+                    </text>
+                </view>
+                <view>
+                    <button class="primary" @click="btn">查看全部^</button>
                 </view>
             </view>
-        </view>
-        <view class="box3">
-            <view>
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
+            <view class="box1">
+                买家信息
             </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
+            <view class="box2">
+                <view class="bx">姓名:
+                    <text class="bxx">{{name}}</text>
                 </view>
-                <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                <view class="bx">联系方式:
+                    <text class="bxx">{{contact}}</text>
                 </view>
             </view>
-        </view>
-        <view class="box3">
-            <view>
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
+            <view class="box1">
+                商品信息
             </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
+            <view class="box3" v-for="(item , index) in datn" :key="index">
+                <view>
+                    <image class="img" src="../../static/images/kuangji.png" mode=""></image>
                 </view>
-                <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                <view>
+                    <view class="small2">
+                        专业版:
+                        <text class="aa">{{data_hard_disk}}</text>
+                        <text class="smal">{{number}}</text>
+                    </view>
+                    <view class="small3">
+                        <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    </view>
+                    <view class="small3">
+                        <text class="smalx">储存{{usedisk}} | 总容量{{poirk}}T</text>
+                    </view>  
                 </view>
             </view>
-        </view>
-        <view class="box4">
-            <button class="primary1">等待买家付款</button>
+            <view class="box4">
+                <button class="primary1">等待买家付款</button>
+            </view>
         </view>
     </view>
 </template>
 
 <script>
+    var getRmb=require('../../common/requset.js')
     export default {
         data(){
             return {
-                type:'卖出',
-                state:'待审核',
-                mill:'10',
-                price:'20000',
+                type:'卖单',
+                datn:'',
+                state:'',
+                mill:'',
+                price:'',
                 rmb:'',
-                x:'xxxxxxxxxxxxxx',
-                time:'2019.10.21',
-                name:'张三',
-                contact:'xxxxxxx',
-                num:'4T',
-                day:'56',
-                remaining:'305'
+                x:'',
+                time:'',
+                name:'',
+                data_hard_disk:'',
+                number:'',
+                contact:'',
+                num:'',
+                day:'',
+                usedisk:'',
+                remaining:'',
+                poirk:''
             }
+        },
+        onLoad(option) {
+
+            var that = this
+            var datn = JSON.parse(option.aser)
+            console.log(option.aser)
+            this.datn = datn
+            console.log(this.datn)
+            console.log(this.datn[0][0].order_status)
+            that.state = this.datn[0][0].order_status
+            that.mill = this.datn[0][0].sale_num
+            that.price = this.datn[0][0].sale_money
+            that.x = this.datn[0][0].mobile
+            that.name = this.datn[0][0].name
+            that.contact = this.datn[0][0].mobile
+            if(that.state == 101) {
+                that.state = '待付款'
+            }
+            console.log(this.datn[1][1].name)
+            that.data_hard_disk = this.datn[1][1].name
+            that.number = this.datn[1][1].number
+            that.day = this.datn[1][1].usedays
+            that.remaining = this.datn[1][1].residuedays
+            that.usedisk = this.datn[1][1].data_hard_disk
+            that.poirk = this.datn[1][1].usedisk
+            
+            that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
             btn:function () {
-                
                 var that = this
             }
         }
@@ -149,6 +162,17 @@
         padding-left: 48rpx;
         font-size: 32rpx;
     }
+    .aa {
+        font-size: 30rpx;
+    }
+    .lop{
+        font-size: 20rpx;
+        margin-right: 48rpx;
+    }
+    .smallx1{
+        float: right;
+        margin-left: 16rpx;
+    }
     .small1{
         box-sizing: border-box;
         width: 100%;
@@ -162,10 +186,12 @@
         box-sizing: border-box;
         float: right;
         font-size: 32rpx;
-        padding-right: 170rpx;
+        padding-right: 48rpx;
     }
     .smallxx {
         box-sizing: border-box;
+        font-size: 32rpx;
+        color: #B86757;
         padding-left: 40rpx;
     }
     .primary {
@@ -176,6 +202,7 @@
     }
     .box1 {
         height: 100rpx;
+        font-size: 32rpx;
         padding-left: 48rpx;
         line-height: 100rpx;
     }
@@ -198,26 +225,24 @@
         height: 300rpx;
         background-color: #fff;
     }
-    .small2 {
-        height: ;
-    }
     .img {
-        width: 220rpx;
-        height: 200rpx;
+        width: 160rpx;
+        height: 160rpx;
         float: left;
         padding-left: 48rpx;
         padding-top: 40rpx;
     }
     .small2 {
         float: left;
+        font-size: 34rpx;
         padding-left: 20rpx;
         padding-top: 40rpx;
 
     }
     .small3 {
         float: left;
-
-        padding-top: 40rpx;
+        padding-top: 30rpx;
+        font-size: 32rpx;
     }
     .smal {
         padding-left: 20rpx;

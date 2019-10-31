@@ -112,6 +112,9 @@
                 remaining:'305'
             }
         },
+        onLoad(option) {
+            console.log(option)
+        },
         methods:{
             btn:function () {
                 var that = this

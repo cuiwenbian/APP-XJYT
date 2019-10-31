@@ -16,8 +16,8 @@
         </view> 
                   
         <view v-if="flag" >
-                <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-                <view class="infoo">暂无记录</view>
+            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+            <view class="infoo">暂无记录</view>
         </view>
        <view v-else class="pagex" v-for="(item , index) in user_id" :key="index">
            <view class="page1" >
@@ -51,11 +51,12 @@
     		return {
     			many: '',
                 user_id:'',
-                flag:false,
+                flag:true,
                 selectilall: false,
                 machine_id:'',
                 lo: false,
                 arr:[],
+                isSelected:false
     		}
     	},
     	onLoad(options) {
@@ -69,14 +70,17 @@
                 success(res) {
                     console.log(res)
                     that.user_id = res.data.data
+                    console.log(that.user_id.length)
                     that.machine_id=res.data.data[length].machine_id;
+                    
                     console.log(that.machine_id)
                     that.many = res.data.data.length
-                    console.log(that.user_id)
-                    if(res.statusCode == 200) {
+                    if(res.data.data[length].machine_id == ' '){
+                        that.many = 0
+                    }
+                    
+                    if(that.user_id.length != 0) {
                         that.flag = false 
-                    }else if(res.statusCode == 400){
-                        that.flag = true
                     }
 
                 }
@@ -107,6 +111,7 @@
                         arr.push(that.user_id[i].machine_id)
                         console.log(arr)
                     }
+                    
                     console.log(that.lo)
                 }
                 this.arr = arr

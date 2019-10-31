@@ -17,6 +17,9 @@ page {
     padding-left: 48rpx;
     font-size: 32rpx;
 }
+.aa {
+    font-size: 30rpx;
+}
 .small1{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -37,6 +40,8 @@ page {
 .smallxx {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    font-size: 32rpx;
+    color: #B86757;
     padding-left: 40rpx;
 }
 .primary {
@@ -47,6 +52,7 @@ page {
 }
 .box1 {
     height: 100rpx;
+    font-size: 32rpx;
     padding-left: 48rpx;
     line-height: 100rpx;
 }
@@ -69,25 +75,23 @@ page {
     height: 300rpx;
     background-color: #fff;
 }
-.small2 {
-    height: ;
-}
 .img {
-    width: 220rpx;
-    height: 200rpx;
+    width: 160rpx;
+    height: 160rpx;
     float: left;
     padding-left: 48rpx;
     padding-top: 40rpx;
 }
 .small2 {
     float: left;
+    font-size: 34rpx;
     padding-left: 20rpx;
     padding-top: 40rpx;
 }
 .small3 {
     float: left;
-
-    padding-top: 40rpx;
+    padding-top: 30rpx;
+    font-size: 32rpx;
 }
 .smal {
     padding-left: 20rpx;

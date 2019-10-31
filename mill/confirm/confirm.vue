@@ -43,11 +43,13 @@
         </view>
         <view class="brn">
             <button class="primary" @click="btn">确认</button>
+            <!-- <best-payment-password :show="payFlag" :forget="true"  :value="paymentPwd" digits="6" @submit="checkPwd" @cancel="togglePayment"></best-payment-password> -->
         </view>
     </view>
 </template>
 
 <script>
+    // import bestPaymentPassword from '../../components/best-payment-password/best-payment-password.vue'
     var getRmb=require('../../common/requset.js')
     export default {
         data() {
@@ -58,35 +60,74 @@
                 data:'',
                 san:'',
                 sun:'',
+                payFlag:false,
+                paymentPwd:'',
+                forget:false,
+                password:'123456',
+                arr:[]
+                
   
             }
         },
+        // components: {
+        // 	bestPaymentPassword
+        // },
         onLoad(option) {
+            let arr = []
             var that = this
             var data = JSON.parse(option.ront)
             that.data = data
-            console.log(that.data)
+            var sur=that.data[1];
+            console.log(that.data[1])
             that.name = that.data[0][0].name
             that.pag = that.data[0][0].mobile
             that.san = that.data[0][0].sale_num
             that.suu = that.data[0][0].sale_money
             that.data=that.data[1]   
+            console.log(that.data[1].machine_id)
             that.sun = getRmb.getrmb(that.suu)
+            
           
+            for(let i = 0; i < sur.length; i++) {
+                console.log(that.data[1].machine_id)
+                arr.push(sur[i].machine_id)
+                console.log(arr)
+            }
+          this.arr = arr
         },
         methods:{
             btn:function() {
+                var that = this
+                var a = that.arr.join()
+                console.log(a)
+                this.payFlag = true
                 uni.request({
                     url:this.urll + 'submitorder/',
                     method:'POST',
                     header:{
-                        Authorization: 'JWT'+' '+this.global_.token
+                        Authorization: 'JWT'+' '+this.global_.token,
+                    },
+                    data:{
+                        password:that.password,
+                        machine_id_list:a,
+                        name:that.name,
+                        mobile:that.pag,
+                        sale_num:that.san,
+                        sale_money:that.suu
                     },
                     success(res) {
                         console.log(res)
+                        if(res.statusCode == 200){
+                            uni.switchTab({
+                                url:'../mill/mill'
+                            })
+                        }
                     }
                 })
-            }
+            },
+            // togglePayment:function(){}
+            
+            
         }
     }
 </script>
@@ -97,7 +138,7 @@
     }
     .loo {
         color: #121212;
-        padding-left: 20rpx;
+        padding-left: 18rpx;
     }
     .box1 {
         margin-bottom: 40rpx;
@@ -106,7 +147,7 @@
     }
     .name {
         float: left;
-        width: 120rpx;
+        width: 124rpx;
         color: #A0A0A0;
         line-height: 120rpx;
         padding-left: 48rpx;

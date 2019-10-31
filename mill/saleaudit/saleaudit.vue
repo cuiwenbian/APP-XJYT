@@ -14,11 +14,11 @@
                 矿机数量:<text class="smallxx">{{mill}}台</text>
             </view>
             <view class="small">
-                <text>交易总价:&nbsp;&nbsp;&nbsp;
+                <text>交易总价:
                     <text class="smallxx">{{price}}</text>
                 </text>
-                <text class="smallx">人民币:
-                    <text class="smallxx">{{rmb}}</text>
+                <text class="smallx1">人民币:
+                    <text class="lop">{{rmb}}</text>
                 </text>
             </view>
             <view class="small">
@@ -60,65 +60,78 @@
         <view class="box1">
             商品信息
         </view>
-         <view class="box3">
+        <view class="box3" v-for="(item , index) in vinda" :key="index">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
+            <view class="sm">
+                <view class="small2">
+                    专业版:
+                    <text class="aa">{{num}}</text>
+                    <text class="smal">{{xx}}</text>
                 </view>
                 <view class="small3">
                     <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
                 </view>
-            </view>
-        </view>
-        <view class="box3">
-            <view>
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
-                </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
-                </view>
-            </view>
-        </view>
-        <view class="box3">
-            <view>
-                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
-            </view>
-            <view>
-                <view class="small2">专业{{num}}
-                    <text class="smal">{{x}}</text>
-                </view>
-                <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
-                </view>
+                    <text class="smalx">
+                        储存{{usedisk}} | 
+                    </text>
+                    <text class="smalx">
+                        总容量{{poirk}}T
+                    </text>
+                </view>  
             </view>
         </view>
     </view>
 </template>
 
 <script>
+    var getRmb=require('../../common/requset.js')
     export default {
         data(){
             return {
                 type:'卖出',
-                state:'待审核',
-                mill:'10',
-                price:'20000',
+                vinda:'',
+                state:'',
+                mill:'',
+                price:'',
                 rmb:'',
-                x:'xxxxxxxxxxxxxx',
-                time:'2019.10.21',
-                name:'张三',
-                contact:'xxxxxxx',
-                num:'4T',
-                day:'56',
-                remaining:'305'
+                x:'',
+                xx:'',
+                time:'',
+                name:'',
+                contact:'',
+                poirk:'',
+                usedisk:'',
+                num:'',
+                day:'',
+                remaining:''
             }
+        },
+        onLoad(option) {
+            var that = this
+            console.log(option);
+            var vinda = JSON.parse(option.suxang)
+            that.vinda = vinda[1]
+            console.log(vinda)
+            that.state = vinda[0][0].order_status
+            if(that.state == 103) {
+                that.state = '待确认'
+            }
+            that.mill = vinda[0][0].sale_num
+            that.price = vinda[0][0].sale_money
+            that.x = vinda[0][0].order_num
+            that.name = vinda[0][0].name
+            that.contact = vinda[0][0].mobile
+            that.num = vinda[1][1].name
+            that.xx = vinda[1][1].number
+            that.day = vinda[1][1].usedays
+            that.remaining = vinda[1][1].residuedays
+            that.usedisk = vinda[1][1].data_hard_disk
+            that.poirk = vinda[1][1].usedisk
+            
+            that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
             btn:function () {
@@ -146,6 +159,20 @@
         padding-left: 48rpx;
         font-size: 32rpx;
     }
+    .aa {
+        font-size: 30rpx;
+    }
+    .lop{
+        font-size: 20rpx;
+        margin-right: 48rpx;
+    }
+    .smallx1{
+        float: right;
+        margin-left: 16rpx;
+    }
+    .sm{
+        height: 100%;
+    }
     .small1{
         box-sizing: border-box;
         width: 100%;
@@ -159,7 +186,7 @@
         float: right;
         font-size: 32rpx;
         box-sizing: border-box;
-        padding-right: 170rpx;
+        padding-right: 48rpx;
     }
     .smallxx {
         box-sizing: border-box;
@@ -192,37 +219,38 @@
     }
     .box3{
         width: 100%;
-        height: 300rpx;
+        height: 260rpx;
         background-color: #fff;
     }
-    .small2 {
-        height: ;
-    }
+
     .img {
-        width: 220rpx;
-        height: 200rpx;
+        width: 160rpx;
+        height: 160rpx;
         float: left;
         padding-left: 48rpx;
         padding-top: 40rpx;
     }
-    .small2 {
-        float: left;
-        padding-left: 20rpx;
-        padding-top: 40rpx;
-
-    }
-    .small3 {
-        float: left;
-
-        padding-top: 40rpx;
-    }
-    .smal {
-        padding-left: 20rpx;
-    }
-    .smalx {
-        padding-left: 20rpx;
-        color: #CCCCCC;
-    }
+     .small2 {
+         float: left;
+         width: 66%;
+         font-size: 34rpx;
+         padding-left: 20rpx;
+         margin-right: 20rpx;
+         padding-top: 40rpx;
+     }
+     .small3 {
+         float: left;
+         padding-top: 20rpx;
+         font-size: 32rpx;
+     }
+     .smal {
+         padding-left: 20rpx;
+     }
+     .smalx {
+         margin-left: 30rpx;
+         font-size: 32rpx;
+         color: #CCCCCC;
+     }
     .box4 {
         height: 80rpx;
         line-height: 80rpx;
