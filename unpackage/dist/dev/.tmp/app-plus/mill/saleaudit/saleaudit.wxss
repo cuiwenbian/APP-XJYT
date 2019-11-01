@@ -17,6 +17,20 @@ page {
     padding-left: 48rpx;
     font-size: 32rpx;
 }
+.aa {
+    font-size: 30rpx;
+}
+.lop{
+    font-size: 20rpx;
+    margin-right: 48rpx;
+}
+.smallx1{
+    float: right;
+    margin-left: 16rpx;
+}
+.sm{
+    height: 100%;
+}
 .small1{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -32,7 +46,7 @@ page {
     font-size: 32rpx;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding-right: 170rpx;
+    padding-right: 48rpx;
 }
 .smallxx {
     -webkit-box-sizing: border-box;
@@ -66,35 +80,36 @@ page {
 }
 .box3{
     width: 100%;
-    height: 300rpx;
+    height: 260rpx;
     background-color: #fff;
 }
-.small2 {
-    height: ;
-}
 .img {
-    width: 220rpx;
-    height: 200rpx;
+    width: 160rpx;
+    height: 160rpx;
     float: left;
     padding-left: 48rpx;
     padding-top: 40rpx;
 }
 .small2 {
-    float: left;
-    padding-left: 20rpx;
-    padding-top: 40rpx;
+     float: left;
+     width: 66%;
+     font-size: 34rpx;
+     padding-left: 20rpx;
+     margin-right: 20rpx;
+     padding-top: 40rpx;
 }
 .small3 {
-    float: left;
-
-    padding-top: 40rpx;
+     float: left;
+     padding-top: 20rpx;
+     font-size: 32rpx;
 }
 .smal {
-    padding-left: 20rpx;
+     padding-left: 20rpx;
 }
 .smalx {
-    padding-left: 20rpx;
-    color: #CCCCCC;
+     margin-left: 30rpx;
+     font-size: 32rpx;
+     color: #CCCCCC;
 }
 .box4 {
     height: 80rpx;

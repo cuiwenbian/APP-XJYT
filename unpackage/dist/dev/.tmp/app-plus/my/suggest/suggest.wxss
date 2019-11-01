@@ -7,42 +7,20 @@ page{
 }
 .suggest-list{
 	width:100%;
-<<<<<<< HEAD
-	height:280rpx;
-	background: #fff;
-	padding: 0 48rpx;
-=======
 	height:auto;
 	/* height:280rpx; */
 	background: #fff;
 	padding: 20rpx 48rpx;
 	overflow: hidden;
-	-webkit-box-sizing: content-box;
-	        box-sizing: content-box;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .time{
 	height:90rpx;
-	width:calc(100% - 96rpx);
+	width:100%;
 	border-bottom:1rpx solid #f2f2f2;
 }
 .submit-time{
-<<<<<<< HEAD
-	line-height: 90rpx;
-	float:left;
-	font-size: 30rpx;
-}
-.status{
-	line-height: 90rpx;
-	float: right;
-	color:#DCB16E;
-	font-size: 30rpx;
-}
-.question{
-	margin-top:20rpx;
-	width:calc(100% - 96rpx);
-	background: #000000;
-=======
 	height:90rpx;
 	width:520rpx;
 	line-height: 90rpx;
@@ -50,6 +28,7 @@ page{
 	font-size: 28rpx;
 }
 .status{
+	
 	height:90rpx;
 	line-height: 90rpx;
 	float: right;
@@ -60,8 +39,7 @@ page{
 	
 	margin-top:20rpx;
 	margin-bottom:20rpx;
-	width:calc(100% - 96rpx);
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
+	width:100%;
 }
 .tit{
 	width:100rpx;
@@ -71,26 +49,13 @@ page{
 	font-size: 28rpx;
 }
 .answer{
-<<<<<<< HEAD
-=======
 	height: auto;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 	width:554rpx;
+	overflow: hidden;
 	float: left;
 	line-height: 45rpx;
 	font-size: 28rpx;
 }
-<<<<<<< HEAD
-.answer1{
-	width:500rpx;
-	float: right;
-	font-size: 28rpx;
-	line-height: 60rpx;
-	height:180rpx;
-	overflow: hidden;
-}
-=======
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .box{
 	height:200rpx;
 }
@@ -175,8 +140,6 @@ page{
 	right:20rpx;
 	/* color:#797979; */
 }
-<<<<<<< HEAD
-=======
 .shade{
 	position: absolute;
 	top:0;
@@ -209,5 +172,4 @@ page{
 	text-align: center;
 	line-height: 56rpx;
 }
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 

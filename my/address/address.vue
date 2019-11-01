@@ -3,7 +3,7 @@
 	<view class="container" style="position: relative;">
 		<view v-if="flag" >
 			<view class="height"></view>
-			<uni-nav-bar left-icon="back"  right-text="添加"  click-left='back' click-right='add' title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
+			<uni-nav-bar left-icon="back"  right-text="添加"  @click-left='back' @click-right='add' title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
 			<block v-for="item in address_out" :key='item.id'>
 			<uniSwipeAction :options="options" @click="click(item)">
 				<view class="list">
@@ -15,12 +15,12 @@
 				</view>
 			</uniSwipeAction>
 			</block>
-			<view class="newadd" @click="add">新建地址</view>
+			
 		</view>
 		
 		<view v-else>
 			<view class="height"></view>
-			<uni-nav-bar left-icon="back"   click-left='back'  title="提币地址" background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
+			<uni-nav-bar left-icon="back"  title="提币地址" @click-left='back' background-color="#121212" color='#fff' border='false' shadow='false'></uni-nav-bar>
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/address.png" mode=""></image>
@@ -28,7 +28,7 @@
 			</view>
 			<view class="newadd" @click="add">新建地址</view>
 		</view>
-		
+		<uniKeyBoard open ></uniKeyBoard>
 	</view>
 </template>
 <script src="../../static/js/jquery.min.js"></script>
@@ -36,6 +36,7 @@
 <script>
 	import {uniSwipeAction} from "../../components/uni-swipe-action/uni-swipe-action.vue"
 	import {uniNavBar} from "../../components/uni-nav-bar/uni-nav-bar.vue"
+	import {uniKeyBoard} from "../../components/keyboard-package/keyboard-package.vue"
  export default {
 	data() {
 		return {
@@ -54,11 +55,31 @@
 			right:'',
 			id:'',
 			shade:true,
-			password:'654321',
-			user_id:''
+			password:'abcdef',
+			user_id:'',
+			length:{//长度只允许为6和4
+			        type:Number,
+			        default:6,
+			        validator(val){
+			            if(val!==6 && val !==4){
+			                return false;
+			            }
+			            return true;
+			        }
+			    },
+			    gutter:{//输入框间隔，单位：rpx
+			        type:Number,
+			        default:0
+			    },
+			    list:{//密码数组
+			        type:Array,
+			        default:function(){
+			            return [];
+			        }
+			    }
 		};
 	},
-	components: {uniSwipeAction,uniNavBar},
+	components: {uniSwipeAction,uniNavBar,uniKeyBoard},
 	
 	onLoad() {
 		var that=this;

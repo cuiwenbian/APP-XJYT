@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 .height {
 		height: var(--status-bar-height);
 		background: #121212;
@@ -50,7 +48,6 @@
 			text-align: center;
 			line-height: 56rpx;
 }
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .box {
 	height: 200rpx;
 }
@@ -116,7 +113,4 @@
 	text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc

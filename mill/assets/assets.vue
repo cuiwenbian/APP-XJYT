@@ -6,7 +6,7 @@
             <text class="assets">总资产</text>
             <view class="number">{{num}}  FIL</view>
             <text class="coin">可用币  {{ber}}</text>
-            <text class="lock">锁定  {{nuber}}</text>
+            <text class="lock">锁定币  {{nuber}}</text>
 
         </view>
         <view class="btn">

@@ -12,12 +12,12 @@ page{
 	background: #fff;
 	padding: 20rpx 48rpx;
 	overflow: hidden;
-	-webkit-box-sizing: content-box;
-	        box-sizing: content-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .time{
 	height:90rpx;
-	width:calc(100% - 96rpx);
+	width:100%;
 	border-bottom:1rpx solid #f2f2f2;
 }
 .submit-time{
@@ -38,7 +38,7 @@ page{
 	
 	margin-top:20rpx;
 	margin-bottom:20rpx;
-	width:calc(100% - 96rpx);
+	width:100%;
 }
 .tit{
 	width:100rpx;

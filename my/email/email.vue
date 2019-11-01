@@ -10,7 +10,7 @@
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<view class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click.once="sendcode" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="save"  @click="save">确认</view>
 	</view>
@@ -125,7 +125,7 @@
 					return false
 				}
 				uni.request({
-					url:this.urll+'linkemail/',
+					url:this.url+'linkemail/',
 					method:"POST",
 					data:{
 						email:this.email,

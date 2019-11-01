@@ -77,6 +77,13 @@
 					},
 					success(res) {
 						console.log(res)
+						if(res.statusCode==200){
+							uni.showToast({
+								title:'资金密码错误',
+								icon:'none',
+								duration:2000
+							})
+						}
 						if(res.statusCode==204){
 							uni.showToast({
 								title:'修改成功',

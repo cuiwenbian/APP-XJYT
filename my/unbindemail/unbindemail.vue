@@ -31,7 +31,7 @@
 			var _this=this;
 			_this.disabled = true;
 			uni.request({
-				url:this.urll+'delemail/',
+				url:this.url+'delemail/',
 				method:'GET',
 				header:{
 					Authorization:'JWT'+' '+this.global_.token

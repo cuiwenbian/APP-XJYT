@@ -12,13 +12,13 @@
 			<view class="getcode" @click.once="getCodeNumber" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="set">设置交易密码</view>
-		<view class="list">
-			<input class="code" type="text" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
+		<view class="list"> 
+			<input class="code" type="number"  :password='isPwd' :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list"> 
-			<input class="code" type="text" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
+			<input class="code" type="number" :password='isPwd' :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>
@@ -42,7 +42,8 @@
 				codename: ' 获取验证码',
 				password:'',
 				password1:'',
-				shade:false
+				shade:false,
+				
 			}
 		}, 
 		onLoad() {
@@ -134,6 +135,15 @@
 					})
 					return false;
 				}
+				var f=this.global_.checkPassword(this.password)
+				if(!f){
+					uni.showToast({
+						title:'交易密码为六位数字',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
 				if(this.password1==''){
 					uni.showToast({
 						icon:'none',
@@ -151,7 +161,7 @@
 					return false;
 				}
 				uni.request({
-					url:this.urll+'setmoney/', 
+					url:this.url+'setmoney/', 
 					method:'POST',
 					data:{
 						email:this.email1,
@@ -166,9 +176,16 @@
 					success(res) {
 						console.log(res)
 						if(res.statusCode==200){
-							uni.navi
 							uni.showToast({
 								title:'资金密码已设置',
+								icon:'none',
+								duration:2000
+							})
+							
+						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'资金密码为六位数字',
 								icon:'none',
 								duration:2000
 							})

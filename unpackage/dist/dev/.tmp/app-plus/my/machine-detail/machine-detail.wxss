@@ -14,14 +14,9 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-<<<<<<< HEAD
-	height: 120rpx;
-	background: #797979;
-=======
 	height: 80rpx;
 	background: #CCCCCC;
 	color:a0a0a0;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 	        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 	position: relative;
@@ -46,11 +41,7 @@
 		        align-items: center;
 		height: 100%;
 		font-size: 34rpx;
-<<<<<<< HEAD
-		color: #777;
-=======
 		color: #121212;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 		position: relative;
 }
 .current{

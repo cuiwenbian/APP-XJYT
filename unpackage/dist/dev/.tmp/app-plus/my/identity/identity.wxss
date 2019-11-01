@@ -271,8 +271,6 @@ page{
   
   border: none;
 }
-<<<<<<< HEAD
-=======
 .shade{
 	position: absolute;
 	top:0;
@@ -305,5 +303,4 @@ page{
 	text-align: center;
 	line-height: 56rpx;
 }
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 
