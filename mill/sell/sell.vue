@@ -83,10 +83,17 @@
                 var a = that.arr.join(',')
                 var app = JSON.stringify(a)
                 console.log(app)
-
-                uni.navigateTo({
-                    url:"../validation/validation?app=" + app + '&sunt='+ sunt + '&tilo='+tilo
-                })
+                if(that.total_price == ''){
+                    uni.showToast({
+                        title:'总价不能为空',
+                        icon:'none'
+                    })
+                }else{
+                    uni.navigateTo({
+                        url:"../validation/validation?app=" + app + '&sunt='+ sunt + '&tilo='+tilo
+                    })
+                }
+               
             },
         }
     }
@@ -166,6 +173,9 @@
     .box1 {
         height: 226rpx;
         margin-top: 420rpx;
+        position: fixed;
+        bottom: 0;
+        left:0;
         width: 100%;
     }
     .hide {

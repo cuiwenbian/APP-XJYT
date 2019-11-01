@@ -166,7 +166,7 @@
     export default {
     	data() {
     		return {
-                many:'0',
+                many:'',
                 tabCurrentIndex:0,
                 dater:'',
                 ter:'',

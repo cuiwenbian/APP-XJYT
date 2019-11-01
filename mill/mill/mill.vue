@@ -71,14 +71,18 @@
                     console.log(res)
                     that.user_id = res.data.data
                     console.log(that.user_id.length)
-                    that.machine_id=res.data.data[length].machine_id;
                     
                     console.log(that.machine_id)
-                    that.many = res.data.data.length
-                    if(res.data.data[length].machine_id == ' '){
+                    console.log(that.user_id.length)
+                    if(that.user_id.length === 0){
                         that.many = 0
                     }
+<<<<<<< HEAD
                     
+=======
+                    that.many = res.data.data.length
+                    that.machine_id=res.data.data[length].machine_id;
+>>>>>>> c2e6d3e5750bae8466d9aba5ca8f224c40b621de
                     if(that.user_id.length == 0) {
                         that.flag = true 
                     }

@@ -18,11 +18,30 @@
             </swiper-item>
         </swiper>
         
-        <view class="notice"> 
+<!--        <view class="notice"> 
            <image class="g" src="../../static/images/notice.png"></image>   
            <text class="clor">{{notice}}</text>
-        </view>
+        </view> -->
         
+        <view class="uni-swiper-msg">
+        	<view class="uni-swiper-msg-icon">
+        		<image class="g" src="../../static/images/notice.png" mode="widthFix"></image>
+        	</view>
+        	<swiper 
+            autoplay="true" 
+            circular="true"  
+            interval="0" 
+            vertical:true
+             indicator-dots:false
+            >
+        		<swiper-item>
+        			<text class="clor">{{notice}}</text>
+        		</swiper-item>
+                <swiper-item>
+                	<text class="clor">{{s}}</text>
+                </swiper-item>
+        	</swiper>
+        </view>
 
         <view class="borx">
             <view class="price">
@@ -98,7 +117,8 @@
                 cWidth:'',
                 cHeight:'',
                 pixelRatio:1,
-                notice:''
+                notice:'',
+                s:'123987998449898'
 			}
              
 		},
@@ -118,9 +138,10 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res)
-                    console.log(res.data.data[length].notice)
-                    that.notice = res.data.data[0].notice
+                    console.log(res.data)
+                    var opent = res.data
+                    console.log(opent[0].notice)
+                    that.notice = opent[0].notice
                    
                 }
             })
@@ -135,6 +156,7 @@
             			  
             			},
             			success: function(res) {
+                            console.log(res)
             				console.log(res.data.data[0])
             				var data = res.data.data[0];
             				_self.seven_profit=data.seven_profit;
@@ -203,6 +225,8 @@
 </script>
 
 <style>
+    /* #ifndef APP-PLUS-NVUE */
+    @import url("../../common/uni.css");
     .qiun-charts {
     	width: 750upx;
     	height: 500upx;
@@ -242,12 +266,19 @@
    .notice{
         height: 60rpx;
     }
+/*   .clor{
+        width: 93%;
+        float: left;
+        color: #FFFFFF;
+        line-height: 100rpx;
+        font-size: 30rpx;
+    } */
     .g {
         width: 28rpx;
         height: 28rpx;
         float: left;
         padding-left: 23rpx;
-        padding-top: 40rpx;
+        padding-top: 20rpx;
     }
     .i{
         width: 600rpx;
@@ -267,6 +298,9 @@
     }
     .clor{
         color: #FFFFFF;
+         float: left;
+         height: 90rpx;
+         margin-top: 10rpx;
     }
     .bor {
 		width: 94%;
@@ -403,4 +437,5 @@
         margin-top: 20rpx;
         border-bottom:2rpx solid #CCCCCC;
     }
+    /*  #endif  */
 </style>
