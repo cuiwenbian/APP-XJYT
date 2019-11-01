@@ -99,6 +99,9 @@
                 },
                 success(res) {
                     that.num = res.data.availed_num
+                    if(that.num = " ") {
+                        that.num = '0.000000'
+                    }
                     that.ber = res.data.fil_count
                     that.nuber = res.data.locked_num
                 }
@@ -109,7 +112,7 @@
                 header:{
                     Authorization:'JWT'+' '+this.global_.token
                 },
-                success: (res) => {
+                success(res) {
                     console.log(res)
                 }
             })

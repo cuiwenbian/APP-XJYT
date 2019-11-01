@@ -31,16 +31,6 @@
                     创建时间:<text class="smallxx">{{time}}</text>
                 </text>
             </view>
-            <view class="small1">
-                <text>
-                    支付时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    确认时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
             <view>
                 <button class="primary" @click="btn">查看全部^</button>
             </view>
@@ -83,7 +73,7 @@
             </view>
         </view>
         <view class="box4">
-            <button class="primary1">待付款</button>
+            <button class="primary1">我已付款</button>
         </view>
     </view>
 </template>
