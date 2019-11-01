@@ -142,6 +142,15 @@
                             uni.showModal({
                                 title:'未进行实名认证',
                                 confirmText:'去验证',
+                                success(res) {
+                                    console.log(res)
+                                    if(res.confirm == true){
+                                        uni.navigateTo({
+                                            url:'../../my/identity/identity'
+                                        })
+                                    }
+                                    console.log(res.confirm)
+                                }
                             })
                         }else if(that.arr == 0) {
                             uni.showToast({

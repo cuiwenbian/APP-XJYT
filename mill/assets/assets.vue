@@ -19,40 +19,62 @@
             		{{item.text}}
             	</view>
             </view>
-            <view class="list" v-if="tabCurrentIndex === 0">
+            <view class="list" v-if="tabCurrentIndex === 0" >
                     <view>
                     	<view v-if="flag" >
                     		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
                     		<view class="info">暂无记录</view>
                     	</view>
-                    	<view v-else class="boxx">
+                   	<view v-else class="boxx" >
                     		<view class="linee">
-                    		  <view class="select_box">
-                    			<view class="select" @click="selectTap">
-                    			  <text class="select_text">{{selectData[index]}}</text>
-                    			  <image class="select_img " src="../../static/images/select.png" background-size="contain"></image>
-                    			</view>
-                    			<view class="option_box" :style="'height:' + (selectShow?(selectData.length>5?325:selectData.length*50):0) + 'rpx;'">
-                    			  <text class="option" v-for="(item, index) in selectData" :key="index" :data-index="index" @click="optionTap">{{item}}</text>
-                    			</view>
-                    		  </view>
-                    		  <view class="all1">Filecoin:100</view>
+                              <view class="cu-form-group">
+                              	<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChange">
+                              		<view class="picker">
+                              			{{date}}
+                              		</view>
+                              	</picker>
+                              </view>
+                    		  <text class="all1">Filecoin:{{month_profit}}</text>
                     		</view>
-                    		<view class="list-one">
+                    		<view class="list-one"  v-for="(item , index) in ention" :key="index">
                     			<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
                     			<view class='list-txt'>
                     				<view class='list-info'>收款</view>
-                    				<view class='list-time'>9-01</view>
+                    				<view class='list-time'>{{item.add_time}}</view>
                     			</view>
-                    			<view class='list-income'>+50.50</view>
+                    			<view class='list-income'>+{{item.num}}</view>
                     		</view>
-                    	</view>
                     </view>
-
+                </view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
                 <scroll-view scroll-y='true'>
-                    
+                    <view>
+                        	<view v-if="flag" >
+                        		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+                        		<view class="info">暂无记录</view>
+                        	</view>
+                       	<view v-else class="boxx" >
+                        		<view class="linee">
+                                  <view class="cu-form-group">
+                                  	<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChang">
+                                  		<view class="picker">
+                                  			{{date}}
+                                  		</view>
+                                  	</picker>
+                                  </view>
+                        		  <text class="all1">Filecoin:{{month_profit}}</text>
+                        		</view>
+                        		<view class="list-one"  v-for="(item , index) in entin" :key="index">
+                        			<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+                        			<view class='list-txt'>
+                        				<view class='list-info'>收款</view>
+                        				<view class='list-time'>{{item.add_time}}</view>
+                        			</view>
+                        			<view class='list-income'>+{{item.num}}</view>
+                        		</view>
+                        </view>
+                    </view>
                 </scroll-view>
             </view>
             </view>
@@ -63,16 +85,25 @@
 <script>
     export default {
         data(){
+            
             return {
                 num:'',
                 ber:'',
                 nuber:'',
+<<<<<<< HEAD
 				fee:'',
+=======
+                month_profit:'',
+                numm:'',
+>>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
                 tabCurrentIndex:0,
+                add_item:'',
+                entin:'',
                 flag:false,
+                ention:'',
                 selectShow: false,
                 //控制下拉列表的显示隐藏，false隐藏、true显示
-                selectData: ['十二月', '十一月', '十月', '九月', '八月', '七月', '六月', '五月', '四月', '三月', '二月', '一月'],
+               
                 //下拉列表的数据
                 index: 0,
                 //选择的下拉列表下标
@@ -87,12 +118,23 @@
                 		text: '支出记录'
                 		
                 	}
-                ]
+                ],
+                date: '本月',
+                teran:''
+               
             }
         },
         onLoad:function (opetions) {
             var that = this
+<<<<<<< HEAD
 			console.log(that.selectData[that.index])
+=======
+            var data = new Date()
+            var text = data.getFullYear('-')
+            var txt = data.getMonth()
+            var teran = text+ '-' +txt
+            that.teran = teran
+>>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
             uni.request({
                 url:this.url + "assets/",
                 method:'GET',
@@ -100,11 +142,22 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
+<<<<<<< HEAD
                    console.log(res)
                    that.num = res.data.availed_num
                    that.ber = res.data.fil_count
                    that.nuber = res.data.locked_num
                    that.fee=res.data.fee
+=======
+                    console.log(res)
+                    that.num = res.data.availed_num
+                    if(that.num = " ") {
+                        that.num = '0.000000'
+                    }
+                    that.ber = res.data.fil_count
+                    that.nuber = res.data.locked_num
+                    
+>>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
                 }
             })
             uni.request({
@@ -116,8 +169,41 @@
                 header:{
                     Authorization:'JWT'+' '+this.global_.token
                 },
+                data:{
+                    month:teran
+                },
+                success(res) {
+                   console.log(res.data.data)
+                   var seront = res.data.data
+                   var ention = res.data.data.profit_records
+                   that.ention = ention
+                   console.log('cc')
+                   console.log(ention)
+                   that.month_profit = seront.month_profit
+                   that.add_item = ention[0].add_time
+                   that.numm = ention[0].num
+                }
+            })
+            uni.request({
+                url:this.url + 'assets/month/bill/',
+                method:'GET',
+                header:{
+                    Authorization:'JWT'+' '+this.global_.token
+                },
+                data:{
+                    month:teran
+                },
                 success(res) {
                     console.log(res)
+                    console.log(res.data.data)
+                    var seron = res.data.data
+                    var entin = res.data.data.bill_records
+                    that.entin = entin
+                    console.log('cc')
+                    console.log(entin)
+                    that.month_profit = seron.month_bill
+                    that.add_item = entin[0].add_time
+                    that.numm = entin[0].num
                 }
             })
         },
@@ -129,6 +215,12 @@
                 }else {
                     that.tabCurrentIndex =index
                 }
+            },
+            bindChange (e) {
+                const val = e.detail.value
+                this.year = this.years[val[0]]
+                this.month = this.months[val[1]]
+                this.day = this.days[val[2]]
             },
             btn(){
                 uni.navigateTo({
@@ -158,6 +250,62 @@
                     }
                 })
 			},
+            DateChange(e) {
+                var that = this
+                console.log(e)
+            	this.date = e.detail.value
+                uni.request({
+                    url:this.url + 'assets/month/profit/',
+                    method:'GET',
+                    header:{
+                        Authorization:'JWT'+' '+this.global_.token
+                    },
+                    data:{
+                        month:e.detail.value
+                    },
+                    success(res) {
+                        console.log(res.data.data)
+                        var seront = res.data.data
+                        var ention = res.data.data.profit_records
+                        that.ention = ention
+                        console.log(ention.num)
+                        that.month_profit = seront.month_profit
+                        that.add_item = ention[0].add_time
+                        that.numm = ention[0].num
+                        
+                        
+                    }
+                })
+                
+            },
+            DateChang(e) {
+                var that = this
+                console.log(e)
+            	this.date = e.detail.value
+                uni.request({
+                    url:this.url + 'assets/month/bill/',
+                    method:'GET',
+                    header:{
+                        Authorization:'JWT'+' '+this.global_.token
+                    },
+                    data:{
+                        month:e.detail.value
+                    },
+                    success(res) {
+                        console.log(res.data.data)
+                        var seront = res.data.data
+                        var entin = res.data.data.bill_records
+                        // that.ention = ention
+                        // console.log(ention.num)
+                        that.month_profit = seront.month_bill
+                        // that.add_item = ention[0].add_time
+                        // that.numm = ention[0].num
+                        
+                        
+                    }
+                })
+                
+            },
 		    transfer:function(){
 				uni.navigateTo({
 					url:'../transfer/transfer'
@@ -181,6 +329,15 @@
     .boxx {
 
         height: 100%;
+    }
+    picker-view {
+        width: 100%;
+        height: 600upx;
+        margin-top:20upx;
+    }
+    .item {
+        line-height: 100upx;
+        text-align: center;
     }
     .assets{
         text-align: center;
@@ -211,6 +368,15 @@
     .btn {
         height: 150rpx;
         width: 100%;
+    }
+    .picker{
+        width: 30%;
+        text-align: center;
+        margin-top: 40rpx;
+        margin-left: 40rpx;
+        font-size: 30rpx;
+        border: 2rpx solid #CCCCCC;
+        border-radius: 25rpx;
     }
     .primary{
         width: 220rpx;
@@ -319,8 +485,9 @@
     .all1 {
       float: right;
       font-size: 30rpx;
+      line-height: 10rpx;
       color: #333;
-      line-height: 100rpx;
+
       margin-right:48rpx;
       
     }
@@ -387,5 +554,8 @@
          
         border-bottom: 2rpx solid #B39C01;
      
+    }
+    .cu-form-group .title {
+    	min-width: calc(4em + 15px);
     }
 </style>
