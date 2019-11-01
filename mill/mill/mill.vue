@@ -77,12 +77,10 @@
                     if(that.user_id.length === 0){
                         that.many = 0
                     }
-<<<<<<< HEAD
-                    
-=======
+
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
->>>>>>> c2e6d3e5750bae8466d9aba5ca8f224c40b621de
+
                     if(that.user_id.length == 0) {
                         that.flag = true 
                     }

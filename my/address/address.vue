@@ -28,7 +28,24 @@
 			</view>
 			<view class="newadd" @click="add">新建地址</view>
 		</view>
-		<uniKeyBoard open ></uniKeyBoard>
+		<!-- #ifndef H5 -->
+		<password-input @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+		<!-- #endif -->
+		
+		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
+		<!-- #ifdef H5 -->
+		<view @tap="openKeyBoard('number')">
+			<password-input :length="length" :gutter="20" :list="numberList"></password-input>
+		</view>
+		<!-- #endif -->
+		<!-- 数字键盘 -->
+		<keyboard-package 
+		ref="number"  
+		@onInput="onInput" 
+		@onDelete="onDelete" 
+		@onConfirm="onConfirm" 
+		:disableDot="true"/>
+		
 	</view>
 </template>
 <script src="../../static/js/jquery.min.js"></script>
@@ -36,7 +53,8 @@
 <script>
 	import {uniSwipeAction} from "../../components/uni-swipe-action/uni-swipe-action.vue"
 	import {uniNavBar} from "../../components/uni-nav-bar/uni-nav-bar.vue"
-	import {uniKeyBoard} from "../../components/keyboard-package/keyboard-package.vue"
+	import keyboardPackage from "../../components/keyboard-package/keyboard-package.vue"
+	import passwordInput from "../../components/password-input/password-input.vue"
  export default {
 	data() {
 		return {
@@ -57,29 +75,17 @@
 			shade:true,
 			password:'abcdef',
 			user_id:'',
-			length:{//长度只允许为6和4
-			        type:Number,
-			        default:6,
-			        validator(val){
-			            if(val!==6 && val !==4){
-			                return false;
-			            }
-			            return true;
-			        }
-			    },
-			    gutter:{//输入框间隔，单位：rpx
-			        type:Number,
-			        default:0
-			    },
-			    list:{//密码数组
-			        type:Array,
-			        default:function(){
-			            return [];
-			        }
-			    }
+		    numberList:[],
+		    length:6,
+		    type:'number'
 		};
 	},
-	components: {uniSwipeAction,uniNavBar,uniKeyBoard},
+	components: {
+		uniSwipeAction,
+		uniNavBar,
+		keyboardPackage,
+		passwordInput
+		},
 	
 	onLoad() {
 		var that=this;
@@ -104,7 +110,42 @@
 			}
 		})
 	},
+	
 	methods: {
+		openKeyBoard(key) {
+				this.type=key;
+				this.$refs[key].open();
+			},
+		onInput(val){
+				if(this.numberList.length>=this.length){
+					this.close();
+					return;
+		        };
+				if(this.numberList.length===this.length-1){
+					this.numberList.push(val);
+					this.close();
+					return;
+				};
+				this.numberList.push(val);
+				console.log(this.numberList)
+				console.log(this.numberList.join().replace(/,/g, ""))
+				
+		},
+		onDelete(){
+				this.numberList.pop();
+		},
+		onConfirm(){
+				uni.showToast({
+					title:'完成输入！',
+					duration:2000,
+					icon:'none'
+				})
+		},
+		close(){
+				this.$refs['number'].close();
+		},
+		
+		
 		//点击删除按钮
 		click:function(item){
 			var that=this;

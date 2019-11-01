@@ -10,56 +10,56 @@
 		<!-- 显示区域 -->
 		<view class="list"  v-if="tabCurrentIndex === 0">
 			
-				 <view class='pagex' v-for="item in machine_config" :key='machine_id'>
+				 <view class='pagex' >
 					<view class="nav_right_items">
 						<text class='te'>名称 ：</text>
-						<text class='te1'>{{item.name}}</text>
+						<text class='te1'>{{name}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>编号 ：</text>
-						<text class='te1'>{{item.number}}</text>
+						<text class='te1'>{{number}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>批次 ：</text>
-						<text class='te1'>{{item.batch}}</text>
+						<text class='te1'>{{batch}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>型号 ：</text>
-						<text class='te1'>{{item.type}}</text>
+						<text class='te1'>{{type}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>CPU ：</text>
-						<text class='te1'>{{item.cpu}}</text>
+						<text class='te1'>{{cpu}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>内存 ：</text>
-						<text class='te1'>{{item.memory}}</text>
+						<text class='te1'>{{memory}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>系统硬盘 ：</text>
-						<text class='te1'>{{item.system_hard_disk}}</text>
+						<text class='te1'>{{system_hard_disk}}</text>
 					</view>
 					 <view class="line1"></view>
 					  <view class="nav_right_items">
 						<text class='te'>数据硬盘 ：</text>
-						<text class='te1'>{{item.data_hard_disk}}</text>
+						<text class='te1'>{{data_hard_disk}}</text>
 					 </view>
 					 <view class="line1"></view>
 				   
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
-						<text class='te1'>{{item.area}}</text>
+						<text class='te1'>{{area}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>矿场 ：</text>
-						<text class='te1'>{{item.machine_area}}</text>
+						<text class='te1'>{{machine_area}}</text>
 					</view>
 					<view class="line1"></view>
 				</view>
@@ -67,7 +67,7 @@
 			   
 		</view>
 		<view class="list"  v-if="tabCurrentIndex === 1">
-			 <view class='pagex' v-for="item in machine_status"  :key='id'>
+			 <view class='pagex' >
 					  <view class="nav_right_items">
 
 						 <text class='te'>CPU占有率 ：</text>
@@ -104,6 +104,16 @@
 	export default {
 		data() {
 			return {
+				name: "",
+				number: "",
+				area: "",
+				batch: "",
+				type: "",
+				cpu: "",
+				memory: "",
+				system_hard_disk: "",
+				data_hard_disk: "",
+				machine_area: "",
 				tabCurrentIndex: 0,
 				machine_config:'',
 				machine_status:'',
@@ -128,7 +138,7 @@
 				]
 			};
 		}, 
-		onLoad(options) {
+		onLoad() {
 			var that=this;
 			 this.machine_id=options.machine_id;
 			 console.log(this.machine_id)
@@ -141,8 +151,19 @@
 				},
 				success(res) {
 					console.log(res)
-					that.machine_config=res.data
-					console.log(that.machine_config)
+					that.name=res.data.name;
+					that.number=res.data.number;
+					that.area=res.data.area;
+					that.batch=res.data.batch;
+					that.type=res.data.type;
+					that.cpu=res.data.cpu;
+					that.memory=res.data.memory;
+					that.system_hard_disk=res.data.system_hard_disk;
+					that.data_hard_disk=res.data.data_hard_disk;
+					console.log(that.name)
+					console.log(that.number)
+					// that.machine_config=res.data
+					// console.log(that.machine_config)
 				}
 			  }) 
 			  uni.request({
@@ -153,9 +174,10 @@
 			  	},
 			  	success(res) {
 			  		console.log(res)
-					that.machine_status=res.data
+					// that.machine_status=res.data
 			  	}			
 			  }) 
+			 
 		}, 
 		methods: {
 			changeTab(e) {

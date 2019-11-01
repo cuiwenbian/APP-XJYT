@@ -4,7 +4,7 @@
 		 <view class="height"></view>
         <view class="box">
             <text class="assets">总资产</text>
-            <view class="number">{{num}}  FIL</view>
+            <view class="number">{{num}}   FIL</view>
             <text class="coin">可用币  {{ber}}</text>
             <text class="lock">锁定币  {{nuber}}</text>
 
@@ -67,6 +67,7 @@
                 num:'',
                 ber:'',
                 nuber:'',
+				fee:'',
                 tabCurrentIndex:0,
                 flag:false,
                 selectShow: false,
@@ -91,6 +92,7 @@
         },
         onLoad:function (opetions) {
             var that = this
+			console.log(that.selectData[that.index])
             uni.request({
                 url:this.url + "assets/",
                 method:'GET',
@@ -98,17 +100,19 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    that.num = res.data.availed_num
-                    if(that.num = " ") {
-                        that.num = '0.000000'
-                    }
-                    that.ber = res.data.fil_count
-                    that.nuber = res.data.locked_num
+                   console.log(res)
+                   that.num = res.data.availed_num
+                   that.ber = res.data.fil_count
+                   that.nuber = res.data.locked_num
+                   that.fee=res.data.fee
                 }
             })
             uni.request({
-                url:this.url + 'month/profit/',
+                url:this.url + 'assets/month/profit/',
                 method:'GET',
+				data:{
+					month:that.selectData[that.index]
+				},
                 header:{
                     Authorization:'JWT'+' '+this.global_.token
                 },
@@ -128,7 +132,7 @@
             },
             btn(){
                 uni.navigateTo({
-                    url:'/my/transfer/transfer?sole=' + this.ber,
+                    url:'/my/transfer/transfer?sole=' + this.ber+'&fee='+this.fee,
                 })
             },			
             selectTap() {
@@ -138,10 +142,21 @@
 			    var that = this;
 			    let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
 			    var time = this.selectData[Index];
-                
 				this.index= Index,
 				this.selectShow= !this.selectShow
-                
+                uni.request({
+                    url:this.url + 'month/profit/',
+                    method:'GET',
+                	data:{
+                		month:that.selectData[that.index]
+                	},
+                    header:{
+                        Authorization:'JWT'+' '+this.global_.token
+                    },
+                    success(res) {
+                        console.log(res)
+                    }
+                })
 			},
 		    transfer:function(){
 				uni.navigateTo({

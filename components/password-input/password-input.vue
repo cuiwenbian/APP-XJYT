@@ -1,7 +1,13 @@
 <template>
-	<view class="box">
-		<view :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" :style="{margin:formatMargin(gutter)}">
-			<view :class="['circle',(index<list.length)?'dot':'']"></view>
+	<view class="boxx" :hidden="hiddenmodalput">
+		<image class="close" src="../../static/images/close.png" @tap='close'></image>
+		<view :class="flag?'tip':'tip1'">
+		  <image class="lock" src="../../static/images/lock.png"></image>
+		  {{tip}}
+		</view>
+		<view class="forget" @tap="forget">忘记密码？</view>
+		<view :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
+			<view :class="['circle',(index<list.length)?'dot':'']" ></view>
 		</view>
 	</view>
 </template>
@@ -32,12 +38,25 @@
 		},
 		data() {
 			return {
+				flag:true,
+				hiddenmodalput:false
 			};
 		},
 		computed:{
 			
 		},
 		methods:{
+			close: function() {
+			  
+			   this.hiddenmodalput= true
+			  
+			},
+			forget: function() {
+			  var that = this;
+			  uni.redirectTo({
+			    url: '../../pages/getBackPassword/getBackPassword'
+			  })
+			},
 			formatMargin(gutter){
 				return 0 + ' ' + gutter+'rpx';
 			}
@@ -46,32 +65,90 @@
 </script>
 
 <style lang="scss" scoped>
-	.box {
-		background-color: #F5F5F5;
-		padding: 20rpx;
-		display: flex;
-		.item{
-			position: relative;
-			background-color: #FFFFFF;
-			height: 100rpx;
-			flex-grow: 1;
-			flex-shrink: 0;
-			border: 1px solid #F5F5F5;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			.circle{
-				width: 20rpx;
-				height: 20rpx;
-				border-radius: 50%;
-				background-color: #fff;
-				&.dot{
-					background-color: #000;
-				}
-			}
-		}
+	page{
+		margin:0;
 	}
-
+	.boxx {
+	  width: 600rpx;
+	  height: 380rpx;
+	  background: #F5F5F5;
+	  border-radius: 20rpx;
+	  padding: 20rpx 50rpx 0;
+	  box-sizing: border-box;
+	  position: fixed;
+	  top: 400rpx;
+	  left: 75rpx;
+	  z-index:999;
+	}
+	.tip {
+	  width: 70%;
+	  margin: auto;
+	  text-align: center;
+	  height: 50rpx;
+	  font-size: 30rpx;
+	  line-height: 50rpx;
+	  margin: 80rpx auto 20rpx;
+	}
+	.tip1 {
+	  width: 70%;
+	  margin: auto;
+	  height: 50rpx;
+	  font-size: 30rpx;
+	  text-align: center;
+	  line-height: 50rpx;
+	  color: red;
+	   margin: 80rpx auto 20rpx;
+	}
+	.close {
+	  width: 40rpx;
+	  height: 40rpx;
+	  position: absolute;
+	  top: 25rpx;
+	  left: 20rpx;
+	}
+	.lock {
+	  width: 40rpx;
+	  height: 40rpx;
+	  display: block;
+	  float: left;
+	}
+	
+	.forget {
+	  color:#30bcd5;
+	  font-size: 24rpx;
+	  position: absolute;
+	  right: 50rpx;
+	  bottom: 30rpx;
+	}
+    .item{
+    	width:78rpx;
+    	height:78rpx;
+    	background: #fff;
+    	float:left;
+    	border: 1px solid #F5F5F5;
+		margin:0;
+        position: relative;
+    	// background-color: #FFFFFF;
+    	// height: 70rpx;
+    	// width:70rpx;
+    	// float: left;
+    	// flex-grow: 1;
+    	// flex-shrink: 0;
+    	//border: 1px solid #4CAF50;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	.circle{
+    		width: 5rpx;
+    		height: 5rpx;
+    		border-radius: 50%;
+    		padding:5rpx;
+    		background-color: #fff;
+    		&.dot{
+    			background-color: #000;
+    		}
+    	}
+    }
 	.fakecursor::after {
 		content: '';
 		display: block;
@@ -83,7 +160,6 @@
 		top: 50%;
 		margin-top: -16rpx;
 	}
-
 	@keyframes blink {
 		0% {
 			background-color: white;

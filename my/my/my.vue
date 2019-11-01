@@ -22,7 +22,7 @@
 			</view>
 			<view class="listItem" @click="certification">
 				<image class="pic" src="../../static/images/my-identity.png" mode=""></image>
-				<view class="txt" >实名认证</view>
+				<view class="txt" >实名认证</view> 
 			</view>
 			<view class="listItem" @click="mymachine">
 				<image class="pic" src="../../static/images/my-machine.png" mode=""></image>
@@ -45,7 +45,7 @@
 				<view class="txt" >建议反馈</view>
 			</view>	
     	</view>
-		<view class="shade" v-show="shade">
+		<view class="shade" v-if="shade">
 			<view class="pop">
 				<view class='pop-title'>确定退出登录？</view>
 				<view class="pops">
@@ -71,18 +71,12 @@
 		},
 		methods: {
 			cancel:function(){
-				this.shade==false
+				this.shade=false
 			},
 			sure:function(){
-				uni.request({
-					url:this.urll+'',
-					method:'POST',
-					header:{
-						
-					},
-					success(res) {
-						
-					}
+				this.global_.token=='';
+				uni.reLaunch({
+					url:'../../pages/login/login'
 				})
 			},
 	        personal:function(){
@@ -252,7 +246,7 @@
 				})
 			},
 			logout:function(){
-				this.shade==true
+				this.shade=true
 			}
 		}
 	}
@@ -262,6 +256,7 @@
 	.shade{
 		width:100%;
 		height:100%;
+		background: RGBA(0,0,0,0.5);
 		position: absolute;
 		left:0;
 		top:0;
@@ -269,19 +264,17 @@
 	}
 	.pop{
 		width:500rpx;
-		height:200rpx;
+		height:234rpx;
 		margin:500rpx auto;
 		padding:0 40rpx;
 		box-sizing: border-box;
-		background: #DCDCDC;
+		background: #fff;
 		border-radius: 10rpx;
-		position: absolute;
-		left:0;
-		top:0;
+		
 	}
 	.pop-title{
-		height:100rpx;
-		line-height: 80rpx;
+		height:130rpx;
+		line-height: 100rpx;
 		text-align: center;
 		font-size: 34rpx;
 	}

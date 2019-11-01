@@ -3,6 +3,7 @@
   "usingComponents": {
     "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "uni-key-board": "/components/keyboard-package/keyboard-package"
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
   }
 }
