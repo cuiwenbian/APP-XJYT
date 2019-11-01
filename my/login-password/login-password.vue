@@ -13,12 +13,12 @@
 		<view class="set">修改登录密码</view>
 		<view class="list">
 			<view class="title">登录密码</view>
-			<input class="code" type="text" :value="pwd" @input='getLoginPassword' placeholder="6-16位数字,字母" />
+			<input class="code" type="password" :value="pwd" @input='getLoginPassword' placeholder="6-16位数字,字母" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code1" type="text" :value="pwd1" @input='getLoginPassword1' placeholder="请再次输入新密码" />
+			<input class="code1" type="password" :value="pwd1" @input='getLoginPassword1' placeholder="请再次输入新密码" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="save"  @click="save">确认修改</view>

@@ -226,11 +226,7 @@
          
         line-height: 80rpx;
     
-<<<<<<< HEAD
         background: #EDEDED;
-=======
-        background: #CCCCCC;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .tab-item {
      
@@ -244,14 +240,8 @@
 }
 .current {
      
-<<<<<<< HEAD
         color: #B39C01;
          
         border-bottom: 2rpx solid #B39C01;
-=======
-        color: #fff;
-         
-        border-bottom: 5rpx solid #fff;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 

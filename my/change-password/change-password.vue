@@ -3,18 +3,18 @@
 	<view class="container">
 		<view class="line">验证现有密码</view>
 		<view class="list">
-			<input class="code" type="text" :value="password" @input='getPassword' placeholder="请输入现有密码" />
+			<input class="code" type="password" :value="password" @input='getPassword' placeholder="请输入现有密码" />
 		</view>
 		<view class="set">设置新密码</view>
 		<view class="list">
 			<view class="title">交易密码</view>
-			<input class="code" type="text" :value="newPassword" @input='getNewPassword' placeholder="请输入新的交易密码" />
+			<input class="code" type="password" :value="newPassword" @input='getNewPassword' placeholder="请输入新的交易密码" />
 			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" :value="newPassword1" @input='getNewPassword1'  placeholder="请再次输入新密码" />
-			<image class="close open" :src="hidden?'../../static/images/eye.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
+			<input class="code" type="password" :value="newPassword1" @input='getNewPassword1'  placeholder="请再次输入新密码" />
+			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
 		</view>
 		<view class="save"  @click="changePassword">确认修改</view>
 		<view class="other" @click="other">其他方式</view>
@@ -61,6 +61,15 @@
 					})
 					return false;
 				}
+				var f=this.global_.checkPassword(this.newPassword)
+				if(!f){
+					uni.showToast({
+						title:'交易密码为六位数字!!',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
 				if(this.newPassword1==''){
 					uni.showToast({
 						icon:'none',
@@ -90,20 +99,7 @@
 					},
 					success(res) {
 						console.log(res)
-						if(res.data.msg='密码错误'){
-							uni.showToast({
-								title:'现有密码错误',
-								icon:'none',
-								duration:2000
-							})
-						}
-						if(res.data.non_field_errors='新旧密码一样'){
-							uni.showToast({
-								title:'新旧密码一样',
-								icon:'none',
-								duration:2000
-							})
-						}
+						
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'资金密码已修改',
@@ -113,6 +109,14 @@
 							uni.switchTab({
 								url:'../my/my'
 							})
+						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'现有密码错误，或是新旧密码一样',
+								icon:'none',
+								duration:2000
+							})
+							
 						}
 					}
 				})

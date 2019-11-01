@@ -134,12 +134,15 @@
 						
 						if(res.statusCode==200){
 							 _this.hidden=true;
+							 _this.title='';
+							 _this.desc='';
 						}
 						uni.showToast({
 							title:'提交成功',
 							icon:'none',
 							duration:2000
 						})
+						
 						var page = getCurrentPages().pop();
 						if (page == undefined || page == null) return; 
 						page.onLoad(); 
@@ -177,11 +180,11 @@
 		background: #fff;
 		padding: 20rpx 48rpx;
 		overflow: hidden;
-		box-sizing: content-box;
+		box-sizing: border-box;
 	}
 	.time{
 		height:90rpx;
-		width:calc(100% - 96rpx);
+		width:100%;
 		border-bottom:1rpx solid #f2f2f2;
 		
 	}
@@ -194,6 +197,7 @@
 		
 	}
 	.status{
+		
 		height:90rpx;
 		line-height: 90rpx;
 		float: right;
@@ -204,7 +208,7 @@
 		
 		margin-top:20rpx;
 		margin-bottom:20rpx;
-		width:calc(100% - 96rpx);
+		width:100%;
 		
 	}
 	.tit{
@@ -217,6 +221,7 @@
 	.answer{
 		height: auto;
 		width:554rpx;
+		overflow: hidden;
 		float: left;
 		line-height: 45rpx;
 		font-size: 28rpx;

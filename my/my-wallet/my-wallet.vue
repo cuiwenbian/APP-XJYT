@@ -5,7 +5,7 @@
 			<view class="line"></view>
 			<view class="txt">Filecoin</view>
 			<view class="mess">
-				<view class="num"><text class="number">156&nbsp;</text>&nbsp;个</view>
+				<view class="num"><text class="number">{{num}}&nbsp;</text>&nbsp;个</view>
 				<view class="trade" @click="transfer">转账</view>
 			</view>
 		</view>
@@ -54,7 +54,40 @@
 				//下拉列表的数据
 				index: 0,
 				//选择的下拉列表下标
+				num:'',
+				ber:'',
+				nuber:'',
+				fee:''
 			}
+		},
+		onLoad:function () {
+		    var that = this
+		    uni.request({
+		        url:this.url + "assets/",
+		        method:'GET',
+		        header:{
+		            Authorization:'JWT'+' '+this.global_.token
+		        },
+		        success(res) {
+					console.log('我的钱包')
+					console.log(res)
+		            that.num = res.data.availed_num
+		            that.ber = res.data.fil_count
+		            that.nuber = res.data.locked_num
+					that.fee=res.data.fee
+		        }
+		    })
+		    uni.request({
+		        url:this.url + 'month/profit/',
+		        method:'GET',
+		        header:{
+		            Authorization:'JWT'+' '+this.global_.token
+		        },
+		        success: (res) => {
+					console.log('月收益')
+		            console.log(res)
+		        }
+		    })
 		},
 		methods: {
 			selectTap() {
@@ -69,7 +102,7 @@
 			},
 		    transfer:function(){
 				uni.navigateTo({
-					url:'../transfer/transfer'
+					url:'../transfer/transfer?sole='+ this.ber+'&fee='+this.fee
 				})
 			}
 			

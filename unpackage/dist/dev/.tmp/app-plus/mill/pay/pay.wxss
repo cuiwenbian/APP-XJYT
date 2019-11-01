@@ -6,15 +6,9 @@
 		float: left;
 		width: 50%;
 		height: 40rpx;
-<<<<<<< HEAD
 		margin-left: 60rpx;
 		margin-top: 80rpx;
         font-size: 36rpx;
-=======
-		padding-left: 48rpx;
-		padding-top: 80rpx;
-        font-size: 24px;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .many{
 		float: left;
@@ -28,11 +22,16 @@
 .colo1{
 		height: 60rpx;
 		padding-top: 80rpx;
-<<<<<<< HEAD
 		padding-left: 540rpx;
-=======
-		padding-left: 552rpx;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
+}
+.too {
+        height: 40rpx;
+        margin-top: 40rpx;
+        background-color: #EDEDED;
+}
+.cool{
+        margin-left: 40rpx;
+        color: #B5B5B5;
 }
 .dx {
         width: 60rpx;
@@ -42,20 +41,15 @@
 		float: right;
 		width: 90rpx;
 		height: 60rpx;
-<<<<<<< HEAD
         padding-top: 28rpx;
 		padding-right: 128rpx;
         font-size: 32rpx;
-=======
-		padding-right: 128rpx;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .box3 {
         height: 90rpx;
         background-color: #F6F6F6;
         position: relative;
 }
-<<<<<<< HEAD
 .transfer{
     	width:130rpx;
     	height:130rpx;
@@ -66,8 +60,6 @@
     	text-align: center;
     	font-size: 32rpx;
 }
-=======
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .list{
       height: auto;
 }
@@ -92,7 +84,7 @@
         float: right;
         font-size: 28rpx;
         line-height: 90rpx;
-        padding-right: 208rpx;
+        padding-right: 60rpx;
 }
 .line{
         width: 92%;
@@ -183,11 +175,7 @@
          
         line-height: 80rpx;
     
-<<<<<<< HEAD
         background: #EDEDED;
-=======
-        background: #CCCCCC;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .tab-item {
  
@@ -201,14 +189,8 @@
 }
 .current {
      
-<<<<<<< HEAD
         color: #B39C01;
          
         border-bottom: 2rpx solid #B39C01;
-=======
-        color: #fff;
-         
-        border-bottom: 5rpx solid #fff;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 

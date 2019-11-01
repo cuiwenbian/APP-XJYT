@@ -2,13 +2,10 @@
 page {
     background-color: #DCDCDC;
 }
-<<<<<<< HEAD
 .loo {
     color: #121212;
     padding-left: 18rpx;
 }
-=======
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .box1 {
     margin-bottom: 40rpx;
     height: 120rpx;
@@ -16,23 +13,14 @@ page {
 }
 .name {
     float: left;
-<<<<<<< HEAD
     width: 124rpx;
     color: #A0A0A0;
-=======
-    width: 120rpx;
-    color: #CCCCCC;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
     line-height: 120rpx;
     padding-left: 48rpx;
 }
 .pag {
     float: left;
-<<<<<<< HEAD
     color: #A0A0A0;
-=======
-    color: #CCCCCC;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
     line-height: 120rpx;
     padding-left: 120rpx;
 }
@@ -43,15 +31,12 @@ page {
 .left {
     line-height: 180rpx;
 }
-<<<<<<< HEAD
 .primary{
     width: 94%;
     margin-top: 60rpx;
     color: #FFFFFF;
     background-color: #0081BB;
 }
-=======
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .img{
     float: left;
     width: 145rpx;
@@ -80,11 +65,7 @@ page {
     width: 90%;
     height: 30rpx;
     border-bottom: 2rpx solid #C0C0C0;
-<<<<<<< HEAD
     margin: 30rpx auto;
-=======
-    margin: 0 auto;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 }
 .boxx {
     height: 215rpx;
@@ -94,7 +75,6 @@ page {
 .uu {
     float: left;
     width: 100%;
-<<<<<<< HEAD
     color: #A0A0A0;
     padding-left: 48rpx;
     padding-top: 20rpx;
@@ -102,15 +82,6 @@ page {
 }
 .ui {
     color: #121212;
-=======
-    color: #CCCCCC;
-    padding-left: 48rpx;
-    padding-top: 20rpx;
-    font-size: 32rpx;
-}
-.ui {
-    color: #000000;
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
     padding-left: 60rpx;
 }
 

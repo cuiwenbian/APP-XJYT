@@ -11,7 +11,7 @@
 			<view class='t'></view>
 			<view class="suggest-list">
 				<view class='top' style='height:20rpx;'></view>
-				<view style="width:calc(100% - 96rpx);">
+				<view style="width:100%;">
 					<view class='tit' style='width:150rpx;line-height: 60rpx;color:#DCB16E'>平台回复：</view>
 					<view class='answer1'>{{reply}}
 					</view>
@@ -87,11 +87,11 @@
 		background: #fff;
 		padding: 20rpx 48rpx;
 		overflow: hidden;
-		box-sizing: content-box;
+		box-sizing: border-box;
 	}
 	.time{
 		height:90rpx;
-		width:calc(100% - 96rpx);
+		width:100%;
 		border-bottom:1rpx solid #f2f2f2;
 		
 	}
@@ -114,7 +114,7 @@
 		
 		margin-top:20rpx;
 		margin-bottom:20rpx;
-		width:calc(100% - 96rpx);
+		width:100%;
 		
 	}
 	.tit{

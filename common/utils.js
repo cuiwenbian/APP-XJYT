@@ -37,14 +37,7 @@ function checkPhoneNum(phoneNumber) {
   }
 }
 
-function checkPassword(password) {
-  let str = /^\d{6}$/
-  if (str.test(password)) {
-    return true
-  } else {
-    return false
-  }
-}
+
 
 function checkIdcard(idcard) {
   let str = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|71|(8[12])|91)\d{4}((19\d{2}(0[13-9]|1[012])(0[1-9]|[12]\d|30))|(19\d{2}(0[13578]|1[02])31)|(19\d{2}02(0[1-9]|1\d|2[0-8]))|(19([13579][26]|[2468][048]|0[48])0229))((\d{4})|\d{3}[Xx])$)$/;
@@ -76,7 +69,7 @@ const formatMonth = data =>{
 module.exports = {
   checkEmail: checkEmail,
   checkPhoneNum: checkPhoneNum,
-  checkPassword: checkPassword,
+  // checkPassword: checkPassword,
   checkIdcard: checkIdcard,
   timer:timer,
   formatTime: formatTime,

@@ -49,7 +49,7 @@
 			var _this=this;
 			_this.disabled = true;
 			uni.request({
-				url:this.urll+'delemail/',
+				url:this.url+'delemail/',
 				method:'GET',
 				header:{
 					Authorization:'JWT'+' '+this.global_.token
@@ -87,7 +87,7 @@
 			            email: this.email1,
 			          },
 			            //短信接口
-			          url:this.urll+'setemail/',
+			          url:this.url+'setemail/',
 			          header: {
 			             Authorization:'JWT'+' '+this.global_.token
 			          },
@@ -134,6 +134,15 @@
 					})
 					return false;
 				}
+				var f=this.global_.checkPassword(this.password)
+				if(!f){
+					uni.showToast({
+						title:'交易密码为六位数字!!!',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
 				if(this.password1==''){
 					uni.showToast({
 						icon:'none',
@@ -151,7 +160,7 @@
 					return false;
 				}
 				uni.request({
-					url:this.urll+'setmoney/', 
+					url:this.url+'setmoney/', 
 					method:'POST',
 					data:{
 						email:this.email1,
@@ -174,6 +183,14 @@
 							uni.switchTab({
 								url:'../my/my'
 							})
+						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'交易密码为六位数字',
+								icon:'none',
+								duration:2000
+							})
+							
 						}
 					}
 				})

@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 .shade{
 	width:100%;
 	height:100%;
@@ -50,7 +48,6 @@
 	color:#fff;
 	text-align: center;
 }
->>>>>>> c9bd16858d5fe2cea81f2f644b204aca13e96ccc
 .height {
 	height: var(--status-bar-height);
 	background: #121212;

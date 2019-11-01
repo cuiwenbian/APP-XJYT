@@ -51,7 +51,7 @@
     		return {
     			many: '',
                 user_id:'',
-                flag:true,
+                flag:false,
                 selectilall: false,
                 machine_id:'',
                 lo: false,
@@ -79,8 +79,8 @@
                         that.many = 0
                     }
                     
-                    if(that.user_id.length != 0) {
-                        that.flag = false 
+                    if(that.user_id.length == 0) {
+                        that.flag = true 
                     }
 
                 }
