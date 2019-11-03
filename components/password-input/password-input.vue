@@ -1,10 +1,10 @@
 <template>
 	<view class="boxx" :hidden="hiddenmodalput">
 		<image class="close" src="../../static/images/close.png" @tap='close'></image>
-		<view :class="flag?'tip':'tip1'">
+		<!-- <view :class="flag?'tip':'tip1'">
 		  <image class="lock" src="../../static/images/lock.png"></image>
 		  {{tip}}
-		</view>
+		</view> -->
 		<view class="forget" @tap="forget">忘记密码？</view>
 		<view :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
 			<view :class="['circle',(index<list.length)?'dot':'']" ></view>

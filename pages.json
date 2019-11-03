@@ -136,14 +136,7 @@
 					     "path":"address/address",
 					     "style":{"navigationStyle": "custom"}
 					 },
-					 {
-					     "path":"change-loginPassword/change-loginPassword",
-					     "style":{"navigationBarTitleText":"设置登录密码"}
-					 },
-					 {
-					     "path":"change-password/change-password",
-					     "style":{"navigationBarTitleText":"修改交易密码"}
-					 },
+					 
 					 {
 					     "path":"edit-address/edit-address",
 					     "style":{"navigationBarTitleText":"编辑提币地址"}
@@ -169,6 +162,22 @@
 					     "style":{"navigationBarTitleText":"修改登录密码"}
 					 },
 					 {
+					     "path":"change-loginPassword/change-loginPassword",
+					     "style":{"navigationBarTitleText":"设置登录密码"}
+					 },
+					 {
+					     "path":"change-password/change-password",
+					     "style":{"navigationBarTitleText":"修改交易密码"}
+					 },
+					 {
+					     "path":"trade-password/trade-password",
+					     "style":{"navigationBarTitleText":"设置交易密码"}
+					 },
+					 {
+					     "path":"change-otherPassword/change_otherPassword",
+					     "style":{"navigationBarTitleText":"修改交易密码"}
+					 },
+					 {
 					     "path":"my-machine/my-machine",
 					     "style":{"navigationBarTitleText":"我的矿机"}
 					 },
@@ -188,14 +197,7 @@
 					     "path":"suggest-detail/suggest-detail",
 					     "style":{"navigationBarTitleText":"反馈详情"}
 					 },
-					 {
-					     "path":"trade-password/trade-password",
-					     "style":{"navigationBarTitleText":"设置交易密码"}
-					 },
-					 {
-					     "path":"change-otherPassword/change_otherPassword",
-					     "style":{"navigationBarTitleText":"修改交易密码"}
-					 },
+					 
 					 {
 					     "path":"transfer/transfer",
 					     "style":{"navigationBarTitleText":"转账"}
