@@ -13,9 +13,9 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(export
 /***/ }),
 
 /***/ 104:
-/*!***************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/requset.js ***!
-  \***************************************************/
+/*!******************************************!*\
+  !*** E:/星际云通/APP-XJYT/common/requset.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -60,9 +60,15 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ }),
 
 /***/ 265:
+<<<<<<< HEAD
 /*!*************************************************!*\
   !*** D:/星际云通/APP-XJYT/APP-XJYT/common/utils.js ***!
   \*************************************************/
+=======
+/*!****************************************!*\
+  !*** E:/星际云通/APP-XJYT/common/utils.js ***!
+  \****************************************/
+>>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -84,9 +90,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ }),
 
 /***/ 369:
+<<<<<<< HEAD
 /*!************************************************************************!*\
   !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mpother.js ***!
   \************************************************************************/
+=======
+/*!***************************************************************!*\
+  !*** E:/星际云通/APP-XJYT/components/uni-swipe-action/mpother.js ***!
+  \***************************************************************/
+>>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -96,9 +108,15 @@ eval("/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, 
 /***/ }),
 
 /***/ 370:
+<<<<<<< HEAD
 /*!*******************************************************************!*\
   !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mp.js ***!
   \*******************************************************************/
+=======
+/*!**********************************************************!*\
+  !*** E:/星际云通/APP-XJYT/components/uni-swipe-action/mp.js ***!
+  \**********************************************************/
+>>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -108,9 +126,9 @@ eval("/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, 
 /***/ }),
 
 /***/ 4:
-/*!********************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json ***!
-  \********************************************/
+/*!***********************************!*\
+  !*** E:/星际云通/APP-XJYT/pages.json ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -120,9 +138,9 @@ eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset
 /***/ }),
 
 /***/ 41:
-/*!****************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/u-charts.js ***!
-  \****************************************************/
+/*!*******************************************!*\
+  !*** E:/星际云通/APP-XJYT/common/u-charts.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -155,9 +173,9 @@ eval("module.exports = {\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudi
 /***/ }),
 
 /***/ 7:
-/*!*************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"style"} ***!
-  \*************************************************************/
+/*!****************************************************!*\
+  !*** E:/星际云通/APP-XJYT/pages.json?{"type":"style"} ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -167,9 +185,9 @@ eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.de
 /***/ }),
 
 /***/ 8:
-/*!************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"stat"} ***!
-  \************************************************************/
+/*!***************************************************!*\
+  !*** E:/星际云通/APP-XJYT/pages.json?{"type":"stat"} ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

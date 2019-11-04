@@ -10,56 +10,56 @@
 		<!-- 显示区域 -->
 		<view class="list"  v-if="tabCurrentIndex === 0">
 			
-				 <view class='pagex' >
+				 <view class='pagex'>
 					<view class="nav_right_items">
 						<text class='te'>名称 ：</text>
-						<text class='te1'>{{name}}</text>
+						<text class='te1'>{{machine_config.name}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>编号 ：</text>
-						<text class='te1'>{{number}}</text>
+						<text class='te1'>{{machine_config.number}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>批次 ：</text>
-						<text class='te1'>{{batch}}</text>
+						<text class='te1'>{{machine_config.batch}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>型号 ：</text>
-						<text class='te1'>{{type}}</text>
+						<text class='te1'>{{machine_config.type}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>CPU ：</text>
-						<text class='te1'>{{cpu}}</text>
+						<text class='te1'>{{machine_config.cpu}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>内存 ：</text>
-						<text class='te1'>{{memory}}</text>
+						<text class='te1'>{{machine_config.memory}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>系统硬盘 ：</text>
-						<text class='te1'>{{system_hard_disk}}</text>
+						<text class='te1'>{{machine_config.system_hard_disk}}</text>
 					</view>
 					 <view class="line1"></view>
 					  <view class="nav_right_items">
 						<text class='te'>数据硬盘 ：</text>
-						<text class='te1'>{{data_hard_disk}}</text>
+						<text class='te1'>{{machine_config.data_hard_disk}}</text>
 					 </view>
 					 <view class="line1"></view>
 				   
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
-						<text class='te1'>{{area}}</text>
+						<text class='te1'>{{machine_config.area}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>矿场 ：</text>
-						<text class='te1'>{{machine_area}}</text>
+						<text class='te1'>{{machine_config.machine_area}}</text>
 					</view>
 					<view class="line1"></view>
 				</view>
@@ -69,27 +69,23 @@
 		<view class="list"  v-if="tabCurrentIndex === 1">
 			 <view class='pagex' >
 					  <view class="nav_right_items">
-
 						 <text class='te'>CPU占有率 ：</text>
-						 <text class='te1'>{{item.cpu_share}}</text>
+						 <text class='te1'>{{machine_status.cpu_share}}</text>
 					  </view>
 					  <view class="line1"></view>
 					  <view class="nav_right_items">
-					
 						 <text class='te'>硬盘占有率 ：</text>
-						 <text class='te1'>{{item.data_share}}</text>
+						 <text class='te1'>{{machine_status.data_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-					  <view class="nav_right_items">
-					 
+					 <view class="nav_right_items">
 						 <text class='te'>网络占有率 ：</text>
-						 <text class='te1'>{{item.memory_share}}</text>
+						 <text class='te1'>{{machine_status.memory_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-					  <view class="nav_right_items">
-					 
+					 <view class="nav_right_items">
 						 <text class='te'>内存占有率 ：</text>
-						 <text class='te1'>{{item.vf_share}}</text>
+						 <text class='te1'>{{machine_status.vf_share}}</text>
 					  </view>
 					  <view class="line1"></view>
 			 </view>
@@ -101,22 +97,13 @@
 </template>
 
 <script>
+	var that
 	export default {
 		data() {
 			return {
-				name: "",
-				number: "",
-				area: "",
-				batch: "",
-				type: "",
-				cpu: "",
-				memory: "",
-				system_hard_disk: "",
-				data_hard_disk: "",
-				machine_area: "",
 				tabCurrentIndex: 0,
-				machine_config:'',
-				machine_status:'',
+				machine_config:[],
+				machine_status:[],
 				machine_id:'',
 				navList: [
 					{
@@ -139,7 +126,7 @@
 			};
 		}, 
 		onLoad() {
-			var that=this;
+			that=this;
 			 this.machine_id=options.machine_id;
 			 console.log(this.machine_id)
 			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
@@ -151,19 +138,8 @@
 				},
 				success(res) {
 					console.log(res)
-					that.name=res.data.name;
-					that.number=res.data.number;
-					that.area=res.data.area;
-					that.batch=res.data.batch;
-					that.type=res.data.type;
-					that.cpu=res.data.cpu;
-					that.memory=res.data.memory;
-					that.system_hard_disk=res.data.system_hard_disk;
-					that.data_hard_disk=res.data.data_hard_disk;
-					console.log(that.name)
-					console.log(that.number)
-					// that.machine_config=res.data
-					// console.log(that.machine_config)
+					that.machine_config=res.data
+					console.log(that.machine_config)
 				}
 			  }) 
 			  uni.request({
@@ -174,7 +150,9 @@
 			  	},
 			  	success(res) {
 			  		console.log(res)
-					// that.machine_status=res.data
+					that.machine_status=res.data
+					
+					
 			  	}			
 			  }) 
 			 
@@ -185,7 +163,8 @@
 			},
 			//顶部tab点击
 			tabClick(index) {
-				this.tabCurrentIndex = index;
+				that.tabCurrentIndex = index;
+				
 			}
 		}
 	};

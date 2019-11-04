@@ -7,19 +7,19 @@
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-				<input class="code" type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
+				<input class="code"  type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
 				<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
 		</view>
 		<view class="set">设置登录密码</view>
 		<view class="list">
 			<view class="title">登录密码</view>
-			<input class="code" type="password" :value="pwd" @input='getLoginPassword'  placeholder="6-16位数字,字母" />
-			<!-- <image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image> -->
+			<input class="code" style='width:400rpx;' :password="isPassword" :value="pwd" @input='getLoginPassword'  placeholder="6-16位数字,字母" />
+			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="password" :value="pwd1" @input='getLoginPassword1' placeholder="请再次输入登录密码" />
-			<!-- <image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image> -->
+			<input class="code" :password="isPassword1" :value="pwd1" @input='getLoginPassword1' placeholder="请再次输入登录密码" />
+			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="save">确认</view>
 		
@@ -30,7 +30,8 @@
 	export default{
 		data(){
 			return{
-				hidden:true,
+				isPassword:true,
+				isPassword1:true,
 				phone:this.global_.phone,
 				codename: ' 获取验证码 ',
 				pwd:'',
@@ -50,7 +51,10 @@
 				this.code=e.detail.value
 			},
 			show:function(){
-				this.hidden=false;
+				this.isPassword=!this.isPassword
+			},
+			show1:function(){
+				this.isPassword1=!this.isPassword1
 			},
 			other:function(){
 				uni.navigateTo({
@@ -139,8 +143,7 @@
 					})
 					return false
 				}
-				console.log(this.iscode);
-				console.log(this.code);
+				
 				if(this.code!=this.iscode){
 					uni.showToast({
 						title:'验证码错误',

@@ -8,15 +8,13 @@
 			<view class="set">设置新密码</view>
 			<view class="list">
 				<view class="title">登录密码</view>
-				<input class="code" v-show='plaintext==false' type="password" :value="pwd1" @input='getPwd1' placeholder="6-16位数字,字母" />
-				<input class="code" v-show='plaintext==true' type="text" :value="pwd1" @input='getPwd1' placeholder="6-16位数字,字母" />
-				<image class="close"  :src="hidden?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show(checked)" mode=""></image>
+				<input class="code"  :password="isPassword" :value="pwd1" @input='getPwd1' placeholder="6-16位数字,字母" />
+				<image class="close"  :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 			</view>
 			<view class="linee"></view>
 			<view class="list">
-				<input class="code" v-show='plaintext1==false' type="password" :value="pwd2" @input='getPwd2' placeholder="请再次输入新密码" />
-				<input class="code" v-show='plaintext1==true' type="text" :value="pwd2" @input='getPwd2' placeholder="请再次输入新密码" />
-				<image class="close"  :src="hidden1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
+				<input class="code"  :password="isPassword1" :value="pwd2" @input='getPwd2' placeholder="请再次输入新密码" />
+				<image class="close"  :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 			</view>
 			<view class="save"  @click="save">确认修改</view>
 			
@@ -27,10 +25,8 @@
 	export default{
 			data(){
 				return{
-					hidden:true,
-					hidden1:true,
-					plaintext:false,
-					plaintext1:false,
+					isPassword:true,
+					isPassword1:true,
 					checked:true,
 					pass:'',
 					pwd1:'',
@@ -47,26 +43,11 @@
 				getPwd2:function(e){
 					this.pwd2=e.detail.value;
 				},
-				show:function(checked){
-					this.checked=checked;
-					console.log(this.checked)
-					
-					if(this.checked=true){
-						this.hidden=false;
-						this.plaintext=true;
-						this.checked=false;
-					}
-					
-					if(this.checked=false){
-						this.hidden=true;
-						this.plaintext=false;
-						this.checked=true;
-					}	
-					
+				show:function(){
+					this.isPassword=!this.isPassword
 				},
 				show1:function(){
-					this.hidden1=false;
-					this.plaintext1=true;
+					this.isPassword1=!this.isPassword1
 				},
 				other:function(){
 					uni.navigateTo({
