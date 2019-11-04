@@ -74,7 +74,7 @@
 				right: '',
 				id: '',
 				shade: true,
-				password: '123456',
+				password: '',
 				user_id: '',
 				numberList: [],
 				length: 6,
@@ -108,16 +108,12 @@
 					that.address_out = res.data.data
 					var page = getCurrentPages().pop();
 					if (page == undefined || page == null) return;
-					//page.onLoad();
+					page.onLoad();
 				}
 			})
 		},
 
 		methods: {
-			// openKeyBoard(key) {
-			// 	this.type = key;
-			// 	this.$refs['number'].open();
-			// },
 			onInput(val) {
 				that.numberList.push(val);
 				console.log(that.numberList.join().replace(/,/g, ""))
@@ -126,14 +122,42 @@
 					 that.close();
 					 that.passIn=false
 					 this.$refs['number'].close();
+					 uni.request({
+					 	url: this.urll + 'updatadeleteaddress/',
+					 	method: 'DELETE',
+					 	data: {
+					 		id: that.id,
+					 		password: that.password
+					 	},
+					 	header: {
+					 		Authorization: 'JWT' + ' ' + this.global_.token
+					 	},
+					 	success(res) {
+					 		console.log(res)
+					 		if (res.statusCode == 204) {
+					 			
+					 			uni.showToast({
+					 				title: '删除成功',
+					 				icon: 'none',
+					 				duration: 2000
+					 			})
+					 			var page = getCurrentPages().pop();
+					 			if (page == undefined || page == null) return;
+					 			page.onLoad();
+					 		}
+					 		if (res.statusCode == 200) {
+					 			this.numberList==''
+					 			uni.showToast({
+					 				title: '资金密码错误',
+					 				icon: 'none',
+					 				duration: 2000
+					 			})
+					 			
+					 		}
+					 
+					 	}
+					 })
 				};
-				
-				// if (this.numberList.length === this.length - 1) {
-				// 	this.numberList.push(val);
-				// 	this.close();
-				// 	return;
-				// };
-
 
 			},
 			onDelete() {
@@ -147,57 +171,17 @@
 				})
 
 			},
-			close() {
-				this.$refs['number'].close();
-			},
-
-
 			//点击删除按钮
 			click: function(item) {
 				var that = this;
 				that.id = item.id;
-				// this.passIn=true
-				// this.$refs['number'].open();
-				// console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
-				// that.numberList.push(val);
-				// console.log(that.numberList.join().replace(/,/g, ""))
-				// that.password=that.numberList.join().replace(/,/g, "")
-				// console.log(that.password)
-				uni.request({
-					url: this.urll + 'updatadeleteaddress/',
-					method: 'DELETE',
-					data: {
-						id: that.id,
-						password: that.password
-					},
-					header: {
-						Authorization: 'JWT' + ' ' + this.global_.token
-					},
-					success(res) {
-						console.log(res)
-						if (res.statusCode == 204) {
-							
-							uni.showToast({
-								title: '删除成功',
-								icon: 'none',
-								duration: 2000
-							})
-							var page = getCurrentPages().pop();
-							if (page == undefined || page == null) return;
-							page.onLoad();
-						}
-						if (res.statusCode == 200) {
-							this.numberList==''
-							uni.showToast({
-								title: '资金密码错误',
-								icon: 'none',
-								duration: 2000
-							})
-							
-						}
-				
-					}
-				})
+				this.passIn=true
+				this.$refs['number'].open();
+				that.numberList.push(val);
+				console.log(that.numberList.join().replace(/,/g, ""))
+				that.password=that.numberList.join().replace(/,/g, "")
+				console.log(that.password)
+			
 				
 				
 			},
