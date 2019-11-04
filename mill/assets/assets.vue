@@ -28,7 +28,7 @@
                    	<view v-else class="boxx" >
                     		<view class="linee">
                               <view class="cu-form-group">
-                              	<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChange">
+                              	<picker mode="date" :value="date"   @change="DateChange">
                               		<view class="picker">
                               			{{date}}
                               		</view>
@@ -90,12 +90,9 @@
                 num:'',
                 ber:'',
                 nuber:'',
-<<<<<<< HEAD
 				fee:'',
-=======
                 month_profit:'',
                 numm:'',
->>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
                 tabCurrentIndex:0,
                 add_item:'',
                 entin:'',
@@ -126,15 +123,13 @@
         },
         onLoad:function (opetions) {
             var that = this
-<<<<<<< HEAD
-			console.log(that.selectData[that.index])
-=======
+
             var data = new Date()
             var text = data.getFullYear('-')
             var txt = data.getMonth()
             var teran = text+ '-' +txt
             that.teran = teran
->>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
+
             uni.request({
                 url:this.url + "assets/",
                 method:'GET',
@@ -142,22 +137,13 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-<<<<<<< HEAD
+
                    console.log(res)
                    that.num = res.data.availed_num
                    that.ber = res.data.fil_count
                    that.nuber = res.data.locked_num
                    that.fee=res.data.fee
-=======
-                    console.log(res)
-                    that.num = res.data.availed_num
-                    if(that.num = " ") {
-                        that.num = '0.000000'
-                    }
-                    that.ber = res.data.fil_count
-                    that.nuber = res.data.locked_num
-                    
->>>>>>> 40ef82850541d2d60daed51b2224fc6d5644821b
+
                 }
             })
             uni.request({

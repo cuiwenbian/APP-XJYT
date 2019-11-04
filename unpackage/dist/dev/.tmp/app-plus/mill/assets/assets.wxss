@@ -12,6 +12,15 @@
 
         height: 100%;
 }
+picker-view {
+        width: 100%;
+        height: 600rpx;
+        margin-top:20rpx;
+}
+.item {
+        line-height: 100rpx;
+        text-align: center;
+}
 .assets{
         text-align: center;
         padding-top: 80rpx;
@@ -41,6 +50,15 @@
 .btn {
         height: 150rpx;
         width: 100%;
+}
+.picker{
+        width: 30%;
+        text-align: center;
+        margin-top: 40rpx;
+        margin-left: 40rpx;
+        font-size: 30rpx;
+        border: 2rpx solid #CCCCCC;
+        border-radius: 25rpx;
 }
 .primary{
         width: 220rpx;
@@ -163,8 +181,9 @@
 .all1 {
       float: right;
       font-size: 30rpx;
+      line-height: 10rpx;
       color: #333;
-      line-height: 100rpx;
+
       margin-right:48rpx;
 }
 .list{
@@ -243,5 +262,8 @@
         color: #B39C01;
          
         border-bottom: 2rpx solid #B39C01;
+}
+.cu-form-group .title {
+    	min-width: calc(4em + 15px);
 }
 

@@ -142,7 +142,7 @@
 				})
 		},
 		close(){
-				this.$refs['number'].close();
+			this.$refs['number'].close();
 		},
 		
 		
