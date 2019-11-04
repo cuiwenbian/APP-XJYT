@@ -12,6 +12,33 @@
 
         height: 100%;
 }
+.item {
+    	-webkit-box-sizing: border-box;
+    	        box-sizing: border-box;
+    	width: 100%;
+    	height: 40px;
+    	line-height: 40px;
+        float: left;
+    	background-color: #ffffff;
+    	position: relative;
+    	padding: 0rpx 10rpx 0rpx 20rpx;
+    	margin-bottom: 10rpx;
+    	text-align: left;
+}
+.item .lable {
+    	position: absolute;
+    	left: 10rpx;
+    	top: 0rpx;
+}
+    /*    picker-view {
+        width: 100%;
+        height: 600upx;
+        margin-top:20upx;
+    } */
+    /*    .item {
+        line-height: 100upx;
+        text-align: center;
+    } */
 .assets{
         text-align: center;
         padding-top: 80rpx;
@@ -41,6 +68,15 @@
 .btn {
         height: 150rpx;
         width: 100%;
+}
+.picker{
+        width: 30%;
+        text-align: center;
+        margin-top: 40rpx;
+        margin-left: 40rpx;
+        font-size: 30rpx;
+        border: 2rpx solid #CCCCCC;
+        border-radius: 25rpx;
 }
 .primary{
         width: 220rpx;
@@ -163,8 +199,9 @@
 .all1 {
       float: right;
       font-size: 30rpx;
+      line-height: 10rpx;
       color: #333;
-      line-height: 100rpx;
+
       margin-right:48rpx;
 }
 .list{
@@ -243,5 +280,8 @@
         color: #B39C01;
          
         border-bottom: 2rpx solid #B39C01;
+}
+.cu-form-group .title {
+    	min-width: calc(4em + 15px);
 }
 

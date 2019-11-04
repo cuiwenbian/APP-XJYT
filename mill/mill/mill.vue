@@ -77,12 +77,8 @@
                     if(that.user_id.length === 0){
                         that.many = 0
                     }
-<<<<<<< HEAD
-                    
-=======
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
->>>>>>> c2e6d3e5750bae8466d9aba5ca8f224c40b621de
                     if(that.user_id.length == 0) {
                         that.flag = true 
                     }
@@ -175,7 +171,7 @@
 <style>
 
     .box1{
-        height: 280rpx;
+        height: 520rpx;
         background-color:#091219;
     }
     .colo {
@@ -235,6 +231,8 @@
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
+        color: #FFFFFF;
+        background-color: #B86757;
 		float: left;
 		margin-left: 48rpx;
 		margin-top: 40rpx;
@@ -246,7 +244,7 @@
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 40rpx;
-        background-color: #121212;
+        background-color: #B5B5B5;
         color: #FFFFFF;
     }
     .box3 {

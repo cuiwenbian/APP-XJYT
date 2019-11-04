@@ -1,6 +1,6 @@
 
 .box1{
-        height: 280rpx;
+        height: 520rpx;
         background-color:#091219;
 }
 .colo {
@@ -61,6 +61,8 @@
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
+        color: #FFFFFF;
+        background-color: #B86757;
 		float: left;
 		margin-left: 48rpx;
 		margin-top: 40rpx;
@@ -72,7 +74,7 @@
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 40rpx;
-        background-color: #121212;
+        background-color: #B5B5B5;
         color: #FFFFFF;
 }
 .box3 {

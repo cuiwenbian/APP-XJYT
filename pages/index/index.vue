@@ -18,10 +18,6 @@
             </swiper-item>
         </swiper>
         
-<!--        <view class="notice"> 
-           <image class="g" src="../../static/images/notice.png"></image>   
-           <text class="clor">{{notice}}</text>
-        </view> -->
         
         <view class="uni-swiper-msg">
         	<view class="uni-swiper-msg-icon">

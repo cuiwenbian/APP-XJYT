@@ -1,0 +1,15 @@
+.tx_r {
+  line-height: 48px;
+  font-size: 30rpx;
+  font-weight: normal;
+  color: #848b9a;
+}
+.placeholder {
+  color: #b5b8c2;
+  font-size: 36rpx;
+}
+.fa-angle-right {
+  font-size: 36rpx;
+  padding-left: 12rpx;
+}
+

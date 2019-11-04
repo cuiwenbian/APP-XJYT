@@ -27,13 +27,9 @@
                     	</view>
                    	<view v-else class="boxx" >
                     		<view class="linee">
-                              <view class="cu-form-group">
-                              	<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChange">
-                              		<view class="picker">
-                              			{{date}}
-                              		</view>
-                              	</picker>
-                              </view>
+                              <div class="item">
+                              	<dyDatePicker mode="date"  :placeholder="date" timeType="month" @getData="DateChange" minSelect="2000/01/01" maxSelect="2025/12/31"></dyDatePicker>
+                              </div>
                     		  <text class="all1">Filecoin:{{month_profit}}</text>
                     		</view>
                     		<view class="list-one"  v-for="(item , index) in ention" :key="index">
@@ -56,13 +52,9 @@
                         	</view>
                        	<view v-else class="boxx" >
                         		<view class="linee">
-                                  <view class="cu-form-group">
-                                  	<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChang">
-                                  		<view class="picker">
-                                  			{{date}}
-                                  		</view>
-                                  	</picker>
-                                  </view>
+                                    <div class="item">
+                                    	<dyDatePicker mode="date"  :placeholder="date" timeType="month" @getData="DateChange" minSelect="2000/01/01" maxSelect="2025/12/31"></dyDatePicker>
+                                    </div>
                         		  <text class="all1">Filecoin:{{month_profit}}</text>
                         		</view>
                         		<view class="list-one"  v-for="(item , index) in entin" :key="index">
@@ -83,15 +75,20 @@
 </template>
 
 <script>
+    import dyDatePicker from '../../common/dy-Date.vue'
     export default {
+        components: {
+        	dyDatePicker
+        },
         data(){
-            
             return {
                 num:'',
                 ber:'',
                 nuber:'',
                 month_profit:'',
                 numm:'',
+                to_minSelect: '1900/01/01',
+                to_maxSelect: '2050/12/31',
                 tabCurrentIndex:0,
                 add_item:'',
                 entin:'',
@@ -300,15 +297,33 @@
 
         height: 100%;
     }
-    picker-view {
+    .item {
+    	box-sizing: border-box;
+    	width: 100%;
+    	height: 40px;
+    	line-height: 40px;
+        float: left;
+    	background-color: #ffffff;
+    	position: relative;
+    	padding: 0rpx 10rpx 0rpx 20rpx;
+    	margin-bottom: 10rpx;
+    	text-align: left;
+    }
+    
+    .item .lable {
+    	position: absolute;
+    	left: 10rpx;
+    	top: 0rpx;
+    }
+/*    picker-view {
         width: 100%;
         height: 600upx;
         margin-top:20upx;
-    }
-    .item {
+    } */
+/*    .item {
         line-height: 100upx;
         text-align: center;
-    }
+    } */
     .assets{
         text-align: center;
         padding-top: 80rpx;
