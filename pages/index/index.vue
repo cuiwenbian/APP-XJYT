@@ -30,7 +30,7 @@
         	<swiper 
             autoplay="true" 
             circular="true"  
-            interval="0" 
+            interval="5000" 
             vertical:true
              indicator-dots:false
             >

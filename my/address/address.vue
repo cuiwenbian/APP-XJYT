@@ -9,8 +9,8 @@
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
 						<view class="left">
-							<view class="nickname" :value='nickname'>地址昵称: {{ item.wallet_value }}</view>
-							<view class="adr" :value='address'>地址：{{item.wallet_key }}</view>
+							<view class="nickname" :value='nickname'>地址昵称: {{ item.wallet_key }}</view>
+							<view class="adr" :value='address'>地址：{{item.wallet_value }}</view>
 						</view>
 						<view class="right" @click="edit(item)" :data-item="item">
 							<image class="edit" src="../../static/images/edit.png" mode=""></image>
@@ -18,7 +18,6 @@
 					</view>
 				</uniSwipeAction>
 			</block>
-
 		</view>
 
 		<view v-else>
@@ -33,13 +32,13 @@
 			<view class="newadd" @click="add">新建地址</view>
 		</view>
 		<!-- #ifndef H5 -->
-		<password-input @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+		<password-input v-if='passIn' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
 
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
-		<view @tap="openKeyBoard('number')">
-			<password-input :length="length" :gutter="20" :list="numberList"></password-input>
+		<view  v-if='passIn' @tap="openKeyBoard('number')">
+			<password-input  :length="length" :gutter="20" :list="numberList"></password-input>
 		</view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
@@ -75,11 +74,12 @@
 				right: '',
 				id: '',
 				shade: true,
-				password: 'abcdef',
+				password: '123456',
 				user_id: '',
 				numberList: [],
 				length: 6,
-				type: 'number'
+				type: 'number',
+				passIn:false
 			};
 		},
 		components: {
@@ -108,25 +108,26 @@
 					that.address_out = res.data.data
 					var page = getCurrentPages().pop();
 					if (page == undefined || page == null) return;
-					page.onLoad();
+					//page.onLoad();
 				}
 			})
 		},
 
 		methods: {
-			openKeyBoard(key) {
-				this.type = key;
-				this.$refs[key].open();
-			},
+			// openKeyBoard(key) {
+			// 	this.type = key;
+			// 	this.$refs['number'].open();
+			// },
 			onInput(val) {
 				that.numberList.push(val);
 				console.log(that.numberList.join().replace(/,/g, ""))
+				that.password=that.numberList.join().replace(/,/g, "")
 				if (this.numberList.length >= this.length) {
-					that.close();
-
-					return;
-
+					 that.close();
+					 that.passIn=false
+					 this.$refs['number'].close();
 				};
+				
 				// if (this.numberList.length === this.length - 1) {
 				// 	this.numberList.push(val);
 				// 	this.close();
@@ -144,47 +145,7 @@
 					duration: 2000,
 					icon: 'none'
 				})
-<<<<<<< HEAD
-		},
-		close(){
-			this.$refs['number'].close();
-		},
-		
-		
-		//点击删除按钮
-		click:function(item){
-			var that=this;
-			that.id=item.id;
-			// console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
-			uni.request({
-				url:this.urll+'updatadeleteaddress/',
-				method:'DELETE',
-				data:{
-					id:that.id,
-					password:that.password
-				},
-				header:{
-					Authorization:'JWT'+' '+this.global_.token
-				},
-				success(res) {
-					console.log(res)
-					if(res.statusCode==204){
-						uni.showToast({
-							title:'删除成功',
-							icon:'none',
-							duration:2000
-						})
-					var page = getCurrentPages().pop();
-					if (page == undefined || page == null) return; 
-					page.onLoad(); 
-					}
-					if(res.statusCode==200){
-						uni.showToast({
-							title:'资金密码错误',
-							icon:'none',
-							duration:2000
-						})
-=======
+
 			},
 			close() {
 				this.$refs['number'].close();
@@ -195,13 +156,19 @@
 			click: function(item) {
 				var that = this;
 				that.id = item.id;
+				// this.passIn=true
+				// this.$refs['number'].open();
 				// console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
+				// that.numberList.push(val);
+				// console.log(that.numberList.join().replace(/,/g, ""))
+				// that.password=that.numberList.join().replace(/,/g, "")
+				// console.log(that.password)
 				uni.request({
 					url: this.urll + 'updatadeleteaddress/',
 					method: 'DELETE',
 					data: {
 						id: that.id,
-						password: that.passwords
+						password: that.password
 					},
 					header: {
 						Authorization: 'JWT' + ' ' + this.global_.token
@@ -209,6 +176,7 @@
 					success(res) {
 						console.log(res)
 						if (res.statusCode == 204) {
+							
 							uni.showToast({
 								title: '删除成功',
 								icon: 'none',
@@ -219,15 +187,19 @@
 							page.onLoad();
 						}
 						if (res.statusCode == 200) {
+							this.numberList==''
 							uni.showToast({
 								title: '资金密码错误',
 								icon: 'none',
 								duration: 2000
 							})
+							
 						}
->>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
+				
 					}
 				})
+				
+				
 			},
 			//点击添加按钮
 			add: function() {
@@ -245,6 +217,7 @@
 			},
 			//点击编辑按钮
 			edit: function(item) {
+				
 				var that = this;
 				that.id = item.id;
 				that.wallet_key = item.wallet_key;
@@ -258,14 +231,7 @@
 					complete: () => {}
 				});
 			},
-			delete: function() {
-				uni.showModal({
-					title: '提示',
-					content: '确定删除该地址',
-					confirmText: '确定',
-					cancelText: '取消'
-				})
-			}
+			
 		}
 	};
 </script>

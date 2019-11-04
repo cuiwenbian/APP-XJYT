@@ -18,7 +18,7 @@
 			</view>
 			<view class="listItem" @click="address">
 				<image class="pic" src="../../static/images/my-address.png" mode=""></image>
-				<view class="txt" >提币地址</view> 
+				<view class="txt" >提币地址</view>
 			</view>
 			<view class="listItem" @click="certification">
 				<image class="pic" src="../../static/images/my-identity.png" mode=""></image>

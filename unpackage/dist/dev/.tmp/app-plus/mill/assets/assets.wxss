@@ -10,38 +10,6 @@
 }
 .boxx {
 
-<<<<<<< HEAD
-        height: 100%;
-}
-picker-view {
-        width: 100%;
-        height: 600rpx;
-        margin-top:20rpx;
-}
-.item {
-        line-height: 100rpx;
-        text-align: center;
-}
-.assets{
-        text-align: center;
-        padding-top: 80rpx;
-		height: 60rpx;
-		width: 100%;
-		float: left;
-        color: #FFFFFF;
-}
-.number{
-		height: 300rpx;
-		padding-left: 268rpx;
-		padding-top: 40rpx;
-        color: #F0AD4E;
-}
-.coin{
-		float: left;
-		padding-left: 48rpx;
-        font-size: 24rpx;
-        color: #FFFFFF;
-=======
 	height: 100%;
 }
 picker-view {
@@ -72,7 +40,6 @@ picker-view {
 	padding-left: 48rpx;
 	font-size: 24rpx;
 	color: #FFFFFF;
->>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 }
 .lock {
 	float: right;
@@ -81,22 +48,6 @@ picker-view {
 	color: #FFFFFF;
 }
 .btn {
-<<<<<<< HEAD
-        height: 150rpx;
-        width: 100%;
-}
-.picker{
-        width: 30%;
-        text-align: center;
-        margin-top: 40rpx;
-        margin-left: 40rpx;
-        font-size: 30rpx;
-        border: 2rpx solid #CCCCCC;
-        border-radius: 25rpx;
-}
-.primary{
-        width: 220rpx;
-=======
 	height: 150rpx;
 	width: 100%;
 }
@@ -111,7 +62,6 @@ picker-view {
 }
 .primary {
 	width: 220rpx;
->>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 
 	height: 88rpx;
 	float: left;
@@ -229,51 +179,6 @@ picker-view {
 	color: #333;
 }
 .all1 {
-<<<<<<< HEAD
-      float: right;
-      font-size: 30rpx;
-      line-height: 10rpx;
-      color: #333;
-
-      margin-right:48rpx;
-}
-.list{
-      height: 100;
-}
-.list-one{
-    	width:100%;
-    	height:116rpx;
-    	background: #fff;
-    	padding-left: 50rpx;
-    	-webkit-box-sizing: border-box;
-    	        box-sizing: border-box;
-}
-.list-icon{
-    	float: left;
-    	width:70rpx;
-    	height:70rpx;
-    	display: block;
-    	margin-top:15rpx;
-}
-.list-txt{
-    	float: left;
-    	margin-left:20rpx;
-    	color:#121212;
-    	line-height: 50rpx;
-}
-.list-info{
-    	font-size: 30rpx;
-}
-.list-time{
-        font-size: 30rpx;
-}
-.list-income{
-    	float:right;
-    	margin-right:48rpx;
-    	line-height: 100rpx;
-    	color:#41BEC9;
-    	font-size: 34rpx;
-=======
 	float: right;
 	font-size: 30rpx;
 	line-height: 10rpx;
@@ -317,7 +222,6 @@ picker-view {
 	line-height: 100rpx;
 	color: #41BEC9;
 	font-size: 34rpx;
->>>>>>> b578455bc4a463764d61c20b7c65b700a625b555
 }
 .swiper-tab {
 
@@ -361,8 +265,5 @@ picker-view {
 }
 .cu-form-group .title {
 	min-width: calc(4em + 15px);
-}
-.cu-form-group .title {
-    	min-width: calc(4em + 15px);
 }
 

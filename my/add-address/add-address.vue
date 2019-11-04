@@ -7,7 +7,7 @@
 			<input class="enter" type="text" :value="adr" @input="getAddress" placeholder="请输入提币地址" />
 		</view>
 		<view class="line"></view>
-		<view class="list"> 
+		<view class="list">
 			<view class="txt">地址备注</view>
 			<input class="enter" type="text" :value="remark" @input="getRemark" placeholder="请输入备注名称" />
 		</view>
@@ -55,14 +55,38 @@
 					url:this.urll+'walletaddress/',
 					method:'POST',
 					data:{
-						wallet_key:this.adr,
-						wallet_value:this.remark
+						wallet_key:this.remark,
+						wallet_value:this.adr
 					},
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
 						console.log(res)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'地址格式不正确',
+								icon:'none',
+								duration:2000
+							})
+							return false
+						}
+						if(res.statusCode==204){
+							uni.showToast({
+								title:'昵称不可重复',
+								icon:'none',
+								duration:2000
+							})
+							return false
+						}
+						if(res.statusCode==205){
+							uni.showToast({
+								title:'地址不合法',
+								icon:'none',
+								duration:2000
+							})
+							return false
+						}
 						if(res.statusCode==200){
 							uni.navigateBack({
 								delta:1

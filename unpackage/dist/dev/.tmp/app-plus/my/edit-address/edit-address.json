@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "编辑提币地址",
-  "usingComponents": {}
+  "usingComponents": {
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
+  }
 }
