@@ -62,7 +62,6 @@
 			console.log(this.user_id)
 		},
 		methods:{
-			
 			onInput(val) {
 				var that=this;
 				that.numberList.push(val);
@@ -72,48 +71,7 @@
 				if (this.numberList.length >= this.length) {
 					this.passIn=false
 					this.$refs['number'].close()
-					
-					uni.request({
-						url:this.urll+'updatadeleteaddress/',   //编辑地址接口
-						method:'PUT',
-						data:{
-							wallet_value:that.address,
-							wallet_key:that.nickname,
-							id:that.id,
-							password:that.password,
-							user_id:that.user_id
-						},
-						header:{
-							Authorization:'JWT'+' '+this.global_.token
-						},
-						success(res) {
-							console.log(res)
-							if(res.statusCode==200){
-								uni.showToast({
-									title:'资金密码错误',
-									icon:'none',
-									duration:2000
-								})
-							}
-							if(res.statusCode==204){
-								// that.close();
-								// that.passIn=false
-								// this.$refs['number'].close(); 
-								uni.showToast({
-									title:'修改成功',
-									icon:'none',
-									duration:2000
-								})
-								uni.navigateBack({
-									delta:1
-								})
-								var page = getCurrentPages().pop();
-								if (page == undefined || page == null) return; 
-								page.onLoad(); 
-							}
-						}
-					})
-					
+			
 				}
 			},
 			onDelete() {
@@ -157,9 +115,47 @@
 				}
 				this.passIn=true
 				this.$refs['number'].open();
-			    that.numberList.push(val);
-			    console.log(that.numberList.join().replace(/,/g, ""))
-			    that.password=that.numberList.join().replace(/,/g, "")
+			    this.onInput()
+			    uni.request({
+			    	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+			    	method:'PUT',
+			    	data:{
+			    		wallet_value:that.address,
+			    		wallet_key:that.nickname,
+			    		id:that.id,
+			    		password:that.password,
+			    		user_id:that.user_id
+			    	},
+			    	header:{
+			    		Authorization:'JWT'+' '+this.global_.token
+			    	},
+			    	success(res) {
+			    		console.log(res)
+			    		if(res.statusCode==200){
+			    			uni.showToast({
+			    				title:'资金密码错误',
+			    				icon:'none',
+			    				duration:2000
+			    			})
+			    		}
+			    		if(res.statusCode==204){
+			    			// that.close();
+			    			// that.passIn=false
+			    			// this.$refs['number'].close(); 
+			    			uni.showToast({
+			    				title:'修改成功',
+			    				icon:'none',
+			    				duration:2000
+			    			})
+			    			uni.navigateBack({
+			    				delta:1
+			    			})
+			    			var page = getCurrentPages().pop();
+			    			if (page == undefined || page == null) return; 
+			    			page.onLoad(); 
+			    		}
+			    	}
+			    })
 			}
 		}
 	}

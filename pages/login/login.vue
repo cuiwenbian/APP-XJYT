@@ -20,10 +20,9 @@
 			注册
 		</navigator>
 		<view class="agree">
-			<!-- <view class="check"></view> -->
-			<label>
-				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
-			</label>
+			<image class='checks' @click.native.stop='save' :src="checked?'../../static/images/check.png':'../../static/images/checked.png'" mode=""></image>
+			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+			
 		</view>
 		
 	</view>
@@ -38,11 +37,14 @@
 				show:false,
 				phone:'',
 				password:'',
-				
+				checked:true
 			};
 		},	
 		
 		methods:{
+			save:function(){
+				this.checked=!this.checked
+			},
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
@@ -66,6 +68,14 @@
 			login() {
 				var _self=this;
 				//this.$refs.popup.open()
+				// if(_self.checked=true){
+				// 	uni.showToast({
+				// 		title:'请先阅读并同意协议',
+				// 		icon:'none',
+				// 		duration:2000
+				// 	})
+				// 	return false
+				// }
 				if(this.phone==""){
 					uni.showToast({
 						icon:'none',
@@ -145,6 +155,7 @@
 	page{
 		background: #121212;
 	}
+	
 	.logo{
 		width:185rpx;
 		height:185rpx;
@@ -222,48 +233,12 @@
 		bottom:50rpx;
 		left:calc((100% - 340rpx)/2);
 	}
-	.check{
-		float: left;
-		width:20rpx;
-		height:20rpx;
-		margin-right: 10rpx;     
-		outline: 0;
-		border: 1px solid #d1d1d1;
-		background-color: #fff;
-		border-radius: 3px;
-		margin-top:5rpx;
-	}
-	/* #ifdef H5 */
-	checkbox .uni-checkbox-input{
-		border-radius: 50%;
-	}
-	checkbox .uni-checkbox-input.uni-checkbox-input-checked{
-		border:1px solid #ff4500;
-		background: #ff4500;
-		color:#fff !important;
-	}
-	checkbox .uni-checkbox-input.uni-checkbox-input-checked:after{
-		font-size: 36rpx;
-	}
-	/* #endif */
-	/* #ifdef APP-PLUS||MP-WEIXIN */
-	checkbox .wx-checkbox-input{             
+	.checks{
 		width:30rpx;
 		height:30rpx;
-		border-radius: 10rpx;
+		margin-right: 10rpx;  
+		
 	}
-	/* 选中后的背景样式 */
-	checkbox .wx-checkbox-input.wx-checkbox-input-checked{    
-		border:1px solid #ff4500;
-		background: #ff4500;
-		color:#fff !important;
-	}
-	/* 选中后的对勾样式 */
-	checkbox .wx-checkbox-input.wx-checkbox-input-checked:after{
-		width:30rpx;
-		height:30rpx;
-		font-size: 36rpx;
-	}
-	/* #endif */
+	
 
 </style>

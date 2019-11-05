@@ -106,9 +106,9 @@
 						that.flag = true
 					}
 					that.address_out = res.data.data
-					var page = getCurrentPages().pop();
-					if (page == undefined || page == null) return;
-					page.onLoad();
+					// var page = getCurrentPages().pop();
+					// if (page == undefined || page == null) return;
+					// page.onLoad();
 				}
 			})
 		},
@@ -122,41 +122,7 @@
 					 that.close();
 					 that.passIn=false
 					 this.$refs['number'].close();
-					 uni.request({
-					 	url: this.urll + 'updatadeleteaddress/',
-					 	method: 'DELETE',
-					 	data: {
-					 		id: that.id,
-					 		password: that.password
-					 	},
-					 	header: {
-					 		Authorization: 'JWT' + ' ' + this.global_.token
-					 	},
-					 	success(res) {
-					 		console.log(res)
-					 		if (res.statusCode == 204) {
-					 			
-					 			uni.showToast({
-					 				title: '删除成功',
-					 				icon: 'none',
-					 				duration: 2000
-					 			})
-					 			var page = getCurrentPages().pop();
-					 			if (page == undefined || page == null) return;
-					 			page.onLoad();
-					 		}
-					 		if (res.statusCode == 200) {
-					 			this.numberList==''
-					 			uni.showToast({
-					 				title: '资金密码错误',
-					 				icon: 'none',
-					 				duration: 2000
-					 			})
-					 			
-					 		}
 					 
-					 	}
-					 })
 				};
 
 			},
@@ -177,14 +143,45 @@
 				that.id = item.id;
 				this.passIn=true
 				this.$refs['number'].open();
-				that.numberList.push(val);
-				console.log(that.numberList.join().replace(/,/g, ""))
-				that.password=that.numberList.join().replace(/,/g, "")
-				console.log(that.password)
-			
+				this.onInput()
+				uni.request({
+					url: this.urll + 'updatadeleteaddress/',
+					method: 'DELETE',
+					data: {
+						id: that.id,
+						password: that.password
+					},
+					header: {
+						Authorization: 'JWT' + ' ' + this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if (res.statusCode == 204) {
+							
+							uni.showToast({
+								title: '删除成功',
+								icon: 'none',
+								duration: 2000
+							})
+							var page = getCurrentPages().pop();
+							if (page == undefined || page == null) return;
+							page.onLoad();
+						}
+						if (res.statusCode == 200) {
+							this.numberList==''
+							uni.showToast({
+								title: '资金密码错误',
+								icon: 'none',
+								duration: 2000
+							})
+							
+						}
 				
+					}
+				})
 				
 			},
+			
 			//点击添加按钮
 			add: function() {
 				uni.navigateTo({
