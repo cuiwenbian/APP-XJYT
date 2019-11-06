@@ -31,7 +31,8 @@
                 <view class='boo_img3'  >
                       <checkbox-group class="block" @change="CheckboxChange">
                       	<view class="cu-form-group margin-top">
-                      		<checkbox class="tee" :class="checkbox[0].index?'checked':''" :checked="checkbox[0].index?true:false" value="A"></checkbox>
+                            <checkbox :class="checkbox[0].checked?'checked':''" :checked="checkbox[0].checked?true:false" value="A"></checkbox>
+                      		<!-- <checkbox :class="checkbox[index].checked?'checked':''" :checked="checkbox[0].index?true:false" :value="item.machine_id"></checkbox> -->
                       	</view>
                       </checkbox-group>
 <!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>
@@ -63,7 +64,7 @@
                 arr:[],
                 isSelected:false,
                 checkbox: [{
-                	value: 'A',
+                	
                 	checked: false
                 }],
     		}
@@ -135,6 +136,11 @@
             // },
             CheckboxChange(e) {
                 console.log(e)
+                var that = this
+                var arr = []
+                for (let i = 0; i < that.user_id.length; i++) {
+                    console.log(that.machine_id[i])
+                }
             	var items = this.checkbox,
             		values = e.detail.value;
             	for (var i = 0, lenI = items.length; i < lenI; ++i) {

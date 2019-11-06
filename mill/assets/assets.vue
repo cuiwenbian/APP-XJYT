@@ -333,20 +333,6 @@
 		height: 100%;
 	}
 
-	picker-view {
-		width: 100%;
-		height: 600upx;
-		margin-top: 20upx;
-	}
-    .zqy{
-        width: 18%;
-        height: 48rpx;
-        line-height: 48rpx;
-        text-align: center;
-        border-radius: 60rpx;
-        border: 2rpx solid #F6F6F6;
-        background-color: #FFFFFF;
-    }
 
 	.item {
 		width: 100%;
@@ -540,8 +526,5 @@
 
 	}
 
-	.cu-form-group .title {
-		min-width: calc(4em + 15px);
-	}
 
 </style>

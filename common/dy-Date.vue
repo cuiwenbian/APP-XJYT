@@ -404,6 +404,13 @@
 
 	.placeholder {
 		color: #000000;
+        width: 18%;
+        height: 48rpx;
+        line-height: 48rpx;
+        text-align: center;
+        border-radius: 60rpx;
+        border: 2rpx solid #F6F6F6;
+        background-color: #FFFFFF;
 		font-size: 24rpx;
 	}
 

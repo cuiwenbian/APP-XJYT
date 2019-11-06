@@ -396,9 +396,9 @@
    		width: 20%;
    		height: 90rpx;
    		margin-left: 148rpx;
-   		margin-top: 62rpx;
+   		margin-top: 74rpx;
         color: #000000;
-        font-size: 30rpx;
+        font-size: 36rpx;
        }
        .boss{
            width: 100%;
@@ -411,13 +411,13 @@
            background-color: #EDEDED;
        }
        .too {
-           height: 40rpx;
+           height: 20rpx;
            margin-top: 40rpx;
            background-color: #EDEDED;
        }
        .cool{
            margin-left: 40rpx;
-           font-size: 20rpx;
+           font-size: 30rpx;
            color: #949494;
        }
       .many{
@@ -425,7 +425,7 @@
         margin-left: 48rpx;
         line-height: 90rpx;
         color: #DCB16E;
-        font-size: 20rpx;
+        font-size: 34rpx;
        }    
    	.colo1{
    		height: 60rpx;
@@ -474,13 +474,13 @@
         float: left;
    		height: 40rpx;
         line-height: 90rpx;
-        font-size: 20rpx;
+        font-size: 30rpx;
         color: 333333;
         padding-left: 48rpx;
        }
        .cont{
            float: right;
-           font-size: 20rpx;
+           font-size: 30rpx;
            color: #333333;
            line-height: 90rpx;
            margin-right: 80rpx;
@@ -496,7 +496,7 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-        font-size: 20rpx;
+        font-size: 25rpx;
         color: #333333;
        }
            
@@ -506,7 +506,7 @@
    		line-height: 90rpx;
    		width: 100%;
    		padding-left: 48rpx;
-        font-size: 20rpx;
+        font-size: 28rpx;
         color: #333333;
    
        }
@@ -516,7 +516,7 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-        font-size: 20rpx;
+        font-size: 28rpx;
         color: #333333;
    
        }
@@ -526,14 +526,14 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-        font-size: 20rpx;
+        font-size: 28rpx;
         color: #333333;
    
        }
        .line1 {
             width: 92%;
             margin: 6rpx auto;
-            border: 1rpx solid #CCCCCC;
+            border: 1rpx solid #F2F2F2;
        }
        .hz{
            width: 100%;
@@ -543,21 +543,21 @@
             float: left;
             margin-left: 340rpx;
             margin-top: 40rpx;
-            width: 156rpx;
-            height: 62rpx;
-            font-size: 10rpx;
+            width: 170rpx;
+            height: 60rpx;
+            font-size: 20rpx;
             border-radius: 3rpx;
-            line-height: 62rpx;
+            line-height: 60rpx;
             color: #CCCCCC;
        }
        .btn2 {
    		float: right;
    		margin-right: 48rpx;
    		margin-top: 40rpx;
-           width: 156rpx;
-           height: 62rpx;
-           font-size: 10rpx;
-           line-height: 62rpx;
+           width: 170rpx;
+           height: 60rpx;
+           font-size: 20rpx;
+           line-height: 60rpx;
            border-radius: 6rpx;
            color: #FFFFFF;
            background-color: #091219;
@@ -577,13 +577,14 @@
             width: 33%;
             height:auto;
             text-align: center;
-            font-size: 20rpx;
+            font-size: 32rpx;
             color: #333333;
        }
        .current {
            color: #B39C01;
-           width: 123rpx;
-           margin-left: 20rpx;
-           border-bottom: 2rpx solid #B39C01;
+           /* width: 20%; */
+           /* margin-left: 20rpx; */
+           /* width: 20%; */
+           border-bottom: 1rpx solid #B39C01;
        }
 </style>
