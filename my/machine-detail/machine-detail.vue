@@ -10,56 +10,56 @@
 		<!-- 显示区域 -->
 		<view class="list"  v-if="tabCurrentIndex === 0">
 			
-				 <view class='pagex' v-for="item in machine_config" :key='machine_id'>
+				 <view class='pagex'>
 					<view class="nav_right_items">
 						<text class='te'>名称 ：</text>
-						<text class='te1'>{{item.name}}</text>
+						<text class='te1'>{{machine_config.name}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>编号 ：</text>
-						<text class='te1'>{{item.number}}</text>
+						<text class='te1'>{{machine_config.number}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>批次 ：</text>
-						<text class='te1'>{{item.batch}}</text>
+						<text class='te1'>{{machine_config.batch}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>型号 ：</text>
-						<text class='te1'>{{item.type}}</text>
+						<text class='te1'>{{machine_config.type}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>CPU ：</text>
-						<text class='te1'>{{item.cpu}}</text>
+						<text class='te1'>{{machine_config.cpu}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>内存 ：</text>
-						<text class='te1'>{{item.memory}}</text>
+						<text class='te1'>{{machine_config.memory}}</text>
 					</view>
 					 <view class="line1"></view>
 					 <view class="nav_right_items">
 						<text class='te'>系统硬盘 ：</text>
-						<text class='te1'>{{item.system_hard_disk}}</text>
+						<text class='te1'>{{machine_config.system_hard_disk}}</text>
 					</view>
 					 <view class="line1"></view>
 					  <view class="nav_right_items">
 						<text class='te'>数据硬盘 ：</text>
-						<text class='te1'>{{item.data_hard_disk}}</text>
+						<text class='te1'>{{machine_config.data_hard_disk}}</text>
 					 </view>
 					 <view class="line1"></view>
 				   
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
-						<text class='te1'>{{item.area}}</text>
+						<text class='te1'>{{machine_config.area}}</text>
 					</view>
 					 <view class="line1"></view>
 					<view class="nav_right_items">
 						<text class='te'>矿场 ：</text>
-						<text class='te1'>{{item.machine_area}}</text>
+						<text class='te1'>{{machine_config.machine_area}}</text>
 					</view>
 					<view class="line1"></view>
 				</view>
@@ -67,29 +67,25 @@
 			   
 		</view>
 		<view class="list"  v-if="tabCurrentIndex === 1">
-			 <view class='pagex' v-for="item in machine_status"  :key='id'>
+			 <view class='pagex' >
 					  <view class="nav_right_items">
-
 						 <text class='te'>CPU占有率 ：</text>
-						 <text class='te1'>{{item.cpu_share}}</text>
+						 <text class='te1'>{{machine_status.cpu_share}}</text>
 					  </view>
 					  <view class="line1"></view>
 					  <view class="nav_right_items">
-					
 						 <text class='te'>硬盘占有率 ：</text>
-						 <text class='te1'>{{item.data_share}}</text>
+						 <text class='te1'>{{machine_status.data_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-					  <view class="nav_right_items">
-					 
+					 <view class="nav_right_items">
 						 <text class='te'>网络占有率 ：</text>
-						 <text class='te1'>{{item.memory_share}}</text>
+						 <text class='te1'>{{machine_status.memory_share}}</text>
 					  </view>
 					  <view class="line1"></view>
-					  <view class="nav_right_items">
-					 
+					 <view class="nav_right_items">
 						 <text class='te'>内存占有率 ：</text>
-						 <text class='te1'>{{item.vf_share}}</text>
+						 <text class='te1'>{{machine_status.vf_share}}</text>
 					  </view>
 					  <view class="line1"></view>
 			 </view>
@@ -101,12 +97,13 @@
 </template>
 
 <script>
+	var that
 	export default {
 		data() {
 			return {
 				tabCurrentIndex: 0,
-				machine_config:'',
-				machine_status:'',
+				machine_config:[],
+				machine_status:[],
 				machine_id:'',
 				navList: [
 					{
@@ -128,8 +125,8 @@
 				]
 			};
 		}, 
-		onLoad(options) {
-			var that=this;
+		onLoad() {
+			that=this;
 			 this.machine_id=options.machine_id;
 			 console.log(this.machine_id)
 			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
@@ -154,8 +151,11 @@
 			  	success(res) {
 			  		console.log(res)
 					that.machine_status=res.data
+					
+					
 			  	}			
 			  }) 
+			 
 		}, 
 		methods: {
 			changeTab(e) {
@@ -163,7 +163,8 @@
 			},
 			//顶部tab点击
 			tabClick(index) {
-				this.tabCurrentIndex = index;
+				that.tabCurrentIndex = index;
+				
 			}
 		}
 	};

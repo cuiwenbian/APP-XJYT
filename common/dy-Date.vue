@@ -403,8 +403,8 @@
 	}
 
 	.placeholder {
-		color: #b5b8c2;
-		font-size: 36rpx;
+		color: #000000;
+		font-size: 24rpx;
 	}
 
 	.fa-angle-right {

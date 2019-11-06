@@ -13,13 +13,13 @@
 		</view>
 		<view class="set">设置交易密码</view>
 		<view class="list"> 
-			<input class="code" type="number"  :password='isPwd' :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
-			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
+			<input class="code" :password="isPassword"  :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
+			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list"> 
-			<input class="code" type="number" :password='isPwd' :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
-			<image class="close" :src="hidden?'../../static/images/password.png':'../../static/images/pwd.png'" @click="show" mode=""></image>
+			<input class="code" :password="isPassword1"  :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
+			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>
 		<view class="shade" v-show="shade">
@@ -35,7 +35,8 @@
 	export default{
 		data(){
 			return{
-				hidden:true,
+				isPassword:true,
+				isPassword1:true,
 				email:'',
 				email1:'',
 				code:'',
@@ -68,7 +69,10 @@
 		},
 		methods:{
 			show:function(){
-				this.hidden=false;
+				this.isPassword=!this.isPassword
+			},
+			show1:function(){
+				this.isPassword1=!this.isPassword1
 			},
 			getCodeValue: function(e) {
 				this.code = e.detail.value;

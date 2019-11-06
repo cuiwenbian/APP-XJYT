@@ -2,6 +2,7 @@
 .shade{
 	width:100%;
 	height:100%;
+	background: RGBA(0,0,0,0.5);
 	position: absolute;
 	left:0;
 	top:0;
@@ -9,20 +10,17 @@
 }
 .pop{
 	width:500rpx;
-	height:200rpx;
+	height:234rpx;
 	margin:500rpx auto;
 	padding:0 40rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	background: #DCDCDC;
+	background: #fff;
 	border-radius: 10rpx;
-	position: absolute;
-	left:0;
-	top:0;
 }
 .pop-title{
-	height:100rpx;
-	line-height: 80rpx;
+	height:130rpx;
+	line-height: 100rpx;
 	text-align: center;
 	font-size: 34rpx;
 }

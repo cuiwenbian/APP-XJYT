@@ -13,8 +13,8 @@
                         <text class="days">已运行{{item.usedays}}天</text> | 剩余{{item.residuedays}}天
                     </view>
        
-                    <view>
-                        储存{{item.usedisk}}T | 总容量{{item.data_hard_disk}}
+                    <view class="obg_one">
+                        <text class="days">储存{{item.usedisk}}T | 总容量{{item.data_hard_disk}}</text>
                     </view>                    
                 </view>
             </view>
@@ -26,9 +26,10 @@
             </view>
             <view class="xn"></view>
             <view class="haide">
-                <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
-                <button class="primary" @click="btn">确定出售</button>
+                
             </view>
+            <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
+            <button class="primary" @click="btn">确定出售</button>
         </view>
     </view>
 </template>
@@ -103,12 +104,9 @@
 .pagex {
         display: block;
         width: 100%;
-
     }
     .page1 {
-
         height: 180rpx;
-
         padding-right: 40rpx;
         padding-bottom: 20rpx;
 
@@ -161,6 +159,7 @@
         color: #5ca614;
     }
     .obg_one{
+        margin-top: 10rpx;
         font-size: 24rpx;
 
     }
@@ -177,43 +176,47 @@
         bottom: 0;
         left:0;
         width: 100%;
+        background-color: #fff;
     }
     .hide {
+        
         display: block;
         border-bottom: 2rpx solid #CCCCCC;
     }
     .adr {
-        width: 220rpx;
-        line-height: 106rpx;
+        display: block;
         float: left;
-        padding-left: 54rpx;
-        font-size: 34rpx;
+        margin-top: 10rpx;
+        margin-left: 48rpx;
+        font-size: 30rpx;
     }
     .dj {
+        width: 680rpx;
         float: left;
-        margin-left: 40rpx;
-        line-height: 106rpx;
+        margin-top: 60rpx;
+        margin-left: -156rpx;
         font-size: 30rpx;
         color: #CCCCCC;
     } 
     .haide {
         width: 100%;
-        height: 120rpx;
+        height: 106rpx;
         border-bottom: 2rpx solid #CCCCCC;
     }
     .put {
         float: left;
         text-align: center;
         width: 370rpx;
-        height: 123rpx;
+        height: 120rpx;
+        /* margin-top: 20rpx; */
     }
     .primary {
         float: right;
         line-height: 123rpx;
         color: #FFFFFF;
+        border-radius: 0;
         background-color: #121212;
-        margin-top: 8rpx;
         width: 375rpx;
-        height: 123rpx;
+        height: 120rpx;
     }
 </style>

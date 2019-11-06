@@ -4,18 +4,18 @@
 		<view class="t"></view>
 		<view class="box">
 			<view class="desc">当前可转</view>
-			<view class="num"><text class="number">{{bar}}</text>个</view>
+			<view class="num"><text class="number">{{bar}}</text class="xi">个</view>
 		</view>
 		<view class="t"></view>
 		<view class="box1">
 			<view class="top">
 				<view class="lab">转账地址</view>
-				<input class="address" type="text" @input='getTranferAdd' placeholder="请输入转账地址">
+				<input class="address" type="text" @input='getTranferAdd' placeholder="请输入转账地址" placeholder-style="color:#DADADA">
 				<image class="right" src="../../static/images/jiantou3.png" mode="" @click="link"></image>
 			</view>
 			<view class="top1">
 				<view class="lab">提币数量</view>
-				<input class="address" type="text" @input='getFilNum' v-model="moder" placeholder="请输入提币数量">
+				<input class="address" type="text" @input='getFilNum' v-model="moder" placeholder="请输入提币数量" placeholder-style="color:#DADADA">
 				<view class="all" @click="fusre">全部</view>
 			</view>
 		</view>
@@ -124,7 +124,7 @@
 		color:#555555;
 	}
 	.number{
-		font-size:48rpx;
+		font-size:56rpx;
 		color:#E4BF8C;
 	}
 	.top{
@@ -135,7 +135,7 @@
 		float: left;
 		margin-left:48rpx;
 		line-height: 147rpx;
-		font-size: 30rpx;
+		font-size: 26rpx;
 		color:#9F9F9F;
 	}
 	.address{
@@ -143,8 +143,7 @@
 		width:300rpx;
 		height:147rpx;
 		margin-left:20rpx;
-		color:#DADADA;
-		font-size: 30rpx;
+		font-size: 26rpx;
 	}
 	.right{
 		float: right;
@@ -158,21 +157,22 @@
 		line-height: 147rpx;
 		margin-right:24rpx;
 		color:#EBC9A0;
-		font-size: 30rpx;
+		font-size: 26rpx;
 	}
 	.tip{
 		margin-top:20rpx;
 		margin-left:48rpx;
 		line-height: 50rpx;
-		font-size:28rpx;
+		font-size:24rpx;
 		color:#797979;
 	}
 	.next{
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #091219;
 		border-radius: 10rpx;
+        font-size: 30rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;

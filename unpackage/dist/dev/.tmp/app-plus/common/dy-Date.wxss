@@ -5,8 +5,8 @@
   color: #848b9a;
 }
 .placeholder {
-  color: #b5b8c2;
-  font-size: 36rpx;
+  color: #000000;
+  font-size: 28rpx;
 }
 .fa-angle-right {
   font-size: 36rpx;

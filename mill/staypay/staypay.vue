@@ -11,19 +11,22 @@
                 </text>
             </view>
             <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
+                <text>交易总价:
+                    <text class="smallxx1">{{price}}</text>
+                </text>
+                <text class="sam">
+                    矿机数量:<text class="smallxx1">{{mill}}台</text>
+                </text>
             </view>
             <view class="small">
-                <text>交易总价:
-                    <text class="smallxx">{{price}}</text>
-                </text>
-                <text class="smallx1">人民币:
+                
+                <view class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
-                </text>
+                </view>
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
             <view class="small1">
@@ -148,18 +151,23 @@
       line-height: 110rpx;
       float: left;
       padding-left: 48rpx;
-      font-size: 32rpx;
+      border-bottom: 1rpx solid #F2F2F2;
+      font-size: 18rpx;
   }
-  .aa {
-      font-size: 30rpx;
-  }
-  .lop{
-      font-size: 20rpx;
+  .sam{
+      float: right;
+      font-size: 24rpx;
       margin-right: 48rpx;
   }
+  .aa {
+      font-size: 24rpx;
+  }
+  .lop{
+      margin-left: 60rpx;
+  }
   .smallx1{
-      float: right;
-      margin-left: 16rpx;
+      float: left;
+      
   }
   .small1{
       box-sizing: border-box;
@@ -168,29 +176,36 @@
       height: 80rpx;
       padding-left: 48rpx;
       display: none;
-      font-size: 32rpx;
+      font-size: 18rpx;
   }
   .smallx {
       box-sizing: border-box;
       float: right;
-      font-size: 32rpx;
+      font-size: 18rpx;
       padding-right: 48rpx;
   }
   .smallxx {
       box-sizing: border-box;
+      color: #E3BA85;
       padding-left: 40rpx;
+  }
+  .smallxx1{
+      margin-left: 48rpx;
   }
   .primary {
       width: 180rpx;
       height: 40rpx;
       line-height: 40rpx;
+      margin-top: 60rpx;
       font-size: 22rpx;
   }
   .box1 {
-      height: 100rpx;
+      height: 78rpx;
       padding-left: 48rpx;
-      line-height: 100rpx;
-      background-color: #CCCCCC;
+      line-height: 78rpx;
+      font-size: 20rpx;
+      color: #333333;
+      background-color: #F6F6F6;
   }
   .box2 {
       height: 180rpx;
@@ -201,7 +216,7 @@
       height: 90rpx;
       line-height: 90rpx;
       padding-left: 48rpx;
-      font-size: 32rpx;
+      font-size: 18rpx;
   }
   .bxx {
       padding-left: 30rpx;
@@ -220,7 +235,7 @@
   }
   .small2 {
       float: left;
-      font-size: 34rpx;
+      font-size: 24rpx;
       padding-left: 20rpx;
       padding-top: 40rpx;
   }
@@ -234,8 +249,8 @@
   }
   .smalx {
       padding-left: 34rpx;
-      font-size: 32rpx;
-      color: #CCCCCC;
+      font-size: 18rpx;
+      color: #a1a1a1;
   }
   .box4 {
       height: 80rpx;

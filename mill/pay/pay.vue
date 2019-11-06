@@ -2,8 +2,9 @@
     <!-- 买单 -->
     <view class="container">
         <view class="box1">
-            <view class="colo">买单数量</view>
-            <view class="many">{{many}}台</view>		
+            <view class="colo">买单数量
+                <view class="many">{{many}}个</view>
+            </view>
 			<view class="colo1">
                 <image class="dx" src="../../static/images/mai.png" mode=""></image>
             </view>
@@ -172,7 +173,7 @@
     export default {
     	data() {
     		return {
-                many:'0',
+                many:'',
                 tabCurrentIndex:0,
                 contion:'',
                 daker:'',
@@ -217,45 +218,13 @@
                     var contion = res.data.data
                     console.log(contion)
                     that.contion = contion
-                    console.log(contion[0].name)
+                    console.log(contion.length )
+                     that.many = contion.length
                 }
             })
-            uni.request({
-                url:this.urll + 'buyall/102',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var kolo = res.data.data
-                    that.kolo = kolo
-                }
-            })
-            uni.request({
-                url:this.urll + 'buyall/103',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var lornd = res.data.data
-                    that.lornd = lornd
-                }
-            })
-            uni.request({
-                url:this.urll + 'buyall/104',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var daker = res.data.data
-                    that.daker = daker
-                }
-            })
+
+            
+           
         },
         methods:{
             tabClick:function (index) {
@@ -265,6 +234,49 @@
                 }else {
                     that.tabCurrentIndex =index
                 }
+                if(this.tabCurrentIndex === 1) {
+                    uni.request({
+                        url:this.urll + 'buyall/102',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var kolo = res.data.data
+                            that.kolo = kolo
+                        }
+                    })
+                }
+                if(this.tabCurrentIndex === 2) {
+                    uni.request({
+                        url:this.urll + 'buyall/103',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var lornd = res.data.data
+                            that.lornd = lornd
+                        }
+                    })
+                }
+                if(this.tabCurrentIndex === 3) {
+                    uni.request({
+                        url:this.urll + 'buyall/104',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var daker = res.data.data
+                            that.daker = daker
+                        }
+                    })
+                }
+
             },
             btn:function () {
                 var that = this
@@ -381,11 +393,12 @@
        }
        .colo {
    		float: left;
-   		width: 50%;
-   		height: 40rpx;
-   		margin-left: 60rpx;
-   		margin-top: 60rpx;
-           font-size: 36rpx;
+   		width: 20%;
+   		height: 90rpx;
+   		margin-left: 148rpx;
+   		margin-top: 62rpx;
+        color: #000000;
+        font-size: 30rpx;
        }
        .boss{
            width: 100%;
@@ -404,33 +417,36 @@
        }
        .cool{
            margin-left: 40rpx;
-           color: #B5B5B5;
+           font-size: 20rpx;
+           color: #949494;
        }
       .many{
-   		float: left;
-   		width: 36%;
-   		height: 60rpx;
-   		padding-left: 120rpx;
-   		padding-top: 40rpx;
-           font-size: 28rpx;
-           color: #DCB16E;
+
+        margin-left: 48rpx;
+        line-height: 90rpx;
+        color: #DCB16E;
+        font-size: 20rpx;
        }    
    	.colo1{
    		height: 60rpx;
-   		padding-top: 60rpx;
-   		padding-left: 540rpx;
+        padding-top: 50rpx;
+        margin-right: 48rpx;
    	}
        .dx {
-           width: 60rpx;
-           height: 60rpx;
+           width: 68rpx;
+           height: 68rpx;
+           line-height: 60rpx;
+           float: right;
+           margin-right: 130rpx;
        }
    	.many1{
    		float: right;
    		width: 90rpx;
    		height: 60rpx;
-           padding-top: 28rpx;
-   		padding-right: 128rpx;
-           font-size: 32rpx;
+        padding-top: 28rpx;
+   		margin-right: 145rpx;
+        font-size: 20rpx;
+        color: #979797;
    	}
        .box3 {
            height: 90rpx;
@@ -441,6 +457,7 @@
    
        .list{
          height: auto;
+         
        }
    /*    .order{
            width: 100%;
@@ -453,22 +470,24 @@
    	.xi {
    		height: 360rpx;
    	}
-       .mation{
-           float: left;
+    .mation{
+        float: left;
    		height: 40rpx;
-           line-height: 90rpx;
-           font-size: 28rpx;
-           padding-left: 48rpx;
+        line-height: 90rpx;
+        font-size: 20rpx;
+        color: 333333;
+        padding-left: 48rpx;
        }
        .cont{
            float: right;
-           font-size: 28rpx;
+           font-size: 20rpx;
+           color: #333333;
            line-height: 90rpx;
            margin-right: 80rpx;
        }
        .line{
            width: 92%;
-           border: 1rpx solid #CCCCCC;
+           border: 1rpx solid #F2F2F2;
            margin: 0 auto;
        }
        .edit{
@@ -477,7 +496,8 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-           font-size: 28rpx;
+        font-size: 20rpx;
+        color: #333333;
        }
            
        .numbe{
@@ -486,7 +506,8 @@
    		line-height: 90rpx;
    		width: 100%;
    		padding-left: 48rpx;
-           font-size: 28rpx;
+        font-size: 20rpx;
+        color: #333333;
    
        }
        .trading{
@@ -495,7 +516,8 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-           font-size: 28rpx;
+        font-size: 20rpx;
+        color: #333333;
    
        }
        .date{
@@ -504,7 +526,8 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		padding-left: 48rpx;
-           font-size: 28rpx;
+        font-size: 20rpx;
+        color: #333333;
    
        }
        .line1 {
@@ -517,23 +540,25 @@
    		height: 80rpx;
        }
        .btn1{
-   		float: left;
-   		margin-left: 340rpx;
-   		margin-top: 40rpx;
-           width: 160rpx;
-           height: 60rpx;
-           font-size: 26rpx;
-           line-height: 60rpx;
-           color: #CCCCCC;
+            float: left;
+            margin-left: 340rpx;
+            margin-top: 40rpx;
+            width: 156rpx;
+            height: 62rpx;
+            font-size: 10rpx;
+            border-radius: 3rpx;
+            line-height: 62rpx;
+            color: #CCCCCC;
        }
        .btn2 {
    		float: right;
    		margin-right: 48rpx;
    		margin-top: 40rpx;
-           width: 160rpx;
-           height: 60rpx;
-           font-size: 26rpx;
-           line-height: 60rpx;
+           width: 156rpx;
+           height: 62rpx;
+           font-size: 10rpx;
+           line-height: 62rpx;
+           border-radius: 6rpx;
            color: #FFFFFF;
            background-color: #091219;
        }
@@ -549,19 +574,16 @@
        }
        .tab-item {
     
-            width: 33.3%;
+            width: 33%;
             height:auto;
             text-align: center;
-            
-            font-size: 34rpx;
-            
-            color: #777;
+            font-size: 20rpx;
+            color: #333333;
        }
        .current {
-        
            color: #B39C01;
-            
-           border-bottom: 5rpx solid #B39C01;
-        
+           width: 123rpx;
+           margin-left: 20rpx;
+           border-bottom: 2rpx solid #B39C01;
        }
 </style>
