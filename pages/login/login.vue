@@ -2,7 +2,8 @@
 	<!-- 登录 -->
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
-		<view class='fil'>Filecoin</view>
+		<image class='fil' src="../../static/images/file.png" mode=""></image>
+		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
 			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
@@ -145,24 +146,23 @@
 	page{
 		background: #121212;
 	}
-	@font-face {
-	font-family: mFont;
-	src: url('../../static/font/SoukouMincho-2.ttf');
-	}
+
 	.logo{
+		display: block;
 		width:185rpx;
 		height:185rpx;
-		margin-top:135rpx;
+		margin-top:150rpx;
 		margin-left: calc((100% - 185rpx)/2);
 	}
 	.fil{
+		width:250rpx;
 		height:100rpx;
+		display: block;
 		line-height: 100rpx;
 		text-align: center;
 		color: #fff;
-		font-family: mFont;
 		font-size: 64rpx;
-		margin-bottom: 100rpx;
+		margin:0 auto 100rpx;
 		
 	}
 	.enter{
