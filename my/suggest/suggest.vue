@@ -85,6 +85,9 @@
 			})
 		    
 		},
+		onBackPress(options) {
+		        console.log('from:' + options.from)
+		},
 		methods:{
 			getTitleContent:function(e){
 				this.title=e.detail.value

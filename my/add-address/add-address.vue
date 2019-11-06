@@ -3,13 +3,13 @@
 	<view class="container">
 		<view class="line"></view>
 		<view class="list">
-			<view class="txt">提币地址</view>
-			<input class="enter" type="text" :value="adr" @input="getAddress" placeholder="请输入提币地址" />
+			<view class="txt">地址昵称</view>
+			<input class="enter" type="text" :value="remark" @input="getRemark" placeholder="请输入备注名称" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
-			<view class="txt">地址备注</view>
-			<input class="enter" type="text" :value="remark" @input="getRemark" placeholder="请输入备注名称" />
+			<view class="txt">提币地址</view>
+			<input class="enter" type="text" :value="adr" @input="getAddress" placeholder="请输入提币地址" />
 		</view>
 		<view class="save"  @click="save">保存</view>
 	</view>

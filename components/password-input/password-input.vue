@@ -4,7 +4,7 @@
 		<image class="close" src="../../static/images/close.png" @tap='close'></image>
 		<view :class="flag?'tip':'tip1'">
 		  <image class="lock" src="../../static/images/lock.png"></image>
-		  {{tip}}
+		 请输入您的密码
 		</view>
 		<view class="forget" @tap="forget">忘记密码？</view>
 		<view  :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
@@ -49,10 +49,9 @@
 			keyboardPackage
 		},
 		methods:{
-			
-			// close: function() {
-			//    this.hiddenmodalput= false
-			// },
+			close: function() {
+               this.$emit('clo');
+			},
 			forget: function() {
 			  var that = this;
 			  uni.redirectTo({

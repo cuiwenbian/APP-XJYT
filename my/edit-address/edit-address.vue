@@ -153,7 +153,7 @@
 				}
 				this.passIn=true
 				this.$refs['number'].open();
-			    that.onInput()
+			    that.onInput(val)
 			 
 			}
 		}
