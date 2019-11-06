@@ -27,11 +27,10 @@
 						<view class="info">暂无记录</view>
 					</view>
 					<view v-else class="boxx">
-						
+                            <text class="all1">Filecoin:{{month_profit}}</text>
 							<div class="item">
 								<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
                             </div>
-                            <text class="all1">Filecoin:{{month_profit}}</text>
 						<view class="list-one" v-for="(item , index) in ention" :key="index">
 							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 							<view class='list-txt'>
@@ -51,11 +50,10 @@
 							<view class="info">暂无记录</view>
 						</view>
 						<view v-else class="boxx">
-							
+                                <text class="all1">Filecoin:{{month_profit}}</text>
                                 <div class="item">
                                 	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
                                 </div>
-								<text class="all1">Filecoin:{{month_profit}}</text>
 							
 							<view class="list-one" v-for="(item , index) in entin" :key="index">
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
@@ -308,19 +306,17 @@
 	}
 
 	.boxx {
-
 		height: 100%;
 	}
 
 
 	.item {
-
 		height: 70rpx;
         font-size: 22rpx;
 		background-color: #EDEDED;
         padding-top: 20rpx;
         padding-left: 45rpx;
-		margin-bottom: 20rpx;
+		/* margin-bottom: 20rpx; */
 		text-align: left;
 	}
 
@@ -409,13 +405,11 @@
 		font-size: 32rpx;
 	}
 
-
-
-
 	.all1 {
 		float: right;
 		font-size: 30rpx;
 		color: #333;
+        margin-top: 20rpx;
 		margin-right: 48rpx;
 	}
 

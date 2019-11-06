@@ -145,126 +145,136 @@
 </script>
 
 <style>
-    page {
-        background-color: #DCDCDC;
-    }
-    .box {
-        height: 560rpx;
-        width: 100%;
-        background-color: #fff;
-    }
-    .small {
-        box-sizing: border-box;
-        width: 100%;
-        height: 110rpx;
-        line-height: 110rpx;
-        float: left;
-        padding-left: 48rpx;
-        font-size: 32rpx;
-    }
-    .aa {
-        font-size: 30rpx;
-    }
-    .lop{
-        font-size: 20rpx;
-        margin-right: 48rpx;
-    }
-    .smallx1{
-        float: right;
-        margin-left: 16rpx;
-    }
-    .small1{
-        box-sizing: border-box;
-        width: 100%;
-        float: left;
-        height: 80rpx;
-        padding-left: 48rpx;
-        display: none;
-        font-size: 32rpx;
-    }
-    .smallx {
-        box-sizing: border-box;
-        float: right;
-        font-size: 32rpx;
-        padding-right: 48rpx;
-    }
-    .smallxx {
-        box-sizing: border-box;
-        font-size: 32rpx;
-        color: #B86757;
-        padding-left: 40rpx;
-    }
-    .primary {
-        width: 180rpx;
-        height: 40rpx;
-        line-height: 40rpx;
-        font-size: 22rpx;
-    }
-    .box1 {
-        height: 100rpx;
-        font-size: 32rpx;
-        padding-left: 48rpx;
-        line-height: 100rpx;
-    }
-    .box2 {
-        height: 180rpx;
-        width: 100%;
-        background-color: #fff;
-    }
-    .bx {
-        height: 90rpx;
-        line-height: 90rpx;
-        padding-left: 48rpx;
-        font-size: 32rpx;
-    }
-    .bxx {
-        padding-left: 30rpx;
-    }
-    .box3{
-        width: 100%;
-        height: 300rpx;
-        background-color: #fff;
-    }
-    .img {
-        width: 160rpx;
-        height: 160rpx;
-        float: left;
-        padding-left: 48rpx;
-        padding-top: 40rpx;
-    }
-    .small2 {
-        float: left;
-        font-size: 34rpx;
-        padding-left: 20rpx;
-        padding-top: 40rpx;
-
-    }
-    .small3 {
-        float: left;
-        padding-top: 30rpx;
-        font-size: 32rpx;
-    }
-    .smal {
-        padding-left: 20rpx;
-    }
-    .smalx {
-        padding-left: 20rpx;
-        color: #CCCCCC;
-    }
-    .box4 {
-        height: 80rpx;
-        line-height: 80rpx;
-    }
-    .primary1 {
-        width: 240rpx;
-        height: 60rpx;
-        line-height: 60rpx;
-        margin-top: 12rpx;
-        color: #FFFFFF;
-        font-size: 28rpx;
-        float: right;
-        margin-right: 48rpx;
-        background-color: #121212;
-    }
+page {
+      background-color: #DCDCDC;
+  }
+  .box {
+      height: 560rpx;
+      width: 100%;
+      background-color: #fff;
+  }
+  .small {
+      box-sizing: border-box;
+      width: 100%;
+      height: 110rpx;
+      line-height: 110rpx;
+      float: left;
+      padding-left: 48rpx;
+      border-bottom: 1rpx solid #F2F2F2;
+      font-size: 28rpx;
+  }
+  .sam{
+      float: right;
+      font-size: 28rpx;
+      margin-right: 48rpx;
+  }
+  .aa {
+      font-size: 30rpx;
+  }
+  .lop{
+      margin-left: 60rpx;
+  }
+  .smallx1{
+      float: left;
+      
+  }
+  .small1{
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      height: 80rpx;
+      padding-left: 48rpx;
+      display: none;
+      font-size: 18rpx;
+  }
+  .smallx {
+      box-sizing: border-box;
+      float: right;
+      font-size: 28rpx;
+      padding-right: 48rpx;
+  }
+  .smallxx {
+      box-sizing: border-box;
+      color: #E3BA85;
+      padding-left: 40rpx;
+  }
+  .smallxx1{
+      margin-left: 48rpx;
+  }
+  .primary {
+      width: 180rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      margin-top: 60rpx;
+      font-size: 22rpx;
+  }
+  .box1 {
+      height: 78rpx;
+      padding-left: 48rpx;
+      line-height: 78rpx;
+      font-size: 32rpx;
+      color: #333333;
+      background-color: #F6F6F6;
+  }
+  .box2 {
+      height: 180rpx;
+      width: 100%;
+      background-color: #fff;
+  }
+  .bx {
+      height: 90rpx;
+      line-height: 90rpx;
+      padding-left: 48rpx;
+      font-size: 28rpx;
+  }
+  .bxx {
+      padding-left: 30rpx;
+  }
+  .box3{
+      width: 100%;
+      height: 260rpx;
+      background-color: #fff;
+  }
+  .img {
+      width: 160rpx;
+      height: 160rpx;
+      float: left;
+      padding-left: 48rpx;
+      padding-top: 40rpx;
+  }
+  .small2 {
+      float: left;
+      font-size: 30rpx;
+      padding-left: 20rpx;
+      padding-top: 40rpx;
+  }
+  .small3 {
+      float: left;
+      padding-top: 20rpx;
+      font-size: 32rpx;
+  }
+  .smal {
+      padding-left: 20rpx;
+  }
+  .smalx {
+      padding-left: 34rpx;
+      font-size: 26rpx;
+      color: #a1a1a1;
+  }
+  .box4 {
+      height: 80rpx;
+      line-height: 80rpx;
+  }
+  .primary1 {
+      width: 180rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      margin-top: 12rpx;
+      color: #FFFFFF;
+      font-size: 28rpx;
+      float: right;
+      margin-right: 48rpx;
+      background-color: #121212;
+  }
 </style>
 

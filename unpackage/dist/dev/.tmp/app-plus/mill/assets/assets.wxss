@@ -9,24 +9,16 @@
 		background-color: #121212;
 }
 .boxx {
-
 		height: 100%;
 }
 .item {
-		width: 100%;
 		height: 70rpx;
         font-size: 22rpx;
 		background-color: #EDEDED;
         padding-top: 20rpx;
         padding-left: 45rpx;
-		margin-bottom: 20rpx;
+		/* margin-bottom: 20rpx; */
 		text-align: left;
-}
-.item .lable {
-		position: absolute;
-		left: 20rpx;
-		top: 0rpx;
-		color: #333333;
 }
 .assets {
 		text-align: center;
@@ -101,18 +93,11 @@
 		text-align: center;
 		font-size: 32rpx;
 }
-.linee {
-		width: 100%;
-		height: 10rpx;
-        padding-top: 40rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        background-color: #EDEDED;
-}
 .all1 {
 		float: right;
 		font-size: 30rpx;
 		color: #333;
+        margin-top: 20rpx;
 		margin-right: 48rpx;
 }
 .list {

@@ -152,15 +152,15 @@
       float: left;
       padding-left: 48rpx;
       border-bottom: 1rpx solid #F2F2F2;
-      font-size: 18rpx;
+      font-size: 28rpx;
   }
   .sam{
       float: right;
-      font-size: 24rpx;
+      font-size: 28rpx;
       margin-right: 48rpx;
   }
   .aa {
-      font-size: 24rpx;
+      font-size: 30rpx;
   }
   .lop{
       margin-left: 60rpx;
@@ -181,7 +181,7 @@
   .smallx {
       box-sizing: border-box;
       float: right;
-      font-size: 18rpx;
+      font-size: 28rpx;
       padding-right: 48rpx;
   }
   .smallxx {
@@ -203,7 +203,7 @@
       height: 78rpx;
       padding-left: 48rpx;
       line-height: 78rpx;
-      font-size: 20rpx;
+      font-size: 32rpx;
       color: #333333;
       background-color: #F6F6F6;
   }
@@ -216,7 +216,7 @@
       height: 90rpx;
       line-height: 90rpx;
       padding-left: 48rpx;
-      font-size: 18rpx;
+      font-size: 28rpx;
   }
   .bxx {
       padding-left: 30rpx;
@@ -235,7 +235,7 @@
   }
   .small2 {
       float: left;
-      font-size: 24rpx;
+      font-size: 30rpx;
       padding-left: 20rpx;
       padding-top: 40rpx;
   }
@@ -249,7 +249,7 @@
   }
   .smalx {
       padding-left: 34rpx;
-      font-size: 18rpx;
+      font-size: 26rpx;
       color: #a1a1a1;
   }
   .box4 {

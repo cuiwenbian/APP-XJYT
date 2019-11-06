@@ -15,38 +15,43 @@
             <button class="btn" @click="btn2">出售</button>
         </view> 
                   
-        <view v-if="flag" >
-            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-            <view class="infoo">暂无记录</view>
-        </view>
-       <view v-else class="pagex" v-for="(item , index) in user_id" :key="index">
-           <view class="page1" >
-                <view class="img">
-                    <image class="por" src="../../static/images/kuangji.png"></image>
+        <checkbox-group class="block" @change="CheckboxChange">
+            <view v-for="(item , index) in user_id" :key="index">
+                <view class="cu-form-group margin-top" >
+                    <checkbox class="tee" :class="item.checked?'checked':''" :checked="item.checked?true:false" :value="item.number"></checkbox>
                 </view>
-                <view class="info">
-                    <view class="obg">
-                        {{item.name}} {{item.number}}
-                    </view>
-                <view class='boo_img3'  >
-                      <checkbox-group class="block" @change="CheckboxChange">
-                      	<view class="cu-form-group margin-top">
-                      		<checkbox :class="checkbox[0].checked?'checked':''" :checked="checkbox[0].index?true:false" :value="item.machine_id"></checkbox>
-                      	</view>
-                      </checkbox-group>
-<!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>
-                    <image v-else  class='te' src='../../static/images/tuo5.png'></image> -->
-				</view>
-                    <view class="obg_one">
-                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
-                    </view>
-
-                    <view class="obg_one">
-                        <text class="days">储存{{item.freedisk}}T</text>  | 总容量{{item.disk}}
-                    </view>                    
-                </view>
+                <view v-if="flag" >
+                            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+                            <view class="infoo">暂无记录</view>
+                        </view>
+                       <view v-else class="pagex" >
+                           <view class="page1" >
+                                <view class="img">
+                                    <image class="por" src="../../static/images/kuangji.png"></image>
+                                </view>
+                                <view class="info">
+                                    <view class="obg">
+                                        {{item.name}} {{item.number}}
+                                    </view>
+                                <!-- <view class='boo_img3'  > -->
+                                     
+                <!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>
+                                    <image v-else  class='te' src='../../static/images/tuo5.png'></image> -->
+                				<!-- </view> -->
+                                    <view class="obg_one">
+                                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
+                                    </view>
+                
+                                    <view class="obg_one">
+                                        <text class="days">储存{{item.freedisk}}T</text>  | 总容量{{item.disk}}
+                                    </view>                    
+                                </view>
+                            </view>
+                        </view>
             </view>
-        </view>
+            
+        </checkbox-group>
+
     </view>
 </template>
 
@@ -55,7 +60,7 @@
     	data() {
     		return {
     			many: '',
-                user_id:'',
+                user_id:[],
                 flag:false,
                 selectilall: false,
                 machine_id:'',
@@ -63,17 +68,12 @@
                 arr:[],
                 isSelected:false,
                 checkbox: [{
-                	
+                	value:'A',
                 	checked: false
                 }],
     		}
     	},
-        onPageScroll: function (res) {
-                // let self = this;
-                // let top = res.scrollTop;
-                // self.scrollTop=top;
-               console.log(res.scrollTop)
-            },
+
     	onLoad(options) {
             var that = this
             uni.request({
@@ -93,7 +93,6 @@
                         that.many = 0
 
                     }
-
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
                     if(that.user_id.length == 0) {
@@ -136,17 +135,23 @@
             CheckboxChange(e) {
                 console.log(e)
                 var that = this
-                var arr = []
+                that.arr = []
                 for (let i = 0; i < that.user_id.length; i++) {
-                    console.log(that.machine_id[i])
+                    that.user_id[i].checked = false
+                    // console.log(that.user_id)
                 }
-            	var items = this.checkbox,
-            		values = e.detail.value;
+            	var items = that.user_id
+            	var	values = e.detail.value;
             	for (var i = 0, lenI = items.length; i < lenI; ++i) {
             		items[i].checked = false;
             		for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
-            			if (items[i].value == values[j]) {
+            			if (items[i].number == values[j]) {
             				items[i].checked = true;
+                            console.log(values)
+                            console.log(items[i].machine_id)
+                            that.arr.push(items[i].machine_id)
+                            console.log(111)
+                            console.log(that.arr)
             				break
             			}
             		}
@@ -243,6 +248,7 @@
     	margin: 150rpx auto 20rpx;
     }
     .infoo{
+        margin-left: 10rpx;
     	text-align: center;
     	font-size: 32rpx;
     }
@@ -256,10 +262,10 @@
     }
     .tee{
         float: right;
-        margin-top: -4rpx;
+        margin-top: 60rpx;
         width: 40rpx;
         height: 40rpx;
-        margin-right: 20rpx;
+        margin-right: 90rpx;
         /* display: none; */
     }
     .primary{
@@ -337,9 +343,10 @@
         margin-left: 48rpx;
     }
     .info{
-        width: 70%;
+        width: 50%;
         height: 100%;
-        float: right;
+        margin-left: 20rpx;
+        float: left;
     }
     .obg{
         margin-top: 20rpx;
