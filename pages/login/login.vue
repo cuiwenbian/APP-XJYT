@@ -2,7 +2,8 @@
 	<!-- 登录 -->
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
-		<view class='fil'>Filecoin</view>
+		<image class='fil' src="../../static/images/file.png" mode=""></image>
+		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
 			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
@@ -20,10 +21,9 @@
 			注册
 		</navigator>
 		<view class="agree">
-			<!-- <view class="check"></view> -->
-			<label>
-				<checkbox /><text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
-			</label>
+			
+			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+			
 		</view>
 		
 	</view>
@@ -38,11 +38,12 @@
 				show:false,
 				phone:'',
 				password:'',
-				
+			
 			};
 		},	
 		
 		methods:{
+			
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
@@ -65,7 +66,7 @@
 			},
 			login() {
 				var _self=this;
-				//this.$refs.popup.open()
+				
 				if(this.phone==""){
 					uni.showToast({
 						icon:'none',
@@ -145,19 +146,24 @@
 	page{
 		background: #121212;
 	}
+
 	.logo{
+		display: block;
 		width:185rpx;
 		height:185rpx;
-		margin-top:135rpx;
+		margin-top:150rpx;
 		margin-left: calc((100% - 185rpx)/2);
 	}
 	.fil{
+		width:250rpx;
 		height:100rpx;
+		display: block;
 		line-height: 100rpx;
 		text-align: center;
 		color: #fff;
 		font-size: 64rpx;
-		margin-bottom: 100rpx;
+		margin:0 auto 100rpx;
+		
 	}
 	.enter{
 		
@@ -169,9 +175,10 @@
 	.icon{
 		float:left;
 	    display: block;
-		width:50rpx;
-		height:50rpx;
-		margin-top:25rpx;
+		width:40rpx;
+		height:40rpx;
+		margin-top:30rpx;
+		margin-left: 10rpx;
 	}
 	.number{
 		float:right;
@@ -222,48 +229,12 @@
 		bottom:50rpx;
 		left:calc((100% - 340rpx)/2);
 	}
-	.check{
-		float: left;
-		width:20rpx;
-		height:20rpx;
-		margin-right: 10rpx;     
-		outline: 0;
-		border: 1px solid #d1d1d1;
-		background-color: #fff;
-		border-radius: 3px;
-		margin-top:5rpx;
-	}
-	/* #ifdef H5 */
-	checkbox .uni-checkbox-input{
-		border-radius: 50%;
-	}
-	checkbox .uni-checkbox-input.uni-checkbox-input-checked{
-		border:1px solid #ff4500;
-		background: #ff4500;
-		color:#fff !important;
-	}
-	checkbox .uni-checkbox-input.uni-checkbox-input-checked:after{
-		font-size: 36rpx;
-	}
-	/* #endif */
-	/* #ifdef APP-PLUS||MP-WEIXIN */
-	checkbox .wx-checkbox-input{             
+	.checks{
 		width:30rpx;
 		height:30rpx;
-		border-radius: 10rpx;
+		margin-right: 10rpx;  
+		
 	}
-	/* 选中后的背景样式 */
-	checkbox .wx-checkbox-input.wx-checkbox-input-checked{    
-		border:1px solid #ff4500;
-		background: #ff4500;
-		color:#fff !important;
-	}
-	/* 选中后的对勾样式 */
-	checkbox .wx-checkbox-input.wx-checkbox-input-checked:after{
-		width:30rpx;
-		height:30rpx;
-		font-size: 36rpx;
-	}
-	/* #endif */
+	
 
 </style>

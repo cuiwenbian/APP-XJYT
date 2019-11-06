@@ -51,7 +51,7 @@
 						<text class='te1'>{{machine_config.data_hard_disk}}</text>
 					 </view>
 					 <view class="line1"></view>
-				   
+				    
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
 						<text class='te1'>{{machine_config.area}}</text>
@@ -102,8 +102,8 @@
 		data() {
 			return {
 				tabCurrentIndex: 0,
-				machine_config:[],
-				machine_status:[],
+				machine_config:'',
+				machine_status:'',
 				machine_id:'',
 				navList: [
 					{
@@ -125,7 +125,7 @@
 				]
 			};
 		}, 
-		onLoad() {
+		onLoad(options) {
 			that=this;
 			 this.machine_id=options.machine_id;
 			 console.log(this.machine_id)
@@ -138,7 +138,7 @@
 				},
 				success(res) {
 					console.log(res)
-					that.machine_config=res.data
+					that.machine_config=res.data.data
 					console.log(that.machine_config)
 				}
 			  }) 
@@ -150,8 +150,7 @@
 			  	},
 			  	success(res) {
 			  		console.log(res)
-					that.machine_status=res.data
-					
+					that.machine_status=res.data.data	
 					
 			  	}			
 			  }) 

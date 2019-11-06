@@ -512,7 +512,7 @@
 	
 	  width: 80%;
 	
-	  height: 80rpx;
+	  height: 90rpx;
 	
 	  font-size: 30rpx;
 	

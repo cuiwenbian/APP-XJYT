@@ -136,7 +136,6 @@
 		float: right;
 		font-size: 28rpx;
 		line-height: 60rpx;
-		height:180rpx;
 		overflow: hidden;
 	}
 </style>

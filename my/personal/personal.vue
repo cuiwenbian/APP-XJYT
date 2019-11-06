@@ -25,8 +25,11 @@
 	export default{
 		data(){
 			return{
-				phone:this.global_.phone
+				phone:''
 			}
+		},
+		onLoad(option) {
+			this.phone=option.phone
 		}
 	}
 </script>
@@ -112,7 +115,7 @@
 		width:700rpx;
 		height:90rpx;
 		background: #444343;
-		border-radius: 10rpx;
+		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;

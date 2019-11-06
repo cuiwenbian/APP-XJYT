@@ -1,18 +1,21 @@
 <template>
-	<view class="boxx" :hidden="hiddenmodalput">
+	<view class="container" ref='hiddenmodalput'>
+	<view class="boxx" v-if="hiddenmodalput">
 		<image class="close" src="../../static/images/close.png" @tap='close'></image>
-		<!-- <view :class="flag?'tip':'tip1'">
+		<view :class="flag?'tip':'tip1'">
 		  <image class="lock" src="../../static/images/lock.png"></image>
-		  {{tip}}
-		</view> -->
+		 请输入您的密码
+		</view>
 		<view class="forget" @tap="forget">忘记密码？</view>
-		<view :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
+		<view  :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
 			<view :class="['circle',(index<list.length)?'dot':'']" ></view>
 		</view>
+	</view>
 	</view>
 </template>
 
 <script>
+	import keyboardPackage from "../keyboard-package/keyboard-package.vue"
 	export default {
 		props:{
 			length:{//长度只允许为6和4
@@ -39,17 +42,15 @@
 		data() {
 			return {
 				flag:true,
-				hiddenmodalput:false
+				hiddenmodalput:true
 			};
 		},
 		computed:{
-			
+			keyboardPackage
 		},
 		methods:{
 			close: function() {
-			  
-			   this.hiddenmodalput= true
-			  
+               this.$emit('clo');
 			},
 			forget: function() {
 			  var that = this;
@@ -58,7 +59,7 @@
 			  })
 			},
 			formatMargin(gutter){
-				return 0 + ' ' + gutter+'rpx';
+				return 0 + ' ' + 300+'rpx';
 			}
 		}
 	}
@@ -76,7 +77,7 @@
 	  padding: 20rpx 50rpx 0;
 	  box-sizing: border-box;
 	  position: fixed;
-	  top: 400rpx;
+	  bottom:550rpx;
 	  left: 75rpx;
 	  z-index:999;
 	}

@@ -3,7 +3,7 @@
     <view class="container" style="position: relative;">
 		 <view class="height"></view>
 		<view class="top">
-			<image class="bg" src="../../static/images/my-background.png" mode="">
+			<image class="bg" src="../../static/images/my-background.png" mode="aspectFill">
 				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
 			</image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.jpg" mode=""></image></view>
@@ -18,7 +18,7 @@
 			</view>
 			<view class="listItem" @click="address">
 				<image class="pic" src="../../static/images/my-address.png" mode=""></image>
-				<view class="txt" >提币地址</view> 
+				<view class="txt" >提币地址</view>
 			</view>
 			<view class="listItem" @click="certification">
 				<image class="pic" src="../../static/images/my-identity.png" mode=""></image>
@@ -52,7 +52,7 @@
 					<view class='pop-btn' @click="cancel">取消</view>
 					<view class='pop-btn' @click="sure">确定</view>
 				</view>
-				
+	
 			</view>
 		</view>
     </view>
@@ -62,12 +62,15 @@
 	export default {
 		data() {
 			return {
-				phone:this.global_.phone,
+				phone:'',
 				shade:false
 			}
 		},
-		onShow() {
-	       
+		onLoad() {
+			var p=this.global_.phone
+			var p1=p.split('')         //字符串转为数组
+			var phone=p1.slice(0,3).join().replace(/,/g, "")+'****'+p1.slice(7,11).join().replace(/,/g, "")
+			this.phone=phone
 		},
 		methods: {
 			cancel:function(){
@@ -81,7 +84,7 @@
 			},
 	        personal:function(){
 				uni.navigateTo({
-					url:'../personal/personal'
+					url:'../personal/personal?phone='+this.phone
 				})
 			},
 			wallet:function(){
@@ -202,9 +205,11 @@
 				
 			},
 			suggest:function(){
-				uni.navigateTo({
-					url:'../suggest/suggest'
-				})
+				
+							uni.navigateTo({
+								url:'../suggest/suggest'
+							})
+					
 			},
 			certification:function(){
 				uni.request({
@@ -256,7 +261,7 @@
 	.shade{
 		width:100%;
 		height:100%;
-		background: RGBA(0,0,0,0.5);
+		background:rgba(255,255,255,0.5);
 		position: absolute;
 		left:0;
 		top:0;
@@ -264,17 +269,17 @@
 	}
 	.pop{
 		width:500rpx;
-		height:234rpx;
+		height:260rpx;
 		margin:500rpx auto;
 		padding:0 40rpx;
 		box-sizing: border-box;
-		background: #fff;
-		border-radius: 10rpx;
+		background: #f0efef;
+		/* border-radius: 10rpx; */
 		
 	}
 	.pop-title{
-		height:130rpx;
-		line-height: 100rpx;
+		height:150rpx;
+		line-height: 130rpx;
 		text-align: center;
 		font-size: 34rpx;
 	}
@@ -287,7 +292,7 @@
 	.pop-btn{
 		width:120rpx;
 		height:60rpx;
-		border-radius: 20rpx;
+		/* border-radius: 20rpx; */
 		background:#121212;
 		line-height: 60rpx;
 		font-size: 30rpx;
@@ -305,12 +310,12 @@
 	}
 	.bg{
 		width:100%;
-		height:480rpx;
+		height:580rpx;
 		position: relative;
 	}
 	.logout{
 		width:50rpx;
-		height:50rpx;
+		height:45rpx;
 		position: absolute;
 		right:20rpx;
 		top:20rpx;
@@ -361,7 +366,7 @@
 		display: flex;
 		justify-content:space-between;
 		flex-wrap: wrap;
-		padding:50rpx;
+		padding:50rpx 80rpx;
 		box-sizing: border-box;
 	}
 	.listItem{

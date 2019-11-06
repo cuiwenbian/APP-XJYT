@@ -66,6 +66,11 @@ const formatMonth = data =>{
   const month = data.getMonth()+1
   return month
 }
+function renderTime(date) {
+  var dateee = new Date(date).toJSON();
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
+}
+
 module.exports = {
   checkEmail: checkEmail,
   checkPhoneNum: checkPhoneNum,
@@ -73,5 +78,6 @@ module.exports = {
   checkIdcard: checkIdcard,
   timer:timer,
   formatTime: formatTime,
-  formatMonth:formatMonth
+  formatMonth:formatMonth,
+  renderTime:renderTime
 }

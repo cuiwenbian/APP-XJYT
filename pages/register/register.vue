@@ -21,15 +21,16 @@
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
-<!-- 		<neil-modal 
-		    :show="show" 
-		    title="标题" 
-		    content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
-		    :show-cancel="false">
-		</neil-modal> -->
+
 		<navigator url='../login/login' class="goback">
 			已有账号，返回登录
 		</navigator>
+		<view class="shade" v-show="shade">
+			<view class="pop">
+				<view class='pop-title'>注册成功</view>
+				<view class='pop-btn' @click="sure">去登陆</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -38,6 +39,7 @@
 		data(){
 			return{
 				show:false,
+				shade:false,
 				phone:'',
 				pwd:'',
 				pwd1:'',
@@ -106,7 +108,7 @@
 			      } else {
 			        uni.request({
 						//短信接口
-					  url: _this.url + 'users/regist/sms/',
+					  url: _this.urll + 'users/regist/sms/',
 			          method: 'POST',
 			          data: {
 			            mobile: this.phone,
@@ -197,8 +199,6 @@
 					})
 					return false
 				}
-				console.log(this.iscode);
-				console.log(this.code);
 				if(this.code!=this.iscode){
 					uni.showToast({
 						title:'验证码错误',
@@ -208,7 +208,7 @@
 					return false
 				}
 				uni.request({
-					url:this.url+'users/regist/',
+					url:this.urll+'users/regist/',
 					method: 'POST',
 					data: {
 						mobile:this.phone,
@@ -233,9 +233,7 @@
 							})
 						}
 						if(res.statusCode==201){
-							uni.navigateTo({
-								url:'../login/login'
-							})
+							this.shade=true
 						}
 						
 					},
@@ -243,6 +241,11 @@
 					complete: () => {}
 				});
 				 
+			},
+			sure:function(){
+				uni.navigateTo({
+					url:'../login/login'
+				})
 			}
 		}
 	}
@@ -324,5 +327,37 @@
 		line-height: 57rpx;
 		text-align: center;
 	}
-	
+	.shade{
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.5);
+		z-index:99;
+	}
+	.pop{
+		width:500rpx;
+		height:250rpx;
+		margin:450rpx auto 0;
+		background: #fff;
+		border-radius: 20rpx;
+	}
+	.pop-title{
+		text-align: center;
+		font-size: 32rpx;
+		color:#121212;
+		line-height: 150rpx;
+	}
+	.pop-btn{
+		width:126rpx;
+		height:56rpx;
+		margin:20rpx auto 0;
+		border-radius: 10rpx;
+		background: #121212;
+		color: #fff;
+		font-size: 30rpx;
+		text-align: center;
+		line-height: 56rpx;
+	}
 </style>
