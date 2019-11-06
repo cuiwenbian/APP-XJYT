@@ -99,71 +99,6 @@ export default {
 			},
 			success(res) {
 				console.log(res);
-
-<<<<<<< HEAD
-			},
-			onDelete() {
-				this.numberList.pop();
-			},
-			onConfirm() {
-				uni.showToast({
-					title: '完成输入！',
-					duration: 2000,
-					icon: 'none'
-				})
-
-		},
-		    close(){
-			  this.$refs['number'].close();
-		    },
-		
-		
-		//点击删除按钮
-		click:function(item){
-			var that=this;
-			that.id=item.id;
-			// console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
-			uni.request({
-				url:this.urll+'updatadeleteaddress/',
-				method:'DELETE',
-				data:{
-					id:that.id,
-					password:that.password
-				},
-				header:{
-					Authorization:'JWT'+' '+this.global_.token
-				},
-				success(res) {
-					console.log(res)
-					if(res.statusCode==204){
-						uni.showToast({
-							title:'删除成功',
-							icon:'none',
-							duration:2000
-						})
-                        var page = getCurrentPages().pop();
-                        if (page == undefined || page == null) return; 
-                        page.onLoad(); 
-					}
-					if(res.statusCode==200){
-						uni.showToast({
-							title:'资金密码错误',
-							icon:'none',
-							duration:2000
-						})
-					
-                    }
-                   }
-				})
-			},
-			//点击添加按钮
-			add: function() {
-				uni.navigateTo({
-					url: '../add-address/add-address?flag=' + this.flag,
-					success: res => {},
-					fail: () => {},
-					complete: () => {}
-=======
 				if (res.data.data == '') {
 					that.flag = false;
 				} else {
@@ -231,14 +166,10 @@ export default {
 						if (page == undefined || page == null) return;
 						page.onLoad();
 					}
->>>>>>> 9e45d2acfc5396f5859d6c0320bf7af550a90f4e
+
 				});
 			}
-<<<<<<< HEAD
-		
-      }  
-	}
-=======
+
 		},
 		//点击删除按钮
 		click: function(item) {
@@ -279,7 +210,7 @@ export default {
 		}
 	}
 };
->>>>>>> 9e45d2acfc5396f5859d6c0320bf7af550a90f4e
+
 </script>
 
 <style>

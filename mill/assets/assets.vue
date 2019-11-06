@@ -1,157 +1,3 @@
-<<<<<<< HEAD
-
-<template>
-    <view class="container">
-
-		 <view class="height"></view>
-        <view class="box">
-            <text class="assets">总资产</text>
-            <view class="number">{{num}}   FIL</view>
-            <text class="coin">可用币  {{ber}}</text>
-            <text class="lock">锁定币  {{nuber}}</text>
-
-        </view>
-        <view class="btn">
-            <button class="primary">提交</button>
-            <button class="primary1" @click="btn">转账</button>
-        </view>
-        <view class="haide">
-            <view class="swiper-tab">
-            	<view v-for="(item, index) in navList" :key="index" class="tab-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
-            		{{item.text}}
-            	</view>
-            </view>
-            <view class="list" v-if="tabCurrentIndex === 0" >
-                    <view>
-                    	<view v-if="flag" >
-                    		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-                    		<view class="info">暂无记录</view>
-                    	</view>
-                   	<view v-else class="boxx" >
-                    		
-                              <div class="item">
-                                  <text class="all1">Filecoin:{{month_profit}}</text>
-                              	<dyDatePicker class="zqy" mode="date"  :placeholder="date" timeType="month" @getData="DateChange" minSelect="2000/01/01" maxSelect="2025/12/31"></dyDatePicker>
-                              </div>
-                    		
-                    		<view class="list-one"  v-for="(item , index) in ention" :key="index">
-                    			<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-                    			<view class='list-txt'>
-                    				<view class='list-info'>收款</view>
-                    				<view class='list-time'>{{item.add_time}}</view>
-                    			</view>
-                    			<view class='list-income'>+{{item.num}}</view>
-                    		</view>
-                    </view>
-                </view>
-            </view>
-            <view class="list" v-if="tabCurrentIndex === 1">
-                <scroll-view scroll-y='true'>
-                    <view>
-                        	<view v-if="flag" >
-                        		<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-                        		<view class="info">暂无记录</view>
-                        	</view>
-                       	<view v-else class="boxx" >
-                                    <div class="item">
-                                        <text class="all1">Filecoin:{{month_profit}}</text>
-                                    	<dyDatePicker class="zqy" mode="date"  :placeholder="date" timeType="month" @getData="DateChang" minSelect="2000/01/01" maxSelect="2025/12/31"></dyDatePicker>
-                                    </div>
-                        		<view class="list-one"  v-for="(item , index) in entin" :key="index">
-                        			<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-                        			<view class='list-txt'>
-                        				<view class='list-info'>转出</view>
-                        				<view class='list-time'>{{item.add_time}}</view>
-                        			</view>
-                        			<view class='list-income'>+{{item.num}}</view>
-                        		</view>
-                        </view>
-                    </view>
-                </scroll-view>
-            </view>
-            </view>
-        </view>
-    </view>
-</template>
-
-<script>
-    import dyDatePicker from '../../common/dy-Date.vue'
-    export default {
-        components: {
-        	dyDatePicker
-        },
-        data(){
-            return {
-                num:'',
-                ber:'',
-                nuber:'',
-				fee:'',
-                add_time:'',
-                month_profit:'',
-                numm:'',
-                to_minSelect: '1900/01/01',
-                to_maxSelect: '2050/12/31',
-
-                tabCurrentIndex:0,
-                add_item:'',
-                entin:'',
-                flag:false,
-                ention:'',
-                selectShow: false,
-                //控制下拉列表的显示隐藏，false隐藏、true显示
-               
-                //下拉列表的数据
-                index: 0,
-                //选择的下拉列表下标
-                navList: [
-                	{
-                		state: 0,
-                		text: '收入记录'
-                	
-                	},
-                	{
-                		state: 1,
-                		text: '支出记录'
-                		
-                	}
-                ],
-                date: '本月',
-                teran:''
-               
-            }
-        },
-        onLoad:function (opetions) {
-            var that = this
-
-            var data = new Date()
-            var text = data.getFullYear('-')
-            var txt = data.getMonth()
-            var teran = text+ '-' +txt
-            that.teran = teran
-
-            uni.request({
-                url:this.url + "assets/",
-                method:'GET',
-                header:{
-                    Authorization:'JWT'+' '+this.global_.token
-                },
-                success(res) {
-
-                   console.log(res)
-                   that.num = res.data.availed_num
-                   that.ber = res.data.fil_count
-                   that.nuber = res.data.locked_num
-                   that.fee=res.data.fee
-
-                }
-            })
-            uni.request({
-                url:this.url + 'assets/month/profit/',
-                method:'GET',
-				data:{
-					month:that.selectData[that.index]
-=======
-
 <template>
 	<view class="container">
 
@@ -181,16 +27,11 @@
 						<view class="info">暂无记录</view>
 					</view>
 					<view v-else class="boxx">
-						<view class="linee">
-							<view class="cu-form-group">
-								<picker mode="date" :value="date" @change="DateChange">
-									<view class="picker">
-										{{date}}
-									</view>
-								</picker>
-							</view>
-							<text class="all1">Filecoin:{{month_profit}}</text>
-						</view>
+						
+							<div class="item">
+								<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
+                            </div>
+                            <text class="all1">Filecoin:{{month_profit}}</text>
 						<view class="list-one" v-for="(item , index) in ention" :key="index">
 							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 							<view class='list-txt'>
@@ -210,16 +51,12 @@
 							<view class="info">暂无记录</view>
 						</view>
 						<view v-else class="boxx">
-							<view class="linee">
-								<view class="cu-form-group">
-									<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChang">
-										<view class="picker">
-											{{date}}
-										</view>
-									</picker>
-								</view>
+							
+                                <div class="item">
+                                	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+                                </div>
 								<text class="all1">Filecoin:{{month_profit}}</text>
-							</view>
+							
 							<view class="list-one" v-for="(item , index) in entin" :key="index">
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
@@ -238,6 +75,7 @@
 </template>
 
 <script>
+    import dyDatePicker from '../../common/dy-Date.vue'
 	export default {
 		data() {
 
@@ -275,6 +113,9 @@
 
 			}
 		},
+        components: {
+        	dyDatePicker
+        },
 		onLoad: function(opetions) {
 			var that = this
 
@@ -290,7 +131,6 @@
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
 
->>>>>>> 9e45d2acfc5396f5859d6c0320bf7af550a90f4e
 				},
 				success(res) {
 					console.log(res)
@@ -304,9 +144,6 @@
 			uni.request({
 				url: this.url + 'assets/month/profit/',
 				method: 'GET',
-				data: {
-					month: that.selectData[that.index]
-				},
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
@@ -439,8 +276,8 @@
 						that.entin = entin
 						console.log(entin)
 						that.month_profit = seront.month_bill
-						that.add_item = ention[0].add_time
-						that.numm = ention[0].num
+						that.add_item = entin[0].add_time
+						that.numm = entin[0].num
 
 
 					}
@@ -477,7 +314,7 @@
 
 
 	.item {
-		width: 100%;
+
 		height: 70rpx;
         font-size: 22rpx;
 		background-color: #EDEDED;
@@ -487,12 +324,6 @@
 		text-align: left;
 	}
 
-	.item .lable {
-		position: absolute;
-		left: 20rpx;
-		top: 0rpx;
-		color: #333333;
-	}
 
 	.assets {
 		text-align: center;
@@ -578,13 +409,7 @@
 		font-size: 32rpx;
 	}
 
-	.linee {
-		width: 100%;
-		height: 10rpx;
-        padding-top: 40rpx;
-        box-sizing: border-box;
-        background-color: #EDEDED;
-	}
+
 
 
 	.all1 {
@@ -592,7 +417,6 @@
 		font-size: 30rpx;
 		color: #333;
 		margin-right: 48rpx;
-
 	}
 
 	.list {

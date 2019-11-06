@@ -31,8 +31,7 @@
                 <view class='boo_img3'  >
                       <checkbox-group class="block" @change="CheckboxChange">
                       	<view class="cu-form-group margin-top">
-                            <checkbox :class="checkbox[0].checked?'checked':''" :checked="checkbox[0].checked?true:false" value="A"></checkbox>
-                      		<!-- <checkbox :class="checkbox[index].checked?'checked':''" :checked="checkbox[0].index?true:false" :value="item.machine_id"></checkbox> -->
+                      		<checkbox :class="checkbox[0].checked?'checked':''" :checked="checkbox[0].index?true:false" :value="item.machine_id"></checkbox>
                       	</view>
                       </checkbox-group>
 <!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>

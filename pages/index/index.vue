@@ -134,8 +134,8 @@
                 success(res) {
                     console.log(res.data)
                     var opent = res.data
-                    console.log(opent[0].notice)
-                    that.notice = opent[0].notice
+                    // console.log(opent[0].notice)
+                    // that.notice = opent[0].notice
                    
                 }
             })

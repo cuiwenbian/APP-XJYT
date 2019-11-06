@@ -170,14 +170,8 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-<<<<<<< HEAD
-		background: #091219;
-		border-radius: 10rpx;
-        font-size: 30rpx;
-=======
 		background: #444343;
 		border-radius: 80rpx;
->>>>>>> 9e45d2acfc5396f5859d6c0320bf7af550a90f4e
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;
