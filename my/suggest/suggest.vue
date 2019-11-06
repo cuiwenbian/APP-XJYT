@@ -1,7 +1,16 @@
 <template>
 	<!-- 建议反馈 -->
 	<view class="container" style="position: relative;">
-		<view v-if='flag' v-for="item in messages" :key='item.id' @click='detail(item)'>
+		<view v-if='flag'>
+			<view class="box"></view>
+			<view>
+				<image class="none" src="../../static/images/machine.png" mode=""></image>
+				<view class="tips">
+					您还没有提交反馈!
+				</view>
+			</view>
+		</view>
+		<view v-else v-for="item in messages" :key='item.id' @click='detail(item)'>
 			<view class='t'></view>
 			<view class="suggest-list">
 				<view class='time'>
@@ -19,15 +28,7 @@
 				</view>
 			</view>
 		</view>
-		<view v-else>
-			<view class="box"></view>
-			<view>
-				<image class="none" src="../../static/images/machine.png" mode=""></image>
-				<view class="tips">
-					您还没有提交反馈!
-				</view>
-			</view>
-		</view>
+		
 		<view class="newadd" @click="addMessage">
 			提交建议
 		</view>
@@ -39,16 +40,12 @@
 				<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
 			</view>
 		</view>
-		<view class="shade" v-show="shade">
-			<view class="pop">
-				<view class='pop-title'>用户身份未认证</view>
-				<view class='pop-btn' @click='identity'>去认证</view>
-			</view>
-		</view>
+		
 	</view>
 </template>
 
 <script>
+	
 	export default{
 		data(){
 		  return{
@@ -56,9 +53,10 @@
 			  hidden:true,
 			  title:'',
 			  desc:'',
-			  shade:false,
+			  //shade:false,
 			  messages:'',
-			  id:''
+			  id:'',
+			  add_time:''
 		  }	
 		},
 		onLoad() {
@@ -75,16 +73,17 @@
 				},
 				success(res) {
 					console.log(res);
-					// console.log(res.data.data[0])
-					_this.messages=res.data.data;
 					if(res.data.data==''){
-						_this.flag=false
-					}else{
 						_this.flag=true
+					}else{
+						_this.flag=false
 					}
+					_this.messages=res.data.data;
+		
 					
 				}
 			})
+		    
 		},
 		methods:{
 			getTitleContent:function(e){

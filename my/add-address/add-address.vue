@@ -63,7 +63,7 @@
 					},
 					success(res) {
 						console.log(res)
-						if(res.statusCode==400){
+						if(res.statusCode==202){
 							uni.showToast({
 								title:'地址格式不正确',
 								icon:'none',
@@ -142,7 +142,7 @@
 		width:654rpx;
 		height:90rpx;
 		background: #444343;
-		border-radius: 10rpx;
+		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;

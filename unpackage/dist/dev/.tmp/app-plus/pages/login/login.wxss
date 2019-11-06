@@ -2,6 +2,10 @@
 page{
 	background: #121212;
 }
+@font-face {
+font-family: mFont;
+src: url(../../static/fonts/SoukouMincho-2.08c3969b.ttf);
+}
 .logo{
 	width:185rpx;
 	height:185rpx;
@@ -13,6 +17,7 @@ page{
 	line-height: 100rpx;
 	text-align: center;
 	color: #fff;
+	font-family: mFont;
 	font-size: 64rpx;
 	margin-bottom: 100rpx;
 }
@@ -26,9 +31,10 @@ page{
 .icon{
 	float:left;
     display: block;
-	width:50rpx;
-	height:50rpx;
-	margin-top:25rpx;
+	width:40rpx;
+	height:40rpx;
+	margin-top:30rpx;
+	margin-left: 10rpx;
 }
 .number{
 	float:right;

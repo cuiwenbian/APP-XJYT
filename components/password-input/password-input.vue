@@ -71,7 +71,6 @@
 		margin:0;
 	}
 	.boxx {
-		
 	  width: 600rpx;
 	  height: 380rpx;
 	  background: #F5F5F5;

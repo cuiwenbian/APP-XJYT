@@ -18,7 +18,13 @@
     	flex-direction: column;
     	box-sizing: border-box;
     	background-color: #FFFFFF;
+		font-family: fontGlobal;
     }
+	@font-face{
+	   font-family: fontGlobal;
+	   src: url('static/font/SourceHanSerifCN-Regular-1.otf');
+	}
+	
     .example{
         padding: 0 30upx 30upx;
     }

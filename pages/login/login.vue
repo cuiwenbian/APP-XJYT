@@ -20,7 +20,7 @@
 			注册
 		</navigator>
 		<view class="agree">
-			<image class='checks' @click.native.stop='save' :src="checked?'../../static/images/check.png':'../../static/images/checked.png'" mode=""></image>
+			
 			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
 			
 		</view>
@@ -37,14 +37,12 @@
 				show:false,
 				phone:'',
 				password:'',
-				checked:true
+			
 			};
 		},	
 		
 		methods:{
-			save:function(){
-				this.checked=!this.checked
-			},
+			
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
@@ -67,15 +65,7 @@
 			},
 			login() {
 				var _self=this;
-				//this.$refs.popup.open()
-				// if(_self.checked=true){
-				// 	uni.showToast({
-				// 		title:'请先阅读并同意协议',
-				// 		icon:'none',
-				// 		duration:2000
-				// 	})
-				// 	return false
-				// }
+				
 				if(this.phone==""){
 					uni.showToast({
 						icon:'none',
@@ -155,7 +145,10 @@
 	page{
 		background: #121212;
 	}
-	
+	@font-face {
+	font-family: mFont;
+	src: url('../../static/font/SoukouMincho-2.ttf');
+	}
 	.logo{
 		width:185rpx;
 		height:185rpx;
@@ -167,8 +160,10 @@
 		line-height: 100rpx;
 		text-align: center;
 		color: #fff;
+		font-family: mFont;
 		font-size: 64rpx;
 		margin-bottom: 100rpx;
+		
 	}
 	.enter{
 		
@@ -180,9 +175,10 @@
 	.icon{
 		float:left;
 	    display: block;
-		width:50rpx;
-		height:50rpx;
-		margin-top:25rpx;
+		width:40rpx;
+		height:40rpx;
+		margin-top:30rpx;
+		margin-left: 10rpx;
 	}
 	.number{
 		float:right;

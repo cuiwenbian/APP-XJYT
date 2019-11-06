@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	var check= require("../../common/utils.js");
+	var check= require("../../common/utils.js"); 
 	export default{
 		data(){
 			return{
@@ -69,7 +69,7 @@
 				 }
 				 uni.request({
 					 //绑定邮箱验证码
-				 	url: this.url+'binding/',
+				 	url: this.urll+'binding/',
 				 	method:'POST',
 				 	data:{
 						email:that.email
@@ -125,7 +125,7 @@
 					return false
 				}
 				uni.request({
-					url:this.url+'linkemail/',
+					url:this.urll+'linkemail/',
 					method:"POST",
 					data:{
 						email:this.email,
@@ -205,7 +205,7 @@
 		width:654rpx;
 		height:90rpx;
 		background: #444343;
-		border-radius: 10rpx;
+		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;

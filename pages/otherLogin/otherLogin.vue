@@ -45,14 +45,14 @@ export default {
 		      var _this = this;
 		      //判断手机号格式
 		      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-		      if (this.phone == "") {
+		      if (_this.phone == "") {
 		        uni.showToast({
 		          title: '手机号不能为空',
 		          icon: 'none',
 		          duration: 1000
 		        })
 		        return false;
-		      } else if (!myreg.test(this.phone)) {
+		      } else if (!myreg.test(_this.phone)) {
 		        uni.showToast({
 		          title: '请输入正确的手机号',
 		          icon: 'none',
@@ -63,7 +63,7 @@ export default {
 		        uni.request({
 		          method: 'POST',
 		          data: {
-		            mobile: this.phone,
+		            mobile: _this.phone,
 		          },
 		            //短信接口
 		          'url': _this.url + 'users/forgot/sms/',
@@ -118,14 +118,14 @@ export default {
 			// var pre = that.data;
 			var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
 
-			if (this.phone == '') {
+			if (_this.phone == '') {
 				uni.showToast({
 					title: '手机号不能为空',
 					icon: 'none',
 					duration: 1000
 				});
 				return false;
-			} else if (!myreg.test(this.phone)) {
+			} else if (!myreg.test(_this.phone)) {
 				uni.showToast({
 					title: '请输入正确的手机号',
 					icon: 'none',
@@ -133,14 +133,14 @@ export default {
 				});
 				return false;
 			}
-			if (this.code == '') {
+			if (_this.code == '') {
 				uni.showToast({
 					title: '验证码不能为空',
 					icon: 'none',
 					duration: 1000
 				});
 				return false;
-			} else if (this.code != this.iscode) {
+			} else if (_this.code != _this.iscode) {
 				uni.showToast({
 					title: '验证码错误',
 					icon: 'none',
@@ -148,17 +148,17 @@ export default {
 				});
 				return false;
 			} else {
-				uni.setStorageSync('phone', this.phone);
+				//uni.setStorageSync('phone', this.phone);
 				uni.request({
-					url:this.url+'users/login/',
+					url:_this.url+'users/login/',
 					method:'POST',
 					data:{
-						mobile:this.phone,
-						code:this.code
+						mobile:_this.phone,
+						code:_this.code
 					}, 
 					success(res) {
 						console.log(res);
-						_this.global_.phone=this.phone;
+						_this.global_.phone=_this.phone;
 						_this.global_.token=res.data.data;
 						console.log(res.data.data)
 						if(res.statusCode==400){
