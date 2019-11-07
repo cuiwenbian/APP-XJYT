@@ -1,6 +1,5 @@
 <template>
 	<view class="container">
-
 		<view class="height"></view>
 		<view class="box">
 			<text class="assets">总资产</text>
@@ -298,18 +297,14 @@
 		height: var(--status-bar-height);
 		background-color: #121212;
 	}
-
 	.box {
 		width: 100%;
 		height: 400rpx;
 		background-color: #121212;
 	}
-
 	.boxx {
 		height: 100%;
 	}
-
-
 	.item {
 		height: 70rpx;
         font-size: 22rpx;
@@ -319,8 +314,6 @@
 		/* margin-bottom: 20rpx; */
 		text-align: left;
 	}
-
-
 	.assets {
 		text-align: center;
 		padding-top: 80rpx;
@@ -329,7 +322,6 @@
 		float: left;
 		color: #FFFFFF;
 	}
-
 	.number {
 		height: 300rpx;
 		padding-left: 268rpx;

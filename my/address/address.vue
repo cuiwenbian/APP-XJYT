@@ -158,15 +158,15 @@ export default {
 								duration: 2000
 							});
 						}
-						
-					}
-
+						var page = getCurrentPages().pop();
+						if (page == undefined || page == null) return;
+						page.onLoad();
+					},
+                   
 				});
 			}
 
-			var page = getCurrentPages().pop();
-			if (page == undefined || page == null) return;
-			page.onLoad();
+			
 
 		},
 		//点击删除按钮

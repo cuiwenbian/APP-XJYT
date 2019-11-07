@@ -1878,13 +1878,6 @@ swiper-item image {
         margin-left: 15rpx;
         border-radius: 8rpx;
 }
-    /*   .clor{
-        width: 93%;
-        float: left;
-        color: #FFFFFF;
-        line-height: 100rpx;
-        font-size: 30rpx;
-    } */
 .g {
         width: 28rpx;
         height: 28rpx;

@@ -113,7 +113,10 @@
                 pixelRatio:1,
                 notice:'',
                 csgo:'',
-                s:'123987998449898'
+                s:'123987998449898',
+                time:[],
+                price:[],
+                usd:''
 			}
              
 		},
@@ -122,9 +125,9 @@
             var that = this
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
-            this.getServerData();
-			console.log(this.global_.token);
-			console.log(this.global_.phone)
+            _self.getServerData();
+		//	console.log(this.global_.token);
+		//	console.log(this.global_.phone)
             
             uni.request({
                 url:this.url + 'home/',
@@ -133,9 +136,9 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res)
+               //     console.log(res)
                     var csgo = res.data
-                    console.log(csgo)
+               //     console.log(csgo)
                     that.csgo = csgo
                     // console.log(opent[0].notice)
                     // that.notice = opent[0].notice
@@ -145,13 +148,61 @@
         },
 		methods: {
             getServerData(){
+                var that=this;
             	uni.request({
             			url: 'https://www.ipcn.xyz/api/v1/filecoin/',
             			method: 'GET',
             			success: function(res) {
-                            console.log(res)
+                          //  console.log(res)
+                            if(res.data.code==200){
+                                 //转换时间戳
+                                 function formatDate(value) {
+                                     let date = new Date(value);
+                                     let y = date.getFullYear();
+                                     let MM = date.getMonth() + 1;
+                                     MM = MM < 10 ? ('0' + MM) : MM;
+                                     let d = date.getDate();
+                                     d = d < 10 ? ('0' + d) : d;
+                                     let h = date.getHours();
+                                     h = h < 10 ? ('0' + h) : h;
+                                     let m = date.getMinutes();
+                                     m = m < 10 ? ('0' + m) : m;
+                                     let s = date.getSeconds();
+                                     s = s < 10 ? ('0' + s) : s;
+                                     // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+                                     return  MM + '-' + d ;
+                                 };
+                                                                 
+                                 that.usd = res.data.data.data.data;
+                                // console.log(that.usd)
+                                 var time = [];
+                                 var price = [];
+                                 for (var i = 0; i < that.usd.length; i+=60) {
+                                     var shuzu = that.usd[i][0];
+                                     var formatTime = formatDate(shuzu*1000, 'yyyy-MM-dd ');
+                                     time.push(formatTime);
+                                     that.time=time;
+                                    // console.log(that.time)
+                                 }
+                                 for (var j = 0; j < that.usd.length; j+=60) {
+                                     var p = that.usd[j][1];
+                                     p = p.toFixed(2);//保留2位但结果为一个String类型
+                                     p = parseFloat(p);//将结果转换会float
+                                     //用一步的话如下
+                                     //a = parseFloat(a.toFixed(2));
+                                     price.push(p);
+                                     that.price=price;
+                                   //  console.log(that.price)
+                                 }
+                                 let LineA={list:[]};
+                                 //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+                                 LineA.list=that.usd;
+                                 _self.showLineA("canvasLineA",this.usd);                      
+                            }
             			},
             		});
+                    console.log(that.time)
+                    console.log(that.price)
             	},
             	showLineA(canvasId,chartData){
             		canvaLineA=new uCharts({
@@ -164,18 +215,18 @@
             			dataPointShape:false,
             			background:'#FFFFFF',
             			pixelRatio:_self.pixelRatio,
-            			categories: ["2012", "2013", "2014", "2015", "2016", "2017"],//数据类别(饼图.圆环图不需要)
+            			categories: _self.time,//数据类别(饼图.圆环图不需要)
             			series: [   //数据列表
             			          {
             			            name: "FIL数量", //数据名称
-            			            data: [], //数据
+            			            data: _self.price, //数据
             			            color: "#fff" //颜色,不传入则使用系统默认配色方案
             			          }
             			],
             			animation: true,
             			xAxis: {
             				type:'grid',						
-            				gridColor:'#f1f1f1',
+            				gridColor:'#333535',
             				disableGrid:true,
             				gridType:'solid',
             				dashLength:8
@@ -183,11 +234,11 @@
             			yAxis: {
                             // disabled:true, //不绘制Y轴网格
             				gridType:'solid',
-            				gridColor:'#f1f1f1',
+            				gridColor:'#333535',
             				dashLength:8,
             				splitNumber:5,
-            				min:0,
-            				max:80,
+            				min:3,
+            				max:6,
             				format:(val)=>{return val.toFixed(0)}
             			},
             			width: _self.cWidth*_self.pixelRatio,
@@ -199,8 +250,14 @@
             				}
             			}
             		});
-            		
-            }
+            	 },
+                     touchLineA(e) {
+                     	canvaLineA.showToolTip(e, {
+                     		format: function (item, category) {
+                     			return category + ' ' + item.name + ':' + item.data 
+                     		}
+                     	});
+                     }
 		}
 	}
 </script>
@@ -214,22 +271,14 @@
     	background-color: #FFFFFF;
     }
     
-    .charts {
-    	width: 750upx;
-    	height: 500upx;
-    	background-color: #FFFFFF;
-    }
+  
     page {
         background-color: #121212;
     }
     .charts {
       width: 100%;
       height: 600rpx;
-      padding-left:20rpx;
-      padding-right: 20rpx;
-      /* padding-top:10rpx; */
-      box-sizing: border-box;
-      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      background: linear-gradient(to bottom,#121212, #212121); 
       position: relative;
     }
     .fz{
@@ -266,13 +315,7 @@
         margin-left: 15rpx;
         border-radius: 8rpx;
     }
-/*   .clor{
-        width: 93%;
-        float: left;
-        color: #FFFFFF;
-        line-height: 100rpx;
-        font-size: 30rpx;
-    } */
+
     .g {
         width: 28rpx;
         height: 28rpx;
