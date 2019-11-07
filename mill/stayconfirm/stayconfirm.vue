@@ -94,7 +94,6 @@
                 type:'买入',
                 state:'',
                 mill:'',
-                price:'',
                 rmb:'',
                 x:'',
                 fanta:'',
@@ -112,7 +111,8 @@
             console.log(fanta)
             
             var ig = that.fanta[1]
-            thatig = that.fanta[1]
+            that.ig = that.fanta[1]
+            
             that.state = fanta[0][0].order_status
             if(that.state == 102) {
                 that.state = '待确认'

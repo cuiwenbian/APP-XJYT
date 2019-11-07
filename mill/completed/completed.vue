@@ -111,8 +111,8 @@
             var geunt = that.bsow[1]
             that.geunt = that.bsow[1]
             that.state = bsow[0][0].order_status
-            if(that.state == 103) {
-                that.state = '待审核'
+            if(that.state == 104) {
+                that.state = '已完成'
             }
             that.mill = bsow[0][0].sale_num
             that.price = bsow[0][0].sale_money

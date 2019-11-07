@@ -110,7 +110,7 @@
             var that = this
             console.log(option)
             var cander = JSON.parse(option.dospp)
-            that.cander = cander[1]
+            that.cander = cander
             console.log(cander)
             
             var hberd = that.cander[1]
