@@ -10,13 +10,16 @@
                     <text class="smallxx">{{state}}</text>
                 </text>
             </view>
-            <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
-            </view>
-            <view class="small">
+            <view class="small">                
                 <text>交易总价:
                     <text class="smallxx">{{price}}</text>
                 </text>
+                <text class="ser">
+                    矿机数量:<text class="smallxx">{{mill}}</text>台
+                </text>
+            </view>
+            <view class="small">
+
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -161,6 +164,10 @@
  .sam{
      float: right;
      font-size: 28rpx;
+     margin-right: 48rpx;
+ }
+ .ser {
+     float: right;
      margin-right: 48rpx;
  }
  .aa {

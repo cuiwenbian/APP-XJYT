@@ -103,7 +103,7 @@
 		height: 90rpx;
 		line-height: 90rpx;
 		padding-left: 48rpx;
-     font-size: 25rpx;
+     font-size: 28rpx;
      color: #333333;
 }
 .numbe{

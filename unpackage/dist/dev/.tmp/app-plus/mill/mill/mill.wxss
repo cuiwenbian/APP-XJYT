@@ -971,6 +971,7 @@
     	margin: 150rpx auto 20rpx;
 }
 .infoo{
+        margin-left: 10rpx;
     	text-align: center;
     	font-size: 32rpx;
 }
@@ -984,10 +985,10 @@
 }
 .tee{
         float: right;
-        margin-top: -4rpx;
+        margin-top: 60rpx;
         width: 40rpx;
         height: 40rpx;
-        margin-right: 20rpx;
+        margin-right: 90rpx;
         /* display: none; */
 }
 .primary{
@@ -1063,9 +1064,10 @@
         margin-left: 48rpx;
 }
 .info{
-        width: 70%;
+        width: 50%;
         height: 100%;
-        float: right;
+        margin-left: 20rpx;
+        float: left;
 }
 .obg{
         margin-top: 20rpx;

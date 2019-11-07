@@ -52,25 +52,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in ction" :key="index">
+        <view class="box3" v-for="(item , index) in vior" :key="index">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
             <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -90,47 +90,40 @@
                 state:'',
                 mill:'',
                 price:'',
+                vior:'',
                 rmb:'',
-                usedisk:'',
                 x:'',
                 time:'',
                 name:'',
-                poirk:'',
                 contact:'',
-                num:'',
-                day:'',
-                remaining:''
             }
         },
         onLoad(option) {
             var that = this
             console.log(option)
             var ction = JSON.parse(option.mvvp)
-            that.ction = ction[1]
-            console.log(ction)
+            that.ction = ction
+            console.log(that.ction)
+            
+            var vior = that.ction[1]
+            that.vior = that.ction[1]
             that.state = ction[0][0].order_status
             if(that.state == 101) {
                 that.state = '待付款'
             }
-            that.mill = ction[0][0].sale_num
-            that.price = ction[0][0].sale_money
-            that.x = ction[0][0].order_num
-            that.name = ction[0][0].name
-            that.contact = ction[0][0].mobile
+            that.mill = that.ction[0][0].sale_num
+            that.price = that.ction[0][0].sale_money
+            that.x = that.ction[0][0].order_num
+            that.name = that.ction[0][0].name
+            that.contact = that.ction[0][0].mobile
             
-            that.num = ction[1][1].name
-            that.xx = ction[1][1].number
-            that.day = ction[1][1].usedays
-            that.remaining = ction[1][1].residuedays
-            that.usedisk = ction[1][1].data_hard_disk
-            that.poirk = ction[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            btn:function () {
-                var that = this
-            }
+            // btn:function () {
+            //     var that = this
+            // }
         }
     }
 </script>

@@ -12,12 +12,15 @@
                     </text>
                 </view>
                 <view class="small">
-                    矿机数量:<text class="smallxx">{{mill}}</text>台
-                </view>
-                <view class="small">
-                    <text>交易总价:&nbsp;&nbsp;&nbsp;
+                    <text>交易总价:
                         <text class="smallxx">{{price}}</text>
                     </text>
+                    <text class="ser">
+                        矿机数量:<text class="smallxx">{{mill}}</text>台
+                    </text>
+                </view>
+                <view class="small">
+                   
                     <text class="smallx1">人民币:
                         <text class="lop">{{rmb}}</text>
                     </text>
@@ -60,21 +63,21 @@
             <view class="box1">
                 商品信息
             </view>
-            <view class="box3" v-for="(item , index) in datn" :key="index">
+            <view class="box3" v-for="(item , index) in stw" :key="index">
                 <view>
                     <image class="img" src="../../static/images/kuangji.png" mode=""></image>
                 </view>
                 <view>
                     <view class="small2">
                         专业版:
-                        <text class="aa">{{data_hard_disk}}</text>
-                        <text class="smal">{{number}}</text>
+                        <text class="aa">{{item.name}}</text>
+                        <text class="smal">{{item.number}}</text>
                     </view>
                     <view class="small3">
-                        <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                        <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                     </view>
                     <view class="small3">
-                        <text class="smalx">储存{{usedisk}} | 总容量{{poirk}}T</text>
+                        <text class="smalx">储存{{item.data_hard_disk}} | 总容量{{item.usedisk}}T</text>
                     </view>  
                 </view>
             </view>
@@ -94,45 +97,42 @@
                 datn:'',
                 state:'',
                 mill:'',
+                // conti:'',
+                stw:'',
                 price:'',
                 rmb:'',
                 x:'',
                 time:'',
                 name:'',
-                data_hard_disk:'',
-                number:'',
                 contact:'',
                 num:'',
-                day:'',
-                usedisk:'',
-                remaining:'',
-                poirk:''
             }
         },
         onLoad(option) {
-
+            
             var that = this
             var datn = JSON.parse(option.aser)
             console.log(option.aser)
-            this.datn = datn
-            console.log(this.datn)
-            console.log(this.datn[0][0].order_status)
-            that.state = this.datn[0][0].order_status
-            that.mill = this.datn[0][0].sale_num
-            that.price = this.datn[0][0].sale_money
-            that.x = this.datn[0][0].mobile
-            that.name = this.datn[0][0].name
-            that.contact = this.datn[0][0].mobile
+            that.datn = datn
+            console.log(that.datn)
+            
+            // var conti = that.datn[0]
+            // that.conti = that.datn[0]
+            
+            var stw = that.datn[1]
+            that.stw = that.datn[1]
+            that.state = that.datn[0][0].order_status
+
+            that.mill = that.datn[0][0].sale_num
+
+            that.price = that.datn[0][0].sale_money
+            that.x = that.datn[0][0].order_num
+            that.name = that.datn[0][0].name
+            that.contact = that.datn[0][0].mobile
             if(that.state == 101) {
                 that.state = '待付款'
             }
-            console.log(this.datn[1][1].name)
-            that.data_hard_disk = this.datn[1][1].name
-            that.number = this.datn[1][1].number
-            that.day = this.datn[1][1].usedays
-            that.remaining = this.datn[1][1].residuedays
-            that.usedisk = this.datn[1][1].data_hard_disk
-            that.poirk = this.datn[1][1].usedisk
+            
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -177,6 +177,10 @@ page {
   .smallx1{
       float: left;
       
+  }
+  .ser {
+      float: right;
+      margin-right: 48rpx;
   }
   .small1{
       box-sizing: border-box;
