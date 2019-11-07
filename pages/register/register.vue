@@ -2,7 +2,8 @@
 	<!-- 注册 -->
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
-		<view class='fil'>Filecoin</view>
+		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
+		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
 			<input class="number" type="number" @input='getPhoneValue' @blur="getNumber" :value="phone" placeholder="请输入手机号" />
@@ -17,7 +18,7 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
+			<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
@@ -262,12 +263,11 @@
 		margin-left: calc((100% - 185rpx)/2);
 	}
 	.fil{
+		width:250rpx;
 		height:100rpx;
-		line-height: 100rpx;
-		text-align: center;
-		color: #fff;
-		font-size: 64rpx;
-		margin-bottom: 50rpx;
+		display: block;	
+		margin:0 auto 100rpx;
+		
 	}
 	.enter{
 		

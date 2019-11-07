@@ -23,6 +23,10 @@ page {
     font-size: 28rpx;
     margin-right: 48rpx;
 }
+.ser {
+    float: right;
+    margin-right: 48rpx;
+}
 .aa {
     font-size: 30rpx;
 }

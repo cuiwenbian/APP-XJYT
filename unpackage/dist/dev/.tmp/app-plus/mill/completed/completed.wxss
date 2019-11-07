@@ -18,6 +18,10 @@ page {
     border-bottom: 1rpx solid #F2F2F2;
     font-size: 28rpx;
 }
+.re{
+    float: right;
+    margin-right: 48rpx;
+}
 .sam{
     float: right;
     font-size: 28rpx;

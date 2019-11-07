@@ -42,6 +42,10 @@ page {
       display: none;
       font-size: 18rpx;
 }
+.ser {
+      float: right;
+      margin-right: 48rpx;
+}
 .smallx {
       -webkit-box-sizing: border-box;
               box-sizing: border-box;

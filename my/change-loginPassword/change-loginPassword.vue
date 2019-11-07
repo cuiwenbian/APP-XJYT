@@ -8,7 +8,7 @@
 		<view class="linee"></view>
 		<view class="list">
 				<input class="code"  type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
-				<view class="getcode" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
+				<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
 		</view>
 		<view class="set">设置登录密码</view>
 		<view class="list">
@@ -99,8 +99,6 @@
 			          }
 			        })
 			
-			      
-			
 			},
 			//获取验证码
 			getCodeBtn: function(e){
@@ -116,6 +114,15 @@
 					  title: '请输入登录密码',
 					  icon: 'none',
 					  duration: 2000
+					})
+					return false
+				}
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				if(!str.test(this.pwd)){
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
 					})
 					return false
 				}
@@ -254,7 +261,7 @@
 		float: right;
 		display: block;
 		width:50rpx;
-		height:25rpx;
+		height:30rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
 		

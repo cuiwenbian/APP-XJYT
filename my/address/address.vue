@@ -112,7 +112,7 @@ export default {
 		clo: function() {
 			this.passIn = false;
 			this.$refs['number'].close();
-			this.numberList == '';
+			
 		},
 		onDelete() {
 			this.numberList.pop();
@@ -150,25 +150,23 @@ export default {
 								icon: 'none',
 								duration: 2000
 							});
-							var page = getCurrentPages().pop();
-							if (page == undefined || page == null) return;
-							page.onLoad();
 						}
 						if (res.statusCode == 200) {
-							that.password == '';
 							uni.showToast({
 								title: '资金密码错误',
 								icon: 'none',
 								duration: 2000
 							});
 						}
-						var page = getCurrentPages().pop();
-						if (page == undefined || page == null) return;
-						page.onLoad();
+						
 					}
 
 				});
 			}
+
+			var page = getCurrentPages().pop();
+			if (page == undefined || page == null) return;
+			page.onLoad();
 
 		},
 		//点击删除按钮
@@ -178,6 +176,7 @@ export default {
 			this.passIn = true;
 			this.$refs['number'].open();
 			this.onInput(val);
+			
 		},
 
 		//点击添加按钮
@@ -189,6 +188,7 @@ export default {
 				complete: () => {}
 			});
 		},
+		//返回 
 		back: function() {
 			uni.navigateBack({
 				delta: 1

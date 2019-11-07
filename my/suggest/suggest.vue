@@ -35,7 +35,7 @@
 		<view  :class="hidden?'cover1':'cover'">
 			<view class="frame">
 				<input class="title" type="text" :value="title" @input='getTitleContent' placeholder="标题"/>
-				<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述"/>
+				<textarea class="area" :value="desc" @input='getDescContent' placeholder="问题描述" placeholder-class="plac"/>
 				<view class="submit" @click='submit'>提交</view>
 				<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
 			</view>
@@ -79,7 +79,15 @@
 						_this.flag=false
 					}
 					_this.messages=res.data.data;
-		
+		            
+					for(let i=0;i<_this.messages.length;i++){
+						var t=_this.messages[i].add_time;
+						var t1=t.substr(0,10)+'  '+t.substr(11,19)
+						_this.messages[i].add_time=t1
+						var up=_this.messages[i].updated_time;
+						var up1=up.substr(0,10)+'  '+up.substr(11,19)
+						_this.messages[i].updated_time=up1
+					}
 					
 				}
 			})
@@ -196,7 +204,7 @@
 		line-height: 90rpx;
 		float:left;
 		font-size: 28rpx;
-		
+		color:#A0A0A0;
 	}
 	.status{
 		
@@ -207,7 +215,7 @@
 		font-size: 28rpx;
 	}
 	.question{
-		
+		color:#121212;
 		margin-top:20rpx;
 		margin-bottom:20rpx;
 		width:100%;
@@ -215,17 +223,18 @@
 	}
 	.tit{
 		width:100rpx;
-		height:45rpx;
+		height:90rpx;
 		float: left;
-		line-height: 45rpx;
+		line-height: 90rpx;
 		font-size: 28rpx;
 	}
 	.answer{
 		height: auto;
 		width:554rpx;
-		overflow: hidden;
+		word-break:break-all;
+		word-wrap:break-word;
 		float: left;
-		line-height: 45rpx;
+		line-height: 90rpx;
 		font-size: 28rpx;
 	}
 	
@@ -281,6 +290,8 @@
 	.title{
 		width:524rpx;
 		height:80rpx;
+		padding:0 10rpx;
+		box-sizing: border-box;
 		border:1rpx solid #f2f2f2;
 		line-height: 80rpx;
 		font-size: 30rpx;
@@ -288,10 +299,15 @@
 	.area{
 		width:524rpx;
 		height:240rpx;
+		padding:5rpx 10rpx;
+		box-sizing: border-box;
 		border:1rpx solid #f2f2f2;
 		line-height: 80rpx;
 		font-size: 30rpx;
 		margin-top:30rpx;
+	}
+	.plac{
+		line-height: 80rpx;
 	}
 	.submit{
 		width:480rpx;

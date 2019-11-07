@@ -15,12 +15,12 @@
 		<view class="save"  @click="save">保存</view>
 		
 		<!-- #ifndef H5 -->
-		<password-input v-if='passIn' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+		<password-input v-if='passIn' @tap="openKeyBoard('number')"  @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
 		
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
-		<view  v-if='passIn' @tap="openKeyBoard('number')">
+		<view  v-if='passIn' @tap="openKeyBoard('number')" @clo="clo">
 			<password-input  :length="length" :gutter="20" :list="numberList"></password-input>
 		</view>
 		<!-- #endif -->
@@ -62,6 +62,11 @@
 			console.log(this.user_id)
 		},
 		methods:{
+			clo: function() {
+				this.passIn = false;
+				this.$refs['number'].close();
+				this.numberList == '';
+			},
 			onInput(val) {
 				var that=this;
 				that.numberList.push(val);
@@ -95,14 +100,13 @@
 								return false
 			        		}
 			        		if(res.statusCode==204){
-			        			
+								uni.navigateBack({
+									delta:1
+								})
 			        			uni.showToast({
 			        				title:'修改成功',
 			        				icon:'none',
-			        				duration:2000
-			        			})
-			        			uni.navigateBack({
-			        				delta:1
+			        				duration:1500
 			        			})
 			        			var page = getCurrentPages().pop();
 			        			if (page == undefined || page == null) return; 

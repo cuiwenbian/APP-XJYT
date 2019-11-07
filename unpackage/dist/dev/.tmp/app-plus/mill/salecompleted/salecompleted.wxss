@@ -84,6 +84,10 @@ page {
     padding-left: 48rpx;
     font-size: 28rpx;
 }
+.ser {
+    float: right;
+    margin-right: 48rpx;
+}
 .bxx {
     padding-left: 30rpx;
 }

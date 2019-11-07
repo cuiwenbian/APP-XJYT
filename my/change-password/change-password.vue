@@ -8,12 +8,12 @@
 		<view class="set">设置新密码</view>
 		<view class="list">
 			<view class="title">交易密码</view>
-			<input class="code" :password="isPassword" :value="newPassword" @input='getNewPassword' placeholder="请输入新的交易密码" />
+			<input class="code" type='number' :password="isPassword" :value="newPassword" @input='getNewPassword' placeholder="请输入新的交易密码" />
 			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" :password="isPassword1" :value="newPassword1" @input='getNewPassword1'  placeholder="请再次输入新密码" />
+			<input class="code" type='number' :password="isPassword1" :value="newPassword1" @input='getNewPassword1'  placeholder="请再次输入新密码" />
 			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="changePassword">确认修改</view>

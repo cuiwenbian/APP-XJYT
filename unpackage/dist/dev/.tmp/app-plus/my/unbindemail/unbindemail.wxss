@@ -27,10 +27,18 @@ page{
 	height:120rpx;
 	line-height: 120rpx;
 	font-size: 30rpx;
+<<<<<<< HEAD
+	color:#121212;
+}
+.enter1{
+	width:300rpx;
+	color:#BCBCBC;
+=======
 	color:#BCBCBC;
 }
 .enter1{
 	width:300rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .getcode{
 	float:right;

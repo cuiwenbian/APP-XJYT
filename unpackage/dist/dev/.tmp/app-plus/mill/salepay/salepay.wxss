@@ -32,6 +32,10 @@ page {
 .smallx1{
       float: left;
 }
+.ser {
+      float: right;
+      margin-right: 48rpx;
+}
 .small1{
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
