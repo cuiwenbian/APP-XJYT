@@ -120,11 +120,11 @@
             if(that.state == 103) {
                 that.state = '待审核'
             }
-            that.mill = cander[0][0].sale_num
-            that.price = cander[0][0].sale_money
-            that.x = cander[0][0].order_num
-            that.name = cander[0][0].name
-            that.contact = cander[0][0].mobile
+            that.mill = that.cander[0][0].sale_num
+            that.price = that.cander[0][0].sale_money
+            that.x = that.cander[0][0].order_num
+            that.name = that.cander[0][0].name
+            that.contact = that.cander[0][0].mobile
             
             
             that.rmb = getRmb.getrmb(that.price)

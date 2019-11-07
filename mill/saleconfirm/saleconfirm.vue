@@ -1,4 +1,4 @@
- <template>
+that. <template>
 <!-- 卖出待确认订单详情 -->
     <view class="container">
         <view class="box">
@@ -122,11 +122,11 @@
             if(that.state == 102) {
                 that.state = '已确认'
             }
-            that.mill = vn[0][0].sale_num
-            that.price = vn[0][0].sale_money
-            that.x = vn[0][0].order_num
-            that.name = vn[0][0].name
-            that.contact = vn[0][0].mobile
+            that.mill = that.vn[0][0].sale_num
+            that.price = that.vn[0][0].sale_money
+            that.x = that.vn[0][0].order_num
+            that.name = that.vn[0][0].name
+            that.contact = that.vn[0][0].mobile
             
             that.rmb = getRmb.getrmb(that.price)
         },

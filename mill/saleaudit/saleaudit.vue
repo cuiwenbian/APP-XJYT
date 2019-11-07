@@ -121,11 +121,11 @@
             if(that.state == 103) {
                 that.state = '待确认'
             }
-            that.mill = vinda[0][0].sale_num
-            that.price = vinda[0][0].sale_money
-            that.x = vinda[0][0].order_num
-            that.name = vinda[0][0].name
-            that.contact = vinda[0][0].mobile
+            that.mill = that.vinda[0][0].sale_num
+            that.price = that.vinda[0][0].sale_money
+            that.x = that.vinda[0][0].order_num
+            that.name = that.vinda[0][0].name
+            that.contact = that.vinda[0][0].mobile
             
             that.rmb = getRmb.getrmb(that.price)
         },
