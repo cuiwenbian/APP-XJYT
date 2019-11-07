@@ -1,5 +1,6 @@
 <template>
     <view class="container">     
+	    <view class="height"></view>
         <view class="box1">
             <view class="colo">矿机交易</view>
             <view class="many">{{many}}台</view>
@@ -211,8 +212,12 @@
 
 <style>
     @import url("../../common/icon.css");
+	.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+	}
     .box1{
-        height: 520rpx;
+        height: 400rpx;
         background-color:#091219;
     }
     .colo {

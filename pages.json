@@ -101,7 +101,7 @@
                      },
                      {
                          "path":"assets/assets",
-                         "style":{"navigationBarTitleText":"资产"}
+                         "style":{"navigationStyle": "custom"}              
                      },
                      {
                          "path":"sell/sell",

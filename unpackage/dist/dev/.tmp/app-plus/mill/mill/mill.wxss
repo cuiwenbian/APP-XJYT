@@ -933,8 +933,12 @@
 .cuIcon-btn:before {
 	content: "\E601";
 }
+.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+}
 .box1{
-        height: 520rpx;
+        height: 400rpx;
         background-color:#091219;
 }
 .colo {

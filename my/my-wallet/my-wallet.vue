@@ -1,58 +1,50 @@
 <template>
 	<!-- 我的钱包 -->
 	<view class="container">
-		<view class="bg">
-			<view class="line"></view>
-			<view class="txt">Filecoin</view>
-			<view class="mess">
-				<view class="num"><text class="number">{{num}}&nbsp;</text>&nbsp;个</view>
-				<view class="trade" @click="transfer">转账</view>
+		<image class="bg" src="../../static/images/wallet-bg.png" mode="">
+			<view class="bgTop">
+				<view class="line"></view>
+				<view class="txt">Filecoin</view>
+				<view class="mess">
+					<view class="num"><text class="number">{{num}}&nbsp;</text>&nbsp;个</view>
+					<view class="trade" @click="transfer">转账</view>
+				</view>
 			</view>
-		</view>
+		</image>
 		<view class="income">
 			收支记录
 		</view>
 		<view>
-			<view v-if="flag" >
+			<view v-if="flag">
 				<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
 				<view class="info">暂无记录</view>
 			</view>
-		
 			<view v-else class="boxx">
 				        <text class="all1">Filecoin:{{month_profit}}</text>
 				        <div class="item">
 				        	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
 				        </div>
 					
-					<view class="list-one" v-for="(item , index) in entin" :key="index">
+					<view class="list-one" v-for="(item , index) in profit_records" :key="index">
 						<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 						<view class='list-txt'>
 							<view class='list-info'>收款</view>
 							<view class='list-time'>{{item.add_time}}</view>
 						</view>
 						<view class='list-income'>+{{item.num}}</view>
+						<view class='l'></view>
+					</view>
+					
+					<view class="list-one" v-for="(item , index) in bill_records" :key="index">
+						<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+						<view class='list-txt'>
+							<view class='list-info'>收款</view>
+							<view class='list-time'>{{item.add_time}}</view>
+						</view>
+						<view class='list-income'>-{{item.num}}</view>
+						<view class='l'></view>
 					</view>
 			</view>
-				<!-- <view class="linee">
-				  <view class="select_box">
-					<view class="select" @click="selectTap">
-					  <text class="select_text">{{selectData[index]}}</text>
-					  <image class="select_img " src="../../static/images/select.png" background-size="contain"></image>
-					</view>
-					<view class="option_box" :style="'height:' + (selectShow?(selectData.length>5?325:selectData.length*50):0) + 'rpx;'">
-					  <text class="option" v-for="(item, index) in selectData" :key="index" :data-index="index" @click="optionTap">{{item}}</text>
-					</view>
-				  </view>
-				  <view class="all1">Filecoin:100</view>
-				</view> -->
-				<!-- <view class="list-one">
-					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-					<view class='list-txt'>
-						<view class='list-info'>收款</view>
-						<view class='list-time'>9-01</view>
-					</view>
-					<view class='list-income'>+50.50</view>
-				</view> -->
 			
 		</view>
 	</view>
@@ -64,21 +56,30 @@
 		data(){
 			return{
 				flag:false,
-				selectShow: false,
-				//控制下拉列表的显示隐藏，false隐藏、true显示
-				selectData: ['十二月', '十一月', '十月', '九月', '八月', '七月', '六月', '五月', '四月', '三月', '二月', '一月'],
-				//下拉列表的数据
-				index: 0,
-				//选择的下拉列表下标
+				date:'本月',
 				num:'',
 				ber:'',
 				nuber:'',
 				fee:'',
-				entin:''
+				entin:'',
+				teran: '',
+				month_profit:'',
+				profit_records:[],
+				month_bill:'',
+				bill_records:[]
 			}
+		},
+		components: {
+			dyDatePicker
 		},
 		onLoad:function () {
 		    var that = this
+		    var data = new Date()
+		    var text = data.getFullYear('-')
+		    var txt = data.getMonth()+1
+		    var teran = text + '-' + txt
+			console.log(teran)
+		    that.teran = teran
 		    uni.request({
 		        url:this.url + "assets/",
 		        method:'GET',
@@ -94,28 +95,73 @@
 					that.fee=res.data.fee
 		        }
 		    })
-		    uni.request({
-		        url:this.url + 'month/profit/',
-		        method:'GET',
-		        header:{
-		            Authorization:'JWT'+' '+this.global_.token
-		        },
-		        success: (res) => {
-					console.log('月收益')
-		            console.log(res)
-		        }
-		    })
+		   uni.request({
+				url: this.url + 'assets/month/profit/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				data: {
+					month: teran
+				},
+				success(res) {
+					console.log(res)
+					that.month_profit = res.data.data.month_profit
+					that.profit_records = res.data.data.profit_records
+				}
+		   })
+		   uni.request({
+				url: this.url + 'assets/month/bill/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				data: {
+					month: teran
+				},
+				success(res) {
+					console.log(res)
+					that.month_bill = res.data.data.month_bill
+					that.bill_records = res.data.data.bill_records
+				}
+		   })
 		},
 		methods: {
-			selectTap() {
-			    this.selectShow= !this.selectShow
-			},
-			optionTap(e) {
-			    var that = this;
-			    let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
-			    var time = this.selectData[Index];
-				this.index= Index,
-				this.selectShow= !this.selectShow
+			DateChang(e) {
+				var that = this
+				console.log(e)
+				that.date = e
+				uni.request({
+					url: this.url + 'assets/month/profit/',
+					method: 'GET',
+					header: {
+						Authorization: 'JWT' + ' ' + this.global_.token
+					},
+					data: {
+						month: e
+					},
+					success(res) {
+						console.log(res)
+						that.month_profit = res.data.data.month_profit
+						that.profit_records = res.data.data.profit_records
+					}			
+				})
+				uni.request({
+					url: this.url + 'assets/month/bill/',
+					method: 'GET',
+					header: {
+						Authorization: 'JWT' + ' ' + this.global_.token
+					},
+					data: {
+						month: e
+					},
+					success(res) {
+						console.log(res)
+						that.month_bill = res.data.data.month_bill
+						that.bill_records = res.data.data.bill_records
+					}			
+				})
+			
 			},
 		    transfer:function(){
 				uni.navigateTo({
@@ -131,10 +177,24 @@
 	page{
 		background:#EDEEEE;
 	}
+	.l{
+		width:90%;
+		height:1rpx;
+		float: right;
+		background: rgba(0,0,0,0.2);
+	}
 	.bg{
 		width:100%;
 		height:300rpx;
-		background-image: url('../../static/images/wallet-bg.png');
+		position: relative;
+	}
+	.bgTop{
+		width:100%;
+		height:300rpx;
+		z-index:99;
+		position: absolute;
+		top:0;
+		left:0;
 	}
 	.line{
 		height:100rpx;
