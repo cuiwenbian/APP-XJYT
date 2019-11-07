@@ -15,17 +15,17 @@
             <text>可出售</text>
             <button class="btn" @click="btn2">出售</button>
         </view> 
-                  
+        
         <checkbox-group class="block" @change="CheckboxChange">
             <view v-for="(item , index) in user_id" :key="index">
                 <view class="cu-form-group margin-top" >
                     <checkbox class="tee" :class="item.checked?'checked':''" :checked="item.checked?true:false" :value="item.number"></checkbox>
                 </view>
                 <view v-if="flag" >
-                            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-                            <view class="infoo">暂无记录</view>
-                        </view>
-                       <view v-else class="pagex" >
+                    <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+                    <view class="infoo">暂无记录</view>
+                </view>
+                 <view v-else class="pagex" >
                            <view class="page1" >
                                 <view class="img">
                                     <image class="por" src="../../static/images/kuangji.png"></image>
@@ -34,11 +34,6 @@
                                     <view class="obg">
                                         {{item.name}} {{item.number}}
                                     </view>
-                                <!-- <view class='boo_img3'  > -->
-                                     
-                <!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>
-                                    <image v-else  class='te' src='../../static/images/tuo5.png'></image> -->
-                				<!-- </view> -->
                                     <view class="obg_one">
                                         <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
                                     </view>
@@ -48,7 +43,7 @@
                                     </view>                    
                                 </view>
                             </view>
-                        </view>
+                     </view>
             </view>
             
         </checkbox-group>
@@ -86,18 +81,18 @@
                 success(res) {
                     console.log(res)
                     that.user_id = res.data.data
-                    console.log(that.user_id.length)
+                    // console.log(that.user_id.length)
                     
                     console.log(that.machine_id)
+                    console.log(res.statusCode)
                     console.log(that.user_id.length)
-                    if(that.user_id.length === 0){
+                    if(that.user_id.length == 0){
                         that.many = 0
-
                     }
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
-                    if(that.user_id.length == 0) {
-                        that.flag = true 
+                    if(res.statusCode == 205) {
+                        that.flag == true 
                     }
 
                 }
