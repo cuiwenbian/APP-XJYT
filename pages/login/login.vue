@@ -91,7 +91,7 @@
 					return false
 				}
 				uni.request({
-					url: this.urll+'users/login/',
+					url: this.url+'users/login/',
 					method: 'POST',
 					data: {
 						mobile:this.phone,

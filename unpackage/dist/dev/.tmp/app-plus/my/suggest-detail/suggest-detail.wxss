@@ -26,10 +26,7 @@ page{
 	line-height: 90rpx;
 	float:left;
 	font-size: 28rpx;
-<<<<<<< HEAD
 	color:#A0A0A0;
-=======
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .status{
 	height:90rpx;
@@ -39,52 +36,33 @@ page{
 	font-size: 28rpx;
 }
 .question{
-<<<<<<< HEAD
 	color:#121212;
-=======
-	
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	margin-top:20rpx;
 	margin-bottom:20rpx;
 	width:100%;
 }
 .tit{
 	width:100rpx;
-<<<<<<< HEAD
 	height:90rpx;
 	float: left;
 	line-height: 90rpx;
-=======
-	height:45rpx;
-	float: left;
-	line-height: 45rpx;
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	font-size: 28rpx;
 }
 .answer{
 	height: auto;
 	width:554rpx;
 	float: left;
-<<<<<<< HEAD
 	line-height: 90rpx;
 	font-size: 28rpx;
 	word-break:break-all;
 	word-wrap:break-word;
-=======
-	line-height: 45rpx;
-	font-size: 28rpx;
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .answer1{
 	width:500rpx;
 	float: right;
 	font-size: 28rpx;
 	line-height: 60rpx;
-<<<<<<< HEAD
 	word-break:break-all;
 	word-wrap:break-word;
-=======
-	overflow: hidden;
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 

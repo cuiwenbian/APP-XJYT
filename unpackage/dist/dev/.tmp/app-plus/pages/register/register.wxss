@@ -9,19 +9,10 @@ page{
 	margin-left: calc((100% - 185rpx)/2);
 }
 .fil{
-<<<<<<< HEAD
 	width:250rpx;
 	height:100rpx;
 	display: block;	
 	margin:0 auto 100rpx;
-=======
-	height:100rpx;
-	line-height: 100rpx;
-	text-align: center;
-	color: #fff;
-	font-size: 64rpx;
-	margin-bottom: 50rpx;
->>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .enter{
 	

@@ -132,8 +132,8 @@
 				},
 				success(res) {
 					console.log(res)
-					that.num = res.data.availed_num
-					that.ber = res.data.fil_count
+					that.num = res.data.fil_count
+					that.ber = res.data.availed_num 
 					that.nuber = res.data.locked_num
 					that.fee = res.data.fee
 

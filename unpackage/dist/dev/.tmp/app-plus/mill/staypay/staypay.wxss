@@ -39,7 +39,7 @@ page {
     float: left;
     height: 80rpx;
     padding-left: 48rpx;
-    display: none;
+    /* display: none; */
     font-size: 18rpx;
 }
 .smallx {

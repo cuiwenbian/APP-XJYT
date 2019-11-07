@@ -17,7 +17,22 @@
 				<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
 				<view class="info">暂无记录</view>
 			</view>
-			<view v-else>
+		
+			<view v-else class="boxx">
+				        <text class="all1">Filecoin:{{month_profit}}</text>
+				        <div class="item">
+				        	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+				        </div>
+					
+					<view class="list-one" v-for="(item , index) in entin" :key="index">
+						<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+						<view class='list-txt'>
+							<view class='list-info'>收款</view>
+							<view class='list-time'>{{item.add_time}}</view>
+						</view>
+						<view class='list-income'>+{{item.num}}</view>
+					</view>
+			</view>
 				<!-- <view class="linee">
 				  <view class="select_box">
 					<view class="select" @click="selectTap">
@@ -38,12 +53,13 @@
 					</view>
 					<view class='list-income'>+50.50</view>
 				</view> -->
-			</view>
+			
 		</view>
 	</view>
 </template>
 
 <script>
+	 import dyDatePicker from '../../common/dy-Date.vue'
 	export default{
 		data(){
 			return{
@@ -57,7 +73,8 @@
 				num:'',
 				ber:'',
 				nuber:'',
-				fee:''
+				fee:'',
+				entin:''
 			}
 		},
 		onLoad:function () {
@@ -183,73 +200,14 @@
 		text-align: center;
 		font-size: 32rpx;
 	}
-	.linee {
-	  width: 100%;
-	  height: 100rpx;
-	}
-	
-	.select_box{
-	  width:130rpx;
-	  height:50rpx;
-	  margin-top:25rpx;
-	  border-radius: 50rpx;
-	  background:rgba(255,255,255,1);
-	  border: 4rpx solid rgba(220,220,220,1);
-	  position: relative;
-	  float: left;
-	  margin-left:48rpx;
-	}
-	.select_box .select{
-	  box-sizing: border-box;
-	  width: 100%;
-	  height: 100%;
-	  border-radius: 8rpx;
-	  display: flex;
-	  align-items: center;
-	  padding: 0 10rpx;
-	  z-index:9;
-	}
-	
-	.select_box .select .select_text{
-	  font-size: 26rpx;
-	  color: #777777;
-	  line-height: 28rpx;
-	  flex: 1;
-	  
-	}
-	
-	 .select_img{
-	
-	  width: 30rpx;
-	  height: 30rpx;
-	  display: block;
-	  transition:transform 0.3s;
-	}
-	 .select_img_rotate{
-	  transform:rotate(180deg); 
-	}
-	.select_box .option_box{
-	  position: absolute;
-	  top: calc(100% - 1px);
-	  width: 100%;
-	  background: #fff;
-	  box-sizing: border-box;
-	  height: 0;
-	  overflow-y: auto;
-	  background: #fff;
-	  /* z-index: 9; */
-	  transition: height 0.3s;
-	  border-left:1px solid #efefef;
-	  border-right:1px solid #efefef;
-	}
-	.select_box .option_box .option{
-	  display: block;
-	  line-height: 30rpx; 
-	  font-size: 26rpx;
-	  border-top: 1px solid #efefef;
-	  border-bottom: 1px solid #efefef;
-	  padding: 10rpx;
-	  color:#333;
+	.item {
+		height: 70rpx;
+	    font-size: 22rpx;
+		background-color: #EDEDED;
+	    padding-top: 20rpx;
+	    padding-left: 45rpx;
+		/* margin-bottom: 20rpx; */
+		text-align: left;
 	}
 	
 	.all1 {

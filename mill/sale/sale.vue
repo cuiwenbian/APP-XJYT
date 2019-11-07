@@ -269,6 +269,7 @@
                             console.log(res)
                             var delewen = res.data.data
                             that.delewen = delewen
+							that.many = that.delewen
                         }
                     })
                 }
