@@ -8,7 +8,7 @@
 		<view class="linee"></view>
 		<view class="list1">
 			<input class="code1" type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
-			<view class="getcode1" @click.once='getCodeBtn' :disabled="disabled">{{codename}}</view>
+			<view class="getcode1" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
 		</view>
 		<view class="set">修改登录密码</view>
 		<view class="list">
@@ -116,6 +116,15 @@
 					  title: '请输入登录密码',
 					  icon: 'none',
 					  duration: 2000
+					})
+					return false
+				}
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				if(!str.test(this.pwd)){
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
 					})
 					return false
 				}

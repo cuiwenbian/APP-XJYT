@@ -10,7 +10,7 @@
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<view class="getcode" @click.once="sendcode" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</view>
 		</view>
 		<view class="save"  @click="unbind">确认</view>
 	</view>
@@ -166,10 +166,11 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#BCBCBC;
+		color:#121212;
 	}
 	.enter1{
 		width:300rpx;
+		color:#BCBCBC;
 	}
 	.getcode{
 		float:right;

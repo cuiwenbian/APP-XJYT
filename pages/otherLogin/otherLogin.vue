@@ -2,14 +2,15 @@
 	<!-- 快速登录 -->
 	<view class="container">
 		<image class="logo" src="../../static/images/FIL.png" mode=""></image>
-		<view class="fil">Filecoin</view>
+		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
+		<!-- <view class="fil">Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
 			<input class="number" maxlength="11" type="number" :value="phone" @input="getPhoneValue" placeholder="请输入手机号码" />
 		</view>
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<view class="getcode" @click.once="getCodeNumber" :disabled="disabled">{{ codename }}</view>
+			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
 			<input class="number" style="width:350rpx;float: left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
 		<view class="btn" type="primary" @click="login">立刻登录</view>
@@ -191,14 +192,13 @@ page {
 	margin-top: 135rpx;
 	margin-left: calc((100% - 185rpx) / 2);
 }
-.fil {
-	height: 100rpx;
-	line-height: 100rpx;
-	text-align: center;
-	color: #fff;
-	font-size: 64rpx;
-	margin-bottom: 100rpx;
-}
+.fil{
+		width:250rpx;
+		height:100rpx;
+		display: block;	
+		margin:0 auto 100rpx;
+		
+	}
 .enter {
 	width: 600rpx;
 	height: 100rpx;
@@ -208,9 +208,10 @@ page {
 .icon {
 	float: left;
 	display: block;
-	width: 50rpx;
-	height: 50rpx;
-	margin-top: 25rpx;
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 30rpx;
+	margin-left: 10rpx;
 }
 .number {
 	float: right;

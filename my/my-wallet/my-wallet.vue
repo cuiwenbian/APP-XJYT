@@ -18,7 +18,7 @@
 				<view class="info">暂无记录</view>
 			</view>
 			<view v-else>
-				<view class="linee">
+				<!-- <view class="linee">
 				  <view class="select_box">
 					<view class="select" @click="selectTap">
 					  <text class="select_text">{{selectData[index]}}</text>
@@ -29,15 +29,15 @@
 					</view>
 				  </view>
 				  <view class="all1">Filecoin:100</view>
-				</view>
-				<view class="list-one">
+				</view> -->
+				<!-- <view class="list-one">
 					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 					<view class='list-txt'>
 						<view class='list-info'>收款</view>
 						<view class='list-time'>9-01</view>
 					</view>
 					<view class='list-income'>+50.50</view>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -102,7 +102,7 @@
 			},
 		    transfer:function(){
 				uni.navigateTo({
-					url:'../transfer/transfer?sole='+ this.ber+'&fee='+this.fee
+					url:'../transfer/transfer?sole='+ this.num+'&fee='+this.fee
 				})
 			}
 			

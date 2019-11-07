@@ -72,6 +72,15 @@
 						})
 						return false
 					}
+					var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+					if(!str.test(this.pwd1)){
+						uni.showToast({
+							title:'密码格式不正确',
+							icon:'none',
+							duration:2000
+						})
+						return false
+					}
 					if(this.pwd2==""){
 						uni.showToast({
 						  title: '请确认登录密码',

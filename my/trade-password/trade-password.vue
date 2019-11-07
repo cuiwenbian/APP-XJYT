@@ -13,12 +13,12 @@
 		</view>
 		<view class="set">设置交易密码</view>
 		<view class="list">
-			<input class="code"  :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
+			<input class="code" type='number' :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
 			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
-		<view class="list"> 
-			<input class="code" :password="isPassword1" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
+		<view class="list">
+			<input class="code" type='number' :password="isPassword1" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
 			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>

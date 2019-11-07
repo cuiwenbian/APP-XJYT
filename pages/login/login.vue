@@ -2,7 +2,7 @@
 	<!-- 登录 -->
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
-		<image class='fil' src="../../static/images/file.png" mode=""></image>
+		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
 		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
@@ -12,7 +12,7 @@
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
 			<input class="number" type="password" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
 		</view>
-		<view class="tip"> 
+		<view class="tip">
 			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
 			<navigator url="../getBackPassword/getBackPassword" class="tips">忘记密码</navigator>
 		</view>
@@ -22,7 +22,7 @@
 		</navigator>
 		<view class="agree">
 			
-			<text>我已阅读并同意【<text style="color: #34b5c1;" @click="agree">星际云通用户协议</text>】</text>
+			<text>我已阅读并同意【 <text style="color: #34b5c1;" @click="agree">星际云通用户协议</text> 】</text>
 			
 		</view>
 		
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-	
 	
 	export default {
 		data() {
@@ -41,7 +40,6 @@
 			
 			};
 		},	
-		
 		methods:{
 			
 			getPhoneValue:function(e){
@@ -151,18 +149,15 @@
 		display: block;
 		width:185rpx;
 		height:185rpx;
-		margin-top:150rpx;
-		margin-left: calc((100% - 185rpx)/2);
+		margin: 150rpx auto 0;
+		/* margin-top:150rpx;
+		margin-left: calc((100% - 185rpx)/2); */
 	}
 	.fil{
 		width:250rpx;
 		height:100rpx;
-		display: block;
-		line-height: 100rpx;
-		text-align: center;
-		color: #fff;
-		font-size: 64rpx;
-		margin:0 auto 100rpx;
+		display: block;	
+		margin:30rpx auto 100rpx;
 		
 	}
 	.enter{
@@ -173,7 +168,7 @@
 		border-bottom: 1px solid #555555;
 	}
 	.icon{
-		float:left;
+		float:left;   
 	    display: block;
 		width:40rpx;
 		height:40rpx;

@@ -94,7 +94,7 @@
 							uni.showToast({
 								title:'添加成功',
 								icon:'none',
-								duration:2000
+								duration:1500
 							})
 							var page = getCurrentPages().pop();
 							if (page == undefined || page == null) return; 

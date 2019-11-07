@@ -1,0 +1,196 @@
+
+.box1{
+        height: 280rpx;
+}
+.colo {
+		float: left;
+		width: 50%;
+		height: 40rpx;
+		margin-left: 60rpx;
+		margin-top: 60rpx;
+        font-size: 36rpx;
+}
+.boss{
+        width: 100%;
+        height: 640rpx;
+}
+.tooc{
+        height: 40rpx;
+        margin-top: 140rpx;
+        background-color: #EDEDED;
+}
+.too {
+        height: 40rpx;
+        margin-top: 40rpx;
+        background-color: #EDEDED;
+}
+.cool{
+        margin-left: 40rpx;
+        color: #B5B5B5;
+}
+.many{
+		float: left;
+		width: 36%;
+		height: 60rpx;
+		padding-left: 120rpx;
+		padding-top: 40rpx;
+        font-size: 28rpx;
+        color: #DCB16E;
+}
+.colo1{
+		height: 60rpx;
+		padding-top: 60rpx;
+		padding-left: 540rpx;
+}
+.dx {
+        width: 60rpx;
+        height: 60rpx;
+}
+.many1{
+		float: right;
+		width: 90rpx;
+		height: 60rpx;
+        padding-top: 28rpx;
+		padding-right: 128rpx;
+        font-size: 32rpx;
+}
+.box3 {
+        height: 90rpx;
+        background-color: #F6F6F6;
+        position: relative;
+}
+.list{
+      height: auto;
+}
+    /*    .order{
+        width: 100%;
+        margin-bottom: 40rpx;
+
+    } */
+.top{
+		height: 88rpx;
+}
+.xi {
+		height: 360rpx;
+}
+.mation{
+        float: left;
+		height: 40rpx;
+        line-height: 90rpx;
+        font-size: 28rpx;
+        padding-left: 48rpx;
+}
+.cont{
+        float: right;
+        font-size: 28rpx;
+        line-height: 90rpx;
+        margin-right: 80rpx;
+}
+.line{
+        width: 92%;
+        border: 1rpx solid #CCCCCC;
+        margin: 0 auto;
+}
+.edit{
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
+        font-size: 28rpx;
+}
+.numbe{
+		float: left;
+		height: 90rpx;
+		line-height: 90rpx;
+		width: 100%;
+		padding-left: 48rpx;
+        font-size: 28rpx;
+}
+.trading{
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
+        font-size: 28rpx;
+}
+.date{
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+		padding-left: 48rpx;
+        font-size: 28rpx;
+}
+.line1 {
+         width: 92%;
+         margin: 6rpx auto;
+         border: 1rpx solid #CCCCCC;
+}
+.hz{
+        width: 100%;
+		height: 80rpx;
+}
+.btn1{
+		float: left;
+		margin-left: 340rpx;
+		margin-top: 40rpx;
+        width: 160rpx;
+        height: 60rpx;
+        font-size: 26rpx;
+        line-height: 60rpx;
+        color: #CCCCCC;
+}
+.btn2 {
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 40rpx;
+        width: 160rpx;
+        height: 60rpx;
+        font-size: 26rpx;
+        line-height: 60rpx;
+        color: #FFFFFF;
+        background-color: #091219;
+}
+.swiper-tab {
+     
+        display: -webkit-box;
+     
+        display: -webkit-flex;
+     
+        display: -ms-flexbox;
+     
+        display: flex;
+         
+        -webkit-box-orient: horizontal;
+         
+        -webkit-box-direction: normal;
+         
+        -webkit-flex-direction: row;
+         
+            -ms-flex-direction: row;
+         
+                flex-direction: row;
+         
+        line-height: 80rpx;
+    
+        background: #EDEDED;
+}
+.tab-item {
+ 
+         width: 33.3%;
+         height:auto;
+         text-align: center;
+         
+         font-size: 34rpx;
+         
+         color: #777;
+}
+.current {
+     
+        color: #B39C01;
+         
+        border-bottom: 5rpx solid #B39C01;
+}
+
