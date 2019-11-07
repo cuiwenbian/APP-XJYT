@@ -25,24 +25,23 @@
                     <view class="infoo">暂无记录</view>
                 </view>
                  <view v-else class="pagex" >
-                           <view class="page1" >
-                                <view class="img">
-                                    <image class="por" src="../../static/images/kuangji.png"></image>
+                        <view class="page1" >
+                           <view class="img">
+                                <image class="por" src="../../static/images/kuangji.png"></image>
+                           </view>
+                            <view class="info">
+                                <view class="obg">
+                                    {{item.name}} {{item.number}}
                                 </view>
-                                <view class="info">
-                                    <view class="obg">
-                                        {{item.name}} {{item.number}}
-                                    </view>
-                                    <view class="obg_one">
-                                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
-                                    </view>
-                
-                                    <view class="obg_one">
-                                        <text class="days">储存{{item.freedisk}}T</text>  | 总容量{{item.disk}}
-                                    </view>                    
+                                <view class="obg_one">
+                                    <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
                                 </view>
+                                <view class="obg_one">
+                                    <text class="days">储存{{item.freedisk}}T</text>  | 总容量{{item.disk}}
+                                </view>                    
                             </view>
-                     </view>
+                       </view>
+                    </view>
             </view>
             
         </checkbox-group>
@@ -54,7 +53,7 @@
     export default {
     	data() {
     		return {
-    			many: '',
+    			many: '0',
                 user_id:[],
                 flag:false,
                 selectilall: false,
@@ -90,8 +89,8 @@
                     }
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
-                    if(res.statusCode == 205) {
-                        that.flag == true 
+                    if(that.user_id.length == 0) {
+                        that.flag = true 
                     }
 
                 }

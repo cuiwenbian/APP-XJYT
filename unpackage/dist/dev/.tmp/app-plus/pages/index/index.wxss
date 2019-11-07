@@ -207,19 +207,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1886,7 +1873,7 @@ swiper-item image {
 }
 .ttt{
         width: 720rpx;
-        height: 270rpx;
+        height: 290rpx;
         margin-top: 20rpx;
         margin-left: 15rpx;
         border-radius: 8rpx;
@@ -2020,6 +2007,9 @@ swiper-item image {
 		/* padding-left: 48rpx; */
         margin-top: 28rpx;
         margin-right: 20rpx;
+}
+.uni-swiper-msg{
+        margin-top: 20rpx;
 }
 .yu {
 		float: left;

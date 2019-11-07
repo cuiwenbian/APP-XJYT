@@ -31,12 +31,12 @@
             vertical:true
              indicator-dots:false
             >
-        		<swiper-item class="fz">
-        			<text class="clor">{{notice}}</text>
+        		<swiper-item class="fz" v-for="(item , index) in csgo" :key="index">
+        			<text class="clor">{{item.notice}}</text>
         		</swiper-item>
-                <swiper-item>
+<!--                <swiper-item>
                 	<text class="clor">{{s}}</text>
-                </swiper-item>
+                </swiper-item> -->
         	</swiper>
         </view>
 
@@ -56,9 +56,9 @@
         <view class="gg">
             <div class="charts">
             	<view class="qiun-columns">
-            			<view class="qiun-charts" >
-            				<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
-            			</view>
+            		<view class="qiun-charts" >
+            			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
+                    </view>
             	</view>
             	
             </div>
@@ -112,6 +112,7 @@
                 cHeight:'',
                 pixelRatio:1,
                 notice:'',
+                csgo:'',
                 s:'123987998449898'
 			}
              
@@ -132,8 +133,10 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res.data)
-                    var opent = res.data
+                    console.log(res)
+                    var csgo = res.data
+                    console.log(csgo)
+                    that.csgo = csgo
                     // console.log(opent[0].notice)
                     // that.notice = opent[0].notice
                    
@@ -143,30 +146,14 @@
 		methods: {
             getServerData(){
             	uni.request({
-            			url: '',
-                        msg:'',
-            			method: '',
-            			header: {
-            			  
-            			},
+            			url: 'https://www.ipcn.xyz/api/v1/filecoin/',
+            			method: 'GET',
             			success: function(res) {
                             console.log(res)
-            				console.log(res.data.data[0])
-            				var data = res.data.data[0];
-            				_self.seven_profit=data.seven_profit;
-            				_self.total_profit=data.total_profit;
-            				let LineA={seven_list:[]};
-            				//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-            				LineA.seven_list=res.data.data.seven_list;
-            				_self.showLineA("canvasLineA",data);
-            			},
-            			fail: () => {
-            				_self.tips="网络错误，小程序端请检查合法域名";
             			},
             		});
             	},
             	showLineA(canvasId,chartData){
-            	
             		canvaLineA=new uCharts({
             			$this:_self,
             			canvasId: canvasId,
@@ -274,7 +261,7 @@
     }
     .ttt{
         width: 720rpx;
-        height: 270rpx;
+        height: 290rpx;
         margin-top: 20rpx;
         margin-left: 15rpx;
         border-radius: 8rpx;
@@ -410,7 +397,9 @@
         margin-top: 28rpx;
         margin-right: 20rpx;
     }
- 
+    .uni-swiper-msg{
+        margin-top: 20rpx;
+    }
 	.yu {
 		float: left;
 		padding-top: 8rpx;
