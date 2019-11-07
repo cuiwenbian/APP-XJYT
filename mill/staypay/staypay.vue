@@ -29,8 +29,8 @@
                     订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
-            <view class="small1">
-                <text>
+            <view class="small">
+                <text v-if="lpl">
                     创建时间:<text class="smallxx">{{time}}</text>
                 </text>
             </view>
@@ -88,6 +88,7 @@
             return {
                 type:'买入',
                 state:'',
+                lpl:false,
                 mill:'',
                 price:'',
                 vior:'',
@@ -116,14 +117,20 @@
             that.x = that.ction[0][0].order_num
             that.name = that.ction[0][0].name
             that.contact = that.ction[0][0].mobile
+            that.time = that.ction[0][0].set_time
             
             
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            // btn:function () {
-            //     var that = this
-            // }
+            btn:function () {
+                var that = this
+                if(that.lpl === false){
+                    that.lpl = !that.lpl
+                }else {
+                    that.lpl = !that.lpl
+                }
+            }
         }
     }
 </script>
@@ -168,7 +175,7 @@
       float: left;
       height: 80rpx;
       padding-left: 48rpx;
-      display: none;
+      /* display: none; */
       font-size: 18rpx;
   }
   .smallx {
