@@ -207,7 +207,10 @@
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    that.dater = res.data.data
+                    var dater = res.data.data
+                    that.dater = dater
+                    console.log(dater.length )
+                    that.many = dater.length
                     // console.log(res.data.data)
                     // console.log(that.dater)
                 }

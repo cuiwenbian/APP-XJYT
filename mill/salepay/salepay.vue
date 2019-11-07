@@ -64,22 +64,27 @@
                 商品信息
             </view>
             <view class="box3" v-for="(item , index) in stw" :key="index">
-                <view>
-                    <image class="img" src="../../static/images/kuangji.png" mode=""></image>
+           <view>
+                <image class="img" src="../../static/images/kuangji.png" mode=""></image>
+            </view>
+            <view>
+                <view class="small2">
+                    专业版:
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
-                <view>
-                    <view class="small2">
-                        专业版:
-                        <text class="aa">{{item.name}}</text>
-                        <text class="smal">{{item.number}}</text>
-                    </view>
-                    <view class="small3">
-                        <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
-                    </view>
-                    <view class="small3">
-                        <text class="smalx">储存{{item.data_hard_disk}} | 总容量{{item.usedisk}}T</text>
-                    </view>  
+                <view class="small3">
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
+                <view class="small3">
+                    <text class="smalx">
+                        储存{{item.data_hard_disk}} | 
+                    </text>
+                    <text class="smalx">
+                        总容量{{item.usedisk}}T
+                    </text>
+                </view>  
+            </view>
             </view>
             <view class="box4">
                 <button class="primary1">等待买家付款</button>
@@ -97,7 +102,6 @@
                 datn:'',
                 state:'',
                 mill:'',
-                // conti:'',
                 stw:'',
                 price:'',
                 rmb:'',
@@ -105,7 +109,6 @@
                 time:'',
                 name:'',
                 contact:'',
-                num:'',
             }
         },
         onLoad(option) {

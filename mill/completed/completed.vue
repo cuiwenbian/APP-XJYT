@@ -57,25 +57,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in bsow" :key="index">
+        <view class="box3" v-for="(item , index) in geunt" :key="index">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
             <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -93,25 +93,23 @@
                 mill:'',
                 price:'',
                 rmb:'',
-                usedisk:'',
-                poirk:'',
-                xx:'',
                 bsow:'',
+                geunt:'',
                 x:'',
                 time:'',
                 name:'',
                 contact:'',
-                num:'',
-                day:'',
-                remaining:''
             }
         },
         onLoad(option) {
             var that = this
             console.log(option)
             var bsow = JSON.parse(option.deattr)
-            that.bsow = bsow[1]
+            that.bsow = bsow
             console.log(bsow)
+            
+            var geunt = that.bsow[1]
+            that.geunt = that.bsow[1]
             that.state = bsow[0][0].order_status
             if(that.state == 103) {
                 that.state = '待审核'
@@ -122,12 +120,6 @@
             that.name = bsow[0][0].name
             that.contact = bsow[0][0].mobile
             
-            that.num = bsow[1][1].name
-            that.xx = bsow[1][1].number
-            that.day = bsow[1][1].usedays
-            that.remaining = bsow[1][1].residuedays
-            that.usedisk = bsow[1][1].data_hard_disk
-            that.poirk = bsow[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },

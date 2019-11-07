@@ -57,25 +57,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in fanta" :key="index">
+        <view class="box3" v-for="(item , index) in ig" :key="index">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
             <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -93,28 +93,26 @@
             return {
                 type:'买入',
                 state:'',
-                usedisk:'',
-                poirk:'',
                 mill:'',
                 price:'',
                 rmb:'',
                 x:'',
                 fanta:'',
-                xx:'',
                 time:'',
                 name:'',
                 contact:'',
-                num:'',
-                day:'',
-                remaining:''
+                ig:'',
             }
         },
         onLoad(option) {
             var that = this
             console.log(option)
             var fanta = JSON.parse(option.main)
-            that.fanta = fanta[1]
+            that.fanta = fanta
             console.log(fanta)
+            
+            var ig = that.fanta[1]
+            thatig = that.fanta[1]
             that.state = fanta[0][0].order_status
             if(that.state == 102) {
                 that.state = '待确认'
@@ -125,12 +123,6 @@
             that.name = fanta[0][0].name
             that.contact = fanta[0][0].mobile
             
-            that.num = fanta[1][1].name
-            that.xx = fanta[1][1].number
-            that.day = fanta[1][1].usedays
-            that.remaining = fanta[1][1].residuedays
-            that.usedisk = fanta[1][1].data_hard_disk
-            that.poirk = fanta[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },

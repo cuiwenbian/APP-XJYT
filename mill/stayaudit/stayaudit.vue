@@ -59,25 +59,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in cander" :key="index">
-            <view>
+        <view class="box3" v-for="(item , index) in hberd" :key="index">
+           <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
             <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -98,17 +98,12 @@
                 cander:'',
                 mill:'',
                 price:'',
+                hberd:'',
                 rmb:'',
                 x:'',
-                usedisk:'',
-                xx:'',
                 time:'',
-                poirk:'',
                 name:'',
                 contact:'',
-                num:'',
-                day:'',
-                remaining:''
             }
         },
         onLoad(option) {
@@ -117,6 +112,10 @@
             var cander = JSON.parse(option.dospp)
             that.cander = cander[1]
             console.log(cander)
+            
+            var hberd = that.cander[1]
+            that.hberd = that.cander[1]
+            
             that.state = cander[0][0].order_status
             if(that.state == 103) {
                 that.state = '待审核'
@@ -127,12 +126,6 @@
             that.name = cander[0][0].name
             that.contact = cander[0][0].mobile
             
-            that.num = cander[1][1].name
-            that.xx = cander[1][1].number
-            that.day = cander[1][1].usedays
-            that.remaining = cander[1][1].residuedays
-            that.usedisk = cander[1][1].data_hard_disk
-            that.poirk = cander[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },
