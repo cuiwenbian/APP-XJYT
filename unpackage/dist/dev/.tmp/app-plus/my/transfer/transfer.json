@@ -1,7 +1,11 @@
 {
   "navigationBarTitleText": "转账",
+<<<<<<< HEAD
   "usingComponents": {
     "keyboard-package": "/components/keyboard-package/keyboard-package",
     "password-input": "/components/password-input/password-input"
   }
+=======
+  "usingComponents": {}
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }

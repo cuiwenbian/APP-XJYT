@@ -88,6 +88,10 @@
     "autoclose": false
   },
   "appname": "neil-modal",
+<<<<<<< HEAD
   "compilerVersion": "2.3.7",
+=======
+  "compilerVersion": "2.3.6",
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
   "usingComponents": {}
 }

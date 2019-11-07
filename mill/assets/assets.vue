@@ -1,4 +1,3 @@
-
 <template>
 	<view class="container">
 
@@ -28,16 +27,10 @@
 						<view class="info">暂无记录</view>
 					</view>
 					<view v-else class="boxx">
-						<view class="linee">
-							<view class="cu-form-group">
-								<picker mode="date" :value="date" @change="DateChange">
-									<view class="picker">
-										{{date}}
-									</view>
-								</picker>
-							</view>
-							<text class="all1">Filecoin:{{month_profit}}</text>
-						</view>
+                            <text class="all1">Filecoin:{{month_profit}}</text>
+							<div class="item">
+								<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
+                            </div>
 						<view class="list-one" v-for="(item , index) in ention" :key="index">
 							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 							<view class='list-txt'>
@@ -57,16 +50,11 @@
 							<view class="info">暂无记录</view>
 						</view>
 						<view v-else class="boxx">
-							<view class="linee">
-								<view class="cu-form-group">
-									<picker mode="date" :value="date" start="2015-09" end="2020-09" fields="month" @change="DateChang">
-										<view class="picker">
-											{{date}}
-										</view>
-									</picker>
-								</view>
-								<text class="all1">Filecoin:{{month_profit}}</text>
-							</view>
+                                <text class="all1">Filecoin:{{month_profit}}</text>
+                                <div class="item">
+                                	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+                                </div>
+							
 							<view class="list-one" v-for="(item , index) in entin" :key="index">
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
@@ -85,6 +73,7 @@
 </template>
 
 <script>
+    import dyDatePicker from '../../common/dy-Date.vue'
 	export default {
 		data() {
 
@@ -122,6 +111,9 @@
 
 			}
 		},
+        components: {
+        	dyDatePicker
+        },
 		onLoad: function(opetions) {
 			var that = this
 
@@ -139,7 +131,6 @@
 
 				},
 				success(res) {
-
 					console.log(res)
 					that.num = res.data.availed_num
 					that.ber = res.data.fil_count
@@ -151,9 +142,6 @@
 			uni.request({
 				url: this.url + 'assets/month/profit/',
 				method: 'GET',
-				data: {
-					month: that.selectData[that.index]
-				},
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
@@ -241,7 +229,7 @@
 			DateChange(e) {
 				var that = this
 				console.log(e)
-				this.date = e.detail.value
+				that.date = e
 				uni.request({
 					url: this.url + 'assets/month/profit/',
 					method: 'GET',
@@ -249,14 +237,14 @@
 						Authorization: 'JWT' + ' ' + this.global_.token
 					},
 					data: {
-						month: e.detail.value
+						month: e
 					},
 					success(res) {
 						console.log(res.data.data)
 						var seront = res.data.data
 						var ention = res.data.data.profit_records
 						that.ention = ention
-						console.log(ention.num)
+						console.log(ention)
 						that.month_profit = seront.month_profit
 						that.add_item = ention[0].add_time
 						that.numm = ention[0].num
@@ -269,7 +257,7 @@
 			DateChang(e) {
 				var that = this
 				console.log(e)
-				this.date = e.detail.value
+				this.date = e
 				uni.request({
 					url: this.url + 'assets/month/bill/',
 					method: 'GET',
@@ -277,17 +265,17 @@
 						Authorization: 'JWT' + ' ' + this.global_.token
 					},
 					data: {
-						month: e.detail.value
+						month: e
 					},
 					success(res) {
 						console.log(res.data.data)
 						var seront = res.data.data
 						var entin = res.data.data.bill_records
-						// that.ention = ention
-						// console.log(ention.num)
+						that.entin = entin
+						console.log(entin)
 						that.month_profit = seront.month_bill
-						// that.add_item = ention[0].add_time
-						// that.numm = ention[0].num
+						that.add_item = entin[0].add_time
+						that.numm = entin[0].num
 
 
 					}
@@ -299,6 +287,7 @@
 					url: '../transfer/transfer'
 				})
 			}
+
 
 		}
 	}
@@ -317,20 +306,20 @@
 	}
 
 	.boxx {
-
 		height: 100%;
 	}
 
-	picker-view {
-		width: 100%;
-		height: 600upx;
-		margin-top: 20upx;
-	}
 
 	.item {
-		line-height: 100upx;
-		text-align: center;
+		height: 70rpx;
+        font-size: 22rpx;
+		background-color: #EDEDED;
+        padding-top: 20rpx;
+        padding-left: 45rpx;
+		/* margin-bottom: 20rpx; */
+		text-align: left;
 	}
+
 
 	.assets {
 		text-align: center;
@@ -379,17 +368,16 @@
 
 	.primary {
 		width: 220rpx;
-
 		height: 88rpx;
 		float: left;
 		margin-left: 48rpx;
-
 		margin-top: 40rpx;
+        font-size: 32rpx;
 	}
 
 	.primary1 {
 		width: 220rpx;
-
+        font-size: 32rpx;
 		height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
@@ -401,7 +389,7 @@
 
 	.haide {
 		width: 100%;
-		height: 80rpx;
+		height: 60rpx;
 		background-color: #EDEDED;
 	}
 
@@ -417,87 +405,12 @@
 		font-size: 32rpx;
 	}
 
-	.linee {
-		width: 100%;
-		height: 100rpx;
-	}
-
-	.select_box {
-		width: 130rpx;
-		height: 50rpx;
-		margin-top: 25rpx;
-		border-radius: 50rpx;
-		background: rgba(255, 255, 255, 1);
-		border: 4rpx solid rgba(220, 220, 220, 1);
-		position: relative;
-		float: left;
-		margin-left: 48rpx;
-	}
-
-	.select_box .select {
-		box-sizing: border-box;
-		width: 100%;
-		height: 100%;
-		border-radius: 8rpx;
-		display: flex;
-		align-items: center;
-		padding: 0 10rpx;
-		z-index: 9;
-	}
-
-	.select_box .select .select_text {
-		font-size: 26rpx;
-		color: #777777;
-		line-height: 28rpx;
-		flex: 1;
-
-	}
-
-	.select_img {
-
-		width: 30rpx;
-		height: 30rpx;
-		display: block;
-		transition: transform 0.3s;
-	}
-
-	.select_img_rotate {
-		transform: rotate(180deg);
-	}
-
-	.select_box .option_box {
-		position: absolute;
-		top: calc(100% - 1px);
-		width: 100%;
-		background: #fff;
-		box-sizing: border-box;
-		height: 0;
-		overflow-y: auto;
-		background: #fff;
-		/* z-index: 9; */
-		transition: height 0.3s;
-		border-left: 1px solid #efefef;
-		border-right: 1px solid #efefef;
-	}
-
-	.select_box .option_box .option {
-		display: block;
-		line-height: 30rpx;
-		font-size: 26rpx;
-		border-top: 1px solid #efefef;
-		border-bottom: 1px solid #efefef;
-		padding: 10rpx;
-		color: #333;
-	}
-
 	.all1 {
 		float: right;
 		font-size: 30rpx;
-		line-height: 10rpx;
 		color: #333;
-
+        margin-top: 20rpx;
 		margin-right: 48rpx;
-
 	}
 
 	.list {
@@ -560,21 +473,18 @@
 		width: 33.3%;
 		height: auto;
 		text-align: center;
-
-		font-size: 34rpx;
+		font-size: 30rpx;
 
 		color: #777;
 	}
 
 	.current {
-
+        width: 16%;
+        margin-left: 48rpx;
 		color: #B39C01;
-
 		border-bottom: 2rpx solid #B39C01;
 
 	}
 
-	.cu-form-group .title {
-		min-width: calc(4em + 15px);
-	}
+
 </style>

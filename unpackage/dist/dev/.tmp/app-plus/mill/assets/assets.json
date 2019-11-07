@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "资产",
-  "usingComponents": {}
+  "usingComponents": {
+    "dy-date-picker": "/common/dy-Date"
+  }
 }

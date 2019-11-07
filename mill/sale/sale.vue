@@ -2,8 +2,9 @@
     <!-- 卖单 -->
     <view class="container">
         <view class="box1">
-            <view class="colo">卖单数量</view>
-            <view class="many">{{many}}台</view>		
+            <view class="colo">卖单数量
+                <view class="many">{{many}}台</view>
+            </view>
 			<view class="colo1"><image class="dx" src="../../static/images/miai.png" mode=""></image></view>
 			<view class="many1">卖出</view>
         </view>
@@ -206,50 +207,17 @@
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    that.dater = res.data.data
+                    var dater = res.data.data
+                    that.dater = dater
+                    console.log(dater.length )
+                    that.many = dater.length
                     // console.log(res.data.data)
                     // console.log(that.dater)
                 }
             })
-            uni.request({
-                url:this.urll + 'saleall/102',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var ter = res.data.data
-                    console.log(ter)
-                    that.ter = ter
-                    console.log(ter[0].name)
-                    
-                }
-            })
-            uni.request({
-                url:this.urll + 'saleall/103',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var delwen = res.data.data
-                    that.delwen = delwen
-                }
-            })
-            uni.request({
-                url:this.urll + 'saleall/104',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var delewen = res.data.data
-                    that.delewen = delewen
-                }
-            })
+           
+            
+           
         },
         methods:{
             tabClick:function (index) {
@@ -258,6 +226,51 @@
                     return false
                 }else {
                     that.tabCurrentIndex =index
+                }
+                if(this.tabCurrentIndex === 1) {
+                    uni.request({
+                        url:this.urll + 'saleall/102',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var ter = res.data.data
+                            console.log(ter)
+                            that.ter = ter
+                            
+                            
+                        }
+                    })
+                }
+                if(this.tabCurrentIndex === 2) {
+                    uni.request({
+                        url:this.urll + 'saleall/103',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var delwen = res.data.data
+                            that.delwen = delwen
+                        }
+                    })
+                }
+                if(this.tabCurrentIndex === 3) {
+                    uni.request({
+                        url:this.urll + 'saleall/104',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            console.log(res)
+                            var delewen = res.data.data
+                            that.delewen = delewen
+                        }
+                    })
                 }
             },
             btn:function(item){
@@ -354,17 +367,17 @@
     }
 </script>
 
-<style>
+<style>  
     .box1{
         height: 280rpx;
     }
     .colo {
-		float: left;
-		width: 50%;
-		height: 40rpx;
-		margin-left: 60rpx;
-		margin-top: 60rpx;
-        font-size: 36rpx;
+        float: left;
+        width: 20%;
+        height: 90rpx;
+        margin-left: 148rpx;
+        margin-top: 62rpx;
+        font-size: 32rpx;
     }
     .boss{
         width: 100%;
@@ -386,46 +399,39 @@
         color: #B5B5B5;
     }
    .many{
-		float: left;
-		width: 36%;
-		height: 60rpx;
-		padding-left: 120rpx;
-		padding-top: 40rpx;
-        font-size: 28rpx;
+        margin-left: 48rpx;
+        line-height: 90rpx;
         color: #DCB16E;
+        font-size: 28rpx;
     }    
 	.colo1{
-		height: 60rpx;
-		padding-top: 60rpx;
-		padding-left: 540rpx;
+    	height: 60rpx;
+        padding-top: 50rpx;
+        margin-right: 48rpx;
 	}
     .dx {
         width: 60rpx;
         height: 60rpx;
+        line-height: 60rpx;
+        float: right;
+        margin-right: 130rpx;
     }
 	.many1{
-		float: right;
-		width: 90rpx;
-		height: 60rpx;
+        float: right;
+        width: 90rpx;
+        height: 60rpx;
         padding-top: 28rpx;
-		padding-right: 128rpx;
-        font-size: 32rpx;
+        margin-right: 145rpx;
+        font-size: 24rpx;
+        color: #ACABAB;
 	}
     .box3 {
         height: 90rpx;
         background-color: #F6F6F6;
-        position: relative;
     }
-
-
     .list{
       height: auto;
     }
-/*    .order{
-        width: 100%;
-        margin-bottom: 40rpx;
-
-    } */
 	.top{
 		height: 88rpx;
 	}

@@ -26,7 +26,10 @@ page{
 	line-height: 90rpx;
 	float:left;
 	font-size: 28rpx;
+<<<<<<< HEAD
 	color:#A0A0A0;
+=======
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .status{
 	
@@ -37,25 +40,41 @@ page{
 	font-size: 28rpx;
 }
 .question{
+<<<<<<< HEAD
 	color:#121212;
+=======
+	
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	margin-top:20rpx;
 	margin-bottom:20rpx;
 	width:100%;
 }
 .tit{
 	width:100rpx;
+<<<<<<< HEAD
 	height:90rpx;
 	float: left;
 	line-height: 90rpx;
+=======
+	height:45rpx;
+	float: left;
+	line-height: 45rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	font-size: 28rpx;
 }
 .answer{
 	height: auto;
 	width:554rpx;
+<<<<<<< HEAD
 	word-break:break-all;
 	word-wrap:break-word;
 	float: left;
 	line-height: 90rpx;
+=======
+	overflow: hidden;
+	float: left;
+	line-height: 45rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	font-size: 28rpx;
 }
 .box{
@@ -111,9 +130,12 @@ page{
 .title{
 	width:524rpx;
 	height:80rpx;
+<<<<<<< HEAD
 	padding:0 10rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
+=======
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	border:1rpx solid #f2f2f2;
 	line-height: 80rpx;
 	font-size: 30rpx;
@@ -121,17 +143,23 @@ page{
 .area{
 	width:524rpx;
 	height:240rpx;
+<<<<<<< HEAD
 	padding:5rpx 10rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
+=======
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 	border:1rpx solid #f2f2f2;
 	line-height: 80rpx;
 	font-size: 30rpx;
 	margin-top:30rpx;
 }
+<<<<<<< HEAD
 .plac{
 	line-height: 80rpx;
 }
+=======
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 .submit{
 	width:480rpx;
 	height:80rpx;

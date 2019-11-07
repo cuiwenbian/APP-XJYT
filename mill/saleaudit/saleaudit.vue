@@ -11,12 +11,15 @@
                 </text>
             </view>
             <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
-            </view>
-            <view class="small">
                 <text>交易总价:
                     <text class="smallxx">{{price}}</text>
                 </text>
+                <text class="ser">
+                    矿机数量:<text class="smallxx">{{mill}}</text>台
+                </text>
+            </view>
+            <view class="small">
+                
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -60,25 +63,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in vinda" :key="index">
-            <view>
+        <view class="box3" v-for="(item , index) in clorn" :key="index">
+           <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
-            <view class="sm">
+            <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -98,23 +101,22 @@
                 price:'',
                 rmb:'',
                 x:'',
-                xx:'',
+                clorn:'',
                 time:'',
                 name:'',
                 contact:'',
-                poirk:'',
-                usedisk:'',
-                num:'',
-                day:'',
-                remaining:''
             }
         },
         onLoad(option) {
             var that = this
             console.log(option);
             var vinda = JSON.parse(option.suxang)
-            that.vinda = vinda[1]
+            that.vinda = vinda
             console.log(vinda)
+            
+            var clorn = that.vinda[1]
+            that.clorn = that.vinda[1]
+            
             that.state = vinda[0][0].order_status
             if(that.state == 103) {
                 that.state = '待确认'
@@ -124,12 +126,6 @@
             that.x = vinda[0][0].order_num
             that.name = vinda[0][0].name
             that.contact = vinda[0][0].mobile
-            that.num = vinda[1][1].name
-            that.xx = vinda[1][1].number
-            that.day = vinda[1][1].usedays
-            that.remaining = vinda[1][1].residuedays
-            that.usedisk = vinda[1][1].data_hard_disk
-            that.poirk = vinda[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -142,117 +138,139 @@
 </script>
 
 <style>
-    page {
-        background-color: #DCDCDC;
-    }
-    .box {
-        height: 560rpx;
-        width: 100%;
-        background-color: #fff;
-    }
-    .small {
-        box-sizing: border-box;
-        width: 100%;
-        height: 110rpx;
-        line-height: 110rpx;
-        float: left;
-        padding-left: 48rpx;
-        font-size: 32rpx;
-    }
-    .aa {
-        font-size: 30rpx;
-    }
-    .lop{
-        font-size: 20rpx;
-        margin-right: 48rpx;
-    }
-    .smallx1{
-        float: right;
-        margin-left: 16rpx;
-    }
-    .sm{
-        height: 100%;
-    }
-    .small1{
-        box-sizing: border-box;
-        width: 100%;
-        float: left;
-        height: 80rpx;
-        padding-left: 48rpx;
-        display: none;
-        font-size: 32rpx;
-    }
-    .smallx {
-        float: right;
-        font-size: 32rpx;
-        box-sizing: border-box;
-        padding-right: 48rpx;
-    }
-    .smallxx {
-        box-sizing: border-box;
-        padding-left: 40rpx;
-    }
-    .primary {
-        width: 180rpx;
-        height: 40rpx;
-        line-height: 40rpx;
-        font-size: 22rpx;
-    }
-    .box1 {
-        height: 100rpx;
-        padding-left: 48rpx;
-        line-height: 100rpx;
-    }
-    .box2 {
-        height: 180rpx;
-        width: 100%;
-        background-color: #fff;
-    }
-    .bx {
-        height: 90rpx;
-        line-height: 90rpx;
-        padding-left: 48rpx;
-        font-size: 32rpx;
-    }
-    .bxx {
-        padding-left: 30rpx;
-    }
-    .box3{
-        width: 100%;
-        height: 260rpx;
-        background-color: #fff;
-    }
-
-    .img {
-        width: 160rpx;
-        height: 160rpx;
-        float: left;
-        padding-left: 48rpx;
-        padding-top: 40rpx;
-    }
-     .small2 {
-         float: left;
-         width: 66%;
-         font-size: 34rpx;
-         padding-left: 20rpx;
-         margin-right: 20rpx;
-         padding-top: 40rpx;
-     }
-     .small3 {
-         float: left;
-         padding-top: 20rpx;
-         font-size: 32rpx;
-     }
-     .smal {
-         padding-left: 20rpx;
-     }
-     .smalx {
-         margin-left: 30rpx;
-         font-size: 32rpx;
-         color: #CCCCCC;
-     }
-    .box4 {
-        height: 80rpx;
-        line-height: 80rpx;
-    }
+page {
+      background-color: #DCDCDC;
+  }
+  .box {
+      height: 560rpx;
+      width: 100%;
+      background-color: #fff;
+  }
+  .small {
+      box-sizing: border-box;
+      width: 100%;
+      height: 110rpx;
+      line-height: 110rpx;
+      float: left;
+      padding-left: 48rpx;
+      border-bottom: 1rpx solid #F2F2F2;
+      font-size: 28rpx;
+  }
+  .sam{
+      float: right;
+      font-size: 28rpx;
+      margin-right: 48rpx;
+  }
+  .aa {
+      font-size: 30rpx;
+  }
+  .lop{
+      margin-left: 60rpx;
+  }
+  .smallx1{
+      float: left;
+      
+  }
+  .small1{
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      height: 80rpx;
+      padding-left: 48rpx;
+      display: none;
+      font-size: 18rpx;
+  }
+  .ser {
+      float: right;
+      margin-right: 48rpx;
+  }
+  .smallx {
+      box-sizing: border-box;
+      float: right;
+      font-size: 28rpx;
+      padding-right: 48rpx;
+  }
+  .smallxx {
+      box-sizing: border-box;
+      color: #E3BA85;
+      padding-left: 40rpx;
+  }
+  .smallxx1{
+      margin-left: 48rpx;
+  }
+  .primary {
+      width: 180rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      margin-top: 60rpx;
+      font-size: 22rpx;
+  }
+  .box1 {
+      height: 78rpx;
+      padding-left: 48rpx;
+      line-height: 78rpx;
+      font-size: 32rpx;
+      color: #333333;
+      background-color: #F6F6F6;
+  }
+  .box2 {
+      height: 180rpx;
+      width: 100%;
+      background-color: #fff;
+  }
+  .bx {
+      height: 90rpx;
+      line-height: 90rpx;
+      padding-left: 48rpx;
+      font-size: 28rpx;
+  }
+  .bxx {
+      padding-left: 30rpx;
+  }
+  .box3{
+      width: 100%;
+      height: 260rpx;
+      background-color: #fff;
+  }
+  .img {
+      width: 160rpx;
+      height: 160rpx;
+      float: left;
+      padding-left: 48rpx;
+      padding-top: 40rpx;
+  }
+  .small2 {
+      float: left;
+      font-size: 30rpx;
+      padding-left: 20rpx;
+      padding-top: 40rpx;
+  }
+  .small3 {
+      float: left;
+      padding-top: 20rpx;
+      font-size: 32rpx;
+  }
+  .smal {
+      padding-left: 20rpx;
+  }
+  .smalx {
+      padding-left: 34rpx;
+      font-size: 26rpx;
+      color: #a1a1a1;
+  }
+  .box4 {
+      height: 80rpx;
+      line-height: 80rpx;
+  }
+  .primary1 {
+      width: 180rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      margin-top: 12rpx;
+      color: #FFFFFF;
+      font-size: 28rpx;
+      float: right;
+      margin-right: 48rpx;
+      background-color: #121212;
+  }
 </style>

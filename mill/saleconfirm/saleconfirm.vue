@@ -11,12 +11,15 @@
                 </text>
             </view>
             <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
-            </view>
-            <view class="small">
                 <text>交易总价:
                     <text class="smallxx">{{price}}</text>
                 </text>
+                <text class="ser">
+                    矿机数量:<text class="smallxx">{{mill}}</text>台
+                </text>
+            </view>
+            <view class="small">
+
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -59,25 +62,25 @@
         <view class="box1">
             商品信息
         </view>
-        <view class="box3" v-for="(item , index) in vn" :key="index">
+        <view class="box3" v-for="(item , index) in boe" :key="index">
             <view>
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
             </view>
             <view>
                 <view class="small2">
                     专业版:
-                    <text class="aa">{{num}}</text>
-                    <text class="smal">{{xx}}</text>
+                    <text class="aa">{{item.name}}</text>
+                    <text class="smal">{{item.number}}</text>
                 </view>
                 <view class="small3">
-                    <text class="smalx">已运行{{day}}天 | <text class="smalx">剩余{{remaining}}天</text></text>
+                    <text class="smalx">已运行{{item.usedays}}天 | <text class="smalx">剩余{{item.residuedays}}天</text></text>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{usedisk}} | 
+                        储存{{item.data_hard_disk}} | 
                     </text>
                     <text class="smalx">
-                        总容量{{poirk}}T
+                        总容量{{item.usedisk}}T
                     </text>
                 </view>  
             </view>
@@ -97,26 +100,24 @@
                 type:'卖出',
                 state:'',
                 mill:'',
+                boe:'',
                 price:'',
                 rmb:'',
                 x:'',
                 time:'',
                 name:'',
                 contact:'',
-                num:'',
-                poirk:'',
-                day:'',
-                xx:'',
-                usedisk:'',
-                remaining:''
             }
         },
         onLoad(option) {
             var that = this
             console.log(option)
             var vn = JSON.parse(option.mvp)
-            that.vn = vn[1]
+            that.vn = vn
             console.log(vn)
+            
+            var boe = that.vn[1]
+            that.boe = that.vn[1]
             that.state = vn[0][0].order_status
             if(that.state == 102) {
                 that.state = '已确认'
@@ -126,13 +127,6 @@
             that.x = vn[0][0].order_num
             that.name = vn[0][0].name
             that.contact = vn[0][0].mobile
-            
-            that.num = vn[1][1].name
-            that.xx = vn[1][1].number
-            that.day = vn[1][1].usedays
-            that.remaining = vn[1][1].residuedays
-            that.usedisk = vn[1][1].data_hard_disk
-            that.poirk = vn[1][1].usedisk
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -160,18 +154,27 @@
         line-height: 110rpx;
         float: left;
         padding-left: 48rpx;
-        font-size: 32rpx;
+        border-bottom: 1rpx solid #F2F2F2;
+        font-size: 28rpx;
+    }
+    .ser {
+        float: right;
+        margin-right: 48rpx;
+    }
+    .sam{
+        float: right;
+        font-size: 28rpx;
+        margin-right: 48rpx;
     }
     .aa {
         font-size: 30rpx;
     }
     .lop{
-        font-size: 20rpx;
-        margin-right: 48rpx;
+        margin-left: 60rpx;
     }
     .smallx1{
-        float: right;
-        margin-left: 16rpx;
+        float: left;
+        
     }
     .small1{
         box-sizing: border-box;
@@ -180,29 +183,36 @@
         height: 80rpx;
         padding-left: 48rpx;
         display: none;
-        font-size: 32rpx;
+        font-size: 18rpx;
     }
     .smallx {
         box-sizing: border-box;
         float: right;
-        font-size: 32rpx;
+        font-size: 28rpx;
         padding-right: 48rpx;
     }
     .smallxx {
         box-sizing: border-box;
+        color: #E3BA85;
         padding-left: 40rpx;
+    }
+    .smallxx1{
+        margin-left: 48rpx;
     }
     .primary {
         width: 180rpx;
         height: 40rpx;
         line-height: 40rpx;
+        margin-top: 60rpx;
         font-size: 22rpx;
     }
     .box1 {
-        height: 100rpx;
+        height: 78rpx;
         padding-left: 48rpx;
-        line-height: 100rpx;
-        background-color: #CCCCCC;
+        line-height: 78rpx;
+        font-size: 32rpx;
+        color: #333333;
+        background-color: #F6F6F6;
     }
     .box2 {
         height: 180rpx;
@@ -213,7 +223,7 @@
         height: 90rpx;
         line-height: 90rpx;
         padding-left: 48rpx;
-        font-size: 32rpx;
+        font-size: 28rpx;
     }
     .bxx {
         padding-left: 30rpx;
@@ -232,7 +242,7 @@
     }
     .small2 {
         float: left;
-        font-size: 34rpx;
+        font-size: 30rpx;
         padding-left: 20rpx;
         padding-top: 40rpx;
     }
@@ -246,8 +256,8 @@
     }
     .smalx {
         padding-left: 34rpx;
-        font-size: 32rpx;
-        color: #CCCCCC;
+        font-size: 26rpx;
+        color: #a1a1a1;
     }
     .box4 {
         height: 80rpx;

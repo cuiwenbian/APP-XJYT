@@ -8,11 +8,21 @@ page {
 	margin-top: 135rpx;
 	margin-left: calc((100% - 185rpx) / 2);
 }
+<<<<<<< HEAD
 .fil{
 		width:250rpx;
 		height:100rpx;
 		display: block;	
 		margin:0 auto 100rpx;
+=======
+.fil {
+	height: 100rpx;
+	line-height: 100rpx;
+	text-align: center;
+	color: #fff;
+	font-size: 64rpx;
+	margin-bottom: 100rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .enter {
 	width: 600rpx;
@@ -23,10 +33,16 @@ page {
 .icon {
 	float: left;
 	display: block;
+<<<<<<< HEAD
 	width: 40rpx;
 	height: 40rpx;
 	margin-top: 30rpx;
 	margin-left: 10rpx;
+=======
+	width: 50rpx;
+	height: 50rpx;
+	margin-top: 25rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .number {
 	float: right;

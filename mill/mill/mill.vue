@@ -12,36 +12,46 @@
         </view>
        <view class="box3">
             <text>可出售</text>
-            <button class="btn" @click="btn2">去交易</button>
+            <button class="btn" @click="btn2">出售</button>
         </view> 
                   
-        <view v-if="flag" >
-            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-            <view class="infoo">暂无记录</view>
-        </view>
-       <view v-else class="pagex" v-for="(item , index) in user_id" :key="index">
-           <view class="page1" >
-                <view class="img">
-                    <image class="por" src="../../static/images/kuangji.png"></image>
+        <checkbox-group class="block" @change="CheckboxChange">
+            <view v-for="(item , index) in user_id" :key="index">
+                <view class="cu-form-group margin-top" >
+                    <checkbox class="tee" :class="item.checked?'checked':''" :checked="item.checked?true:false" :value="item.number"></checkbox>
                 </view>
-                <view class="info">
-                    <view class="obg">
-                        {{item.name}} {{item.number}}
-                    </view>
-                <view class='boo_img3'  @tap='select'>
-                    <image v-if="lo" class="tee" src="../../static/images/zu7.png"></image>
-                    <image v-else  class='te' src='../../static/images/tuo5.png'></image>
-				</view>
-                    <view class="obg_one">
-                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
-                    </view>
-
-                    <view>
-                        储存{{item.freedisk}}T | 总容量{{item.disk}}
-                    </view>                    
-                </view>
+                <view v-if="flag" >
+                            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+                            <view class="infoo">暂无记录</view>
+                        </view>
+                       <view v-else class="pagex" >
+                           <view class="page1" >
+                                <view class="img">
+                                    <image class="por" src="../../static/images/kuangji.png"></image>
+                                </view>
+                                <view class="info">
+                                    <view class="obg">
+                                        {{item.name}} {{item.number}}
+                                    </view>
+                                <!-- <view class='boo_img3'  > -->
+                                     
+                <!--                    <image v-if="lo"  src="../../static/images/zu7.png"></image>
+                                    <image v-else  class='te' src='../../static/images/tuo5.png'></image> -->
+                				<!-- </view> -->
+                                    <view class="obg_one">
+                                        <text class="days">已运行{{item.data}}天</text> | 剩余{{item.usedata}}天
+                                    </view>
+                
+                                    <view class="obg_one">
+                                        <text class="days">储存{{item.freedisk}}T</text>  | 总容量{{item.disk}}
+                                    </view>                    
+                                </view>
+                            </view>
+                        </view>
             </view>
-        </view>
+            
+        </checkbox-group>
+
     </view>
 </template>
 
@@ -50,15 +60,20 @@
     	data() {
     		return {
     			many: '',
-                user_id:'',
+                user_id:[],
                 flag:false,
                 selectilall: false,
                 machine_id:'',
                 lo: false,
                 arr:[],
-                isSelected:false
+                isSelected:false,
+                checkbox: [{
+                	value:'A',
+                	checked: false
+                }],
     		}
     	},
+
     	onLoad(options) {
             var that = this
             uni.request({
@@ -76,11 +91,10 @@
                     console.log(that.user_id.length)
                     if(that.user_id.length === 0){
                         that.many = 0
-                    }
 
+                    }
                     that.many = res.data.data.length
                     that.machine_id=res.data.data[length].machine_id;
-
                     if(that.user_id.length == 0) {
                         that.flag = true 
                     }
@@ -100,23 +114,48 @@
                 })
             },
 
-            select:function() {
-                var that = this
-                let arr = []
-                if(that.lo == true) {
-                    that.lo = !that.lo
-                    console.log(that.lo)
-                }else if (that.lo === false) {
-                    that.lo = !that.lo
-                    for (let i =0; i < that.user_id.length; i++) {
-                        console.log(that.machine_id)
-                        arr.push(that.user_id[i].machine_id)
-                        console.log(arr)
-                    }
+            // select:function() {
+            //     var that = this
+            //     let arr = []
+            //     if(that.lo == true) {
+            //         that.lo = !that.lo
+            //         console.log(that.lo)
+            //     }else if (that.lo === false) {
+            //         that.lo = !that.lo
+            //         for (let i =0; i < that.user_id.length; i++) {
+            //             console.log(that.machine_id)
+            //             arr.push(that.user_id[i].machine_id)
+            //             console.log(arr)
+            //         }
                     
-                    console.log(that.lo)
+            //         console.log(that.lo)
+            //     }
+            //     this.arr = arr
+            // },
+            CheckboxChange(e) {
+                console.log(e)
+                var that = this
+                that.arr = []
+                for (let i = 0; i < that.user_id.length; i++) {
+                    that.user_id[i].checked = false
+                    // console.log(that.user_id)
                 }
-                this.arr = arr
+            	var items = that.user_id
+            	var	values = e.detail.value;
+            	for (var i = 0, lenI = items.length; i < lenI; ++i) {
+            		items[i].checked = false;
+            		for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
+            			if (items[i].number == values[j]) {
+            				items[i].checked = true;
+                            console.log(values)
+                            console.log(items[i].machine_id)
+                            that.arr.push(items[i].machine_id)
+                            console.log(111)
+                            console.log(that.arr)
+            				break
+            			}
+            		}
+            	}
             },
             btn2:function() {
                 var that = this
@@ -171,16 +210,16 @@
 </script>
 
 <style>
-
+    @import url("../../common/icon.css");
     .box1{
-        height: 280rpx;
+        height: 520rpx;
         background-color:#091219;
     }
     .colo {
 		float: left;
 		width: 100%;
 		height: 40rpx;
-        font-size: 28rpx;
+        font-size: 40rpx;
 		text-align: center;	
 		padding-top: 120rpx;
         color: #FFFFFF;
@@ -209,6 +248,7 @@
     	margin: 150rpx auto 20rpx;
     }
     .infoo{
+        margin-left: 10rpx;
     	text-align: center;
     	font-size: 32rpx;
     }
@@ -222,10 +262,10 @@
     }
     .tee{
         float: right;
-        margin-top: -4rpx;
+        margin-top: 60rpx;
         width: 40rpx;
         height: 40rpx;
-        margin-right: 20rpx;
+        margin-right: 90rpx;
         /* display: none; */
     }
     .primary{
@@ -233,40 +273,45 @@
         width: 220rpx;
         height: 88rpx;
         line-height: 88rpx;
+        color: #333333;
+        background-color: #F9F9F9;
 		float: left;
+        font-size: 32rpx;
 		margin-left: 48rpx;
 		margin-top: 40rpx;
     }
     .primary1 {
         width: 220rpx;
         height: 88rpx;
+        font-size: 32rpx;
         line-height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 40rpx;
-        background-color: #121212;
-        color: #FFFFFF;
+        background-color: #091119;
+        color: #F0F0F0;
     }
     .box3 {
 		width: 100%;
-        height: 120rpx;
+        height: 100rpx;
         background-color: #F6F6F6;
     }
     .box3 text {
 		width: 108rpx;
-        line-height: 120rpx;
+        line-height: 100rpx;
 		float: left;
-        font-size: 36rpx;
+        font-size: 30rpx;
 		margin-left: 48rpx;
+        color: #B38701;
         border-bottom: 1rpx solid #DCB16E;
     }
     .btn {
 		float: right;
 		margin-right: 48rpx;
 		margin-top: 30rpx;
-        width: 160rpx;
-        height: 70rpx;
-        line-height: 70rpx;
+        width: 120rpx;
+        height: 45rpx;
+        line-height: 45rpx;
         font-size: 24rpx;
     }
    .pagex {
@@ -298,23 +343,22 @@
         margin-left: 48rpx;
     }
     .info{
-        width: 70%;
+        width: 50%;
         height: 100%;
-        float: right;
+        margin-left: 20rpx;
+        float: left;
     }
     .obg{
         margin-top: 20rpx;
         font-size: 30rpx;
         
     }
-    .obh_one {
-        font-size: 24rpx;
-
-    }
     .days{
         color: #5ca614;
+        
     }
     .obg_one{
+        margin-top: 10rpx;
         font-size: 24rpx;
 
     }

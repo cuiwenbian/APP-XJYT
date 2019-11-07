@@ -160,11 +160,14 @@ export default {
 						}
 						
 					}
+
 				});
 			}
+
 			var page = getCurrentPages().pop();
 			if (page == undefined || page == null) return;
 			page.onLoad();
+
 		},
 		//点击删除按钮
 		click: function(item) {
@@ -185,7 +188,7 @@ export default {
 				complete: () => {}
 			});
 		},
-		//返回
+		//返回 
 		back: function() {
 			uni.navigateBack({
 				delta: 1
@@ -207,6 +210,7 @@ export default {
 		}
 	}
 };
+
 </script>
 
 <style>

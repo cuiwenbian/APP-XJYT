@@ -6,15 +6,29 @@ page{
 	display: block;
 	width:185rpx;
 	height:185rpx;
+<<<<<<< HEAD
 	margin: 150rpx auto 0;
 	/* margin-top:150rpx;
 	margin-left: calc((100% - 185rpx)/2); */
+=======
+	margin-top:150rpx;
+	margin-left: calc((100% - 185rpx)/2);
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .fil{
 	width:250rpx;
 	height:100rpx;
+<<<<<<< HEAD
 	display: block;	
 	margin:30rpx auto 100rpx;
+=======
+	display: block;
+	line-height: 100rpx;
+	text-align: center;
+	color: #fff;
+	font-size: 64rpx;
+	margin:0 auto 100rpx;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
 }
 .enter{
 	
@@ -24,7 +38,11 @@ page{
 	border-bottom: 1px solid #555555;
 }
 .icon{
+<<<<<<< HEAD
 	float:left;   
+=======
+	float:left;
+>>>>>>> 9fcf0d12303a4f873792dcd345221be2221c9d1e
     display: block;
 	width:40rpx;
 	height:40rpx;

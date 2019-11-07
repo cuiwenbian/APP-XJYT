@@ -8,33 +8,30 @@
         indicator-color="rgda(255 , 255 , 255 , .6)"
         >
             <swiper-item>
-                <image src="../../static/images/tu.png"></image>
+                <image class="ttt" src="../../static/images/tu.png"></image>
             </swiper-item>
             <swiper-item>
-                <image src="../../static/images/lb.png"></image>
+                <image class="ttt" src="../../static/images/lb.png"></image>
             </swiper-item>
             <swiper-item>
-                <image src="../../static/images/tu1.png"></image>
+                <image class="ttt" src="../../static/images/tu1.png"></image>
             </swiper-item>
         </swiper>
         
-<!--        <view class="notice"> 
-           <image class="g" src="../../static/images/notice.png"></image>   
-           <text class="clor">{{notice}}</text>
-        </view> -->
         
         <view class="uni-swiper-msg">
         	<view class="uni-swiper-msg-icon">
         		<image class="g" src="../../static/images/notice.png" mode="widthFix"></image>
         	</view>
         	<swiper 
+            class="bgc"
             autoplay="true" 
             circular="true"  
             interval="5000" 
             vertical:true
              indicator-dots:false
             >
-        		<swiper-item>
+        		<swiper-item class="fz">
         			<text class="clor">{{notice}}</text>
         		</swiper-item>
                 <swiper-item>
@@ -66,10 +63,7 @@
             	
             </div>
         </view>
-        
-        <view class="bor1"></view>
             <view class="Small">
-                <image src="../../static/images/information.png" mode=""></image>
 				<text class="te">热门资讯</text> 
             </view>
         <view class="bt">
@@ -140,8 +134,8 @@
                 success(res) {
                     console.log(res.data)
                     var opent = res.data
-                    console.log(opent[0].notice)
-                    that.notice = opent[0].notice
+                    // console.log(opent[0].notice)
+                    // that.notice = opent[0].notice
                    
                 }
             })
@@ -251,6 +245,18 @@
       background: linear-gradient(to bottom,#28c1d8, #86ced9); 
       position: relative;
     }
+    .fz{
+        line-height: 40rpx;
+    }
+    .bgc{
+        height: 40rpx;
+        line-height: 40rpx;
+        margin-right: 20rpx;
+        background-color: #333333;
+        font-size: 14rpx;
+        margin-left: 20rpx;
+        border-radius: 8rpx;
+    }
 	.height {
 		height: var(--status-bar-height);
 	}
@@ -266,6 +272,13 @@
    .notice{
         height: 60rpx;
     }
+    .ttt{
+        width: 720rpx;
+        height: 270rpx;
+        margin-top: 20rpx;
+        margin-left: 15rpx;
+        border-radius: 8rpx;
+    }
 /*   .clor{
         width: 93%;
         float: left;
@@ -278,7 +291,7 @@
         height: 28rpx;
         float: left;
         padding-left: 23rpx;
-        padding-top: 20rpx;
+        padding-top: 5rpx;
     }
     .i{
         width: 600rpx;
@@ -297,25 +310,18 @@
         color: #FFFFFF;
     }
     .clor{
-        color: #FFFFFF;
+        color: #F2F2F2;
          float: left;
          height: 90rpx;
-         margin-top: 10rpx;
     }
     .bor {
 		width: 94%;
         margin: 0 auto;
         border: 2rpx solid #CcCcCc;
     }
-    .bor1 {
-        width: 94%;
-        margin: 0 auto;
-        border: 2rpx solid #CCCCCC;
-        margin-top: 20rpx;
-    }
     .borx {
         width: 100%;
-        height: 140rpx;
+        height: 120rpx;
 
     }
     .price{
@@ -325,8 +331,8 @@
     .bot{
         float: left;
         line-height: 120rpx;
-        font-size: 34rpx;
-        color: #FFFFFF;
+        font-size: 20rpx;
+        color: #F2F2F2;
     }
     /* 2 */
     .price1{
@@ -337,16 +343,18 @@
     .Todayprice{
 			float: left;
 			line-height: 120rpx;
-			font-size: 56rpx;
-			color: #DCB16E;
+			font-size: 38rpx;
+            margin-left: 20rpx;
+			color: #e3ba85;
 	}
     .bot1 {
         color: #FFFFFF;
         margin-bottom: 12rpx;
-        font-size: 34rpx;
+        font-size: 20rpx;
     }
     .yesterdayprice {
-        font-size: 34rpx;
+        font-size: 38rpx;
+        margin-left: 10rpx;
         line-height: 120rpx;
         color: #DCB16E;
     }
@@ -360,38 +368,30 @@
 		height: 80rpx;
         margin-top: 14rpx;
     }
-    .Small image{
-        width: 40rpx;
-        height: 40rpx;
-		float: left;
-        margin-left: 20rpx;
-    }
     .te {
 		float: left;
-        display: block;
         color: #FFFFFF;
         font-size: 32rpx;
-        width: 134rpx;
-		margin-left: 20rpx;
-        border-bottom: 1rpx solid #CCCCCC;
-        padding-bottom: 14rpx;
+        width: 96%;
+        margin-left: 30rpx;
+        border-bottom: 1rpx solid #F2F2F2;
     }
     .bt{
 		width: 100%;
-        height: 200rpx;
+        height: 184rpx;
     }
 	.left {
 		float: left;
-		width: 60%;
+		width: 70%;
 	}
     .tex {
-        text-indent: 34rpx;
-        font-size: 28rpx;
-        color: #FFFFFF;
+        margin-left: 30rpx;
+        font-size: 26rpx;
+        color: #D7D7D7;
         padding-top: 20rpx;
         padding-left: 24rpx;
 		
-        display: -webkit-box;
+       display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
         word-wrap: break-word;
@@ -400,42 +400,44 @@
         -webkit-box-orient: vertical;
     }
 	.right {
-		width: 40%;
 		float: right;
 	}
     .ig {
         width: 190rpx;
         height: 127rpx;
-		padding-top: 30rpx;
-		padding-left: 48rpx;
+		/* padding-top: 30rpx; */
+		/* padding-left: 48rpx; */
+        margin-top: 28rpx;
+        margin-right: 20rpx;
     }
  
 	.yu {
 		float: left;
-		padding-top: 40rpx;
+		padding-top: 8rpx;
 		padding-left: 48rpx;
-        font-size: 16rpx;
-        color: #CCCCCC;
+        font-size: 14rpx;
+        color: #5A5A5A;
     }
     .yj {
-        width: 40rpx;
-        height: 22rpx;
-		padding-left: 140rpx;
-		padding-top: 46rpx;
+        width: 36rpx;
+        height: 26rpx;
+		padding-left: 90rpx;
+		padding-top: 14rpx;
     }
     .yjj {
 		float: right;
-		padding-right: 40rpx;
-		padding-top: 40rpx;
-        font-size: 16rpx;
-        color: #CCCCCC;
+		padding-right: 180rpx;
+		padding-top: 8rpx;
+        font-size: 14rpx;
+        color: #5A5A5A;
     }
     .b {
         display: block;
-        width: 94%; 
+        width: 96%; 
         margin: 0 auto;
-        margin-top: 20rpx;
-        border-bottom:2rpx solid #CCCCCC;
+        margin-left: 46rpx;
+        /* margin-top: rpx; */
+        border-bottom: 1rpx solid #333333;
     }
     /*  #endif  */
 </style>
