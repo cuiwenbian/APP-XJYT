@@ -211,56 +211,109 @@
                     console.log(that.price)
             	},
             	showLineA(canvasId,chartData){
-            		canvaLineA=new uCharts({
-            			$this:_self,
-            			canvasId: canvasId,
-            			type: 'line',
-            			fontSize:11,
-            			legend:{show:false},
-            			dataLabel:false,
-            			dataPointShape:false,
-            			background:'#FFFFFF',
-						axisLineColor:'#333535',
-            			pixelRatio:_self.pixelRatio,
-            			categories: _self.time,//数据类别(饼图.圆环图不需要)
-            			series: [   //数据列表
-            			          {
-            			            name: "FIL数量", //数据名称
-            			            data: _self.price, //数据
-            			            color: "#fff" //颜色,不传入则使用系统默认配色方案
-            			          },
+					canvaArea=new uCharts({
+										$this:_self,
+										canvasId: canvasId,
+										type: 'area',
+										fontSize:11,
+										legend:true,
+										dataLabel:false,
+										dataPointShape:true,
+										pixelRatio:_self.pixelRatio,
+										categories: _self.time,//数据类别(饼图.圆环图不需要)
+										series: [   //数据列表
+										          {
+										            name: "FIL数量", //数据名称
+										            data: _self.price, //数据
+										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
+										          },
+														  
+										],
+										animation: true,
+										xAxis: {
+										    type:'grid',
+											gridColor:'#333535',
+											disableGrid:true,
+											gridType:'solid',
+											dashLength:8,
+											axisLineColor:'#333535'
+										},
+										yAxis: {
+										   // disabled:true, //不绘制Y轴
+											type:'grid',
+											gridType:'solid',
+											gridColor:'#333535',
+											dashLength:8,
+											splitNumber:5,
+											min:0,
+											max:10,
+													
+											format:(val)=>{return val.toFixed(0)}
+										},
+										width: _self.cWidth*_self.pixelRatio,
+										height: _self.cHeight*_self.pixelRatio,
+										extra: {
+											area:{
+												type: 'straight',
+												opacity:0.2,
+												addLine:true,
+												width:1,
+												gradient:true
+											}
+										}
+									});
+      //       		canvaLineA=new uCharts({
+      //       			$this:_self,
+      //       			canvasId: canvasId,
+      //       			type: 'line',
+      //       			fontSize:11,
+      //       			legend:{show:false},
+      //       			dataLabel:false,
+      //       			dataPointShape:false,
+      //       			background:'#FFFFFF',
+						// axisLineColor:'#333535',
+      //       			pixelRatio:_self.pixelRatio,
+      //       			categories: _self.time,//数据类别(饼图.圆环图不需要)
+      //       			series: [   //数据列表
+      //       			          {
+      //       			            name: "FIL数量", //数据名称
+      //       			            data: _self.price, //数据
+      //       			            color: "#fff" //颜色,不传入则使用系统默认配色方案
+      //       			          },
 								  
-            			],
-						axisLineColor:'#333535',
-            			animation: true,
-            			xAxis: {
-            				type:'grid',						
-            				gridColor:'#333535',
-            				disableGrid:true,
-            				gridType:'solid',
-            				dashLength:8,
-							axisLineColor:'#333535'
-            			},
-            			yAxis: {
-                            //disabled:true, //不绘制Y轴
-            				gridType:'solid',
-            				gridColor:'#333535',
-            				dashLength:8,
-            				splitNumber:5,
-            				min:0,
-            				max:10,
+      //       			],
+      //       			animation: true,
+      //       			xAxis: {
+      //       				type:'grid',						
+      //       				gridColor:'#333535',
+      //       				disableGrid:true,
+      //       				gridType:'solid',
+      //       				dashLength:8,
+						// 	axisLineColor:'#333535'
+      //       			},
+      //       			yAxis: {
+      //                       disabled:true, //不绘制Y轴
+      //       				type:'grid',
+						// 	gridType:'solid',
+      //       				gridColor:'#333535',
+      //       				dashLength:8,
+      //       				splitNumber:5,
+      //       				min:0,
+      //       				max:10,
 							
-            				format:(val)=>{return val.toFixed(0)}
-            			},
-            			width: _self.cWidth*_self.pixelRatio,
-            			height: _self.cHeight*_self.pixelRatio,
-            			extra: {
-            				line:{
-            					type: 'straight',
-            					width:"0.5rpx"
-            				}
-            			}
-            		});
+      //       				format:(val)=>{return val.toFixed(0)}
+      //       			},
+      //       			width: _self.cWidth*_self.pixelRatio,
+      //       			height: _self.cHeight*_self.pixelRatio,
+      //       			extra: {
+      //       				area:{
+      //       											type: 'straight',
+      //       											opacity:0.2,
+      //       											addLine:true,
+      //       											width:2
+      //       										}
+      //       			}
+      //       		});
             	 },
                      touchLineA(e) {
                      	canvaLineA.showToolTip(e, {
