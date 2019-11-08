@@ -167,7 +167,7 @@
     export default {
     	data() {
     		return {
-                many:'',
+                many:'0',
                 tabCurrentIndex:0,
                 dater:'',
                 ter:'',
@@ -269,7 +269,7 @@
                             console.log(res)
                             var delewen = res.data.data
                             that.delewen = delewen
-							that.many = that.delewen
+							// that.many = that.delewen
                         }
                     })
                 }

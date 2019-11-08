@@ -85,7 +85,6 @@ export default {
 					that.many = res.data.data.length
 					that.machine_id=res.data.data[length].machine_id;
 				}
-				
 				if (res.statusCode == 205) {
 					that.flag = true;
 					

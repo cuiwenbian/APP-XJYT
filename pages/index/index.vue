@@ -8,13 +8,13 @@
         indicator-color="rgda(255 , 255 , 255 , .6)"
         >
             <swiper-item>
-                <image class="ttt" src="../../static/images/tu.png"></image>
+                <image class="ttt" src="../../static/images/banner1.png"></image>
+            </swiper-item>
+            <swiper-item>
+                <image class="ttt" src="../../static/images/banner3.png"></image>
             </swiper-item>
             <swiper-item>
                 <image class="ttt" src="../../static/images/lb.png"></image>
-            </swiper-item>
-            <swiper-item>
-                <image class="ttt" src="../../static/images/tu1.png"></image>
             </swiper-item>
         </swiper>
         
@@ -66,7 +66,7 @@
             <view class="Small">
 				<text class="te">热门资讯</text> 
             </view>
-        <view class="bt">
+        <view class="bt" @click="web1">
 			<view class="left">
 				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
 				<view>
@@ -81,6 +81,7 @@
 			</view>
         </view>
         <text class="b"></text>
+		<view class="bt" @click="web2">
         <view class="left">
         	<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
         	<view>
@@ -93,6 +94,7 @@
         <view class="right">
         	<image class="ig" src="../../static/images/kuangji.png"></image>
         </view>
+		</view>
 	</view>
 </template>
 
@@ -126,9 +128,7 @@
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
             _self.getServerData();
-		//	console.log(this.global_.token);
-		//	console.log(this.global_.phone)
-            
+		
             uni.request({
                 url:this.url + 'home/',
                 method:'GET',
@@ -136,17 +136,23 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-               //     console.log(res)
                     var csgo = res.data
-               //     console.log(csgo)
                     that.csgo = csgo
-                    // console.log(opent[0].notice)
-                    // that.notice = opent[0].notice
-                   
                 }
             })
+		
         },
 		methods: {
+			web1:function(){
+				uni.navigateTo({
+					url:'../web1/web1'
+				})
+			},
+			web2:function(){
+				uni.navigateTo({
+					url:'../web2/web2'
+				})
+			},
             getServerData(){
                 var that=this;
             	uni.request({
@@ -310,7 +316,7 @@
     }
     .ttt{
         width: 720rpx;
-        height: 290rpx;
+        height: 300rpx;
         margin-top: 20rpx;
         margin-left: 15rpx;
         border-radius: 8rpx;

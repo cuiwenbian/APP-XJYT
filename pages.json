@@ -46,7 +46,15 @@
         {
             "path":"pages/news/news",
             "style":"热门新闻"
-        }
+        },
+		{
+		    "path":"pages/web1/web1",
+		    "style":"热门新闻"
+		},
+		{
+		    "path":"pages/web2/web2",
+		    "style":"热门新闻"
+		}
 	],
     "subPackages":[
              {

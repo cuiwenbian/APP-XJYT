@@ -29,8 +29,8 @@
                     订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
-            <view class="small">
-                <text v-if="lpl">
+            <view class="small1">
+                <text>
                     创建时间:<text class="malx">{{time}}</text>
                 </text>
             </view>
@@ -88,7 +88,6 @@
             return {
                 type:'买入',
                 state:'',
-                lpl:false,
                 mill:'',
                 price:'',
                 vior:'',
@@ -125,11 +124,6 @@
         methods:{
             btn:function () {
                 var that = this
-                if(that.lpl === false){
-                    that.lpl = !that.lpl
-                }else {
-                    that.lpl = !that.lpl
-                }
             }
         }
     }
@@ -175,7 +169,7 @@
       float: left;
       height: 80rpx;
       padding-left: 48rpx;
-      /* display: none; */
+      display: none;
       font-size: 18rpx;
   }
   .smallx {

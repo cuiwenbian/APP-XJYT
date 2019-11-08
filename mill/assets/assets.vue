@@ -4,8 +4,12 @@
 		<view class="box">
 			<text class="assets">总资产</text>
 			<view class="number">{{num}} FIL</view>
-			<text class="coin">可用币 {{ber}}</text>
-			<text class="lock">锁定币 {{nuber}}</text>
+			<text class="coin">可用币: 
+                <text class="berot">{{ber}}</text>
+            </text>
+			<text class="lock">锁定币: 
+                <text class="berot">{{nuber}}</text>
+            </text>
 
 		</view>
 		<view class="btn">
@@ -57,10 +61,10 @@
 							<view class="list-one" v-for="(item , index) in entin" :key="index">
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
-									<view class='list-info'>收款</view>
+									<view class='list-info'>支出</view>
 									<view class='list-time'>{{item.add_time}}</view>
 								</view>
-								<view class='list-income'>+{{item.num}}</view>
+								<view class='list-income'>-{{item.num}}</view>
 							</view>
 						</view>
 					</view>
@@ -81,7 +85,7 @@
 				ber: '',
 				nuber: '',
 				fee: '',
-				month_profit: '',
+				month_profit: '0',
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
@@ -342,7 +346,10 @@
 		font-size: 24rpx;
 		color: #FFFFFF;
 	}
-
+    .berot{
+        font-size: 24rpx;
+        color:#F0AD4E ;
+    }
 	.btn {
 		height: 150rpx;
 		width: 100%;
