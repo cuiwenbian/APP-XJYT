@@ -379,24 +379,26 @@
     .Todayprice{
 			float: left;
 			line-height: 120rpx;
+            text-align: center;
 			font-size: 38rpx;
             margin-left: 20rpx;
 			color: #e3ba85;
 	}
     .bot1 {
         color: #FFFFFF;
-        margin-bottom: 12rpx;
+        margin-bottom: 6rpx;
         font-size: 20rpx;
     }
     .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
+        padding-top: 12rpx;
         line-height: 120rpx;
         color: #DCB16E;
     }
 	.gg{
         width: 100%;
-        height: 608rpx;
+        height: 600rpx;
     }
 
     .Small{
