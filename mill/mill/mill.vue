@@ -154,6 +154,7 @@ export default {
 			var a = that.arr.join(',');
 			console.log(a);
 
+
 			uni.request({
 				url: this.urll + 'buildorders/',
 				method: 'GET',

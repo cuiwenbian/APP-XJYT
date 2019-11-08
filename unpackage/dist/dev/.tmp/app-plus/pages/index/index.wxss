@@ -226,6 +226,50 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1842,25 +1886,15 @@ radio-group label, checkbox-group label{
     	height: 500rpx;
     	background-color: #FFFFFF;
 }
-.charts {
-    	width: 750rpx;
-    	height: 500rpx;
-    	background-color: #FFFFFF;
-}
 page {
         background-color: #121212;
 }
 .charts {
       width: 100%;
       height: 600rpx;
-      padding-left:20rpx;
-      padding-right: 20rpx;
-      /* padding-top:10rpx; */
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      background: -webkit-gradient(linear,left top, left bottom,from(#28c1d8), to(#86ced9));
-      background: -o-linear-gradient(top,#28c1d8, #86ced9);
-      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      background: -webkit-gradient(linear,left top, left bottom,from(#121212), to(#212121));
+      background: -o-linear-gradient(top,#121212, #212121);
+      background: linear-gradient(to bottom,#121212, #212121); 
       position: relative;
 }
 .fz{
@@ -2019,6 +2053,9 @@ swiper-item image {
 		/* padding-left: 48rpx; */
         margin-top: 28rpx;
         margin-right: 20rpx;
+}
+.uni-swiper-msg{
+        margin-top: 20rpx;
 }
 .yu {
 		float: left;

@@ -31,12 +31,12 @@
             vertical:true
              indicator-dots:false
             >
-        		<swiper-item class="fz">
-        			<text class="clor">{{notice}}</text>
+        		<swiper-item class="fz" v-for="(item , index) in csgo" :key="index">
+        			<text class="clor">{{item.notice}}</text>
         		</swiper-item>
-                <swiper-item>
+<!--                <swiper-item>
                 	<text class="clor">{{s}}</text>
-                </swiper-item>
+                </swiper-item> -->
         	</swiper>
         </view>
 
@@ -56,9 +56,9 @@
         <view class="gg">
             <div class="charts">
             	<view class="qiun-columns">
-            			<view class="qiun-charts" >
-            				<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
-            			</view>
+            		<view class="qiun-charts" >
+            			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
+                    </view>
             	</view>
             	
             </div>
@@ -66,7 +66,7 @@
             <view class="Small">
 				<text class="te">热门资讯</text> 
             </view>
-        <view class="bt">
+        <view class="bt" @click="web1">
 			<view class="left">
 				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
 				<view>
@@ -81,6 +81,7 @@
 			</view>
         </view>
         <text class="b"></text>
+		<view class="bt" @click="web2">
         <view class="left">
         	<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
         	<view>
@@ -93,6 +94,7 @@
         <view class="right">
         	<image class="ig" src="../../static/images/kuangji.png"></image>
         </view>
+		</view>
 	</view>
 </template>
 
@@ -112,7 +114,11 @@
                 cHeight:'',
                 pixelRatio:1,
                 notice:'',
-                s:'123987998449898'
+                csgo:'',
+                s:'123987998449898',
+                time:[],
+                price:[],
+                usd:''
 			}
              
 		},
@@ -121,10 +127,8 @@
             var that = this
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
-            this.getServerData();
-			console.log(this.global_.token);
-			console.log(this.global_.phone)
-            
+            _self.getServerData();
+		
             uni.request({
                 url:this.url + 'home/',
                 method:'GET',
@@ -132,41 +136,81 @@
                     Authorization:'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res.data)
-                    var opent = res.data
-                   
+                    var csgo = res.data
+                    that.csgo = csgo
                 }
             })
 		
         },
 		methods: {
-			
+			web1:function(){
+				uni.navigateTo({
+					url:'../web1/web1'
+				})
+			},
+			web2:function(){
+				uni.navigateTo({
+					url:'../web2/web2'
+				})
+			},
             getServerData(){
+                var that=this;
             	uni.request({
-            			url: '',
-                        msg:'',
-            			method: '',
-            			header: {
-            			  
-            			},
+            			url: 'https://www.ipcn.xyz/api/v1/filecoin/',
+            			method: 'GET',
             			success: function(res) {
-                            console.log(res)
-            				console.log(res.data.data[0])
-            				var data = res.data.data[0];
-            				_self.seven_profit=data.seven_profit;
-            				_self.total_profit=data.total_profit;
-            				let LineA={seven_list:[]};
-            				//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-            				LineA.seven_list=res.data.data.seven_list;
-            				_self.showLineA("canvasLineA",data);
-            			},
-            			fail: () => {
-            				_self.tips="网络错误，小程序端请检查合法域名";
+                          //  console.log(res)
+                            if(res.data.code==200){
+                                 //转换时间戳
+                                 function formatDate(value) {
+                                     let date = new Date(value);
+                                     let y = date.getFullYear();
+                                     let MM = date.getMonth() + 1;
+                                     MM = MM < 10 ? ('0' + MM) : MM;
+                                     let d = date.getDate();
+                                     d = d < 10 ? ('0' + d) : d;
+                                     let h = date.getHours();
+                                     h = h < 10 ? ('0' + h) : h;
+                                     let m = date.getMinutes();
+                                     m = m < 10 ? ('0' + m) : m;
+                                     let s = date.getSeconds();
+                                     s = s < 10 ? ('0' + s) : s;
+                                     // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+                                     return  MM + '-' + d ;
+                                 };
+                                                                 
+                                 that.usd = res.data.data.data.data;
+                                // console.log(that.usd)
+                                 var time = [];
+                                 var price = [];
+                                 for (var i = 0; i < that.usd.length; i+=60) {
+                                     var shuzu = that.usd[i][0];
+                                     var formatTime = formatDate(shuzu*1000, 'yyyy-MM-dd ');
+                                     time.push(formatTime);
+                                     that.time=time;
+                                    // console.log(that.time)
+                                 }
+                                 for (var j = 0; j < that.usd.length; j+=60) {
+                                     var p = that.usd[j][1];
+                                     p = p.toFixed(2);//保留2位但结果为一个String类型
+                                     p = parseFloat(p);//将结果转换会float
+                                     //用一步的话如下
+                                     //a = parseFloat(a.toFixed(2));
+                                     price.push(p);
+                                     that.price=price;
+                                   //  console.log(that.price)
+                                 }
+                                 let LineA={list:[]};
+                                 //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+                                 LineA.list=that.usd;
+                                 _self.showLineA("canvasLineA",that.usd);                      
+                            }
             			},
             		});
+                    console.log(that.time)
+                    console.log(that.price)
             	},
             	showLineA(canvasId,chartData){
-            	
             		canvaLineA=new uCharts({
             			$this:_self,
             			canvasId: canvasId,
@@ -177,18 +221,18 @@
             			dataPointShape:false,
             			background:'#FFFFFF',
             			pixelRatio:_self.pixelRatio,
-            			categories: ["2012", "2013", "2014", "2015", "2016", "2017"],//数据类别(饼图.圆环图不需要)
+            			categories: _self.time,//数据类别(饼图.圆环图不需要)
             			series: [   //数据列表
             			          {
             			            name: "FIL数量", //数据名称
-            			            data: [], //数据
+            			            data: _self.price, //数据
             			            color: "#fff" //颜色,不传入则使用系统默认配色方案
             			          }
             			],
             			animation: true,
             			xAxis: {
             				type:'grid',						
-            				gridColor:'#f1f1f1',
+            				gridColor:'#333535',
             				disableGrid:true,
             				gridType:'solid',
             				dashLength:8
@@ -196,11 +240,11 @@
             			yAxis: {
                             // disabled:true, //不绘制Y轴网格
             				gridType:'solid',
-            				gridColor:'#f1f1f1',
+            				gridColor:'#333535',
             				dashLength:8,
             				splitNumber:5,
-            				min:0,
-            				max:80,
+            				min:3,
+            				max:6,
             				format:(val)=>{return val.toFixed(0)}
             			},
             			width: _self.cWidth*_self.pixelRatio,
@@ -212,8 +256,14 @@
             				}
             			}
             		});
-            		
-            }
+            	 },
+                     touchLineA(e) {
+                     	canvaLineA.showToolTip(e, {
+                     		format: function (item, category) {
+                     			return category + ' ' + item.name + ':' + item.data 
+                     		}
+                     	});
+                     }
 		}
 	}
 </script>
@@ -227,22 +277,14 @@
     	background-color: #FFFFFF;
     }
     
-    .charts {
-    	width: 750upx;
-    	height: 500upx;
-    	background-color: #FFFFFF;
-    }
+  
     page {
         background-color: #121212;
     }
     .charts {
       width: 100%;
       height: 600rpx;
-      padding-left:20rpx;
-      padding-right: 20rpx;
-      /* padding-top:10rpx; */
-      box-sizing: border-box;
-      background: linear-gradient(to bottom,#28c1d8, #86ced9); 
+      background: linear-gradient(to bottom,#121212, #212121); 
       position: relative;
     }
     .fz{
@@ -404,7 +446,9 @@
         margin-top: 28rpx;
         margin-right: 20rpx;
     }
- 
+    .uni-swiper-msg{
+        margin-top: 20rpx;
+    }
 	.yu {
 		float: left;
 		padding-top: 8rpx;

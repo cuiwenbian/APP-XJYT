@@ -8,6 +8,8 @@
     "pages/agreement/agreement",
     "pages/otherLogin/otherLogin",
     "pages/news/news",
+    "pages/web1/web1",
+    "pages/web2/web2",
     "mill/mill/mill",
     "mill/pay/pay",
     "mill/staypay/staypay",
