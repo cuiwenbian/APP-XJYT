@@ -169,7 +169,7 @@ export default {
 					console.log(res.data);
 					var asr = JSON.stringify(res.data.data);
 					console.log(asr);
-					if (res.statusCode == 400) {
+					if (res.statusCode == 401) {
 						uni.showModal({
 							title: '未进行实名认证',
 							confirmText: '去验证',
@@ -183,16 +183,35 @@ export default {
 								console.log(res.confirm);
 							}
 						});
-					} else if (that.arr == 0) {
+					} else if (res.statusCode == 302) {
+                        uni.showModal({
+                            title:'实名认证审核中',
+                        })
+                    }else if (res.statusCode == 400) {
+                        uni.showModal({
+                            title:'未设置交易密码',
+                            confirmText:'去设置',
+                            success(res) {
+                                if(res.confirm == true) {
+                                    uni.navigateTo({
+                                        url:'../../my/trade-password/trade-password'
+                                    })
+                                }
+                            }
+                        })
+                    }
+                        
+                    else if (that.arr == 0) {
 						uni.showToast({
 							title: '请选择矿机',
 							icon: 'none'
 						});
-					} else if (res.statusCode == 200) {
-						uni.navigateTo({
-							url: '../sell/sell?tar=' + asr
-						});
-					}
+					} 
+     //                else if (res.statusCode == 200) {
+					// 	uni.navigateTo({
+					// 		url: '../sell/sell?tar=' + asr
+					// 	});
+					// }
 				}
 			});
 		}

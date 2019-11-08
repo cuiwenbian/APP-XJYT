@@ -8,7 +8,7 @@
 			<view class="colo1">
                 <image class="dx" src="../../static/images/mai.png" mode=""></image>
             </view>
-			<view class="many1">买 出</view>
+			<view class="many1">买 入</view>
         </view>
         <view class="box3">
             <view class="swiper-tab">
@@ -35,10 +35,10 @@
                                 订单编号:<text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -75,10 +75,10 @@
                                 订单编号:<text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money }}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -111,10 +111,10 @@
                                 订单编号:<text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -147,10 +147,10 @@
                                 订单编号:<text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -429,6 +429,7 @@
        }    
    	.colo1{
    		height: 60rpx;
+        box-sizing: border-box;
         padding-top: 50rpx;
         margin-right: 48rpx;
    	}
@@ -443,6 +444,7 @@
    		float: right;
    		width: 90rpx;
    		height: 60rpx;
+        box-sizing: border-box;
         padding-top: 28rpx;
    		margin-right: 145rpx;
         font-size: 20rpx;
@@ -459,11 +461,6 @@
          height: auto;
          
        }
-   /*    .order{
-           width: 100%;
-           margin-bottom: 40rpx;
-   
-       } */
    	.top{
    		height: 88rpx;
    	}
@@ -476,6 +473,7 @@
         line-height: 90rpx;
         font-size: 30rpx;
         color: 333333;
+        box-sizing: border-box;
         padding-left: 48rpx;
        }
        .cont{
@@ -494,6 +492,7 @@
    		float: left;
    		width: 100%;
    		height: 90rpx;
+        box-sizing: border-box;
    		line-height: 90rpx;
    		padding-left: 48rpx;
         font-size: 28rpx;
@@ -505,6 +504,7 @@
    		height: 90rpx;
    		line-height: 90rpx;
    		width: 100%;
+        box-sizing: border-box;
    		padding-left: 48rpx;
         font-size: 28rpx;
         color: #333333;
@@ -514,6 +514,7 @@
    		float: left;
    		width: 100%;
    		height: 90rpx;
+        box-sizing: border-box;
    		line-height: 90rpx;
    		padding-left: 48rpx;
         font-size: 28rpx;
@@ -525,6 +526,7 @@
    		width: 100%;
    		height: 90rpx;
    		line-height: 90rpx;
+        box-sizing: border-box;
    		padding-left: 48rpx;
         font-size: 28rpx;
         color: #333333;
@@ -537,7 +539,7 @@
        }
        .hz{
            width: 100%;
-   		height: 80rpx;
+           height: 80rpx;
        }
        .btn1{
             float: left;
@@ -582,9 +584,6 @@
        }
        .current {
            color: #B39C01;
-           /* width: 20%; */
-           /* margin-left: 20rpx; */
-           /* width: 20%; */
            border-bottom: 1rpx solid #B39C01;
        }
 </style>
