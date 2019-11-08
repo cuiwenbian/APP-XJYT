@@ -197,7 +197,7 @@
                                  let LineA={list:[]};
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
                                  LineA.list=that.usd;
-                                 _self.showLineA("canvasLineA",this.usd);                      
+                                 _self.showLineA("canvasLineA",that.usd);                      
                             }
             			},
             		});
