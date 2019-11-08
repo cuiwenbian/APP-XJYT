@@ -53,7 +53,7 @@
 export default {
 	data() {
 		return {
-			many: '',
+			many: '0',
 			user_id: [],
 			flag: false,
 			selectilall: false,
@@ -85,10 +85,9 @@ export default {
 					that.many = res.data.data.length
 					that.machine_id=res.data.data[length].machine_id;
 				}
-				
 				if (res.statusCode == 205) {
 					that.flag = true;
-					that.many == 0;
+					
 				}
 				
 			}

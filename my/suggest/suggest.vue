@@ -72,7 +72,7 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					console.log(res);
+					//console.log(res);
 					if(res.data.data==''){
 						_this.flag=true
 					}else{
@@ -99,11 +99,11 @@
 		methods:{
 			getTitleContent:function(e){
 				this.title=e.detail.value
-				console.log(this.title)
+				
 			},
 			getDescContent:function(e){
 				this.desc=e.detail.value
-				console.log(this.desc)
+		
 			},
 			addMessage:function(){
 				this.hidden=false
@@ -140,7 +140,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
+						//console.log(res)
 						
 						if(res.statusCode==200){
 							 _this.hidden=true;
@@ -161,7 +161,9 @@
 			    })
 			},
 			detail:function(item){
+				console.log(item)
 				var mes=JSON.stringify(item);
+				console.log(mes)
 				uni.navigateTo({
 					url:'../suggest-detail/suggest-detail?message='+mes
 				})

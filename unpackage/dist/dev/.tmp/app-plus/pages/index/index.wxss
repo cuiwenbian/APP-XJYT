@@ -220,6 +220,12 @@
 
 
 
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1886,7 +1892,7 @@ swiper-item image {
 }
 .ttt{
         width: 720rpx;
-        height: 270rpx;
+        height: 300rpx;
         margin-top: 20rpx;
         margin-left: 15rpx;
         border-radius: 8rpx;

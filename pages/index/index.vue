@@ -8,13 +8,13 @@
         indicator-color="rgda(255 , 255 , 255 , .6)"
         >
             <swiper-item>
-                <image class="ttt" src="../../static/images/tu.png"></image>
+                <image class="ttt" src="../../static/images/banner1.png"></image>
+            </swiper-item>
+            <swiper-item>
+                <image class="ttt" src="../../static/images/banner3.png"></image>
             </swiper-item>
             <swiper-item>
                 <image class="ttt" src="../../static/images/lb.png"></image>
-            </swiper-item>
-            <swiper-item>
-                <image class="ttt" src="../../static/images/tu1.png"></image>
             </swiper-item>
         </swiper>
         
@@ -134,13 +134,13 @@
                 success(res) {
                     console.log(res.data)
                     var opent = res.data
-                    // console.log(opent[0].notice)
-                    // that.notice = opent[0].notice
                    
                 }
             })
+		
         },
 		methods: {
+			
             getServerData(){
             	uni.request({
             			url: '',
@@ -274,7 +274,7 @@
     }
     .ttt{
         width: 720rpx;
-        height: 270rpx;
+        height: 300rpx;
         margin-top: 20rpx;
         margin-left: 15rpx;
         border-radius: 8rpx;
