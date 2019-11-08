@@ -1,0 +1,95 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/getBackPassword/getBackPassword",
+    "pages/setNewPassword/setNewPassword",
+    "pages/agreement/agreement",
+    "pages/otherLogin/otherLogin",
+    "pages/news/news",
+    "pages/web1/web1",
+    "pages/web2/web2",
+    "mill/mill/mill",
+    "mill/pay/pay",
+    "mill/staypay/staypay",
+    "mill/stayconfirm/stayconfirm",
+    "mill/stayaudit/stayaudit",
+    "mill/completed/completed",
+    "mill/sale/sale",
+    "mill/salepay/salepay",
+    "mill/saleconfirm/saleconfirm",
+    "mill/saleaudit/saleaudit",
+    "mill/salecompleted/salecompleted",
+    "mill/assets/assets",
+    "mill/sell/sell",
+    "mill/validation/validation",
+    "mill/confirm/confirm",
+    "my/my/my",
+    "my/personal/personal",
+    "my/add-address/add-address",
+    "my/address/address",
+    "my/edit-address/edit-address",
+    "my/email/email",
+    "my/unbindemail/unbindemail",
+    "my/identity/identity",
+    "my/login-password/login-password",
+    "my/change-pass/change-pass",
+    "my/change-loginPassword/change-loginPassword",
+    "my/change-password/change-password",
+    "my/trade-password/trade-password",
+    "my/change-otherPassword/change_otherPassword",
+    "my/my-machine/my-machine",
+    "my/machine-detail/machine-detail",
+    "my/my-wallet/my-wallet",
+    "my/suggest/suggest",
+    "my/suggest-detail/suggest-detail",
+    "my/transfer/transfer"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "xjyt",
+    "navigationBarBackgroundColor": "#121212",
+    "backgroundColor": "#121212"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#3cbfb1",
+    "backgroundColor": "#121212",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tab1.png",
+        "selectedIconPath": "static/images/tab-index.png"
+      },
+      {
+        "pagePath": "mill/mill/mill",
+        "text": "矿机",
+        "iconPath": "static/images/tab2.png",
+        "selectedIconPath": "static/images/tab-machine.png"
+      },
+      {
+        "pagePath": "mill/assets/assets",
+        "text": "资产",
+        "iconPath": "static/images/tab3.png",
+        "selectedIconPath": "static/images/tab-captial.png"
+      },
+      {
+        "pagePath": "my/my/my",
+        "text": "我的",
+        "iconPath": "static/images/tab4.png",
+        "selectedIconPath": "static/images/tab-mine.png"
+      }
+    ]
+  },
+  "nvueCompiler": "weex",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "neil-modal",
+  "compilerVersion": "2.3.7",
+  "usingComponents": {}
+}
