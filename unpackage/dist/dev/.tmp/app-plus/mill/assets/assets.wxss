@@ -46,6 +46,10 @@
 		font-size: 24rpx;
 		color: #FFFFFF;
 }
+.berot{
+        font-size: 24rpx;
+        color:#F0AD4E ;
+}
 .btn {
 		height: 150rpx;
 		width: 100%;

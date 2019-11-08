@@ -11,11 +11,11 @@
                 </text>
             </view>
             <view class="small">
-                矿机数量:<text class="smallxx">{{mill}}台</text>
+                矿机数量:<text class="smallxx1">{{mill}}台</text>
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx">{{price}}</text>
+                    <text class="smallxx1">{{price}}</text>
                 </text>
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
@@ -23,17 +23,17 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
             <view class="small1">
                 <text>
-                    创建时间:<text class="smallxx">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{time}}</text>
                 </text>
             </view>
             <view class="small1">
                 <text>
-                    支付时间：<text class="smallxx">{{time}}</text>
+                    支付时间：<text class="smallxx1">{{time}}</text>
                 </text>
             </view>
             <view class="small1">
