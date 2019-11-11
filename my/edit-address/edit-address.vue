@@ -107,8 +107,7 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
-				var that=this;
-				
+			
 				if(this.address==''){
 					uni.showToast({
 						title:'请输入提币地址',
@@ -127,7 +126,7 @@
 				}
 				this.passIn=true
 				this.$refs['number'].open();
-			    that.onInput(val)
+			    this.onInput(val)
 			 
 			},
 			onInput(val) {

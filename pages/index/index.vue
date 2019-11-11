@@ -350,11 +350,10 @@
         box-sizing: border-box;
         margin-left: 90rpx;
         font-size: 24rpx;
-
         color: #FFFFFF;
     }
     .clor{
-        color: #F2F2F2;
+         color: #F2F2F2;
          float: left;
          height: 90rpx;
     }
