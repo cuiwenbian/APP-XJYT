@@ -194,7 +194,7 @@
         width: 680rpx;
         float: left;
         margin-top: 60rpx;
-        margin-left: -156rpx;
+        margin-left: -140rpx;
         font-size: 30rpx;
         color: #CCCCCC;
     } 
@@ -217,6 +217,6 @@
         border-radius: 0;
         background-color: #121212;
         width: 375rpx;
-        height: 120rpx;
+        height: 123rpx;
     }
 </style>

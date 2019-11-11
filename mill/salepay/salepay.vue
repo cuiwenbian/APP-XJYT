@@ -13,10 +13,10 @@
                 </view>
                 <view class="small">
                     <text>交易总价:
-                        <text class="smallxx">{{price}}</text>
+                        <text class="lop">{{price}}</text>
                     </text>
                     <text class="ser">
-                        矿机数量:<text class="smallxx">{{mill}}</text>台
+                        矿机数量:<text class="lop">{{mill}}</text>台
                     </text>
                 </view>
                 <view class="small">
@@ -27,7 +27,7 @@
                 </view>
                 <view class="small">
                     <text>
-                        订单编号:<text class="smallxx">{{x}}</text>
+                        订单编号:<text class="lop">{{x}}</text>
                     </text>
                 </view>
                 <view class="small1">
@@ -267,21 +267,21 @@ page {
       padding-left: 34rpx;
       font-size: 26rpx;
       color: #a1a1a1;
-  }
-  .box4 {
+  } .box4 {
       height: 80rpx;
       line-height: 80rpx;
   }
   .primary1 {
-      width: 180rpx;
-      height: 60rpx;
+      width: 240rpx;
+      height: 60rpx; 
       line-height: 60rpx;
       margin-top: 12rpx;
       color: #FFFFFF;
       font-size: 28rpx;
       float: right;
       margin-right: 48rpx;
-      background-color: #121212;
+      background-color: #999999;
   }
+ 
 </style>
 

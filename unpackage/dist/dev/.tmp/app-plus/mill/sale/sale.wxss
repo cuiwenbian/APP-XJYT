@@ -135,7 +135,9 @@
         height: 60rpx;
         font-size: 26rpx;
         line-height: 60rpx;
-        color: #CCCCCC;
+        background-color: #fff;
+        border: 1rpx solid #0A1117;
+        color: #0A1117;
 }
 .btn2 {
 		float: right;
@@ -146,7 +148,7 @@
         font-size: 26rpx;
         line-height: 60rpx;
         color: #FFFFFF;
-        background-color: #091219;
+        background-color: #0A1117;
 }
 .swiper-tab {
      

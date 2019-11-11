@@ -4,7 +4,7 @@ that. <template>
         <view class="box">
             <view class="small">
                 <text>交易类型:
-                    <text class="smallxx">{{type}}</text>
+                    <text class="smallxx">{{type1}}</text>
                 </text>
                 <text class="smallx">状态:
                     <text class="smallxx">{{state}}</text>
@@ -87,17 +87,30 @@ that. <template>
         </view>
        
         <view class="box4">
-            <button class="primary1">待确认</button>
+            <button class="primary1" @click="btn">待确认</button>
+            <!-- #ifndef H5 -->
+            <password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+            <!-- #endif -->
+            
+            <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
+            <!-- #ifdef H5 -->
+            <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" :list="numberList"></password-input></view>
+            <!-- #endif -->
+            <!-- 数字键盘 -->
+            <keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+            <!-- <button class="primary1">我已付款</button> -->
         </view>
     </view>
 </template>
 
 <script>
     var getRmb=require('../../common/requset.js')
+    import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
+    import passwordInput from '../../components/password-input/password-input.vue';
     export default {
         data(){
             return {
-                type:'卖出',
+                type1:'卖出',
                 state:'',
                 mill:'',
                 boe:'',
@@ -107,7 +120,17 @@ that. <template>
                 time:'',
                 name:'',
                 contact:'',
+                
+                numberList: [],
+                length: 6,
+                type: 'number',
+                passIn: false
             }
+        },
+        components: {
+               
+        	keyboardPackage,
+        	passwordInput
         },
         onLoad(option) {
             var that = this
@@ -131,8 +154,76 @@ that. <template>
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
+            openKeyBoard:function () {
+                
+            },
+            clo: function() {
+            	this.passIn = false;
+            	this.$refs['number'].close();
+            	
+            },
+            onDelete() {
+            	this.numberList.pop();
+            },
+            onConfirm() {
+            	uni.showToast({
+            		title: '完成输入！',
+            		duration: 2000,
+            		icon: 'none'
+            	});
+            },
+            onInput(val) {
+                var that = this
+            	this.numberList.push(val);
+            	console.log(this.numberList.join().replace(/,/g, ''));
+            	that.password = this.numberList.join().replace(/,/g, '');
+            	if (this.numberList.length >= this.length) {
+            		this.passIn = false;
+            		this.$refs['number'].close();
+            		uni.request({
+            			url: this.urll + 'saleaffirm/',
+            			method: 'POST',
+            			data: {
+                            order_num:that.x,
+            				password: that.password
+            			},
+            			header: {
+            				Authorization: 'JWT' + ' ' + this.global_.token
+            			},
+            			success(res) {
+            				console.log(res);
+            				if (res.statusCode == 200) {
+            					uni.showToast({
+            						title: '收款完成',
+            						icon: 'none',
+            						duration: 2000
+            					});
+                                uni.navigateTo({
+                                    url:'../sale/sale'
+                                })
+            				}
+            				if (res.statusCode == 204) {
+            					uni.showToast({
+            						title: '资金密码错误',
+            						icon: 'none',
+            						duration: 2000
+            					});
+            				}
+            				var page = getCurrentPages().pop();
+            				if (page == undefined || page == null) return;
+            				page.onLoad(that.val);
+            			},
+                       
+            		});
+            	}
+            	
+            
+            },
             btn:function () {
                 var that = this
+                this.passIn = true;
+                this.$refs['number'].open();
+                this.onInput(val);
             }
         }
     }

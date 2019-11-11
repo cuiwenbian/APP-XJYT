@@ -104,25 +104,6 @@ export default {
 				url: '../sale/sale'
 			});
 		},
-
-		// select:function() {
-		//     var that = this
-		//     let arr = []
-		//     if(that.lo == true) {
-		//         that.lo = !that.lo
-		//         console.log(that.lo)
-		//     }else if (that.lo === false) {
-		//         that.lo = !that.lo
-		//         for (let i =0; i < that.user_id.length; i++) {
-		//             console.log(that.machine_id)
-		//             arr.push(that.user_id[i].machine_id)
-		//             console.log(arr)
-		//         }
-
-		//         console.log(that.lo)
-		//     }
-		//     this.arr = arr
-		// },
 		CheckboxChange(e) {
 			console.log(e);
 			var that = this;
@@ -207,11 +188,11 @@ export default {
 							icon: 'none'
 						});
 					} 
-     //                else if (res.statusCode == 200) {
-					// 	uni.navigateTo({
-					// 		url: '../sell/sell?tar=' + asr
-					// 	});
-					// }
+                    else if (res.statusCode == 200) {
+						uni.navigateTo({
+							url: '../sell/sell?tar=' + asr
+						});
+					}
 				}
 			});
 		}
