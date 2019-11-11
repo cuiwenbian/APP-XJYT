@@ -57,7 +57,11 @@
 }
 .bg{
 	width:100%;
+<<<<<<< HEAD
 	height:480rpx;
+=======
+	height:580rpx;
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 	position: relative;
 }
 .logout{
@@ -73,7 +77,11 @@
 	z-index: 9;
 	position: absolute;
 	left:300rpx;
+<<<<<<< HEAD
 	bottom:110rpx;
+=======
+	bottom:150rpx;
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 	border-radius: 50%;
 	border: 1px solid #f2f2f2;
 }
@@ -120,7 +128,11 @@
 	-webkit-flex-wrap: wrap;
 	    -ms-flex-wrap: wrap;
 	        flex-wrap: wrap;
+<<<<<<< HEAD
 	padding:50rpx;
+=======
+	padding:50rpx 80rpx;
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }

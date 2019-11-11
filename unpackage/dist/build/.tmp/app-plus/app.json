@@ -89,7 +89,12 @@
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
+<<<<<<< HEAD
   "appname": "星际云通",
   "compilerVersion": "2.3.7",
+=======
+  "appname": "neil-modal",
+  "compilerVersion": "2.3.6",
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
   "usingComponents": {}
 }

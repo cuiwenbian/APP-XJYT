@@ -79,6 +79,7 @@
             that.data = data
             var sur=that.data[1];
             console.log(that.data[1])
+            console.log(that.data[0][0].name)
             that.name = that.data[0][0].name
             that.pag = that.data[0][0].mobile
             that.san = that.data[0][0].sale_num
@@ -89,7 +90,7 @@
             
           
             for(let i = 0; i < sur.length; i++) {
-                console.log(that.data[1].machine_id)
+                console.log(that.data[i].machine_id)
                 arr.push(sur[i].machine_id)
                 console.log(arr)
             }
@@ -117,6 +118,12 @@
                     },
                     success(res) {
                         console.log(res)
+                        console.log(that.password)
+                        console.log(that.suu)
+                        console.log(a)
+                        console.log(that.name)
+                        console.log(that.pag)
+                        console.log(that.san)
                         if(res.statusCode == 200){
                             uni.switchTab({
                                 url:'../mill/mill'

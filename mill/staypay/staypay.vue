@@ -4,7 +4,7 @@
         <view class="box">
             <view class="small">
                 <text>交易类型:
-                    <text class="smallxx">{{type}}</text>
+                    <text class="smallxx">{{type1}}</text>
                 </text>
                 <text class="smallx">状态:
                     <text class="smallxx">{{state}}</text>
@@ -76,17 +76,30 @@
             </view>
         </view>
         <view class="box4">
-            <button class="primary1">我已付款</button>
+            <button class="primary1" @click="btn">我已付款</button>
+            <!-- #ifndef H5 -->
+            <password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+            <!-- #endif -->
+            
+            <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
+            <!-- #ifdef H5 -->
+            <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" :list="numberList"></password-input></view>
+            <!-- #endif -->
+            <!-- 数字键盘 -->
+            <keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+            <!-- <button class="primary1">我已付款</button> -->
         </view>
     </view>
 </template>
 
 <script>
     var getRmb=require('../../common/requset.js')
+    import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
+    import passwordInput from '../../components/password-input/password-input.vue';
     export default {
         data(){
             return {
-                type:'买入',
+                type1:'买入',
                 state:'',
                 mill:'',
                 price:'',
@@ -96,7 +109,16 @@
                 time:'',
                 name:'',
                 contact:'',
+                numberList: [],
+                length: 6,
+                type: 'number',
+                passIn: false
             }
+        },
+        components: {
+       
+        	keyboardPackage,
+        	passwordInput
         },
         onLoad(option) {
             var that = this
@@ -122,8 +144,56 @@
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
+            onInput(val) {
+                var that = this
+            	this.numberList.push(val);
+            	console.log(this.numberList.join().replace(/,/g, ''));
+            	that.password = this.numberList.join().replace(/,/g, '');
+            	if (this.numberList.length >= this.length) {
+            		this.passIn = false;
+            		this.$refs['number'].close();
+            		uni.request({
+            			url: this.urll + 'buyaffirm/',
+            			method: 'POST',
+            			data: {
+                            order_num:that.x,
+            				password: that.password
+            			},
+            			header: {
+            				Authorization: 'JWT' + ' ' + this.global_.token
+            			},
+            			success(res) {
+            				
+            				console.log(res);
+            				if (res.statusCode == 204) {
+            					uni.showToast({
+            						title: '删除成功',
+            						icon: 'none',
+            						duration: 2000
+            					});
+            				}
+            				if (res.statusCode == 200) {
+            					uni.showToast({
+            						title: '资金密码错误',
+            						icon: 'none',
+            						duration: 2000
+            					});
+            				}
+            				var page = getCurrentPages().pop();
+            				if (page == undefined || page == null) return;
+            				page.onLoad();
+            			},
+                       
+            		});
+            	}
+            	
+            
+            },
             btn:function () {
                 var that = this
+                this.passIn = true;
+                this.$refs['number'].open();
+                this.onInput(val);
             }
         }
     }

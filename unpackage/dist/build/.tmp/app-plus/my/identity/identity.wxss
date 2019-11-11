@@ -235,7 +235,11 @@ page{
 
   margin:25rpx auto;
 
+<<<<<<< HEAD
   background-color:#0A1117;
+=======
+  background-color:#30bcd5;
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 
   color: #fff;
 

@@ -2,11 +2,14 @@
 page{
 	background: #EDEEEE;
 }
+<<<<<<< HEAD
 .height {
 	height: var(--status-bar-height);
 	background: #121212;
 	z-index: 99;
 }
+=======
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 .line{
 	height:80rpx;
 }
@@ -37,7 +40,11 @@ page{
 	margin: 100rpx auto;
 	width:654rpx;
 	height:90rpx;
+<<<<<<< HEAD
 	background: #0A1117;
+=======
+	background: #444343;
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
 	border-radius: 80rpx;
 	text-align: center;
 	line-height: 90rpx;

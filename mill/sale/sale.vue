@@ -32,10 +32,10 @@
                                 订单编号: <text class="cool">{{item.order_num}}</text>
                             </view>
                             <view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                             <view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                             <view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -70,10 +70,10 @@
                                 订单编号: <text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -106,10 +106,10 @@
                                 订单编号: <text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>
@@ -141,10 +141,10 @@
                                 订单编号: <text class="cool">{{item.order_num}}</text>
                             </view>
                     		<view class="numbe">
-                                矿机数量:<text class="cool">{{item.sale_money}}</text>
+                                矿机数量:<text class="cool">{{item.sale_num}}</text>
                             </view>
                     		<view class="trading">
-                                交易总价:<text class="cool">{{item.sale_num}}</text>
+                                交易总价:<text class="cool">{{item.sale_money}}</text>
                             </view>
                     		<view class="date">
                                 创建日期:<text class="cool">{{item.set_time}}</text>

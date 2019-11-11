@@ -275,57 +275,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1991,6 +1940,8 @@ swiper-item image {
         width: 28rpx;
         height: 28rpx;
         float: left;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         padding-left: 23rpx;
         padding-top: 5rpx;
 }
@@ -1999,12 +1950,16 @@ swiper-item image {
         height: 40rpx;        
         background-color: #BCBCBC;
         margin-left: 52rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         padding-top: 20rpx;
         border-radius: 50rpx;
 }
 .m {
         float: left;
         padding-top: 17rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         margin-left: 90rpx;
         font-size: 24rpx;
 
@@ -2028,6 +1983,8 @@ swiper-item image {
          background: linear-gradient(to bottom,#121212, #232323);
 }
 .price{
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         padding-left: 24rpx;
 }
     /* 白 */
@@ -2046,24 +2003,28 @@ swiper-item image {
 .Todayprice{
 			float: left;
 			line-height: 120rpx;
+            text-align: center;
 			font-size: 38rpx;
             margin-left: 20rpx;
 			color: #e3ba85;
 }
 .bot1 {
         color: #FFFFFF;
-        margin-bottom: 12rpx;
+        margin-bottom: 6rpx;
         font-size: 20rpx;
 }
 .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
+        padding-top: 12rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         line-height: 120rpx;
         color: #DCB16E;
 }
 .gg{
         width: 100%;
-        height: 608rpx;
+        height: 600rpx;
 }
 .Small{
         width: 100%;
@@ -2092,7 +2053,8 @@ swiper-item image {
         color: #D7D7D7;
         padding-top: 20rpx;
         padding-left: 24rpx;
-		
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
        display: -webkit-box;
         overflow: hidden;
         -o-text-overflow: ellipsis;
@@ -2117,20 +2079,27 @@ swiper-item image {
         margin-top: 20rpx;
 }
 .yu {
+        
 		float: left;
 		padding-top: 8rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 		padding-left: 48rpx;
         font-size: 14rpx;
         color: #5A5A5A;
 }
 .yj {
         width: 36rpx;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         height: 26rpx;
 		padding-left: 90rpx;
 		padding-top: 14rpx;
 }
 .yjj {
 		float: right;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 		padding-right: 180rpx;
 		padding-top: 8rpx;
         font-size: 14rpx;

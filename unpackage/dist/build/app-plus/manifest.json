@@ -4,8 +4,13 @@
     "iPhone",
     "iPad"
   ],
+<<<<<<< HEAD
   "id": "__UNI__EAB7B97",
   "name": "星际云通",
+=======
+  "id": "__UNI__A971A00",
+  "name": "neil-modal",
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
   "version": {
     "name": "1.0.0",
     "code": "100"
@@ -45,6 +50,7 @@
       "background": "#121212"
     },
     "distribute": {
+<<<<<<< HEAD
       "icons": {
         "android": {
           "hdpi": "static/images/FIL.png",
@@ -56,6 +62,8 @@
           "appstore": "static/images/FIL.png"
         }
       },
+=======
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
       "google": {
         "permissions": [
           "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
@@ -99,7 +107,11 @@
       }
     },
     "uni-app": {
+<<<<<<< HEAD
       "compilerVersion": "2.3.7",
+=======
+      "compilerVersion": "2.3.6",
+>>>>>>> 24dcdd10282ec1c306a00371071d261a1d8d7ba0
       "control": "v8",
       "nvueCompiler": "weex",
       "renderer": "auto"
