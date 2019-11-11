@@ -70,12 +70,13 @@
 				 	     var num = 121;
 				 	     var timer = setInterval(function () {
 				 	       num--;
-				 	       if (num <= 0) {
+				 	        if (num <= 0) {
 				 	         clearInterval(timer);
 				 	         that.codename = '重新发送',
 				 	         that.disabled = false
 				 	     			
-				 	       } else {
+				 	       } else{
+							 that.disabled = true
 				 	         that.codename = num + "s"
 				 	         
 				 	       }
@@ -189,7 +190,7 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;

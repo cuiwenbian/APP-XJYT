@@ -24,11 +24,12 @@
 				email:'',
 				emailCode:'',
 				codename: ' 获取验证码',
+				disabled:false
 			}
 		},
 		onLoad() {
 			var _this=this;
-			_this.disabled = true;
+			
 		},
 		methods:{
 			getEmailValue:function(e){
@@ -87,7 +88,7 @@
 										
 							  } else {
 							    that.codename = num + "s"
-							    
+							    that.disabled = true
 							  }
 							}, 1000)
 						 }
@@ -203,7 +204,7 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;

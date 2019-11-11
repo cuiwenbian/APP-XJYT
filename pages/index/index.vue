@@ -17,8 +17,7 @@
                 <image class="ttt" src="../../static/images/lb.png"></image>
             </swiper-item>
         </swiper>
-        
-        
+
         <view class="uni-swiper-msg">
         	<view class="uni-swiper-msg-icon">
         		<image class="g" src="../../static/images/notice.png" mode="widthFix"></image>
@@ -68,7 +67,7 @@
             </view>
         <view class="bt" @click="web1">
 			<view class="left">
-				<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
+				<text class="tex">2018年第四季度，官方对IPFS项目进行了新的规划，更加清晰地定义了今年的愿景、目标和路线图</text>
 				<view>
 					<text class="yu">6月</text>
 					<image class="yj" src="../../static/images/eye.png"> 
@@ -83,7 +82,7 @@
         <text class="b"></text>
 		<view class="bt" @click="web2">
         <view class="left">
-        	<text class="tex">时上你io萨的厚爱u山东i阿士东i啊阿萨的徽标u十多i啊收到</text>
+        	<text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
         	<view>
         		<text class="yu">6月</text>
         		<image class="yj" src="../../static/images/eye.png"> 
@@ -140,7 +139,6 @@
                     that.csgo = csgo
                 }
             })
-		
         },
 		methods: {
 			web1:function(){
@@ -207,8 +205,7 @@
                             }
             			},
             		});
-                    console.log(that.time)
-                    console.log(that.price)
+                    
             	},
             	showLineA(canvasId,chartData){
 					canvaArea=new uCharts({
@@ -219,6 +216,7 @@
 										legend:true,
 										dataLabel:false,
 										dataPointShape:true,
+										legend:{show:false},
 										pixelRatio:_self.pixelRatio,
 										categories: _self.time,//数据类别(饼图.圆环图不需要)
 										series: [   //数据列表
@@ -337,7 +335,7 @@
     
   
     page {
-        background-color: #121212;
+        background-color: #1c1c1c;
     }
     .charts {
       width: 100%;

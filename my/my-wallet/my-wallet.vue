@@ -15,35 +15,34 @@
 			收支记录
 		</view>
 		<view>
+			<text class="all1">Filecoin:{{month_profit}}</text>
+			<div class="item">
+				<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+			</div>
 			<view v-if="flag">
 				<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
 				<view class="info">暂无记录</view>
 			</view>
 			<view v-else class="boxx">
-				        <text class="all1">Filecoin:{{month_profit}}</text>
-				        <div class="item">
-				        	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
-				        </div>
-					
-					<view class="list-one" v-for="(item , index) in profit_records" :key="index">
-						<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-						<view class='list-txt'>
-							<view class='list-info'>收款</view>
-							<view class='list-time'>{{item.add_time}}</view>
-						</view>
-						<view class='list-income'>+{{item.num}}</view>
-						<view class='l'></view>
+				<view class="list-one" v-for="(item , index) in profit_records" :key="index">
+					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+					<view class='list-txt'>
+						<view class='list-info'>收款</view>
+						<view class='list-time'>{{item.add_time}}</view>
 					</view>
-					
-					<view class="list-one" v-for="(item , index) in bill_records" :key="index">
-						<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-						<view class='list-txt'>
-							<view class='list-info'>收款</view>
-							<view class='list-time'>{{item.add_time}}</view>
-						</view>
-						<view class='list-income'>-{{item.num}}</view>
-						<view class='l'></view>
+					<view class='list-income'>+{{item.num}}</view>
+					<view class='l'></view>
+				</view>
+				
+				<view class="list-one" v-for="(item , index) in bill_records" :key="index">
+					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+					<view class='list-txt'>
+						<view class='list-info'>收款</view>
+						<view class='list-time'>{{item.add_time}}</view>
 					</view>
+					<view class='list-income'>-{{item.num}}</view>
+					<view class='l'></view>
+				</view>       	
 			</view>
 			
 		</view>
@@ -63,7 +62,7 @@
 				fee:'',
 				entin:'',
 				teran: '',
-				month_profit:'',
+				month_profit:'0',
 				profit_records:[],
 				month_bill:'',
 				bill_records:[]
@@ -108,6 +107,7 @@
 					console.log(res)
 					that.month_profit = res.data.data.month_profit
 					that.profit_records = res.data.data.profit_records
+					
 				}
 		   })
 		   uni.request({
@@ -125,6 +125,11 @@
 					that.bill_records = res.data.data.bill_records
 				}
 		   })
+		   // if(that.month_profit==0 && that.month_bill==0){
+			  //  that.flag=true
+		   // }else{
+			  //  that.flag=false
+		   // }
 		},
 		methods: {
 			DateChang(e) {
@@ -177,12 +182,7 @@
 	page{
 		background:#EDEEEE;
 	}
-	.l{
-		width:90%;
-		height:1rpx;
-		float: right;
-		background: rgba(0,0,0,0.2);
-	}
+	
 	.bg{
 		width:100%;
 		height:300rpx;
@@ -261,7 +261,7 @@
 		font-size: 32rpx;
 	}
 	.item {
-		height: 70rpx;
+		height: 80rpx;
 	    font-size: 22rpx;
 		background-color: #EDEDED;
 	    padding-top: 20rpx;
@@ -274,7 +274,7 @@
 	  float: right;
 	  font-size: 30rpx;
 	  color: #333;
-	  line-height: 100rpx;
+	  line-height: 90rpx;
 	  margin-right:48rpx;
 	  
 	}
@@ -284,7 +284,15 @@
 		background: #fff;
 		padding-left: 50rpx;
 		box-sizing: border-box;
-		
+		position: relative;
+	}
+	.l{
+		width:90%;
+		height:1rpx;
+		background: rgba(0,0,0,0.1);
+		position: absolute;
+		right:0;
+		bottom:0;
 	}
 	.list-icon{
 		float: left;

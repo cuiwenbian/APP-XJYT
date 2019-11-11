@@ -1,12 +1,24 @@
 <template>
 	<!-- 编辑提币地址 -->
 	<view class="container" style="position:relative;">
+		<view class="height"></view>
+		<uni-nav-bar
+			left-icon="back"
+			right-text="删除"
+			@click-left="back"
+			@click-right="del"
+			title="编辑提币地址"
+			background-color="#121212"
+			color="#fff"
+			border="false"
+			shadow="false"
+		></uni-nav-bar>
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">地址昵称</view>
 			<input class="enter" type="text" :value="nickname" @input='getRemark' />
 		</view>
-		
+		 
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">提币地址</view>
@@ -26,11 +38,14 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<!-- 数字键盘 -->
+		<keyboard-package ref="number" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 		
 	</view>
 </template>
 
 <script>
+	import uniNavBar  from '../../components/uni-nav-bar/uni-nav-bar.vue';
 	import keyboardPackage from "../../components/keyboard-package/keyboard-package.vue"
 	import passwordInput from "../../components/password-input/password-input.vue"
 	export default{
@@ -48,6 +63,7 @@
 			}
 		},
 		components: {
+			uniNavBar,
 			keyboardPackage,
 			passwordInput
 		},
@@ -56,65 +72,19 @@
 			this.address=options.wallet_value;
 			this.id=options.id;
 			this.user_id=options.user_id;
-			console.log(this.id)
-			console.log(this.nickname)
-			console.log(this.address)
-			console.log(this.user_id)
+			
 		},
 		methods:{
+			//返回 
+			back: function() {
+				uni.navigateBack({
+					delta: 1
+				});
+			},
 			clo: function() {
 				this.passIn = false;
 				this.$refs['number'].close();
 				this.numberList == '';
-			},
-			onInput(val) {
-				var that=this;
-				that.numberList.push(val);
-				console.log(that.numberList.join().replace(/,/g, ""))
-				that.password=that.numberList.join().replace(/,/g, "")
-				console.log(that.password)
-				if (that.numberList.length >= that.length) {
-					this.passIn=false
-					this.$refs['number'].close()
-			        uni.request({
-			        	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
-			        	method:'PUT',
-			        	data:{
-			        		wallet_value:that.address,
-			        		wallet_key:that.nickname,
-			        		id:that.id,
-			        		password:that.password,
-			        		user_id:that.user_id
-			        	},
-			        	header:{
-			        		Authorization:'JWT'+' '+this.global_.token
-			        	},
-			        	success(res) {
-			        		console.log(res)
-			        		if(res.statusCode==202){
-			        			uni.showToast({
-			        				title:'资金密码错误',
-			        				icon:'none',
-			        				duration:2000
-			        			})
-								return false
-			        		}
-			        		if(res.statusCode==204){
-								uni.navigateBack({
-									delta:1
-								})
-			        			uni.showToast({
-			        				title:'修改成功',
-			        				icon:'none',
-			        				duration:1500
-			        			})
-			        			var page = getCurrentPages().pop();
-			        			if (page == undefined || page == null) return; 
-			        			page.onLoad(); 
-			        		}
-			        	}
-			        })
-				}
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -159,7 +129,108 @@
 				this.$refs['number'].open();
 			    that.onInput(val)
 			 
-			}
+			},
+			onInput(val) {
+				var that=this;
+				that.numberList.push(val);
+				console.log(that.numberList.join().replace(/,/g, ""))
+				that.password=that.numberList.join().replace(/,/g, "")
+				console.log(that.password)
+				if (that.numberList.length >= that.length) {
+					this.passIn=false
+					this.$refs['number'].close()
+			        uni.request({
+			        	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+			        	method:'PUT',
+			        	data:{
+			        		wallet_value:that.address,
+			        		wallet_key:that.nickname,
+			        		id:that.id,
+			        		password:that.password,
+			        		user_id:that.user_id
+			        	},
+			        	header:{
+			        		Authorization:'JWT'+' '+this.global_.token
+			        	},
+			        	success(res) {
+			        		console.log(res)
+			        		if(res.statusCode==202){
+			        			uni.showToast({
+			        				title:'资金密码错误',
+			        				icon:'none',
+			        				duration:2000
+			        			})
+								return false
+			        		}
+			        		if(res.statusCode==204){
+								uni.navigateBack({
+									delta:1
+								})
+			        			uni.showToast({
+			        				title:'修改成功',
+			        				icon:'none',
+			        				duration:1500
+			        			})
+			        			var page = getCurrentPages().pop();
+			        			if (page == undefined || page == null) return; 
+			        			page.onLoad();
+			        		}
+			        	}
+			        })
+				}
+			},
+			onInput1(val) {
+				this.numberList.push(val);
+				console.log(this.numberList.join().replace(/,/g, ''));
+				this.password = this.numberList.join().replace(/,/g, '');
+				if (this.numberList.length >= this.length) {
+					this.passIn = false;
+					this.$refs['number'].close();
+					uni.request({
+						url: this.urll + 'updatadeleteaddress/', //删除地址接口
+						method: 'DELETE',
+						data: {
+							id: this.id,
+							password: this.password
+						},
+						header: {
+							Authorization: 'JWT' + ' ' + this.global_.token
+						},
+						success(res) {
+							console.log(res);
+							if (res.statusCode == 204) {
+								uni.showToast({
+									title: '删除成功',
+									icon: 'none',
+									duration: 2000
+								});
+								uni.navigateBack({
+									delta:1
+								})
+							}
+							if (res.statusCode == 200) {
+								uni.showToast({
+									title: '资金密码错误',
+									icon: 'none',
+									duration: 2000
+								});
+							}
+							var page = getCurrentPages().pop();
+							if (page == undefined || page == null) return;
+							page.onLoad();
+						},
+			           
+					});
+				}	
+			
+			},
+			//点击删除按钮
+			del: function() {
+				var that = this;
+				this.passIn = true;
+				this.$refs['number'].open();
+				this.onInput1(val);
+			},
 		}
 	}
 </script>
@@ -167,6 +238,11 @@
 <style>
 	page{
 		background: #EDEEEE;
+	}
+	.height {
+		height: var(--status-bar-height);
+		background: #121212;
+		z-index: 99;
 	}
 	.line{
 		height:80rpx;
@@ -197,7 +273,7 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;

@@ -52,12 +52,12 @@
 }
 .top{
 	width:100%;
-	height:580rpx;
+	height:480rpx;
 	position: relative;
 }
 .bg{
 	width:100%;
-	height:580rpx;
+	height:318rpx;
 	position: relative;
 }
 .logout{
@@ -73,7 +73,7 @@
 	z-index: 9;
 	position: absolute;
 	left:300rpx;
-	bottom:150rpx;
+	bottom:100rpx;
 	border-radius: 50%;
 	border: 1px solid #f2f2f2;
 }
@@ -120,7 +120,7 @@
 	-webkit-flex-wrap: wrap;
 	    -ms-flex-wrap: wrap;
 	        flex-wrap: wrap;
-	padding:50rpx 80rpx;
+	padding:50rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }

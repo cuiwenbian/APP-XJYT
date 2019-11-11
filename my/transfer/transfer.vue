@@ -4,7 +4,7 @@
 		<view class="t"></view>
 		<view class="box">
 			<view class="desc">当前可转</view>
-			<view class="num"><text class="number">{{bar}}</text class="xi">个</view>
+			<view class="num"><text class="number">{{bar}}</text >个</view>
 		</view>
 		<view class="t"></view>
 		<view class="box1">
@@ -156,7 +156,7 @@
 				var that=this;
 				if(that.transferAdd==''){
 					uni.showToast({
-						title:'提币地址不能为空',
+						title:'转账地址不能为空',
 						icon:'none',
 						duration:2000
 					})
@@ -364,7 +364,7 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;

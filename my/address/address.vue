@@ -164,9 +164,7 @@ export default {
 					},
                    
 				});
-			}
-
-			
+			}	
 
 		},
 		//点击删除按钮
@@ -176,9 +174,7 @@ export default {
 			this.passIn = true;
 			this.$refs['number'].open();
 			this.onInput(val);
-			
 		},
-
 		//点击添加按钮
 		add: function() {
 			uni.navigateTo({

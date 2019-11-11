@@ -4,8 +4,8 @@
     "iPhone",
     "iPad"
   ],
-  "id": "__UNI__75A073F",
-  "name": "neil-modal",
+  "id": "__UNI__EAB7B97",
+  "name": "星际云通",
   "version": {
     "name": "1.0.0",
     "code": "100"
@@ -45,6 +45,17 @@
       "background": "#121212"
     },
     "distribute": {
+      "icons": {
+        "android": {
+          "hdpi": "static/images/FIL.png",
+          "xhdpi": "static/images/FIL.png",
+          "xxhdpi": "static/images/FIL.png",
+          "xxxhdpi": "static/images/FIL.png"
+        },
+        "ios": {
+          "appstore": "static/images/FIL.png"
+        }
+      },
       "google": {
         "permissions": [
           "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
