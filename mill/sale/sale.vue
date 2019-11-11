@@ -41,14 +41,21 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                         <view class="hz">
-                                <button class="btn1">申诉</button>
+                                <button class="btn1" @click="cton">申诉</button>
                                 <button class="btn2" @click="btn(item)">查看详细</button>
                         </view>
                         </view>
                         <!-- <view class="line1"></view> -->
                     </view>
                     <view class="tooc"></view>
-                </view>				
+                </view>
+                <view class="timm">
+                    <view class="fals">
+                        <text class="tite">提示</text>
+                        <input class="int" type="text" value="请填写申诉原因" />
+                        <button class="bn">提交</button>
+                    </view>
+                </view>
                 
                 </scroll-view>
             </view>
@@ -167,7 +174,7 @@
     export default {
     	data() {
     		return {
-                many:'0',
+                many:'',
                 tabCurrentIndex:0,
                 dater:'',
                 ter:'',
@@ -210,13 +217,21 @@
                     var dater = res.data.data
                     that.dater = dater
                     console.log(dater.length )
-                    that.many = dater.length
                     // console.log(res.data.data)
                     // console.log(that.dater)
                 }
             })
            
-            
+            uni.request({
+                url:this.urll + 'ordernum/2',
+                method:'GET',
+                header:{
+                    Authorization: 'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    that.many = res.data.data
+                }
+            })
            
         },
         methods:{
@@ -363,6 +378,19 @@
                     }
                 })
                
+            },
+            cton:function () {
+                var that = this 
+                uni.request({
+                    url:this.urll + 'orderappeal',
+                    method:'POST',
+                    header:{
+                        Authorization: 'JWT'+' '+this.global_.token
+                    },
+                    success(res) {
+                        console.log(res)
+                    }
+                })
             }
         }
     }
@@ -410,6 +438,39 @@
         padding-top: 50rpx;
         margin-right: 48rpx;
 	}
+    .timm {
+        width: 400rpx;
+        height: 400rpx;
+        margin: 0 auto;
+        border: 1rpx solid #999999;
+    }
+    .bn {
+        width: 80rpx;
+        height: 60rpx;
+        background-color: #121212;
+        color: #FFFFFF;
+        font-size: 20rpx;
+    }
+    .tite {
+        width: 400rpx;
+        height: 60rpx;
+        font-size: 24rpx;
+        margin-left: 180rpx;
+        margin-top: 40rpx;
+        color: #000000;
+        text-align: center;
+    }
+    .int {
+        width: 300rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        font-size: 20rpx;
+        text-align: center;
+        margin-left: 40rpx;
+        margin-top: 60rpx;
+        border: 1rpx solid #999999;
+        color: #999999;
+    }
     .dx {
         width: 60rpx;
         height: 60rpx;
@@ -510,7 +571,9 @@
         height: 60rpx;
         font-size: 26rpx;
         line-height: 60rpx;
-        color: #CCCCCC;
+        background-color: #fff;
+        border: 1rpx solid #0A1117;
+        color: #0A1117;
     }
     .btn2 {
 		float: right;
@@ -521,7 +584,7 @@
         font-size: 26rpx;
         line-height: 60rpx;
         color: #FFFFFF;
-        background-color: #091219;
+        background-color: #0A1117;
     }
     .swiper-tab {
      

@@ -39,6 +39,39 @@
         padding-top: 50rpx;
         margin-right: 48rpx;
 }
+.timm {
+        width: 400rpx;
+        height: 400rpx;
+        margin: 0 auto;
+        border: 1rpx solid #999999;
+}
+.bn {
+        width: 80rpx;
+        height: 60rpx;
+        background-color: #121212;
+        color: #FFFFFF;
+        font-size: 20rpx;
+}
+.tite {
+        width: 400rpx;
+        height: 60rpx;
+        font-size: 24rpx;
+        margin-left: 180rpx;
+        margin-top: 40rpx;
+        color: #000000;
+        text-align: center;
+}
+.int {
+        width: 300rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        font-size: 20rpx;
+        text-align: center;
+        margin-left: 40rpx;
+        margin-top: 60rpx;
+        border: 1rpx solid #999999;
+        color: #999999;
+}
 .dx {
         width: 60rpx;
         height: 60rpx;
@@ -135,7 +168,9 @@
         height: 60rpx;
         font-size: 26rpx;
         line-height: 60rpx;
-        color: #CCCCCC;
+        background-color: #fff;
+        border: 1rpx solid #0A1117;
+        color: #0A1117;
 }
 .btn2 {
 		float: right;
@@ -146,7 +181,7 @@
         font-size: 26rpx;
         line-height: 60rpx;
         color: #FFFFFF;
-        background-color: #091219;
+        background-color: #0A1117;
 }
 .swiper-tab {
      

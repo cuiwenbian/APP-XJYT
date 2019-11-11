@@ -144,6 +144,24 @@
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
+            openKeyBoard:function () {
+                
+            },
+            clo: function() {
+            	this.passIn = false;
+            	this.$refs['number'].close();
+            	
+            },
+            onDelete() {
+            	this.numberList.pop();
+            },
+            onConfirm() {
+            	uni.showToast({
+            		title: '完成输入！',
+            		duration: 2000,
+            		icon: 'none'
+            	});
+            },
             onInput(val) {
                 var that = this
             	this.numberList.push(val);
@@ -165,14 +183,17 @@
             			success(res) {
             				
             				console.log(res);
-            				if (res.statusCode == 204) {
+            				if (res.statusCode == 200) {
             					uni.showToast({
-            						title: '删除成功',
+            						title: '付款完成',
             						icon: 'none',
             						duration: 2000
             					});
+                                uni.navigateTo({
+                                    url:'../pay/pay'
+                                })
             				}
-            				if (res.statusCode == 200) {
+            				if (res.statusCode == 204) {
             					uni.showToast({
             						title: '资金密码错误',
             						icon: 'none',
@@ -327,7 +348,7 @@
       line-height: 80rpx;
   }
   .primary1 {
-      width: 180rpx;
+      width: 240rpx;
       height: 60rpx;
       line-height: 60rpx;
       margin-top: 12rpx;

@@ -173,7 +173,7 @@
     export default {
     	data() {
     		return {
-                many:'0',
+                many:'',
                 tabCurrentIndex:0,
                 contion:'',
                 daker:'',
@@ -219,11 +219,21 @@
                     console.log(contion)
                     that.contion = contion
                     console.log(contion.length )
-                     that.many = contion.length
+                    
                 }
             })
-
             
+            uni.request({
+                url:this.urll + 'ordernum/1',
+                method:'GET',
+                header:{
+                    Authorization: 'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res.data.data)
+                    that.many = res.data.data
+                }
+            })
            
         },
         methods:{
@@ -301,8 +311,9 @@
                 })
                 
             },
-            bt:function() {
+            bt:function(val) {
                 var that = this
+                this.numberList.push(val);
                 uni.request({
                     url:this.urll + 'ordercancel/',
                     method:'POST',
@@ -314,6 +325,7 @@
                     },
                     success(res) {
                         console.log(res)
+                        page.onLoad(val)
                     }
                 })
             },

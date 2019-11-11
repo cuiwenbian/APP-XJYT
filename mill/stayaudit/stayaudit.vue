@@ -11,12 +11,15 @@
                 </text>
             </view>
             <view class="small">
-                矿机数量:<text class="smallxx1">{{mill}}台</text>
-            </view>
-            <view class="small">
+                <text class="ser">
+                     矿机数量:<text class="smallxx1">{{mill}}台</text>
+                </text>
                 <text>交易总价:
                     <text class="smallxx1">{{price}}</text>
                 </text>
+            </view>
+            <view class="small">
+                
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -228,6 +231,10 @@
      height: 260rpx;
      background-color: #fff;
  }
+ .ser {
+     float: right;
+     margin-right: 48rpx;
+ }
  .img {
      width: 160rpx;
      height: 160rpx;
@@ -267,6 +274,6 @@
      font-size: 28rpx;
      float: right;
      margin-right: 48rpx;
-     background-color: #121212;
+     background-color: #999999;
  }
 </style>
