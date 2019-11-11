@@ -1,5 +1,5 @@
 <template>
-	<!--根据手机号 修改登录密码 -->
+	<!--根据手机号 修改登录密码 --> 
 	<view class="container">
 		<view class="line-t"></view>
 		<view class="list1">
@@ -22,7 +22,7 @@
 			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="save">确认修改</view>
-		<view class="other" @click="other">其他方式</view>
+		
 	</view>
 </template>
 
@@ -56,11 +56,7 @@
 			show1:function(){
 				this.isPassword1=!this.isPassword1
 			},
-			other:function(){
-				uni.navigateTo({
-					url:'../change-pass/change-pass'
-				})
-			},
+			
 			getCode: function () {
 			      var _this = this;
 			     
@@ -183,8 +179,8 @@
 								icon:'none',
 								duration:2000
 							})
-							uni.switchTab({
-								url:'../my/my'
+							uni.reLaunch({
+								url:'../../pages/login/login'
 							})
 						}
 						if(res.statusCode==400){
@@ -193,11 +189,7 @@
 								icon:'none'
 							})
 						}
-						// if(res.statusCode==201){
-						// 	uni.navigateTo({
-						// 		url:'../login/login'
-						// 	})
-						// }
+						
 						
 					},
 				    fail: () => {},
@@ -314,18 +306,12 @@
 		margin: 100rpx auto 0;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;
 	}
-	.other{
-		line-height: 100rpx;
-		float: right;
-		margin-right:48rpx;
-		color:#8080FF;
-		font-size: 28rpx;
-	}
+	
 </style>
 

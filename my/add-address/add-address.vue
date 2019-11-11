@@ -65,7 +65,7 @@
 						console.log(res)
 						if(res.statusCode==202){
 							uni.showToast({
-								title:'地址格式不正确',
+								title:'地址格式不正确(只能是字母或数字)',
 								icon:'none',
 								duration:2000
 							})
@@ -141,7 +141,7 @@
 		margin: 100rpx auto;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;

@@ -147,7 +147,7 @@
 					 
 					 {
 					     "path":"edit-address/edit-address",
-					     "style":{"navigationBarTitleText":"编辑提币地址"}
+					     "style":{"navigationStyle": "custom"}
 					 },
 					 {
 					     "path":"email/email",

@@ -17,7 +17,7 @@
 				<image class="close"  :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 			</view>
 			<view class="save"  @click="save">确认修改</view>
-			
+			<view class="other" @click="other">其他方式</view>
 		</view>
 </template>
 
@@ -51,7 +51,7 @@
 				},
 				other:function(){
 					uni.navigateTo({
-						url:'../change-loginPassword/change-loginPassword'
+						url:'../login-password/login-password'
 					})
 				},
 				save:function(){
@@ -118,8 +118,8 @@
 									icon:'none',
 									duration:2000
 								})
-								uni.switchTab({
-									url:'../my/my'
+								uni.reLaunch({
+									url:'../../pages/login/login'
 								})
 								
 							}
@@ -201,11 +201,17 @@
 			margin: 100rpx auto 0;
 			width:654rpx;
 			height:90rpx;
-			background: #444343;
+			background: #0A1117;
 			border-radius: 80rpx;
 			text-align: center;
 			line-height: 90rpx;
 			color: #fff;
 		}
-		
+		.other{
+			line-height: 100rpx;
+			float: right;
+			margin-right:48rpx;
+			color:#8080FF;
+			font-size: 28rpx;
+		}
 </style>

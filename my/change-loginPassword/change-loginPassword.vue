@@ -1,4 +1,4 @@
-<template>
+<template> 
 	<!-- 设置登录密码 -->
 	<view class="container">
 		<view class="line"></view>
@@ -278,17 +278,11 @@
 		margin: 100rpx auto 0;
 		width:654rpx;
 		height:90rpx;
-		background: #444343;
+		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;
 	}
-	.forget{
-		line-height: 80rpx;
-		float: right;
-		margin-right:48rpx;
-		color:#8080FF;
-		font-size: 20rpx;
-	}
+	
 </style>

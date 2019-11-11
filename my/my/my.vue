@@ -3,11 +3,10 @@
     <view class="container" style="position: relative;">
 		 <view class="height"></view>
 		<view class="top">
-			<image class="bg" src="../../static/images/my-background.png" mode="aspectFill">
+			<image class="bg" src="../../static/images/background.png" mode="aspectFill">
 				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
 			</image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.jpg" mode=""></image></view>
-			<view class="nickname">nickname</view>
 			<view class="phone">{{phone}}</view>
 		</view>
 		<view class="line"></view>
@@ -146,8 +145,7 @@
 						if(res.statusCode==400){
 							uni.navigateTo({
 								url:'../change-password/change-password'
-							})
-							 
+							}) 
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
@@ -161,7 +159,7 @@
 				uni.request({
 					url:this.urll+'updataloginpassword/',
 					method:'GET',
-					header:{
+					header:{ 
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
@@ -173,7 +171,7 @@
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
-								url:'../login-password/login-password'
+								url:'../change-pass/change-pass'
 							})
 						}
 					}
@@ -305,12 +303,12 @@
 	}
 	.top{
 		width:100%;
-		height:580rpx;
+		height:480rpx;
 		position: relative;
 	}
 	.bg{
 		width:100%;
-		height:580rpx;
+		height:318rpx;
 		position: relative;
 	}
 	.logout{
@@ -326,7 +324,7 @@
 		z-index: 9;
 		position: absolute;
 		left:300rpx;
-		bottom:150rpx;
+		bottom:100rpx;
 		border-radius: 50%;
 		border: 1px solid #f2f2f2;
 	
@@ -366,7 +364,7 @@
 		display: flex;
 		justify-content:space-between;
 		flex-wrap: wrap;
-		padding:50rpx 80rpx;
+		padding:50rpx;
 		box-sizing: border-box;
 	}
 	.listItem{
