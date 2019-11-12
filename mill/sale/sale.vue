@@ -16,7 +16,7 @@
             </view>
             <view class="list" v-if="tabCurrentIndex === 0">
                 <scroll-view scroll-y='true'>
-                <view class="boss" v-for="(item , index) in dater" :key="index">
+                <view class="boss" v-for="(item , index) in dater" :key="index" @click="obtainOrderNum  (item.order_num)" >
                     <view class="order">
                         <view class="top">
                             <text class="mation">
@@ -41,7 +41,7 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                         <view class="hz">
-                                <button class="btn1" @click="cton">申诉</button>
+                                <button class="btn1" @click="butto">申诉</button>
                                 <button class="btn2" @click="btn(item)">查看详细</button>
                         </view>
                         </view>
@@ -49,11 +49,11 @@
                     </view>
                     <view class="tooc"></view>
                 </view>
-                <view class="timm">
+                <view class="timm" v-if='flag'>
                     <view class="fals">
                         <text class="tite">提示</text>
-                        <input class="int" type="text" value="请填写申诉原因" />
-                        <button class="bn">提交</button>
+                        <input class="int" type="text" :value="title" @input='getPhoneValue' placeholder="请填写申诉原因"/>
+                        <button class="bn" @click="deer">提交</button>
                     </view>
                 </view>
                 
@@ -174,13 +174,17 @@
     export default {
     	data() {
     		return {
+                flag:false,
                 many:'',
                 tabCurrentIndex:0,
                 dater:'',
                 ter:'',
                 name:'',
+                phone:'',
+                title:'',
                 delwen:'',
                 delewen:'',
+                ebti:'',
                 navList: [
                 	{
                 		state: 0,
@@ -217,8 +221,8 @@
                     var dater = res.data.data
                     that.dater = dater
                     console.log(dater.length )
-                    // console.log(res.data.data)
-                    // console.log(that.dater)
+                    // console.log(dater.data.order_num)
+                    console.log(that.dater.order_num)
                 }
             })
            
@@ -235,6 +239,17 @@
            
         },
         methods:{
+            tite:function() {
+                
+            },
+            obtainOrderNum:function(e) {
+                var that = this
+                that.ebit = e
+                console.log(that.ebit)
+            },
+            getPhoneValue:function(e){
+            	this.phone=e.detail.value
+            },
             tabClick:function (index) {
                 var that = this
                 if (this.tabCurrentIndex === index) {
@@ -379,16 +394,38 @@
                 })
                
             },
-            cton:function () {
+            butto:function () {
                 var that = this 
+                that.flag=true
+                that.arr = []
+            },
+            deer:function() {
+                var that = this
+                // console.log(that.dater.oreder_num)
+                
                 uni.request({
-                    url:this.urll + 'orderappeal',
+                    url:this.urll + 'orderappeal/',
                     method:'POST',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
                     },
+                    data:{
+                        info:that.phone,
+                        order_num:that.ebit
+                    },
                     success(res) {
                         console.log(res)
+                        if(res.statusCode == 200) {
+                            that.flag = false
+                        }else if (res.statusCode == 400) {
+                            uni.showToast({
+                                title:'该订单不可申诉',
+                                icon:'none'
+                            })
+                            that.flag = false
+                        }
+                        console.log(that.ebit)
+                        console.log(that.phone)
                     }
                 })
             }
@@ -439,17 +476,30 @@
         margin-right: 48rpx;
 	}
     .timm {
-        width: 400rpx;
-        height: 400rpx;
-        margin: 0 auto;
-        border: 1rpx solid #999999;
+       width:100%;
+       height:100%;
+       background:rgba(255,255,255,0.5);
+       position: fixed;
+       left:0;
+       top:0;
+       z-index:99
     }
     .bn {
-        width: 80rpx;
+        width: 160rpx;
         height: 60rpx;
+        margin-top: 60rpx;
         background-color: #121212;
         color: #FFFFFF;
         font-size: 20rpx;
+    }
+    .fals{
+        width: 400rpx;
+        height: 400rpx;
+        position: absolute;
+        left: 175rpx;
+        top:300rpx;
+        background-color: #fff;
+        border: 1rpx solid #999999;
     }
     .tite {
         width: 400rpx;
