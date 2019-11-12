@@ -30,7 +30,7 @@
 		},
 		onShow() {
 			var _this=this;
-			_this.disabled = true;
+			
 			uni.request({
 				url:this.url+'delemail/',
 				method:'GET',
@@ -79,7 +79,6 @@
 				 	       } else{
 							 that.disabled = true
 				 	         that.codename = num + "s"
-				 	         
 				 	       }
 				 	     }, 1000)
 						

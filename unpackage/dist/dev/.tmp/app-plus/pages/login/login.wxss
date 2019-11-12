@@ -78,13 +78,13 @@ page{
 	text-align: center;
 }
 .agree{
-	width:340rpx;
+	width:280rpx;
 	height:30rpx;
 	color:#fff;
 	font-size: 18rpx;
 	position: fixed;
 	bottom:50rpx;
-	left:calc((100% - 340rpx)/2);
+	left:240rpx;
 }
 .checks{
 	width:30rpx;

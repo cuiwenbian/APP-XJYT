@@ -84,6 +84,10 @@
       }
     ]
   },
+  "networkTimeout": {
+    "uploadFile": 20000,
+    "request": 20000
+  },
   "nvueCompiler": "weex",
   "renderer": "auto",
   "splashscreen": {

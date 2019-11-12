@@ -61,6 +61,16 @@ page{
 	float: left;
 	position: relative;
 }
+.watermark{
+	width:250rpx;
+	height:150rpx;
+	background: rgba(0,0,0,0.2);
+	display: block;
+	position: absolute;
+	top:100rpx;
+	left:65rpx;
+	z-index: 99;
+}
 .tips{
 	display: block;
 	width:100%;

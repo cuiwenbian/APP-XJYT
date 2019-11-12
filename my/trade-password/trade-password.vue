@@ -49,7 +49,6 @@
 		}, 
 		onLoad() {
 			var _this=this;
-			_this.disabled = true;
 			uni.request({
 				url:this.url+'delemail/',
 				method:'GET',

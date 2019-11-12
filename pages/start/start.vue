@@ -4,16 +4,14 @@
 		
 		<image class='logo animated fadeIn delay-0.5s' src="../../static/images/FIL.png" mode=""></image>
 		<image class='fil animated fadeIn delay-0.5s' src="../../static/images/filecoin.png" mode=""></image>
-		<image class='tit animated fadeIn delay-0.5s' src="../../static/images/start.png" mode=""></image>
-		
+		<image class='tit animated fadeIn delay-0.5s' src="../../static/images/start1.png" mode=""></image>
+		<image class='tit1 animated fadeIn delay-0.5s' src="../../static/images/start2.png" mode=""></image>
+		<image class='tit2 animated fadeIn delay-0.5s' src="../../static/images/start3.png" mode=""></image>
 	</view>
 </template>
 
 <script>
 	export default{
-		data(){
-			
-		},
 		onLoad() {
 			var timer=3;
 			var flag;
@@ -53,9 +51,28 @@
 		
 	}
 	.tit{
-		width:400rpx;
-		height:100rpx;
+		width:365rpx;
+		height:45rpx;
 		display: block;	
-		margin:0 auto;
+		position:absolute;
+		bottom: 199rpx;
+		left:192rpx;
 	}
+	.tit1{
+		width:400rpx;
+		height:22rpx;
+		display: block;	
+		position:absolute;
+		bottom: 169rpx;
+		left:176rpx;
+	}
+	.tit2{
+		width:426rpx;
+		height:19rpx;
+		display: block;	
+		position:absolute;
+		bottom: 49rpx;
+		left:161rpx;
+	}
+	
 </style>

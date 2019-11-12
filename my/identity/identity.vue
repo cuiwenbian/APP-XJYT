@@ -10,7 +10,6 @@
 		  <input class="weui-input1 input1" placeholder="请输入您的姓名" maxlength="11" @input='getName' :value='name' focus="true"/>
 		  </view>
 		</view>
-		
 		<view class='enter'>
 		  <view>
 		  <text class='enter-2 '>身份证号</text>
@@ -28,6 +27,7 @@
 			<view class="list"  v-show="!p_flag" @click='chooseImageTap' :data-flag='positive'>
 				<text class='tips'>上传身份证<text style='color:red'>人像</text>面</text>
 				<image class='prev' :src="p_url" :data-src="p_url" @click='chooseImageTap' :data-flag='positive' style="width:250rpx;height:150rpx;"></image>
+			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>	
 			<view class="list" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverse'>
 				<text class='tips'>上传身份证<text style='color:red'>国徽</text>面</text>
@@ -38,6 +38,7 @@
 			<view class="list" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverse'>
 				<text class='tips'>上传身份证<text style='color:red'>国徽</text>面</text>
 				<image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverse' style="width:250rpx;height:150rpx;"></image>
+			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>
 		</view>
 		
@@ -83,6 +84,7 @@
         		<view class='pop-btn' @click="sure">确定</view>
         	</view>
         </view>
+		
 	</view>
 </template>
 
@@ -385,6 +387,16 @@
 		text-align: center;
 		float: left;
 		position: relative;
+	}
+	.watermark{
+		width:250rpx;
+		height:150rpx;
+		background: rgba(0,0,0,0.2);
+		display: block;
+		position: absolute;
+		top:100rpx;
+		left:65rpx;
+		z-index: 99;
 	}
 	.tips{
 		display: block;
