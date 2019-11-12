@@ -80,6 +80,12 @@
                             uni.navigateTo({
                                 url:'../confirm/confirm?ront=' + posf
                             })
+                        }else if (res.statusCode == 401){
+                            uni.showToast({
+                                title:'矿机不能卖给自己',
+                                icon:'none'
+                                
+                            })
                         }
                         // uni.navigateTo({
                         //     url:'../confirm/confirm'
