@@ -313,7 +313,7 @@
             },
             bt:function(val) {
                 var that = this
-                this.numberList.push(val);
+                // this.numberList.push(val);
                 uni.request({
                     url:this.urll + 'ordercancel/',
                     method:'POST',
@@ -325,7 +325,7 @@
                     },
                     success(res) {
                         console.log(res)
-                        page.onLoad(val)
+                        that.onLoad()
                     }
                 })
             },

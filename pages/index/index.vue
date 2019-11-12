@@ -331,23 +331,20 @@
         width: 28rpx;
         height: 28rpx;
         float: left;
-        box-sizing: border-box;
-        padding-left: 23rpx;
-        padding-top: 5rpx;
+        margin-left: 23rpx;
+        margin-top: 5rpx;
     }
     .i{
         width: 600rpx;
         height: 40rpx;        
         background-color: #BCBCBC;
         margin-left: 52rpx;
-        box-sizing: border-box;
-        padding-top: 20rpx;
+        margin-top: 20rpx;
         border-radius: 50rpx;  
     }
     .m {
         float: left;
         padding-top: 17rpx;
-        box-sizing: border-box;
         margin-left: 90rpx;
         font-size: 24rpx;
 
@@ -369,8 +366,7 @@
          background: linear-gradient(to bottom,#121212, #232323);
     }
     .price{
-        box-sizing: border-box;
-        padding-left: 24rpx;
+        margin-left: 24rpx;
     }
     /* 白 */
     .bot{
@@ -382,7 +378,7 @@
     /* 2 */
     .price1{
         float: right;
-        padding-right: 24rpx;
+        margin-right: 24rpx;
     }
     /* 黄 */
     .Todayprice{
@@ -401,8 +397,7 @@
     .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
-        padding-top: 12rpx;
-        box-sizing: border-box;
+        margin-top: 12rpx;
         line-height: 120rpx;
         color: #DCB16E;
     }
@@ -436,8 +431,8 @@
         margin-left: 30rpx;
         font-size: 26rpx;
         color: #D7D7D7;
-        padding-top: 20rpx;
-        padding-left: 24rpx;
+        margin-top: 20rpx;
+        margin-left: 24rpx;
 		box-sizing: border-box;
        display: -webkit-box;
         overflow: hidden;
@@ -464,9 +459,9 @@
 	.yu {
         
 		float: left;
-		padding-top: 8rpx;
+		margin-top: 8rpx;
         box-sizing: border-box;
-		padding-left: 48rpx;
+		margin-left: 48rpx;
         font-size: 14rpx;
         color: #5A5A5A;
     }
@@ -474,14 +469,14 @@
         width: 36rpx;
         box-sizing: border-box;
         height: 26rpx;
-		padding-left: 90rpx;
-		padding-top: 14rpx;
+		margin-left: 90rpx;
+		margin-top: 14rpx;
     }
     .yjj {
 		float: right;
         box-sizing: border-box;
-		padding-right: 180rpx;
-		padding-top: 8rpx;
+		margin-right: 180rpx;
+		margin-top: 8rpx;
         font-size: 14rpx;
         color: #5A5A5A;
     }
@@ -489,7 +484,7 @@
         display: block;
         width: 96%; 
         margin: 0 auto;
-        margin-left: 46rpx;
+        margin-left: 50rpx;
         /* margin-top: rpx; */
         border-bottom: 1rpx solid #333333;
     }

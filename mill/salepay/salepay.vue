@@ -25,26 +25,19 @@
                         <text class="lop">{{rmb}}</text>
                     </text>
                 </view>
-                <view class="small">
+                <view class="small" v-if="frte">
                     <text>
                         订单编号:<text class="lop">{{x}}</text>
                     </text>
                 </view>
                 <view class="small1">
-                    <text>
-                        创建时间:<text class="smallxx">{{time}}</text>
-                    </text>
+                    <view>
+                        <text>
+                            创建时间:<text class="smallxx">{{time}}</text>
+                        </text>
+                    </view>
                 </view>
-                <view class="small1">
-                    <text>
-                        支付时间：<text class="smallxx">{{time}}</text>
-                    </text>
-                </view>
-                <view class="small1">
-                    <text>
-                        确认时间：<text class="smallxx">{{time}}</text>
-                    </text>
-                </view>
+
                 <view>
                     <button class="primary" @click="btn">查看全部^</button>
                 </view>
@@ -106,6 +99,7 @@
                 price:'',
                 rmb:'',
                 x:'',
+                frte:'',
                 time:'',
                 name:'',
                 contact:'',
@@ -117,7 +111,7 @@
             var datn = JSON.parse(option.aser)
             console.log(option.aser)
             that.datn = datn
-            console.log(that.datn)
+            console.log(that.datn[0][0])
             
             // var conti = that.datn[0]
             // that.conti = that.datn[0]
@@ -132,6 +126,7 @@
             that.x = that.datn[0][0].order_num
             that.name = that.datn[0][0].name
             that.contact = that.datn[0][0].mobile
+            that.time = that.datn[0][0].set_time
             if(that.state == 101) {
                 that.state = '待付款'
             }
@@ -190,8 +185,9 @@ page {
       width: 100%;
       float: left;
       height: 80rpx;
+      font-size: 28rpx;
       padding-left: 48rpx;
-      display: none;
+      /* display: none; */
       font-size: 18rpx;
   }
   .smallx {

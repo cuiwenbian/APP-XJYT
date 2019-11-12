@@ -85,7 +85,6 @@
             }
         },
        components: {
-              
        	keyboardPackage,
        	passwordInput
        },
@@ -167,7 +166,7 @@
                                     url:'../mill/mill'
                                 })
             				}
-            				if (res.statusCode == 204) {
+            				if (res.statusCode == 400) {
             					uni.showToast({
             						title: '资金密码错误',
             						icon: 'none',
@@ -200,7 +199,7 @@
     }
     .loo {
         color: #121212;
-        padding-left: 18rpx;
+        margin-left: 18rpx;
     }
     .box1 {
         margin-bottom: 40rpx;
@@ -212,13 +211,13 @@
         width: 124rpx;
         color: #A0A0A0;
         line-height: 120rpx;
-        padding-left: 48rpx;
+        margin-left: 48rpx;
     }
     .pag {
         float: left;
         color: #A0A0A0;
         line-height: 120rpx;
-        padding-left: 120rpx;
+        margin-left: 120rpx;
     }
     
     .box {
@@ -242,7 +241,7 @@
         margin-top: 36rpx;
         margin-right: 24rpx;
         border: 1rpx solid #CCCCCC;
-        padding: 0 14rpx 0 14rpx;
+        margin: 28rpx 22rpx 0 20rpx;
     }
     .info {
         font-size: 28rpx;
@@ -273,12 +272,12 @@
         float: left;
         width: 100%;
         color: #A0A0A0;
-        padding-left: 48rpx;
-        padding-top: 20rpx;
+        margin-left: 48rpx;
+        margin-top: 20rpx;
         font-size: 30rpx;
     }
     .ui {
         color: #121212;
-        padding-left: 60rpx;
+        margin-left: 60rpx;
     }
 </style>

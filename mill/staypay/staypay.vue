@@ -147,7 +147,7 @@
             openKeyBoard:function () {
                 
             },
-            clo: function() {
+            clo:function() {
             	this.passIn = false;
             	this.$refs['number'].close();
             	
@@ -193,7 +193,7 @@
                                     url:'../pay/pay'
                                 })
             				}
-            				if (res.statusCode == 204) {
+            				if (res.statusCode == 400) {
             					uni.showToast({
             						title: '资金密码错误',
             						icon: 'none',

@@ -154,9 +154,9 @@ that. <template>
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            openKeyBoard:function () {
+            // openKeyBoard:function () {
                 
-            },
+            // },
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
@@ -202,7 +202,7 @@ that. <template>
                                     url:'../sale/sale'
                                 })
             				}
-            				if (res.statusCode == 204) {
+            				if (res.statusCode == 400) {
             					uni.showToast({
             						title: '资金密码错误',
             						icon: 'none',
