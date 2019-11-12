@@ -70,7 +70,7 @@ export default {
 		};
 	},
 
-	onLoad(options) {
+	onShow(options) {
 		var that = this;
 		uni.request({
 			url: this.urll + 'mainmachine/',

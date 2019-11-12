@@ -190,42 +190,6 @@
                 this.$refs['number'].open();
                 this.onInput(val);
             }
-            // btn:function() {
-            //     var that = this
-            //     var a = that.arr.join()
-            //     uni.request({
-            //         url:this.urll + 'submitorder/',
-            //         method:'POST',
-            //         header:{
-            //             Authorization: 'JWT'+' '+this.global_.token,
-            //         },
-            //         data:{
-            //             password:that.password,
-            //             machine_id_list:a,
-            //             name:that.name,
-            //             mobile:that.pag,
-            //             sale_num:that.san,
-            //             sale_money:that.suu
-            //         },
-            //         success(res) {
-            //             console.log(res)
-            //             console.log(that.password)
-            //             console.log(that.suu)
-            //             console.log(a)
-            //             console.log(that.name)
-            //             console.log(that.pag)
-            //             console.log(that.san)
-            //             if(res.statusCode == 200){
-            //                 uni.switchTab({
-            //                     url:'../mill/mill'
-            //                 })
-            //             }
-            //         }
-            //     })
-            // },
-            // togglePayment:function(){}
-            
-            
         }
     }
 </script>
@@ -268,7 +232,7 @@
         width: 94%;
         margin-top: 60rpx;
         color: #FFFFFF;
-        background-color: #0081BB;
+        background-color: #121212;
     }
     .img{
         float: left;
