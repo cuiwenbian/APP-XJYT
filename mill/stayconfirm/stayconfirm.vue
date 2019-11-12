@@ -260,7 +260,7 @@
      line-height: 80rpx;
  }
  .primary1 {
-     width: 180rpx;
+     width: 280rpx;
      height: 60rpx;
      line-height: 60rpx;
      margin-top: 12rpx;
@@ -268,6 +268,6 @@
      font-size: 28rpx;
      float: right;
      margin-right: 48rpx;
-     background-color: #121212;
+     background-color: #999999;
  }
 </style>

@@ -87,7 +87,7 @@
             </view>
         </view>            
         <view class="box4">
-            <button type="btm">待审核</button>
+            <button class="primary1">审核中</button>
         </view>
     </view>
 </template>
@@ -261,13 +261,13 @@ page {
       font-size: 26rpx;
       color: #a1a1a1;
   }
-  .box4 {
+   .box4 {
       height: 80rpx;
       line-height: 80rpx;
   }
-  .btm {
-     width: 180rpx;
-      height: 60rpx;
+  .primary1 {
+      width: 240rpx;
+      height: 60rpx; 
       line-height: 60rpx;
       margin-top: 12rpx;
       color: #FFFFFF;

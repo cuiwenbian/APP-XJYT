@@ -268,7 +268,7 @@
         width: 94%;
         margin-top: 60rpx;
         color: #FFFFFF;
-        background-color: #0081BB;
+        background-color: #121212;
     }
     .img{
         float: left;
