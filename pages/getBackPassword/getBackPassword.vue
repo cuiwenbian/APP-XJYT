@@ -8,7 +8,7 @@
 		</view>
 		<view class="pass">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
+			<button class="getcode" @click="getCodeNumber" hover-class="none" :disabled="disabled">{{ codename }}</button>
 			<input class="code" type="text"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
 		<view class="next" type="primary" @click="next">下一步</view>
@@ -22,12 +22,11 @@
 				phone: '', //手机号
 				code: '', //验证码
 				iscode: '', //用于存放验证码接口里获取到的code
-				codename: ' 获取验证码 '
+				codename: ' 获取验证码 ',
+				disabled:false
 			};
 		},
-		onLoad: function(options) {
-			this.disabled = true;
-		},
+		
 		methods:{
 			getPhoneValue: function(e) {
 				if (e.detail.value.length == 11) {
@@ -95,12 +94,10 @@
 			                clearInterval(timer);
 			                _this.codename = '重新发送',
 			                _this.disabled = false
-			            
-			
 			
 			              } else {
 			                _this.codename = num + "s"
-			                
+			                _this.disabled = true
 			              }
 			            }, 1000)
 			          }
@@ -186,20 +183,20 @@
 	}
 	.code{
 		float: right;
-		width:380rpx;
+		width:350rpx;
 		height:120rpx;
 		font-size: 30rpx;
 	}
+	button::after{border:none}
 	.getcode{
 		float: right;
 		border-radius: 10rpx;
-		width:200rpx;
+		width:230rpx;
 		height:60rpx;
 		margin-right:24rpx;
 		margin-top:30rpx;
 		border: 1px solid #f1f1f1;
 		font-size: 30rpx;
-		color:#C7C529;
 		text-align: center;
 		line-height: 60rpx;
 		background: #EDEDED;

@@ -22,7 +22,7 @@
 		</navigator>
 		<view class="agree">
 			
-			<text>我已阅读并同意【 <text style="color: #34b5c1;" @click="agree">星际云通用户协议</text> 】</text>
+			<text>登陆即代表阅读并同意【 <text style="color: #34b5c1;" @click="agree">用户协议</text> 】</text>
 			
 		</view>
 		

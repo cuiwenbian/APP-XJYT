@@ -10,8 +10,8 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<view class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</view>
-			<input class="number" style="width:350rpx;float: left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
+			<button class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
+			<input class="number" style="width:300rpx;float:left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
 		<view class="btn" type="primary" @click="login">立刻登录</view>
 		<navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
@@ -25,12 +25,13 @@ export default {
 			phone: '', //手机号
 			code: '', //验证码
 			iscode: '', //用于存放验证码接口里获取到的code
-			codename: ' 获取验证码'
+			codename: ' 获取验证码',
+			disabled:false
 		};
 	},
-	onLoad: function(options) {
-		this.disabled = true;
-	},
+	// onLoad: function(options) {
+	// 	this.disabled = true;
+	// },
 	methods: {
 		getPhoneValue: function(e) {
 			if (e.detail.value.length == 11) {
@@ -99,7 +100,7 @@ export default {
 		
 		              } else {
 		                _this.codename = num + "s"
-		                
+		                _this.disabled = true
 		              }
 		            }, 1000)
 		          }
@@ -220,16 +221,15 @@ page {
 	color: #646464;
 	font-size: 30rpx;
 }
+button::after{ border: none;}
 .getcode {
-	float: right;
 	border-radius: 50rpx;
-	width: 200rpx;
+	width:250rpx;
 	height: 60rpx;
 	font-size: 30rpx;
 	color: #646464;
 	text-align: center;
 	line-height: 60rpx;
-	background: #808080;
 	position: absolute;
 	bottom: 20rpx;
 	right: 0;

@@ -18,7 +18,7 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<view class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</view>
+			<button class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
@@ -46,12 +46,11 @@
 				pwd1:'',
 				code:'',
 				iscode: '',//用于存放验证码接口里获取到的code
-				codename: ' 获取验证码 '
+				codename: ' 获取验证码 ',
+				disabled:false
 			}
 		},
-		onLoad: function (options) {
-		  this.disabled = true
-		},
+		
 		methods:{
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
@@ -143,7 +142,7 @@
 			
 			              } else {
 			                _this.codename = num + "s"
-			                
+			                 _this.disabled = true
 			              }
 			            }, 1000)
 			          }
@@ -295,7 +294,7 @@
 	.getcode{
 		float: right;
 		border-radius: 50rpx;
-		width:200rpx;
+		width:220rpx;
 		height:60rpx;
 		font-size: 30rpx;
 		color:#646464;

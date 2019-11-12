@@ -10,7 +10,7 @@
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<view class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</view>
+			<button class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
 		<view class="save"  @click="unbind">确认</view>
 	</view>
@@ -25,6 +25,7 @@
 				email1:'',
 				emailCode:'',
 				codename: ' 获取验证码',
+				disabled:false
 			}
 		},
 		onShow() {
@@ -175,7 +176,7 @@
 	}
 	.getcode{
 		float:right;
-		width:150rpx;
+		width:200rpx;
 		height:50rpx;
 		background: #f2f2f2;
 		border: 1rpx solid #797979;
