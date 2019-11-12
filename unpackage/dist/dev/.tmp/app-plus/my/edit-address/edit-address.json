@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
+  }
+}

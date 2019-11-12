@@ -52,7 +52,7 @@
 <script src="../../static/js/jquery.min.js"></script>
 <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-var that;
+
 import { uniSwipeAction } from '../../components/uni-swipe-action/uni-swipe-action.vue';
 import { uniNavBar } from '../../components/uni-nav-bar/uni-nav-bar.vue';
 import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
@@ -90,7 +90,7 @@ export default {
 		passwordInput
 	},
 	onLoad() {
-		that = this;
+		var that = this;
 		uni.request({
 			url: this.urll + 'walletaddress/',
 			method: 'GET',
