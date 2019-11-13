@@ -49,16 +49,15 @@
 			<view class="list" v-if="tabCurrentIndex === 1">
 				<scroll-view scroll-y='true'>
 					<view>
+						<text class="all1">Filecoin:{{month_profit}}</text>
+						<div class="item">
+							<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+						</div>
 						<view v-if="flag">
 							<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
 							<view class="info">暂无记录</view>
 						</view>
-						<view v-else class="boxx">
-                                <text class="all1">Filecoin:{{month_profit}}</text>
-                                <div class="item">
-                                	<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
-                                </div>
-							
+						<view v-else class="boxx">	
 							<view class="list-one" v-for="(item , index) in entin" :key="index">
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
