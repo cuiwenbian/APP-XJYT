@@ -49,9 +49,9 @@
 			<view class="list" v-if="tabCurrentIndex === 1">
 				<scroll-view scroll-y='true'>
 					<view>
-						<text class="all1">Filecoin:{{month_profit}}</text>
+						<text class="all1">Filecoin:{{profit}}</text>
 						<div class="item">
-							<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
+							<dyDatePicker timeType="month" :value="date1" @getData="DateChang" :placeholder="date1" ></dyDatePicker>
 						</div>
 						<view v-if="flag">
 							<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
@@ -89,6 +89,7 @@
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
+				profit:'',
 				entin: '',
 				flag: false,
 				ention: '',
@@ -110,6 +111,7 @@
 					}
 				],
 				date: '本月',
+				date1: '本月',
 				teran: ''
 
 			}
@@ -163,40 +165,13 @@
 					that.numm = ention[0].num
 					if(ention.length==0){
 						that.flag=true
+					}else{
+						that.flag=false
 					}
 				}
 			})
-            // 这是支出记录请求API
-			// uni.request({
-			// 	url: this.url + 'assets/month/bill/',
-			// 	method: 'GET',
-			// 	header: {
-			// 		Authorization: 'JWT' + ' ' + this.global_.token
-			// 	},
-			// 	data: {
-			// 		month: teran
-			// 	},
-			// 	success(res) {
-			// 		// console.log(res)
-			// 		// console.log(res.data.data)
-			// 		var ent = res.data.data
-   //                  console.log(ent)
-			// 		var entin = res.data.data.bill_records
-			// 		that.entin = entin
-			// 		// console.log('cc')
-			// 		console.log(entin)
-					
-			// 		that.profit = ent.month_bill
-   //                  console.log(that.profit)
-			// 		that.add_time = entin[0].add_time
-			// 		that.numm = entin[0].num
-			// 	}
-			// })
-			// if(that.ention.length == 0 || that.entin.length!==0){
-			// 	that.flag=false
-			// }else{
-			// 	that.flag=true
-			// }
+         
+			
 		},
 		methods: {
 			tabClick: function(index) {
@@ -211,6 +186,7 @@
 				} else {
 					that.tabCurrentIndex = index
 				}if(this.tabCurrentIndex === 0){
+					that.date="本月";
                     uni.request({
                     	url: this.url + 'assets/month/profit/',
                     	method: 'GET',
@@ -225,10 +201,11 @@
                     		var seront = res.data.data
                     		var ention = res.data.data.profit_records
                     		that.ention = ention
-                    		console.log('cc')
                     		console.log(ention)
 							if(ention.length==0){
 								that.flag=true
+							}else{
+								that.flag=false
 							}
                     		that.month_profit = seront.month_profit
                     		that.add_item = ention[0].add_time
@@ -237,6 +214,7 @@
                     })
                 }
                 if(this.tabCurrentIndex === 1){
+				    that.date1="本月";
                     uni.request({
                     	url: this.url + 'assets/month/bill/',
                     	method: 'GET',
@@ -252,18 +230,19 @@
                     		var seron = res.data.data
                     		var entin = res.data.data.bill_records
                     		that.entin = entin
-                    		console.log('cc')
+            
                     		console.log(entin)
-                    		that.month_profit = seron.month_bill
+							if(entin.length==0){
+								that.flag=true
+							}else{
+								that.flag=false
+							}
+                    		that.profit = seron.month_bill
                     		that.add_item = entin[0].add_time
                     		that.numm = entin[0].num
                     	}
                     })
-                    // if(that.ention.length!=0 || that.entin.length!=0){
-                    // 	that.flag=false
-                    // }else{
-                    // 	that.flag=true
-                    // }
+                    
                 }
 			},
 			bindChange(e) {
@@ -322,7 +301,6 @@
 						that.ention = ention
 						console.log(ention.length)
 						if(ention.length == 0){
-							console.log("ccc")
 							that.flag=true
 						}else{
 							that.flag=false
@@ -340,7 +318,8 @@
 			DateChang(e) {
 				var that = this
 				console.log(e)
-				this.date = e
+				
+				this.date1 = e
 				uni.request({
 					url: this.url + 'assets/month/bill/',
 					method: 'GET',
@@ -357,12 +336,11 @@
 						that.entin = entin
 						console.log(entin)
 						if(entin.length == 0){
-							console.log("ccc")
 							that.flag=true
 						}else{
 							that.flag=false
 						}
-						that.month_profit = seron.month_bill
+						that.profit = seron.month_bill
 						that.add_item = entin[0].add_time
 						that.numm = entin[0].num
 

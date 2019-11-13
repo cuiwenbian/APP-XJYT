@@ -54,7 +54,7 @@
 	export default{
 		data(){
 			return{
-				flag:true,
+				flag:false,
 				date:'本月',
 				num:'',
 				ber:'',
@@ -65,7 +65,9 @@
 				month_profit:'0',
 				profit_records:[],
 				month_bill:'',
-				bill_records:[]
+				bill_records:[],
+				length:'',
+				length1:''
 			}
 		},
 		components: {
@@ -107,9 +109,7 @@
 					console.log(res)
 					that.month_profit = res.data.data.month_profit
 					that.profit_records = res.data.data.profit_records
-					if(that.profit_records.length!=0){
-						this.flag=false
-					}
+					that.length=res.data.data.profit_records.length
 				}
 		   })
 		   uni.request({
@@ -125,13 +125,19 @@
 					console.log(res)
 					that.month_bill = res.data.data.month_bill
 					that.bill_records = res.data.data.bill_records
-					if(that.bill_records.length!=0){
-						 that.flag=false
+					that.length1=res.data.data.bill_records.length	
+					console.log(that.length1)		 
+					console.log(that.length)
+					if(that.length==0 && that.length1==0){
+						that.flag=true
+					}else{
+						that.flag=false
 					}
 				}
 		   })
-		 
 		  
+		   
+
 		},
 		methods: {
 			DateChang(e) {
@@ -151,6 +157,12 @@
 						console.log(res)
 						that.month_profit = res.data.data.month_profit
 						that.profit_records = res.data.data.profit_records
+						that.length=res.data.data.profit_records.length
+						if(that.length==0 && that.length1==0){
+							that.flag=true
+						}else{
+							that.flag=false
+						}
 					}			
 				})
 				uni.request({
@@ -166,13 +178,19 @@
 						console.log(res)
 						that.month_bill = res.data.data.month_bill
 						that.bill_records = res.data.data.bill_records
+						that.length1=res.data.data.bill_records.length	
+						if(that.length==0 && that.length1==0){
+							that.flag=true
+						}else{
+							that.flag=false
+						}
 					}			
 				})
-			    if(that.profit_records.length!=0 || that.bill_records.length!=0){
-			    			   that.flag=false
-			    }else{
-			    			   that.flag=true
-			    }
+			    // if(that.profit_records.length!=0 || that.bill_records.length!=0){
+			    // 			   that.flag=false
+			    // }else{
+			    // 			   that.flag=true
+			    // }
 			},
 		    transfer:function(){
 				uni.navigateTo({
