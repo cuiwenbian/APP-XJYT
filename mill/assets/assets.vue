@@ -186,7 +186,7 @@
 					// console.log(entin)
 					that.profit = ent.month_bill
                     console.log(that.profit)
-					that.additem = entin[0].add_time
+					that.addtime = entin[0].add_time
 					that.numm = entin[0].num
 				}
 			})
@@ -297,7 +297,7 @@
 						// console.log(entin)
 						that.profit = ent.month_bill
                         console.log(that.profit)
-						that.additem = entin[0].add_time
+						that.addtime = entin[0].add_time
 						that.numm = entin[0].num
 
 
