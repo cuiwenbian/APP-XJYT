@@ -103,7 +103,7 @@
                      },
                      {
                          "path":"saleconfirm/saleconfirm",
-                         "style":{"navigationBarTitleText":"待付款订单详情"}
+                         "style":{"navigationBarTitleText":"待确认单详情"}
                      },
                      {
                          "path":"saleaudit/saleaudit",

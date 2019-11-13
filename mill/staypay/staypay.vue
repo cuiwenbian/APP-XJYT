@@ -29,13 +29,13 @@
                     订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
-            <view class="small1">
-                <text>
-                    创建时间:<text class="malx">{{time}}</text>
-                </text>
-            </view>
+           <view :class="frte?'small1':'smallpo'" >
+                   <text>
+                       创建时间:<text class="smallxx1">{{time}}</text>
+                   </text>
+           </view>
             <view>
-                <button class="primary" @click="btn">查看全部^</button>
+                <button class="primary" @click="btn1">{{checkall}}</button>
             </view>
         </view>
         <view class="box1">
@@ -112,7 +112,9 @@
                 numberList: [],
                 length: 6,
                 type: 'number',
-                passIn: false
+                passIn: false,
+                frte:true,
+                checkall:'查看全部'
             }
         },
         components: {
@@ -150,7 +152,7 @@
             clo:function() {
             	this.passIn = false;
             	this.$refs['number'].close();
-            	
+            	this.numberList.length= 0;
             },
             onDelete() {
             	this.numberList.pop();
@@ -206,6 +208,7 @@
             			},
                        
             		});
+                    this.numberList.length= 0;
             	}
             	
             
@@ -215,6 +218,15 @@
                 this.passIn = true;
                 this.$refs['number'].open();
                 this.onInput(val);
+            },
+            btn1:function () {
+                var that = this
+                that.frte=!that.frte;
+                if(that.frte==false){
+                    that.checkall='收起';
+                }else{
+                    that.checkall='查看全部'
+                }
             }
         }
     }
@@ -225,7 +237,6 @@
       background-color: #DCDCDC;
   }
   .box {
-      height: 560rpx;
       width: 100%;
       background-color: #fff;
   }
@@ -261,6 +272,13 @@
       height: 80rpx;
       padding-left: 48rpx;
       display: none;
+      font-size: 18rpx;
+  }
+  .smallpo{
+      display: block;
+      line-height: 80rpx;
+      font-size: 28rpx;
+      padding-left: 48rpx;
       font-size: 18rpx;
   }
   .smallx {

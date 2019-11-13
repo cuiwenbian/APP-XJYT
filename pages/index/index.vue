@@ -241,7 +241,7 @@
 										   // disabled:true, //不绘制Y轴
 											type:'grid',
 											gridType:'solid',
-											gridColor:'#333535',
+											gridColor:'#333535',   
 											dashLength:8,
 											splitNumber:5,
 											min:0,

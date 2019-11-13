@@ -40,11 +40,6 @@
                         支付时间：<text class="smallxx1">{{time}}</text>
                     </text>
                 </view>
-                <view>
-                    <text>
-                        确认时间：<text class="smallxx">{{time}}</text>
-                    </text>
-                </view>
             </view>
 
             <view>

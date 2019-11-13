@@ -167,10 +167,6 @@
      font-size: 28rpx;
      margin-right: 48rpx;
  }
- .ser {
-     float: right;
-     margin-right: 48rpx;
- }
  .aa {
      font-size: 30rpx;
  }
@@ -215,7 +211,7 @@
      width: 180rpx;
      height: 40rpx;
      line-height: 40rpx;
-     margin-top: 30rpx;
+     margin-top: 60rpx;
      font-size: 22rpx;
  }
  .box1 {
@@ -236,6 +232,10 @@
      line-height: 90rpx;
      padding-left: 48rpx;
      font-size: 28rpx;
+ }
+ .ser {
+     float: right;
+     margin-right: 48rpx;
  }
  .bxx {
      padding-left: 30rpx;
@@ -276,7 +276,7 @@
      line-height: 80rpx;
  }
  .primary1 {
-     width: 280rpx;
+     width: 180rpx;
      height: 60rpx;
      line-height: 60rpx;
      margin-top: 12rpx;
@@ -284,6 +284,6 @@
      font-size: 28rpx;
      float: right;
      margin-right: 48rpx;
-     background-color: #999999;
+     background-color: #121212;
  }
 </style>

@@ -32,7 +32,7 @@
                 </view>
                 <view :class="frte?'small1':'smallpo'" >
                         <text>
-                            创建时间:<text class="smallxx">{{time}}</text>
+                            创建时间:<text class="smallxx1">{{time}}</text>
                         </text>
                 </view>
 
@@ -97,10 +97,10 @@
                 price:'',
                 rmb:'',
                 x:'',
-                frte:true,
                 time:'',
                 name:'',
-                contact:'',
+                contact:'', 
+                frte:true,
                 checkall:'查看全部'
             }
         },
