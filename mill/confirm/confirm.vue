@@ -8,7 +8,7 @@
                 联系方式: <text class="loo">{{pag}}</text>
             </text>
         </view>
-        <view class="">
+        <view>
         <view class="box"  v-for="(item , index) in data" :key="index">
             <view class="left">
                 <image class="img" src="../../static/images/kuangji.png" mode=""></image>
@@ -119,7 +119,7 @@
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
-            	
+            	this.numberList.length= 0;
             },
             onDelete() {
             	this.numberList.pop();
@@ -179,6 +179,7 @@
             			},
                        
             		});
+                    this.numberList.length= 0;
             	}
             	
             
@@ -199,19 +200,21 @@
     }
     .loo {
         color: #121212;
-        margin-left: 18rpx;
+        
     }
     .box1 {
         margin-bottom: 40rpx;
         height: 120rpx;
         background-color: #fff;
+        padding-left:18rpx;
+        box-sizing: border-box;
     }
     .name {
         float: left;
         width: 124rpx;
         color: #A0A0A0;
         line-height: 120rpx;
-        margin-left: 48rpx;
+        margin-left: 20rpx;
     }
     .pag {
         float: left;
@@ -235,12 +238,12 @@
     }
     .img{
         float: left;
-        width: 145rpx;
+        width: 168rpx;
         height: 126rpx;
-        margin-left: 48rpx;
+        padding-left: 20rpx;
+        box-sizing: border-box;
         margin-top: 36rpx;
         margin-right: 24rpx;
-        border: 1rpx solid #CCCCCC;
         margin: 28rpx 22rpx 0 20rpx;
     }
     .info {
@@ -272,12 +275,14 @@
         float: left;
         width: 100%;
         color: #A0A0A0;
-        margin-left: 48rpx;
+        padding-left: 48rpx;
+        box-sizing: border-box;
         margin-top: 20rpx;
         font-size: 30rpx;
     }
     .ui {
         color: #121212;
-        margin-left: 60rpx;
+        padding-left: 60rpx;
+        box-sizing: border-box;
     }
 </style>
