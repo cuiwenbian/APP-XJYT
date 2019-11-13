@@ -17,7 +17,6 @@
 		<!-- #ifndef H5 -->
 		<password-input v-if='passIn' @tap="openKeyBoard('number')"  @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
-		
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
 		<view  v-if='passIn' @tap="openKeyBoard('number')" @clo="clo">
@@ -26,7 +25,20 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-	  
+	    
+		
+		<!-- #ifndef H5 -->
+		<password-input v-if='delShow' @tap="openKeyBoard('number')"  @clo="cloo" :length="length" :gutter="20" :list="numberList"></password-input>
+		<!-- #endif -->
+		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
+		<!-- #ifdef H5 -->
+		<view  v-if='delShow' @tap="openKeyBoard('number')" @clo="cloo">
+			<password-input  :length="length" :gutter="20" :list="numberList"></password-input>
+		</view>
+		<!-- #endif -->
+		<!-- 数字键盘 -->
+		<keyboard-package ref="numbers" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+			  
 	</view>
 </template>
 
@@ -45,7 +57,8 @@
 				numberList: [],
 				length: 6,
 				type: 'number',
-				passIn:false
+				passIn:false,
+				delShow:false
 			}
 		},
 		components: {	
@@ -71,6 +84,11 @@
 				this.$refs['number'].close();
 				this.numberList.length= 0;
 			},
+			cloo: function() {
+				this.delShow = false;
+				this.$refs['number'].close();
+				this.numberList.length= 0;
+			},
 			onDelete() {
 				this.numberList.pop();
 			},
@@ -92,8 +110,6 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
-			    var yuan=this.$refs.number;
-				console.log(yuan)
 				if(this.address==''){
 					uni.showToast({
 						title:'请输入提币地址',
@@ -165,6 +181,13 @@
 			        })
 				}
 			},
+			//点击删除按钮
+			onNavigationBarButtonTap: function() {
+				var that = this;
+				this.delShow = true;
+				this.$refs['numbers'].open();
+				this.onInput1(val);
+			},
 			onInput1(val) {
 				console.log("input delete")
 				this.numberList.push(val);
@@ -212,15 +235,7 @@
 				}	
 			
 			},
-			//点击删除按钮
-			onNavigationBarButtonTap: function() {
-				var yuan1=this.$refs.number;
-				console.log(yuan1)
-				var that = this;
-				this.passIn = true;
-				this.$refs['number'].open();
-				this.onInput1(val);
-			},
+			
 		}
 	}
 </script>
