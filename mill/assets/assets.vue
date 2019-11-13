@@ -90,7 +90,7 @@
 				tabCurrentIndex: 0,
 				add_item: '',
 				entin: '',
-				flag: true,
+				flag: false,
 				ention: '',
 				selectShow: false,
 				//控制下拉列表的显示隐藏，false隐藏、true显示
@@ -119,7 +119,12 @@
         },
 		onLoad: function(opetions) {
 			var that = this
-
+			var data = new Date()
+			var text = data.getFullYear('-')
+			var txt = data.getMonth()+1
+			var teran = text + '-' + txt
+			that.teran = teran
+            console.log(teran)
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -136,8 +141,62 @@
 
 				}
 			})
-			
-			
+            // 这是收入记录请求API
+			uni.request({
+				url: this.url + 'assets/month/profit/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				data: {
+					month: teran
+				},
+				success(res) {
+					// console.log(res.data.data)
+					var seront = res.data.data
+					var ention = res.data.data.profit_records
+					that.ention = ention
+					console.log(ention)
+					that.month_profit = seront.month_profit
+                    console.log(that.month_profit)
+					that.add_item = ention[0].add_time
+					that.numm = ention[0].num
+					if(ention.length==0){
+						that.flag=true
+					}
+				}
+			})
+            // 这是支出记录请求API
+			// uni.request({
+			// 	url: this.url + 'assets/month/bill/',
+			// 	method: 'GET',
+			// 	header: {
+			// 		Authorization: 'JWT' + ' ' + this.global_.token
+			// 	},
+			// 	data: {
+			// 		month: teran
+			// 	},
+			// 	success(res) {
+			// 		// console.log(res)
+			// 		// console.log(res.data.data)
+			// 		var ent = res.data.data
+   //                  console.log(ent)
+			// 		var entin = res.data.data.bill_records
+			// 		that.entin = entin
+			// 		// console.log('cc')
+			// 		console.log(entin)
+					
+			// 		that.profit = ent.month_bill
+   //                  console.log(that.profit)
+			// 		that.add_time = entin[0].add_time
+			// 		that.numm = entin[0].num
+			// 	}
+			// })
+			// if(that.ention.length == 0 || that.entin.length!==0){
+			// 	that.flag=false
+			// }else{
+			// 	that.flag=true
+			// }
 		},
 		methods: {
 			tabClick: function(index) {
@@ -168,6 +227,9 @@
                     		that.ention = ention
                     		console.log('cc')
                     		console.log(ention)
+							if(ention.length==0){
+								that.flag=true
+							}
                     		that.month_profit = seront.month_profit
                     		that.add_item = ention[0].add_time
                     		that.numm = ention[0].num
@@ -197,11 +259,11 @@
                     		that.numm = entin[0].num
                     	}
                     })
-                    if(that.ention.length!=0 || that.entin.length!=0){
-                    	that.flag=false
-                    }else{
-                    	that.flag=true
-                    }
+                    // if(that.ention.length!=0 || that.entin.length!=0){
+                    // 	that.flag=false
+                    // }else{
+                    // 	that.flag=true
+                    // }
                 }
 			},
 			bindChange(e) {
@@ -240,6 +302,7 @@
 			},
 			DateChange(e) {
 				var that = this
+                console.log(that.date)
 				console.log(e)
 				that.date = e
 				uni.request({
@@ -254,22 +317,25 @@
 					success(res) {
 						console.log(res.data.data)
 						var seront = res.data.data
+                        console.log(seront)
 						var ention = res.data.data.profit_records
 						that.ention = ention
-						console.log(ention)
+						console.log(ention.length)
+						if(ention.length == 0){
+							console.log("ccc")
+							that.flag=true
+						}else{
+							that.flag=false
+						}
 						that.month_profit = seront.month_profit
-						that.add_item = ention[0].add_time
+                        // console.log(that.month_profit)
+						that.add_time = ention[0].add_time
 						that.numm = ention[0].num
-
+                        
+                       
 
 					}
 				})
-				if(that.ention.length!=0){
-					that.flag=false
-				}else{
-					that.flag=true
-				}
-
 			},
 			DateChang(e) {
 				var that = this
@@ -290,6 +356,12 @@
 						var entin = res.data.data.bill_records
 						that.entin = entin
 						console.log(entin)
+						if(entin.length == 0){
+							console.log("ccc")
+							that.flag=true
+						}else{
+							that.flag=false
+						}
 						that.month_profit = seron.month_bill
 						that.add_item = entin[0].add_time
 						that.numm = entin[0].num
@@ -297,12 +369,6 @@
 
 					}
 				})
-                if(that.entin.length!=0){
-                	that.flag=false
-                }else{
-					
-                	that.flag=true
-                }
 			},
 			transfer: function() {
 				uni.navigateTo({
