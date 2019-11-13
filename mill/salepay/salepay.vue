@@ -25,21 +25,19 @@
                         <text class="lop">{{rmb}}</text>
                     </text>
                 </view>
-                <view class="small" v-if="frte">
+                <view class="small" >
                     <text>
                         订单编号:<text class="lop">{{x}}</text>
                     </text>
                 </view>
-                <view class="small1">
-                    <view>
+                <view :class="frte?'small1':'smallpo'" >
                         <text>
                             创建时间:<text class="smallxx">{{time}}</text>
                         </text>
-                    </view>
                 </view>
 
                 <view>
-                    <button class="primary" @click="btn">查看全部^</button>
+                    <button class="primary" @click="btn">{{checkall}}</button>
                 </view>
             </view>
             <view class="box1">
@@ -99,10 +97,11 @@
                 price:'',
                 rmb:'',
                 x:'',
-                frte:'',
+                frte:true,
                 time:'',
                 name:'',
                 contact:'',
+                checkall:'查看全部'
             }
         },
         onLoad(option) {
@@ -137,6 +136,12 @@
         methods:{
             btn:function () {
                 var that = this
+                that.frte=!that.frte;
+                if(that.frte==false){
+                    that.checkall='收起';
+                }else{
+                    that.checkall='查看全部'
+                }
             }
         }
     }
@@ -147,7 +152,7 @@ page {
       background-color: #DCDCDC;
   }
   .box {
-      height: 560rpx;
+
       width: 100%;
       background-color: #fff;
   }
@@ -187,7 +192,14 @@ page {
       height: 80rpx;
       font-size: 28rpx;
       padding-left: 48rpx;
-      /* display: none; */
+      display: none;
+      font-size: 18rpx;
+  }
+  .smallpo{
+      display: block;
+      line-height: 80rpx;
+      font-size: 28rpx;
+      padding-left: 48rpx;
       font-size: 18rpx;
   }
   .smallx {
@@ -208,7 +220,9 @@ page {
       width: 180rpx;
       height: 40rpx;
       line-height: 40rpx;
-      margin-top: 60rpx;
+      margin-top: 30rpx;
+      padding-bottom: 20rpx;
+      box-sizing: border-box;
       font-size: 22rpx;
   }
   .box1 {

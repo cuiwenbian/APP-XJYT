@@ -29,18 +29,19 @@
                     订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
-            <view class="small1">
+            <view :class="frte?'small1':'smallpo'">
                 <text>
                     创建时间:<text class="smallxx1">{{time}}</text>
                 </text>
+                <view >
+                    <text>
+                        支付时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
             </view>
-            <view class="small1">
-                <text>
-                    支付时间：<text class="smallxx1">{{time}}</text>
-                </text>
-            </view>
+
             <view>
-                <button class="primary" @click="btn">查看全部^</button>
+                <button class="primary" @click="btn">{{checkall}}</button>
             </view>
         </view>
         <view class="box1">
@@ -101,6 +102,8 @@
                 name:'',
                 contact:'',
                 ig:'',
+                frte:true,
+                checkall:'查看全部'
             }
         },
         onLoad(option) {
@@ -122,6 +125,7 @@
             that.x = fanta[0][0].order_num
             that.name = fanta[0][0].name
             that.contact = fanta[0][0].mobile
+            that.time = fanta[0][0].set_time
             
             
             that.rmb = getRmb.getrmb(that.price)
@@ -129,6 +133,12 @@
         methods:{
             btn:function () {
                 var that = this
+                that.frte=!that.frte;
+                if(that.frte==false){
+                    that.checkall='收起';
+                }else{
+                    that.checkall='查看全部'
+                }
             }
         }
     }
@@ -139,7 +149,6 @@
      background-color: #DCDCDC;
  }
  .box {
-     height: 560rpx;
      width: 100%;
      background-color: #fff;
  }
@@ -181,6 +190,13 @@
      display: none;
      font-size: 18rpx;
  }
+ .smallpo{
+     display: block;
+     line-height: 80rpx;
+     font-size: 28rpx;
+     padding-left: 48rpx;
+     font-size: 18rpx;
+ }
  .smallx {
      box-sizing: border-box;
      float: right;
@@ -199,7 +215,7 @@
      width: 180rpx;
      height: 40rpx;
      line-height: 40rpx;
-     margin-top: 60rpx;
+     margin-top: 30rpx;
      font-size: 22rpx;
  }
  .box1 {
