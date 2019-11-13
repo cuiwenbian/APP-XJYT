@@ -119,11 +119,7 @@
         },
 		onLoad: function(opetions) {
 			var that = this
-			var data = new Date()
-			var text = data.getFullYear('-')
-			var txt = data.getMonth()
-			var teran = text + '-' + txt
-			that.teran = teran
+
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -140,63 +136,73 @@
 
 				}
 			})
-			uni.request({
-				url: this.url + 'assets/month/profit/',
-				method: 'GET',
-				header: {
-					Authorization: 'JWT' + ' ' + this.global_.token
-				},
-				data: {
-					month: teran
-				},
-				success(res) {
-					console.log(res.data.data)
-					var seront = res.data.data
-					var ention = res.data.data.profit_records
-					that.ention = ention
-					console.log('cc')
-					console.log(ention)
-					that.month_profit = seront.month_profit
-					that.add_item = ention[0].add_time
-					that.numm = ention[0].num
-				}
-			})
-			uni.request({
-				url: this.url + 'assets/month/bill/',
-				method: 'GET',
-				header: {
-					Authorization: 'JWT' + ' ' + this.global_.token
-				},
-				data: {
-					month: teran
-				},
-				success(res) {
-					console.log(res)
-					console.log(res.data.data)
-					var seron = res.data.data
-					var entin = res.data.data.bill_records
-					that.entin = entin
-					console.log('cc')
-					console.log(entin)
-					that.month_profit = seron.month_bill
-					that.add_item = entin[0].add_time
-					that.numm = entin[0].num
-				}
-			})
-			if(that.ention.length!=0 || that.entin.length!=0){
-				that.flag=false
-			}else{
-				that.flag=true
-			}
+			
+			
 		},
 		methods: {
 			tabClick: function(index) {
 				var that = this
+                var data = new Date()
+                var text = data.getFullYear('-')
+                var txt = data.getMonth()
+                var teran = text + '-' + txt
+                that.teran = teran
 				if (this.tabCurrentIndex === index) {
 					return false
 				} else {
 					that.tabCurrentIndex = index
-				}
+				}if(this.tabCurrentIndex === 0){
+                    uni.request({
+                    	url: this.url + 'assets/month/profit/',
+                    	method: 'GET',
+                    	header: {
+                    		Authorization: 'JWT' + ' ' + this.global_.token
+                    	},
+                    	data: {
+                    		month: teran
+                    	},
+                    	success(res) {
+                    		console.log(res.data.data)
+                    		var seront = res.data.data
+                    		var ention = res.data.data.profit_records
+                    		that.ention = ention
+                    		console.log('cc')
+                    		console.log(ention)
+                    		that.month_profit = seront.month_profit
+                    		that.add_item = ention[0].add_time
+                    		that.numm = ention[0].num
+                    	}
+                    })
+                }
+                if(this.tabCurrentIndex === 1){
+                    uni.request({
+                    	url: this.url + 'assets/month/bill/',
+                    	method: 'GET',
+                    	header: {
+                    		Authorization: 'JWT' + ' ' + this.global_.token
+                    	},
+                    	data: {
+                    		month: teran
+                    	},
+                    	success(res) {
+                    		console.log(res)
+                    		console.log(res.data.data)
+                    		var seron = res.data.data
+                    		var entin = res.data.data.bill_records
+                    		that.entin = entin
+                    		console.log('cc')
+                    		console.log(entin)
+                    		that.month_profit = seron.month_bill
+                    		that.add_item = entin[0].add_time
+                    		that.numm = entin[0].num
+                    	}
+                    })
+                    if(that.ention.length!=0 || that.entin.length!=0){
+                    	that.flag=false
+                    }else{
+                    	that.flag=true
+                    }
+                }
 			},
 			bindChange(e) {
 				const val = e.detail.value
@@ -280,11 +286,11 @@
 					},
 					success(res) {
 						console.log(res.data.data)
-						var seront = res.data.data
+						var seron = res.data.data
 						var entin = res.data.data.bill_records
 						that.entin = entin
 						console.log(entin)
-						that.month_profit = seront.month_bill
+						that.month_profit = seron.month_bill
 						that.add_item = entin[0].add_time
 						that.numm = entin[0].num
 
