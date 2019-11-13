@@ -103,11 +103,9 @@
 			getCodeBtn: function(e){
 			      this.getCode();
 			      var _this = this
-			      _this.disabled = true
 			},
 			save(){
 				var _self=this;
-				
 				if(this.pwd==""){
 					uni.showToast({
 					  title: '请输入登录密码',

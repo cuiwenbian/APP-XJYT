@@ -112,7 +112,6 @@ export default {
 		getCodeNumber: function(e) {
 			this.getCode();
 			var _this = this;
-			_this.disabled = true;
 		},
 		//提交表单信息
 		login: function() {

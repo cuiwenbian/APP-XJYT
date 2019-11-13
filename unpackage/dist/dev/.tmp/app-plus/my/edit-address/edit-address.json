@@ -1,7 +1,15 @@
 {
-  "navigationStyle": "custom",
+  "titleNView": {
+    "titleText": "编辑提币地址",
+    "buttons": [
+      {
+        "text": "删除",
+        "fontSize": "32rpx",
+        "width": "50px"
+      }
+    ]
+  },
   "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "keyboard-package": "/components/keyboard-package/keyboard-package",
     "password-input": "/components/password-input/password-input"
   }

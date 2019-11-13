@@ -2,18 +2,6 @@
 	<!-- 提币地址 -->
 	<view class="container" style="position: relative;">
 		<view v-if="flag">
-			<view class="height"></view>
-			<uni-nav-bar
-				left-icon="back"
-				right-text="添加"
-				@click-left="back"
-				@click-right="add"
-				title="提币地址"
-				background-color="#121212"
-				color="#fff"
-				border="false"
-				shadow="false"
-			></uni-nav-bar>
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
@@ -53,8 +41,7 @@
 <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
 
-import { uniSwipeAction } from '../../components/uni-swipe-action/uni-swipe-action.vue';
-import { uniNavBar } from '../../components/uni-nav-bar/uni-nav-bar.vue';
+import uniSwipeAction from '../../components/uni-swipe-action/uni-swipe-action.vue';
 import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
 import passwordInput from '../../components/password-input/password-input.vue';
 export default {
@@ -71,7 +58,7 @@ export default {
 			wallet_value: '',
 			wallet_key: '',
 			address_out: '',
-			flag: false,
+			flag: true,
 			right: '',
 			id: '',
 			shade: true,
@@ -85,7 +72,6 @@ export default {
 	},
 	components: {
 		uniSwipeAction,
-		uniNavBar,
 		keyboardPackage,
 		passwordInput
 	},
@@ -112,7 +98,7 @@ export default {
 		clo: function() {
 			this.passIn = false;
 			this.$refs['number'].close();
-			
+			this.numberList.length= 0;
 		},
 		onDelete() {
 			this.numberList.pop();
@@ -125,6 +111,7 @@ export default {
 			});
 		},
 		onInput(val) {
+			var that=this;
 			this.numberList.push(val);
 			console.log(this.numberList.join().replace(/,/g, ''));
 			this.password = this.numberList.join().replace(/,/g, '');
@@ -164,6 +151,7 @@ export default {
 					},
                    
 				});
+				this.numberList.length = 0;
 			}	
 
 		},
@@ -176,7 +164,7 @@ export default {
 			this.onInput(val);
 		},
 		//点击添加按钮
-		add: function() {
+		onNavigationBarButtonTap: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address?flag=' + this.flag,
 				success: res => {},
@@ -215,7 +203,6 @@ export default {
 	background: #121212;
 	z-index: 99;
 }
-
 .shade {
 	position: absolute;
 	top: 0;
