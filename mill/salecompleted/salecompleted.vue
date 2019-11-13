@@ -29,23 +29,24 @@
                     订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
-            <view class="small1">
+            <view :class="frte?'small1':'smallpo'">
                 <text>
                     创建时间:<text class="smallxx1">{{time}}</text>
                 </text>
+                <view>
+                    <text>
+                        支付时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
+               <view>
+                    <text>
+                        确认时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
             </view>
-            <view class="small1">
-                <text>
-                    支付时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    确认时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
+
             <view>
-                <button class="primary" @click="btn">查看全部^</button>
+                <button class="primary" @click="btn">{{checkall}}</button>
             </view>
         </view>
         <view class="box1">
@@ -104,6 +105,8 @@
                 nuecv:'',
                 contact:'',
                 italn:'',
+                frte:true,
+                checkall:'查看全部'
             }
         },
         onLoad(option) {
@@ -125,12 +128,19 @@
             that.x = italn[0][0].order_num
             that.name = italn[0][0].name
             that.contact = italn[0][0].mobile
+            that.time = italn[0][0].set_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
             btn:function () {
                 var that = this
+                that.frte=!that.frte;
+                if(that.frte==false){
+                    that.checkall='收起';
+                }else{
+                    that.checkall='查看全部'
+                }
             }
         }
     }
@@ -141,7 +151,6 @@
      background-color: #DCDCDC;
  }
  .box {
-     height: 560rpx;
      width: 100%;
      background-color: #fff;
  }
@@ -177,6 +186,13 @@
      height: 80rpx;
      padding-left: 48rpx;
      display: none;
+     font-size: 18rpx;
+ }
+ .smallpo{
+     display: block;
+     line-height: 80rpx;
+     font-size: 28rpx;
+     padding-left: 48rpx;
      font-size: 18rpx;
  }
  .smallx {

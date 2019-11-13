@@ -29,23 +29,19 @@ that. <template>
                     订单编号:<text class="smallxx">{{x}}</text>
                 </text>
             </view>
-            <view class="small1">
+            <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx">{{time}}</text>
-                </text>
+                    创建时间:<text class="smallxx1">{{time}}</text>
+                </text>            
+                <view>
+                    <text>
+                        支付时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
             </view>
-            <view class="small1">
-                <text>
-                    支付时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
-            <view class="small1">
-                <text>
-                    确认时间：<text class="smallxx">{{time}}</text>
-                </text>
-            </view>
+
             <view>
-                <button class="primary" @click="btn">查看全部^</button>
+                <button class="primary" @click="btn1">{{checkall}}</button>
             </view>
         </view>
         <view class="box1">
@@ -124,7 +120,9 @@ that. <template>
                 numberList: [],
                 length: 6,
                 type: 'number',
-                passIn: false
+                passIn: false,
+                frte:true,
+                checkall:'查看全部'
             }
         },
         components: {
@@ -150,6 +148,7 @@ that. <template>
             that.x = that.vn[0][0].order_num
             that.name = that.vn[0][0].name
             that.contact = that.vn[0][0].mobile
+            that.time = that.vn[0][0].set_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -224,6 +223,15 @@ that. <template>
                 this.passIn = true;
                 this.$refs['number'].open();
                 this.onInput(val);
+            },
+            btn1:function () {
+                var that = this
+                that.frte=!that.frte;
+                if(that.frte==false){
+                    that.checkall='收起';
+                }else{
+                    that.checkall='查看全部'
+                }
             }
         }
     }
@@ -234,7 +242,6 @@ that. <template>
         background-color: #DCDCDC;
     }
     .box {
-        height: 560rpx;
         width: 100%;
         background-color: #fff;
     }
@@ -274,6 +281,13 @@ that. <template>
         height: 80rpx;
         padding-left: 48rpx;
         display: none;
+        font-size: 18rpx;
+    }
+    .smallpo{
+        display: block;
+        line-height: 80rpx;
+        font-size: 28rpx;
+        padding-left: 48rpx;
         font-size: 18rpx;
     }
     .smallx {
