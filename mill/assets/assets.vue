@@ -122,9 +122,10 @@
 			var that = this
 			var data = new Date()
 			var text = data.getFullYear('-')
-			var txt = data.getMonth()
+			var txt = data.getMonth()+1
 			var teran = text + '-' + txt
 			that.teran = teran
+            console.log(teran)
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -182,14 +183,14 @@
 					var entin = res.data.data.bill_records
 					that.entin = entin
 					// console.log('cc')
-					// console.log(entin)
+					console.log(entin)
 					that.profit = ent.month_bill
                     console.log(that.profit)
 					that.add_time = entin[0].add_time
 					that.numm = entin[0].num
 				}
 			})
-			// if(that.ention.length!=0 || that.entin.length!=0){
+			// if(that.ention.length == 0 || that.entin.length!==0){
 			// 	that.flag=false
 			// }else{
 			// 	that.flag=true
@@ -240,6 +241,7 @@
 			},
 			DateChange(e) {
 				var that = this
+                console.log(that.date)
 				console.log(e)
 				that.date = e
                 // 这是收入记录请求API
@@ -255,22 +257,24 @@
 					success(res) {
 						console.log(res.data.data)
 						var seront = res.data.data
+                        console.log(seront)
 						var ention = res.data.data.profit_records
 						that.ention = ention
-						// console.log(ention)
+						console.log(ention.length)
 						that.month_profit = seront.month_profit
-                        console.log(that.month_profit)
+                        // console.log(that.month_profit)
 						that.add_item = ention[0].add_time
 						that.numm = ention[0].num
-
+                        
+                        // if(ention.length === 0){
+                        // 	that.flag=false
+                        // }else if(ention.length !== 0){
+                        // 	that.flag=true
+                        // }
 
 					}
 				})
-				// if(that.ention.length!=0){
-				// 	that.flag=false
-				// }else{
-				// 	that.flag=true
-				// }
+
 
 			},
             // 这是支出记录请求API
@@ -302,11 +306,7 @@
 
 					}
 				})
-                // if(that.entin.length!=0){
-                // 	that.flag=false
-                // }else{
-                // 	that.flag=true
-                // }
+
 			},
 			transfer: function() {
 				uni.navigateTo({
