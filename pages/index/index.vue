@@ -447,8 +447,6 @@
     .ig {
         width: 190rpx;
         height: 127rpx;
-		/* padding-top: 30rpx; */
-		/* padding-left: 48rpx; */
         margin-top: 28rpx;
         margin-right: 20rpx;
     }
@@ -459,21 +457,18 @@
         
 		float: left;
 		margin-top: 8rpx;
-        box-sizing: border-box;
 		margin-left: 48rpx;
         font-size: 14rpx;
         color: #5A5A5A;
     }
     .yj {
         width: 36rpx;
-        box-sizing: border-box;
         height: 26rpx;
 		margin-left: 90rpx;
 		margin-top: 14rpx;
     }
     .yjj {
 		float: right;
-        box-sizing: border-box;
 		margin-right: 180rpx;
 		margin-top: 8rpx;
         font-size: 14rpx;
@@ -484,7 +479,6 @@
         width: 96%; 
         margin: 0 auto;
         margin-left: 50rpx;
-        /* margin-top: rpx; */
         border-bottom: 1rpx solid #333333;
     }
     /*  #endif  */
