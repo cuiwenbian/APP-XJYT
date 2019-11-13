@@ -26,8 +26,7 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-	    <!-- 数字键盘 -->
-	    <keyboard-package ref="number" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+	  
 	</view>
 </template>
 
@@ -40,7 +39,7 @@
 			return{
 				nickname:'',
 				address:'',
-				password:'123456',
+				password:'',
 				id:'',
 				user_id:'',
 				numberList: [],
@@ -49,8 +48,7 @@
 				passIn:false
 			}
 		},
-		components: {
-			
+		components: {	
 			keyboardPackage,
 			passwordInput
 		},
