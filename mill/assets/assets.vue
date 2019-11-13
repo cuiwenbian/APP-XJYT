@@ -49,7 +49,7 @@
 			<view class="list" v-if="tabCurrentIndex === 1">
 				<scroll-view scroll-y='true'>
 					<view>
-						<text class="all1">Filecoin:{{month_profit}}</text>
+						<text class="all1">Filecoin:{{profit}}</text>
 						<div class="item">
 							<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
 						</div>
@@ -62,7 +62,7 @@
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
 									<view class='list-info'>支出</view>
-									<view class='list-time'>{{item.add_time}}</view>
+									<view class='list-time'>{{item.addtime}}</view>
 								</view>
 								<view class='list-income'>-{{item.num}}</view>
 							</view>
@@ -86,11 +86,13 @@
 				nuber: '',
 				fee: '',
 				month_profit: '0',
+                profit:'0',
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
+                addtime:'',
 				entin: '',
-				flag: true,
+				flag: false,
 				ention: '',
 				selectShow: false,
 				//控制下拉列表的显示隐藏，false隐藏、true显示
@@ -119,7 +121,11 @@
         },
 		onLoad: function(opetions) {
 			var that = this
-
+			var data = new Date()
+			var text = data.getFullYear('-')
+			var txt = data.getMonth()
+			var teran = text + '-' + txt
+			that.teran = teran
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -128,7 +134,7 @@
 
 				},
 				success(res) {
-					console.log(res)
+					// console.log(res)
 					that.num = res.data.fil_count
 					that.ber = res.data.availed_num 
 					that.nuber = res.data.locked_num
@@ -136,73 +142,68 @@
 
 				}
 			})
-			
-			
+            // 这是收入记录请求API
+			uni.request({
+				url: this.url + 'assets/month/profit/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				data: {
+					month: teran
+				},
+				success(res) {
+					// console.log(res.data.data)
+					var seront = res.data.data
+					var ention = res.data.data.profit_records
+					that.ention = ention
+					console.log('cc')
+					console.log(ention)
+					that.month_profit = seront.month_profit
+                    console.log(that.month_profit)
+					that.add_item = ention[0].add_time
+					that.numm = ention[0].num
+				}
+			})
+            // 这是支出记录请求API
+			uni.request({
+				url: this.url + 'assets/month/bill/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				data: {
+					month: teran
+				},
+				success(res) {
+					// console.log(res)
+					// console.log(res.data.data)
+					var ent = res.data.data
+                    console.log(ent)
+					var entin = res.data.data.bill_records
+					that.entin = entin
+					// console.log('cc')
+					// console.log(entin)
+					that.profit = ent.month_bill
+                    console.log(that.profit)
+					that.additem = entin[0].add_time
+					that.numm = entin[0].num
+				}
+			})
+			// if(that.ention.length!=0 || that.entin.length!=0){
+			// 	that.flag=false
+			// }else{
+			// 	that.flag=true
+			// }
 		},
 		methods: {
 			tabClick: function(index) {
 				var that = this
-                var data = new Date()
-                var text = data.getFullYear('-')
-                var txt = data.getMonth()
-                var teran = text + '-' + txt
-                that.teran = teran
 				if (this.tabCurrentIndex === index) {
 					return false
 				} else {
 					that.tabCurrentIndex = index
-				}if(this.tabCurrentIndex === 0){
-                    uni.request({
-                    	url: this.url + 'assets/month/profit/',
-                    	method: 'GET',
-                    	header: {
-                    		Authorization: 'JWT' + ' ' + this.global_.token
-                    	},
-                    	data: {
-                    		month: teran
-                    	},
-                    	success(res) {
-                    		console.log(res.data.data)
-                    		var seront = res.data.data
-                    		var ention = res.data.data.profit_records
-                    		that.ention = ention
-                    		console.log('cc')
-                    		console.log(ention)
-                    		that.month_profit = seront.month_profit
-                    		that.add_item = ention[0].add_time
-                    		that.numm = ention[0].num
-                    	}
-                    })
-                }
-                if(this.tabCurrentIndex === 1){
-                    uni.request({
-                    	url: this.url + 'assets/month/bill/',
-                    	method: 'GET',
-                    	header: {
-                    		Authorization: 'JWT' + ' ' + this.global_.token
-                    	},
-                    	data: {
-                    		month: teran
-                    	},
-                    	success(res) {
-                    		console.log(res)
-                    		console.log(res.data.data)
-                    		var seron = res.data.data
-                    		var entin = res.data.data.bill_records
-                    		that.entin = entin
-                    		console.log('cc')
-                    		console.log(entin)
-                    		that.month_profit = seron.month_bill
-                    		that.add_item = entin[0].add_time
-                    		that.numm = entin[0].num
-                    	}
-                    })
-                    if(that.ention.length!=0 || that.entin.length!=0){
-                    	that.flag=false
-                    }else{
-                    	that.flag=true
-                    }
-                }
+				}
 			},
 			bindChange(e) {
 				const val = e.detail.value
@@ -242,6 +243,7 @@
 				var that = this
 				console.log(e)
 				that.date = e
+                // 这是收入记录请求API
 				uni.request({
 					url: this.url + 'assets/month/profit/',
 					method: 'GET',
@@ -256,21 +258,23 @@
 						var seront = res.data.data
 						var ention = res.data.data.profit_records
 						that.ention = ention
-						console.log(ention)
+						// console.log(ention)
 						that.month_profit = seront.month_profit
+                        console.log(that.month_profit)
 						that.add_item = ention[0].add_time
 						that.numm = ention[0].num
 
 
 					}
 				})
-				if(that.ention.length!=0){
-					that.flag=false
-				}else{
-					that.flag=true
-				}
+				// if(that.ention.length!=0){
+				// 	that.flag=false
+				// }else{
+				// 	that.flag=true
+				// }
 
 			},
+            // 这是支出记录请求API
 			DateChang(e) {
 				var that = this
 				console.log(e)
@@ -286,12 +290,14 @@
 					},
 					success(res) {
 						console.log(res.data.data)
-						var seron = res.data.data
+						var ent = res.data.data
+                        console.log(ent)
 						var entin = res.data.data.bill_records
 						that.entin = entin
-						console.log(entin)
-						that.month_profit = seron.month_bill
-						that.add_item = entin[0].add_time
+						// console.log(entin)
+						that.profit = ent.month_bill
+                        console.log(that.profit)
+						that.additem = entin[0].add_time
 						that.numm = entin[0].num
 
 
