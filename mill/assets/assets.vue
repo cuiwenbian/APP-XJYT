@@ -62,7 +62,7 @@
 								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 								<view class='list-txt'>
 									<view class='list-info'>支出</view>
-									<view class='list-time'>{{item.addtime}}</view>
+									<view class='list-time'>{{item.add_time}}</view>
 								</view>
 								<view class='list-income'>-{{item.num}}</view>
 							</view>
@@ -90,7 +90,6 @@
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
-                addtime:'',
 				entin: '',
 				flag: false,
 				ention: '',
@@ -186,7 +185,7 @@
 					// console.log(entin)
 					that.profit = ent.month_bill
                     console.log(that.profit)
-					that.addtime = entin[0].add_time
+					that.add_time = entin[0].add_time
 					that.numm = entin[0].num
 				}
 			})
@@ -297,17 +296,17 @@
 						// console.log(entin)
 						that.profit = ent.month_bill
                         console.log(that.profit)
-						that.addtime = entin[0].add_time
+						that.add_time = entin[0].add_time
 						that.numm = entin[0].num
 
 
 					}
 				})
-                if(that.entin.length!=0){
-                	that.flag=false
-                }else{
-                	that.flag=true
-                }
+                // if(that.entin.length!=0){
+                // 	that.flag=false
+                // }else{
+                // 	that.flag=true
+                // }
 			},
 			transfer: function() {
 				uni.navigateTo({
