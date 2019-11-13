@@ -164,10 +164,16 @@
 		line-height: 80rpx;
 
 		background: #EDEDED;
+		
+		padding-left:48rpx;
+		
+		-webkit-box-sizing: border-box;
+		
+		        box-sizing: border-box;
 }
 .tab-item {
 
-		width: 33.3%;
+		width: 25%;
 		height: auto;
 		text-align: center;
 		font-size: 30rpx;
@@ -175,8 +181,7 @@
 		color: #777;
 }
 .current {
-        width: 16%;
-        margin-left: 48rpx;
+        width: 25%;
 		color: #B39C01;
 		border-bottom: 2rpx solid #B39C01;
 }

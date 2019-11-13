@@ -25,15 +25,16 @@
 			</view>
 			<view class="list" v-if="tabCurrentIndex === 0">
 				<view>
+					<text class="all1">Filecoin:{{month_profit}}</text>
+					<div class="item">
+						<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
+					</div>
 					<view v-if="flag">
 						<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
 						<view class="info">暂无记录</view>
 					</view>
 					<view v-else class="boxx">
-                            <text class="all1">Filecoin:{{month_profit}}</text>
-							<div class="item">
-								<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
-                            </div>
+                           
 						<view class="list-one" v-for="(item , index) in ention" :key="index">
 							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 							<view class='list-txt'>
@@ -90,7 +91,7 @@
 				tabCurrentIndex: 0,
 				add_item: '',
 				entin: '',
-				flag: false,
+				flag: true,
 				ention: '',
 				selectShow: false,
 				//控制下拉列表的显示隐藏，false隐藏、true显示
@@ -119,13 +120,11 @@
         },
 		onLoad: function(opetions) {
 			var that = this
-
 			var data = new Date()
 			var text = data.getFullYear('-')
 			var txt = data.getMonth()
 			var teran = text + '-' + txt
 			that.teran = teran
-
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -185,6 +184,11 @@
 					that.numm = entin[0].num
 				}
 			})
+			if(that.ention.length!=0 || that.entin.length!=0){
+				that.flag=false
+			}else{
+				that.flag=true
+			}
 		},
 		methods: {
 			tabClick: function(index) {
@@ -255,6 +259,11 @@
 
 					}
 				})
+				if(that.ention.length!=0){
+					that.flag=false
+				}else{
+					that.flag=true
+				}
 
 			},
 			DateChang(e) {
@@ -283,7 +292,11 @@
 
 					}
 				})
-
+                if(that.entin.length!=0){
+                	that.flag=false
+                }else{
+                	that.flag=true
+                }
 			},
 			transfer: function() {
 				uni.navigateTo({
@@ -465,11 +478,15 @@
 		line-height: 80rpx;
 
 		background: #EDEDED;
+		
+		padding-left:48rpx;
+		
+		box-sizing: border-box;
 	}
 
 	.tab-item {
 
-		width: 33.3%;
+		width: 25%;
 		height: auto;
 		text-align: center;
 		font-size: 30rpx;
@@ -478,11 +495,9 @@
 	}
 
 	.current {
-        width: 16%;
-        margin-left: 48rpx;
+        width: 25%;
 		color: #B39C01;
 		border-bottom: 2rpx solid #B39C01;
-
 	}
 
 

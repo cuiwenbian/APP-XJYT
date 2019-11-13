@@ -362,7 +362,7 @@
     .borx {
         width: 100%;
         height: 120rpx;
-         background: linear-gradient(to bottom,#121212, #232323);
+        background: linear-gradient(to bottom,#121212, #232323);
     }
     .price{
         margin-left: 24rpx;
@@ -477,8 +477,7 @@
     .b {
         display: block;
         width: 96%; 
-        margin: 0 auto;
-        margin-left: 50rpx;
+		float:right;
         border-bottom: 1rpx solid #333333;
     }
     /*  #endif  */
