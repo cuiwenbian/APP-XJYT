@@ -107,7 +107,9 @@
 					console.log(res)
 					that.month_profit = res.data.data.month_profit
 					that.profit_records = res.data.data.profit_records
-					
+					if(that.profit_records.length!=0){
+						this.flag=false
+					}
 				}
 		   })
 		   uni.request({
@@ -123,13 +125,13 @@
 					console.log(res)
 					that.month_bill = res.data.data.month_bill
 					that.bill_records = res.data.data.bill_records
+					if(that.bill_records.length!=0){
+						 that.flag=false
+					}
 				}
 		   })
-		  if(that.profit_records.length!=0 || that.bill_records.length!=0){
-		  			   that.flag=false
-		  }else{
-		  			   that.flag=true
-		  }
+		 
+		  
 		},
 		methods: {
 			DateChang(e) {
@@ -272,6 +274,7 @@
 	    padding-left: 45rpx;
 		/* margin-bottom: 20rpx; */
 		text-align: left;
+		position: relative;
 	}
 	
 	.all1 {
@@ -324,4 +327,5 @@
 		color:#41BEC9;
 		font-size: 34rpx;
 	}
+	
 </style>

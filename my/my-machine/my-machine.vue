@@ -70,6 +70,15 @@
 			</view>
 		</view>
 	</view>
+	<!-- <view class="shade" v-if="shade">
+		<view class="pop">
+			<view class='pop-title'>若不阅读和同意协议，无法使用此功能哦</view>
+			<view class="pops">
+				<view class='pop-btn' @click="cancel">取消</view>
+				<view class='pop-btn' @click="sure">同意</view>
+			</view>
+		</view>
+	</view> -->
     </view>
 </template>
 
@@ -79,7 +88,8 @@
 		  return{
 			  flag:false,
 			  user_machine:'',
-			  machine_id:''
+			  machine_id:'',
+			  shade:true
 		  }	
 		},
 		onLoad() {
@@ -105,6 +115,11 @@
 			});
 		},
 		methods:{
+			sure:function(){
+				uni.navigateTo({
+					url:'../../pages/agreement/agreement'
+				})
+			},
 			select:function(){
 				uni.navigateTo({
 					url:'../machine-detail/machine-detail?machine_id='+this.machine_id
@@ -115,6 +130,48 @@
 </script>
 
 <style>
+	.shade{
+		width:100%;
+		height:100%;
+		background:rgba(255,255,255,0.5);
+		position: absolute;
+		left:0;
+		top:0;
+		z-index:99
+	}
+	.pop{
+		width:550rpx;
+		height:260rpx;
+		margin:500rpx auto;
+		padding:0 40rpx;
+		box-sizing: border-box;
+		background: #f0efef;
+		
+	}
+	.pop-title{
+		height:150rpx;
+		line-height: 150rpx;
+		text-align: center;
+		font-size: 20rpx;
+	}
+	.pops{
+		height:100rpx;
+		width:100%;
+		padding: 0 50rpx;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	.pop-btn{
+		width:120rpx;
+		height:60rpx;
+		/* border-radius: 20rpx; */
+		background:#121212;
+		line-height: 60rpx;
+		font-size: 30rpx;
+		color:#fff;
+		text-align: center;
+	}
 	.box{
 		height:200rpx;
 	}

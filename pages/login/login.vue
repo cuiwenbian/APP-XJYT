@@ -3,7 +3,6 @@
 	<view class="container">
 		<image class='logo' src="../../static/images/FIL.png" mode=""></image>
 		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
-		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
 			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
@@ -20,9 +19,7 @@
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		<view class="agree">
-			<text>登陆即代表阅读并同意【 <text style="color: #34b5c1;" @click="agree">用户协议</text> 】</text>
-		</view>
+		
 		
 	</view>
 </template>
@@ -212,21 +209,5 @@
 		line-height: 57rpx;
 		text-align: center;
 	}
-	.agree{
-		width:280rpx;
-		height:30rpx;
-		color:#fff;
-		font-size: 18rpx;
-		position: fixed;
-		bottom:50rpx;
-		left:240rpx;
-	}
-	.checks{
-		width:30rpx;
-		height:30rpx;
-		margin-right: 10rpx;  
-		
-	}
 	
-
 </style>
