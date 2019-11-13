@@ -159,7 +159,7 @@ that. <template>
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
-            	
+            	this.numberList.length= 0;
             },
             onDelete() {
             	this.numberList.pop();
@@ -214,6 +214,7 @@ that. <template>
             			},
                        
             		});
+                    this.numberList.length= 0;
             	}
             	
             

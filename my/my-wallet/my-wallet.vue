@@ -54,7 +54,7 @@
 	export default{
 		data(){
 			return{
-				flag:false,
+				flag:true,
 				date:'本月',
 				num:'',
 				ber:'',
@@ -125,11 +125,11 @@
 					that.bill_records = res.data.data.bill_records
 				}
 		   })
-		   // if(that.month_profit==0 && that.month_bill==0){
-			  //  that.flag=true
-		   // }else{
-			  //  that.flag=false
-		   // }
+		  if(that.profit_records.length!=0 || that.bill_records.length!=0){
+		  			   that.flag=false
+		  }else{
+		  			   that.flag=true
+		  }
 		},
 		methods: {
 			DateChang(e) {
@@ -166,7 +166,11 @@
 						that.bill_records = res.data.data.bill_records
 					}			
 				})
-			
+			    if(that.profit_records.length!=0 || that.bill_records.length!=0){
+			    			   that.flag=false
+			    }else{
+			    			   that.flag=true
+			    }
 			},
 		    transfer:function(){
 				uni.navigateTo({

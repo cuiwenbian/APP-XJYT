@@ -120,7 +120,7 @@
 			getCodeNumber: function(e) {
 				this.getCode();
 				var _this = this;
-				_this.disabled = true;
+
 			},
 			setPwd:function(){
 				if(this.code==''){

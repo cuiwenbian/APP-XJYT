@@ -1,18 +1,6 @@
 <template>
 	<!-- 编辑提币地址 -->
 	<view class="container" style="position:relative;">
-		<view class="height"></view>
-		<uni-nav-bar
-			left-icon="back"
-			right-text="删除"
-			@click-left="back"
-			@click-right="del"
-			title="编辑提币地址"
-			background-color="#121212"
-			color="#fff"
-			border="false"
-			shadow="false"
-		></uni-nav-bar>
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">地址昵称</view>
@@ -38,11 +26,13 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+	    <!-- 数字键盘 -->
+	    <keyboard-package ref="number" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 	</view>
 </template>
 
 <script>
-	import uniNavBar  from '../../components/uni-nav-bar/uni-nav-bar.vue';
+	
 	import keyboardPackage from "../../components/keyboard-package/keyboard-package.vue"
 	import passwordInput from "../../components/password-input/password-input.vue"
 	export default{
@@ -60,7 +50,7 @@
 			}
 		},
 		components: {
-			uniNavBar,
+			
 			keyboardPackage,
 			passwordInput
 		},
@@ -81,7 +71,7 @@
 			clo: function() {
 				this.passIn = false;
 				this.$refs['number'].close();
-				this.numberList == '';
+				this.numberList.length= 0;
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -104,7 +94,8 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
-			
+			    var yuan=this.$refs.number;
+				console.log(yuan)
 				if(this.address==''){
 					uni.showToast({
 						title:'请输入提币地址',
@@ -123,60 +114,60 @@
 				}
 				this.passIn=true
 				this.$refs['number'].open();
-			    this.ipt(val)
+			    this.onInput(val)
 			 
 			},
-			// ipt(val) {
-			// 	console.log('input edit')
-			// 	var that=this;
-			// 	that.numberList.push(val);
-			// 	console.log(that.numberList.join().replace(/,/g, ""))
-			// 	that.password=that.numberList.join().replace(/,/g, "")
-			// 	console.log(that.password)
-			// 	if (that.numberList.length >= that.length) {
-			// 		this.passIn=false
-			// 		this.$refs['number'].close()
-			//         uni.request({
-			//         	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
-			//         	method:'PUT',
-			//         	data:{
-			//         		wallet_value:that.address,
-			//         		wallet_key:that.nickname,
-			//         		id:that.id,
-			//         		password:that.password,
-			//         		user_id:that.user_id
-			//         	},
-			//         	header:{
-			//         		Authorization:'JWT'+' '+this.global_.token
-			//         	},
-			//         	success(res) {
-			//         		console.log(res)
-			//         		if(res.statusCode==202){
-			//         			uni.showToast({
-			//         				title:'资金密码错误',
-			//         				icon:'none',
-			//         				duration:2000
-			//         			})
-			// 					return false
-			//         		}
-			//         		if(res.statusCode==204){
-			// 					uni.navigateBack({
-			// 						delta:1
-			// 					})
-			//         			uni.showToast({
-			//         				title:'修改成功',
-			//         				icon:'none',
-			//         				duration:1500
-			//         			})
-			//         			var page = getCurrentPages().pop();
-			//         			if (page == undefined || page == null) return; 
-			//         			page.onLoad();
-			//         		}
-			//         	}
-			//         })
-			// 	}
-			// },
 			onInput(val) {
+				console.log('input edit')
+				var that=this;
+				that.numberList.push(val);
+				console.log(that.numberList.join().replace(/,/g, ""))
+				that.password=that.numberList.join().replace(/,/g, "")
+				console.log(that.password)
+				if (that.numberList.length >= that.length) {
+					this.passIn=false
+					this.$refs['number'].close()
+			        uni.request({
+			        	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+			        	method:'PUT',
+			        	data:{
+			        		wallet_value:that.address,
+			        		wallet_key:that.nickname,
+			        		id:that.id,
+			        		password:that.password,
+			        		user_id:that.user_id
+			        	},
+			        	header:{
+			        		Authorization:'JWT'+' '+this.global_.token
+			        	},
+			        	success(res) {
+			        		console.log(res)
+			        		if(res.statusCode==202){
+			        			uni.showToast({
+			        				title:'资金密码错误',
+			        				icon:'none',
+			        				duration:2000
+			        			})
+								return false
+			        		}
+			        		if(res.statusCode==204){
+								uni.navigateBack({
+									delta:1
+								})
+			        			uni.showToast({
+			        				title:'修改成功',
+			        				icon:'none',
+			        				duration:1500
+			        			})
+			        			var page = getCurrentPages().pop();
+			        			if (page == undefined || page == null) return; 
+			        			page.onLoad();
+			        		}
+			        	}
+			        })
+				}
+			},
+			onInput1(val) {
 				console.log("input delete")
 				this.numberList.push(val);
 				console.log(this.numberList.join().replace(/,/g, ''));
@@ -219,15 +210,18 @@
 						},
 			           
 					});
+					this.numberList.length= 0;
 				}	
 			
 			},
 			//点击删除按钮
-			del: function() {
+			onNavigationBarButtonTap: function() {
+				var yuan1=this.$refs.number;
+				console.log(yuan1)
 				var that = this;
 				this.passIn = true;
 				this.$refs['number'].open();
-				this.onInput(val);
+				this.onInput1(val);
 			},
 		}
 	}

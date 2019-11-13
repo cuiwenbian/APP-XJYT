@@ -105,7 +105,7 @@
 			getCodeBtn: function(e){
 			      this.getCode();
 			      var _this = this
-			      _this.disabled = true
+			     
 			},
 			save(){
 				var _self=this;

@@ -109,7 +109,6 @@
 			getCodeNumber: function(e) {
 				this.getCode();
 				var _this = this;
-				_this.disabled = true;
 			},
 			//提交表单信息
 			next: function() {

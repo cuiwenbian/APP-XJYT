@@ -90,7 +90,7 @@
 			clo: function() {
 				this.passIn = false;
 				this.$refs['number'].close();
-				
+				this.numberList.length=0;
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -150,6 +150,7 @@
 							
 					    }
 					})
+					this.numberList.length=0;
 				}
 			},
 			save:function(){
@@ -224,7 +225,7 @@
 						}
 						if(res.statusCode==400){
 							uni.showToast({
-								title:'输入信息有误',
+								title:'输入信息有误(提币地址最少32位)',
 								icon:'none',
 								duration:2000
 							})

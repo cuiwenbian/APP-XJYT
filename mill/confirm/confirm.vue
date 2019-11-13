@@ -119,7 +119,7 @@
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
-            	
+            	this.numberList.length= 0;
             },
             onDelete() {
             	this.numberList.pop();
@@ -179,6 +179,7 @@
             			},
                        
             		});
+                    this.numberList.length= 0;
             	}
             	
             
