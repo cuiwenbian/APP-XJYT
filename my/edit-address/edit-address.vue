@@ -38,9 +38,6 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-		<!-- 数字键盘 -->
-		<keyboard-package ref="number" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-		
 	</view>
 </template>
 
@@ -126,59 +123,61 @@
 				}
 				this.passIn=true
 				this.$refs['number'].open();
-			    this.onInput(val)
+			    this.ipt(val)
 			 
 			},
+			// ipt(val) {
+			// 	console.log('input edit')
+			// 	var that=this;
+			// 	that.numberList.push(val);
+			// 	console.log(that.numberList.join().replace(/,/g, ""))
+			// 	that.password=that.numberList.join().replace(/,/g, "")
+			// 	console.log(that.password)
+			// 	if (that.numberList.length >= that.length) {
+			// 		this.passIn=false
+			// 		this.$refs['number'].close()
+			//         uni.request({
+			//         	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+			//         	method:'PUT',
+			//         	data:{
+			//         		wallet_value:that.address,
+			//         		wallet_key:that.nickname,
+			//         		id:that.id,
+			//         		password:that.password,
+			//         		user_id:that.user_id
+			//         	},
+			//         	header:{
+			//         		Authorization:'JWT'+' '+this.global_.token
+			//         	},
+			//         	success(res) {
+			//         		console.log(res)
+			//         		if(res.statusCode==202){
+			//         			uni.showToast({
+			//         				title:'资金密码错误',
+			//         				icon:'none',
+			//         				duration:2000
+			//         			})
+			// 					return false
+			//         		}
+			//         		if(res.statusCode==204){
+			// 					uni.navigateBack({
+			// 						delta:1
+			// 					})
+			//         			uni.showToast({
+			//         				title:'修改成功',
+			//         				icon:'none',
+			//         				duration:1500
+			//         			})
+			//         			var page = getCurrentPages().pop();
+			//         			if (page == undefined || page == null) return; 
+			//         			page.onLoad();
+			//         		}
+			//         	}
+			//         })
+			// 	}
+			// },
 			onInput(val) {
-				var that=this;
-				that.numberList.push(val);
-				console.log(that.numberList.join().replace(/,/g, ""))
-				that.password=that.numberList.join().replace(/,/g, "")
-				console.log(that.password)
-				if (that.numberList.length >= that.length) {
-					this.passIn=false
-					this.$refs['number'].close()
-			        uni.request({
-			        	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
-			        	method:'PUT',
-			        	data:{
-			        		wallet_value:that.address,
-			        		wallet_key:that.nickname,
-			        		id:that.id,
-			        		password:that.password,
-			        		user_id:that.user_id
-			        	},
-			        	header:{
-			        		Authorization:'JWT'+' '+this.global_.token
-			        	},
-			        	success(res) {
-			        		console.log(res)
-			        		if(res.statusCode==202){
-			        			uni.showToast({
-			        				title:'资金密码错误',
-			        				icon:'none',
-			        				duration:2000
-			        			})
-								return false
-			        		}
-			        		if(res.statusCode==204){
-								uni.navigateBack({
-									delta:1
-								})
-			        			uni.showToast({
-			        				title:'修改成功',
-			        				icon:'none',
-			        				duration:1500
-			        			})
-			        			var page = getCurrentPages().pop();
-			        			if (page == undefined || page == null) return; 
-			        			page.onLoad();
-			        		}
-			        	}
-			        })
-				}
-			},
-			onInput1(val) {
+				console.log("input delete")
 				this.numberList.push(val);
 				console.log(this.numberList.join().replace(/,/g, ''));
 				this.password = this.numberList.join().replace(/,/g, '');
@@ -228,7 +227,7 @@
 				var that = this;
 				this.passIn = true;
 				this.$refs['number'].open();
-				this.onInput1(val);
+				this.onInput(val);
 			},
 		}
 	}

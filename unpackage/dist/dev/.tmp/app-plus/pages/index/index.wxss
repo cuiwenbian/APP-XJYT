@@ -1940,26 +1940,20 @@ swiper-item image {
         width: 28rpx;
         height: 28rpx;
         float: left;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-left: 23rpx;
-        padding-top: 5rpx;
+        margin-left: 23rpx;
+        margin-top: 5rpx;
 }
 .i{
         width: 600rpx;
         height: 40rpx;        
         background-color: #BCBCBC;
         margin-left: 52rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-top: 20rpx;
+        margin-top: 20rpx;
         border-radius: 50rpx;
 }
 .m {
         float: left;
         padding-top: 17rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
         margin-left: 90rpx;
         font-size: 24rpx;
         color: #FFFFFF;
@@ -1982,9 +1976,7 @@ swiper-item image {
          background: linear-gradient(to bottom,#121212, #232323);
 }
 .price{
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-left: 24rpx;
+        margin-left: 24rpx;
 }
     /* 白 */
 .bot{
@@ -1996,7 +1988,7 @@ swiper-item image {
     /* 2 */
 .price1{
         float: right;
-        padding-right: 24rpx;
+        margin-right: 24rpx;
 }
     /* 黄 */
 .Todayprice{
@@ -2015,9 +2007,7 @@ swiper-item image {
 .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
-        padding-top: 12rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        margin-top: 12rpx;
         line-height: 120rpx;
         color: #DCB16E;
 }
@@ -2050,8 +2040,8 @@ swiper-item image {
         margin-left: 30rpx;
         font-size: 26rpx;
         color: #D7D7D7;
-        padding-top: 20rpx;
-        padding-left: 24rpx;
+        margin-top: 20rpx;
+        margin-left: 24rpx;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
        display: -webkit-box;
@@ -2080,10 +2070,10 @@ swiper-item image {
 .yu {
         
 		float: left;
-		padding-top: 8rpx;
+		margin-top: 8rpx;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
-		padding-left: 48rpx;
+		margin-left: 48rpx;
         font-size: 14rpx;
         color: #5A5A5A;
 }
@@ -2092,15 +2082,15 @@ swiper-item image {
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
         height: 26rpx;
-		padding-left: 90rpx;
-		padding-top: 14rpx;
+		margin-left: 90rpx;
+		margin-top: 14rpx;
 }
 .yjj {
 		float: right;
         -webkit-box-sizing: border-box;
                 box-sizing: border-box;
-		padding-right: 180rpx;
-		padding-top: 8rpx;
+		margin-right: 180rpx;
+		margin-top: 8rpx;
         font-size: 14rpx;
         color: #5A5A5A;
 }
@@ -2108,7 +2098,7 @@ swiper-item image {
         display: block;
         width: 96%; 
         margin: 0 auto;
-        margin-left: 46rpx;
+        margin-left: 50rpx;
         /* margin-top: rpx; */
         border-bottom: 1rpx solid #333333;
 }

@@ -1,7 +1,6 @@
 <template>
 	<!-- 启动页 -->
 	<view class="container">
-		
 		<image class='logo animated fadeIn delay-0.5s' src="../../static/images/FIL.png" mode=""></image>
 		<image class='fil animated fadeIn delay-0.5s' src="../../static/images/filecoin.png" mode=""></image>
 		<image class='tit animated fadeIn delay-0.5s' src="../../static/images/start1.png" mode=""></image>

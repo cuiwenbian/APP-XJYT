@@ -3,7 +3,6 @@ page {
     background-color: #DCDCDC;
 }
 .box {
-    height: 560rpx;
     width: 100%;
     background-color: #fff;
 }
@@ -46,6 +45,13 @@ page {
     display: none;
     font-size: 18rpx;
 }
+.smallpo{
+    display: block;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    padding-left: 48rpx;
+    font-size: 18rpx;
+}
 .smallx {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -66,7 +72,7 @@ page {
     width: 180rpx;
     height: 40rpx;
     line-height: 40rpx;
-    margin-top: 60rpx;
+    margin-top: 30rpx;
     font-size: 22rpx;
 }
 .box1 {
