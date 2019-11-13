@@ -477,8 +477,7 @@
     .b {
         display: block;
         width: 96%; 
-        margin: 0 auto;
-        margin-left: 50rpx;
+        float:right;
         border-bottom: 1rpx solid #333333;
     }
     /*  #endif  */

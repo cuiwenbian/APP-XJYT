@@ -3,7 +3,6 @@ page {
       background-color: #DCDCDC;
 }
 .box {
-      height: 560rpx;
       width: 100%;
       background-color: #fff;
 }
@@ -40,6 +39,13 @@ page {
       height: 80rpx;
       padding-left: 48rpx;
       display: none;
+      font-size: 18rpx;
+}
+.smallpo{
+      display: block;
+      line-height: 80rpx;
+      font-size: 28rpx;
+      padding-left: 48rpx;
       font-size: 18rpx;
 }
 .ser {

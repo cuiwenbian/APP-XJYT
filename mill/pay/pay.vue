@@ -205,38 +205,42 @@
     		};
         },
         onLoad(options) {
-            var that = this
-            console.log(options)
-            uni.request({
-                url:this.urll + 'buyall/101',
-                method:'GET',
-                header:{
-                     Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res)
-                    var contion = res.data.data
-                    console.log(contion)
-                    that.contion = contion
-                    console.log(contion.length )
-                    
-                }
-            })
-            
-            uni.request({
-                url:this.urll + 'ordernum/1',
-                method:'GET',
-                header:{
-                    Authorization: 'JWT'+' '+this.global_.token
-                },
-                success(res) {
-                    console.log(res.data.data)
-                    that.many = res.data.data
-                }
-            })
-           
+            var that=this;
+          
+          
+            this.getData()
+          
         },
         methods:{
+            getData(){
+                var that=this;
+                uni.request({
+                    url:this.urll + 'ordernum/1',
+                    method:'GET',
+                    header:{
+                        Authorization: 'JWT'+' '+this.global_.token
+                    },
+                    success(res) {
+                        console.log(res.data.data)
+                        that.many = res.data.data
+                    }
+                })
+                uni.request({
+                    url:this.urll + 'buyall/101',
+                    method:'GET',
+                    header:{
+                         Authorization: 'JWT'+' '+this.global_.token
+                    },
+                    success(res) {
+                        console.log(res)
+                        var contion = res.data.data
+                        console.log(contion)
+                        that.contion = contion
+                    }
+                })
+                
+               
+            },
             tabClick:function (index) {
                 var that = this
                 if (this.tabCurrentIndex === index) {
@@ -309,6 +313,7 @@
                         })
                     }
                 })
+               
                 
             },
             bt:function(val) {
@@ -325,9 +330,23 @@
                     },
                     success(res) {
                         console.log(res)
-                        this.onLoad()
+                        if(res.statusCode == 200) {
+                            uni.showToast({
+                                title:'删除成功',
+                                icon:'none',
+                                duration:2000
+                            })
+                        }else if(res.statusCode == 400) {
+                            uni.showToast({
+                                title:'该订单不可删除',
+                                icon:'none',
+                                duration:2000
+                            })
+                        }
+                        that.getData()
                     }
                 })
+               
             },
             btn2:function() {
                 var that = this
