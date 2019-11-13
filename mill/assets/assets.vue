@@ -90,7 +90,6 @@
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
-                addtime:'',
 				entin: '',
 				flag: false,
 				ention: '',
