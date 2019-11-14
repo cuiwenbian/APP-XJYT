@@ -22,7 +22,9 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationStyle": "custom"
+				"titleNView": {
+					"titleText":"星际云通"                  
+				}
 			}
 		},
 		{
