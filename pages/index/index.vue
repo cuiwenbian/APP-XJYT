@@ -56,7 +56,7 @@
             <div class="charts">
             	<view class="qiun-columns">
             		<view class="qiun-charts" >
-            			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
+            			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchArea"></canvas>
                     </view>
             	</view>
             	
@@ -100,7 +100,7 @@
 <script>
     import uCharts from '../../common/u-charts.js';
     var _self;
-    var canvaLineA=null;
+    var canvaArea=null;
 	export default {
 		data() {
 			return {      
@@ -117,6 +117,7 @@
                 s:'123987998449898',
                 time:[],
                 price:[],
+				hure:[],
                 usd:'',
 				
 			}
@@ -155,6 +156,7 @@
             getServerData(){
                 var that=this;
 				var timestamp = Date.parse(new Date())/1000;
+				console.log(new Date(timestamp))
 				var date2=new Date();     
 				var date4=86400*6;
 				var date3=timestamp - date4 //时间差的毫秒数
@@ -163,9 +165,12 @@
             			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=86400`,
             			method: 'POST',
             			success: function(res) {
+							console.log(res);
 							//转换时间戳
-							function formatDate(value) {
-							    let date = new Date(value);
+							function formatDate(v) {
+								console.log(v)
+							    let date = new Date(v);
+								console.log(date)
 							    let y = date.getFullYear();
 							    let MM = date.getMonth() + 1;
 							    MM = MM < 10 ? ('0' + MM) : MM;
@@ -175,52 +180,50 @@
 							    h = h < 10 ? ('0' + h) : h;
 							    let m = date.getMinutes();
 							    m = m < 10 ? ('0' + m) : m;
-							    let s = date.getSeconds();
-							    s = s < 10 ? ('0' + s) : s;
+							  
 							    // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
 							    return  MM + '-' + d ;
 							};
-                            //console.log(res.data);
+							  
 							var a=res.data.split("\n");
+							that.usd = a
+							console.log(that.usd)
 							var time=[];
-							console.log(a)
-							for(let i=0;i<a.length;i++){
+							var price=[];
+							var hure = []
+							for(let i=1;i<that.usd.length-1;i++){
 									var date=a[i].split(",")[0];
-									time=date;
-								    that.time=time;
+									var t=formatDate(parseInt(date));
+									time.push(t);
+									that.time=time;
+									console.log(that.time)
 							}
-                             
-                                // that.usd = res.data.data.data.data;
-                                // console.log(that.usd)
-                                 // var time = [];
-                                 // var price = [];
-                                 // for (var i = 0; i < that.usd.length; i+=60) {
-                                 //     var shuzu = that.usd[i][0];
-                                 //     var formatTime = formatDate(shuzu*1000, 'yyyy-MM-dd ');
-                                 //     time.push(formatTime);
-                                 //     that.time=time;
-                                    // console.log(that.time)
-                                 // }
-                                 // for (var j = 0; j < that.usd.length; j+=60) {
-                                 //     var p = that.usd[j][1];
-                                 //     p = p.toFixed(2);//保留2位但结果为一个String类型
-                                 //     p = parseFloat(p);//将结果转换会float
-                                     //用一步的话如下
-                                     //a = parseFloat(a.toFixed(2));
-                                     // price.push(p);
-                                     // that.price=price;
-                                   //  console.log(that.price)
-                                 
-                                 let LineA={list:[]};
+							for (let j = 1; j < that.usd.length-1; j++) {
+								var data1 = a[j].split(",")[2];
+								var cert = parseFloat(data1)
+								price.push(cert);
+								that.price = price;
+								console.log(that.price)
+							} 
+							for (let k = 1; k <that.usd.length-1; k++) {
+								var data2 = a[k].split(",")[3]
+								var nuer = parseFloat(data2)
+								hure.push(nuer)
+								that.hure = hure
+								console.log(that.hure)
+							}
+                                 let Area={list:[]};
+								 
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-                                 LineA.list=that.usd;
-                                 _self.showLineA("canvasLineA",that.usd);                      
-                            }
-            			
+                                 Area.list=that.usd;
+								 
+                                 _self.showArea("canvasArea",that.usd);                      
+                            },
+							
             		});
-                    
+
             	},
-            	showLineA(canvasId,chartData){
+            	showArea(canvasId,chartData){
 					canvaArea=new uCharts({
 										$this:_self,
 										canvasId: canvasId,
@@ -236,9 +239,14 @@
 										series: [   //数据列表
 										          {
 										            name: "FIL数量", //数据名称
-										            data: _self.price, //数据
+										            data: _self.price, //数据 //数据
 										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
 										          },
+												 {
+												   name: "min", //数据名称
+												   data: _self.hure, //数据 //数据
+												   color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
+												 },
 														  
 										],
 										animation: true,
@@ -256,10 +264,10 @@
 											gridType:'solid',
 											gridColor:'#333535',   
 											dashLength:8,
-											splitNumber:5,
-											min:0,
+											splitNumber:4,
+											min:6,
 											max:10,
-													
+											axisLineColor:'#333535',		
 											format:(val)=>{return val.toFixed(0)}
 										},
 										width: _self.cWidth*_self.pixelRatio,
@@ -275,10 +283,10 @@
 										}
 									});
             	 },
-                     touchLineA(e) {
-                     	canvaLineA.showToolTip(e, {
+                     touchArea(e) {
+                     	canvaArea.showToolTip(e, {
                      		format: function (item, category) {
-                     			return category + ' ' + item.name + ':' + item.data 
+                     			return category + ' ' + item.name + ':' + item.data  
                      		}
                      	});
                      }

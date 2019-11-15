@@ -16,7 +16,6 @@
 		</view>
 
 		<view v-else>
-			<view class="height"></view>
 			<uni-nav-bar left-icon="back" title="提币地址" @click-left="back" background-color="#121212" color="#fff" border="false" shadow="false"></uni-nav-bar>
 			<view class="box"></view>
 			<view>
@@ -173,6 +172,14 @@ export default {
 				complete: () => {}
 			});
 		},
+		add: function() {
+			uni.navigateTo({
+				url: '../add-address/add-address?flag=' + this.flag,
+				success: res => {},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
 		//返回 
 		back: function() {
 			uni.navigateBack({
@@ -199,11 +206,11 @@ export default {
 </script>
 
 <style>
-.height {
+/* .height {
 	height: var(--status-bar-height);
 	background: #121212;
 	z-index: 99;
-}
+} */
 .shade {
 	position: absolute;
 	top: 0;
