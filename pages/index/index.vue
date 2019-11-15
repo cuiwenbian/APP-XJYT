@@ -56,7 +56,7 @@
             <div class="charts">
             	<view class="qiun-columns">
             		<view class="qiun-charts" >
-            			<canvas canvas-id="canvasLineA" id="canvasLineA" class="charts" @touchstart="touchLineA"></canvas>
+            			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchArea"></canvas>
                     </view>
             	</view>
             	
@@ -100,7 +100,7 @@
 <script>
     import uCharts from '../../common/u-charts.js';
     var _self;
-    var canvaLineA=null;
+    var canvaArea=null;
 	export default {
 		data() {
 			return {      
@@ -117,8 +117,7 @@
                 s:'123987998449898',
                 time:[],
                 price:[],
-                usd:'',
-				
+                usd:''
 			}
              
 		},
@@ -154,73 +153,62 @@
 			},
             getServerData(){
                 var that=this;
-				var timestamp = Date.parse(new Date())/1000;
-				var date2=new Date();     
-				var date4=86400*6;
-				var date3=timestamp - date4 //时间差的毫秒数
-				console.log(timestamp,date3)
             	uni.request({
-            			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=86400`,
-            			method: 'POST',
+            			url: 'https://www.ipcn.xyz/api/v1/filecoin/',
+            			method: 'GET',
             			success: function(res) {
-							//转换时间戳
-							function formatDate(value) {
-							    let date = new Date(value);
-							    let y = date.getFullYear();
-							    let MM = date.getMonth() + 1;
-							    MM = MM < 10 ? ('0' + MM) : MM;
-							    let d = date.getDate();
-							    d = d < 10 ? ('0' + d) : d;
-							    let h = date.getHours();
-							    h = h < 10 ? ('0' + h) : h;
-							    let m = date.getMinutes();
-							    m = m < 10 ? ('0' + m) : m;
-							    let s = date.getSeconds();
-							    s = s < 10 ? ('0' + s) : s;
-							    // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
-							    return  MM + '-' + d ;
-							};
-                            //console.log(res.data);
-							var a=res.data.split("\n");
-							var time=[];
-							console.log(a)
-							for(let i=0;i<a.length;i++){
-									var date=a[i].split(",")[0];
-									time=date;
-								    that.time=time;
-							}
-                             
-                                // that.usd = res.data.data.data.data;
+                          //  console.log(res)
+                            if(res.data.code==200){
+                                 //转换时间戳
+                                 function formatDate(value) {
+                                     let date = new Date(value);
+                                     console.log(date)
+                                     let y = date.getFullYear();
+                                     let MM = date.getMonth() + 1;
+                                     MM = MM < 10 ? ('0' + MM) : MM;
+                                     let d = date.getDate();
+                                     d = d < 10 ? ('0' + d) : d;
+                                     let h = date.getHours();
+                                     h = h < 10 ? ('0' + h) : h;
+                                     let m = date.getMinutes();
+                                     m = m < 10 ? ('0' + m) : m;
+                                     let s = date.getSeconds();
+                                     s = s < 10 ? ('0' + s) : s;
+                                     // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+                                     return  MM + '-' + d ;
+                                 };
+                                                                 
+                                 that.usd = res.data.data.data.data;
                                 // console.log(that.usd)
-                                 // var time = [];
-                                 // var price = [];
-                                 // for (var i = 0; i < that.usd.length; i+=60) {
-                                 //     var shuzu = that.usd[i][0];
-                                 //     var formatTime = formatDate(shuzu*1000, 'yyyy-MM-dd ');
-                                 //     time.push(formatTime);
-                                 //     that.time=time;
+                                 var time = [];
+                                 var price = [];
+                                 for (var i = 0; i < that.usd.length; i+=60) {
+                                     var shuzu = that.usd[i][0];
+                                     console.log(shuzu)
+                                     var formatTime = formatDate(shuzu*1000, 'yyyy-MM-dd ');
+                                     time.push(formatTime);
+                                     that.time=time;
                                     // console.log(that.time)
-                                 // }
-                                 // for (var j = 0; j < that.usd.length; j+=60) {
-                                 //     var p = that.usd[j][1];
-                                 //     p = p.toFixed(2);//保留2位但结果为一个String类型
-                                 //     p = parseFloat(p);//将结果转换会float
+                                 }
+                                 for (var j = 0; j < that.usd.length; j+=60) {
+                                     var p = that.usd[j][1];
+                                     p = p.toFixed(2);//保留2位但结果为一个String类型
+                                     p = parseFloat(p);//将结果转换会float
                                      //用一步的话如下
                                      //a = parseFloat(a.toFixed(2));
-                                     // price.push(p);
-                                     // that.price=price;
+                                     price.push(p);
+                                     that.price=price;
                                    //  console.log(that.price)
-                                 
-                                 let LineA={list:[]};
+                                 }
+                                 let Area={list:[]};
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-                                 LineA.list=that.usd;
-                                 _self.showLineA("canvasLineA",that.usd);                      
+                                 Area.list=that.usd;
+                                 _self.showArea("canvasArea",that.usd);                      
                             }
-            			
+            			},
             		});
-                    
             	},
-            	showLineA(canvasId,chartData){
+            	showArea(canvasId,chartData){
 					canvaArea=new uCharts({
 										$this:_self,
 										canvasId: canvasId,
@@ -275,8 +263,8 @@
 										}
 									});
             	 },
-                     touchLineA(e) {
-                     	canvaLineA.showToolTip(e, {
+                     touchArea(e) {
+                     	canvaArea.showToolTip(e, {
                      		format: function (item, category) {
                      			return category + ' ' + item.name + ':' + item.data 
                      		}
