@@ -187,14 +187,14 @@
      height: 80rpx;
      padding-left: 48rpx;
      display: none;
-     font-size: 18rpx;
+     font-size: 28rpx;
  }
  .smallpo{
      display: block;
      line-height: 80rpx;
      font-size: 28rpx;
      padding-left: 48rpx;
-     font-size: 18rpx;
+     font-size: 28rpx;
  }
  .smallx {
      box-sizing: border-box;

@@ -3,7 +3,7 @@
     <view class="container">
         <view class="box1">
             <view class="colo">卖单数量
-                <view class="many">{{many}}台</view>
+                <view class="many">{{many}}个</view>
             </view>
 			<view class="colo1"><image class="dx" src="../../static/images/miai.png" mode=""></image></view>
 			<view class="many1">卖出</view>
@@ -212,7 +212,7 @@
         onLoad(options) {
             var that = this
             uni.request({
-                url: this.urll + 'saleall/101',
+                url: this.url + 'saleall/101',
                 method:'GET',
                 header:{
                     Authorization: 'JWT'+' '+this.global_.token
@@ -227,12 +227,13 @@
             })
            
             uni.request({
-                url:this.urll + 'ordernum/2',
+                url:this.url + 'ordernum/2',
                 method:'GET',
-                header:{
+                header:{     
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
+                    console.log(res)
                     that.many = res.data.data
                 }
             })
@@ -259,7 +260,7 @@
                 }
                 if(this.tabCurrentIndex === 1) {
                     uni.request({
-                        url:this.urll + 'saleall/102',
+                        url:this.url + 'saleall/102',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -276,7 +277,7 @@
                 }
                 if(this.tabCurrentIndex === 2) {
                     uni.request({
-                        url:this.urll + 'saleall/103',
+                        url:this.url + 'saleall/103',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -290,7 +291,7 @@
                 }
                 if(this.tabCurrentIndex === 3) {
                     uni.request({
-                        url:this.urll + 'saleall/104',
+                        url:this.url + 'saleall/104',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -308,7 +309,7 @@
                 console.log(item)
                 var that = this   
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -331,7 +332,7 @@
                 var that = this
                 console.log(that.ter[0].order_num)
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -354,7 +355,7 @@
                 var that = this
                 console.log(that.delwen[0].order_num)
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -376,7 +377,7 @@
                 var that = this
                 console.log(that.delewen[0].order_num)
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -404,7 +405,7 @@
                 // console.log(that.dater.oreder_num)
                 
                 uni.request({
-                    url:this.urll + 'orderappeal/',
+                    url:this.url + 'orderappeal/',
                     method:'POST',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token

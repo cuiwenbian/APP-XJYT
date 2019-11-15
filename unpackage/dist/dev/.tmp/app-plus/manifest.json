@@ -4,7 +4,7 @@
     "iPhone",
     "iPad"
   ],
-  "id": "__UNI__EAB7B97",
+  "id": "__UNI__1EA853B",
   "name": "星际云通",
   "version": {
     "name": "1.0.0",
@@ -99,10 +99,13 @@
       }
     },
     "uni-app": {
-      "compilerVersion": "2.3.7",
+      "compilerVersion": "2.4.1",
       "control": "v8",
-      "nvueCompiler": "weex",
-      "renderer": "auto"
+      "nvueCompiler": "uni-app",
+      "renderer": "auto",
+      "nvue": {
+        "flex-direction": "column"
+      }
     },
     "tabBar": {
       "color": "#8a8a8a",

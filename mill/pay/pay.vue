@@ -206,27 +206,25 @@
         },
         onLoad(options) {
             var that=this;
-          
-          
             this.getData()
-          
+            uni.request({
+                url:this.url + 'ordernum/1',
+                method:'GET',
+                header:{
+                    Authorization: 'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res.data.data)
+                    that.many = res.data.data
+                }
+            })
         },
         methods:{
             getData(){
                 var that=this;
+               
                 uni.request({
-                    url:this.urll + 'ordernum/1',
-                    method:'GET',
-                    header:{
-                        Authorization: 'JWT'+' '+this.global_.token
-                    },
-                    success(res) {
-                        console.log(res.data.data)
-                        that.many = res.data.data
-                    }
-                })
-                uni.request({
-                    url:this.urll + 'buyall/101',
+                    url:this.url + 'buyall/101',
                     method:'GET',
                     header:{
                          Authorization: 'JWT'+' '+this.global_.token
@@ -250,7 +248,7 @@
                 }
                 if(this.tabCurrentIndex === 1) {
                     uni.request({
-                        url:this.urll + 'buyall/102',
+                        url:this.url + 'buyall/102',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -264,7 +262,7 @@
                 }
                 if(this.tabCurrentIndex === 2) {
                     uni.request({
-                        url:this.urll + 'buyall/103',
+                        url:this.url + 'buyall/103',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -278,7 +276,7 @@
                 }
                 if(this.tabCurrentIndex === 3) {
                     uni.request({
-                        url:this.urll + 'buyall/104',
+                        url:this.url + 'buyall/104',
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -296,7 +294,7 @@
                 var that = this
                 console.log(that.contion[0].order_num)
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -320,7 +318,7 @@
                 var that = this
                 // this.numberList.push(val);
                 uni.request({
-                    url:this.urll + 'ordercancel/',
+                    url:this.url + 'ordercancel/',
                     method:'POST',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -351,7 +349,7 @@
             btn2:function() {
                 var that = this
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -373,7 +371,7 @@
             btn3:function () {
                 var that = this
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -395,7 +393,7 @@
             btn4:function(){
                 var that = this
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token

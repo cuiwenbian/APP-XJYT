@@ -141,7 +141,7 @@
             		this.passIn = false;
             		this.$refs['number'].close();
             		uni.request({
-            			url: this.urll + 'submitorder/',
+            			url: this.url + 'submitorder/',
             			method: 'POST',
             			data: {
                             password:that.password,
