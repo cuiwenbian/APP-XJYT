@@ -6,11 +6,11 @@
 		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
-			<input class="number" type="number" @input='getPhoneValue' @blur="getNumber" :value="phone" placeholder="请输入手机号" />
+			<input class="number" type="number" @input='getPhoneValue'  :value="phone" placeholder="请输入手机号" />
 		</view>
 		<view class="enter">
 			<text class="title">登录密码</text>
-			<input class="number" type="password" @input='getPwdValue' @blur="getPassword" :value="pwd" placeholder="6-16位数字,英文"/>
+			<input class="number" type="password" @input='getPwdValue' :value="pwd" placeholder="6-16位数字,英文"/>
 		</view>
 		<view class="enter">
 			<text class="title">确认密码</text>
@@ -55,32 +55,11 @@
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
-			getNumber:function(e){
-				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-				this.phone=e.detail.value	
-				   if(!myreg.test(this.phone)){
-					   uni.showToast({
-					   	title:'请输入正确的手机号',
-					   	icon:'none',
-					   	duration:2000
-					   })
-				   }
-				 
-			},
+			
 			getPwdValue:function(e){
 				this.pwd=e.detail.value
 			},
-			getPassword:function(e){
-				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
-				this.pwd=e.detail.value
-				if(!str.test(this.pwd)){
-					uni.showToast({
-						title:'密码格式不正确',
-						icon:'none',
-						duration:2000
-					})
-				}
-			},
+			
 			getPwdValue1:function(e){
 				this.pwd1=e.detail.value
 			},
@@ -108,7 +87,7 @@
 			      } else {
 			        uni.request({
 						//短信接口
-					  url: _this.urll + 'users/regist/sms/',
+					  url: _this.url + 'users/regist/sms/',
 			          method: 'POST',
 			          data: {
 			            mobile: this.phone,
@@ -166,6 +145,16 @@
 					})
 					return false
 				}
+				
+				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+				 if(!myreg.test(this.phone)){
+					   uni.showToast({
+					   	title:'请输入正确的手机号',
+					   	icon:'none',
+					   	duration:2000
+					   })
+					   return false
+				}		 
 				if(this.pwd==""){
 					uni.showToast({
 					  title: '请输入登录密码',
@@ -173,6 +162,15 @@
 					  duration: 2000
 					})
 					return false
+				}
+				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+				if(!str.test(this.pwd)){
+					uni.showToast({
+						title:'密码格式不正确',
+						icon:'none',
+						duration:2000
+				     })
+					 return false
 				}
 				if(this.pwd1==""){
 					uni.showToast({
@@ -207,7 +205,7 @@
 					return false
 				}
 				uni.request({
-					url:this.urll+'users/regist/',
+					url:this.url+'users/regist/',
 					method: 'POST',
 					data: {
 						mobile:this.phone,

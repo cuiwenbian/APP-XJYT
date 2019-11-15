@@ -94,7 +94,7 @@
 		},
 		onLoad() {
 			uni.request({
-				url: this.urll+'usermachine/',
+				url: this.url+'usermachine/',
 				method: 'GET',
 				data: {},
 				header:{

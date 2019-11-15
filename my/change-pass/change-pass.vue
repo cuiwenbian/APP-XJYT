@@ -98,7 +98,7 @@
 						return false
 					}
 					uni.request({
-						url:this.urll+'updataLoginpassword/',
+						url:this.url+'updataLoginpassword/',
 						method: 'POST',
 						data: {
 						    mobile:this.global_.phone,
