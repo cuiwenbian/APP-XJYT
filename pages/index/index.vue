@@ -48,7 +48,7 @@
                 <text class="bot1">
                     昨日交易:
                 </text>
-                <text class="yesterdayprice , yesterday"> +{{yesterdayprice}}  +{{yesterday}}</text>
+                <text class="yesterdayprice"> +{{yesterdayprice}}  +{{yesterday}}</text>
             </view>
         </view>
         
@@ -366,6 +366,8 @@
          color: #F2F2F2;
          float: left;
          height: 90rpx;
+         margin-left: 20rpx;
+         font-size: 22rpx;
     }
     .bor {
 		width: 94%;
@@ -403,13 +405,13 @@
 	}
     .bot1 {
         color: #FFFFFF;
-        margin-bottom: 6rpx;
         font-size: 20rpx;
     }
     .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
-        margin-top: 12rpx;
+        /* margin-top: 20rpx; */
+        padding-top: 20rpx;
         line-height: 120rpx;
         color: #DCB16E;
     }
@@ -477,8 +479,8 @@
     .yj {
         width: 36rpx;
         height: 26rpx;
-		margin-left: 90rpx;
-		margin-top: 14rpx;
+		margin-left: 146rpx;
+		margin-top: 10rpx;
     }
     .yjj {
 		float: right;

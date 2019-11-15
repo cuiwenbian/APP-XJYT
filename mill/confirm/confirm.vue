@@ -125,12 +125,14 @@
             	this.numberList.pop();
             },
             onConfirm() {
-            	uni.showToast({
-            		title: '完成输入！',
-            		duration: 2000,
-            		icon: 'none'
-            	});
-            },
+                    if(this.numberList.length!=6){
+                      uni.showToast({
+                        title: '请输入六位交易密码！',
+                        duration: 2000,
+                        icon: 'none'
+                      });
+                    }
+                  },
             onInput(val) {
                 var that = this
                 var a = that.arr.join()
@@ -141,7 +143,7 @@
             		this.passIn = false;
             		this.$refs['number'].close();
             		uni.request({
-            			url: this.urll + 'submitorder/',
+            			url: this.url + 'submitorder/',
             			method: 'POST',
             			data: {
                             password:that.password,

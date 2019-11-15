@@ -73,7 +73,7 @@ export default {
 	onShow(options) {
 		var that = this;
 		uni.request({
-			url: this.urll + 'mainmachine/',
+			url: this.url + 'mainmachine/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
@@ -84,6 +84,7 @@ export default {
 					that.user_id = res.data.data;
 					that.many = res.data.data.length
 					that.machine_id=res.data.data[length].machine_id;
+                    console.log(that.machine_id)
 				}
 				if (res.statusCode == 205) {
 					that.flag = true;
@@ -109,18 +110,18 @@ export default {
 			var that = this;
 			that.arr = [];
 			for (let i = 0; i < that.user_id.length; i++) {
-				that.user_id[i].checked = false;
+				that.user_id.checked = false;
 				// console.log(that.user_id)
 			}
 			var items = that.user_id;
 			var values = e.detail.value;
 			for (var i = 0, lenI = items.length; i < lenI; ++i) {
-				items[i].checked = false;
+				items.checked = true; 
 				for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
 					if (items[i].number == values[j]) {
-						items[i].checked = true;
+						items.checked = true;
 						console.log(values);
-						console.log(items[i].machine_id);
+						// console.log(items[i].machine_id);
 						that.arr.push(items[i].machine_id);
 						console.log(111);
 						console.log(that.arr);
@@ -137,7 +138,7 @@ export default {
 
 
 			uni.request({
-				url: this.urll + 'buildorders/',
+				url: this.url + 'buildorders/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -148,6 +149,7 @@ export default {
 				success(res) {
 					console.log(res);
 					console.log(res.data);
+                    
 					var asr = JSON.stringify(res.data.data);
 					console.log(asr);
 					if (res.statusCode == 401) {
@@ -182,12 +184,12 @@ export default {
                         })
                     }
                         
-                    else if (that.arr == 0) {
+                    else if (that.arr.length == 0) {
 						uni.showToast({
 							title: '请选择矿机',
 							icon: 'none'
 						});
-					} 
+					}
                     else if (res.statusCode == 200) {
 						uni.navigateTo({
 							url: '../sell/sell?tar=' + asr

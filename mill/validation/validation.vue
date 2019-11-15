@@ -54,7 +54,7 @@
                 var date = that.date
                 var datr = that.datr
                 uni.request({
-                    url:this.urll + 'buildorders/',
+                    url:this.url + 'buildorders/',
                     method:'POST',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
@@ -71,7 +71,7 @@
                         console.log(res.data)
                         var posf = JSON.stringify(res.data.data)
                         console.log(posf)
-                        if(res.statusCode == 400) {
+                        if(res.statusCode == 204) {
                             uni.showToast({
                                 title:'买家信息不存在',
                                 icon:'none'
@@ -86,10 +86,11 @@
                                 icon:'none'
                                 
                             })
+                        }else if(res.statusCode == 400) {
+                            uni.showToast({
+                                title:'请重新出售',
+                            })
                         }
-                        // uni.navigateTo({
-                        //     url:'../confirm/confirm'
-                        // })
                     }
                 })
 

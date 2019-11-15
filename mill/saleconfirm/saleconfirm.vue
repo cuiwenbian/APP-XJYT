@@ -165,12 +165,14 @@ that. <template>
             	this.numberList.pop();
             },
             onConfirm() {
-            	uni.showToast({
-            		title: '完成输入！',
-            		duration: 2000,
-            		icon: 'none'
-            	});
-            },
+                if(this.numberList.length!=6){
+                  uni.showToast({
+                    title: '请输入六位交易密码！',
+                    duration: 2000,
+                    icon: 'none'
+                  });
+                }
+              },
             onInput(val) {
                 var that = this
             	this.numberList.push(val);
@@ -180,7 +182,7 @@ that. <template>
             		this.passIn = false;
             		this.$refs['number'].close();
             		uni.request({
-            			url: this.urll + 'saleaffirm/',
+            			url: this.url + 'saleaffirm/',
             			method: 'POST',
             			data: {
                             order_num:that.x,
@@ -282,14 +284,14 @@ that. <template>
         height: 80rpx;
         padding-left: 48rpx;
         display: none;
-        font-size: 18rpx;
+        font-size: 28rpx;
     }
     .smallpo{
         display: block;
         line-height: 80rpx;
         font-size: 28rpx;
         padding-left: 48rpx;
-        font-size: 18rpx;
+        font-size: 28rpx;
     }
     .smallx {
         box-sizing: border-box;
