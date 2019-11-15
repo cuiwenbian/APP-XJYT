@@ -6,8 +6,8 @@
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
 						<view class="left">
-							<view class="nickname" :value="nickname">地址昵称: {{ item.wallet_key }}</view>
-							<view class="adr" :value="address">提币地址：{{ item.wallet_value }}</view>
+							<view class="nickname" :value="nickname">地址昵称:{{ item.wallet_key }}</view>
+							<view class="adr" :value="address">提币地址:{{ item.wallet_value }}</view>
 						</view>
 						<view class="right" @click="edit(item)" :data-item="item"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
 					</view>
@@ -40,7 +40,6 @@
 <script src="../../static/js/jquery.min.js"></script>
 <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script>
-
 import uniSwipeAction from '../../components/uni-swipe-action/uni-swipe-action.vue';
 import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
 import passwordInput from '../../components/password-input/password-input.vue';
@@ -78,7 +77,7 @@ export default {
 	onLoad() {
 		var that = this;
 		uni.request({
-			url: this.urll + 'walletaddress/',
+			url: this.url + 'walletaddress/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
@@ -104,11 +103,13 @@ export default {
 			this.numberList.pop();
 		},
 		onConfirm() {
-			uni.showToast({
-				title: '完成输入！',
-				duration: 2000,
-				icon: 'none'
-			});
+			if(this.numberList.length!=6){
+				uni.showToast({
+					title: '请输入六位交易密码！',
+					duration: 2000,
+					icon: 'none'
+				});
+			}
 		},
 		onInput(val) {
 			var that=this;
@@ -119,7 +120,7 @@ export default {
 				this.passIn = false;
 				this.$refs['number'].close();
 				uni.request({
-					url: this.urll + 'updatadeleteaddress/',
+					url: this.url + 'updatadeleteaddress/',
 					method: 'DELETE',
 					data: {
 						id: that.id,
@@ -278,7 +279,8 @@ export default {
 
 .list {
 	width: calc(100% - 48rpx);
-	height: 140rpx;
+	height: auto;
+	overflow: hidden;
 	border-bottom: 1rpx solid #f2f2f2;
 	margin-left: 48rpx;
 }
@@ -287,21 +289,28 @@ export default {
 	float: left;
 	width: 88%;
 }
+.nickname {
+	width:100%;
+	line-height: 80rpx;
+	font-size: 30rpx;
+	word-break:break-all;
+	word-wrap:break-word;
+	
+}
 
+.adr {
+	width:100%;
+	line-height: 40rpx;
+	font-size: 30rpx;
+	word-break:break-all;
+	word-wrap:break-word;
+}
 .right {
 	float: left;
 	width: 12%;
 }
 
-.nickname {
-	line-height: 80rpx;
-	font-size: 30rpx;
-}
 
-.adr {
-	line-height: 40rpx;
-	font-size: 30rpx;
-}
 
 .edit {
 	width: 50rpx;

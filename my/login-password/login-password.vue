@@ -63,7 +63,7 @@
 			     
 			        uni.request({
 						//短信接口
-					  url: _this.urll + 'users/login/sms/',
+					  url: _this.url + 'users/login/sms/',
 			          method: 'POST',
 			          data: {
 			            mobile: this.phone,
@@ -158,7 +158,7 @@
 					return false
 				}
 				uni.request({
-					url:this.urll+'updataloginpassword/',
+					url:this.url+'updataloginpassword/',
 					method: 'POST',
 					data: {
 						mobile:this.phone,

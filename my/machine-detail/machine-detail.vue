@@ -131,7 +131,7 @@
 			 console.log(this.machine_id)
 			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
 			  uni.request({
-			  	url:this.urll+'usermachineinfo/'+'1/'+ this.machine_id,
+			  	url:this.url+'usermachineinfo/'+'1/'+ this.machine_id,
 				method:'GET',
 				header:{
 					Authorization:'JWT'+' '+this.global_.token 
@@ -143,7 +143,7 @@
 				}
 			  }) 
 			  uni.request({
-			  	url:this.urll+'usermachineinfo/'+'2/'+ this.machine_id,
+			  	url:this.url+'usermachineinfo/'+'2/'+ this.machine_id,
 			  	method:'GET',
 			  	header:{
 			  		Authorization:'JWT'+' '+this.global_.token 

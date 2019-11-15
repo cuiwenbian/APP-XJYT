@@ -5,7 +5,7 @@
 		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
-			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" @blur="getNumber"/>
+			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" />
 		</view> 
 		<view class="enter">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
@@ -19,7 +19,6 @@
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		
 		
 	</view>
 </template>
@@ -40,20 +39,7 @@
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
-			getNumber:function(e){
-				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-				this.phone=e.detail.value
-				   if(!myreg.test(this.phone)){
-					 uni.showToast({
-					 	title:'请输入正确的手机号',
-						icon:'none',
-						mask:true,
-						duration:2000
-					 })
-				   }
-				  return false
-				
-			},
+			
 			getPasswordValue:function(e){
 				this.password=e.detail.value
 			},
@@ -80,8 +66,9 @@
 				 
 				if(!this.password){
 					uni.showToast({
+						title:'请输入密码',
 						icon:'none',
-						title:'请输入密码'
+						duration:2000
 					})
 					return false
 				}

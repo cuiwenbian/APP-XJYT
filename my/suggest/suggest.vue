@@ -62,7 +62,7 @@
 		onLoad() {
 			var _this=this;
 			uni.request({
-				url:this.urll+'advicefeedback/',
+				url:this.url+'advicefeedback/',
 				method:'GET',
 				data:{
 					title:this.title,
@@ -130,7 +130,7 @@
 					return false
 				}
 			    uni.request({
-			    	url:this.urll+'advicefeedback/',
+			    	url:this.url+'advicefeedback/',
 					method:'POST',
 					data:{
 						title:this.title,

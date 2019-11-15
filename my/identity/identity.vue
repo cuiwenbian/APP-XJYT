@@ -217,7 +217,7 @@
 			    for(var key in imgpaths[index]){
 					console.log(key)
 			      uni.uploadFile({
-			        url: this.urll + 'realname/',//上传接口
+			        url: this.url + 'realname/',//上传接口
 			        filePath: imgpaths[index][key],
 			        name: key,
 			        header: {
@@ -238,7 +238,7 @@
 					 index++;
 					 if (index == imgpaths.length) {
 					  uni.request({
-					    url: that.urll + 'realname/',
+					    url: that.url + 'realname/',
 					    method:'POST',
 					    data: {
 					  	  name: that.name, 

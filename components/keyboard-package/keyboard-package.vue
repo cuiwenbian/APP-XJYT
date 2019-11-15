@@ -122,7 +122,6 @@
 				this.$refs.keyboardPackage.open();
 			},
 			confirm() {
-				this.close();
 				this.$emit('onConfirm');
 			},
 			deleteVal() {

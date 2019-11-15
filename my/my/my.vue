@@ -93,7 +93,7 @@
 			},
 			address:function(){
 				uni.request({
-					url:this.urll+'walletaddress/',
+					url:this.url+'walletaddress/',
 					method:'GET',
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
@@ -127,7 +127,7 @@
 			tradePassword:function(){
 				var that=this;
 				uni.request({
-					url:this.urll+'setmoney/',
+					url:this.url+'setmoney/',
 					method:'GET',
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
@@ -157,7 +157,7 @@
 			},
 			loginPassword:function(){
 				uni.request({
-					url:this.urll+'updataloginpassword/',
+					url:this.url+'updataloginpassword/',
 					method:'GET',
 					header:{ 
 						Authorization:'JWT'+' '+this.global_.token
@@ -180,7 +180,7 @@
 			},
 			bindEmail:function(){
 				uni.request({
-					url:this.urll+'linkemail/',
+					url:this.url+'linkemail/',
 					method:'GET',
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
@@ -211,7 +211,7 @@
 			},
 			certification:function(){
 				uni.request({
-				  url: this.urll + 'realname/',
+				  url: this.url + 'realname/',
 				  method:'GET',
 				  header: {
 				   Authorization:'JWT'+' '+this.global_.token

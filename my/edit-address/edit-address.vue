@@ -93,12 +93,13 @@
 				this.numberList.pop();
 			},
 			onConfirm() {
-				uni.showToast({
-					title: '完成输入！',
-					duration: 2000,
-					icon: 'none'
-				})
-			
+				if(this.numberList.length!=6){
+					uni.showToast({
+						title: '请输入六位交易密码！',
+						duration: 2000,
+						icon: 'none'
+					});
+				}
 			},
 			close() {
 				this.$refs['number'].close();
@@ -142,7 +143,7 @@
 					this.passIn=false
 					this.$refs['number'].close()
 			        uni.request({
-			        	url:this.urll+'updatadeleteaddress/',   //编辑地址接口
+			        	url:this.url+'updatadeleteaddress/',   //编辑地址接口
 			        	method:'PUT',
 			        	data:{
 			        		wallet_value:that.address,
@@ -197,7 +198,7 @@
 					this.passIn = false;
 					this.$refs['number'].close();
 					uni.request({
-						url: this.urll + 'updatadeleteaddress/', //删除地址接口
+						url: this.url + 'updatadeleteaddress/', //删除地址接口
 						method: 'DELETE',
 						data: {
 							id: this.id,

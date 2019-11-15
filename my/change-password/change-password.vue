@@ -91,7 +91,7 @@
 					return false;
 				}
 				uni.request({
-					url:this.urll+'updatapasswod/',
+					url:this.url+'updatapasswod/',
 					method:'POST',
 					data:{
 						password1:this.password,

@@ -43,6 +43,14 @@
 					})
 					return false
 				}
+				if(this.adr.length<32){
+					uni.showToast({
+						title:'提币地址最少32位',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
 				if(this.remark==""){
 					uni.showToast({
 						title:'备注名称不能为空',
@@ -52,7 +60,7 @@
 					return false
 				}
 				uni.request({
-					url:this.urll+'walletaddress/',
+					url:this.url+'walletaddress/',
 					method:'POST',
 					data:{
 						wallet_key:this.remark,

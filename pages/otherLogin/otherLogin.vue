@@ -220,7 +220,8 @@ page {
 	color: #646464;
 	font-size: 30rpx;
 }
-button::after{ border: none;}
+/* button::after{ border: none;} */
+
 .getcode {
 	border-radius: 50rpx;
 	width:250rpx;
