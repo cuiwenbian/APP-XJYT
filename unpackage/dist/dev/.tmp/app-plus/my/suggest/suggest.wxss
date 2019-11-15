@@ -43,7 +43,7 @@ page{
 	width:100%;
 }
 .tit{
-	width:100rpx;
+	width:15%;
 	height:90rpx;
 	float: left;
 	line-height: 90rpx;
@@ -51,7 +51,7 @@ page{
 }
 .answer{
 	height: auto;
-	width:554rpx;
+	width:85%;
 	word-break:break-all;
 	word-wrap:break-word;
 	float: left;

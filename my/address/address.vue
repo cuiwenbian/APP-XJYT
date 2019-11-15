@@ -6,8 +6,8 @@
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
 						<view class="left">
-							<view class="nickname" :value="nickname">地址昵称:{{ item.wallet_key }}</view>
-							<view class="adr" :value="address">提币地址:{{ item.wallet_value }}</view>
+							<view class='nickTitle'>地址昵称:</view><view class="nickname" :value="nickname">{{ item.wallet_key }}</view>
+							<view class='addTitle'>提币地址:</view><view class="adr" :value="address">{{ item.wallet_value }}</view>
 						</view>
 						<view class="right" @click="edit(item)" :data-item="item"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
 					</view>
@@ -287,35 +287,47 @@ export default {
 
 .left {
 	float: left;
-	width: 88%;
+	width: 85%;
+}
+.nickTitle{
+	float:left;
+	width:25%;
+	line-height: 60rpx;
+	font-size: 30rpx;
 }
 .nickname {
-	width:100%;
-	line-height: 80rpx;
+	float:right;
+	width:75%;
+	line-height: 60rpx;
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
 	
 }
-
+.addTitle{
+	float:left;
+	width:25%;
+	line-height: 60rpx;
+	font-size: 30rpx;
+}
 .adr {
-	width:100%;
-	line-height: 40rpx;
+	float:right;
+	width:75%;
+	line-height: 60rpx;
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
 }
 .right {
 	float: left;
-	width: 12%;
+	width: 15%;
 }
-
-
 
 .edit {
 	width: 50rpx;
 	height: 50rpx;
-	margin-top: 45rpx;
+	margin-top: 50rpx;
+	margin-left: 20rpx;
 }
 
 .delete {

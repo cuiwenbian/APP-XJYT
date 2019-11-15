@@ -83,30 +83,45 @@
 }
 .left {
 	float: left;
-	width: 88%;
+	width: 85%;
+}
+.nickTitle{
+	float:left;
+	width:25%;
+	line-height: 60rpx;
+	font-size: 30rpx;
 }
 .nickname {
-	width:100%;
-	line-height: 80rpx;
+	float:right;
+	width:75%;
+	line-height: 60rpx;
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
 }
+.addTitle{
+	float:left;
+	width:25%;
+	line-height: 60rpx;
+	font-size: 30rpx;
+}
 .adr {
-	width:100%;
-	line-height: 40rpx;
+	float:right;
+	width:75%;
+	line-height: 60rpx;
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
 }
 .right {
 	float: left;
-	width: 12%;
+	width: 15%;
 }
 .edit {
 	width: 50rpx;
 	height: 50rpx;
-	margin-top: 45rpx;
+	margin-top: 50rpx;
+	margin-left: 20rpx;
 }
 .delete {
 	height: 140rpx;

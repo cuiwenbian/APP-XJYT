@@ -82,10 +82,10 @@
 		            
 					for(let i=0;i<_this.messages.length;i++){
 						var t=_this.messages[i].add_time;
-						var t1=t.substr(0,10)+'  '+t.substr(11,19)
+						var t1=t.substr(0,10)+'  '+t.substr(11,8)
 						_this.messages[i].add_time=t1
 						var up=_this.messages[i].updated_time;
-						var up1=up.substr(0,10)+'  '+up.substr(11,19)
+						var up1=up.substr(0,10)+'  '+up.substr(11,8)
 						_this.messages[i].updated_time=up1
 					}
 					
@@ -224,22 +224,22 @@
 		
 	}
 	.tit{
-		width:100rpx;
+		width:15%;
 		height:90rpx;
 		float: left;
 		line-height: 90rpx;
 		font-size: 28rpx;
+		
 	}
 	.answer{
 		height: auto;
-		width:554rpx;
+		width:85%;
 		word-break:break-all;
 		word-wrap:break-word;
 		float: left;
 		line-height: 90rpx;
 		font-size: 28rpx;
 	}
-	
 	.box{
 		height:200rpx;
 	}

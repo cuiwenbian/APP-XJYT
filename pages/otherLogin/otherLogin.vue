@@ -29,9 +29,6 @@ export default {
 			disabled:false
 		};
 	},
-	// onLoad: function(options) {
-	// 	this.disabled = true;
-	// },
 	methods: {
 		getPhoneValue: function(e) {
 			if (e.detail.value.length == 11) {
@@ -111,7 +108,7 @@ export default {
 		//获取验证码
 		getCodeNumber: function(e) {
 			this.getCode();
-			var _this = this;
+			
 		},
 		//提交表单信息
 		login: function() {
