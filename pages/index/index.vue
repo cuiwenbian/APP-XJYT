@@ -46,7 +46,7 @@
                 <text class="bot1">
                     较昨日:
                 </text>
-                <text class="yesterdayprice"> +{{yesterdayprice}}  +{{yesterday}}</text>
+                <text class="yesterdayprice"> {{yesterdayprice}}  {{yesterday}}</text>
             </view>
         </view>
         
@@ -104,8 +104,8 @@
 		data() {
 			return {      
                 Todayprice:"",
-                yesterdayprice:"0.52",
-                yesterday:"1.0%",
+                yesterdayprice:"",
+                yesterday:"",
                 seven_profit:'',
                 total_profit:'',
                 cWidth:'',
@@ -187,7 +187,7 @@
 							  
 							var a=res.data.split("\n");
 							that.usd = a
-							console.log(that.usd)
+							// console.log(that.usd)
 							var time=[];
 							var price=[];
 							var hure = []
@@ -197,6 +197,10 @@
 									var t=formatDate(parseInt(date));
 									time.push(t);
 									that.time=time;
+                                    var day1 = new Date();
+                                    day1.setTime(day1.getTime()-24*60*60*1000);
+                                    var s1 = day1.getFullYear()+"-" + (day1.getMonth()+1) + "-" + day1.getDate();
+                                    console.log(s1)
 									console.log(that.time)
 							}
 							for (let j = 1; j < that.usd.length-1; j++) {
@@ -213,19 +217,22 @@
                             	that.feck = feck
 
                             }
-							for (let k = 1; k <that.usd.length-1; k++) {
-								var data2 = a[k].split(",")[4]
-								var nuer = parseFloat(data2)
-								hure.push(nuer) 
-								that.hure = hure
-                                // console.log(tet)
-							}
-                            console.log(data2)
-                            console.log(data3)
-                            var thi = (data2/data3 - 1)*100;
+                            var now_price =parseFloat(a[a.length-2].split(",")[4]) 
+                            var yesterday_price = parseFloat(a[a.length-6].split(",")[4])
+                            var incrace = now_price-yesterday_price
+                            console.log(incrace)
+                            console.log(now_price)
+                            var yest = incrace.toFixed(2)
+                            console.log(yest)
+                            var thi = (now_price/data3 - 1)*100;
                             var t= thi.toFixed(2)+'%'
-                            that.Todayprice=data2
+                            that.Todayprice=now_price
+                            that.yesterday = t
                             console.log(t)
+                            that.yesterdayprice = yest
+                            if(yest>0) {
+                                that.yest = '+' 
+                            }
                                  let Area={list:[]};
 								 
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
