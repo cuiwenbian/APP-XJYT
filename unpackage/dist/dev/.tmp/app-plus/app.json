@@ -89,13 +89,21 @@
     "uploadFile": 20000,
     "request": 20000
   },
+<<<<<<< HEAD
   "nvueCompiler": "uni-app",
+=======
+  "nvueCompiler": "weex",
+>>>>>>> 14d5bb5eec8d17bae1a94f21acc04d0e6972a51b
   "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "星际云通",
+<<<<<<< HEAD
   "compilerVersion": "2.4.2",
+=======
+  "compilerVersion": "2.3.7",
+>>>>>>> 14d5bb5eec8d17bae1a94f21acc04d0e6972a51b
   "usingComponents": {}
 }

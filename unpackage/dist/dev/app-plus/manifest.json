@@ -99,6 +99,7 @@
       }
     },
     "uni-app": {
+<<<<<<< HEAD
       "compilerVersion": "2.4.2",
       "control": "v8",
       "nvueCompiler": "uni-app",
@@ -106,6 +107,12 @@
       "nvue": {
         "flex-direction": "column"
       }
+=======
+      "compilerVersion": "2.3.7",
+      "control": "v8",
+      "nvueCompiler": "weex",
+      "renderer": "auto"
+>>>>>>> 14d5bb5eec8d17bae1a94f21acc04d0e6972a51b
     },
     "tabBar": {
       "color": "#8a8a8a",

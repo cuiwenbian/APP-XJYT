@@ -287,6 +287,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1907,7 +1933,7 @@ page {
         background-color: #1c1c1c;
 }
 .charts {
-      width: 100%;
+      width: 750rpx;
       height: 600rpx;
       background: -webkit-gradient(linear,left top, left bottom,from(#232323), to(#343434));
       background: -o-linear-gradient(top,#232323, #343434);

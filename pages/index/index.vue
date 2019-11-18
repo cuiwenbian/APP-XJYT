@@ -54,7 +54,7 @@
             <div class="charts">
             	<view class="qiun-columns">
             		<view class="qiun-charts" >
-            			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchArea"></canvas>
+            			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchCandle" @touchmove="moveCandle" @touchend="touchEndCandle"></canvas>
                     </view>
             	</view>
             	
@@ -99,6 +99,7 @@
     import uCharts from '../../common/u-charts.js';
     var _self;
     var canvaArea=null;
+	
 	export default {
 		data() {
 			return {      
@@ -122,8 +123,11 @@
              
 		},
         onLoad() {
-            _self = this;
-            var that = this
+            var _self = this;
+           var p=uni.getStorageSync('phone')
+           var t=uni.getStorageSync('token')
+           console.log(p)
+           console.log(t)
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
             _self.getServerData();
@@ -159,8 +163,8 @@
 				var date3=timestamp - date4 //时间差的毫秒数
 				console.log(timestamp,date3)
             	uni.request({
-            			  url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=86400`,
-            			  method: 'POST',
+            			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=28800`,
+            			method: 'POST',
             			success: function(res) {
 							console.log(res);
 							//转换时间戳
@@ -223,8 +227,10 @@
 										legend:true,
 										dataLabel:false,
                                         legend:{show:false},
-										dataPointShape:true,
+										dataPointShape:false,
 										legend:{show:false},
+										//enableScroll: true,
+										
 										pixelRatio:_self.pixelRatio,
 										categories: _self.time,//数据类别(饼图.圆环图不需要)
 										series: [   //数据列表
@@ -233,11 +239,11 @@
 										            data: _self.price, //数据 //数据
 										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
 										          },
-												 {
-												   name: "min", //数据名称
-												   data: _self.hure, //数据 //数据
-												   color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
-												 },
+												 // {
+												 //   name: "min", //数据名称
+												 //   data: _self.hure, //数据 //数据
+												 //   color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
+												 // },
 														  
 										],
 										animation: true,
@@ -247,19 +253,24 @@
 											disableGrid:true,
 											gridType:'solid',
 											dashLength:8,
-											axisLineColor:'#333535'
+											axisLineColor:'#333535',
+											itemCount:20,
+											labelCount:8,
+											// gridEval:24,
 										},
 										yAxis: {
-										   // disabled:true, //不绘制Y轴
+										    // disabled:true, //不绘制Y轴
 											type:'grid',
+											// disableGrid:true,
+											// axisLine:false,
 											gridType:'solid',
-											gridColor:'#333535',   
+											gridColor:'#333535',
 											dashLength:8,
 											splitNumber:4,
-											min:6,
-											max:10,
-											axisLineColor:'#333535',		
-											format:(val)=>{return val.toFixed(0)}
+											min:7,
+											max:9,
+											axisLineColor:'#333',		
+											format:(val)=>{return val.toFixed(1)}
 										},
 										width: _self.cWidth*_self.pixelRatio,
 										height: _self.cHeight*_self.pixelRatio,
@@ -274,6 +285,21 @@
 										}
 									});
             	 },
+				       touchCandle(e){
+				       				canvaArea.scrollStart(e);
+				       			},
+				       			moveCandle(e) {
+				       				canvaArea.scroll(e);
+				       			},
+				       			touchEndCandle(e) {
+				       				canvaArea.scrollEnd(e);
+				       				//下面是toolTip事件，如果滚动后不需要显示，可不填写
+				       				canvaArea.showToolTip(e, {
+				       					format: function (item, category) {
+				       						return category + ' ' + item.name + ':' + item.data 
+				       					}
+				       				});
+				       			},    
                      touchArea(e) {
                      	canvaArea.showToolTip(e, {
                      		format: function (item, category) {
@@ -299,7 +325,7 @@
         background-color: #1c1c1c;
     }
     .charts {
-      width: 100%;
+      width: 750upx;
       height: 600rpx;
       background: linear-gradient(to bottom,#232323, #343434);
       position: relative;

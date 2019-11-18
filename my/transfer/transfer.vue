@@ -191,7 +191,8 @@
 					})
 					return false
 				}
-				
+				console.log(that.fil_num)
+				console.log(that.wallet_value)
 				uni.request({
 					url:that.url+'assets/transfer/',
 					method:"POST",
