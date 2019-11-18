@@ -15,11 +15,10 @@
 			<navigator url="../otherLogin/otherLogin" class="tips">快速登录</navigator>
 			<navigator url="../getBackPassword/getBackPassword" class="tips">忘记密码</navigator>
 		</view>
-		<view class='btn' type="primary" @click="login">登录</view>
+		<view class='btn'  @click="login">登录</view>
 		<navigator url="../register/register" class="register">
 			注册
 		</navigator>
-		
 	</view>
 </template>
 

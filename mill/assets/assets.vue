@@ -1,4 +1,5 @@
 <template>
+	<!-- 资产 -->
 	<view class="container">
 		<view class="height"></view>
 		<view class="box">
@@ -93,10 +94,7 @@
 				entin: '',
 				flag: false,
 				ention: '',
-				selectShow: false,
 				//控制下拉列表的显示隐藏，false隐藏、true显示
-
-				//下拉列表的数据
 				index: 0,
 				//选择的下拉列表下标
 				navList: [{
@@ -132,7 +130,6 @@
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
-
 				},
 				success(res) {
 					console.log(res)
@@ -154,7 +151,7 @@
 					month: teran
 				},
 				success(res) {
-					// console.log(res.data.data)
+					console.log(res.data.data)
 					var seront = res.data.data
 					var ention = res.data.data.profit_records
 					that.ention = ention
@@ -163,6 +160,7 @@
                     console.log(that.month_profit)
 					that.add_item = ention[0].add_time
 					that.numm = ention[0].num
+					console.log(ention)
 					if(ention.length==0){
 						that.flag=true
 					}else{
@@ -253,12 +251,10 @@
 			},
 			btn() {
 				uni.navigateTo({
-					url: '/my/transfer/transfer?sole=' + this.ber + '&fee=' + this.fee,
+					url: '/my/transfer/transfer?bar=' + this.ber + '&fee=' + this.fee,
 				})
 			},
-			selectTap() {
-				this.selectShow = !this.selectShow
-			},
+			
 			optionTap(e) {
 				var that = this;
 				let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标

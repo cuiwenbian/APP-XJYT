@@ -88,7 +88,6 @@
 		            Authorization:'JWT'+' '+this.global_.token
 		        },
 		        success(res) {
-					console.log('我的钱包')
 					console.log(res)
 		            that.num = res.data.availed_num
 		            that.ber = res.data.fil_count
@@ -186,15 +185,11 @@
 						}
 					}			
 				})
-			    // if(that.profit_records.length!=0 || that.bill_records.length!=0){
-			    // 			   that.flag=false
-			    // }else{
-			    // 			   that.flag=true
-			    // }
+			  
 			},
 		    transfer:function(){
 				uni.navigateTo({
-					url:'../transfer/transfer?sole='+ this.num+'&fee='+this.fee
+					url:'../transfer/transfer?bar='+ this.num+'&fee='+this.fee
 				})
 			}
 			
