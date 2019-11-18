@@ -228,18 +228,13 @@ function createCurveControlPoints(points, i) {
 
   function isNotMiddlePoint(points, i) {
     if (points[i - 1] && points[i + 1]) {
-      return points[i].y >= Math.max(points[i - 1].y, points[i + 1].y) || points[i].y <= Math.min(points[i - 1].y,points[i + 1].y);
+      return points[i].y >= Math.max(points[i - 1].y, points[i + 1].y) || points[i].y <= Math.min(points[i - 1].y,
+        points[
+          i + 1].y);
     } else {
       return false;
     }
   }
-	function isNotMiddlePointX(points, i) {
-	  if (points[i - 1] && points[i + 1]) {
-	    return points[i].x >= Math.max(points[i - 1].x, points[i + 1].x) || points[i].x <= Math.min(points[i - 1].x,points[i + 1].x);
-	  } else {
-	    return false;
-	  }
-	}
   var a = 0.2;
   var b = 0.2;
   var pAx = null;
@@ -268,23 +263,11 @@ function createCurveControlPoints(points, i) {
   if (isNotMiddlePoint(points, i)) {
     pAy = points[i].y;
   }
-	if (isNotMiddlePointX(points, i + 1)) {
-	  pBx = points[i + 1].x;
-	}
-	if (isNotMiddlePointX(points, i)) {
-	  pAx = points[i].x;
-	}
 	if (pAy >= Math.max(points[i].y, points[i + 1].y) || pAy <= Math.min(points[i].y, points[i + 1].y)) {
 	pAy = points[i].y;
 	}
 	if (pBy >= Math.max(points[i].y, points[i + 1].y) || pBy <= Math.min(points[i].y, points[i + 1].y)) {
 	pBy = points[i + 1].y;
-	}
-	if (pAx >= Math.max(points[i].x, points[i + 1].x) || pAx <= Math.min(points[i].x, points[i + 1].x)) {
-	pAx = points[i].x;
-	}
-	if (pBx >= Math.max(points[i].x, points[i + 1].x) || pBx <= Math.min(points[i].x, points[i + 1].x)) {
-	pBx = points[i + 1].x;
 	}
   return {
     ctrA: {
@@ -668,26 +651,24 @@ function filterSeries(series) {
 function findCurrentIndex(currentPoints, calPoints, opts, config) {
   var offset = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
   var currentIndex = -1;
-  var spacing = opts.chartData.eachSpacing/2;
+  var spacing = 0;
 	let xAxisPoints=[];
-	if(calPoints.length>0){
-		for(let i=0;i<calPoints[0].length;i++){
-			xAxisPoints.push(calPoints[0][i].x)
-		}
-		if((opts.type=='line' || opts.type=='area') && opts.xAxis.boundaryGap=='justify'){
-		  spacing = opts.chartData.eachSpacing/2;
-		}
-		if(!opts.categories){
-			spacing=0
-		}
-		if (isInExactChartArea(currentPoints, opts, config)) {
-		  xAxisPoints.forEach(function(item, index) {
-		    if (currentPoints.x + offset + spacing > item) {
-		      currentIndex = index;
-		    }
-		  });
-		}
+	for(let i=0;i<calPoints[0].length;i++){
+		xAxisPoints.push(calPoints[0][i].x)
 	}
+  if((opts.type=='line' || opts.type=='area') && opts.xAxis.boundaryGap=='justify'){
+    spacing = opts.chartData.eachSpacing/2;
+  }
+	if(!opts.categories){
+		spacing=0
+	}
+  if (isInExactChartArea(currentPoints, opts, config)) {
+    xAxisPoints.forEach(function(item, index) {
+      if (currentPoints.x + offset + spacing > item) {
+        currentIndex = index;
+      }
+    });
+  }
   return currentIndex;
 }
 
@@ -1070,9 +1051,9 @@ function getXAxisTextList(series, opts, config) {
     maxData += rangeSpan;
   }
 
-  //var dataRange = getDataRange(minData, maxData);
-  var minRange = minData;
-  var maxRange = maxData;
+  var dataRange = getDataRange(minData, maxData);
+  var minRange = dataRange.minRange;
+  var maxRange = dataRange.maxRange;
 
   var range = [];
   var eachRange = (maxRange - minRange) / opts.xAxis.splitNumber;
@@ -1094,7 +1075,6 @@ function calXAxisData(series, opts, config){
         item = opts.xAxis.format? opts.xAxis.format(item):util.toFixed(item, 2);
         return item;
     });
-		
     var xAxisScaleValues = result.ranges.map(function (item) {
         // 如果刻度值是浮点数,则保留两位小数
         item = util.toFixed(item, 2);
@@ -1448,6 +1428,7 @@ function getDataPoints(data, minRange, maxRange, xAxisPoints, eachSpacing, opts,
 				if (item.constructor == Array) {
 					let xranges,xminRange,xmaxRange;
 					xranges = [].concat(opts.chartData.xAxisData.ranges);
+					
 					xminRange = xranges.shift();
 					xmaxRange = xranges.pop();
 				  value = item[1];
