@@ -12,18 +12,31 @@
 <script>
 	export default{
 		onLoad() {
-			var timer=3;
-			var flag;
-			function daoji(){
-				timer=timer-1;
-				if(timer==0){
-					uni.redirectTo({
-						url:'../login/login'
-					})
-					clearInterval(flag)
-				}
+			var p=uni.getStorageSync('phone');
+			var t=uni.getStorageSync('token');
+			this.global_.phone=p;
+			this.global_.token=t;
+			console.log(p)
+			console.log(t)
+			if(p!='' && t!=''){
+				uni.switchTab({
+					url:'../index/index'
+				})
 			}
-			flag=setInterval(daoji,1000);
+			else{
+				var timer=3;
+				var flag;
+				function daoji(){
+					timer=timer-1;
+					if(timer==0){
+						uni.redirectTo({
+							url:'../login/login'
+						})
+						clearInterval(flag)
+					}
+				}
+				flag=setInterval(daoji,1000);
+			}
 		}
 		
 	}

@@ -123,11 +123,8 @@
              
 		},
         onLoad() {
-            var _self = this;
-           var p=uni.getStorageSync('phone')
-           var t=uni.getStorageSync('token')
-           console.log(p)
-           console.log(t)
+            _self = this;
+            var that = this
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
             _self.getServerData();
