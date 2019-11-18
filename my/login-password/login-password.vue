@@ -8,7 +8,7 @@
 		<view class="linee"></view>
 		<view class="list1">
 			<input class="code1" type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
-			<button class="getcode1" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
+			<button :class="flag?'getcode':'getcode1'" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
 		</view>
 		<view class="set">修改登录密码</view>
 		<view class="list">
@@ -38,7 +38,8 @@
 				pwd1:'',
 				iscode:'',
 				code:'',
-				disabled:true
+				disabled:false,
+				flag:true
 			}
 		},
 		methods:{
@@ -89,6 +90,7 @@
 			                _this.disabled = false
 			
 			              } else {
+							_this.flag = false
 			                _this.codename = num + "s"
 			                _this.disabled = true
 			              }
@@ -238,7 +240,7 @@
 		font-size: 30rpx;
 		
 	}
-	.getcode1{
+	.getcode{
 		float:right;
 		width:200rpx;
 		height:50rpx;
@@ -248,9 +250,23 @@
 		font-size: 24rpx;
 		text-align: center;
 		line-height: 50rpx;
-		margin-right:48rpx;
 		margin-top:25rpx;
+		margin-right: 48rpx;
 		color:#333;
+	}
+	.getcode1{
+		float:right;
+		width:200rpx;
+		height:50rpx;
+		background: #f2f2f2;
+		border: 1rpx solid #B2B2B2;
+		border-radius: 50rpx;
+		font-size: 24rpx;
+		text-align: center;
+		line-height: 50rpx;
+		margin-top:25rpx;
+		margin-right: 48rpx;
+		color:#B2B2B2;
 	}
 	.line{
 		line-height: 100rpx;

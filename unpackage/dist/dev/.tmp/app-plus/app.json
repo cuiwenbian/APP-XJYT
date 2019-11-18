@@ -45,7 +45,8 @@
     "my/my-wallet/my-wallet",
     "my/suggest/suggest",
     "my/suggest-detail/suggest-detail",
-    "my/transfer/transfer"
+    "my/transfer/transfer",
+    "my/choose-address/choose-address"
   ],
   "window": {
     "navigationBarTextStyle": "white",

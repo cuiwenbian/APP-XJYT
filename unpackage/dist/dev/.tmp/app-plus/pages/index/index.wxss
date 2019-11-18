@@ -268,13 +268,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
 	font-style: normal;
 	/* src: url('./static/uni.ttf') format('truetype'); */
 }
-/*通用 */
+    /*通用 */
 view{
 	font-size:28rpx;
 	line-height:1.8;
@@ -345,7 +364,7 @@ form {
 	margin-right: 0rpx;
 	margin-left: 20rpx;
 }
-/* page */
+    /* page */
 .uni-page-head{
 	padding:35rpx;
 	text-align: center;
@@ -408,7 +427,7 @@ form {
 .uni-common-mt{
 	margin-top:30rpx;
 }
-/* 背景色 */
+    /* 背景色 */
 .uni-bg-red{
 	background:#F76260; color:#FFF;
 }
@@ -418,7 +437,7 @@ form {
 .uni-bg-blue{
 	background:#007AFF; color:#FFF;
 }
-/* 标题 */
+    /* 标题 */
 .uni-h1 {font-size: 80rpx; font-weight:700;}
 .uni-h2 {font-size: 60rpx; font-weight:700;}
 .uni-h3 {font-size: 48rpx; font-weight:700;}
@@ -426,14 +445,14 @@ form {
 .uni-h5 {font-size: 28rpx; color: #8f8f94;}
 .uni-h6 {font-size: 24rpx; color: #8f8f94;}
 .uni-bold{font-weight:bold;}
-/* 文本溢出隐藏 */
+    /* 文本溢出隐藏 */
 .uni-ellipsis {overflow: hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis;}
-/* 竖向百分百按钮 */
+    /* 竖向百分百按钮 */
 .uni-btn-v{
 	padding:10rpx 0;
 }
 .uni-btn-v button{margin:20rpx 0;}
-/* 表单 */
+    /* 表单 */
 .uni-form-item{
 	display:-webkit-box;
 	display:-webkit-flex;
@@ -486,14 +505,14 @@ radio-group label, checkbox-group label{
 	    -ms-flex-negative:0;
 	        flex-shrink:0;
 }
-/* loadmore */
+    /* loadmore */
 .uni-loadmore{
 	height:80rpx;
 	line-height:80rpx;
 	text-align:center;
 	padding-bottom:30rpx;
 }
-/*数字角标*/
+    /*数字角标*/
 .uni-badge,
 .uni-badge-default {
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
@@ -559,7 +578,7 @@ radio-group label, checkbox-group label{
 	color: #8a6de9;
 	background-color: transparent
 }
-/*折叠面板 */
+    /*折叠面板 */
 .uni-collapse-content {
 	height: 0;
 	width: 100%;
@@ -568,7 +587,7 @@ radio-group label, checkbox-group label{
 .uni-collapse-content.uni-active {
 	height: auto;
 }
-/*卡片视图 */
+    /*卡片视图 */
 .uni-card {
 	background: #fff;
 	border-radius: 8rpx;
@@ -672,7 +691,7 @@ radio-group label, checkbox-group label{
 .uni-card-link {
 	color: #007AFF;
 }
-/* 列表 */
+    /* 列表 */
 .uni-list {
 	background-color: #FFFFFF;
 	position: relative;
@@ -892,7 +911,7 @@ radio-group label, checkbox-group label{
 .uni-list.uni-active {
 	height: auto;
 }
-/* 三行列表 */
+    /* 三行列表 */
 .uni-triplex-row {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -935,7 +954,7 @@ radio-group label, checkbox-group label{
 	width: 16%;
 	text-align: right;
 }
-/* 图文列表 */
+    /* 图文列表 */
 .uni-media-list {
 	padding: 22rpx 30rpx;
 	-webkit-box-sizing: border-box;
@@ -1010,7 +1029,7 @@ radio-group label, checkbox-group label{
 	font-size: 26rpx;
 	color: #8f8f94;
 }
-/* 九宫格 */
+    /* 九宫格 */
 .uni-grid-9 {
 	background: #f2f2f2;
 	width: 750rpx;
@@ -1071,7 +1090,7 @@ radio-group label, checkbox-group label{
 .uni-grid-9-item-hover {
 	background: rgba(0, 0, 0, 0.1);
 }
-/* 上传 */
+    /* 上传 */
 .uni-uploader {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
@@ -1170,7 +1189,7 @@ radio-group label, checkbox-group label{
 	height: 100%;
 	opacity: 0;
 }
-/*问题反馈*/
+    /*问题反馈*/
 .feedback-title {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -1260,7 +1279,7 @@ radio-group label, checkbox-group label{
 	color: #FFFFFF;
 	margin: 20rpx;
 }
-/* input group */
+    /* input group */
 .uni-input-group {
 	position: relative;
 	padding: 0;
@@ -1324,7 +1343,7 @@ radio-group label, checkbox-group label{
 .uni-input-row label {
 	line-height: 70rpx;
 }
-/* textarea */
+    /* textarea */
 .uni-textarea{
 	width:100%;
 	background:#FFF;
@@ -1336,7 +1355,7 @@ radio-group label, checkbox-group label{
 	font-size:28rpx;
 	height:150rpx;
 }
-/* tab bar */
+    /* tab bar */
 .uni-tab-bar {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -1386,7 +1405,7 @@ radio-group label, checkbox-group label{
 .uni-tab-bar-loading{
 	padding:20rpx 0;
 }
-/* comment */
+    /* comment */
 .uni-comment{padding:5rpx 0; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex:1; -webkit-flex-grow:1; -ms-flex-positive:1; flex-grow:1; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column;}
 .uni-comment-list{-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap; padding:10rpx 0; margin:10rpx 0; width:100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;}
 .uni-comment-face{width:70rpx; height:70rpx; border-radius:100%; margin-right:20rpx; -webkit-flex-shrink:0; -ms-flex-negative:0; flex-shrink:0; overflow:hidden;}
@@ -1398,13 +1417,13 @@ radio-group label, checkbox-group label{
 .uni-comment-date view{color:#666666; font-size:24rpx; line-height:38rpx;}
 .uni-comment-content{line-height:1.6em; font-size:28rpx; padding:8rpx 0;}
 .uni-comment-replay-btn{background:#FFF; font-size:24rpx; line-height:28rpx; padding:5rpx 20rpx; border-radius:30rpx; color:#333 !important; margin:0 10rpx;}
-/* swiper msg */
+    /* swiper msg */
 .uni-swiper-msg{width:100%; padding:12rpx 0; -webkit-flex-wrap:nowrap; -ms-flex-wrap:nowrap; flex-wrap:nowrap; display:-webkit-box; display:-webkit-flex; display:-ms-flexbox; display:flex;}
 .uni-swiper-msg-icon{width:50rpx; margin-right:20rpx;}
 .uni-swiper-msg-icon image{width:100%; -webkit-flex-shrink:0; -ms-flex-negative:0; flex-shrink:0;}
 .uni-swiper-msg swiper{width:100%; height:50rpx;}
 .uni-swiper-msg swiper-item{line-height:50rpx;}
-/* product */
+    /* product */
 .uni-product-list {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1474,7 +1493,7 @@ radio-group label, checkbox-group label{
     padding: 0 10rpx;
     border-radius: 5rpx;
 }
-/* timeline */
+    /* timeline */
 .uni-timeline {
 		margin: 35rpx 0;
 		display: -webkit-box;
@@ -1556,11 +1575,11 @@ radio-group label, checkbox-group label{
 .uni-timeline-item-content .datetime{
 		color: #CCCCCC;
 }
-/* 自定义节点颜色 */
+    /* 自定义节点颜色 */
 .uni-timeline-last-item .uni-timeline-item-divider{
 		background-color: #1AAD19;
 }
-/* uni-icon */
+    /* uni-icon */
 .uni-icon {
 	font-family: uniicons;
 	font-size: 24px;
@@ -1842,7 +1861,7 @@ radio-group label, checkbox-group label{
 .uni-icon-scan:before {
     content: "\E612";
 }
-/* 分界线 */
+    /* 分界线 */
 .uni-divider{
     height: 110rpx;
     display: -webkit-box;
@@ -1880,211 +1899,223 @@ radio-group label, checkbox-group label{
             transform: translateY(50%);
 }
 .qiun-charts {
-    width: 750rpx;
-    height: 500rpx;
-    background-color: #ffffff;
+    	width: 750rpx;
+    	height: 500rpx;
+    	background-color: #FFFFFF;
 }
 page {
-    background-color: #1c1c1c;
+        background-color: #1c1c1c;
 }
 .charts {
-    width: 100%;
-    height: 600rpx;
-    background: -webkit-gradient(linear, left top, left bottom, from(#232323), to(#343434));
-    background: -o-linear-gradient(top, #232323, #343434);
-    background: linear-gradient(to bottom, #232323, #343434);
-    position: relative;
+      width: 100%;
+      height: 600rpx;
+      background: -webkit-gradient(linear,left top, left bottom,from(#232323), to(#343434));
+      background: -o-linear-gradient(top,#232323, #343434);
+      background: linear-gradient(to bottom,#232323, #343434);
+      position: relative;
 }
-.fz {
-    line-height: 40rpx;
+.fz{
+        line-height: 40rpx;
 }
-.bgc {
-    height: 40rpx;
-    line-height: 40rpx;
-    margin-right: 20rpx;
-    background-color: #333333;
-    font-size: 14rpx;
-    margin-left: 20rpx;
-    border-radius: 8rpx;
+.bgc{
+        height: 40rpx;
+        line-height: 40rpx;
+        margin-right: 20rpx;
+        background-color: #333333;
+        font-size: 14rpx;
+        margin-left: 20rpx;
+        border-radius: 8rpx;
 }
 .height {
-    height: var(--status-bar-height);
+		height: var(--status-bar-height);
 }
-.swiper {
-    width: 720rpx;
-    height: 270rpx;
-    margin: 20rpx auto;
+.swiper{
+		width:720rpx;
+		height:270rpx;
+		margin:20rpx auto;
 }
 swiper-item image {
-    width: 100%;
-    height: 100%;
+		width: 100%;
+		height:100%;
 }
-.notice {
-    height: 60rpx;
+.notice{
+        height: 60rpx;
 }
-.ttt {
-    width: 720rpx;
-    height: 300rpx;
-    margin-top: 20rpx;
-    margin-left: 15rpx;
-    border-radius: 8rpx;
+.ttt{
+        width: 720rpx;
+        height: 300rpx;
+        margin-top: 20rpx;
+        margin-left: 15rpx;
+        border-radius: 8rpx;
 }
 .g {
-    width: 28rpx;
-    height: 28rpx;
-    float: left;
-    margin-left: 23rpx;
-    margin-top: 5rpx;
+        width: 28rpx;
+        height: 28rpx;
+        float: left;
+        margin-left: 23rpx;
+        margin-top: 5rpx;
 }
-.i {
-    width: 600rpx;
-    height: 40rpx;
-    background-color: #bcbcbc;
-    margin-left: 52rpx;
-    margin-top: 20rpx;
-    border-radius: 50rpx;
+.i{
+        width: 600rpx;
+        height: 40rpx;        
+        background-color: #BCBCBC;
+        margin-left: 52rpx;
+        margin-top: 20rpx;
+        border-radius: 50rpx;
 }
 .m {
-    float: left;
-    padding-top: 17rpx;
-    margin-left: 90rpx;
-    font-size: 24rpx;
-    color: #ffffff;
+        float: left;
+        padding-top: 17rpx;
+        margin-left: 90rpx;
+        font-size: 24rpx;
+        color: #FFFFFF;
 }
-.clor {
-    color: #f2f2f2;
-    float: left;
-    height: 90rpx;
-    margin-left: 20rpx;
-    font-size: 22rpx;
+.clor{
+         color: #F2F2F2;
+         float: left;
+         height: 90rpx;
+         margin-left: 20rpx;
+         font-size: 22rpx;
 }
 .bor {
-    width: 94%;
-    margin: 0 auto;
-    border: 2rpx solid #cccccc;
+		width: 94%;
+        margin: 0 auto;
+        border: 2rpx solid #CCCCCC;
 }
 .borx {
-    width: 100%;
-    height: 120rpx;
-    background: -webkit-gradient(linear, left top, left bottom, from(#121212), to(#232323));
-    background: -o-linear-gradient(top, #121212, #232323);
-    background: linear-gradient(to bottom, #121212, #232323);
+        width: 100%;
+        height: 120rpx;
+        background: -webkit-gradient(linear,left top, left bottom,from(#121212), to(#232323));
+        background: -o-linear-gradient(top,#121212, #232323);
+        background: linear-gradient(to bottom,#121212, #232323);
 }
-.price {
-    margin-left: 24rpx;
+.price{
+        margin-left: 24rpx;
 }
-/* 白 */
-.bot {
-    float: left;
-    line-height: 120rpx;
-    font-size: 20rpx;
-    color: #f2f2f2;
+    /* 白 */
+.bot{
+        float: left;
+        line-height: 120rpx;
+        font-size: 20rpx;
+        color: #F2F2F2;
 }
-/* 2 */
-.price1 {
-    float: right;
-    margin-right: 24rpx;
+    /* 2 */
+.price1{
+        float: right;
+        margin-right: 24rpx;
 }
-/* 黄 */
-.Todayprice {
-    float: left;
-    line-height: 120rpx;
-    text-align: center;
-    font-size: 38rpx;
-    margin-left: 20rpx;
-    color: #e3ba85;
+    /* 黄 */
+.Todayprice{
+			float: left;
+			line-height: 120rpx;
+            text-align: center;
+			font-size: 38rpx;
+            margin-left: 20rpx;
+			color: #e3ba85;
 }
 .bot1 {
-    color: #ffffff;
-    font-size: 20rpx;
+        color: #FFFFFF;
+        font-size: 20rpx;
 }
 .yesterdayprice {
-    font-size: 38rpx;
-    margin-left: 10rpx;
-    /* margin-top: 20rpx; */
-    padding-top: 20rpx;
-    line-height: 120rpx;
-    color: #dcb16e;
+        font-size: 38rpx;
+        margin-left: 10rpx;
+        /* margin-top: 20rpx; */
+        padding-top: 20rpx;
+        line-height: 120rpx;
+        color: #DCB16E;
 }
-.gg {
-    width: 100%;
-    height: 600rpx;
+.gg{
+        width: 100%;
+        height: 600rpx;
 }
-.Small {
-    width: 100%;
-    height: 80rpx;
-    margin-top: 14rpx;
+.Small{
+        width: 100%;
+		height: 80rpx;
+		margin-top: 14rpx;
 }
 .te {
-    float: left;
-    color: #ffffff;
-    font-size: 32rpx;
-    width: 96%;
-    margin-left: 30rpx;
-    border-bottom: 1rpx solid #555555;
+		float: left;
+        color: #FFFFFF;
+		line-height:80rpx;
+        font-size: 32rpx;
+        width: 96%;
+        margin-left: 30rpx;
+        border-bottom: 1rpx solid #BCBCBC;
 }
-.bt {
-    width: 100%;
-    height: 184rpx;
+.bt{
+		width: 100%;
+        height: 184rpx;
 }
 .left {
-    float: left;
-    width: 70%;
+		float: left;
+		width: 70%;
 }
 .tex {
-    margin-left: 30rpx;
-    font-size: 26rpx;
-    color: #d7d7d7;
-    margin-top: 20rpx;
-    margin-left: 24rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    display: -webkit-box;
-    overflow: hidden;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
-    word-wrap: break-word;
-    white-space: normal !important;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+        margin-left: 30rpx;
+        font-size: 26rpx;
+        color: #D7D7D7;
+        margin-top: 20rpx;
+        margin-left: 24rpx;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+       display: -webkit-box;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        word-wrap: break-word;
+        white-space: normal !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
 }
 .right {
-    float: right;
+		float: right;
 }
 .ig {
-    width: 190rpx;
-    height: 127rpx;
-    margin-top: 28rpx;
-    margin-right: 20rpx;
+        width: 190rpx;
+        height: 127rpx;
+        margin-top: 28rpx;
+        margin-right: 20rpx;
 }
-.uni-swiper-msg {
-    margin-top: 20rpx;
+.uni-swiper-msg{
+        margin-top: 20rpx;
+}
+.desc{
+		padding: 5rpx 40rpx;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 }
 .yu {
-    float: left;
-    margin-top: 8rpx;
-    margin-left: 48rpx;
-    font-size: 14rpx;
-    color: #5a5a5a;
+        font-size: 14rpx;
+        color: #5A5A5A;
 }
 .yj {
-    width: 36rpx;
-    height: 26rpx;
-    margin-left: 146rpx;
-    margin-top: 10rpx;
+        width: 36rpx;
+        height: 26rpx;
+		padding-left: 200rpx;
+		/* margin-top: 8rpx; */
+        /* box-sizing: border-box; */
 }
 .yjj {
-    float: right;
-    margin-right: 180rpx;
-    margin-top: 8rpx;
-    font-size: 14rpx;
-    color: #5a5a5a;
+        font-size: 14rpx;
+        padding-right: 60rpx;
+        color: #5A5A5A;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 }
 .b {
-    display: block;
-    width: 96%;
-    float: right;
-    border-bottom: 1rpx solid #333333;
+        display: block;
+        width: 96%; 
+		float:right;
+        border-bottom: 1rpx solid #333333;
 }
 
 

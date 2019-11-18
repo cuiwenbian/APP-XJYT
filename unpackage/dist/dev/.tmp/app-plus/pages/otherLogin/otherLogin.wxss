@@ -35,13 +35,26 @@ page {
 	color: #646464;
 	font-size: 30rpx;
 }
-/* button::after{ border: none;} */
 .getcode {
 	border-radius: 50rpx;
 	width:250rpx;
 	height: 60rpx;
 	font-size: 30rpx;
-	color: #646464;
+	background: #EBEBEB;
+	color: #333;
+	text-align: center;
+	line-height: 60rpx;
+	position: absolute;
+	bottom: 20rpx;
+	right: 0;
+}
+.getcode1{
+	border-radius: 50rpx;
+	width:250rpx;
+	height: 60rpx;
+	font-size: 30rpx;
+	background: #EDEDED;
+	color:#646464;
 	text-align: center;
 	line-height: 60rpx;
 	position: absolute;

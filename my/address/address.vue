@@ -275,7 +275,7 @@ export default {
 .newadd {
 	width: 200rpx;
 	height: 70rpx;
-	background: #03143b;
+	background: #0A1117;
 	border-radius: 50rpx;
 	color: #fff;
 	text-align: center;

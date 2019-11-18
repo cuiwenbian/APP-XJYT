@@ -10,10 +10,10 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<button class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
+			<button :class="flag?'getcode':'getcode1'" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
 			<input class="number" style="width:300rpx;float:left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
-		<view class="btn" type="primary" @click="login">立刻登录</view>
+		<view class="btn"  @click="login">立刻登录</view>
 		<navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
 	</view>
 </template>
@@ -26,7 +26,8 @@ export default {
 			code: '', //验证码
 			iscode: '', //用于存放验证码接口里获取到的code
 			codename: ' 获取验证码',
-			disabled:false
+			disabled:false,
+			flag:true
 		};
 	},
 	methods: {
@@ -92,10 +93,12 @@ export default {
 		              num--;
 		              if (num <= 0) {
 		                clearInterval(timer);
+						
 		                _this.codename = '重新发送',
 		                _this.disabled = false
 		
 		              } else {
+						 _this.flag=false,
 		                _this.codename = num + "s"
 		                _this.disabled = true
 		              }
@@ -217,14 +220,27 @@ page {
 	color: #646464;
 	font-size: 30rpx;
 }
-/* button::after{ border: none;} */
 
 .getcode {
 	border-radius: 50rpx;
 	width:250rpx;
 	height: 60rpx;
 	font-size: 30rpx;
-	color: #646464;
+	background: #EBEBEB;
+	color: #333;
+	text-align: center;
+	line-height: 60rpx;
+	position: absolute;
+	bottom: 20rpx;
+	right: 0;
+}
+.getcode1{
+	border-radius: 50rpx;
+	width:250rpx;
+	height: 60rpx;
+	font-size: 30rpx;
+	background: #EDEDED;
+	color:#646464;
 	text-align: center;
 	line-height: 60rpx;
 	position: absolute;
@@ -241,6 +257,7 @@ page {
 	text-align: center;
 	line-height: 80rpx;
 }
+
 .goback {
 	width: 280rpx;
 	height: 57rpx;

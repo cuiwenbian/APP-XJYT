@@ -18,7 +18,7 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
-			<button class="getcode" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
+			<button :class="flag?'getcode':'getcode1'" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
 			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
@@ -47,7 +47,8 @@
 				code:'',
 				iscode: '',//用于存放验证码接口里获取到的code
 				codename: ' 获取验证码 ',
-				disabled:false
+				disabled:false,
+				flag:true
 			}
 		},
 		
@@ -120,8 +121,9 @@
 			                _this.disabled = false
 			
 			              } else {
-			                _this.codename = num + "s"
-			                 _this.disabled = true
+							_this.flag=false,
+			                _this.codename = num + "s",
+			                _this.disabled = true
 			              }
 			            }, 1000)
 			          }
@@ -287,21 +289,34 @@
 		color:#646464;
 		font-size: 24rpx;
 	}
-	
-	.getcode{
-		float: right;
+	.getcode {
 		border-radius: 50rpx;
 		width:220rpx;
-		height:60rpx;
+		height: 60rpx;
 		font-size: 30rpx;
+		background:#EBEBEB;
+		color: #333;
+		text-align: center;
+		line-height: 60rpx;
+		position: absolute;
+		bottom: 20rpx;
+		right: 0;
+	}
+		
+	.getcode1{
+		border-radius: 50rpx;
+		width:220rpx;
+		height: 60rpx;
+		font-size: 30rpx;
+		background: #EDEDED;
 		color:#646464;
 		text-align: center;
 		line-height: 60rpx;
-		background: #808080;
 		position: absolute;
 		bottom: 20rpx;
-		right:0;
+		right: 0;
 	}
+	
 	.btn{
 		width:680rpx;
 		height:80rpx;

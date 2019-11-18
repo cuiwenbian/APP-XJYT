@@ -10,8 +10,8 @@
 		<view class="box1">
 			<view class="top">
 				<view class="lab">转账地址</view>
-				<input class="address" type="text" @input='getTranferAdd' placeholder="请输入转账地址" placeholder-style="color:#DADADA">
-				<image class="right" src="../../static/images/jiantou3.png" mode="" @click="link"></image>
+				<input class="address" type="text" @input='getTranferAdd' :value='wallet_value' placeholder="请输入转账地址" placeholder-style="color:#DADADA">
+				<image class="right" src="../../static/images/jiantou3.png"  @click="link"></image>
 			</view>
 			<view class="top1">
 				<view class="lab">提币数量</view>
@@ -53,13 +53,13 @@
                 moder:'',
 				fee:'',
 				fil_num:'',
-				transferAdd:'',
 				password:'',
 				numberList: [],
 				length: 6,
 				type: 'number',
 				passIn: false,
-				success:false
+				success:false,
+				wallet_value:''
             }
         },
 		components: {
@@ -69,19 +69,21 @@
         onLoad(res) {
             var that = this
             console.log(res)
-            that.bar = res.sole
+			that.bar = res.bar
 			that.fee=res.fee
+			that.wallet_value=res.wallet_value
+			console.log(that.wallet_value)
         },
         methods:{
 			getFilNum:function(e){
 				this.fil_num=e.detail.value
 			},
 			getTranferAdd:function(e){
-				this.transferAdd=e.detail.value
+				this.wallet_value=e.detail.value
 			},
             link() {
                 uni.navigateTo({
-                    url:'../address/address'
+                    url:'../choose-address/choose-address?bar='+this.bar+'&fee='+this.fee
                 })
             },
             fusre(){
@@ -157,7 +159,7 @@
 			},
 			save:function(){
 				var that=this;
-				if(that.transferAdd==''){
+				if(that.wallet_value==''){
 					uni.showToast({
 						title:'转账地址不能为空',
 						icon:'none',
@@ -195,7 +197,7 @@
 					method:"POST",
 					data:{
 						fil_num:that.fil_num,
-						address:that.transferAdd
+						address:that.wallet_value
 					},
 					header:{
 						Authorization:'JWT'+' '+this.global_.token
@@ -347,6 +349,7 @@
 		float: right;
 		width:25rpx;
 		height:30rpx;
+		/* background: red; */
 		margin-top:58rpx;
 		margin-right:24rpx;
 	}

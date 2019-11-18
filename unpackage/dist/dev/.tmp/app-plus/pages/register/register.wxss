@@ -36,19 +36,31 @@ page{
 	color:#646464;
 	font-size: 24rpx;
 }
-.getcode{
-	float: right;
+.getcode {
 	border-radius: 50rpx;
 	width:220rpx;
-	height:60rpx;
+	height: 60rpx;
 	font-size: 30rpx;
+	background:#EBEBEB;
+	color: #333;
+	text-align: center;
+	line-height: 60rpx;
+	position: absolute;
+	bottom: 20rpx;
+	right: 0;
+}
+.getcode1{
+	border-radius: 50rpx;
+	width:220rpx;
+	height: 60rpx;
+	font-size: 30rpx;
+	background: #EDEDED;
 	color:#646464;
 	text-align: center;
 	line-height: 60rpx;
-	background: #808080;
 	position: absolute;
 	bottom: 20rpx;
-	right:0;
+	right: 0;
 }
 .btn{
 	width:680rpx;
