@@ -77,6 +77,8 @@
 			},
 			sure:function(){
 				this.global_.token=='';
+				uni.removeStorageSync('phone')
+				uni.removeStorageSync('token')
 				uni.reLaunch({
 					url:'../../pages/login/login'
 				})
