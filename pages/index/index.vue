@@ -230,8 +230,9 @@
                             that.yesterday = t
                             console.log(t)
                             that.yesterdayprice = yest
-                            if(yest>0) {
-                                that.yest = '+' 
+                            if(yest>0 || t > 0 ) {
+                                that.yest = '+' + that.yest 
+                                that.t = '+' + that.t 
                             }
                                  let Area={list:[]};
 								 
