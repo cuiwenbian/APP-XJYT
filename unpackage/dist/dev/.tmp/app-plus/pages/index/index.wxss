@@ -313,6 +313,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2126,16 +2147,12 @@ swiper-item image {
 .yj {
         width: 36rpx;
         height: 26rpx;
-		padding-left: 200rpx;
-		/* margin-top: 8rpx; */
-        /* box-sizing: border-box; */
+		
+		margin-top: 8rpx;
 }
 .yjj {
         font-size: 14rpx;
-        padding-right: 60rpx;
         color: #5A5A5A;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
 }
 .b {
         display: block;

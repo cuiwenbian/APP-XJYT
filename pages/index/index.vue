@@ -44,7 +44,7 @@
             </view>
             <view class="price1">
                 <text class="bot1">
-                    昨日交易:
+                    较昨日:
                 </text>
                 <text class="yesterdayprice"> +{{yesterdayprice}}  +{{yesterday}}</text>
             </view>
@@ -83,9 +83,9 @@
         	<text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
         	<view class="desc">
         		<text class="yu">6月</text>
-        		<image class="yj" src="../../static/images/eye.png"> <text class="yjj">1000人看过</text>
+        		<image class="yj" src="../../static/images/eye.png"> 
         		</image>
-        		
+        		<text class="yjj">1000人看过</text>
         	</view>
         </view>
         <view class="right">
@@ -103,7 +103,7 @@
 	export default {
 		data() {
 			return {      
-                Todayprice:"0.05",
+                Todayprice:"",
                 yesterdayprice:"0.52",
                 yesterday:"1.0%",
                 seven_profit:'',
@@ -117,6 +117,7 @@
                 time:[],
                 price:[],
 				hure:[],
+                feck:[],
                 usd:'',
 				
 			}
@@ -128,9 +129,10 @@
            var t=uni.getStorageSync('token')
            console.log(p)
            console.log(t)
-            this.cWidth=uni.upx2px(750);
-            this.cHeight=uni.upx2px(500);
+           this.cWidth=uni.upx2px(750);
+           this.cHeight=uni.upx2px(500);
             _self.getServerData();
+		
             uni.request({
                 url:this.url + 'home/',
                 method:'GET',
@@ -192,6 +194,7 @@
 							var time=[];
 							var price=[];
 							var hure = []
+                            var feck = []
 							for(let i=1;i<that.usd.length-1;i++){
 									var date=a[i].split(",")[0];
 									var t=formatDate(parseInt(date));
@@ -204,9 +207,28 @@
 								var cert = parseFloat(data1)
 								price.push(cert);
 								that.price = price;
-								console.log(that.price)
+								// console.log(that.price)
 							} 
-                            
+                            for (let o = 1; o <that.usd.length-1; o++) {
+                            	var data3 = a[o].split(",")[1]
+                            	var tert = parseFloat(data3)
+                            	feck.push(tert) 
+                            	that.feck = feck
+
+                            }
+							for (let k = 1; k <that.usd.length-1; k++) {
+								var data2 = a[k].split(",")[4]
+								var nuer = parseFloat(data2)
+								hure.push(nuer) 
+								that.hure = hure
+                                // console.log(tet)
+							}
+                            console.log(data2)
+                            console.log(data3)
+                            var thi = (data2/data3 - 1)*100;
+                            var t= thi.toFixed(2)+'%'
+                            that.Todayprice=data2
+                            console.log(t)
                                  let Area={list:[]};
 								 
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
@@ -216,7 +238,6 @@
                             },
 							
             		});
-
             	},
             	showArea(canvasId,chartData){
 					canvaArea=new uCharts({
@@ -508,15 +529,12 @@
     .yj {
         width: 36rpx;
         height: 26rpx;
-		padding-left: 200rpx;
-		/* margin-top: 8rpx; */
-        /* box-sizing: border-box; */
+		
+		margin-top: 8rpx;
     }
     .yjj {
         font-size: 14rpx;
-        padding-right: 60rpx;
         color: #5A5A5A;
-        box-sizing: border-box;
     }
     .b {
         display: block;
