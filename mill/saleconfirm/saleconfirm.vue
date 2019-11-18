@@ -193,6 +193,27 @@ that. <template>
             			},
             			success(res) {
             				console.log(res);
+                            if(res.statusCode==400){
+                            	var n=res.data.data.err_num;
+                            	console.log(n)
+                            	var s=5-n;
+                            	console.log('剩余'+ s +'次机会')
+                            	uni.showToast({
+                            		title:'交易密码错误,剩余'+ s +'次机会',
+                            		icon:'none',
+                            		duration:2000
+                            	})
+                            }
+                            if(res.statusCode==423){
+                            	uni.showToast({
+                            		title:'交易密码已锁定,请在今日24:00后进行交易',
+                            		icon:'none',
+                            		duration:2000
+                            	})
+                            }
+                            if(res.statusCode==201){
+                            	that.success=true
+                            }
             				if (res.statusCode == 200) {
             					uni.showToast({
             						title: '收款完成',
@@ -202,13 +223,6 @@ that. <template>
                                 uni.navigateTo({
                                     url:'../sale/sale'
                                 })
-            				}
-            				if (res.statusCode == 400) {
-            					uni.showToast({
-            						title: '资金密码错误',
-            						icon: 'none',
-            						duration: 2000
-            					});
             				}
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
