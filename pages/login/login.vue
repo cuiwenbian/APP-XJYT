@@ -31,11 +31,9 @@
 				show:false,
 				phone:'',
 				password:'',
-			
 			};
 		},	
 		methods:{
-			
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
