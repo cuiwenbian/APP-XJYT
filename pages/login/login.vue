@@ -123,8 +123,8 @@
 	page{
 		background: #121212;
 	}
-
-	.logo{
+ 
+	.logo{  
 		display: block;
 		width:185rpx;
 		height:185rpx;

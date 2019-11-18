@@ -162,8 +162,8 @@
 				var date3=timestamp - date4 //时间差的毫秒数
 				console.log(timestamp,date3)
             	uni.request({
-            			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=86400`,
-            			method: 'POST',
+            			  url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=86400`,
+            			  method: 'POST',
             			success: function(res) {
 							console.log(res);
 							//转换时间戳
