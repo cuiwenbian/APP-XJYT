@@ -234,7 +234,7 @@
                             that.yesterdayprice = yest
                             if(yest>0 || t > 0 ) {
                                 that.yest = '+' + that.yest 
-                                that.t = '+' + that.t 
+                                // that.t = '+' + that.t 
                             }
                                  let Area={list:[]};
 								 
@@ -279,7 +279,7 @@
 										    type:'grid',
 											gridColor:'#333535',
 											disableGrid:true,
-											gridType:'solid',
+											gridType:'solid',    
 											dashLength:8,
 											axisLineColor:'#333535',
 											itemCount:20,

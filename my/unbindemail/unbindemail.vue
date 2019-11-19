@@ -49,6 +49,10 @@
 				}
 			})
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()
+                    
+            },
 		methods:{
 			getEmailCode:function(e){
 				this.emailCode=e.detail.value

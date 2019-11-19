@@ -88,7 +88,7 @@
 				numm: '',
 				tabCurrentIndex: 0,
 				add_item: '',
-				profit:'',
+				profit:'0',
 				entin: '',
 				flag: false,
 				ention: '',

@@ -27,6 +27,9 @@
 		onLoad(option) {
 			this.flag=option.flag
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			getAddress:function(e){
 				this.adr=e.detail.value

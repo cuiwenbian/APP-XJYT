@@ -109,6 +109,9 @@
 				shade:false
 			}
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			getName:function(e){
 				this.name=e.detail.value

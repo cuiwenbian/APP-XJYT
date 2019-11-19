@@ -74,6 +74,10 @@
 			that.wallet_value=res.wallet_value
 			console.log(that.wallet_value)
         },
+        onBackPress(option){
+              plus.key.hideSoftKeybord()
+                    
+            },
         methods:{
 			getFilNum:function(e){
 				this.fil_num=e.detail.value

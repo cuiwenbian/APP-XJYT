@@ -72,6 +72,9 @@
 			this.user_id=options.user_id;
 			
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			//返回 
 			back: function() {
