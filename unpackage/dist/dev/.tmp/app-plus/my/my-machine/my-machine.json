@@ -1,0 +1,12 @@
+{
+  "titleNView": {
+    "titleText": "我的矿机",
+    "buttons": [
+      {
+        "fontSize": "32rpx",
+        "width": "80px"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

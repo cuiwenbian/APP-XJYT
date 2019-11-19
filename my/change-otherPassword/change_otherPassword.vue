@@ -104,6 +104,7 @@
 			              num--;
 			              if (num <= 0) {
 			                clearInterval(timer);
+							_this.flag = true,
 			                _this.codename = '重新发送',
 			                _this.disabled = false
 			

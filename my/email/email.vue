@@ -9,9 +9,10 @@
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
+			<input class="enter enter1" type="text"  @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
+		
 		<view class="save"  @click="save">确认</view>
 	</view>
 </template>
@@ -81,6 +82,7 @@
 							  num--;
 							  if (num <= 0) {
 							    clearInterval(timer);
+								that.flag=true,
 							    that.codename = '重新发送',
 							    that.disabled = false
 										

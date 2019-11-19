@@ -12,6 +12,8 @@
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
+		<input type="text" value="" @input="nameinput" placeholder="输入与身份证一致的姓名" placeholder-style="color:#999999"
+		      maxlength="8" />
 		<view class="save"  @click="unbind">确认</view>
 	</view>
 </template>
@@ -31,7 +33,6 @@
 		},
 		onShow() {
 			var _this=this;
-			
 			uni.request({
 				url:this.url+'delemail/',
 				method:'GET',
@@ -74,6 +75,7 @@
 				 	       num--;
 				 	        if (num <= 0) {
 				 	         clearInterval(timer);
+							 that.flag =  true,
 				 	         that.codename = '重新发送',
 				 	         that.disabled = false
 				 	     			
