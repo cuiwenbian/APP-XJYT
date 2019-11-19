@@ -12,8 +12,6 @@
 			<input class="enter enter1" type="text" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
-		<input type="text" value="" @input="nameinput" placeholder="输入与身份证一致的姓名" placeholder-style="color:#999999"
-		      maxlength="8" />
 		<view class="save"  @click="unbind">确认</view>
 	</view>
 </template>
