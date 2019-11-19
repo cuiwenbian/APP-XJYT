@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App'
-// import vuePwd from 'vue-pwd';
 import Global from './components/global.vue' //引用文件
 Vue.config.productionTip = false;
 Vue.prototype.global_=Global;   //挂载到vue实例上面

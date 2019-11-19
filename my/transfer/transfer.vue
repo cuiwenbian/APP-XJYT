@@ -86,9 +86,37 @@
 				this.wallet_value=e.detail.value
 			},
             link() {
-                uni.navigateTo({
-                    url:'../choose-address/choose-address?bar='+this.bar+'&fee='+this.fee
-                })
+				uni.request({
+					url:this.url+'walletaddress/',
+					method:'GET',
+					header:{
+						Authorization:'JWT'+' '+this.global_.token
+					},
+					success(res) {
+						console.log(res)
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'用户未实名认证',
+								icon:'none',
+								duration:2000
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../choose-address/choose-address?bar='+this.bar+'&fee='+this.fee
+							})
+						}
+						if(res.statusCode==302){
+							uni.showToast({
+								title:'用户未设置资金密码',
+								icon:'none',
+								duration:2000
+							})
+						}
+						
+					}
+				})
+                
             },
             fusre(){
                 this.moder = this.bar
@@ -186,7 +214,7 @@
 				}
 				if(that.fil_num<0.001){
 					uni.showToast({
-						title:'请输入正确的金额',
+						title:'请输入正确的金额(提币数量不能少于0.001)',
 						icon:'none',
 						duration:2000
 					})
@@ -200,8 +228,6 @@
 					})
 					return false
 				}
-				console.log(that.fil_num)
-				console.log(that.wallet_value)
 				uni.request({
 					url:that.url+'assets/transfer/',
 					method:"POST",

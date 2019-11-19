@@ -59,6 +59,13 @@ export default {
 			},
 			success(res) {
 				console.log(res);
+				if(res.statusCode==302){
+					uni.showToast({
+						title:'资金密码未设置',
+						icon:'none',
+						duration:2000
+					})
+				}
 				if (res.data.data == '') {
 					that.flag = false;
 				} else {
