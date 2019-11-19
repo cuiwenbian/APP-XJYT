@@ -69,7 +69,6 @@ export default {
 			]
 		};
 	},
-
 	onShow(options) {
 		var that = this;
 		uni.request({
@@ -88,7 +87,6 @@ export default {
 				}
 				if (res.statusCode == 205) {
 					that.flag = true;
-					
 				}
 				
 			}

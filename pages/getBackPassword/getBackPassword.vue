@@ -147,9 +147,41 @@
 					})
 					return false
 				}
-				uni.navigateTo({
-					url:'../setNewPassword/setNewPassword?code='+this.code+'&phone='+this.phone,
+				uni.request({
+					url:_this.url + 'users/forgot/next/',
+					method: 'POST',
+					data: {
+					  mobile: this.phone,
+					  code:this.code,
+					},
+					header: {
+					  "Content-Type": "application/x-www-form-urlencoded"
+					},
+					success(res) {
+						console.log(res);
+						if(res.statusCode==401){
+							uni.showToast({
+								title:'wrong',
+								icon:'none',
+								duration:2000
+							})
+						}
+						
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'手机号验证码不匹配',
+								icon:'none',
+								duration:2000
+							})
+						}
+						if(res.statusCode==200){
+							uni.navigateTo({
+								url:'../setNewPassword/setNewPassword?code='+this.code+'&phone='+this.phone,
+							});
+						}
+					}
 				});
+				
 			}
 			
 			

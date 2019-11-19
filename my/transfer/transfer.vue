@@ -67,12 +67,11 @@
 			passwordInput
 		},
         onLoad(res) {
-            var that = this
             console.log(res)
-			that.bar = res.bar
-			that.fee=res.fee
-			that.wallet_value=res.wallet_value
-			console.log(that.wallet_value)
+			this.bar = res.bar
+			this.fee=res.fee
+			this.wallet_value=res.wallet_value
+			console.log(this.bar)
         },
         onBackPress(option){
               plus.key.hideSoftKeybord()
@@ -86,6 +85,7 @@
 				this.wallet_value=e.detail.value
 			},
             link() {
+				var that=this;
 				uni.request({
 					url:this.url+'walletaddress/',
 					method:'GET',
@@ -102,9 +102,12 @@
 							})
 						}
 						if(res.statusCode==200){
-							uni.navigateTo({
-								url:'../choose-address/choose-address?bar='+this.bar+'&fee='+this.fee
-							})
+							
+								uni.navigateTo({
+									url:'../choose-address/choose-address?bar='+that.bar+'&fee='+that.fee
+								})
+							
+							
 						}
 						if(res.statusCode==302){
 							uni.showToast({
@@ -196,6 +199,10 @@
 			},
 			save:function(){
 				var that=this;
+				var b=parseFloat(that.bar)
+				var f=parseFloat(that.fil_num)
+				console.log(b)
+				console.log(f)
 				if(that.wallet_value==''){
 					uni.showToast({
 						title:'转账地址不能为空',
@@ -220,7 +227,7 @@
 					})
 					return false
 				}
-				if(that.fil_num > that.bar){
+				if(f > b){
 					uni.showToast({
 						title:'提币数量余额不足',
 						icon:'none',

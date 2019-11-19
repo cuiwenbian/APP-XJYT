@@ -3,12 +3,12 @@
 	<view class="container" >
 		<view class="pass">
 			<text class="title">新密码</text>
-			<input class="phone" type="text" :value="newPwd" @blur="passwordWrong" @input="newpassword" placeholder="6-16位数字、字母" />
-			<view class="line"></view>
+			<input class="phone" type="text" :password="isPassword" :value="newPwd"  @input="newpassword" placeholder="6-16位数字、字母" />
+			<view class="line"></view> 
 		</view>
 		<view class="pass">
 			<text class="title">确认密码</text>
-			<input class="phone" type="text" :value="newPwd1" @input="newpassword1" placeholder="请再次输入新密码" />
+			<input class="phone" type="text" :password="isPassword1" :value="newPwd1" @input="newpassword1" placeholder="请再次输入新密码" />
 		</view>
 		<view class="next" @click="next">确认</view>
 	</view>
@@ -18,6 +18,8 @@
 	export default{
 		data(){
 			return{
+				isPassword:true,
+				isPassword1:true,
 				newPwd:'',
 				newPwd1:'',
 				iscode:'',
@@ -34,9 +36,13 @@
 			newpassword:function(e){
 				this.newPwd=e.detail.value
 			},
-			passwordWrong:function(e){
+			
+			newpassword1:function(e){
+				this.newPwd1=e.detail.value
+			},
+			next(){
+				var _this=this;
 				var str =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
-				this.newPwd=e.detail.value
 				if(!str.test(this.newPwd)){
 					uni.showToast({
 						title:'密码格式不正确',
@@ -44,12 +50,6 @@
 						duration:2000
 					})
 				}
-			},
-			newpassword1:function(e){
-				this.newPwd1=e.detail.value
-			},
-			next(){
-				var _this=this;
 				if(this.newPwd==""){
 					uni.showToast({
 						title:"请输入新密码",
@@ -89,7 +89,8 @@
 					data:{
 						mobile:this.phone,
 						password:this.newPwd,
-						sec_password:this.newPwd1
+						sec_password:this.newPwd1,
+						code:this.iscode,
 					},
 					header:{
 						
@@ -98,6 +99,11 @@
 						console.log(res)
 						uni.navigateTo({
 							url:'../login/login'
+						})
+						uni.showToast({
+							title:'密码已重设，请登录',
+							icon:'none',
+							duration:2000
 						})
 					}
 				})

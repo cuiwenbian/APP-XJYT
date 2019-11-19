@@ -17,7 +17,7 @@
 			<text class="title">手机号</text>
 			<view class="info1">{{phone}}</view>
 		</view>
-		<view class="next" type="primary" @click="save">保存</view>
+		<!-- <view class="next" type="primary" @click="save">保存</view> -->
 	</view>
 </template>
 
