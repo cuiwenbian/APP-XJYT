@@ -11,7 +11,6 @@
 			<text class="lock">锁定币: 
                 <text class="berot">{{nuber}}</text>
             </text>
-
 		</view>
 		<view class="btn">
 			<button class="primary">提交</button>
@@ -35,7 +34,6 @@
 						<view class="info">暂无记录</view>
 					</view>
 					<view v-else class="boxx">
-                           
 						<view class="list-one" v-for="(item , index) in ention" :key="index">
 							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 							<view class='list-txt'>

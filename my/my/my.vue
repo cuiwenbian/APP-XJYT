@@ -51,7 +51,6 @@
 					<view class='pop-btn' @click="cancel">取消</view>
 					<view class='pop-btn' @click="sure">确定</view>
 				</view>
-	
 			</view>
 		</view>
     </view>
