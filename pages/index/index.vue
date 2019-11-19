@@ -165,7 +165,7 @@
             			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=28800`,
             			method: 'POST',
             			success: function(res) {
-							console.log(res);
+							//console.log(res);
 							//转换时间戳
 							function formatDate(v) {
 								console.log(v)
