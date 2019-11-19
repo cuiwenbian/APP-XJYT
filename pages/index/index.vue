@@ -119,6 +119,8 @@
 				hure:[],
                 feck:[],
                 usd:'',
+                hige:'',
+                minn:'',
 				
 			}
              
@@ -218,19 +220,21 @@
                             }
                             for (let n = 1; n < that.usd.length-1; n++) {
                                 var min = a[n].split(",")[3]
+
                             }
                             var now_price =parseFloat(a[a.length-2].split(",")[4]) 
                             var yesterday_price = parseFloat(a[a.length-6].split(",")[4])
                             var incrace = now_price-yesterday_price
-                            console.log(incrace)
-                            console.log(now_price)
                             var yest = incrace.toFixed(2)
-                            console.log(yest)
                             var thi = (now_price/data3 - 1)*100;
                             var t= thi.toFixed(2)+'%'
+                            console.log(data1)
+                            console.log(min)
+                            _self.hige =parseFloat(data1)  + 1
+                            _self.minn =parseFloat(min)  - 1
                             that.Todayprice=now_price
                             that.yesterday = t
-                            console.log(t)
+
                             that.yesterdayprice = yest
                             if(yest>0 || t > 0 ) {
                                 that.yest = '+' + that.yest 
@@ -240,10 +244,9 @@
 								 
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
                                  Area.list=that.usd;
-								 
+								 console.log(_self.minn)
                                  _self.showArea("canvasArea",that.usd);                      
                             },
-							
             		});
             	},
             	showArea(canvasId,chartData){
@@ -295,8 +298,8 @@
 											gridColor:'#333535',
 											dashLength:8,
 											splitNumber:4,
-											min:_self.min,
-											max:_self.data1,
+											min:_self.minn,
+											max:_self.hige,
 											axisLineColor:'#333',		
 											format:(val)=>{return val.toFixed(1)}
 										},
