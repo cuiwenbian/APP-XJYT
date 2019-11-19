@@ -42,6 +42,9 @@
 				flag:true
 			}
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			getLoginPassword:function(e){
 				this.pwd=e.detail.value

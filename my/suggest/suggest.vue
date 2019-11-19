@@ -93,9 +93,9 @@
 			})
 		    
 		},
-		onBackPress(options) {
-		        console.log('from:' + options.from)
-		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			getTitleContent:function(e){
 				this.title=e.detail.value

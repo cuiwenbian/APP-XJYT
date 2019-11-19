@@ -28,7 +28,9 @@
 				flag:true
 			}
 		},
-		
+		onBackPress(option){
+		      plus.key.hideSoftKeybord()    
+		    },
 		methods:{
 			getEmailValue:function(e){
 				this.email=e.detail.value

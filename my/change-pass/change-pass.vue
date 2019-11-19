@@ -33,6 +33,9 @@
 					pwd2:''
 				}
 			},
+            onBackPress(option){
+                  plus.key.hideSoftKeybord()    
+                },
 			methods:{
 				getNowPwd:function(e){
 					this.pass=e.detail.value;

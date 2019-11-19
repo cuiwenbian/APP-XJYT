@@ -32,6 +32,9 @@
 				newPassword1:''
 			}
 		},
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
 		methods:{
 			show:function(){
 				this.isPassword=!this.isPassword
