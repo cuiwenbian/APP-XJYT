@@ -23,11 +23,11 @@
 			手续费：{{fil_num * fee}}
 		</view>
 		<view class="next"  @click="save">提交</view>
-		<view class="success" v-if='success'>
+		<!-- <view class="success" v-if='success'>
 			<image class='duigou' src="../../static/images/success.png" mode=""></image>
 			<view class='tran'>转账成功</view>
 			<view class='btn' @click='over'>完成</view>
-		</view>
+		</view> -->
 		
 		<!-- #ifndef H5 -->
 			<password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
@@ -58,7 +58,7 @@
 				length: 6,
 				type: 'number',
 				passIn: false,
-				success:false,
+				// success:false,
 				wallet_value:''
             }
         },
@@ -149,7 +149,12 @@
 								})
 							}
 							if(res.statusCode==201){
-								that.success=true
+								uni.navigateBack({
+									delta:2
+								})
+								var page = getCurrentPages().pop();
+								if (page == undefined || page == null) return; 
+								page.onLoad(); 
 							}
 							
 					    }

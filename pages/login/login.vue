@@ -45,7 +45,6 @@
 			},
 			login() {
 				var _self=this;
-				
 				if(this.phone==""){
 					uni.showToast({
 						icon:'none',
