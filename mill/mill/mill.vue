@@ -24,7 +24,7 @@
 			<view v-for="(item, index) in user_id" :key="index">
 				<view class="cu-form-group margin-top">
 					<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
-				</view>
+				
 
 				<view class="pagex">
 					<view class="page1">
@@ -43,6 +43,7 @@
 						</view>
 					</view>
 				</view>
+                </view>
 			</view>
 		</checkbox-group>
 		</block>

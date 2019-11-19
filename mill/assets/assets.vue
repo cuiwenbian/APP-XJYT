@@ -27,7 +27,7 @@
 				<view>
 					<text class="all1">Filecoin:{{month_profit}}</text>
 					<div class="item">
-						<dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
+                        <dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
 					</div>
 					<view v-if="flag">
 						<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
