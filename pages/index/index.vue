@@ -215,7 +215,9 @@
                             	var tert = parseFloat(data3)
                             	feck.push(tert) 
                             	that.feck = feck
-
+                            }
+                            for (let n = 1; n < that.usd.length-1; n++) {
+                                var min = a[n].split(",")[3]
                             }
                             var now_price =parseFloat(a[a.length-2].split(",")[4]) 
                             var yesterday_price = parseFloat(a[a.length-6].split(",")[4])
@@ -261,7 +263,7 @@
 										categories: _self.time,//数据类别(饼图.圆环图不需要)
 										series: [   //数据列表
 										          {
-										            name: "FIL数量", //数据名称
+										            name: "FIL价格", //数据名称
 										            data: _self.price, //数据 //数据
 										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
 										          },
@@ -293,8 +295,8 @@
 											gridColor:'#333535',
 											dashLength:8,
 											splitNumber:4,
-											min:7,
-											max:9,
+											min:_self.min,
+											max:_self.data1,
 											axisLineColor:'#333',		
 											format:(val)=>{return val.toFixed(1)}
 										},
