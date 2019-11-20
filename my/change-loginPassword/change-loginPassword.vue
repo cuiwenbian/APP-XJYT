@@ -7,7 +7,7 @@
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-				<input class="code"  type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
+				<input class="code"  type="number" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
 				<button :class="flag?'getcode':'getcode1'" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
 		</view>
 		<view class="set">设置登录密码</view>
@@ -183,13 +183,16 @@
 						console.log(res) 
 						if(res.statusCode==200){
 							uni.showToast({
-								title:'登陆密码修改成功',
+								title:'登陆密码设置成功',
 								icon:'none',
 								duration:2000
 							})
-							uni.switchTab({
-								url:'../my/my'
+							uni.removeStorageSync('phone')
+							uni.removeStorageSync('token')
+							uni.reLaunch({
+								url:'../../pages/login/login'
 							})
+							
 						}
 						if(res.statusCode==400){
 							uni.showToast({

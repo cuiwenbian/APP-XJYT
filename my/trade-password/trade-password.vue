@@ -8,17 +8,17 @@
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type="text" @input="getCodeValue" :value="code" placeholder="请输入邮箱验证码" />
+			<input class="code" type="digit" @input="getCodeValue" :value="code" placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
 		</view>
 		<view class="set">设置交易密码</view>
 		<view class="list">
-			<input class="code" type='number' :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
+			<input class="code" type='digit' :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
 			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-			<input class="code" type='number' :password="isPassword1" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
+			<input class="code" type='digit' :password="isPassword1" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
 			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>
@@ -147,7 +147,7 @@
 				var f=this.global_.checkPassword(this.password)
 				if(!f){
 					uni.showToast({
-						title:'交易密码为六位数字!!!',
+						title:'交易密码为六位数字!',
 						icon:'none',
 						duration:2000
 					})
@@ -196,7 +196,7 @@
 						}
 						if(res.statusCode==400){
 							uni.showToast({
-								title:'交易密码为六位数字',
+								title:'验证码错误',
 								icon:'none',
 								duration:2000
 							})

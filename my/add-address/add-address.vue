@@ -46,7 +46,7 @@
 					})
 					return false
 				}
-				if(this.adr.length<32){
+				if(this.adr.length<=32){
 					uni.showToast({
 						title:'提币地址最少32位',
 						icon:'none',
@@ -146,7 +146,7 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#BCBCBC;
+		color:#333;
 	}
 	.save{
 		margin: 100rpx auto;

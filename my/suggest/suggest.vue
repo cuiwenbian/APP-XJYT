@@ -49,7 +49,7 @@
 	export default{
 		data(){
 		  return{
-			  flag:true,
+			  flag:false,
 			  hidden:true,
 			  title:'',
 			  desc:'',
@@ -72,14 +72,12 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					//console.log(res);
 					if(res.data.data==''){
 						_this.flag=true
 					}else{
 						_this.flag=false
 					}
 					_this.messages=res.data.data;
-		            
 					for(let i=0;i<_this.messages.length;i++){
 						var t=_this.messages[i].add_time;
 						var t1=t.substr(0,10)+'  '+t.substr(11,8)

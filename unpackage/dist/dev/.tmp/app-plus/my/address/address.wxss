@@ -206,6 +206,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 /* .height {
 	height: var(--status-bar-height);
 	background: #121212;
@@ -267,7 +277,7 @@
 .tips {
 	margin-top: 50rpx;
 	text-align: center;
-	color: #797979;
+	color: #8a8a8a;
 	font-size: 28rpx;
 }
 .newadd {

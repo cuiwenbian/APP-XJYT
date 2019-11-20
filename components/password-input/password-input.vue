@@ -1,10 +1,10 @@
 <template>
-	<view class="container" ref='hiddenmodalput'>
+	<view class="container" ref='passwordInput'>
 	<view class="boxx" v-if="hiddenmodalput">
 		<image class="close" src="../../static/images/close.png" @tap='close'></image>
-		<view :class="flag?'tip':'tip1'">
+		<view :class="flag?'tip':'tip1'" >
 		  <image class="lock" src="../../static/images/lock.png"></image>
-		 请输入您的密码
+		 {{tip}}
 		</view>
 		<view class="forget" @tap="forget">忘记密码？</view>
 		<view  :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
@@ -42,7 +42,8 @@
 		data() {
 			return {
 				flag:true,
-				hiddenmodalput:true
+				hiddenmodalput:true,
+				tip:'请输入您的密码'
 			};
 		},
 		computed:{
@@ -55,7 +56,7 @@
 			forget: function() {
 			  var that = this;
 			  uni.redirectTo({
-			    url: '../../pages/getBackPassword/getBackPassword'
+			    url: '../../my/change-otherPassword/change_otherPassword'
 			  })
 			},
 			formatMargin(gutter){
@@ -98,7 +99,7 @@
 	  text-align: center;
 	  line-height: 50rpx;
 	  color: red;
-	   margin: 80rpx auto 20rpx;
+	  margin: 80rpx auto 20rpx;
 	}
 	.close {
 	  width: 40rpx;

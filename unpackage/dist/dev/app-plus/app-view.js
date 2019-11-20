@@ -1238,7 +1238,7 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_3)return __WXML_GLOBAL__.ops_cached.$gwx_3
 __WXML_GLOBAL__.ops_cached.$gwx_3=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'container data-v-1a813ae1 vue-ref'])
-Z([3,'hiddenmodalput'])
+Z([3,'passwordInput'])
 Z([[7],[3,'hiddenmodalput']])
 Z([3,'boxx data-v-1a813ae1'])
 Z([3,'__e'])
@@ -1248,7 +1248,7 @@ Z([3,'../../static/images/close.png'])
 Z([[4],[[5],[[5],[1,'data-v-1a813ae1']],[[2,'?:'],[[7],[3,'flag']],[1,'tip'],[1,'tip1']]]])
 Z([3,'lock data-v-1a813ae1'])
 Z([3,'../../static/images/lock.png'])
-Z([3,'请输入您的密码'])
+Z([a,[[2,'+'],[[2,'+'],[1,''],[[7],[3,'tip']]],[1,'']]])
 Z(z[4])
 Z([3,'forget data-v-1a813ae1'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'forget']],[[4],[[5],[1,'$event']]]]]]]]]]])
@@ -2823,7 +2823,7 @@ Z([3,'提币地址'])
 Z([3,'2'])
 Z([3,'box'])
 Z([3,'none'])
-Z([3,'../../static/images/address.png'])
+Z([3,'../../static/images/no-add.png'])
 Z([3,'tips'])
 Z([3,'您还没有提币地址哦！'])
 Z(z[8])
@@ -2834,7 +2834,9 @@ Z([[7],[3,'passIn']])
 Z(z[7])
 Z(z[8])
 Z(z[8])
+Z([3,'vue-ref'])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^clo']],[[4],[[5],[[4],[[5],[1,'clo']]]]]]]],[[4],[[5],[[5],[1,'^tap']],[[4],[[5],[[4],[[5],[[5],[1,'openKeyBoard']],[[4],[[5],[1,'number']]]]]]]]]]])
+Z([3,'wrong'])
 Z([1,20])
 Z([[7],[3,'length']])
 Z([[7],[3,'numberList']])
@@ -2843,7 +2845,7 @@ Z(z[7])
 Z(z[8])
 Z(z[8])
 Z(z[8])
-Z([3,'vue-ref'])
+Z(z[54])
 Z([[4],[[5],[[5],[[5],[[4],[[5],[[5],[1,'^onInput']],[[4],[[5],[[4],[[5],[1,'onInput']]]]]]]],[[4],[[5],[[5],[1,'^onDelete']],[[4],[[5],[[4],[[5],[1,'onDelete']]]]]]]],[[4],[[5],[[5],[1,'^onConfirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
 Z([3,'number'])
 Z([1,true])
@@ -2865,7 +2867,7 @@ Z([3,'__e'])
 Z([3,'code'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getCodeValue']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入手机验证码'])
-Z([3,'text'])
+Z([3,'number'])
 Z([[7],[3,'code']])
 Z(z[7])
 Z([[4],[[5],[[2,'?:'],[[7],[3,'flag']],[1,'getcode'],[1,'getcode1']]]])
@@ -3034,7 +3036,7 @@ Z([3,'__e'])
 Z([3,'code'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getPassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入现有密码'])
-Z([3,'password'])
+Z([3,'number'])
 Z([[7],[3,'password']])
 Z([3,'set'])
 Z([3,'设置新密码'])
@@ -3046,7 +3048,7 @@ Z(z[5])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getNewPassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([[7],[3,'isPassword']])
 Z([3,'请输入新的交易密码'])
-Z([3,'number'])
+Z([3,'digit'])
 Z([[7],[3,'newPassword']])
 Z(z[4])
 Z([3,'close'])
@@ -3139,7 +3141,9 @@ Z([[7],[3,'passIn']])
 Z([3,'__l'])
 Z(z[6])
 Z(z[6])
+Z([3,'vue-ref'])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^tap']],[[4],[[5],[[4],[[5],[[5],[1,'openKeyBoard']],[[4],[[5],[1,'number']]]]]]]]]],[[4],[[5],[[5],[1,'^clo']],[[4],[[5],[[4],[[5],[1,'clo']]]]]]]]])
+Z([3,'wrong'])
 Z([1,20])
 Z([[7],[3,'length']])
 Z([[7],[3,'numberList']])
@@ -3148,7 +3152,7 @@ Z(z[25])
 Z(z[6])
 Z(z[6])
 Z(z[6])
-Z([3,'vue-ref'])
+Z(z[28])
 Z([[4],[[5],[[5],[[5],[[4],[[5],[[5],[1,'^onInput']],[[4],[[5],[[4],[[5],[1,'onInput']]]]]]]],[[4],[[5],[[5],[1,'^onDelete']],[[4],[[5],[[4],[[5],[1,'onDelete']]]]]]]],[[4],[[5],[[5],[1,'^onConfirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
 Z([3,'number'])
 Z([1,true])
@@ -3157,19 +3161,21 @@ Z([[7],[3,'delShow']])
 Z(z[25])
 Z(z[6])
 Z(z[6])
+Z(z[28])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'^tap']],[[4],[[5],[[4],[[5],[[5],[1,'openKeyBoard']],[[4],[[5],[1,'number']]]]]]]]]],[[4],[[5],[[5],[1,'^clo']],[[4],[[5],[[4],[[5],[1,'cloo']]]]]]]]])
-Z(z[29])
 Z(z[30])
 Z(z[31])
+Z(z[32])
+Z(z[33])
 Z([3,'3'])
 Z(z[25])
 Z(z[6])
 Z(z[6])
 Z(z[6])
-Z(z[37])
+Z(z[28])
 Z([[4],[[5],[[5],[[5],[[4],[[5],[[5],[1,'^onInput']],[[4],[[5],[[4],[[5],[1,'onInput1']]]]]]]],[[4],[[5],[[5],[1,'^onDelete']],[[4],[[5],[[4],[[5],[1,'onDelete']]]]]]]],[[4],[[5],[[5],[1,'^onConfirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
 Z([3,'numbers'])
-Z(z[40])
+Z(z[42])
 Z([3,'4'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_28);return __WXML_GLOBAL__.ops_cached.$gwx_28
 }
@@ -3187,7 +3193,7 @@ Z(z[5])
 Z([3,'enter'])
 Z([[4],[[5],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getEmailValue']],[[4],[[5],[1,'$event']]]]]]]]]],[[4],[[5],[[5],[1,'blur']],[[4],[[5],[[4],[[5],[[5],[1,'getEmailStyle']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入邮箱地址'])
-Z([3,'text'])
+Z([3,'number'])
 Z([[7],[3,'email']])
 Z(z[1])
 Z(z[2])
@@ -3234,7 +3240,7 @@ Z(z[7])
 Z([3,'weui-input1'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getIdcard']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入您的身份证号码'])
-Z([3,'idcard'])
+Z([3,'number'])
 Z([[7],[3,'idcard']])
 Z(z[2])
 Z([3,'上传身份证'])
@@ -3314,7 +3320,7 @@ Z(z[61])
 Z([3,'line2'])
 Z([3,'reque'])
 Z([3,'拍摄图片要求'])
-Z(z[21])
+Z([3,'idcard'])
 Z([3,'id1'])
 Z([3,'c'])
 Z([3,'../../static/images/card.png'])
@@ -3586,7 +3592,7 @@ Z([3,'备货完成'])
 Z([3,'line1'])
 Z([3,'box'])
 Z([3,'none'])
-Z([3,'../../static/images/machine.png'])
+Z([3,'../../static/images/add.png'])
 Z([3,'tips'])
 Z([3,'您还没有矿机哦！'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_33);return __WXML_GLOBAL__.ops_cached.$gwx_33
@@ -3696,7 +3702,7 @@ Z(z[7])
 Z(z[21])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'address']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z(z[23])
-Z([3,'../../static/images/my-address.png'])
+Z([3,'../../static/images/address.png'])
 Z(z[25])
 Z([3,'提币地址'])
 Z(z[7])
@@ -3710,7 +3716,7 @@ Z(z[7])
 Z(z[21])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'mymachine']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z(z[23])
-Z([3,'../../static/images/my-machine.png'])
+Z([3,'../../static/images/machine.png'])
 Z(z[25])
 Z([3,'我的矿机'])
 Z(z[7])
@@ -3724,7 +3730,7 @@ Z(z[7])
 Z(z[21])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'loginPassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z(z[23])
-Z(z[52])
+Z([3,'../../static/images/my-login.png'])
 Z(z[25])
 Z([3,'登录密码'])
 Z(z[7])
@@ -3917,7 +3923,7 @@ Z([3,'__e'])
 Z([3,'code'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getCodeValue']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入邮箱验证码'])
-Z([3,'text'])
+Z([3,'digit'])
 Z([[7],[3,'code']])
 Z(z[10])
 Z([[4],[[5],[[2,'?:'],[[7],[3,'flag']],[1,'getcode'],[1,'getcode1']]]])
@@ -3932,7 +3938,7 @@ Z(z[11])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getPassword']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([[7],[3,'isPassword']])
 Z([3,'请输入交易密码,6位数字组合'])
-Z([3,'number'])
+Z(z[14])
 Z([[7],[3,'password']])
 Z(z[10])
 Z([3,'close'])
@@ -3945,7 +3951,7 @@ Z(z[11])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getPassword1']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([[7],[3,'isPassword1']])
 Z([3,'请再次输入交易密码'])
-Z(z[29])
+Z(z[14])
 Z([[7],[3,'password1']])
 Z(z[10])
 Z(z[32])
@@ -4053,7 +4059,7 @@ Z([3,'__e'])
 Z([3,'enter enter1'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'input']],[[4],[[5],[[4],[[5],[[5],[1,'getEmailCode']],[[4],[[5],[1,'$event']]]]]]]]]]])
 Z([3,'请输入邮箱验证码'])
-Z([3,'text'])
+Z([3,'number'])
 Z([[7],[3,'emailCode']])
 Z(z[12])
 Z([[4],[[5],[[2,'?:'],[[7],[3,'flag']],[1,'getcode'],[1,'getcode1']]]])
@@ -8179,10 +8185,10 @@ _(h3FB,bOGB)
 var o4FB=_v()
 _(c2FB,o4FB)
 if(_oz(z,50,e,s,gg)){o4FB.wxVkey=1
-var oXGB=_mz(z,'password-input',['bind:__l',51,'bind:clo',1,'bind:tap',2,'data-event-opts',3,'gutter',4,'length',5,'list',6,'vueId',7],[],e,s,gg)
+var oXGB=_mz(z,'password-input',['bind:__l',51,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
 _(o4FB,oXGB)
 }
-var lYGB=_mz(z,'keyboard-package',['bind:__l',59,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
+var lYGB=_mz(z,'keyboard-package',['bind:__l',61,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
 _(c2FB,lYGB)
 h3FB.wxXCkey=1
 h3FB.wxXCkey=3
@@ -8398,7 +8404,7 @@ _(f5IB,c6IB)
 _(o4IB,f5IB)
 var h7IB=_n('view')
 _rz(z,h7IB,'class',3,e,s,gg)
-var o8IB=_mz(z,'input',['bindinput',4,'class',1,'data-event-opts',2,'placeholder',3,'type',4,'value',5],[],e,s,gg)
+var o8IB=_mz(z,'input',['password',-1,'bindinput',4,'class',1,'data-event-opts',2,'placeholder',3,'type',4,'value',5],[],e,s,gg)
 _(h7IB,o8IB)
 _(o4IB,h7IB)
 var c9IB=_n('view')
@@ -8541,18 +8547,18 @@ _(oFKB,cSKB)
 var lGKB=_v()
 _(oFKB,lGKB)
 if(_oz(z,24,e,s,gg)){lGKB.wxVkey=1
-var lUKB=_mz(z,'password-input',['bind:__l',25,'bind:clo',1,'bind:tap',2,'data-event-opts',3,'gutter',4,'length',5,'list',6,'vueId',7],[],e,s,gg)
+var lUKB=_mz(z,'password-input',['bind:__l',25,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
 _(lGKB,lUKB)
 }
-var aVKB=_mz(z,'keyboard-package',['bind:__l',33,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
+var aVKB=_mz(z,'keyboard-package',['bind:__l',35,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
 _(oFKB,aVKB)
 var aHKB=_v()
 _(oFKB,aHKB)
-if(_oz(z,42,e,s,gg)){aHKB.wxVkey=1
-var tWKB=_mz(z,'password-input',['bind:__l',43,'bind:clo',1,'bind:tap',2,'data-event-opts',3,'gutter',4,'length',5,'list',6,'vueId',7],[],e,s,gg)
+if(_oz(z,44,e,s,gg)){aHKB.wxVkey=1
+var tWKB=_mz(z,'password-input',['bind:__l',45,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
 _(aHKB,tWKB)
 }
-var eXKB=_mz(z,'keyboard-package',['bind:__l',51,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
+var eXKB=_mz(z,'keyboard-package',['bind:__l',55,'bind:onConfirm',1,'bind:onDelete',2,'bind:onInput',3,'class',4,'data-event-opts',5,'data-ref',6,'disableDot',7,'vueId',8],[],e,s,gg)
 _(oFKB,eXKB)
 lGKB.wxXCkey=1
 lGKB.wxXCkey=3
@@ -10822,10 +10828,10 @@ __wxAppCode__['mill/staypay/staypay.wxml']=$gwx('./mill/staypay/staypay.wxml');
 __wxAppCode__['mill/validation/validation.wxss']=setCssToHead(["body{ background-color: #DCDCDC; }\n.",[1],"box { width: ",[0,650],"; height: ",[0,300],"; border: ",[0,2]," solid #FFFFFF; background-color: #FFFFFF; margin: ",[0,40]," auto; border-radius: 15px; }\n.",[1],"name{ float: left; height: ",[0,150],"; line-height: ",[0,150],"; padding-left: ",[0,48],"; }\n.",[1],"name1 { float: left; height: ",[0,150],"; line-height: ",[0,150],"; padding-left: ",[0,48],"; }\n.",[1],"inp { width: ",[0,300],"; padding-right: ",[0,90],"; height: ",[0,150],"; float: right; }\n.",[1],"int { width: ",[0,300],"; height: ",[0,150],"; float: right; padding-left: ",[0,60],"; }\n.",[1],"stop { float: left; padding-left: ",[0,96],"; font-size: ",[0,26],"; }\n.",[1],"btn{ height: ",[0,120],"; }\n.",[1],"primary { width: ",[0,650],"; height: ",[0,100],"; margin: ",[0,340]," auto; color: #FFFFFF; background-color: #121212; }\n",],undefined,{path:"./mill/validation/validation.wxss"});    
 __wxAppCode__['mill/validation/validation.wxml']=$gwx('./mill/validation/validation.wxml');
 
-__wxAppCode__['my/add-address/add-address.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"txt{ width:",[0,150],"; float: left; line-height: ",[0,120],"; font-size:",[0,30],"; color:#5E5E5E; }\n.",[1],"enter{ width:",[0,500],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#BCBCBC; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/add-address/add-address.wxss"});    
+__wxAppCode__['my/add-address/add-address.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"txt{ width:",[0,150],"; float: left; line-height: ",[0,120],"; font-size:",[0,30],"; color:#5E5E5E; }\n.",[1],"enter{ width:",[0,500],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#333; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/add-address/add-address.wxss"});    
 __wxAppCode__['my/add-address/add-address.wxml']=$gwx('./my/add-address/add-address.wxml');
 
-__wxAppCode__['my/address/address.wxss']=setCssToHead([".",[1],"shade { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }\n.",[1],"pop { width: 70%; height: ",[0,250],"; margin: ",[0,450]," auto 0; background: #fff; border-radius: ",[0,20],"; }\n.",[1],"pop-title { text-align: center; font-size: ",[0,32],"; color: #121212; line-height: ",[0,150],"; }\n.",[1],"pop-bottom { width: 100%; height: ",[0,56],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"pop-btn { width: ",[0,126],"; height: ",[0,56],"; border-radius: ",[0,10],"; background: #121212; color: #fff; font-size: ",[0,30],"; text-align: center; line-height: ",[0,56],"; }\n.",[1],"box { height: ",[0,200],"; }\n.",[1],"none { display: block; width: ",[0,150],"; height: ",[0,150],"; margin: 0 auto; }\n.",[1],"tips { margin-top: ",[0,50],"; text-align: center; color: #797979; font-size: ",[0,28],"; }\n.",[1],"newadd { width: ",[0,200],"; height: ",[0,70],"; background: #0A1117; border-radius: ",[0,50],"; color: #fff; text-align: center; line-height: ",[0,70],"; margin: ",[0,80]," auto; font-size: ",[0,30],"; }\n.",[1],"list { width: calc(100% - ",[0,48],"); height: auto; overflow: hidden; border-bottom: ",[0,1]," solid #f2f2f2; margin-left: ",[0,48],"; }\n.",[1],"left { float: left; width: 85%; }\n.",[1],"nickTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"nickname { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"addTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"adr { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"right { float: left; width: 15%; }\n.",[1],"edit { width: ",[0,50],"; height: ",[0,50],"; margin-top: ",[0,50],"; margin-left: ",[0,20],"; }\n.",[1],"delete { height: ",[0,140],"; line-height: ",[0,140],"; position: absolute; right: 0; width: 0; top: 0; background: red; color: #fff; text-align: center; }\n",],undefined,{path:"./my/address/address.wxss"});    
+__wxAppCode__['my/address/address.wxss']=setCssToHead([".",[1],"shade { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }\n.",[1],"pop { width: 70%; height: ",[0,250],"; margin: ",[0,450]," auto 0; background: #fff; border-radius: ",[0,20],"; }\n.",[1],"pop-title { text-align: center; font-size: ",[0,32],"; color: #121212; line-height: ",[0,150],"; }\n.",[1],"pop-bottom { width: 100%; height: ",[0,56],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"pop-btn { width: ",[0,126],"; height: ",[0,56],"; border-radius: ",[0,10],"; background: #121212; color: #fff; font-size: ",[0,30],"; text-align: center; line-height: ",[0,56],"; }\n.",[1],"box { height: ",[0,200],"; }\n.",[1],"none { display: block; width: ",[0,150],"; height: ",[0,150],"; margin: 0 auto; }\n.",[1],"tips { margin-top: ",[0,50],"; text-align: center; color: #8a8a8a; font-size: ",[0,28],"; }\n.",[1],"newadd { width: ",[0,200],"; height: ",[0,70],"; background: #0A1117; border-radius: ",[0,50],"; color: #fff; text-align: center; line-height: ",[0,70],"; margin: ",[0,80]," auto; font-size: ",[0,30],"; }\n.",[1],"list { width: calc(100% - ",[0,48],"); height: auto; overflow: hidden; border-bottom: ",[0,1]," solid #f2f2f2; margin-left: ",[0,48],"; }\n.",[1],"left { float: left; width: 85%; }\n.",[1],"nickTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"nickname { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"addTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"adr { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"right { float: left; width: 15%; }\n.",[1],"edit { width: ",[0,50],"; height: ",[0,50],"; margin-top: ",[0,50],"; margin-left: ",[0,20],"; }\n.",[1],"delete { height: ",[0,140],"; line-height: ",[0,140],"; position: absolute; right: 0; width: 0; top: 0; background: red; color: #fff; text-align: center; }\n",],undefined,{path:"./my/address/address.wxss"});    
 __wxAppCode__['my/address/address.wxml']=$gwx('./my/address/address.wxml');
 
 __wxAppCode__['my/change-loginPassword/change-loginPassword.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ height:",[0,100],"; width:100%; background: #fff; padding-left:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"title{ float: left; width:",[0,150],"; line-height: ",[0,100],"; font-size:",[0,30],"; color:#333333; }\n.",[1],"email1{ line-height: ",[0,100],"; font-size:",[0,30],"; color:#333333; }\n.",[1],"code{ float: left; width:",[0,450],"; height:",[0,100],"; line-height: ",[0,100],"; font-size: ",[0,30],"; }\n.",[1],"getcode{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #797979; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#333; }\n.",[1],"getcode1{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #B2B2B2; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#B2B2B2; }\n.",[1],"close{ float: right; display: block; width:",[0,50],"; height:",[0,30],"; margin-right:",[0,48],"; margin-top:",[0,40],"; }\n.",[1],"linee{ height:",[0,20],"; }\n.",[1],"set{ line-height: ",[0,100],"; font-size: ",[0,30],"; margin-left:",[0,48],"; }\n.",[1],"save{ margin: ",[0,100]," auto 0; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/change-loginPassword/change-loginPassword.wxss"});    
@@ -10843,10 +10849,10 @@ __wxAppCode__['my/change-password/change-password.wxml']=$gwx('./my/change-passw
 __wxAppCode__['my/choose-address/choose-address.wxss']=setCssToHead([".",[1],"shade { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }\n.",[1],"pop { width: 70%; height: ",[0,250],"; margin: ",[0,450]," auto 0; background: #fff; border-radius: ",[0,20],"; }\n.",[1],"pop-title { text-align: center; font-size: ",[0,32],"; color: #121212; line-height: ",[0,150],"; }\n.",[1],"pop-bottom { width: 100%; height: ",[0,56],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"pop-btn { width: ",[0,126],"; height: ",[0,56],"; border-radius: ",[0,10],"; background: #121212; color: #fff; font-size: ",[0,30],"; text-align: center; line-height: ",[0,56],"; }\n.",[1],"box { height: ",[0,200],"; }\n.",[1],"none { display: block; width: ",[0,150],"; height: ",[0,150],"; margin: 0 auto; }\n.",[1],"tips { margin-top: ",[0,50],"; text-align: center; color: #797979; font-size: ",[0,28],"; }\n.",[1],"newadd { width: ",[0,200],"; height: ",[0,70],"; background: #0A1117; border-radius: ",[0,50],"; color: #fff; text-align: center; line-height: ",[0,70],"; margin: ",[0,80]," auto; font-size: ",[0,30],"; }\n.",[1],"list { width: calc(100% - ",[0,48],"); height: auto; overflow: hidden; border-bottom: ",[0,1]," solid #f2f2f2; margin-left: ",[0,48],"; }\n.",[1],"left { float: left; width: 85%; }\n.",[1],"nickTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"nickname { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"addTitle{ float:left; width:25%; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"adr { float:right; width:75%; line-height: ",[0,60],"; font-size: ",[0,30],"; word-break:break-all; word-wrap:break-word; }\n.",[1],"right { float: left; width: 15%; }\n.",[1],"edit { width: ",[0,50],"; height: ",[0,50],"; margin-top: ",[0,50],"; margin-left: ",[0,20],"; }\n.",[1],"delete { height: ",[0,140],"; line-height: ",[0,140],"; position: absolute; right: 0; width: 0; top: 0; background: red; color: #fff; text-align: center; }\n",],undefined,{path:"./my/choose-address/choose-address.wxss"});    
 __wxAppCode__['my/choose-address/choose-address.wxml']=$gwx('./my/choose-address/choose-address.wxml');
 
-__wxAppCode__['my/edit-address/edit-address.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"height { height: var(--status-bar-height); background: #121212; z-index: 99; }\n.",[1],"line{ height:",[0,80],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"txt{ width:",[0,150],"; float: left; line-height: ",[0,120],"; font-size:",[0,30],"; color:#5E5E5E; }\n.",[1],"enter{ width:",[0,500],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#BCBCBC; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/edit-address/edit-address.wxss"});    
+__wxAppCode__['my/edit-address/edit-address.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"height { height: var(--status-bar-height); background: #121212; z-index: 99; }\n.",[1],"line{ height:",[0,80],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"txt{ width:",[0,150],"; float: left; line-height: ",[0,120],"; font-size:",[0,30],"; color:#5E5E5E; }\n.",[1],"enter{ width:",[0,500],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#333; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/edit-address/edit-address.wxss"});    
 __wxAppCode__['my/edit-address/edit-address.wxml']=$gwx('./my/edit-address/edit-address.wxml');
 
-__wxAppCode__['my/email/email.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-right: ",[0,20],"; margin-top:",[0,30],"; }\n.",[1],"enter{ float: left; width:",[0,550],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#BCBCBC; }\n.",[1],"enter1{ width:",[0,300],"; }\n.",[1],"getcode{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #797979; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#333; }\n.",[1],"getcode1{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #B2B2B2; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#B2B2B2; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/email/email.wxss"});    
+__wxAppCode__['my/email/email.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-right: ",[0,20],"; margin-top:",[0,30],"; }\n.",[1],"enter{ float: left; width:",[0,550],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#333; }\n.",[1],"enter1{ width:",[0,300],"; }\n.",[1],"getcode{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #797979; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#333; }\n.",[1],"getcode1{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #B2B2B2; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#B2B2B2; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/email/email.wxss"});    
 __wxAppCode__['my/email/email.wxml']=$gwx('./my/email/email.wxml');
 
 __wxAppCode__['my/identity/identity.wxss']=setCssToHead(["body{ background: #EDEDED; }\n.",[1],"line{ line-height: ",[0,80],"; font-size: ",[0,32],"; color:#797979; padding-left: ",[0,24],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"enter{ padding-left: ",[0,30],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; overflow: hidden; }\n.",[1],"enters{ border-bottom: ",[0,1]," solid #f2f2f2; }\n.",[1],"enter-2{ display:block; float: left; font-size: ",[0,32],"; margin-top: ",[0,30],"; color: #434343; margin-bottom: ",[0,30],"; }\n.",[1],"weui-input1{ ime-mode:disabled; font-size: ",[0,30],"; display:block; float:left; margin-top: ",[0,24],"; margin-left: ",[0,30],"; }\n.",[1],"input1{ margin-left:",[0,97],"; }\n.",[1],"uploadfile{ width:100%; height:",[0,350],"; }\n.",[1],"list{ width:50%; height:100%; line-height: ",[0,100],"; text-align: center; float: left; position: relative; }\n.",[1],"watermark{ width:",[0,250],"; height:",[0,150],"; background: rgba(0,0,0,0.2); display: block; position: absolute; top:",[0,100],"; left:",[0,65],"; z-index: 99; }\n.",[1],"tips{ display: block; width:100%; height:",[0,100],"; line-height: ",[0,100],"; font-size: ",[0,30],"; text-align: center; }\n.",[1],"up-card{ display: block; width:",[0,250],"; height:",[0,150],"; margin:",[0,20]," auto; }\n.",[1],"shen1-1{ width: ",[0,50],"; height: ",[0,50],"; background: #fff; border-radius: ",[0,50],"; position:absolute; top:",[0,170],"; left:",[0,158],"; border:none; text-align: center; line-height: ",[0,50],"; }\n.",[1],"click{ display: block; width:",[0,150],"; height:",[0,30],"; font-size: ",[0,28],"; text-align: center; position: absolute; bottom:",[0,120],"; left:",[0,115],"; }\n.",[1],"line2{ width:100%; height:",[0,2],"; border-top:",[0,2]," solid #ccc; position: relative; margin-top:",[0,50],"; }\n.",[1],"reque{ width:",[0,200],"; height:",[0,40],"; background: #f2f2f2; font-size: ",[0,28],"; text-align: center; position: absolute; top:",[0,-20],"; left:",[0,275],"; }\n.",[1],"idcard{ width:",[0,650],"; height:",[0,150],"; margin:",[0,50]," auto 0; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"id1{ width:",[0,130],"; height:",[0,150],"; }\n.",[1],"c{ width:100%; height:",[0,80],"; }\n.",[1],"biaozhun{ width:100%; height:",[0,70],"; }\n.",[1],"y{ float: left; width:",[0,30],"; height:",[0,30],"; margin-top:",[0,20],"; }\n.",[1],"pai{ float:left; font-size: ",[0,24],"; margin-left:",[0,10],"; line-height: ",[0,70],"; }\n.",[1],"out2{ margin: ",[0,100]," 0 ; overflow: hidden; }\n.",[1],"changeBtn1{ display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 80%; height: ",[0,80],"; font-size: ",[0,30],"; margin:",[0,25]," auto; background-color:#DCDCDC; color: #fff; margin-bottom: ",[0,25],"; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; border-radius: ",[0,15],"; border: none; }\n.",[1],"changeBtn2{ display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 80%; height: ",[0,90],"; font-size: ",[0,30],"; margin:",[0,25]," auto; background-color:#0A1117; color: #fff; margin-bottom: ",[0,25],"; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; border-radius: ",[0,15],"; border: none; }\n.",[1],"shade{ position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }\n.",[1],"pop{ width:",[0,500],"; height:",[0,250],"; margin:",[0,450]," auto 0; background: #fff; border-radius: ",[0,20],"; }\n.",[1],"pop-title{ text-align: center; font-size: ",[0,32],"; color:#121212; line-height: ",[0,150],"; }\n.",[1],"pop-btn{ width:",[0,126],"; height:",[0,56],"; margin:",[0,20]," auto 0; border-radius: ",[0,10],"; background: #121212; color: #fff; font-size: ",[0,30],"; text-align: center; line-height: ",[0,56],"; }\n",],undefined,{path:"./my/identity/identity.wxss"});    
@@ -10858,7 +10864,7 @@ __wxAppCode__['my/login-password/login-password.wxml']=$gwx('./my/login-password
 __wxAppCode__['my/machine-detail/machine-detail.wxss']=setCssToHead([".",[1],"content { background:#fff; height: 100%; }\n.",[1],"swiper-box { height: calc(100% - 40px); }\n.",[1],"list-scroll-content { height: 100%; }\n.",[1],"navbar { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; height: ",[0,80],"; background: #CCCCCC; color:a0a0a0; -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06); box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06); position: relative; z-index: 10; }\n.",[1],"nav-item { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; height: 100%; font-size: ",[0,34],"; color: #121212; position: relative; }\n.",[1],"current{ color:#fff; }\n.",[1],"current:after{ content: \x22\x22; display: block; position: absolute; bottom: 0; left: 0; right: 0; height: ",[0,4],"; background: #fff; }\n.",[1],"uni-swiper-item { height: auto; }\n.",[1],"line1{ width: 100%; height: ",[0,3],"; background-color: #f2f2f2; }\n.",[1],"nav_right_items{ width: 100%; height: ",[0,120],"; }\n.",[1],"nav_righ{ overflow: hidden; }\n.",[1],"te{ float: left; margin-top: ",[0,43],"; margin-left: ",[0,50],"; color: #888; font-size:",[0,30],"; }\n.",[1],"te1{ float: right; margin-top: ",[0,43],"; margin-right: ",[0,50],"; font-size:",[0,30],"; }\n.",[1],"nodata_text { color: black; font-size: ",[0,34],"; text-align: center; }\n.",[1],"swiper-tab { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; line-height: ",[0,80],"; background: #01c0dd; }\n.",[1],"tab-item { width: 33.3%; text-align: center; font-size: ",[0,34],"; color: #777; }\n.",[1],"swiper { height: 100%; overflow: hidden; }\n.",[1],"swiper-1{ background: #fff; height: 100%; }\n.",[1],"on { color: #fff; border-bottom: ",[0,5]," solid #fff; }\n",],undefined,{path:"./my/machine-detail/machine-detail.wxss"});    
 __wxAppCode__['my/machine-detail/machine-detail.wxml']=$gwx('./my/machine-detail/machine-detail.wxml');
 
-__wxAppCode__['my/my-machine/my-machine.wxss']=setCssToHead([".",[1],"shade{ width:100%; height:100%; background:rgba(255,255,255,0.5); position: absolute; left:0; top:0; z-index:99 }\n.",[1],"pop{ width:",[0,550],"; height:",[0,260],"; margin:",[0,500]," auto; padding:0 ",[0,40],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #f0efef; }\n.",[1],"pop-title{ height:",[0,150],"; line-height: ",[0,150],"; text-align: center; font-size: ",[0,20],"; }\n.",[1],"pops{ height:",[0,100],"; width:100%; padding: 0 ",[0,50],"; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"pop-btn{ width:",[0,120],"; height:",[0,60],"; background:#121212; line-height: ",[0,60],"; font-size: ",[0,30],"; color:#fff; text-align: center; }\n.",[1],"box{ height:",[0,200],"; }\n.",[1],"none{ display: block; width:",[0,150],"; height:",[0,150],"; margin:0 auto; }\n.",[1],"tips{ margin-top:",[0,50],"; text-align: center; color:#dbdbdb; font-size: ",[0,28],"; }\n.",[1],"line1{ width: 100%; height: ",[0,5],"; background-color: #f2f2f2; }\n.",[1],"page1{ height: ",[0,100],"; margin-left: ",[0,75],"; margin-top: ",[0,40],"; padding-right: ",[0,40],"; padding-bottom: ",[0,20],"; position: relative; }\n.",[1],"te1{ position: relative; display: block; float:left; width:",[0,100],"; height:",[0,100],"; }\n.",[1],"te{ display: block; float: right; margin-top: ",[0,30],"; width:",[0,25],"; height:",[0,32],"; margin-right:",[0,-8],"; }\n.",[1],"obg{ font-size: ",[0,32],"; display: block; float: left; padding-left: ",[0,45],"; }\n.",[1],"obg1{ position: relative; display: block; float: left; margin-left: ",[0,-226],"; font-size : ",[0,30],"; margin-top: ",[0,64],"; color: #999999; }\n.",[1],"obg2{ position: relative; left: ",[0,50],"; font-size: ",[0,34],"; display: block; float: right; margin-right: ",[0,60],"; margin-top: ",[0,-3],"; color: #e5543f; }\n.",[1],"obg3{ position: relative; display: block; float: right; font-size : ",[0,30],"; margin-top: ",[0,18],"; color: #61e458; }\n.",[1],"te2{ position: relative; display: block; float: left; margin-top: ",[0,36],"; width:",[0,20],"; height:",[0,20],"; margin-left: ",[0,-45],"; }\n",],undefined,{path:"./my/my-machine/my-machine.wxss"});    
+__wxAppCode__['my/my-machine/my-machine.wxss']=setCssToHead([".",[1],"shade{ width:100%; height:100%; background:rgba(255,255,255,0.5); position: absolute; left:0; top:0; z-index:99 }\n.",[1],"pop{ width:",[0,550],"; height:",[0,260],"; margin:",[0,500]," auto; padding:0 ",[0,40],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #f0efef; }\n.",[1],"pop-title{ height:",[0,150],"; line-height: ",[0,150],"; text-align: center; font-size: ",[0,20],"; }\n.",[1],"pops{ height:",[0,100],"; width:100%; padding: 0 ",[0,50],"; -webkit-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"pop-btn{ width:",[0,120],"; height:",[0,60],"; background:#121212; line-height: ",[0,60],"; font-size: ",[0,30],"; color:#fff; text-align: center; }\n.",[1],"box{ height:",[0,200],"; }\n.",[1],"none{ display: block; width:",[0,250],"; height:",[0,150],"; margin:0 auto; }\n.",[1],"tips{ margin-top:",[0,50],"; text-align: center; color:#bfbfbf; font-size: ",[0,28],"; }\n.",[1],"line1{ width: 100%; height: ",[0,5],"; background-color: #f2f2f2; }\n.",[1],"page1{ height: ",[0,100],"; margin-left: ",[0,75],"; margin-top: ",[0,40],"; padding-right: ",[0,40],"; padding-bottom: ",[0,20],"; position: relative; }\n.",[1],"te1{ position: relative; display: block; float:left; width:",[0,100],"; height:",[0,100],"; }\n.",[1],"te{ display: block; float: right; margin-top: ",[0,30],"; width:",[0,25],"; height:",[0,32],"; margin-right:",[0,-8],"; }\n.",[1],"obg{ font-size: ",[0,32],"; display: block; float: left; padding-left: ",[0,45],"; }\n.",[1],"obg1{ position: relative; display: block; float: left; margin-left: ",[0,-226],"; font-size : ",[0,30],"; margin-top: ",[0,64],"; color: #999999; }\n.",[1],"obg2{ position: relative; left: ",[0,50],"; font-size: ",[0,34],"; display: block; float: right; margin-right: ",[0,60],"; margin-top: ",[0,-3],"; color: #e5543f; }\n.",[1],"obg3{ position: relative; display: block; float: right; font-size : ",[0,30],"; margin-top: ",[0,18],"; color: #61e458; }\n.",[1],"te2{ position: relative; display: block; float: left; margin-top: ",[0,36],"; width:",[0,20],"; height:",[0,20],"; margin-left: ",[0,-45],"; }\n",],undefined,{path:"./my/my-machine/my-machine.wxss"});    
 __wxAppCode__['my/my-machine/my-machine.wxml']=$gwx('./my/my-machine/my-machine.wxml');
 
 __wxAppCode__['my/my-wallet/my-wallet.wxss']=setCssToHead(["body{ background:#EDEEEE; }\n.",[1],"bg{ width:100%; height:",[0,300],"; position: relative; }\n.",[1],"bgTop{ width:100%; height:",[0,300],"; z-index:99; position: absolute; top:0; left:0; }\n.",[1],"line{ height:",[0,100],"; }\n.",[1],"txt{ line-height: ",[0,50],"; margin-left:",[0,56],"; }\n.",[1],"mess{ width:",[0,654],"; height:",[0,70],"; margin:0 auto; }\n.",[1],"num{ float: left; color:#121212; font-size: ",[0,30],"; line-height:",[0,70],"; }\n.",[1],"number{ color:#F0AD4E; font-size: ",[0,42],"; }\n.",[1],"trade{ float: right; width:",[0,130],"; height:",[0,60],"; border-radius: ",[0,10],"; background: #121212; color:#fff; text-align: center; line-height: ",[0,60],"; font-size: ",[0,30],"; }\n.",[1],"income{ width:100%; height:",[0,80],"; padding-left: ",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; line-height: ",[0,80],"; background: #FFFFFF; color:#F0AD4E; font-size: ",[0,30],"; position: relative; }\n.",[1],"income::after{ content: \x27\x27; width:",[0,140],"; height:",[0,4],"; background: #F0AD4E; position: absolute; top:",[0,78],"; left:",[0,40],"; }\n.",[1],"transfer{ width:",[0,130],"; height:",[0,130],"; display: block; margin: ",[0,150]," auto ",[0,20],"; }\n.",[1],"info{ text-align: center; font-size: ",[0,32],"; }\n.",[1],"item { height: ",[0,80],"; font-size: ",[0,22],"; background-color: #EDEDED; padding-top: ",[0,20],"; padding-left: ",[0,45],"; text-align: left; position: relative; }\n.",[1],"all1 { float: right; font-size: ",[0,30],"; color: #333; line-height: ",[0,90],"; margin-right:",[0,48],"; }\n.",[1],"list-one{ width:100%; height:",[0,116],"; background: #fff; padding-left: ",[0,50],"; -webkit-box-sizing: border-box; box-sizing: border-box; position: relative; }\n.",[1],"l{ width:90%; height:",[0,1],"; background: rgba(0,0,0,0.1); position: absolute; right:0; bottom:0; }\n.",[1],"list-icon{ float: left; width:",[0,70],"; height:",[0,70],"; display: block; margin-top:",[0,15],"; }\n.",[1],"list-txt{ float: left; margin-left:",[0,20],"; color:#121212; line-height: ",[0,50],"; }\n.",[1],"list-info{ font-size: ",[0,30],"; }\n.",[1],"list-time{ font-size: ",[0,30],"; }\n.",[1],"list-income{ float:right; margin-right:",[0,48],"; line-height: ",[0,100],"; color:#41BEC9; font-size: ",[0,34],"; }\n",],undefined,{path:"./my/my-wallet/my-wallet.wxss"});    
@@ -10882,7 +10888,7 @@ __wxAppCode__['my/trade-password/trade-password.wxml']=$gwx('./my/trade-password
 __wxAppCode__['my/transfer/transfer.wxss']=setCssToHead([".",[1],"success{ position: fixed; top:0; left:0; width:100%; height:100%; background: #fff; z-index:99; }\n.",[1],"duigou{ display: block; width:",[0,90],"; height:",[0,90],"; margin:",[0,150]," auto ",[0,30],"; }\n.",[1],"tran{ text-align: center; line-height: ",[0,80],"; font-size: ",[0,34],"; color:#212121; }\n.",[1],"btn{ width:",[0,150],"; height:",[0,60],"; font-size: ",[0,30],"; text-align: center; line-height: ",[0,60],"; border-radius: ",[0,20],"; color:#fff; background: #212121; margin:",[0,30]," auto; }\nbody{ background: #EDEEEE; }\n.",[1],"t{ height:",[0,20],"; }\n.",[1],"box{ width:",[0,654],"; height:",[0,292],"; margin:0 auto; background: #fff; border-radius: ",[0,12],"; text-align: center; padding: ",[0,50],"; -webkit-box-sizing: border-box; box-sizing: border-box; }\n.",[1],"box1{ width:",[0,654],"; height:",[0,292],"; margin:0 auto; background: #fff; border-radius: ",[0,12],"; }\n.",[1],"desc{ font-size: ",[0,30],"; line-height: ",[0,80],"; }\n.",[1],"num{ font-size:",[0,30],"; color:#555555; }\n.",[1],"number{ font-size:",[0,56],"; color:#E4BF8C; }\n.",[1],"top{ height:",[0,147],"; border-bottom: 1px solid #F2F2F2; }\n.",[1],"lab{ float: left; margin-left:",[0,48],"; line-height: ",[0,147],"; font-size: ",[0,26],"; color:#9F9F9F; }\n.",[1],"address{ float: left; width:",[0,300],"; height:",[0,147],"; margin-left:",[0,20],"; font-size: ",[0,26],"; }\n.",[1],"right{ float: right; width:",[0,25],"; height:",[0,30],"; margin-top:",[0,58],"; margin-right:",[0,24],"; }\n.",[1],"all{ float:right; line-height: ",[0,147],"; margin-right:",[0,24],"; color:#EBC9A0; font-size: ",[0,26],"; }\n.",[1],"tip{ margin-top:",[0,20],"; margin-left:",[0,48],"; line-height: ",[0,50],"; font-size:",[0,24],"; color:#797979; }\n.",[1],"next{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/transfer/transfer.wxss"});    
 __wxAppCode__['my/transfer/transfer.wxml']=$gwx('./my/transfer/transfer.wxml');
 
-__wxAppCode__['my/unbindemail/unbindemail.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-right: ",[0,20],"; margin-top:",[0,30],"; }\n.",[1],"enter{ float: left; width:",[0,550],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#121212; }\n.",[1],"enter1{ width:",[0,300],"; color:#BCBCBC; }\n.",[1],"getcode{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #797979; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#333; }\n.",[1],"getcode1{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #B2B2B2; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#B2B2B2; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/unbindemail/unbindemail.wxss"});    
+__wxAppCode__['my/unbindemail/unbindemail.wxss']=setCssToHead(["body{ background: #EDEEEE; }\n.",[1],"line{ height:",[0,50],"; }\n.",[1],"list{ width:100%; height:",[0,120],"; padding-left:",[0,48],"; padding-right:",[0,48],"; -webkit-box-sizing: border-box; box-sizing: border-box; background: #fff; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-right: ",[0,20],"; margin-top:",[0,30],"; }\n.",[1],"enter{ float: left; width:",[0,550],"; height:",[0,120],"; line-height: ",[0,120],"; font-size: ",[0,30],"; color:#333; }\n.",[1],"enter1{ width:",[0,300],"; }\n.",[1],"getcode{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #797979; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#333; }\n.",[1],"getcode1{ float:right; width:",[0,200],"; height:",[0,50],"; background: #f2f2f2; border: ",[0,1]," solid #B2B2B2; border-radius: ",[0,50],"; font-size: ",[0,24],"; text-align: center; line-height: ",[0,50],"; margin-top:",[0,35],"; color:#B2B2B2; }\n.",[1],"save{ margin: ",[0,100]," auto; width:",[0,654],"; height:",[0,90],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,90],"; color: #fff; }\n",],undefined,{path:"./my/unbindemail/unbindemail.wxss"});    
 __wxAppCode__['my/unbindemail/unbindemail.wxml']=$gwx('./my/unbindemail/unbindemail.wxml');
 
 __wxAppCode__['pages/agreement/agreement.wxss']=undefined;    

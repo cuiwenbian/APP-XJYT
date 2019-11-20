@@ -4,12 +4,12 @@
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
-			<input class="enter" type="text" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
+			<input class="enter" type="number" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
-			<input class="enter enter1" type="text"  @input='getEmailCode' placeholder="请输入邮箱验证码" />
+			<input class="enter enter1" type="number"  @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
 		
@@ -149,6 +149,13 @@
 								url:'../my/my'
 							})
 						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'验证码错误',
+								icon:'none',
+								duration:2000
+							})
+						}
 					}
 				})
 			}
@@ -185,7 +192,7 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#BCBCBC;
+		color:#333;
 	}
 	.enter1{
 		width:300rpx;
