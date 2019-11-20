@@ -19,18 +19,18 @@
 			<uni-nav-bar left-icon="back" title="提币地址" @click-left="back" background-color="#121212" color="#fff" border="false" shadow="false"></uni-nav-bar>
 			<view class="box"></view>
 			<view>
-				<image class="none" src="../../static/images/address.png" mode=""></image>
+				<image class="none" src="../../static/images/no-add.png" mode=""></image>
 				<view class="tips">您还没有提币地址哦！</view>
 			</view>
 			<view class="newadd" @click="add">新建地址</view>
 		</view>
 		<!-- #ifndef H5 -->
-		<password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+		<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
 
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
-		<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" :list="numberList"></password-input></view>
+		<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" ref='wrong' :list="numberList"></password-input></view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
@@ -76,7 +76,7 @@ export default {
 	onLoad() {
 		var that = this;
 		uni.request({
-			url: this.url + 'walletaddress/',
+			url: this.urll + 'walletaddress/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
@@ -112,38 +112,48 @@ export default {
 		},
 		onInput(val) {
 			var that=this;
-			this.numberList.push(val);
-			console.log(this.numberList.join().replace(/,/g, ''));
-			this.password = this.numberList.join().replace(/,/g, '');
-			if (this.numberList.length >= this.length) {
-				this.passIn = false;
-				this.$refs['number'].close();
+			
+			that.numberList.push(val);
+			console.log(that.numberList.join().replace(/,/g, ''));
+			that.password = that.numberList.join().replace(/,/g, '');
+			if (that.numberList.length >= that.length) {
+				
 				uni.request({
-					url: this.url + 'updatadeleteaddress/',
+					url: that.urll + 'updatadeleteaddress/',
 					method: 'DELETE',
 					data: {
 						id: that.id,
 						password: that.password
 					},
 					header: {
-						Authorization: 'JWT' + ' ' + this.global_.token
+						Authorization: 'JWT' + ' ' + that.global_.token
 					},
 					success(res) {
-						
 						console.log(res);
 						if (res.statusCode == 204) {
+							that.passIn = false;
+							that.$refs['number'].close();
 							uni.showToast({
 								title: '删除成功',
 								icon: 'none',
 								duration: 2000
 							});
 						}
-						if (res.statusCode == 200) {
+						if(res.statusCode==400){
+							that.numberList.length= 0;
+							that.$refs.wrong.flag=false;
+							var n=res.data.data.err_num;
+							var s=5-n;
+							that.$refs.wrong.tip='剩余'+ s +'次机会';
+						}
+						if(res.statusCode==423){
+							that.passIn = false;
+							that.$refs['number'].close();
 							uni.showToast({
-								title: '资金密码错误',
-								icon: 'none',
-								duration: 2000
-							});
+								title:'交易密码已锁定,请在今日24:00后进行交易',
+								icon:'none',
+								duration:2000
+							})
 						}
 						var page = getCurrentPages().pop();
 						if (page == undefined || page == null) return;
@@ -257,14 +267,12 @@ export default {
 .box {
 	height: 200rpx;
 }
-
 .none {
 	display: block;
-	width: 180rpx;
+	width: 150rpx;
 	height: 150rpx;
 	margin: 0 auto;
 }
-
 .tips {
 	margin-top: 50rpx;
 	text-align: center;

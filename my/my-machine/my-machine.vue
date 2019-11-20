@@ -64,7 +64,7 @@
 	<view v-else>
 		<view class="box"></view>
 		<view>
-			<image class="none" src="../../static/images/machine.png" mode=""></image>
+			<image class="none" src="../../static/images/add.png" mode=""></image>
 			<view class="tips">
 				您还没有矿机哦！
 			</view>
@@ -177,14 +177,14 @@
 	}
 	.none{
 		display: block;
-		width:150rpx;
+		width:250rpx;
 		height:150rpx;
 		margin:0 auto;
 	}
 	.tips{
 		margin-top:50rpx;
 		text-align: center;
-		color:#8a8a8a;
+		color:#bfbfbf;
 		font-size: 28rpx;
 	}
 	.line1{

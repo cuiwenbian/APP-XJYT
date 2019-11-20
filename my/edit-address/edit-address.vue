@@ -15,29 +15,29 @@
 		<view class="save"  @click="save">保存</view>
 		
 		<!-- #ifndef H5 -->
-		<password-input v-if='passIn' @tap="openKeyBoard('number')"  @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
+		<password-input v-if='passIn' ref='wrong' @tap="openKeyBoard('number')"  @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
 		<view  v-if='passIn' @tap="openKeyBoard('number')" @clo="clo">
-			<password-input  :length="length" :gutter="20" :list="numberList"></password-input>
+			<password-input  :length="length" ref='wrong' :gutter="20" :list="numberList"></password-input>
 		</view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
-		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<keyboard-package ref="number"  @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 	    
 		
 		<!-- #ifndef H5 -->
-		<password-input v-if='delShow' @tap="openKeyBoard('number')"  @clo="cloo" :length="length" :gutter="20" :list="numberList"></password-input>
+		<password-input v-if='delShow' ref='wrong' @tap="openKeyBoard('number')"  @clo="cloo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
 		<view  v-if='delShow' @tap="openKeyBoard('number')" @clo="cloo">
-			<password-input  :length="length" :gutter="20" :list="numberList"></password-input>
+			<password-input  :length="length" ref='wrong' :gutter="20" :list="numberList"></password-input>
 		</view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
-		<keyboard-package ref="numbers" @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<keyboard-package ref="numbers"  @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 			  
 	</view>
 </template>
@@ -58,7 +58,8 @@
 				length: 6,
 				type: 'number',
 				passIn:false,
-				delShow:false
+				delShow:false,
+				
 			}
 		},
 		components: {	
@@ -72,7 +73,7 @@
 			this.user_id=options.user_id;
 		},
         onBackPress(option){
-              plus.key.hideSoftKeybord()    
+              plus.key.hideSoftKeybord()   
             },
 		methods:{
 			//返回 
@@ -88,7 +89,7 @@
 			},
 			cloo: function() {
 				this.delShow = false;
-				this.$refs['number'].close();
+				this.$refs['numbers'].close();
 				this.numberList.length= 0;
 			},
 			onDelete() {
@@ -103,9 +104,7 @@
 					});
 				}
 			},
-			close() {
-				this.$refs['number'].close();
-			},
+			
 			getAddress:function(e){
 				this.address=e.detail.value
 			},
@@ -113,7 +112,7 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
-				if(this.address==''){ 
+				if(this.address==''){
 					uni.showToast({
 						title:'请输入提币地址',
 						icon:'none',
@@ -143,17 +142,15 @@
 			 
 			},
 			onInput(val) {
-				console.log('input edit')
 				var that=this;
 				that.numberList.push(val);
 				console.log(that.numberList.join().replace(/,/g, ""))
 				that.password=that.numberList.join().replace(/,/g, "")
 				console.log(that.password)
 				if (that.numberList.length >= that.length) {
-					this.passIn=false
-					this.$refs['number'].close()
+					
 			        uni.request({
-			        	url:this.url+'updatadeleteaddress/',   //编辑地址接口
+			        	url:that.urll+'updatadeleteaddress/',   //编辑地址接口
 			        	method:'PUT',
 			        	data:{
 			        		wallet_value:that.address,
@@ -167,15 +164,25 @@
 			        	},
 			        	success(res) {
 			        		console.log(res)
-			        		if(res.statusCode==202){
-			        			uni.showToast({
-			        				title:'资金密码错误',
-			        				icon:'none',
-			        				duration:2000
-			        			})
-								return false
+			        		if(res.statusCode==400){
+								that.numberList.length = 0;
+								that.$refs.wrong.flag=false;
+			        			var n=res.data.data.err_num;
+			        			var s=5-n;
+								that.$refs.wrong.tip='剩余'+ s +'次机会';
 			        		}
+							if(res.statusCode==423){
+								that.passIn=false
+								that.$refs['number'].close()
+								uni.showToast({
+									title:'交易密码已锁定,请在今日24:00后进行交易',
+									icon:'none',
+									duration:2000
+								})
+							}
 			        		if(res.statusCode==204){
+								that.passIn=false
+								that.$refs['number'].close()
 								uni.navigateBack({
 									delta:1
 								})
@@ -189,7 +196,9 @@
 			        			page.onLoad();
 			        		}
 			        	}
-			        })
+						
+			        });
+					this.numberList.length = 0;
 				}
 			},
 			//点击删除按钮
@@ -200,15 +209,12 @@
 				this.onInput1(val);
 			},
 			onInput1(val) {
-				console.log("input delete")
-				this.numberList.push(val);
-				console.log(this.numberList.join().replace(/,/g, ''));
-				this.password = this.numberList.join().replace(/,/g, '');
-				if (this.numberList.length >= this.length) {
-					this.passIn = false;
-					this.$refs['number'].close();
+				var that=this;
+				that.numberList.push(val);
+				that.password = that.numberList.join().replace(/,/g, '');
+				if (that.numberList.length >= that.length) {
 					uni.request({
-						url: this.url + 'updatadeleteaddress/', //删除地址接口
+						url: that.urll + 'updatadeleteaddress/', //删除地址接口
 						method: 'DELETE',
 						data: {
 							id: this.id,
@@ -220,6 +226,8 @@
 						success(res) {
 							console.log(res);
 							if (res.statusCode == 204) {
+								that.passIn=false
+								that.$refs['number'].close()
 								uni.showToast({
 									title: '删除成功',
 									icon: 'none',
@@ -229,12 +237,21 @@
 									delta:1
 								})
 							}
-							if (res.statusCode == 200) {
+							if(res.statusCode==400){
+								that.numberList.length = 0;
+								that.$refs.wrong.flag=false;
+								var n=res.data.data.err_num;
+								var s=5-n;
+								that.$refs.wrong.tip='剩余'+ s +'次机会';
+							}
+							if(res.statusCode==423){
+								that.passIn=false
+								that.$refs['number'].close()
 								uni.showToast({
-									title: '资金密码错误',
-									icon: 'none',
-									duration: 2000
-								});
+									title:'交易密码已锁定,请在今日24:00后进行交易',
+									icon:'none',
+									duration:2000
+								})
 							}
 							var page = getCurrentPages().pop();
 							if (page == undefined || page == null) return;
@@ -242,7 +259,7 @@
 						},
 			           
 					});
-					this.numberList.length= 0;
+					this.numberList.length = 0;
 				}	
 			
 			},

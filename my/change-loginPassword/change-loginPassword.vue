@@ -7,7 +7,7 @@
 		</view>
 		<view class="linee"></view>
 		<view class="list">
-				<input class="code"  type="text" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
+				<input class="code"  type="number" @input='getCodeValue' :value="code" placeholder="请输入手机验证码" />
 				<button :class="flag?'getcode':'getcode1'" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
 		</view>
 		<view class="set">设置登录密码</view>

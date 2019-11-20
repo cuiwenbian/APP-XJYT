@@ -206,6 +206,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 /* .height {
 	height: var(--status-bar-height);
 	background: #121212;
@@ -260,7 +270,7 @@
 }
 .none {
 	display: block;
-	width: 180rpx;
+	width: 150rpx;
 	height: 150rpx;
 	margin: 0 auto;
 }

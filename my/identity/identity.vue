@@ -13,7 +13,7 @@
 		<view class='enter'>
 		  <view>
 		  <text class='enter-2 '>身份证号</text>
-		  <input class="weui-input1" placeholder="请输入您的身份证号码" type="idcard" @input='getIdcard'  :value='idcard'/>
+		  <input class="weui-input1" placeholder="请输入您的身份证号码" type="number" @input='getIdcard'  :value='idcard'/>
 		  </view>
 		</view>
 		<view class="line">上传身份证</view>
