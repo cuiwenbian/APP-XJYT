@@ -173,11 +173,10 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#121212;
+		color:#333;
 	}
 	.enter1{
 		width:300rpx;
-		color:#BCBCBC;
 	}
 	.getcode{
 		float:right;

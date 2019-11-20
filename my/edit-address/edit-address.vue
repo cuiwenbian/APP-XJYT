@@ -70,7 +70,6 @@
 			this.address=options.wallet_value;
 			this.id=options.id;
 			this.user_id=options.user_id;
-			
 		},
         onBackPress(option){
               plus.key.hideSoftKeybord()    
@@ -114,9 +113,17 @@
 				this.nickname=e.detail.value
 			},
 			save:function(){
-				if(this.address==''){
+				if(this.address==''){ 
 					uni.showToast({
 						title:'请输入提币地址',
+						icon:'none',
+						duration:2000
+					})
+					return false
+				}
+				if(this.address.length<=32){
+					uni.showToast({
+						title:'提币地址最少32位',
 						icon:'none',
 						duration:2000
 					})
@@ -276,7 +283,7 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#BCBCBC;
+		color:#333;
 	}
 	.save{
 		margin: 100rpx auto;

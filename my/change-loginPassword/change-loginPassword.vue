@@ -183,13 +183,16 @@
 						console.log(res) 
 						if(res.statusCode==200){
 							uni.showToast({
-								title:'登陆密码修改成功',
+								title:'登陆密码设置成功',
 								icon:'none',
 								duration:2000
 							})
-							uni.switchTab({
-								url:'../my/my'
+							uni.removeStorageSync('phone')
+							uni.removeStorageSync('token')
+							uni.reLaunch({
+								url:'../../pages/login/login'
 							})
+							
 						}
 						if(res.statusCode==400){
 							uni.showToast({

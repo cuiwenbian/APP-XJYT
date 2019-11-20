@@ -147,7 +147,7 @@
 				var f=this.global_.checkPassword(this.password)
 				if(!f){
 					uni.showToast({
-						title:'交易密码为六位数字!!!',
+						title:'交易密码为六位数字!',
 						icon:'none',
 						duration:2000
 					})
@@ -196,7 +196,7 @@
 						}
 						if(res.statusCode==400){
 							uni.showToast({
-								title:'交易密码为六位数字',
+								title:'验证码错误',
 								icon:'none',
 								duration:2000
 							})

@@ -184,7 +184,7 @@
 	.tips{
 		margin-top:50rpx;
 		text-align: center;
-		color:#dbdbdb;
+		color:#8a8a8a;
 		font-size: 28rpx;
 	}
 	.line1{

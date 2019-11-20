@@ -121,6 +121,8 @@
 									icon:'none',
 									duration:2000
 								})
+								uni.removeStorageSync('phone')
+								uni.removeStorageSync('token')
 								uni.reLaunch({
 									url:'../../pages/login/login'
 								})

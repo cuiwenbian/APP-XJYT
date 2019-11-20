@@ -149,6 +149,13 @@
 								url:'../my/my'
 							})
 						}
+						if(res.statusCode==400){
+							uni.showToast({
+								title:'验证码错误',
+								icon:'none',
+								duration:2000
+							})
+						}
 					}
 				})
 			}
@@ -185,7 +192,7 @@
 		height:120rpx;
 		line-height: 120rpx;
 		font-size: 30rpx;
-		color:#BCBCBC;
+		color:#333;
 	}
 	.enter1{
 		width:300rpx;

@@ -260,7 +260,7 @@ export default {
 
 .none {
 	display: block;
-	width: 150rpx;
+	width: 180rpx;
 	height: 150rpx;
 	margin: 0 auto;
 }
@@ -268,7 +268,7 @@ export default {
 .tips {
 	margin-top: 50rpx;
 	text-align: center;
-	color: #797979;
+	color: #8a8a8a;
 	font-size: 28rpx;
 }
 

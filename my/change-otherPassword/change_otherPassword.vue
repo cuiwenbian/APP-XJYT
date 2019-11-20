@@ -186,15 +186,17 @@
 						console.log(res)
 						if(res.statusCode==200){
 							uni.showToast({
-								title:'资金密码已设置',
+								title:'资金密码已修改',
 								icon:'none',
 								duration:2000
 							})
-							
+							uni.switchTab({
+								url:'../my/my'
+							})
 						}
 						if(res.statusCode==400){
 							uni.showToast({
-								title:'资金密码为六位数字',
+								title:'验证码错误',
 								icon:'none',
 								duration:2000
 							})
