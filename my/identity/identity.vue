@@ -7,7 +7,7 @@
 		<view class='enter enters'>
 		  <view>
 		  <text class='enter-2'>姓名</text>
-		  <input class="weui-input1 input1" placeholder="请输入您的姓名" maxlength="11" @input='getName' :value='name' focus="true"/>
+		  <input class="weui-input1 input1" placeholder="请输入您的姓名" maxlength="11" @input='getName' :value='name' />
 		  </view>
 		</view>
 		<view class='enter'>
@@ -106,7 +106,7 @@
 				r_flag: true,
 				p_url:'',
 				r_url:'',
-				shade:false
+				shade:true
 			}
 		},
         onBackPress(option){
@@ -550,7 +550,7 @@
 	  border: none;
 	}
 	.shade{
-		position: absolute;
+		position: fixed;
 		top:0;
 		left:0;
 		width:100%;

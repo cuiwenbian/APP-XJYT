@@ -23,22 +23,17 @@
 			手续费：{{fil_num * fee}}
 		</view>
 		<view class="next"  @click="save">提交</view>
-		<!-- <view class="success" v-if='success'>
-			<image class='duigou' src="../../static/images/success.png" mode=""></image>
-			<view class='tran'>转账成功</view>
-			<view class='btn' @click='over'>完成</view>
-		</view> -->
 		
 		<!-- #ifndef H5 -->
-			<password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+			<password-input v-if="passIn" @clo="clo" ref="wrong" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 			<!-- #endif -->
 		
 			<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 			<!-- #ifdef H5 -->
-			<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" :list="numberList"></password-input></view>
+			<view v-if="passIn" @tap="openKeyBoard('number')"  @clo="clo"><password-input :length="length" ref="wrong" :gutter="20" :list="numberList"></password-input></view>
 			<!-- #endif -->
 			<!-- 数字键盘 -->
-			<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+			<keyboard-package ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 		
 	</view>
 </template>
@@ -102,12 +97,10 @@
 							})
 						}
 						if(res.statusCode==200){
-							
-								uni.navigateTo({
-									url:'../choose-address/choose-address?bar='+that.bar+'&fee='+that.fee
-								})
-							
-							
+							uni.navigateTo({
+								url:'../choose-address/choose-address?bar='+that.bar+'&fee='+that.fee
+							})
+	
 						}
 						if(res.statusCode==302){
 							uni.showToast({
@@ -128,6 +121,12 @@
 				this.passIn = false;
 				this.$refs['number'].close();
 				this.numberList.length=0;
+			},
+			onChange(e){
+				console.log(e.show)
+				if(e.show==false){
+					this.passIn = false;
+				}
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -151,8 +150,7 @@
 				this.numberList.push(val);
 				this.password = this.numberList.join().replace(/,/g, '');
 				if (this.numberList.length >= this.length) {
-					this.passIn = false;
-					this.$refs['number'].close();
+					
 					uni.request({
 						url:this.url+'assets/capitalcode/',
 						method:"POST",
@@ -164,19 +162,16 @@
 						},
 						success(res) {
 							console.log(res)
-							
 							if(res.statusCode==400){
+								that.numberList.length= 0;
+								that.$refs.wrong.flag=false;
 								var n=res.data.data.err_num;
-								console.log(n)
 								var s=5-n;
-								console.log('剩余'+ s +'次机会')
-								uni.showToast({
-									title:'交易密码错误,剩余'+ s +'次机会',
-									icon:'none',
-									duration:2000
-								})
+								that.$refs.wrong.tip='剩余'+ s +'次机会';
 							}
 							if(res.statusCode==423){
+								that.passIn = false;
+								that.$refs['number'].close();
 								uni.showToast({
 									title:'交易密码已锁定,请在今日24:00后进行交易',
 									icon:'none',
@@ -184,14 +179,20 @@
 								})
 							}
 							if(res.statusCode==201){
+								that.passIn = false;
+								that.$refs['number'].close();
 								uni.navigateBack({
 									delta:2
 								})
+								uni.showToast({
+									title:'转账成功',
+									icon:'none',
+									duration:2000
+								})
 								var page = getCurrentPages().pop();
 								if (page == undefined || page == null) return; 
-								page.onLoad(); 
+								page.onLoad();
 							}
-							
 					    }
 					})
 					this.numberList.length=0;

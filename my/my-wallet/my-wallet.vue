@@ -56,7 +56,7 @@
 			return{
 				flag:false,
 				date:'本月',
-				num:'',
+				num:'0',
 				ber:'',
 				nuber:'',
 				fee:'',

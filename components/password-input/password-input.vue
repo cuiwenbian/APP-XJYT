@@ -1,20 +1,21 @@
 <template>
-	<view class="container" ref='passwordInput'>
-	<view class="boxx" v-if="hiddenmodalput">
-		<image class="close" src="../../static/images/close.png" @tap='close'></image>
-		<view :class="flag?'tip':'tip1'" >
-		  <image class="lock" src="../../static/images/lock.png"></image>
-		 {{tip}}
+	<uni-popup :custom="true" type="bottom" ref="keyboardPackage">
+		<view class="boxx" v-if="hiddenmodalput">
+			<image class="close" src="../../static/images/close.png" @tap='close'></image>
+			<view :class="flag?'tip':'tip1'" >
+			  <image class="lock" src="../../static/images/lock.png"></image>
+			 {{tip}}
+			</view>
+			<view class="forget" @tap="forget">忘记密码？</view>
+			<view  :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
+				<view :class="['circle',(index<list.length)?'dot':'']" ></view>
+			</view>
 		</view>
-		<view class="forget" @tap="forget">忘记密码？</view>
-		<view  :class="['item',list.length===index?'fakecursor':'']" v-for="(item,index) in length" :key="item" >
-			<view :class="['circle',(index<list.length)?'dot':'']" ></view>
-		</view>
-	</view>
-	</view>
+	</uni-popup>
 </template>
 
 <script>
+	import uniPopup from "@/components/uni-popup/uni-popup.vue"
 	import keyboardPackage from "../keyboard-package/keyboard-package.vue"
 	export default {
 		props:{
@@ -52,6 +53,7 @@
 		methods:{
 			close: function() {
                this.$emit('clo');
+			   this.$refs.keyboardPackage.close();
 			},
 			forget: function() {
 			  var that = this;

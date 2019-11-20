@@ -4,7 +4,7 @@
 		<view v-if='flag'>
 			<view class="box"></view>
 			<view>
-				<image class="none" src="../../static/images/machine.png" mode=""></image>
+				<image class="none" src="../../static/images/add.png" mode=""></image>
 				<view class="tips">
 					您还没有提交反馈!
 				</view>
@@ -243,7 +243,7 @@
 	}
 	.none{
 		display: block;
-		width:150rpx;
+		width:250rpx;
 		height:150rpx;
 		margin:0 auto;
 	}

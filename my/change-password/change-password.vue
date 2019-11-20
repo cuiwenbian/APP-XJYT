@@ -17,7 +17,7 @@
 			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="changePassword">确认修改</view>
-		<view class="other" @click="other">其他方式</view>
+		<view class="other" @click="other">找回密码</view>
 	</view>
 </template>
 

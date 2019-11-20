@@ -24,7 +24,7 @@
 		</view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
-		<keyboard-package ref="number"  @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<keyboard-package ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 	    
 		
 		<!-- #ifndef H5 -->
@@ -37,7 +37,7 @@
 		</view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
-		<keyboard-package ref="numbers"  @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<keyboard-package ref="numbers" @onChange='onChange1' @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 			  
 	</view>
 </template>
@@ -91,6 +91,18 @@
 				this.delShow = false;
 				this.$refs['numbers'].close();
 				this.numberList.length= 0;
+			},
+			onChange(e){
+				console.log(e.show)
+				if(e.show==false){
+					this.passIn = false;
+				}
+			},
+			onChange1(e){
+				console.log(e.show)
+				if(e.show==false){
+					this.delShow = false;
+				}
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -150,7 +162,7 @@
 				if (that.numberList.length >= that.length) {
 					
 			        uni.request({
-			        	url:that.urll+'updatadeleteaddress/',   //编辑地址接口
+			        	url:that.url+'updatadeleteaddress/',   //编辑地址接口
 			        	method:'PUT',
 			        	data:{
 			        		wallet_value:that.address,
@@ -214,7 +226,7 @@
 				that.password = that.numberList.join().replace(/,/g, '');
 				if (that.numberList.length >= that.length) {
 					uni.request({
-						url: that.urll + 'updatadeleteaddress/', //删除地址接口
+						url: that.url + 'updatadeleteaddress/', //删除地址接口
 						method: 'DELETE',
 						data: {
 							id: this.id,

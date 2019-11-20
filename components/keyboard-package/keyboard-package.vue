@@ -1,5 +1,5 @@
 <template>
-	<uni-popup :custom="true" type="bottom" ref="keyboardPackage">
+	<uni-popup :custom="true" type="bottom" ref="keyboardPackage" @change='change'>
 		<view class="keyboardbox">
 			<view class="numkeyboard" v-if="type==='number'">
 				<view class="num-area">
@@ -86,6 +86,10 @@
 			disableDot: { //数字键盘是否禁止点击.仅type为number生效
 				type: Boolean,
 				default: false
+			},
+			passIn:{
+				type: Boolean,
+				default: false
 			}
 		},
 		data() {
@@ -114,10 +118,18 @@
 					['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
 					['Z', 'X', 'C', 'V', 'B', 'N', 'M']
 				],
-				active: 1
+				active: 1,
+				showPop:true
 			};
 		},
+		onLoad() {
+			console.log(this.$refs.keyboardPackage.showPopup)
+		},
 		methods: {
+			change(e){
+				this.$emit('onChange',e);
+				// this.showPop=e.show
+			},
 			open() {
 				this.$refs.keyboardPackage.open();
 			},
@@ -132,6 +144,7 @@
 				this.$emit('onInput', val);
 			},
 			close() {
+				console.log('关闭键盘')
 				this.$refs.keyboardPackage.close();
 			}
 		}

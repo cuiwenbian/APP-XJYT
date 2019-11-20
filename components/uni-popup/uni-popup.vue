@@ -67,6 +67,7 @@ export default {
   methods: {
     clear () {},
     open () {
+		
       this.$emit('change', {
         show: true
       })
@@ -76,8 +77,10 @@ export default {
           this.ani = 'uni-' + this.type
         }, 30)
       })
+	  
     },
     close (type) {
+		
       if (!this.maskClick && type) return
       this.$emit('change', {
         show: false
@@ -88,6 +91,7 @@ export default {
           this.showPopup = false
         }, 300)
       })
+	  
     }
   }
 }

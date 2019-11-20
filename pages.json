@@ -214,7 +214,7 @@
 					 },
 					 {
 					     "path":"change-otherPassword/change_otherPassword",
-					     "style":{"navigationBarTitleText":"修改交易密码"}
+					     "style":{"navigationBarTitleText":"找回密码"}
 					 },
 					 {
 					     "path":"my-machine/my-machine",

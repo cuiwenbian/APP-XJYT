@@ -33,7 +33,7 @@
 		<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" ref='wrong' :list="numberList"></password-input></view>
 		<!-- #endif -->
 		<!-- 数字键盘 -->
-		<keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+		<keyboard-package  ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
 	</view>
 </template>
 <script src="../../static/js/jquery.min.js"></script>
@@ -76,7 +76,7 @@ export default {
 	onLoad() {
 		var that = this;
 		uni.request({
-			url: this.urll + 'walletaddress/',
+			url: this.url + 'walletaddress/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
@@ -91,8 +91,10 @@ export default {
 				that.address_out = res.data.data;
 			}
 		});
+		
 	},
 	methods: {
+		
 		clo: function() {
 			this.passIn = false;
 			this.$refs['number'].close();
@@ -100,6 +102,12 @@ export default {
 		},
 		onDelete() {
 			this.numberList.pop();
+		},
+		onChange(e){
+			console.log(e.show)
+			if(e.show==false){
+				this.passIn = false
+			}
 		},
 		onConfirm() {
 			if(this.numberList.length!=6){
@@ -117,9 +125,8 @@ export default {
 			console.log(that.numberList.join().replace(/,/g, ''));
 			that.password = that.numberList.join().replace(/,/g, '');
 			if (that.numberList.length >= that.length) {
-				
 				uni.request({
-					url: that.urll + 'updatadeleteaddress/',
+					url: that.url + 'updatadeleteaddress/',
 					method: 'DELETE',
 					data: {
 						id: that.id,
