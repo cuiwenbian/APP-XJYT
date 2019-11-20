@@ -1,10 +1,7 @@
 
 page {
     background-color: #DCDCDC;
-<<<<<<< HEAD
     margin-bottom:40rpx;
-=======
->>>>>>> c9473b2172ca10a879cc426440d5a7151a26c132
 }
 .box {
     width: 100%;
@@ -133,7 +130,6 @@ page {
     color: #a1a1a1;
 }
 .box4 {
-<<<<<<< HEAD
      position: fixed;
      bottom: 0rpx;
      right: 0rpx;
@@ -144,13 +140,6 @@ page {
 }
 .primary1 {
     width: 280rpx;
-=======
-    height: 80rpx;
-    line-height: 80rpx;
-}
-.primary1 {
-    width: 180rpx;
->>>>>>> c9473b2172ca10a879cc426440d5a7151a26c132
     height: 60rpx;
     line-height: 60rpx;
     margin-top: 12rpx;
@@ -158,10 +147,6 @@ page {
     font-size: 28rpx;
     float: right;
     margin-right: 48rpx;
-<<<<<<< HEAD
     background-color: #999999;
-=======
-    background-color: #121212;
->>>>>>> c9473b2172ca10a879cc426440d5a7151a26c132
 }
 

@@ -219,8 +219,9 @@
                 },
                 success(res) {
                     var dater = res.data.data
-                    that.dater = dater
-                    console.log(dater.length )
+                    // for(dater)
+                    that.dater = dater.reverse()
+                    console.log(dater)
                     // console.log(dater.data.order_num)
                     console.log(that.dater.order_num)
                 }
@@ -266,7 +267,7 @@
                         success(res) {
                             console.log(res)
                             var ter = res.data.data
-                            that.ter = ter
+                            that.ter = ter.reverse()
                             console.log(that.ter)
                             
                             
@@ -284,7 +285,7 @@
                         success(res) {
                             console.log(res)
                             var delwen = res.data.data
-                            that.delwen = delwen
+                            that.delwen = delwen.reverse()
                             console.log(that.delwen)
                         }
                     })
@@ -300,7 +301,7 @@
                         success(res) {
                             console.log(res)
                             var delewen = res.data.data
-                            that.delewen = delewen
+                            that.delewen = delewen.reverse()
 							// that.many = that.delewen
                         }
                     })

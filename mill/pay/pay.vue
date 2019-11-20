@@ -232,7 +232,7 @@
                         console.log(res)
                         var contion = res.data.data
                         console.log(contion)
-                        that.contion = contion
+                        that.contion = contion.reverse()
                         console.log(that.contion[0].set_time)
                     }
                 })
@@ -256,7 +256,7 @@
                         success(res) {
                             console.log(res)
                             var kolo = res.data.data
-                            that.kolo = kolo
+                            that.kolo = kolo.reverse()
                         }
                     })
                 }
@@ -271,7 +271,7 @@
                             console.log(res)
                             var lornd = res.data.data
                             console.log(lornd)
-                            that.lornd = lornd
+                            that.lornd = lornd.reverse()
                         }
                     })
                 }
@@ -285,7 +285,7 @@
                         success(res) {
                             console.log(res)
                             var daker = res.data.data
-                            that.daker = daker
+                            that.daker = daker.reverse()
                         }
                     })
                 }
