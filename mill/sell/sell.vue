@@ -68,6 +68,9 @@
             }
             this.arr = arr
         },
+        onBackPress(option){
+              plus.key.hideSoftKeybord()    
+            },
         methods: {
             getPriceValue: function (e) {
                 var that = this

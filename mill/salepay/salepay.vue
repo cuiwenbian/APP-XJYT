@@ -150,6 +150,7 @@
 <style>
 page {
       background-color: #DCDCDC;
+      margin-bottom:40rpx;
   }
   .box {
 
@@ -277,8 +278,14 @@ page {
       padding-left: 34rpx;
       font-size: 26rpx;
       color: #a1a1a1;
-  } .box4 {
+  } 
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
       height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
       line-height: 80rpx;
   }
   .primary1 {

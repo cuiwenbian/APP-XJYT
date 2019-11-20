@@ -211,11 +211,10 @@
             				if (res.statusCode == 200) {
             					uni.showToast({
             						title: '付款完成',
-            						icon: 'none',
             						duration: 2000
             					});
                                 uni.navigateTo({
-                                    url:'../pay/pay'
+                                    url:'../staypay/staypay'
                                 })
             				}
             				var page = getCurrentPages().pop();
@@ -249,8 +248,10 @@
 </script>
 
 <style>
+
   page {
       background-color: #DCDCDC;
+      margin-bottom:40rpx;
   }
   .box {
       width: 100%;
@@ -378,7 +379,12 @@
       padding-left: 40rpx;
   }
   .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
       height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
       line-height: 80rpx;
   }
   .primary1 {

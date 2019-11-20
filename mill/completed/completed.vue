@@ -31,11 +31,21 @@
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{set_time}}</text>
                 </text>
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{pay_time}}</text>
+                    </text>
+                </view>
+                <view>
+                    <text>
+                        确认时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
+                <view>
+                    <text>
+                        完成时间：<text class="smallxx1">{{finish_time}}</text>
                     </text>
                 </view>
             </view>
@@ -96,6 +106,9 @@
                 rmb:'',
                 bsow:'',
                 geunt:'',
+                finish_time:'',
+                pay_time:'',
+                set_time:'',
                 x:'',
                 time:'',
                 name:'',
@@ -122,7 +135,10 @@
             that.x = bsow[0][0].order_num
             that.name = bsow[0][0].name
             that.contact = bsow[0][0].mobile
-            that.time = bsow[0][0].set_time
+            that.time = bsow[0][0].confirm_time
+            that.finish_time = bsow[0][0].finish_time
+            that.pay_time = bsow[0][0].pay_time
+            that.set_time = bsow[0][0].set_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -143,6 +159,7 @@
 <style>
  page {
      background-color: #DCDCDC;
+     margin-bottom:40rpx;
  }
  .box {
      width: 100%;
@@ -267,10 +284,15 @@
      font-size: 26rpx;
      color: #a1a1a1;
  }
- .box4 {
-     height: 80rpx;
-     line-height: 80rpx;
- }
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
+      height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
+      line-height: 80rpx;
+  }
  .primary1 {
      width: 180rpx;
      height: 60rpx;

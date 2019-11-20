@@ -90,7 +90,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn1">查看详细</button>
+                    	<button class="btn2" @click="btn1(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -125,7 +125,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn2(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -161,7 +161,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn3">查看详细</button>
+                    	<button class="btn2" @click="btn3(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -240,9 +240,6 @@
            
         },
         methods:{
-            tite:function() {
-                
-            },
             obtainOrderNum:function(e) {
                 var that = this
                 that.ebit = e
@@ -259,6 +256,7 @@
                     that.tabCurrentIndex =index
                 }
                 if(this.tabCurrentIndex === 1) {
+                    var that  = this
                     uni.request({
                         url:this.url + 'saleall/102',
                         method:'GET',
@@ -268,14 +266,15 @@
                         success(res) {
                             console.log(res)
                             var ter = res.data.data
-                            console.log(ter)
                             that.ter = ter
+                            console.log(that.ter)
                             
                             
                         }
                     })
                 }
                 if(this.tabCurrentIndex === 2) {
+                    var that  = this
                     uni.request({
                         url:this.url + 'saleall/103',
                         method:'GET',
@@ -286,10 +285,12 @@
                             console.log(res)
                             var delwen = res.data.data
                             that.delwen = delwen
+                            console.log(that.delwen)
                         }
                     })
                 }
                 if(this.tabCurrentIndex === 3) {
+                    var that  = this
                     uni.request({
                         url:this.url + 'saleall/104',
                         method:'GET',
@@ -328,7 +329,8 @@
                 })
                 
             },
-            btn1:function(){
+            btn1:function(item){
+                console.log(item)
                 var that = this
                 console.log(that.ter[0].order_num)
                 uni.request({
@@ -338,7 +340,7 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.ter[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                         console.log(res) 
@@ -351,7 +353,8 @@
                 })
                
             },
-            btn2:function(){
+            btn2:function(item){
+                console.log(item)
                 var that = this
                 console.log(that.delwen[0].order_num)
                 uni.request({
@@ -361,11 +364,12 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.delwen[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                        console.log(res) 
                        var nuso = JSON.stringify(res.data.data)
+                       console.log(nuso)
                        uni.navigateTo({
                            url:'../saleaudit/saleaudit?suxang=' + nuso
                        })
@@ -383,7 +387,7 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.delewen[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                        console.log(res) 
@@ -418,6 +422,9 @@
                         console.log(res)
                         if(res.statusCode == 200) {
                             that.flag = false
+                            uni.showToast({
+                                title:'已提交您的'
+                            })
                         }else if (res.statusCode == 400) {
                             uni.showToast({
                                 title:'该订单不可申诉',

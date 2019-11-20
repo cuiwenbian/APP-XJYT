@@ -50,7 +50,7 @@
                     
                     <view class="hz">
                     	<button class="btn1" @click="bt">取消订单</button>
-                    	<button class="btn2" @click="btn">查看详细</button>
+                    	<button class="btn2" @click="btn(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </view>
@@ -88,7 +88,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn2">查看详细</button>
+                    	<button class="btn2" @click="btn2(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -124,7 +124,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn3">查看详细</button>
+                    	<button class="btn2" @click="btn3(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -160,7 +160,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn2" @click="btn4">查看详细</button>
+                    	<button class="btn2" @click="btn4(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
                 </scroll-view>
@@ -208,7 +208,7 @@
             var that=this;
             this.getData()
             uni.request({
-                url:this.url + 'ordernum/1',
+                url:this.urll + 'ordernum/1',
                 method:'GET',
                 header:{
                     Authorization: 'JWT'+' '+this.global_.token
@@ -222,7 +222,6 @@
         methods:{
             getData(){
                 var that=this;
-               
                 uni.request({
                     url:this.url + 'buyall/101',
                     method:'GET',
@@ -234,6 +233,7 @@
                         var contion = res.data.data
                         console.log(contion)
                         that.contion = contion
+                        console.log(that.contion[0].set_time)
                     }
                 })
                 
@@ -270,6 +270,7 @@
                         success(res) {
                             console.log(res)
                             var lornd = res.data.data
+                            console.log(lornd)
                             that.lornd = lornd
                         }
                     })
@@ -290,7 +291,7 @@
                 }
 
             },
-            btn:function () {
+            btn:function (item) {
                 var that = this
                 console.log(that.contion[0].order_num)
                 uni.request({
@@ -300,7 +301,7 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.contion[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                         console.log(res) 
@@ -316,7 +317,6 @@
             },
             bt:function(val) {
                 var that = this
-                // this.numberList.push(val);
                 uni.request({
                     url:this.url + 'ordercancel/',
                     method:'POST',
@@ -346,7 +346,7 @@
                 })
                
             },
-            btn2:function() {
+            btn2:function(item) {
                 var that = this
                 uni.request({
                     url:this.url + 'salemessage/',
@@ -355,7 +355,7 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.kolo[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                         console.log(res)
@@ -368,16 +368,16 @@
                 })
                 
             },
-            btn3:function () {
+            btn3:function (item) {
                 var that = this
                 uni.request({
-                    url:this.url + 'salemessage/',
+                    url:this.urll + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.lornd[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                         console.log(res)
@@ -390,7 +390,7 @@
                 })
                
             },
-            btn4:function(){
+            btn4:function(item){
                 var that = this
                 uni.request({
                     url:this.url + 'salemessage/',
@@ -399,7 +399,7 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.daker[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
                         console.log(res)

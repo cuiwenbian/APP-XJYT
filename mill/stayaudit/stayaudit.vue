@@ -40,6 +40,11 @@
                         支付时间：<text class="smallxx1">{{time}}</text>
                     </text>
                 </view>
+                <view>
+                    <text>
+                        确认时间：<text class="smallxx1">{{time}}</text>
+                    </text>
+                </view>
             </view>
 
             <view>
@@ -150,6 +155,7 @@
 <style>
  page {
      background-color: #DCDCDC;
+     margin-bottom:40rpx;
  }
  .box {
      width: 100%;
@@ -208,7 +214,7 @@
      padding-left: 40rpx;
  }
  .smallxx1{
-     margin-left: 48rpx;
+     margin-left: 46rpx;
  }
  .primary {
      width: 180rpx;
@@ -274,10 +280,15 @@
      font-size: 26rpx;
      color: #a1a1a1;
  }
- .box4 {
-     height: 80rpx;
-     line-height: 80rpx;
- }
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
+      height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
+      line-height: 80rpx;
+  }
  .primary1 {
      width: 180rpx;
      height: 60rpx;

@@ -31,11 +31,11 @@
             </view>
             <view  :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{time_set}}</text>
                 </text>           
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{time_pay}}</text>
                     </text>
                 </view>
                 <view>
@@ -105,6 +105,8 @@
                 price:'',
                 rmb:'',
                 x:'',
+                time_set:'',
+                time_pay:'',
                 clorn:'',
                 time:'',
                 name:'',
@@ -132,7 +134,9 @@
             that.x = that.vinda[0][0].order_num
             that.name = that.vinda[0][0].name
             that.contact = that.vinda[0][0].mobile
-            that.contact = that.vinda[0][0].set_time
+            that.time = that.vinda[0][0].confirm_time
+            that.time_pay = that.vinda[0][0].pay_time
+            that.time_set = that.vinda[0][0].set_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -153,6 +157,7 @@
 <style>
 page {
       background-color: #DCDCDC;
+      margin-bottom:40rpx;
   }
   .box {
       width: 100%;
@@ -279,8 +284,13 @@ page {
       font-size: 26rpx;
       color: #a1a1a1;
   }
-   .box4 {
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
       height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
       line-height: 80rpx;
   }
   .primary1 {
