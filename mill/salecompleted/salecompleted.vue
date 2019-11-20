@@ -31,18 +31,23 @@
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{set_time}}</text>
                 </text>
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{pay_time}}</text>
                     </text>
                 </view>
                <view>
                     <text>
-                        确认时间：<text class="smallxx1">{{time}}</text>
+                        确认时间：<text class="smallxx1">{{confirm_time}}</text>
                     </text>
                 </view>
+                <view>
+                     <text>
+                         完成时间：<text class="smallxx1">{{finish_time}}</text>
+                     </text>
+                 </view>
             </view>
 
             <view>
@@ -100,8 +105,11 @@
                 price:'',
                 rmb:'',
                 x:'',
-                time:'',
+                pay_time:'',
                 name:'',
+                set_time:'',
+                finish_time:'',
+                confirm_time:'',
                 nuecv:'',
                 contact:'',
                 italn:'',
@@ -128,7 +136,10 @@
             that.x = italn[0][0].order_num
             that.name = italn[0][0].name
             that.contact = italn[0][0].mobile
-            that.time = italn[0][0].set_time
+            that.pay_time = italn[0][0].pay_time
+            that.set_time = italn[0][0].set_time
+            that.confirm_time = italn[0][0].confirm_time
+            that.finish_time = italn[0][0].finish_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -149,6 +160,7 @@
 <style>
  page {
      background-color: #DCDCDC;
+     margin-bottom: 40rpx;
  }
  .box {
      width: 100%;
@@ -273,10 +285,15 @@
      font-size: 26rpx;
      color: #a1a1a1;
  }
- .box4 {
-     height: 80rpx;
-     line-height: 80rpx;
- }
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
+      height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
+      line-height: 80rpx;
+  }
  .primary1 {
      width: 180rpx;
      height: 60rpx;

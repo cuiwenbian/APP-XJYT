@@ -83,7 +83,7 @@ that. <template>
         </view>
        
         <view class="box4">
-            <button class="primary1" @click="btn">待确认</button>
+            <button class="primary1" @click="btn">确认收款</button>
             <!-- #ifndef H5 -->
             <password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
@@ -257,6 +257,7 @@ that. <template>
 <style>
     page {
         background-color: #DCDCDC;
+        margin-bottom:40rpx;
     }
     .box {
         width: 100%;
@@ -381,10 +382,15 @@ that. <template>
         font-size: 26rpx;
         color: #a1a1a1;
     }
-    .box4 {
-        height: 80rpx;
-        line-height: 80rpx;
-    }
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
+      height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
+      line-height: 80rpx;
+  }
     .primary1 {
         width: 180rpx;
         height: 60rpx;

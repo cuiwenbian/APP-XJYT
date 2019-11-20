@@ -162,7 +162,7 @@
 				var date2=new Date();     
 				var date4=86400*6;
 				var date3=timestamp - date4 //时间差的毫秒数
-				console.log(timestamp,date3)
+				// console.log(timestamp,date3)
             	uni.request({
             			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=28800`,
             			method: 'POST',
@@ -539,8 +539,8 @@
     .yj {
         width: 36rpx;
         height: 26rpx;
-		
-		margin-top: 8rpx;
+		margin-left: 280rpx;
+
     }
     .yjj {
         font-size: 14rpx;

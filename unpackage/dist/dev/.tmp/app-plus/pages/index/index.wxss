@@ -2157,8 +2157,7 @@ swiper-item image {
 .yj {
         width: 36rpx;
         height: 26rpx;
-		
-		margin-top: 8rpx;
+		margin-left: 280rpx;
 }
 .yjj {
         font-size: 14rpx;

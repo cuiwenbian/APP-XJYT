@@ -126,7 +126,7 @@
             that.name = fanta[0][0].name
             that.contact = fanta[0][0].mobile
             that.time = fanta[0][0].set_time
-            
+            console.log(that.price)
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -147,6 +147,7 @@
 <style>
  page {
      background-color: #DCDCDC;
+     margin-bottom:40rpx;
  }
  .box {
      width: 100%;
@@ -271,12 +272,17 @@
      font-size: 26rpx;
      color: #a1a1a1;
  }
- .box4 {
-     height: 80rpx;
-     line-height: 80rpx;
- }
+  .box4 {
+      position: fixed;
+      bottom: 0rpx;
+      right: 0rpx;
+      height: 80rpx;
+      width: 100%;
+      background-color: #F6F6F6;
+      line-height: 80rpx;
+  }
  .primary1 {
-     width: 180rpx;
+     width: 280rpx;
      height: 60rpx;
      line-height: 60rpx;
      margin-top: 12rpx;
@@ -284,6 +290,6 @@
      font-size: 28rpx;
      float: right;
      margin-right: 48rpx;
-     background-color: #121212;
+     background-color: #999999;
  }
 </style>

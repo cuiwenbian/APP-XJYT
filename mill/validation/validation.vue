@@ -47,12 +47,30 @@
                 console.log(that.coloe)
             },
             end1:function () {
+                if(this.coloe==""){
+                	uni.showToast({
+                		icon:'none',
+                		title:'请输入手机号'
+                	})
+                	return false;
+                }
+                var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;	
+                if(!myreg.test(this.coloe)){
+                	 uni.showToast({
+                	 	title:'请输入正确的手机号',
+                		icon:'none',
+                		mask:true,
+                		duration:2000
+                	 })
+                	  return false
+                 }
                 var that = this
                 var name = that.name
                 var cool = that.coloe
                 var data = that.data
                 var date = that.date
                 var datr = that.datr
+                
                 uni.request({
                     url:this.url + 'buildorders/',
                     method:'POST',

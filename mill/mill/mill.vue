@@ -166,7 +166,7 @@ export default {
 							}
 						});
 					} else if (res.statusCode == 302) {
-                        uni.showModal({
+                        uni.showToast({
                             title:'实名认证审核中',
                         })
                     }else if (res.statusCode == 400) {

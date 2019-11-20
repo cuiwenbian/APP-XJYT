@@ -181,7 +181,7 @@
                             }
             				if (res.statusCode == 200) {
             					uni.showToast({
-            						title: '收款完成',
+            						title: '出售成功，等待买家付款',
             						icon: 'none',
             						duration: 2000
             					});
