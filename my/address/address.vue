@@ -120,7 +120,6 @@ export default {
 		},
 		onInput(val) {
 			var that=this;
-			
 			that.numberList.push(val);
 			console.log(that.numberList.join().replace(/,/g, ''));
 			that.password = that.numberList.join().replace(/,/g, '');

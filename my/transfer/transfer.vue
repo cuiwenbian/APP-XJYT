@@ -147,23 +147,22 @@
 			},
 			onInput(val) {
 				var that=this;
-				this.numberList.push(val);
-				this.password = this.numberList.join().replace(/,/g, '');
-				if (this.numberList.length >= this.length) {
-					
+				that.numberList.push(val);
+				that.password = that.numberList.join().replace(/,/g, '');
+				if (that.numberList.length >= that.length) {
 					uni.request({
-						url:this.url+'assets/capitalcode/',
+						url:that.url+'assets/capitalcode/',
 						method:"POST",
 						data:{
-							capital_code:this.password
+							capital_code:that.password
 						},
 						header:{
-							Authorization:'JWT'+' '+this.global_.token
+							Authorization:'JWT'+' '+that.global_.token
 						},
 						success(res) {
 							console.log(res)
 							if(res.statusCode==400){
-								that.numberList.length= 0;
+								that.numberList.length = 0;
 								that.$refs.wrong.flag=false;
 								var n=res.data.data.err_num;
 								var s=5-n;
@@ -189,10 +188,11 @@
 									icon:'none',
 									duration:2000
 								})
-								var page = getCurrentPages().pop();
-								if (page == undefined || page == null) return; 
-								page.onLoad();
+								
 							}
+							var page = getCurrentPages().pop();
+							if (page == undefined || page == null) return; 
+							page.onLoad();
 					    }
 					})
 					this.numberList.length=0;

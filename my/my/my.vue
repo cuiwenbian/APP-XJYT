@@ -108,6 +108,14 @@
 								duration:2000
 							})
 						}
+						if(res.statusCode==205){
+							uni.showToast({
+								title:'身份认证审核中，请等待',
+								icon:'none',
+								duration:2000
+							})
+							
+						}
 						if(res.statusCode==200){
 							uni.navigateTo({
 								url:'../address/address'
