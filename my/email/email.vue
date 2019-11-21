@@ -4,7 +4,7 @@
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
-			<input class="enter" type="number" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
+			<input class="enter" type="text" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
