@@ -31,11 +31,11 @@
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{set_time}}</text>
                 </text>
                 <view >
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{pay_time}}</text>
                     </text>
                 </view>
             </view>
@@ -98,7 +98,8 @@
                 rmb:'',
                 x:'',
                 fanta:'',
-                time:'',
+                pay_time:'',
+                set_time:'',
                 name:'',
                 contact:'',
                 ig:'',
@@ -125,7 +126,8 @@
             that.x = fanta[0][0].order_num
             that.name = fanta[0][0].name
             that.contact = fanta[0][0].mobile
-            that.time = fanta[0][0].set_time
+            that.set_time = fanta[0][0].set_time
+            that.pay_time = fanta[0][0].pay_time
             console.log(that.price)
             
             that.rmb = getRmb.getrmb(that.price)

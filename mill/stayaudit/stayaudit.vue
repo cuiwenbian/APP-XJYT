@@ -32,17 +32,17 @@
             <view :class="frte?'small1':'smallpo'">
                 <view>
                     <text>
-                        创建时间:<text class="smallxx1">{{time}}</text>
+                        创建时间:<text class="smallxx1">{{set_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{pay_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        确认时间：<text class="smallxx1">{{time}}</text>
+                        确认时间：<text class="smallxx1">{{confirm_time}}</text>
                     </text>
                 </view>
             </view>
@@ -107,7 +107,9 @@
                 hberd:'',
                 rmb:'',
                 x:'',
-                time:'',
+                set_time:'',
+                pay_time:'',
+                confirm_time:'',
                 name:'',
                 contact:'',
                 frte:true,
@@ -133,7 +135,9 @@
             that.x = that.cander[0][0].order_num
             that.name = that.cander[0][0].name
             that.contact = that.cander[0][0].mobile
-            that.time = that.cander[0][0].set_time
+            that.confirm_time = that.cander[0][0].confirm_time
+            that.set_time = that.cander[0][0].set_time
+            that.pay_time = that.cander[0][0].pay_time
             
             
             that.rmb = getRmb.getrmb(that.price)

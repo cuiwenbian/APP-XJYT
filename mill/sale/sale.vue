@@ -378,7 +378,7 @@
                 })
                
             },
-            btn3:function(){
+            btn3:function(item){
                 var that = this
                 console.log(that.delewen[0].order_num)
                 uni.request({
