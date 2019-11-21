@@ -132,8 +132,8 @@
 }
 .pic{
 	display: block;
-	width:45rpx;
-	height:45rpx;
+	width:52rpx;
+	height:52rpx;
 	margin: 30rpx auto;
 }
 .txt{

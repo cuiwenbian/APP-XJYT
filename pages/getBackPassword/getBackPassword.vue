@@ -9,7 +9,7 @@
 		<view class="pass">
 			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
 			<button class="getcode" @click="getCodeNumber" hover-class="none" :disabled="disabled">{{ codename }}</button>
-			<input class="code" type="text"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
+			<input class="code" type="number"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
 		<view class="next" type="primary" @click="next">下一步</view>
 	</view>
@@ -176,7 +176,7 @@
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
-								url:'../setNewPassword/setNewPassword?code='+this.code+'&phone='+this.phone,
+								url:'../setNewPassword/setNewPassword?code='+_this.code+'&phone='+_this.phone,
 							});
 						}
 					}

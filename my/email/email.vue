@@ -4,7 +4,7 @@
 		<view class="line"></view>
 		<view class="list">
 			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
-			<input class="enter" type="text" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
+			<input class="enter" type="text&number" :value="email" @input='getEmailValue' @blur='getEmailStyle' placeholder="请输入邮箱地址" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
@@ -12,7 +12,6 @@
 			<input class="enter enter1" type="number"  @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
-		
 		<view class="save"  @click="save">确认</view>
 	</view>
 </template>

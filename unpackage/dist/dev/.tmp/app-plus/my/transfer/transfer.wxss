@@ -87,10 +87,10 @@ page{
 }
 .right{
 	float: right;
-	width:25rpx;
-	height:30rpx;
+	width:30rpx;
+	height:35rpx;
 	/* background: red; */
-	margin-top:58rpx;
+	margin-top:56rpx;
 	margin-right:24rpx;
 }
 .all{

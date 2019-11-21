@@ -146,7 +146,7 @@ export default {
 							});
 						}
 						if(res.statusCode==400){
-							that.numberList.length= 0;
+							// that.numberList.length= 0;
 							that.$refs.wrong.flag=false;
 							var n=res.data.data.err_num;
 							var s=5-n;

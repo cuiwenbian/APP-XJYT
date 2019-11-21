@@ -12,35 +12,35 @@
 		<view class="line"></view>
     	<view class="list">
     		<view class="listItem" @click="wallet">
-				<image class="pic" src="../../static/images/my-wallet.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-1.png" mode=""></image>
 				<view class="txt">我的钱包</view>
 			</view>
 			<view class="listItem" @click="address">
-				<image class="pic" src="../../static/images/address.png" mode=""></image>
+				<image class="pic"  src="../../static/images/my-2.png" mode=""></image>
 				<view class="txt" >提币地址</view>
 			</view>
 			<view class="listItem" @click="certification">
-				<image class="pic" src="../../static/images/my-identity.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-3.png" mode=""></image>
 				<view class="txt" >实名认证</view> 
 			</view>
 			<view class="listItem" @click="mymachine">
-				<image class="pic" src="../../static/images/machine.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-4.png" mode=""></image>
 				<view class="txt" >我的矿机</view>
 			</view>
 			<view class="listItem" @click="tradePassword">
-				<image class="pic" src="../../static/images/my-password.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-5.png" mode=""></image>
 				<view class="txt" >交易密码</view>
 			</view>
 			<view class="listItem" @click="loginPassword">
-				<image class="pic" src="../../static/images/my-login.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-6.png" mode=""></image>
 				<view class="txt" >登录密码</view>
 			</view>
-			<view class="listItem"  @click="bindEmail">
-				<image class="pic" src="../../static/images/my-email.png" mode=""></image>
-				<view class="txt">邮箱绑定</view>
+			<view class="listItem"  @click="bindEmail" >
+				<image class="pic"  src="../../static/images/my-7.png" mode=""></image>
+				<view class="txt" >邮箱绑定</view>
 			</view>
 			<view class="listItem" @click="suggest">
-				<image class="pic" src="../../static/images/my-suggest.png" mode=""></image>
+				<image class="pic" src="../../static/images/my-8.png" mode=""></image>
 				<view class="txt" >建议反馈</view>
 			</view>	
     	</view>
@@ -108,14 +108,14 @@
 								duration:2000
 							})
 						}
-						// if(res.statusCode==200){
-						// 	uni.showToast({
-						// 		title:'身份认证审核中，请等待',
-						// 		icon:'none',
-						// 		duration:2000
-						// 	})
+						if(res.statusCode==201){
+							uni.showToast({
+								title:'身份认证审核中，请等待',
+								icon:'none',
+								duration:2000
+							})
 							
-						// }
+						}
 						if(res.statusCode==200){
 							uni.navigateTo({
 								url:'../address/address'
@@ -383,8 +383,8 @@
 	}
 	.pic{
 		display: block;
-		width:45rpx;
-		height:45rpx;
+		width:52rpx;
+		height:52rpx;
 		margin: 30rpx auto;
 	}
 	.txt{
