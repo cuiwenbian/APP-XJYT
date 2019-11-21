@@ -20,13 +20,11 @@
 			<view class="infoo">没有可出售矿机</view>
 		</view>
 		<block v-else>
-		<checkbox-group class="block" @change="CheckboxChange">
-			<view v-for="(item, index) in user_id" :key="index">
+		<checkbox-group class="block" @change="CheckboxChange" >
+			<view v-for="(item, index) in user_id" :key="index" >
 				<view class="cu-form-group margin-top">
 					<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
-				
-
-				<view class="pagex">
+				<view class="pagex" >
 					<view class="page1">
 						<view class="img"><image class="por" src="../../static/images/kuangji.png"></image></view>
 						<view class="info">
@@ -70,6 +68,18 @@ export default {
 			]
 		};
 	},
+     onLoad: function (options) {
+            setTimeout(function () {
+                console.log('start pulldown');
+            }, 1000);
+            uni.startPullDownRefresh();
+        },
+        onPullDownRefresh() {
+            console.log('refresh');
+            setTimeout(function () {
+                uni.stopPullDownRefresh();
+            }, 1000);
+        },
 	onShow(options) {
 		var that = this;
 		uni.request({
@@ -94,6 +104,7 @@ export default {
 		});
 	},
 	methods: {
+		
 		pay: function() {
 			uni.navigateTo({
 				url: '../pay/pay'
@@ -134,8 +145,6 @@ export default {
 			console.log(that.arr);
 			var a = that.arr.join(',');
 			console.log(a);
-
-
 			uni.request({
 				url: this.url + 'buildorders/',
 				method: 'GET',

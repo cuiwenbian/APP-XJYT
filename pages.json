@@ -70,8 +70,10 @@
                  "pages":[
                      {
                          "path":"mill/mill",
+                         
 						 "style": {
-						 	"navigationStyle": "custom"
+						 	"navigationStyle": "custom",
+                            "enablePullDownRefresh": true
 						 }
 
                      },

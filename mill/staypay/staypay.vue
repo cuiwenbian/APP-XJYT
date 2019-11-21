@@ -161,6 +161,7 @@
             	if(e.show==false){
             		this.passIn = false
             	}
+                this.numberList.length = 0
             },
             onDelete() {
             	this.numberList.pop();
@@ -197,6 +198,7 @@
             				
             				console.log(res);
                             if(res.statusCode==400){
+                                that.numberList.pop()
                                 that.numberList.length= 0;
                                 that.$refs.wrong.flag=false;
                                 var n=res.data.data.err_num;
@@ -218,10 +220,23 @@
             						title: '付款完成',
             						duration: 2000
             					});
-                                uni.navigateTo({
-                                    url:'../pay/pay'
+                                uni.navigateBack({
+                                       url:'../pay/pay'
                                 })
             				}
+                            if (res.statusCode == 400) {
+                                uni.showModal({
+                                    title:'未设置交易密码',
+                                    confirmText:'去设置',
+                                    success(res) {
+                                        if(res.confirm == true) {
+                                            uni.navigateTo({
+                                                url:'../../my/trade-password/trade-password'
+                                            })
+                                        }
+                                    }
+                                })
+                            }
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
             				// page.onLoad();

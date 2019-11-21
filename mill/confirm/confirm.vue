@@ -131,6 +131,7 @@
             	if(e.show==false){
             		this.passIn = false
             	}
+                that.numberList.length= 0;
             },
             onConfirm() {
                     if(this.numberList.length!=6){
@@ -165,6 +166,7 @@
             			success(res) {
             				console.log(res);
                             if(res.statusCode==400){
+                                that.numberList.pop();
                                 that.numberList.length= 0;
                                 that.$refs.wrong.flag=false;
                                 var n=res.data.data.err_num;
