@@ -12,10 +12,10 @@ that. <template>
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx">{{price}}</text>
+                    <text class="smallxx1">{{price}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx">{{mill}}</text>台
+                    矿机数量:<text class="smallxx1smallxx1">{{mill}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -26,16 +26,16 @@ that. <template>
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{x}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time}}</text>
+                    创建时间:<text class="smallxx1">{{set_time}}</text>
                 </text>            
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time}}</text>
+                        支付时间：<text class="smallxx1">{{pay_time}}</text>
                     </text>
                 </view>
             </view>
@@ -85,15 +85,17 @@ that. <template>
         <view class="box4">
             <button class="primary1" @click="btn">确认收款</button>
             <!-- #ifndef H5 -->
-            <password-input v-if="passIn" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+            <password-input v-if="passIn" @clo="clo" ref='wrong'  @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
             
             <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
             <!-- #ifdef H5 -->
-            <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" :list="numberList"></password-input></view>
+            <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo">
+                <password-input ref='wrong' :length="length" :gutter="20" :list="numberList"></password-input>
+            </view>
             <!-- #endif -->
             <!-- 数字键盘 -->
-            <keyboard-package ref="number" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+            <keyboard-package ref="number" @onChange='onChange'  @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
             <!-- <button class="primary1">我已付款</button> -->
         </view>
     </view>
@@ -113,7 +115,8 @@ that. <template>
                 price:'',
                 rmb:'',
                 x:'',
-                time:'',
+                pay_time:'',
+                set_time:'',
                 name:'',
                 contact:'',
                 
@@ -148,7 +151,8 @@ that. <template>
             that.x = that.vn[0][0].order_num
             that.name = that.vn[0][0].name
             that.contact = that.vn[0][0].mobile
-            that.time = that.vn[0][0].set_time
+            that.set_time = that.vn[0][0].set_time
+            that.pay_time = that.vn[0][0].pay_time
             
             that.rmb = getRmb.getrmb(that.price)
         },
@@ -164,6 +168,12 @@ that. <template>
             onDelete() {
             	this.numberList.pop();
             },
+            onChange(e){
+            	console.log(e.show)
+            	if(e.show==false){
+            		this.passIn = false
+            	}
+            },
             onConfirm() {
                 if(this.numberList.length!=6){
                   uni.showToast({
@@ -175,14 +185,12 @@ that. <template>
               },
             onInput(val) {
                 var that = this
-            	this.numberList.push(val);
+            	that.numberList.push(val);
             	console.log(this.numberList.join().replace(/,/g, ''));
-            	that.password = this.numberList.join().replace(/,/g, '');
-            	if (this.numberList.length >= this.length) {
-            		this.passIn = false;
-            		this.$refs['number'].close();
+            	that.password = that.numberList.join().replace(/,/g, '');
+            	if (that.numberList.length >= that.length) {
             		uni.request({
-            			url: this.url + 'saleaffirm/',
+            			url: that.url + 'saleaffirm/',
             			method: 'POST',
             			data: {
                             order_num:that.x,
@@ -194,15 +202,11 @@ that. <template>
             			success(res) {
             				console.log(res);
                             if(res.statusCode==400){
-                            	var n=res.data.data.err_num;
-                            	console.log(n)
-                            	var s=5-n;
-                            	console.log('剩余'+ s +'次机会')
-                            	uni.showToast({
-                            		title:'交易密码错误,剩余'+ s +'次机会',
-                            		icon:'none',
-                            		duration:2000
-                            	})
+                                that.numberList.length= 0;
+                                that.$refs.wrong.flag=false;
+                                var n=res.data.data.err_num;
+                                var s=5-n;
+                                that.$refs.wrong.tip='剩余'+ s +'次机会';
                             }
                             if(res.statusCode==423){
                             	uni.showToast({

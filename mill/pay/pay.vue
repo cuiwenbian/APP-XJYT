@@ -208,7 +208,7 @@
             var that=this;
             this.getData()
             uni.request({
-                url:this.urll + 'ordernum/1',
+                url:this.url + 'ordernum/1',
                 method:'GET',
                 header:{
                     Authorization: 'JWT'+' '+this.global_.token
@@ -216,6 +216,7 @@
                 success(res) {
                     console.log(res.data.data)
                     that.many = res.data.data
+                    console.log(that.many)
                 }
             })
         },
@@ -233,7 +234,7 @@
                         var contion = res.data.data
                         console.log(contion)
                         that.contion = contion.reverse()
-                        console.log(that.contion[0].set_time)
+                        // console.log(that.contion[0].set_time)
                     }
                 })
                 
@@ -371,7 +372,7 @@
             btn3:function (item) {
                 var that = this
                 uni.request({
-                    url:this.urll + 'salemessage/',
+                    url:this.url + 'salemessage/',
                     method:'GET',
                     header:{
                         Authorization: 'JWT'+' '+this.global_.token
