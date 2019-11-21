@@ -135,6 +135,7 @@
 				if(e.show==false){
 					this.passIn = false;
 				}
+				this.numberList.length= 0;   
 			},
 			onDelete() {
 				this.numberList.pop();

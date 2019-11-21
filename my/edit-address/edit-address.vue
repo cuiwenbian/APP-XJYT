@@ -97,12 +97,14 @@
 				if(e.show==false){
 					this.passIn = false;
 				}
+				this.numberList.length= 0;
 			},
 			onChange1(e){
 				console.log(e.show)
 				if(e.show==false){
 					this.delShow = false;
 				}
+				this.numberList.length= 0;
 			},
 			onDelete() {
 				this.numberList.pop();

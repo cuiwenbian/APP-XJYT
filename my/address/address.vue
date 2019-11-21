@@ -1,7 +1,9 @@
 <template>
 	<!-- 提币地址 -->
 	<view class="container" style="position: relative;">
+		<view class="height"></view>
 		<view v-if="flag">
+			<uni-nav-bar left-icon="back"  title="提币地址" right-text="添加" @click-left="back" @click-right='add_address' background-color="#121212" color="#fff" ></uni-nav-bar>
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
@@ -16,7 +18,7 @@
 		</view>
 
 		<view v-else>
-			<uni-nav-bar left-icon="back" title="提币地址" @click-left="back" background-color="#121212" color="#fff" border="false" shadow="false"></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="提币地址"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/no-add.png" mode=""></image>
@@ -42,6 +44,7 @@
 import uniSwipeAction from '../../components/uni-swipe-action/uni-swipe-action.vue';
 import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
 import passwordInput from '../../components/password-input/password-input.vue';
+import uniNavBar from '../../components/uni-nav-bar/uni-nav-bar.vue';
 export default {
 	data() {
 		return {
@@ -71,7 +74,8 @@ export default {
 	components: {
 		uniSwipeAction,
 		keyboardPackage,
-		passwordInput
+		passwordInput,
+		uniNavBar
 	},
 	onLoad() {
 		var that = this;
@@ -108,6 +112,7 @@ export default {
 			if(e.show==false){
 				this.passIn = false
 			}
+			this.numberList.length= 0;
 		},
 		onConfirm() {
 			if(this.numberList.length!=6){
@@ -180,7 +185,7 @@ export default {
 			this.onInput(val);
 		},
 		//点击添加按钮
-		onNavigationBarButtonTap: function() {
+		add_address: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address?flag=' + this.flag,
 				success: res => {},
@@ -227,6 +232,10 @@ export default {
 	background: #121212;
 	z-index: 99;
 } */
+.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+	}
 .shade {
 	position: absolute;
 	top: 0;
