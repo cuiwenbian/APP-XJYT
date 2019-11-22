@@ -131,7 +131,7 @@
                 </scroll-view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 3">
-                <scroll-view scroll-y='true' v-for="(item , index) in delwen" :key="index">
+                <scroll-view scroll-y='true' v-for="(item , index) in delewen" :key="index">
                     <view class="order">
                     	<view class="top">
                     		<text class="mation">
@@ -210,7 +210,7 @@
     		};
         },
         onLoad(options) {
-            var that = this
+            var  that  = this
             uni.request({
                 url: this.url + 'saleall/101',
                 method:'GET',
@@ -226,7 +226,6 @@
                     console.log(that.dater.order_num)
                 }
             })
-           
             uni.request({
                 url:this.url + 'ordernum/2',
                 method:'GET',
@@ -234,7 +233,7 @@
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res)
+                    console.log(res.data.data)
                     that.many = res.data.data
                 }
             })
@@ -255,6 +254,25 @@
                     return false
                 }else {
                     that.tabCurrentIndex =index
+                }
+                if(this.tabCurrentIndex === 0){
+                    var that = this
+                    uni.request({
+                        url: this.url + 'saleall/101',
+                        method:'GET',
+                        header:{
+                            Authorization: 'JWT'+' '+this.global_.token
+                        },
+                        success(res) {
+                            var dater = res.data.data
+                            // for(dater)
+                            that.dater = dater.reverse()
+                            console.log(dater)
+                            // console.log(dater.data.order_num)
+                            console.log(that.dater.order_num)
+                        }
+                    })
+                               
                 }
                 if(this.tabCurrentIndex === 1) {
                     var that  = this

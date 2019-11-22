@@ -173,6 +173,7 @@ that. <template>
             	if(e.show==false){
             		this.passIn = false
             	}
+                this.numberList.length = 0
             },
             onConfirm() {
                 if(this.numberList.length!=6){
@@ -202,6 +203,7 @@ that. <template>
             			success(res) {
             				console.log(res);
                             if(res.statusCode==400){
+                                that.numberList.pop();
                                 that.numberList.length= 0;
                                 that.$refs.wrong.flag=false;
                                 var n=res.data.data.err_num;
@@ -224,7 +226,7 @@ that. <template>
             						icon: 'none',
             						duration: 2000
             					});
-                                uni.navigateTo({
+                                uni.navigateBack({
                                     url:'../sale/sale'
                                 })
             				}

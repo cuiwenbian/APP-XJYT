@@ -41,6 +41,7 @@
 								<view class='list-time'>{{item.add_time}}</view>
 							</view>
 							<view class='list-income'>+{{item.num}}</view>
+                            <view class="l"></view>
 						</view>
 					</view>
 				</view>
@@ -64,6 +65,7 @@
 									<view class='list-time'>{{item.add_time}}</view>
 								</view>
 								<view class='list-income'>-{{item.num}}</view>
+                                <view class="l"></view>
 							</view>
 						</view>
 					</view>
@@ -479,7 +481,7 @@
 		background: #fff;
 		padding-left: 50rpx;
 		box-sizing: border-box;
-
+        position: relative;
 	}
 
 	.list-icon {
@@ -544,5 +546,12 @@
 		border-bottom: 2rpx solid #B39C01;
 	}
 
-
+    .l{
+    	width:90%;
+    	height:1rpx;
+    	background: rgba(0,0,0,0.1);
+    	position: absolute;
+    	right:0;
+    	bottom:0;
+    }
 </style>
