@@ -73,7 +73,7 @@
 		components: {
 			dyDatePicker
 		},
-		onLoad:function () {
+		onShow:function () {
 		    var that = this
 		    var data = new Date()
 		    var text = data.getFullYear('-')

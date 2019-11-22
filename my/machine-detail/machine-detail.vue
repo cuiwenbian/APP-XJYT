@@ -137,7 +137,7 @@
 					Authorization:'JWT'+' '+this.global_.token 
 				},
 				success(res) {
-					console.log(res)
+					//console.log(res)
 					that.machine_config=res.data.data
 					console.log(that.machine_config)
 				}

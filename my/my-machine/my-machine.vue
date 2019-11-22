@@ -4,7 +4,7 @@
 	<view v-if="flag==false">
 		<view class='qaz'>
 			<block v-for="(item, index) in user_machine" :key="index" >	
-				<view class='page' @tap="select" :id='item.machine_id'>
+				<view class='page' @tap="select(item)" :id='item.machine_id'>
 				  <view class='page1'>
 				  <view>
 				   <view v-if="item.status == '10'">
@@ -106,8 +106,7 @@
 					if(res.data.data==''){
 						this.flag=true
 					}
-					this.machine_id=res.data.data[0].machine_id
-					console.log(this.machine_id)
+					
 					
 				},
 				fail: () => {},
@@ -120,9 +119,9 @@
 					url:'../../pages/agreement/agreement'
 				})
 			},
-			select:function(){
+			select:function(item){
 				uni.navigateTo({
-					url:'../machine-detail/machine-detail?machine_id='+this.machine_id
+					url:'../machine-detail/machine-detail?machine_id='+item.machine_id
 				})
 			}
 		}

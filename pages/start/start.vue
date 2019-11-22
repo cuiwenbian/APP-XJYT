@@ -11,32 +11,48 @@
 
 <script>
 	export default{
-		onLoad() {
-			// var p=uni.getStorageSync('phone');
-			// var t=uni.getStorageSync('token');
-			// this.global_.phone=p;
-			// this.global_.token=t;
-			// console.log(p)
-			// console.log(t)
-			// if(p!='' && t!=''){
-			// 	uni.switchTab({
-			// 		url:'../index/index'
-			// 	})
-			// }
-			// else{
-				var timer=3;
-				var flag;
-				function daoji(){
-					timer=timer-1;
-					if(timer==0){
-						uni.navigateTo({
-							url:'../leader/index'
-						})
-						clearInterval(flag)
-					}
-				}
-				flag=setInterval(daoji,500);
-			// }
+		onLoad() {	
+			var star;
+			var _self=this;
+			function loadExecution(){
+				
+				/**
+				 * 获取本地存储中的值
+				 * 若存在，说明不是首次启动，直接进入首页；
+				 * 若不存在，说明是首次启动，进入引导页；
+				 */
+				    const value = uni.getStorageSync('token');
+					const value1 = uni.getStorageSync('phone');
+					console.log(value)
+					console.log(value1)
+				    if (value&&value1) {
+						_self.global_.phone=value1;
+						_self.global_.token=value;
+						var timer=3;
+						var flag;
+						function daoji(){
+							timer=timer-1;
+							if(timer==0){
+								uni.switchTab({
+								    url: '/pages/index/index'
+								});
+								clearInterval(flag)
+								clearInterval(star)
+							}
+						}
+						flag=setInterval(daoji,500);
+							
+				      
+				       
+				    } else {
+				        uni.navigateTo({
+				            url: '/pages/leader/guide'
+				        });
+						clearInterval(star)
+				    }
+					
+			}
+			star=setInterval(loadExecution,1000)
 		}
 		
 	}
