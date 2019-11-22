@@ -1,6 +1,6 @@
 <template>
     <view class="content">
-        <swiper :indicator-dots="false" :autoplay="false" :interval="3000" :duration="1000" class="swiper" :style="{'height':windowHeight}"
+        <swiper :indicator-dots="false" :autoplay="false" :interval="3000" :duration="500" class="swiper" :style="{'height':windowHeight}"
          @animationfinish="animationfinish">
             <swiper-item>
                 <view class="swiper-item" :style="{'height':windowHeight,'width':windowWidth}">
@@ -14,7 +14,11 @@
             </swiper-item>
 			<swiper-item>
 			    <view class="swiper-item" :style="{'height':windowHeight,'width':windowWidth}">
-					<image :style="{'height':windowHeight,'width':windowWidth}" src="../../static/images/page3.1.jpg" mode=""></image>
+					<image :style="{'height':windowHeight,'width':windowWidth}" src="../../static/images/page3.1.jpg" mode="">
+						<view class="experice" @click="go">
+							<image  class="experices" src="../../static/images/ty.png" mode=""></image>
+						</view>
+					</image>
 				</view>
 			</swiper-item>
            
@@ -59,14 +63,33 @@
                         });
                     }, 1000)
                 }
-            }
+            },
+			go(){
+				uni.navigateTo({
+					url: '/pages/login/login'
+				})
+			}
         }
-    }
+    }                                                             
 </script>
 <style>
     .swiper {
         width: 100%;
-        /*     height: 100vw; */
-        /* background: red; */
+		background: #161822;
     }
+	.experice{
+		width:200px;
+		height:44px;
+		position: fixed;
+		left:88px;
+		bottom:50px;
+		z-index: 99;
+	}
+	.experices{
+		width:200px;
+		height:44px;
+		display: block;
+		
+		
+	}
 </style>

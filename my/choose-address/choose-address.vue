@@ -19,7 +19,7 @@
 			<!-- <uni-nav-bar left-icon="back" title="提币地址" @click-left="back" background-color="#121212" color="#fff" border="false" shadow="false"></uni-nav-bar> -->
 			<view class="box"></view>
 			<view>
-				<image class="none" src="../../static/images/address.png" mode=""></image>
+				<image class="none" src="../../static/images/no-add.png" mode=""></image>
 				<view class="tips">您还没有提币地址哦！</view>
 			</view>
 	
