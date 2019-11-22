@@ -117,8 +117,8 @@
         components: {
         	dyDatePicker
         },
-		onLoad: function(opetions) {
-			var that = this
+		onShow: function(opetions) {
+            var that = this
 			var data = new Date()
 			var text = data.getFullYear('-')
 			var txt = data.getMonth()+1
@@ -171,6 +171,7 @@
          
 			
 		},
+
 		methods: {
 			tabClick: function(index) {
 				var that = this

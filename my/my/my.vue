@@ -70,6 +70,9 @@
 			var phone=p1.slice(0,3).join().replace(/,/g, "")+'****'+p1.slice(7,11).join().replace(/,/g, "")
 			this.phone=phone
 		},
+		onHide() {
+			this.shade=false
+		},
 		methods: {
 			cancel:function(){
 				this.shade=false
