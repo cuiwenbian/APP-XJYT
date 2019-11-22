@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"swiper { width: 100%; }\n",],undefined,{path:"./pages/leader/guide.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/leader/guide.wxml') } }));
