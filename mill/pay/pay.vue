@@ -572,15 +572,26 @@
            height: 80rpx;
        }
        .btn1{
-            float: left;
+           float: left;
+            border: 1rpx solid #121212;
             margin-left: 340rpx;
             margin-top: 40rpx;
             width: 170rpx;
             height: 60rpx;
             font-size: 20rpx;
-            border-radius: 3rpx;
+            border-radius: 10rpx;
             line-height: 60rpx;
-            color: #CCCCCC;
+            background-color: #fff;
+/*            width: 170rpx;
+            height: 60rpx;
+            line-height: 80rpx;
+            font-size: 20rpx;
+            text-align: center;
+            margin-left: 40rpx;
+            margin-top: 60rpx;
+            border: 1rpx solid #999999;
+            color: #999999; */
+
        }
        .btn2 {
    		float: right;
