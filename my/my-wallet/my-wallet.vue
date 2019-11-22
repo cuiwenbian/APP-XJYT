@@ -88,7 +88,7 @@
 		            Authorization:'JWT'+' '+this.global_.token
 		        },
 		        success(res) {
-					console.log(res)
+					console.log(res) 
 		            that.num = res.data.availed_num
 		            that.ber = res.data.fil_count
 		            that.nuber = res.data.locked_num

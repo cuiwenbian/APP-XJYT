@@ -97,12 +97,14 @@
 				if(e.show==false){
 					this.passIn = false;
 				}
+				this.numberList.length= 0;
 			},
 			onChange1(e){
 				console.log(e.show)
 				if(e.show==false){
 					this.delShow = false;
 				}
+				this.numberList.length= 0;
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -177,6 +179,7 @@
 			        	success(res) {
 			        		console.log(res)
 			        		if(res.statusCode==400){
+								that.numberList.pop();
 								that.numberList.length = 0;
 								that.$refs.wrong.flag=false;
 			        			var n=res.data.data.err_num;
@@ -251,6 +254,7 @@
 								})
 							}
 							if(res.statusCode==400){
+								that.numberList.pop();
 								that.numberList.length = 0;
 								that.$refs.wrong.flag=false;
 								var n=res.data.data.err_num;

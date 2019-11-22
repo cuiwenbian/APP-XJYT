@@ -25,16 +25,16 @@
 		<view class="next"  @click="save">提交</view>
 		
 		<!-- #ifndef H5 -->
-			<password-input v-if="passIn" @clo="clo" ref="wrong" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
+			<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 			<!-- #endif -->
 		
 			<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 			<!-- #ifdef H5 -->
-			<view v-if="passIn" @tap="openKeyBoard('number')"  @clo="clo"><password-input :length="length" ref="wrong" :gutter="20" :list="numberList"></password-input></view>
+			<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" ref='wrong' :list="numberList"></password-input></view>
 			<!-- #endif -->
 			<!-- 数字键盘 -->
-			<keyboard-package ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-		
+			<keyboard-package  ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+	
 	</view>
 </template>
 
@@ -96,6 +96,14 @@
 								duration:2000
 							})
 						}
+						if(res.statusCode==201){
+							uni.showToast({
+								title:'身份认证审核中，请等待',
+								icon:'none',
+								duration:2000
+							})
+							
+						}
 						if(res.statusCode==200){
 							uni.navigateTo({
 								url:'../choose-address/choose-address?bar='+that.bar+'&fee='+that.fee
@@ -127,6 +135,7 @@
 				if(e.show==false){
 					this.passIn = false;
 				}
+				this.numberList.length= 0;   
 			},
 			onDelete() {
 				this.numberList.pop();
@@ -140,11 +149,7 @@
 					});
 				}
 			},
-			over:function(){
-				uni.reLaunch({
-					url:'../my-wallet/my-wallet'
-				})
-			},
+			
 			onInput(val) {
 				var that=this;
 				that.numberList.push(val);
@@ -162,6 +167,7 @@
 						success(res) {
 							console.log(res)
 							if(res.statusCode==400){
+                                that.numberList.pop();
 								that.numberList.length = 0;
 								that.$refs.wrong.flag=false;
 								var n=res.data.data.err_num;
@@ -202,8 +208,6 @@
 				var that=this;
 				var b=parseFloat(that.bar)
 				var f=parseFloat(that.fil_num)
-				console.log(b)
-				console.log(f)
 				if(that.wallet_value==''){
 					uni.showToast({
 						title:'转账地址不能为空',
@@ -391,10 +395,10 @@
 	}
 	.right{
 		float: right;
-		width:25rpx;
-		height:30rpx;
+		width:30rpx;
+		height:35rpx;
 		/* background: red; */
-		margin-top:58rpx;
+		margin-top:56rpx;
 		margin-right:24rpx;
 	}
 	.all{

@@ -202,9 +202,9 @@ export default {
 			z-index: 998;
 		}
 
-		&--shadow {
-			box-shadow: 0 1px 6px #ccc;
-		}
+		// &--shadow {
+		// 	box-shadow: 0 1px 6px #ccc;
+		// }
 
 		&--border:after {
 			position: absolute;

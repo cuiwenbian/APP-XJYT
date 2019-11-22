@@ -2,11 +2,32 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/start/start",
+			"path": "pages/leader/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "入口页",
+				"app-plus": {
+					"titleNView": false
+				}
 			}
 		},
+		{
+			"path": "pages/leader/guide",
+			"style": {
+				"navigationBarTitleText": "引导页",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		// {
+		// 	"path": "pages/start/start",
+		// 	"style": {
+		// 		"navigationBarTitleText": "启动页",
+		// 		"app-plus": {
+		// 			"titleNView": false
+		// 		}
+		// 	}
+		// },
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -63,6 +84,7 @@
 		    "path":"pages/web2/web2",
 		    "style":"热门新闻"
 		}
+		
 	],
     "subPackages":[
              {
@@ -153,17 +175,17 @@
 					 {
 					     "path":"address/address",
 					     "style":{
-							  "titleNView": {
-								  "titleText":"提币地址",
-								 
-							      "buttons": [ //原生标题栏按钮配置,
-							          {
-							              "text": "添加", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-							              "fontSize":"32rpx",
-										  "width":"50px"
-									  }
-							      ]                   
-							  }
+							 "navigationStyle": "custom"
+							  // "titleNView": {
+								 //  "titleText":"提币地址",
+							  //     "buttons": [ //原生标题栏按钮配置,
+							  //         {
+							  //             "text": "添加", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+							  //             "fontSize":"32rpx",
+									// 	  "width":"50px"
+									//   }
+							  //     ]                   
+							  // }
 						 }
 					 },
 					 

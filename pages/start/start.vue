@@ -30,7 +30,7 @@
 					timer=timer-1;
 					if(timer==0){
 						uni.redirectTo({
-							url:'../login/login'
+							url:'../leader/index'
 						})
 						clearInterval(flag)
 					}
