@@ -13,23 +13,27 @@ page{
 .name{
     float: left;
     height: 150rpx;
+    font-size: 26rpx;
     line-height: 150rpx;
     padding-left: 48rpx;
 }
 .name1 {
     float: left;
+    font-size: 26rpx;
     height: 150rpx;
     line-height: 150rpx;
     padding-left: 48rpx;
 }
 .inp {
      width: 300rpx;
-     padding-right: 90rpx;
+     padding-right: 120rpx;
+     font-size: 26rpx;
      height: 150rpx;
     float: right;
 }
 .int {
     width: 300rpx;
+    font-size: 26rpx;
     height: 150rpx;
     float: right;
     padding-left: 60rpx;

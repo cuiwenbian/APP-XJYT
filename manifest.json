@@ -56,6 +56,9 @@
                     "appstore" : "static/images/FIL.png"
                 }
             }
+        },
+        "splashscreen" : {
+            "waiting" : false
         }
     },
     /* SDK配置 */

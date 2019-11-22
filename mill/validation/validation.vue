@@ -1,8 +1,8 @@
 <template>
     <view class="container">
         <view class="box">
-            <text class="name">姓名</text><input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
-            <view class="name1">联系方式<input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/></view>
+            <text class="name">姓名:</text><input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
+            <view class="name1">联系方式:<input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/></view>
         </view>
         <view>
             <text class="stop">提示:交易需要买家和卖家进行实名认证</text>
@@ -133,24 +133,28 @@
     .name{
         float: left;
         height: 150rpx;
+        font-size: 26rpx;
         line-height: 150rpx;
         padding-left: 48rpx;
         
     }
     .name1 {
         float: left;
+        font-size: 26rpx;
         height: 150rpx;
         line-height: 150rpx;
         padding-left: 48rpx;
     }
     .inp {
          width: 300rpx;
-         padding-right: 90rpx;
+         padding-right: 140rpx;
+         font-size: 26rpx;
          height: 150rpx;
         float: right;
     }
     .int {
         width: 300rpx;
+        font-size: 26rpx;
         height: 150rpx;
         float: right;
         padding-left: 60rpx;
@@ -167,6 +171,7 @@
         width: 650rpx;
         height: 100rpx;
         margin: 340rpx auto;
+        border-radius: 80rpx;
         color: #FFFFFF;
         background-color: #121212;
     }

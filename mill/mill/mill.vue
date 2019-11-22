@@ -71,14 +71,14 @@ export default {
      onLoad: function (options) {
             setTimeout(function () {
                 console.log('start pulldown');
-            }, 1000);
+            }, 100);
             uni.startPullDownRefresh();
         },
         onPullDownRefresh() {
             console.log('refresh');
             setTimeout(function () {
                 uni.stopPullDownRefresh();
-            }, 1000);
+            }, 100);
         },
 	onShow(options) {
 		var that = this;

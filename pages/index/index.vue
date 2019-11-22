@@ -473,7 +473,7 @@
     }
 	.gg{
         width: 100%;
-        height: 500rpx;
+        height: 600rpx;
     }
 
     .Small{
