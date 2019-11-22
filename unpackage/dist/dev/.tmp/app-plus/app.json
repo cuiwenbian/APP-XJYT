@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/start/start",
-    "pages/leader/index",
     "pages/leader/guide",
     "pages/login/login",
     "pages/register/register",
@@ -48,6 +47,7 @@
     "my/suggest/suggest",
     "my/suggest-detail/suggest-detail",
     "my/transfer/transfer",
+    "my/commit/commit",
     "my/choose-address/choose-address"
   ],
   "window": {

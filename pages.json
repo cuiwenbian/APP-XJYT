@@ -10,15 +10,7 @@
 				}
 			}
 		},
-		{
-			"path": "pages/leader/index",
-			"style": {
-				"navigationBarTitleText": "入口页",
-				"app-plus": {
-					"titleNView": false
-				}
-			}
-		},
+		
 		{
 			"path": "pages/leader/guide",
 			"style": {
@@ -276,6 +268,10 @@
 					 {
 					     "path":"transfer/transfer",
 					     "style":{"navigationBarTitleText":"转账"}
+					 },
+					 {
+					     "path":"commit/commit",
+					     "style":{"navigationStyle": "custom"}
 					 },
 					 {
 					     "path":"choose-address/choose-address",

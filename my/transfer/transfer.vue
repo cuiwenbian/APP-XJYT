@@ -186,13 +186,8 @@
 							if(res.statusCode==201){
 								that.passIn = false;
 								that.$refs['number'].close();
-								uni.navigateBack({
-									delta:2
-								})
-								uni.showToast({
-									title:'转账成功',
-									icon:'none',
-									duration:2000
+								uni.redirectTo({
+									url:'../commit/commit?fil_num='+that.fil_num+'&wallet_value='+that.wallet_value
 								})
 								
 							}

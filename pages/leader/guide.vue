@@ -20,8 +20,7 @@
 						</view>
 					</image>
 				</view>
-			</swiper-item>
-           
+			</swiper-item>  
         </swiper>
   
     </view>
