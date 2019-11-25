@@ -113,8 +113,6 @@
 						   Authorization:'JWT'+' '+this.global_.token
 						},
 						success: res => {
-					
-							console.log(res) 
 							if(res.statusCode==200){
 								uni.showToast({
 									title:'登陆密码修改成功',
@@ -126,7 +124,6 @@
 								uni.reLaunch({
 									url:'../../pages/login/login'
 								})
-								
 							}
 							if(res.statusCode==400){
 								uni.showToast({
@@ -134,12 +131,6 @@
 									icon:'none'
 								})
 							}
-							// if(res.statusCode==201){
-							// 	uni.navigateTo({
-							// 		url:'../login/login'
-							// 	})
-							// }
-							
 						},
 					    fail: () => {},
 						complete: () => {}
@@ -158,7 +149,6 @@
 			margin-left: 48rpx;
 			font-size: 30rpx;
 		}
-		
 		.list{
 			height:100rpx;
 			width:100%;
@@ -179,7 +169,6 @@
 			line-height: 100rpx;
 			font-size: 30rpx;
 		}
-		
 		.close{
 			float: right;
 			display: block;
@@ -187,7 +176,6 @@
 			height:25rpx;
 			margin-right:48rpx;
 			margin-top:40rpx;
-			
 		}
 		.open{
 			height:40rpx;
@@ -197,7 +185,6 @@
 			height:20rpx;
 		}
 		.set{
-			
 			line-height: 100rpx;
 			font-size: 30rpx;
 			margin-left:48rpx;

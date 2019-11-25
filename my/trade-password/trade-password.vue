@@ -57,7 +57,6 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					var email=res.data.data;
 					var email1=res.data.data;
 					_this.email1=email1;
@@ -69,7 +68,6 @@
 		},
         onBackPress(option){
               plus.key.hideSoftKeybord()
-                    
             },
 		methods:{
 			show:function(){
@@ -89,7 +87,6 @@
 			},
 			getCode: function () {
 			      var _this = this;
-			      
 			        uni.request({
 			          method: 'POST',
 			          data: {
@@ -102,7 +99,6 @@
 			          },
 			          success(res) {
 			            //根据code判断
-			            console.log(res)
 			            var num = 121;
 			            var timer = setInterval(function () {
 			              num--;
@@ -111,7 +107,6 @@
 							_this.flag = true,
 			                _this.codename = '重新发送',
 			                _this.disabled = false
-			
 			              } else {
 							_this.flag = false 
 			                _this.codename = num + "s"
@@ -120,7 +115,6 @@
 			            }, 1000)
 			          }
 			        })
-			
 			},
 			//获取验证码
 			getCodeNumber: function(e) {
@@ -183,7 +177,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'资金密码已设置',
@@ -200,7 +193,6 @@
 								icon:'none',
 								duration:2000
 							})
-							
 						}
 					}
 				})

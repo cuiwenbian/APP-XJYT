@@ -33,7 +33,6 @@
 					<view class='list-income'>+{{item.num}}</view>
 					<view class='l'></view>
 				</view>
-				
 				<view class="list-one" v-for="(item , index) in bill_records" :key="index">
 					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
 					<view class='list-txt'>
@@ -44,7 +43,6 @@
 					<view class='l'></view>
 				</view>       	
 			</view>
-			
 		</view>
 	</view>
 </template>
@@ -79,7 +77,6 @@
 		    var text = data.getFullYear('-')
 		    var txt = data.getMonth()+1
 		    var teran = text + '-' + txt
-			console.log(teran)
 		    that.teran = teran
 		    uni.request({
 		        url:this.url + "assets/",
@@ -88,7 +85,6 @@
 		            Authorization:'JWT'+' '+this.global_.token
 		        },
 		        success(res) {
-					console.log(res) 
 		            that.num = res.data.availed_num
 		            that.ber = res.data.fil_count
 		            that.nuber = res.data.locked_num
@@ -105,7 +101,6 @@
 					month: teran
 				},
 				success(res) {
-					console.log(res)
 					that.month_profit = res.data.data.month_profit
 					that.profit_records = res.data.data.profit_records
 					that.length=res.data.data.profit_records.length
@@ -121,12 +116,9 @@
 					month: teran
 				},
 				success(res) {
-					console.log(res)
 					that.month_bill = res.data.data.month_bill
 					that.bill_records = res.data.data.bill_records
 					that.length1=res.data.data.bill_records.length	
-					console.log(that.length1)		 
-					console.log(that.length)
 					if(that.length==0 && that.length1==0){
 						that.flag=true
 					}else{
@@ -134,14 +126,10 @@
 					}
 				}
 		   })
-		  
-		   
-
 		},
 		methods: {
 			DateChang(e) {
 				var that = this
-				console.log(e)
 				that.date = e
 				uni.request({
 					url: this.url + 'assets/month/profit/',
@@ -153,7 +141,6 @@
 						month: e
 					},
 					success(res) {
-						console.log(res)
 						that.month_profit = res.data.data.month_profit
 						that.profit_records = res.data.data.profit_records
 						that.length=res.data.data.profit_records.length
@@ -174,7 +161,6 @@
 						month: e
 					},
 					success(res) {
-						console.log(res)
 						that.month_bill = res.data.data.month_bill
 						that.bill_records = res.data.data.bill_records
 						that.length1=res.data.data.bill_records.length	
@@ -185,14 +171,12 @@
 						}
 					}			
 				})
-			  
 			},
 		    transfer:function(){
 				uni.navigateTo({
 					url:'../transfer/transfer?bar='+ this.num+'&fee='+this.fee
 				})
 			}
-			
 		}
 	}
 </script>
@@ -201,7 +185,6 @@
 	page{
 		background:#EDEEEE;
 	}
-	
 	.bg{
 		width:100%;
 		height:300rpx;
@@ -236,7 +219,6 @@
 	.number{
 		color:#F0AD4E;
 		font-size: 42rpx;
-		
 	}
 	.trade{
 		float: right;
@@ -285,18 +267,15 @@
 		background-color: #EDEDED;
 	    padding-top: 20rpx;
 	    padding-left: 45rpx;
-		/* margin-bottom: 20rpx; */
 		text-align: left;
 		position: relative;
 	}
-	
 	.all1 {
 	  float: right;
 	  font-size: 30rpx;
 	  color: #333;
 	  line-height: 90rpx;
 	  margin-right:48rpx;
-	  
 	}
 	.list-one{
 		width:100%;
@@ -340,5 +319,4 @@
 		color:#41BEC9;
 		font-size: 34rpx;
 	}
-	
 </style>

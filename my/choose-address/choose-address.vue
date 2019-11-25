@@ -9,22 +9,17 @@
 							<view class='nickTitle'>地址昵称:</view><view class="nickname" :value="nickname">{{ item.wallet_key }}</view>
 							<view class='addTitle'>提币地址:</view><view class="adr" :value="address">{{ item.wallet_value }}</view>
 						</view>
-
 					</view>
 				</view>
 			</block>
 		</view>
-
 		<view v-else>
-			<!-- <uni-nav-bar left-icon="back" title="提币地址" @click-left="back" background-color="#121212" color="#fff" border="false" shadow="false"></uni-nav-bar> -->
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/no-add.png" mode=""></image>
 				<view class="tips">您还没有提币地址哦！</view>
 			</view>
-	
 		</view>
-		
 	</view>
 </template>
 <script src="../../static/js/jquery.min.js"></script>
@@ -46,7 +41,6 @@ export default {
 			user_id: '',
 		};
 	},
-	
 	onLoad(options) {
 		var that = this;
 		that.bar=options.bar;
@@ -58,7 +52,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res);
 				if(res.statusCode==302){
 					uni.showToast({
 						title:'资金密码未设置',
@@ -72,29 +65,21 @@ export default {
 					that.flag = true;
 				}
 				that.address_out = res.data.data;
-				
 			}
 		});
 	},
 	methods: {
 		click: function(item) {
-			console.log(item.wallet_value)
 			uni.redirectTo({
 				url:'../transfer/transfer?wallet_value='+item.wallet_value+'&bar='+this.bar+'&fee='+this.fee
 			})
 		}
-
 	}
 };
 
 </script>
 
 <style>
-/* .height {
-	height: var(--status-bar-height);
-	background: #121212;
-	z-index: 99;
-} */
 .shade {
 	position: absolute;
 	top: 0;
@@ -103,7 +88,6 @@ export default {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 }
-
 .pop {
 	width: 70%;
 	height: 250rpx;
@@ -111,22 +95,18 @@ export default {
 	background: #fff;
 	border-radius: 20rpx;
 }
-
 .pop-title {
 	text-align: center;
 	font-size: 32rpx;
 	color: #121212;
 	line-height: 150rpx;
 }
-
 .pop-bottom {
 	width: 100%;
 	height: 56rpx;
 	display: flex;
 	justify-content: space-between;
-	/* margin:20rpx auto 0; */
 }
-
 .pop-btn {
 	width: 126rpx;
 	height: 56rpx;
@@ -137,25 +117,21 @@ export default {
 	text-align: center;
 	line-height: 56rpx;
 }
-
 .box {
 	height: 200rpx;
 }
-
 .none {
 	display: block;
 	width: 150rpx;
 	height: 150rpx;
 	margin: 0 auto;
 }
-
 .tips {
 	margin-top: 50rpx;
 	text-align: center;
 	color: #797979;
 	font-size: 28rpx;
 }
-
 .newadd {
 	width: 200rpx;
 	height: 70rpx;
@@ -167,7 +143,6 @@ export default {
 	margin: 80rpx auto;
 	font-size: 30rpx;
 }
-
 .list {
 	width: calc(100% - 48rpx);
 	height: auto;
@@ -175,7 +150,6 @@ export default {
 	border-bottom: 1rpx solid #f2f2f2;
 	margin-left: 48rpx;
 }
-
 .left {
 	float: left;
 	width: 85%;
@@ -193,7 +167,6 @@ export default {
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
-	
 }
 .addTitle{
 	float:left;
@@ -213,14 +186,12 @@ export default {
 	float: left;
 	width: 15%;
 }
-
 .edit {
 	width: 50rpx;
 	height: 50rpx;
 	margin-top: 50rpx;
 	margin-left: 20rpx;
 }
-
 .delete {
 	height: 140rpx;
 	line-height: 140rpx;

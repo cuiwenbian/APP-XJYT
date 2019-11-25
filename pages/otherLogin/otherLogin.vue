@@ -36,7 +36,6 @@ export default {
 				this.disabled = false;
 			}
 			this.phone = e.detail.value;
-			console.log(this.phone);
 		},
 		getCodeValue: function(e) {
 			this.code = e.detail.value;
@@ -73,12 +72,9 @@ export default {
 		
 		          success(res) {
 		            //根据code判断
-		            console.log(res)
 		            var ocode = res.statusCode;
-		            console.log(ocode)
 		            if (ocode == 200) {
-		              _this.iscode = res.data.data,
-		              console.log(res.data.data)
+		              _this.iscode = res.data.data
 		            } else if (ocode == 400) {
 		              uni.showToast({
 		                title: '用户不存在',
@@ -87,16 +83,13 @@ export default {
 		              })
 		              return false;
 		            }
-		            console.log(res)
 		            var num = 61;
 		            var timer = setInterval(function () {
 		              num--;
 		              if (num <= 0) {
 		                clearInterval(timer);
-						
 		                _this.codename = '重新发送',
 		                _this.disabled = false
-		
 		              } else {
 						 _this.flag=false,
 		                _this.codename = num + "s"
@@ -105,20 +98,16 @@ export default {
 		            }, 1000)
 		          }
 		        })
-		
 		      }	
 		},
 		//获取验证码
 		getCodeNumber: function(e) {
 			this.getCode();
-			
 		},
 		//提交表单信息
 		login: function() {
 			var _this = this;
-			// var pre = that.data;
 			var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-
 			if (_this.phone == '') {
 				uni.showToast({
 					title: '手机号不能为空',
@@ -149,7 +138,6 @@ export default {
 				});
 				return false;
 			} else {
-				//uni.setStorageSync('phone', this.phone);
 				uni.request({
 					url:_this.url+'users/login/',
 					method:'POST',
@@ -158,10 +146,8 @@ export default {
 						code:_this.code
 					}, 
 					success(res) {
-						console.log(res);
 						_this.global_.phone=_this.phone;
 						_this.global_.token=res.data.data;
-						console.log(res.data.data)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码不正确',
@@ -175,7 +161,6 @@ export default {
 						}
 					}
 				})
-				
 			}
 		}
 	}
@@ -257,7 +242,6 @@ page {
 	text-align: center;
 	line-height: 80rpx;
 }
-
 .goback {
 	width: 280rpx;
 	height: 57rpx;

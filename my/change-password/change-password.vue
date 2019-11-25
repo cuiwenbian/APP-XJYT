@@ -105,8 +105,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
-						
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'资金密码已修改',
@@ -123,7 +121,6 @@
 								icon:'none',
 								duration:2000
 							})
-							
 						}
 					}
 				})
@@ -146,7 +143,6 @@
 		margin-left: 48rpx;
 		font-size: 30rpx;
 	}
-	
 	.list{
 		height:100rpx;
 		width:100%;
@@ -167,7 +163,6 @@
 		line-height: 100rpx;
 		font-size: 30rpx;
 	}
-	
 	.close{
 		float: right;
 		display: block;
@@ -175,7 +170,6 @@
 		height:25rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
-		
 	}
 	.open{
 		height:40rpx;

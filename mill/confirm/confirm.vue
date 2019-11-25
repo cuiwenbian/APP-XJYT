@@ -28,7 +28,6 @@
             </view> 
             <view class="y"></view>
         </view>
-           
         </view>
         <view class="boxx">
             <view class="uu">
@@ -47,7 +46,6 @@
             <!-- #ifndef H5 -->
             <password-input v-if="passIn" ref='wrong' @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
-            
             <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
             <!-- #ifdef H5 -->
             <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo">
@@ -62,7 +60,6 @@
 </template>
 
 <script>
-    // import bestPaymentPassword from '../../components/best-payment-password/best-payment-password.vue'
     var getRmb=require('../../common/requset.js')
     import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
     import passwordInput from '../../components/password-input/password-input.vue';
@@ -79,7 +76,6 @@
                 forget:false,
                 password:'123456',
                 arr:[],
-                
                 numberList: [],
                 length: 6,
                 type: 'number',
@@ -96,27 +92,19 @@
             var data = JSON.parse(option.ront)
             that.data = data
             var sur=that.data[1];
-            console.log(that.data[1])
-            console.log(that.data[0][0].name)
             that.name = that.data[0][0].name
             that.pag = that.data[0][0].mobile
             that.san = that.data[0][0].sale_num
             that.suu = that.data[0][0].sale_money
             that.data=that.data[1]   
-            console.log(that.data[0].machine_id)
             that.sun = getRmb.getrmb(that.suu)
-            
-          
             for(let i = 0; i < sur.length; i++) {
-                console.log(that.data[i].machine_id)
                 arr.push(sur[i].machine_id)
-                console.log(arr)
             }
           this.arr = arr
         },
         methods:{
             openKeyBoard:function () {
-                
             },
             clo: function() {
             	this.passIn = false;
@@ -146,7 +134,6 @@
                 var that = this
                 var a = that.arr.join()
             	that.numberList.push(val);
-            	console.log(that.numberList.join().replace(/,/g, ''));
             	that.password = that.numberList.join().replace(/,/g, '');
             	if (that.numberList.length >= that.length) {
             		uni.request({
@@ -195,14 +182,10 @@
             				}
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
-            				// page.onLoad(that.val);
             			},
-                       
             		});
                     this.numberList.length= 0;
             	}
-            	
-            
             },
             btn:function () {
                 var that = this
@@ -220,7 +203,6 @@
     }
     .loo {
         color: #121212;
-        
     }
     .box1 {
         margin-bottom: 40rpx;
@@ -242,7 +224,6 @@
         line-height: 120rpx;
         margin-left: 120rpx;
     }
-    
     .box {
         background-color: #fff;
         height: 180rpx;

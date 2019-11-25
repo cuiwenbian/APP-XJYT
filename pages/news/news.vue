@@ -54,7 +54,6 @@
 <style>
     .bt{
     	width: 100%;
-
     }
     .left {
     	float: left;
@@ -65,7 +64,6 @@
         font-size: 32rpx;
         padding-top: 20rpx;
         padding-left: 24rpx;
-    	
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -84,7 +82,6 @@
     	padding-top: 30rpx;
     	padding-left: 48rpx;
     }
-     
     .yu {
     	float: left;
     	padding-top: 40rpx;

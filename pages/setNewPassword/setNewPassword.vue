@@ -29,14 +29,11 @@
 		onLoad(options) {
 			this.iscode=options.code;
 			this.phone=options.phone;
-			console.log(this.iscode)
-			console.log(this.phone)
 		},
 		methods:{
 			newpassword:function(e){
 				this.newPwd=e.detail.value
 			},
-			
 			newpassword1:function(e){
 				this.newPwd1=e.detail.value
 			},
@@ -93,7 +90,6 @@
 						code:this.iscode,
 					},
 					header:{
-						
 					},
 					success(res) {
 						console.log(res)

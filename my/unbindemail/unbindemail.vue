@@ -38,9 +38,7 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					var email=res.data.data;
-					console.log(email)
 					var email1=res.data.data;
 					_this.email1=email1;
 					var l = email.split('@');
@@ -51,7 +49,6 @@
 		},
         onBackPress(option){
               plus.key.hideSoftKeybord()
-                    
             },
 		methods:{
 			getEmailCode:function(e){
@@ -71,7 +68,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 				 	 success:function(res){
-				 		 console.log(res)
 				 	     var num = 121;
 				 	     var timer = setInterval(function () {
 				 	       num--;
@@ -87,17 +83,12 @@
 				 	         that.codename = num + "s"
 				 	       }
 				 	     }, 1000)
-						
 				 	 },
 				 	 fail: function(err){
-				 	     console.log(err)
 				 	}
-				 	
 				 })				
 			},
 			unbind:function(){
-				console.log(this.global_.token)
-				console.log(this.email)
 				if(this.emailCode==''){
 					uni.showToast({
 						title:'请输入验证码',
@@ -117,7 +108,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码错误',
@@ -136,11 +126,9 @@
 								url:'../my/my'
 							})
 						}
-						
 					}
 				})
 			}
-			
 		}
 	}
 </script>

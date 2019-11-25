@@ -35,7 +35,6 @@
                             创建时间:<text class="smallxx1">{{time}}</text>
                         </text>
                 </view>
-
                 <view>
                     <button class="primary" @click="btn">{{checkall}}</button>
                 </view>
@@ -108,19 +107,11 @@
             
             var that = this
             var datn = JSON.parse(option.aser)
-            console.log(option.aser)
             that.datn = datn
-            console.log(that.datn[0][0])
-            
-            // var conti = that.datn[0]
-            // that.conti = that.datn[0]
-            
             var stw = that.datn[1]
             that.stw = that.datn[1]
             that.state = that.datn[0][0].order_status
-
             that.mill = that.datn[0][0].sale_num
-
             that.price = that.datn[0][0].sale_money
             that.x = that.datn[0][0].order_num
             that.name = that.datn[0][0].name
@@ -129,8 +120,6 @@
             if(that.state == 101) {
                 that.state = '待付款'
             }
-            
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -153,7 +142,6 @@ page {
       margin-bottom:40rpx;
   }
   .box {
-
       width: 100%;
       background-color: #fff;
   }
@@ -180,7 +168,6 @@ page {
   }
   .smallx1{
       float: left;
-      
   }
   .ser {
       float: right;
@@ -299,6 +286,5 @@ page {
       margin-right: 48rpx;
       background-color: #999999;
   }
- 
 </style>
 

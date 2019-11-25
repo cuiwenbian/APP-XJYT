@@ -57,7 +57,6 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					var email=res.data.data;
 					var email1=res.data.data;
 					_this.email1=email1;
@@ -88,7 +87,6 @@
 			},
 			getCode: function () {
 			      var _this = this;
-			      
 			        uni.request({
 			          method: 'POST',
 			          data: {
@@ -101,7 +99,6 @@
 			          },
 			          success(res) {
 			            //根据code判断
-			            console.log(res)
 			            var num = 121;
 			            var timer = setInterval(function () {
 			              num--;
@@ -110,7 +107,6 @@
 							_this.flag = true,
 			                _this.codename = '重新发送',
 			                _this.disabled = false
-			
 			              } else {
 							_this.flag = false
 			                _this.codename = num + "s"
@@ -119,13 +115,11 @@
 			            }, 1000)
 			          }
 			        })
-			
 			},
 			//获取验证码
 			getCodeNumber: function(e) {
 				this.getCode();
 				var _this = this;
-
 			},
 			setPwd:function(){
 				if(this.code==''){
@@ -183,7 +177,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'资金密码已修改',
@@ -200,7 +193,6 @@
 								icon:'none',
 								duration:2000
 							})
-							
 						}
 					}
 				})
@@ -216,7 +208,6 @@
 	.line{
 		height:50rpx;
 	}
-	
 	.list{
 		height:100rpx;
 		width:100%;
@@ -236,7 +227,6 @@
 		line-height: 100rpx;
 		font-size: 30rpx;
 	}
-	
 	.getcode{
 		float:right;
 		width:200rpx;
@@ -272,7 +262,6 @@
 		height:25rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
-		
 	}
 	.linee{
 		height:20rpx;

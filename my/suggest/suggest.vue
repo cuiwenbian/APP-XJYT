@@ -28,7 +28,6 @@
 				</view>
 			</view>
 		</view>
-		
 		<view class="newadd" @click="addMessage">
 			提交建议
 		</view>
@@ -40,12 +39,10 @@
 				<image class="close" src="../../static/images/close.png" mode="" @click="close"></image>
 			</view>
 		</view>
-		
 	</view>
 </template>
 
 <script>
-	
 	export default{
 		data(){
 		  return{
@@ -53,7 +50,6 @@
 			  hidden:true,
 			  title:'',
 			  desc:'',
-			  //shade:false,
 			  messages:'',
 			  id:'',
 			  add_time:''
@@ -86,10 +82,8 @@
 						var up1=up.substr(0,10)+'  '+up.substr(11,8)
 						_this.messages[i].updated_time=up1
 					}
-					
 				}
 			})
-		    
 		},
         onBackPress(option){
               plus.key.hideSoftKeybord()    
@@ -97,11 +91,9 @@
 		methods:{
 			getTitleContent:function(e){
 				this.title=e.detail.value
-				
 			},
 			getDescContent:function(e){
 				this.desc=e.detail.value
-		
 			},
 			addMessage:function(){
 				this.hidden=false
@@ -138,8 +130,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						//console.log(res)
-						
 						if(res.statusCode==200){
 							 _this.hidden=true;
 							 _this.title='';
@@ -150,18 +140,14 @@
 							icon:'none',
 							duration:2000
 						})
-						
 						var page = getCurrentPages().pop();
 						if (page == undefined || page == null) return; 
 						page.onLoad(); 
-							
 					}
 			    })
 			},
 			detail:function(item){
-				console.log(item)
 				var mes=JSON.stringify(item);
-				console.log(mes)
 				uni.navigateTo({
 					url:'../suggest-detail/suggest-detail?message='+mes
 				})
@@ -171,7 +157,6 @@
 					url:'../identity/identity'
 				})
 			}
-			
 		}
 	}
 </script>
@@ -186,7 +171,6 @@
 	.suggest-list{
 		width:100%;
 		height:auto;
-		/* height:280rpx; */
 		background: #fff;
 		padding: 20rpx 48rpx;
 		overflow: hidden;
@@ -196,7 +180,6 @@
 		height:90rpx;
 		width:100%;
 		border-bottom:1rpx solid #f2f2f2;
-		
 	}
 	.submit-time{
 		height:90rpx;
@@ -207,7 +190,6 @@
 		color:#A0A0A0;
 	}
 	.status{
-		
 		height:90rpx;
 		line-height: 90rpx;
 		float: right;
@@ -219,7 +201,6 @@
 		margin-top:20rpx;
 		margin-bottom:20rpx;
 		width:100%;
-		
 	}
 	.tit{
 		width:15%;
@@ -227,7 +208,6 @@
 		float: left;
 		line-height: 90rpx;
 		font-size: 28rpx;
-		
 	}
 	.answer{
 		height: auto;
@@ -326,7 +306,6 @@
 		position: absolute;
 		top:20rpx;
 		right:20rpx;
-		/* color:#797979; */
 	}
 	.shade{
 		position: absolute;

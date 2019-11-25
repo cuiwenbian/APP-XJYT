@@ -26,7 +26,6 @@
             </view>
             <view class="xn"></view>
             <view class="haide">
-                
             </view>
             <input class="put" type="number" placeholder="请输入总价" @input="getPriceValue" :value="total_price" />
             <button class="primary" @click="btn">确定出售</button>
@@ -45,26 +44,16 @@
                 total_price:'',
                 machine_id:'',
                 arr:[],
-               
             }
         },
         onLoad(option) {
             let arr = []
             var that = this
             var data = JSON.parse(option.tar);
-            console.log(option)
-            // console.log(option.tar)
-            
             that.data=data;
-            console.log(that.data)
             that.san = data.length
-             console.log(that.data.length)
             for (let i = 0; i < that.data.length; i++) {
-               
-                console.log(that.data)
-                    console.log(that.data[i].machine_id)
                     arr.push(that.data[i].machine_id)
-                    console.log(that.data[i].machine_id)
             }
             this.arr = arr
         },
@@ -77,16 +66,13 @@
                 let total_price = this.total_price
                 this.total_price = e.detail.value
                 this.sun = getRmb.getrmb(e.detail.value)
-                console.log(that.total_price)
             },
             btn:function () {
                 var that = this
-                console.log(that.arr)
                 var sunt = JSON.stringify(that.san) 
                 var tilo = JSON.stringify(that.total_price) 
                 var a = that.arr.join(',')
                 var app = JSON.stringify(a)
-                console.log(app)
                 if(that.total_price == ''){
                     uni.showToast({
                         title:'总价不能为空',
@@ -112,11 +98,9 @@
         height: 180rpx;
         padding-right: 40rpx;
         padding-bottom: 20rpx;
-
     }
     .img{
         width: 20%;
-
     },
     .molis{
         float: right;
@@ -140,7 +124,6 @@
         
     }
     .te{
-
       float: right;
       margin-top: -4rpx;
       width:40rpx;
@@ -156,7 +139,6 @@
     }
     .obh_one {
         font-size: 24rpx;
-
     }
     .days{
         color: #5ca614;
@@ -164,7 +146,6 @@
     .obg_one{
         margin-top: 10rpx;
         font-size: 24rpx;
-
     }
     .y {
         width: 90%;
@@ -182,7 +163,6 @@
         background-color: #fff;
     }
     .hide {
-        
         display: block;
         border-bottom: 2rpx solid #CCCCCC;
     }
@@ -211,7 +191,6 @@
         text-align: center;
         width: 370rpx;
         height: 120rpx;
-        /* margin-top: 20rpx; */
     }
     .primary {
         float: right;

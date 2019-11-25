@@ -19,7 +19,6 @@
                 </text>
             </view>
             <view class="small">
-                
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -44,7 +43,6 @@
                     </text>
                 </view>
             </view>
-
             <view>
                 <button class="primary" @click="btn">{{checkall}}</button>
             </view>
@@ -52,7 +50,6 @@
        <view class="box1">
             买家信息
         </view> 
-
       <view class="box2">
             <view class="bx">姓名:
                 <text class="bxx">{{name}}</text>
@@ -117,14 +114,10 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option);
             var vinda = JSON.parse(option.suxang)
             that.vinda = vinda
-            console.log(vinda)
-            
             var clorn = that.vinda[1]
             that.clorn = that.vinda[1]
-            
             that.state = vinda[0][0].order_status
             if(that.state == 103) {
                 that.state = '待确认'
@@ -137,7 +130,6 @@
             that.time = that.vinda[0][0].confirm_time
             that.time_pay = that.vinda[0][0].pay_time
             that.time_set = that.vinda[0][0].set_time
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -186,7 +178,6 @@ page {
   }
   .smallx1{
       float: left;
-      
   }
   .small1{
       box-sizing: border-box;
@@ -214,7 +205,6 @@ page {
       font-size: 28rpx;
       padding-right: 48rpx;
   }
-  
   .smallxx {
       box-sizing: border-box;
       color: #E3BA85;
@@ -223,7 +213,6 @@ page {
   .smallxx1{
       margin-left: 48rpx;
   }
-    
   .primary {
       width: 180rpx;
       height: 40rpx;

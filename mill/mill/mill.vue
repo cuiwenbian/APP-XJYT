@@ -75,7 +75,6 @@ export default {
             uni.startPullDownRefresh();
         },
         onPullDownRefresh() {
-            console.log('refresh');
             setTimeout(function () {
                 uni.stopPullDownRefresh();
             }, 100);
@@ -89,22 +88,18 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res);
 				if (res.statusCode == 200) {
 					that.user_id = res.data.data;
 					that.many = res.data.data.length
 					that.machine_id=res.data.data[length].machine_id;
-                    console.log(that.machine_id)
 				}
 				if (res.statusCode == 205) {
 					that.flag = true;
 				}
-				
 			}
 		});
 	},
 	methods: {
-		
 		pay: function() {
 			uni.navigateTo({
 				url: '../pay/pay'
@@ -116,12 +111,10 @@ export default {
 			});
 		},
 		CheckboxChange(e) {
-			console.log(e);
 			var that = this;
 			that.arr = [];
 			for (let i = 0; i < that.user_id.length; i++) {
 				that.user_id.checked = false;
-				// console.log(that.user_id)
 			}
 			var items = that.user_id;
 			var values = e.detail.value;
@@ -130,11 +123,7 @@ export default {
 				for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
 					if (items[i].number == values[j]) {
 						items.checked = true;
-						console.log(values);
-						// console.log(items[i].machine_id);
 						that.arr.push(items[i].machine_id);
-						console.log(111);
-						console.log(that.arr);
 						break;
 					}
 				}
@@ -142,9 +131,7 @@ export default {
 		},
 		btn2: function() {
 			var that = this;
-			console.log(that.arr);
 			var a = that.arr.join(',');
-			console.log(a);
 			uni.request({
 				url: this.url + 'buildorders/',
 				method: 'GET',
@@ -155,23 +142,17 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
-					console.log(res);
-					console.log(res.data);
-                    
 					var asr = JSON.stringify(res.data.data);
-					console.log(asr);
 					if (res.statusCode == 401) {
 						uni.showModal({
 							title: '未进行实名认证',
 							confirmText: '去验证',
 							success(res) {
-								console.log(res);
 								if (res.confirm == true) {
 									uni.navigateTo({
 										url: '../../my/identity/identity'
 									});
 								}
-								console.log(res.confirm);
 							}
 						});
 					} else if (res.statusCode == 302) {
@@ -191,7 +172,6 @@ export default {
                             }
                         })
                     }
-                        
                     else if (that.arr.length == 0) {
 						uni.showToast({
 							title: '请选择矿机',
@@ -271,7 +251,6 @@ export default {
 	width: 40rpx;
 	height: 40rpx;
 	margin-right: 90rpx;
-	/* display: none; */
 }
 .primary {
 	width: 220rpx;
@@ -324,14 +303,12 @@ export default {
 }
 .page1 {
 	height: 180rpx;
-
 	padding-right: 40rpx;
 	padding-bottom: 20rpx;
 }
 .img {
 	width: 20%;
 }
-,
 .molis {
 	float: right;
 	margin-bottom: 60rpx;

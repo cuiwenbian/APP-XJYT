@@ -21,7 +21,6 @@
 		</navigator>
 	</view>
 </template>
-
 <script>
 	
 	export default {
@@ -33,7 +32,6 @@
 			};
 		},	
 		onLoad() {
-			
 		},
 		methods:{
 			getPhoneValue:function(e){
@@ -62,7 +60,6 @@
 					 })
 					  return false
 				 }
-				 
 				if(!this.password){
 					uni.showToast({
 						title:'请输入密码',
@@ -86,7 +83,6 @@
 						uni.setStorageSync('token',res.data.token)
 						_self.global_.phone=this.phone;
 						_self.global_.token=res.data.token;
-						console.log(res)
 						if(res.statusCode==401){
 							uni.showToast({
 								title:'用户信息不存在',
@@ -104,46 +100,37 @@
 								url:'../index/index'
 							});
 						}
-						
 					},
 		            fail: () => {},
 					complete: () => {}
 				});
-				
 			},
 			agree(){
 				uni.navigateTo({
 					url:'../agreement/agreement'
 				});
 			}
-			
 		}
 	}
 </script>
 
 <style>
-	
 	page{
 		background: #121212;
 	}
- 
 	.logo{  
 		display: block;
 		width:185rpx;
 		height:185rpx;
 		margin: 150rpx auto 0;
-		/* margin-top:150rpx;
-		margin-left: calc((100% - 185rpx)/2); */
 	}
 	.fil{
 		width:250rpx;
 		height:100rpx;
 		display: block;	
 		margin:30rpx auto 100rpx;
-		
 	}
 	.enter{
-		
 		width:600rpx;
 		height:100rpx;
 		margin: 30rpx auto;
@@ -197,5 +184,4 @@
 		line-height: 57rpx;
 		text-align: center;
 	}
-	
 </style>

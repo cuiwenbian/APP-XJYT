@@ -103,7 +103,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'用户未实名认证',
@@ -117,7 +116,6 @@
 								icon:'none',
 								duration:2000
 							})
-							
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
@@ -131,10 +129,8 @@
 								duration:2000
 							})
 						}
-						
 					}
 				})
-				
 			},
 			tradePassword:function(){
 				var that=this;
@@ -145,7 +141,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==302){
 							uni.showToast({
 								title:'用户未绑定邮箱',
@@ -175,7 +170,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==400){
 							uni.navigateTo({
 								url:'../change-loginPassword/change-loginPassword'
@@ -188,7 +182,6 @@
 						}
 					}
 				})
-				
 			},
 			bindEmail:function(){
 				uni.request({
@@ -198,11 +191,9 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==200||res.statusCode==201){
 							uni.navigateTo({
 								url:'../email/email'
-								
 							})
 						}
 						if(res.statusCode==400){
@@ -212,14 +203,11 @@
 						}
 					}
 				})
-				
 			},
 			suggest:function(){
-				
-							uni.navigateTo({
-								url:'../suggest/suggest'
-							})
-					
+				uni.navigateTo({
+					url:'../suggest/suggest'
+				})
 			},
 			certification:function(){
 				uni.request({
@@ -229,7 +217,6 @@
 				   Authorization:'JWT'+' '+this.global_.token
 				  },
 				  success: function (res) {
-				    console.log(res)
 					if(res.statusCode==202){
 						uni.showToast({
 							title:'已实名认证',
@@ -253,7 +240,6 @@
 					}
 				  }
 				})
-				
 			},
 			mymachine:function(){
 				uni.navigateTo({
@@ -284,8 +270,6 @@
 		padding:0 40rpx;
 		box-sizing: border-box;
 		background: #f0efef;
-		/* border-radius: 10rpx; */
-		
 	}
 	.pop-title{
 		height:150rpx;
@@ -302,7 +286,6 @@
 	.pop-btn{
 		width:120rpx;
 		height:60rpx;
-		/* border-radius: 20rpx; */
 		background:#121212;
 		line-height: 60rpx;
 		font-size: 30rpx;
@@ -339,7 +322,6 @@
 		bottom:100rpx;
 		border-radius: 50%;
 		border: 1px solid #f2f2f2;
-	
 	}
 	.img{
 		width:100%;

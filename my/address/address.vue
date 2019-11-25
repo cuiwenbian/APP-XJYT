@@ -16,7 +16,6 @@
 				</uniSwipeAction>
 			</block>
 		</view>
-
 		<view v-else>
 			<uni-nav-bar left-icon="back" title="提币地址"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
 			<view class="box"></view>
@@ -29,7 +28,6 @@
 		<!-- #ifndef H5 -->
 		<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
-
 		<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 		<!-- #ifdef H5 -->
 		<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" ref='wrong' :list="numberList"></password-input></view>
@@ -86,7 +84,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res);
 				if (res.data.data == '') {
 					that.flag = false;
 				} else {
@@ -95,10 +92,8 @@ export default {
 				that.address_out = res.data.data;
 			}
 		});
-		
 	},
 	methods: {
-		
 		clo: function() {
 			this.passIn = false;
 			this.$refs['number'].close();
@@ -108,7 +103,6 @@ export default {
 			this.numberList.pop();
 		},
 		onChange(e){
-			console.log(e.show)
 			if(e.show==false){
 				this.passIn = false
 			}
@@ -126,7 +120,6 @@ export default {
 		onInput(val) {
 			var that=this;
 			that.numberList.push(val);
-			console.log(that.numberList.join().replace(/,/g, ''));
 			that.password = that.numberList.join().replace(/,/g, '');
 			if (that.numberList.length >= that.length) {
 				uni.request({
@@ -140,7 +133,6 @@ export default {
 						Authorization: 'JWT' + ' ' + that.global_.token
 					},
 					success(res) {
-						console.log(res);
 						if (res.statusCode == 204) {
 							that.passIn = false;
 							that.$refs['number'].close();
@@ -151,7 +143,6 @@ export default {
 							});
 						}
 						if(res.statusCode==400){
-							// that.numberList.length= 0;
 							that.$refs.wrong.flag=false;
 							var n=res.data.data.err_num;
 							var s=5-n;
@@ -170,11 +161,9 @@ export default {
 						if (page == undefined || page == null) return;
 						page.onLoad();
 					},
-                   
 				});
 				this.numberList.length = 0;
 			}	
-
 		},
 		//点击删除按钮
 		click: function(item) {
@@ -227,11 +216,6 @@ export default {
 </script>
 
 <style>
-/* .height {
-	height: var(--status-bar-height);
-	background: #121212;
-	z-index: 99;
-} */
 .height {
 		height: var(--status-bar-height);
 		background-color: #121212;
@@ -244,7 +228,6 @@ export default {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 }
-
 .pop {
 	width: 70%;
 	height: 250rpx;
@@ -252,22 +235,18 @@ export default {
 	background: #fff;
 	border-radius: 20rpx;
 }
-
 .pop-title {
 	text-align: center;
 	font-size: 32rpx;
 	color: #121212;
 	line-height: 150rpx;
 }
-
 .pop-bottom {
 	width: 100%;
 	height: 56rpx;
 	display: flex;
 	justify-content: space-between;
-	/* margin:20rpx auto 0; */
 }
-
 .pop-btn {
 	width: 126rpx;
 	height: 56rpx;
@@ -278,7 +257,6 @@ export default {
 	text-align: center;
 	line-height: 56rpx;
 }
-
 .box {
 	height: 200rpx;
 }
@@ -294,7 +272,6 @@ export default {
 	color: #8a8a8a;
 	font-size: 28rpx;
 }
-
 .newadd {
 	width: 200rpx;
 	height: 70rpx;
@@ -306,7 +283,6 @@ export default {
 	margin: 80rpx auto;
 	font-size: 30rpx;
 }
-
 .list {
 	width: calc(100% - 48rpx);
 	height: auto;
@@ -314,7 +290,6 @@ export default {
 	border-bottom: 1rpx solid #f2f2f2;
 	margin-left: 48rpx;
 }
-
 .left {
 	float: left;
 	width: 85%;
@@ -332,7 +307,6 @@ export default {
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
-	
 }
 .addTitle{
 	float:left;
@@ -352,14 +326,12 @@ export default {
 	float: left;
 	width: 15%;
 }
-
 .edit {
 	width: 50rpx;
 	height: 50rpx;
 	margin-top: 50rpx;
 	margin-left: 20rpx;
 }
-
 .delete {
 	height: 140rpx;
 	line-height: 140rpx;

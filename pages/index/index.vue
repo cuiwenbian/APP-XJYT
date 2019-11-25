@@ -17,7 +17,6 @@
                 <image class="ttt" src="../../static/images/lb.png"></image>
             </swiper-item>
         </swiper>
-
         <view class="uni-swiper-msg">
         	<view class="uni-swiper-msg-icon">
         		<image class="g" src="../../static/images/notice.png" mode="widthFix"></image>
@@ -33,10 +32,8 @@
         		<swiper-item class="fz" v-for="(item , index) in csgo" :key="index">
         			<text class="clor">{{item.notice}}</text>
         		</swiper-item>
-
         	</swiper>
         </view>
-		
         <view class="borx">
             <view class="price">
                 <text class="bot">今日币价:</text>
@@ -49,7 +46,6 @@
                 <text class="yesterdayprice"> {{yesterdayprice}}  {{yesterday}}</text>
             </view>
         </view>
-        
         <view class="gg">
             <div class="charts">
             	<view class="qiun-columns">
@@ -57,7 +53,6 @@
             			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchCandle" @touchmove="moveCandle" @touchend="touchEndCandle"></canvas>
                     </view>
             	</view>
-            	
             </div>
         </view>
             <view class="Small">
@@ -99,7 +94,6 @@
     import uCharts from '../../common/u-charts.js';
     var _self;
     var canvaArea=null;
-	
 	export default {
 		data() {
 			return {      
@@ -121,9 +115,7 @@
                 usd:'',
                 hige:'',
                 minn:'',
-				
 			}
-             
 		},
         onLoad() {
             _self = this;
@@ -131,7 +123,6 @@
             this.cWidth=uni.upx2px(750);
             this.cHeight=uni.upx2px(500);
             _self.getServerData();
-		
             uni.request({
                 url:this.url + 'home/',
                 method:'GET',
@@ -158,21 +149,16 @@
             getServerData(){
                 var that=this;
 				var timestamp = Date.parse(new Date())/1000;
-				console.log(new Date(timestamp))
 				var date2=new Date();     
 				var date4=86400*6;
 				var date3=timestamp - date4 //时间差的毫秒数
-				// console.log(timestamp,date3)
             	uni.request({
             			url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=28800`,
             			method: 'POST',
             			success: function(res) {
-							//console.log(res);
 							//转换时间戳
 							function formatDate(v) {
-								console.log(v)
 							    let date = new Date(v);
-								console.log(date)
 							    let y = date.getFullYear();
 							    let MM = date.getMonth() + 1;
 							    MM = MM < 10 ? ('0' + MM) : MM;
@@ -182,14 +168,10 @@
 							    h = h < 10 ? ('0' + h) : h;
 							    let m = date.getMinutes();
 							    m = m < 10 ? ('0' + m) : m;
-							  
-							    // return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
 							    return  MM + '-' + d ;
 							};
-							  
 							var a=res.data.split("\n");
 							that.usd = a
-							// console.log(that.usd)
 							var time=[];
 							var price=[];
 							var hure = []
@@ -202,15 +184,12 @@
                                     var day1 = new Date();
                                     day1.setTime(day1.getTime()-24*60*60*1000);
                                     var s1 = day1.getFullYear()+"-" + (day1.getMonth()+1) + "-" + day1.getDate();
-                                    console.log(s1)
-									console.log(that.time)
 							}
 							for (let j = 1; j < that.usd.length-1; j++) {
 								var data1 = a[j].split(",")[2];
 								var cert = parseFloat(data1)
 								price.push(cert);
 								that.price = price;
-								// console.log(that.price)
 							} 
                             for (let o = 1; o <that.usd.length-1; o++) {
                             	var data3 = a[o].split(",")[1]
@@ -220,7 +199,6 @@
                             }
                             for (let n = 1; n < that.usd.length-1; n++) {
                                 var min = a[n].split(",")[3]
-
                             }
                             var now_price =parseFloat(a[a.length-2].split(",")[4]) 
                             var yesterday_price = parseFloat(a[a.length-6].split(",")[4])
@@ -228,23 +206,17 @@
                             var yest = incrace.toFixed(2)
                             var thi = (now_price/data3 - 1)*100;
                             var t= thi.toFixed(2)+'%'
-                            console.log(data1)
-                            console.log(min)
                             _self.hige =parseFloat(data1)  + 1
                             _self.minn =parseFloat(min)  - 1
                             that.Todayprice=now_price
                             that.yesterday = t
-
                             that.yesterdayprice = yest
                             if(yest>0 || t > 0 ) {
                                 that.yest = '+' + that.yest 
-                                // that.t = '+' + that.t 
                             }
                                  let Area={list:[]};
-								 
                                  //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
                                  Area.list=that.usd;
-								 console.log(_self.minn)
                                  _self.showArea("canvasArea",that.usd);                      
                             },
             		});
@@ -260,8 +232,6 @@
                                         legend:{show:false},
 										dataPointShape:false,
 										legend:{show:false},
-										//enableScroll: true,
-										
 										pixelRatio:_self.pixelRatio,
 										categories: _self.time,//数据类别(饼图.圆环图不需要)
 										series: [   //数据列表
@@ -270,7 +240,6 @@
 										            data: _self.price, //数据 //数据
 										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
 										          },
-														  
 										],
 										animation: true,
 										xAxis: {
@@ -282,13 +251,9 @@
 											axisLineColor:'#333535',
 											itemCount:20,
 											labelCount:8,
-											// gridEval:24,
 										},
 										yAxis: {
-										    // disabled:true, //不绘制Y轴
 											type:'grid',
-											// disableGrid:true,
-											// axisLine:false,
 											gridType:'solid',
 											gridColor:'#333535',
 											dashLength:8,
@@ -345,8 +310,6 @@
     	height: 500upx;
     	background-color: #FFFFFF;
     }
-    
-  
     page {
         background-color: #1c1c1c;
     }
@@ -390,7 +353,6 @@
         margin-left: 15rpx;
         border-radius: 8rpx;
     }
-
     .g {
         width: 28rpx;
         height: 28rpx;
@@ -433,19 +395,16 @@
     .price{
         margin-left: 24rpx;
     }
-    /* 白 */
     .bot{
         float: left;
         line-height: 120rpx;
         font-size: 20rpx;
         color: #F2F2F2;
     }
-    /* 2 */
     .price1{
         float: right;
         margin-right: 24rpx;
     }
-    /* 黄 */
     .Todayprice{
 			float: left;
 			line-height: 120rpx;
@@ -461,7 +420,6 @@
     .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
-        /* margin-top: 20rpx; */
         padding-top: 20rpx;
         line-height: 120rpx;
         color: #DCB16E;
@@ -470,12 +428,10 @@
         width: 100%;
         height: 600rpx;
     }
-
     .Small{
         width: 100%;
 		height: 80rpx;
 		margin-top: 14rpx;
-		
     }
     .te {
 		float: left;

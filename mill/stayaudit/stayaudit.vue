@@ -19,7 +19,6 @@
                 </text>
             </view>
             <view class="small">
-                
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -46,7 +45,6 @@
                     </text>
                 </view>
             </view>
-
             <view>
                 <button class="primary" @click="btn">{{checkall}}</button>
             </view>
@@ -118,14 +116,10 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var cander = JSON.parse(option.dospp)
             that.cander = cander
-            console.log(cander)
-            
             var hberd = that.cander[1]
             that.hberd = that.cander[1]
-            
             that.state = cander[0][0].order_status
             if(that.state == 103) {
                 that.state = '待审核'
@@ -138,8 +132,6 @@
             that.confirm_time = that.cander[0][0].confirm_time
             that.set_time = that.cander[0][0].set_time
             that.pay_time = that.cander[0][0].pay_time
-            
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -188,7 +180,6 @@
  }
  .smallx1{
      float: left;
-     
  }
  .small1{
      box-sizing: border-box;

@@ -4,11 +4,7 @@
     "iPhone",
     "iPad"
   ],
-<<<<<<< HEAD
   "id": "__UNI__9F270A4",
-=======
-  "id": "__UNI__4776200",
->>>>>>> eb67a720e99eca339dd70a30b2d8cafaf4fd24c6
   "name": "星际云通",
   "version": {
     "name": "1.0.0",
@@ -34,11 +30,7 @@
     "splashscreen": {
       "target": "id:1",
       "autoclose": true,
-<<<<<<< HEAD
       "waiting": false,
-=======
-      "waiting": true,
->>>>>>> eb67a720e99eca339dd70a30b2d8cafaf4fd24c6
       "delay": 0
     },
     "popGesture": "close",
