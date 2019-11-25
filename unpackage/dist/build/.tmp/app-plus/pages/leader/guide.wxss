@@ -1,0 +1,19 @@
+
+.swiper {
+        width: 100%;
+		background: #161822;
+}
+.experice{
+		width:200px;
+		height:44px;
+		position: fixed;
+		left:88px;
+		bottom:50px;
+		z-index: 99;
+}
+.experices{
+		width:200px;
+		height:44px;
+		display: block;
+}
+

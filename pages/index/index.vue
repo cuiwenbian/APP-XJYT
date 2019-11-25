@@ -270,11 +270,6 @@
 										            data: _self.price, //数据 //数据
 										            color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
 										          },
-												 // {
-												 //   name: "min", //数据名称
-												 //   data: _self.hure, //数据 //数据
-												 //   color: "#58f4e3" //颜色,不传入则使用系统默认配色方案
-												 // },
 														  
 										],
 										animation: true,

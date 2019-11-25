@@ -4,7 +4,7 @@
     "iPhone",
     "iPad"
   ],
-  "id": "__UNI__4776200",
+  "id": "__UNI__9F270A4",
   "name": "星际云通",
   "version": {
     "name": "1.0.0",
@@ -54,6 +54,17 @@
         },
         "ios": {
           "appstore": "static/images/FIL.png"
+        }
+      },
+      "splashscreen": {
+        "alwaysShowBeforeRender": false,
+        "waiting": false,
+        "autoclose": false,
+        "delay": 0,
+        "android": {
+          "hdpi": "static/images/FIL.png",
+          "xhdpi": "static/images/FIL.png",
+          "xxhdpi": "static/images/FIL.png"
         }
       },
       "google": {

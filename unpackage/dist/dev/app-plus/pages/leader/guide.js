@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"swiper { width: 100%; background: #161822; }\n.",[1],"experice{ width:200px; height:44px; position: fixed; left:88px; bottom:50px; z-index: 99; }\n.",[1],"experices{ width:200px; height:44px; display: block; }\n",],undefined,{path:"./pages/leader/guide.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/leader/guide.wxml') } }));
