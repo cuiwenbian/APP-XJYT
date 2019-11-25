@@ -69,9 +69,8 @@
 			console.log(this.bar)
         },
         onBackPress(option){
-              plus.key.hideSoftKeybord()
-                    
-            },
+            plus.key.hideSoftKeybord()          
+        },
         methods:{
 			getFilNum:function(e){
 				this.fil_num=e.detail.value

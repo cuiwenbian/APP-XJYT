@@ -156,16 +156,17 @@
 					var ention = res.data.data.profit_records
 					that.ention = ention
 					console.log(ention)
-					that.month_profit = seront.month_profit
-                    console.log(that.month_profit)
-					that.add_item = ention[0].add_time
-					that.numm = ention[0].num
-					console.log(ention)
 					if(ention.length==0){
 						that.flag=true
 					}else{
 						that.flag=false
 					}
+					that.month_profit = seront.month_profit
+                    console.log(that.month_profit)
+					that.add_item = ention[0].add_time
+					that.numm = ention[0].num
+					console.log(ention)
+					
 				}
 			})
          
