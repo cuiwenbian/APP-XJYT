@@ -3,7 +3,7 @@
         <view class="height"></view>
         <swiper 
         indicator-dots 
-        autoplay interval="3000" 
+        autoplay interval="3000"
         circular
         indicator-color="rgda(255 , 255 , 255 , .6)"
         >

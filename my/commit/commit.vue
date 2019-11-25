@@ -30,6 +30,13 @@
 					delta:2
 				})
 			}
+		},
+		onBackPress(options) {
+			if (options.from === 'backbutton') { 
+				uni.navigateBack({
+					delta:2
+				})
+			}
 		}
 	}
 </script>

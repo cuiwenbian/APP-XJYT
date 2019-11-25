@@ -11,7 +11,7 @@
 
 <script>
 	export default{
-		onLoad() {	
+		onShow() {
 			var star;
 			var _self=this;
 			function loadExecution(){
@@ -45,9 +45,20 @@
 				      
 				       
 				    } else {
-				        uni.navigateTo({
-				            url: '/pages/leader/guide'
-				        });
+						var timer1=3;
+						var flag1;
+						function daoji1(){
+							timer1=timer1-1;
+							if(timer1==0){
+								uni.navigateTo({
+								    url: '/pages/leader/guide'
+								});
+								clearInterval(flag1)
+								clearInterval(star)
+							}
+						}
+						flag1=setInterval(daoji1,500);
+				        
 						clearInterval(star)
 				    }
 					

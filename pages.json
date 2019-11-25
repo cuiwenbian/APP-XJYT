@@ -271,7 +271,9 @@
 					 },
 					 {
 					     "path":"commit/commit",
-					     "style":{"navigationStyle": "custom"}
+					     "style":{
+							 "navigationStyle": "custom"
+							 }
 					 },
 					 {
 					     "path":"choose-address/choose-address",
