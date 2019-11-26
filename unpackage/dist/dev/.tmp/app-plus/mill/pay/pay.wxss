@@ -1,223 +1,201 @@
 
 .box1{
-           height: 280rpx;
+        height: 280rpx;
 }
 .colo {
-   		float: left;
-   		width: 20%;
-   		height: 90rpx;
-   		margin-left: 148rpx;
-   		margin-top: 74rpx;
-        color: #000000;
-        font-size: 36rpx;
+		float: left;
+		width: 20%;
+		height: 90rpx;
+		margin-left: 148rpx;
+		margin-top: 74rpx;
+     color: #000000;
+     font-size: 36rpx;
 }
 .boss{
-           width: 100%;
-           height: 640rpx;
+        width: 100%;
+        height: 640rpx;
 }
 .tooc{
-           height: 40rpx;
-           margin-top: 140rpx;
-           background-color: #EDEDED;
+        height: 40rpx;
+        margin-top: 140rpx;
+        background-color: #EDEDED;
 }
 .too {
-           height: 20rpx;
-           margin-top: 40rpx;
-           background-color: #EDEDED;
+        height: 20rpx;
+        margin-top: 40rpx;
+        background-color: #EDEDED;
 }
 .cool{
-           margin-left: 40rpx;
-           font-size: 30rpx;
-           color: #949494;
+        margin-left: 40rpx;
+        font-size: 30rpx;
+        color: #949494;
 }
 .many{
-
-        margin-left: 48rpx;
-        line-height: 90rpx;
-        color: #DCB16E;
-        font-size: 34rpx;
+     margin-left: 48rpx;
+     line-height: 90rpx;
+     color: #DCB16E;
+     font-size: 34rpx;
 }
 .colo1{
-   		height: 60rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-top: 50rpx;
-        margin-right: 48rpx;
+		height: 60rpx;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+     padding-top: 50rpx;
+     margin-right: 48rpx;
 }
 .dx {
-           width: 68rpx;
-           height: 68rpx;
-           line-height: 60rpx;
-           float: right;
-           margin-right: 130rpx;
+        width: 68rpx;
+        height: 68rpx;
+        line-height: 60rpx;
+        float: right;
+        margin-right: 130rpx;
 }
 .many1{
-   		float: right;
-   		width: 90rpx;
-   		height: 60rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-top: 28rpx;
-   		margin-right: 145rpx;
-        font-size: 20rpx;
-        color: #979797;
+		float: right;
+		width: 90rpx;
+		height: 60rpx;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+     padding-top: 28rpx;
+		margin-right: 145rpx;
+     font-size: 20rpx;
+     color: #979797;
 }
 .box3 {
-           height: 90rpx;
-           background-color: #F6F6F6;
-           position: relative;
+        height: 90rpx;
+        background-color: #F6F6F6;
+        position: relative;
 }
 .list{
-         height: auto;
+      height: auto;
 }
 .top{
-   		height: 88rpx;
+		height: 88rpx;
 }
 .xi {
-   		height: 360rpx;
+		height: 360rpx;
 }
 .mation{
-        float: left;
-   		height: 40rpx;
-        line-height: 90rpx;
-        font-size: 30rpx;
-        color: 333333;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        padding-left: 48rpx;
+     float: left;
+		height: 40rpx;
+     line-height: 90rpx;
+     font-size: 30rpx;
+     color: 333333;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+     padding-left: 48rpx;
 }
 .cont{
-           float: right;
-           font-size: 30rpx;
-           color: #333333;
-           line-height: 90rpx;
-           margin-right: 80rpx;
+        float: right;
+        font-size: 30rpx;
+        color: #333333;
+        line-height: 90rpx;
+        margin-right: 80rpx;
 }
 .line{
-           width: 92%;
-           border: 1rpx solid #F2F2F2;
-           margin: 0 auto;
+        width: 92%;
+        border: 1rpx solid #F2F2F2;
+        margin: 0 auto;
 }
 .edit{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-   		line-height: 90rpx;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+		line-height: 90rpx;
+		padding-left: 48rpx;
+     font-size: 28rpx;
+     color: #333333;
 }
 .numbe{
-   		float: left;
-   		height: 90rpx;
-   		line-height: 90rpx;
-   		width: 100%;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+		float: left;
+		height: 90rpx;
+		line-height: 90rpx;
+		width: 100%;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+		padding-left: 48rpx;
+     font-size: 28rpx;
+     color: #333333;
 }
 .trading{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-   		line-height: 90rpx;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+		line-height: 90rpx;
+		padding-left: 48rpx;
+     font-size: 28rpx;
+     color: #333333;
 }
 .date{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-   		line-height: 90rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+		float: left;
+		width: 100%;
+		height: 90rpx;
+		line-height: 90rpx;
+     -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+		padding-left: 48rpx;
+     font-size: 28rpx;
+     color: #333333;
 }
 .line1 {
-            width: 92%;
-            margin: 6rpx auto;
-            border: 1rpx solid #F2F2F2;
+         width: 92%;
+         margin: 6rpx auto;
+         border: 1rpx solid #F2F2F2;
 }
 .hz{
-           width: 100%;
-           height: 80rpx;
+        width: 100%;
+        height: 80rpx;
 }
 .btn1{
-           float: left;
-            border: 1rpx solid #121212;
-            margin-left: 340rpx;
-            margin-top: 40rpx;
-            width: 170rpx;
-            height: 60rpx;
-            font-size: 20rpx;
-            border-radius: 10rpx;
-            line-height: 60rpx;
-            background-color: #fff;
-/*            width: 170rpx;
-            height: 60rpx;
-            line-height: 80rpx;
-            font-size: 20rpx;
-            text-align: center;
-            margin-left: 40rpx;
-            margin-top: 60rpx;
-            border: 1rpx solid #999999;
-            color: #999999; */
+        float: left;
+         border: 1rpx solid #121212;
+         margin-left: 340rpx;
+         margin-top: 40rpx;
+         width: 170rpx;
+         height: 60rpx;
+         font-size: 20rpx;
+         border-radius: 10rpx;
+         line-height: 60rpx;
+         background-color: #fff;
 }
 .btn2 {
-   		float: right;
-   		margin-right: 48rpx;
-   		margin-top: 40rpx;
-           width: 170rpx;
-           height: 60rpx;
-           font-size: 20rpx;
-           line-height: 60rpx;
-           border-radius: 6rpx;
-           color: #FFFFFF;
-           background-color: #091219;
+		float: right;
+		margin-right: 48rpx;
+		margin-top: 40rpx;
+        width: 170rpx;
+        height: 60rpx;
+        font-size: 20rpx;
+        line-height: 60rpx;
+        border-radius: 6rpx;
+        color: #FFFFFF;
+        background-color: #091219;
 }
 .swiper-tab {
-        
-           display: -webkit-box;
-        
-           display: -webkit-flex;
-        
-           display: -ms-flexbox;
-        
-           display: flex;
-            
-           -webkit-box-orient: horizontal;
-            
-           -webkit-box-direction: normal;
-            
-           -webkit-flex-direction: row;
-            
-               -ms-flex-direction: row;
-            
-                   flex-direction: row;
-            
-           line-height: 80rpx;
-       
-           background: #EDEDED;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        line-height: 80rpx;
+        background: #EDEDED;
 }
 .tab-item {
-    
-            width: 33%;
-            height:auto;
-            text-align: center;
-            font-size: 32rpx;
-            color: #333333;
+         width: 33%;
+         height:auto;
+         text-align: center;
+         font-size: 32rpx;
+         color: #333333;
 }
 .current {
-           color: #B39C01;
-           border-bottom: 1rpx solid #B39C01;
+        color: #B39C01;
+        border-bottom: 1rpx solid #B39C01;
 }
 

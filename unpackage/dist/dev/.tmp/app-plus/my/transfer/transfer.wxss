@@ -89,7 +89,6 @@ page{
 	float: right;
 	width:30rpx;
 	height:35rpx;
-	/* background: red; */
 	margin-top:56rpx;
 	margin-right:24rpx;
 }

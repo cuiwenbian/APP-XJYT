@@ -993,7 +993,6 @@
 	width: 40rpx;
 	height: 40rpx;
 	margin-right: 90rpx;
-	/* display: none; */
 }
 .primary {
 	width: 220rpx;
@@ -1046,7 +1045,6 @@
 }
 .page1 {
 	height: 180rpx;
-
 	padding-right: 40rpx;
 	padding-bottom: 20rpx;
 }

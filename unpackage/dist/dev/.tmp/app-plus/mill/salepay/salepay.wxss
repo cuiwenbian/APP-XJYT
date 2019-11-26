@@ -4,7 +4,6 @@ page {
       margin-bottom:40rpx;
 }
 .box {
-
       width: 100%;
       background-color: #fff;
 }
@@ -154,5 +153,4 @@ page {
       margin-right: 48rpx;
       background-color: #999999;
 }
- 
 

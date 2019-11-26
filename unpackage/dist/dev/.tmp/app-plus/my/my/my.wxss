@@ -16,7 +16,6 @@
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	background: #f0efef;
-	/* border-radius: 10rpx; */
 }
 .pop-title{
 	height:150rpx;
@@ -39,7 +38,6 @@
 .pop-btn{
 	width:120rpx;
 	height:60rpx;
-	/* border-radius: 20rpx; */
 	background:#121212;
 	line-height: 60rpx;
 	font-size: 30rpx;

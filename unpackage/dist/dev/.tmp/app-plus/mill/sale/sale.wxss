@@ -197,43 +197,27 @@
         background-color: #0A1117;
 }
 .swiper-tab {
-     
         display: -webkit-box;
-     
         display: -webkit-flex;
-     
         display: -ms-flexbox;
-     
         display: flex;
-         
         -webkit-box-orient: horizontal;
-         
         -webkit-box-direction: normal;
-         
         -webkit-flex-direction: row;
-         
             -ms-flex-direction: row;
-         
                 flex-direction: row;
-         
         line-height: 80rpx;
-    
         background: #EDEDED;
 }
 .tab-item {
- 
          width: 33.3%;
          height:auto;
          text-align: center;
-         
          font-size: 34rpx;
-         
          color: #777;
 }
 .current {
-     
         color: #B39C01;
-         
         border-bottom: 5rpx solid #B39C01;
 }
 

@@ -41,7 +41,6 @@
 .pop-btn{
 	width:120rpx;
 	height:60rpx;
-	/* border-radius: 20rpx; */
 	background:#121212;
 	line-height: 60rpx;
 	font-size: 30rpx;
@@ -120,7 +119,6 @@
   position: relative;
   display: block;
   float: right;
-  /* margin-right: 25rpx; */
   font-size : 30rpx;
   margin-top: 18rpx;
   color: #61e458;

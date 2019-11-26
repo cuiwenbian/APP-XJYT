@@ -7,8 +7,6 @@ page{
 	width:185rpx;
 	height:185rpx;
 	margin: 150rpx auto 0;
-	/* margin-top:150rpx;
-	margin-left: calc((100% - 185rpx)/2); */
 }
 .fil{
 	width:250rpx;
@@ -17,7 +15,6 @@ page{
 	margin:30rpx auto 100rpx;
 }
 .enter{
-	
 	width:600rpx;
 	height:100rpx;
 	margin: 30rpx auto;
@@ -77,5 +74,4 @@ page{
 	line-height: 57rpx;
 	text-align: center;
 }
-
 

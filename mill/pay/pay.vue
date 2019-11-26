@@ -46,7 +46,7 @@
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
-                    	<button class="btn1" @click="bt">取消订单</button>
+                    	<button class="btn1" @click="bt(item)">取消订单</button>
                     	<button class="btn2" @click="btn(item)">查看详细</button>
                     </view>
                     <view class="too"></view>
@@ -288,7 +288,7 @@
                     }
                 })
             },
-            bt:function(val) {
+            bt:function(item) {
                 var that = this
                 uni.request({
                     url:this.url + 'ordercancel/',
@@ -297,9 +297,10 @@
                         Authorization: 'JWT'+' '+this.global_.token
                     },
                     data:{
-                        order_num:that.contion[0].order_num
+                        order_num:item.order_num
                     },
                     success(res) {
+                        console.log(this.url)
                         if(res.statusCode == 200) {
                             uni.showToast({
                                 title:'删除成功',
@@ -316,6 +317,7 @@
                         that.getData()
                     }
                 })
+                
             },
             btn2:function(item) {
                 var that = this

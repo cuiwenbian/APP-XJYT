@@ -36,7 +36,6 @@
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
-			
 			getPasswordValue:function(e){
 				this.password=e.detail.value
 			},

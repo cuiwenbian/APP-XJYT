@@ -44,7 +44,6 @@ page{
 		height:20rpx;
 }
 .set{
-		
 		line-height: 100rpx;
 		font-size: 30rpx;
 		margin-left:48rpx;

@@ -11,7 +11,6 @@
     font-size: 32rpx;
     padding-top: 20rpx;
     padding-left: 24rpx;
-	
     display: -webkit-box;
     overflow: hidden;
     -o-text-overflow: ellipsis;

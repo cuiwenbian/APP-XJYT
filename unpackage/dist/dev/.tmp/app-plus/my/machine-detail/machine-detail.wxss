@@ -92,43 +92,25 @@
   text-align: center;
 }
 .swiper-tab {
- 
 display: -webkit-box;
- 
 display: -webkit-flex;
- 
 display: -ms-flexbox;
- 
 display: flex;
- 
 -webkit-box-orient: horizontal;
- 
 -webkit-box-direction: normal;
- 
 -webkit-flex-direction: row;
- 
     -ms-flex-direction: row;
- 
         flex-direction: row;
- 
 line-height: 80rpx;
-
-background: #01c0dd;  
- 
-/* border-bottom: 2rpx solid #777; */
+background: #01c0dd;
 }
 .tab-item {
- 
 width: 33.3%;
- 
 text-align: center;
- 
 font-size: 34rpx;
- 
 color: #777;
 }
 .swiper {
- 
 height: 100%;
 overflow: hidden;
 }
@@ -137,9 +119,7 @@ overflow: hidden;
    height: 100%;
 }
 .on {
- 
 color: #fff;
- 
 border-bottom: 5rpx solid #fff;
 }
 

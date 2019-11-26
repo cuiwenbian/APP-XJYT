@@ -85,7 +85,6 @@ page{
 	background-color: #EDEDED;
     padding-top: 20rpx;
     padding-left: 45rpx;
-	/* margin-bottom: 20rpx; */
 	text-align: left;
 	position: relative;
 }
@@ -139,5 +138,4 @@ page{
 	color:#41BEC9;
 	font-size: 34rpx;
 }
-
 

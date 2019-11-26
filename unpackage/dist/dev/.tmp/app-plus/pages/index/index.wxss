@@ -304,41 +304,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2044,19 +2009,16 @@ swiper-item image {
 .price{
         margin-left: 24rpx;
 }
-    /* 白 */
 .bot{
         float: left;
         line-height: 120rpx;
         font-size: 20rpx;
         color: #F2F2F2;
 }
-    /* 2 */
 .price1{
         float: right;
         margin-right: 24rpx;
 }
-    /* 黄 */
 .Todayprice{
 			float: left;
 			line-height: 120rpx;
@@ -2072,7 +2034,6 @@ swiper-item image {
 .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
-        /* margin-top: 20rpx; */
         padding-top: 20rpx;
         line-height: 120rpx;
         color: #DCB16E;
