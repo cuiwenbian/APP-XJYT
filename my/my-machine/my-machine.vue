@@ -60,6 +60,15 @@
 			</view>
 		</view>
 	</view>
+    <view class="shade" v-if="shade">
+    	<view class="pop">
+    		<view class='pop-title'>若不阅读和同意协议,无法使用此功能哦</view>
+    		<view class="pops">
+    			<view class='pop-btn' @click="cancel">取消</view>
+    			<view class='pop-btn' @click="sure">同意</view>
+    		</view>
+    	</view>
+    </view>
     </view>
 </template>
 
@@ -91,7 +100,29 @@
 				complete: () => {}
 			});
 		},
+        onShow() {
+            var that = this
+            uni.request({
+                url:this.url + '',
+                method:'',
+                data:{},
+                header:{					
+                    Authorization:'JWT'+' '+this.global_.token,
+                },
+                success(res) {
+                    console.log(res)
+                    if(res.statusCode == '') {
+                        that.shade = !that.shade
+                    }
+                }
+            })
+        },
 		methods:{
+            cancel:function(){
+                uni.navigateBack({
+                    url:'../my/my'
+                })
+            },
 			onNavigationBarButtonTap:function(){
 				uni.navigateTo({
 					url:'../../pages/agreement/agreement'
