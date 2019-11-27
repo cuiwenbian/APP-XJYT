@@ -23,18 +23,15 @@
 			手续费：{{fil_num * fee}}
 		</view>
 		<view class="next"  @click="save">提交</view>
-		
 		<!-- #ifndef H5 -->
 			<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 			<!-- #endif -->
-		
 			<!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
 			<!-- #ifdef H5 -->
 			<view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo"><password-input :length="length" :gutter="20" ref='wrong' :list="numberList"></password-input></view>
 			<!-- #endif -->
 			<!-- 数字键盘 -->
 			<keyboard-package  ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-	
 	</view>
 </template>
 
@@ -53,7 +50,6 @@
 				length: 6,
 				type: 'number',
 				passIn: false,
-				// success:false,
 				wallet_value:''
             }
         },
@@ -62,11 +58,9 @@
 			passwordInput
 		},
         onLoad(res) {
-            console.log(res)
 			this.bar = res.bar
 			this.fee=res.fee
 			this.wallet_value=res.wallet_value
-			console.log(this.bar)
         },
         onBackPress(option){
             plus.key.hideSoftKeybord()          
@@ -87,7 +81,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'用户未实名认证',
@@ -101,13 +94,11 @@
 								icon:'none',
 								duration:2000
 							})
-							
 						}
 						if(res.statusCode==200){
 							uni.navigateTo({
 								url:'../choose-address/choose-address?bar='+that.bar+'&fee='+that.fee
 							})
-	
 						}
 						if(res.statusCode==302){
 							uni.showToast({
@@ -116,10 +107,8 @@
 								duration:2000
 							})
 						}
-						
 					}
 				})
-                
             },
             fusre(){
                 this.moder = this.bar
@@ -130,7 +119,6 @@
 				this.numberList.length=0;
 			},
 			onChange(e){
-				console.log(e.show)
 				if(e.show==false){
 					this.passIn = false;
 				}
@@ -148,7 +136,6 @@
 					});
 				}
 			},
-			
 			onInput(val) {
 				var that=this;
 				that.numberList.push(val);
@@ -164,7 +151,6 @@
 							Authorization:'JWT'+' '+that.global_.token
 						},
 						success(res) {
-							console.log(res)
 							if(res.statusCode==400){
                                 that.numberList.pop();
 								that.numberList.length = 0;
@@ -188,7 +174,6 @@
 								uni.redirectTo({
 									url:'../commit/commit?fil_num='+that.fil_num+'&wallet_value='+that.wallet_value
 								})
-								
 							}
 							var page = getCurrentPages().pop();
 							if (page == undefined || page == null) return; 
@@ -245,7 +230,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==411){
 							uni.showToast({
 								title:'未进行实名认证',
@@ -293,10 +277,8 @@
 						}
 					}
 				})
-				
 			}
         }
-
     }
 </script>
 
@@ -355,7 +337,6 @@
 		margin:0 auto;
 		background: #fff;
 		border-radius: 12rpx;
-		
 	}
 	.desc{
 		font-size: 30rpx;
@@ -391,7 +372,6 @@
 		float: right;
 		width:30rpx;
 		height:35rpx;
-		/* background: red; */
 		margin-top:56rpx;
 		margin-right:24rpx;
 	}

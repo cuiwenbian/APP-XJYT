@@ -41,7 +41,6 @@
 			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>
 		</view>
-		
 		<view class="line2">
 		   <view class="reque">拍摄图片要求</view>
 		</view> 
@@ -84,7 +83,6 @@
         		<view class='pop-btn' @click="sure">确定</view>
         	</view>
         </view>
-		
 	</view>
 </template>
 
@@ -123,24 +121,18 @@
 			chooseImageTap: function(e) {
 			    var that = this;
 			    var flag = e.currentTarget.dataset.flag;
-				console.log(flag)
 			    uni.showActionSheet({
 			      itemList: ['从相册中选择', '拍照'],
 			      itemColor: "#00000",
 			      success: function(res) {
-					//console.log('添加上传图片')
-					//console.log(res)
 			        if (!res.cancel) {
 			          if (res.tapIndex == 0) {
-						  console.log(flag)
 			            if (flag == 'positive') {
 			                that.chooseWxImage1('album')
 			            }
 			            if (flag == 'reverse') {
-					
 			              that.chooseWxImage2('album')
 			            }
-			
 			            } else if (res.tapIndex == 1) {
 			            if (flag == 'positive') {
 			              that.chooseWxImage1('camera')
@@ -154,7 +146,6 @@
 			    })
 			  },
 			  // 图片本地路径
-			 
 			chooseWxImage1: function(type) {
 			    var that = this;
 			    var imgsPaths = that.imgs;
@@ -164,8 +155,6 @@
 			      sizeType: ['original', 'compressed'],
 			      sourceType: [type],
 			      success: function (res) {
-					console.log('图片本地路径1')
-					console.log(res)
 			        for (var i = imgsPaths.length-1;i>=0;i--){
 			          for (var j in imgsPaths[i]){
 			              if(j=='positive'){
@@ -178,7 +167,6 @@
 			          that.p_url=res.tempFilePaths[0];
 			          that.p_flag=false;
 			          that.imgs=that.imgs
-			            
 			      }
 			    })
 			  },
@@ -191,8 +179,6 @@
 			      sizeType: ['original', 'compressed'],
 			      sourceType: [type],
 			      success: function (res) {
-					  console.log('图片本地路径2')
-					  console.log(res)
 			        for (var i = imgsPaths.length-1; i >= 0; i--) {
 			          for (var j in imgsPaths[i]) {
 			            if (j == 'reverse') {
@@ -207,9 +193,6 @@
 			          that.imgs=that.imgs
 					  that.rev=imgsPaths[1].reverse;
 					  that.pos=imgsPaths[0].positive;
-					  
-			          console.log('cwb')
-					  console.log(imgsPaths)
 			        }
 			      })
 			},
@@ -218,7 +201,6 @@
 			    var that = this;
 				let token=this.global_.token;
 			    for(var key in imgpaths[index]){
-					console.log(key)
 			      uni.uploadFile({
 			        url: this.url + 'realname/',//上传接口
 			        filePath: imgpaths[index][key],
@@ -228,8 +210,6 @@
 			        },
 			        formData: null,
 			        success: function (res) {
-					 console.log('网络路径')
-			         console.log(res) //接口返回网络路径
 					 if(res.statusCode==400){
 						 uni.showToast({
 						 	title:'图片太大，请重新上传',
@@ -251,7 +231,6 @@
 					      Authorization:'JWT'+' '+token
 					    },
 					    success: function (res) {
-					      console.log(res)
 					 	if(res.statusCode==400){
 					 		uni.showToast({
 					 			title:'图片太大，请重新上传',
@@ -261,7 +240,6 @@
 					 		return false				 							 
 					 	}	
 					 	if(res.statusCode==200){
-					 		  console.log(that.shade)
 					 		  that.shade=true
 					 	}					   
 					    }
@@ -271,18 +249,12 @@
 					 }
 			       },
 			       fail: function (res) {
-			          console.log(res)	  
 			       },
-			       
 			      })
 			    }
-			   
 			  },
 			submitt: function(){
 			   var that = this;
-			   console.log(that.pos)
-			   console.log(that.rev)
-			  
 			   if(!that.name){
 			     uni.showToast({
 			       title: '用户名不能为空',
@@ -313,11 +285,9 @@
 			     });
 			     return false
 			   }
-			 
 			    that.upImgs(that.imgs,0)
 			},
 			sure:function(){
-				console.log('等待审核')
 				uni.switchTab({
 					url:'../my/my'
 				})
@@ -346,34 +316,21 @@
 	.enters{
 		border-bottom: 1rpx solid #f2f2f2;
 	}
-	
 	.enter-2{
 	  display:block;
-	
 	  float: left;
-	
 	  font-size: 32rpx;
-	
 	  margin-top: 30rpx;
-	
 	  color: #434343;
-	
 	  margin-bottom: 30rpx;
-	
 	}
 	.weui-input1{
 	  ime-mode:disabled;
-	
 	  font-size: 30rpx; 
-	
 	  display:block;
-	
 	  float:left;
-	
 	  margin-top: 24rpx;
-	
 	  margin-left: 30rpx;
-	
 	}
 	.input1{
 	  margin-left:97rpx;
@@ -381,7 +338,6 @@
 	.uploadfile{
 		width:100%;
 		height:350rpx;
-		
 	}
 	.list{
 		width:50%;
@@ -437,7 +393,6 @@
 		bottom:120rpx;
 		left:115rpx;
 	}
-	
 	.line2{
 	  width:100%;
 	  height:2rpx;
@@ -461,7 +416,6 @@
 	   margin:50rpx auto 0;
 	   display: flex;
 	   justify-content: space-between;
-	
 	}
 	.id1{
 	  width:130rpx;
@@ -489,64 +443,36 @@
 	}
 	.out2{
 	  margin: 100rpx 0 ;
-	
 	  overflow: hidden;
 	}
 	.changeBtn1{
-	  
-	
 	  display: flex;
-	
 	  width: 80%;
-	
 	  height: 80rpx;
-	
 	  font-size: 30rpx;
-	
 	  margin:25rpx auto;
-	
 	  background-color:#DCDCDC;
-	
 	  color: #fff;
-	
 	  margin-bottom: 25rpx;
-	
 	  flex-direction: column;
-	
 	  justify-content: center;
-	
 	  align-items: center;
-	  
 	  border-radius: 15rpx;
 	  border: none;
 	}
 	.changeBtn2{
-	  
-	
 	  display: flex;
-	
 	  width: 80%;
-	
 	  height: 90rpx;
-	
 	  font-size: 30rpx;
-	
 	  margin:25rpx auto;
-	
 	  background-color:#0A1117;
-	
 	  color: #fff;
-	
 	  margin-bottom: 25rpx;
-	
 	  flex-direction: column;
-	
 	  justify-content: center;
-	
 	  align-items: center;
-	  
 	  border-radius: 15rpx;
-	  
 	  border: none;
 	}
 	.shade{

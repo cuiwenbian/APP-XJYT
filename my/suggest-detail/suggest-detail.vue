@@ -35,7 +35,6 @@
 				<view class='answer'>{{message.message}}</view>
 			</view>
 		</view>
-		
 	</view>
 </template>
 
@@ -59,7 +58,6 @@
 </script>
 
 <style>
-	
 	page{
 	    background: #EDEEEE;	
 	}
@@ -69,7 +67,6 @@
 	.suggest-list{
 		width:100%;
 		height:auto;
-		/* height:280rpx; */
 		background: #fff;
 		padding: 20rpx 48rpx;
 		overflow: hidden;
@@ -79,7 +76,6 @@
 		height:90rpx;
 		width:100%;
 		border-bottom:1rpx solid #f2f2f2;
-		
 	}
 	.submit-time{
 		height:90rpx;
@@ -101,7 +97,6 @@
 		margin-top:20rpx;
 		margin-bottom:20rpx;
 		width:100%;
-		
 	}
 	.tit{
 		width:100rpx;

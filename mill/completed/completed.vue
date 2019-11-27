@@ -119,11 +119,8 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var bsow = JSON.parse(option.deattr)
             that.bsow = bsow
-            console.log(bsow)
-            
             var geunt = that.bsow[1]
             that.geunt = that.bsow[1]
             that.state = bsow[0][0].order_status
@@ -139,7 +136,6 @@
             that.finish_time = bsow[0][0].finish_time
             that.pay_time = bsow[0][0].pay_time
             that.set_time = bsow[0][0].set_time
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -192,7 +188,6 @@
  }
  .smallx1{
      float: left;
-     
  }
  .small1{
      box-sizing: border-box;

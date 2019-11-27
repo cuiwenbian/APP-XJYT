@@ -28,7 +28,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -44,10 +43,8 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
-                    
                     <view class="hz">
                     	<button class="btn1" @click="bt">取消订单</button>
                     	<button class="btn2" @click="btn(item)">查看详细</button>
@@ -55,7 +52,6 @@
                     <view class="too"></view>
                 </view>
                 </scroll-view>
-                
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
                 <scroll-view scroll-y='true' v-for="(item , index) in kolo" :key="index">
@@ -68,7 +64,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -84,7 +79,6 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
@@ -104,7 +98,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -120,7 +113,6 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
@@ -140,7 +132,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -156,7 +147,6 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
@@ -200,7 +190,6 @@
                         state: 3,
                         text:  '已完成'
                     }
-                	
                 ]
     		};
         },
@@ -214,9 +203,7 @@
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res.data.data)
                     that.many = res.data.data
-                    console.log(that.many)
                 }
             })
         },
@@ -230,15 +217,10 @@
                          Authorization: 'JWT'+' '+this.global_.token
                     },
                     success(res) {
-                        console.log(res)
                         var contion = res.data.data
-                        console.log(contion)
                         that.contion = contion.reverse()
-                        // console.log(that.contion[0].set_time)
                     }
                 })
-                
-               
             },
             tabClick:function (index) {
                 var that = this
@@ -255,7 +237,6 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var kolo = res.data.data
                             that.kolo = kolo.reverse()
                         }
@@ -269,9 +250,7 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var lornd = res.data.data
-                            console.log(lornd)
                             that.lornd = lornd.reverse()
                         }
                     })
@@ -284,17 +263,14 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var daker = res.data.data
                             that.daker = daker.reverse()
                         }
                     })
                 }
-
             },
             btn:function (item) {
                 var that = this
-                console.log(that.contion[0].order_num)
                 uni.request({
                     url:this.url + 'salemessage/',
                     method:'GET',
@@ -305,16 +281,12 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res) 
-                        console.log(res.data.data)
                         var ord = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:"../staypay/staypay?mvvp=" + ord
                         })
                     }
                 })
-               
-                
             },
             bt:function(val) {
                 var that = this
@@ -328,7 +300,6 @@
                         order_num:that.contion[0].order_num
                     },
                     success(res) {
-                        console.log(res)
                         if(res.statusCode == 200) {
                             uni.showToast({
                                 title:'删除成功',
@@ -345,7 +316,6 @@
                         that.getData()
                     }
                 })
-               
             },
             btn2:function(item) {
                 var that = this
@@ -359,15 +329,12 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
-                        console.log(res.data.data)
                         var supers = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayconfirm/stayconfirm?main=' + supers
                         })
                     }
                 })
-                
             },
             btn3:function (item) {
                 var that = this
@@ -381,15 +348,12 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
-                        console.log(res.data.data)
                         var doink = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayaudit/stayaudit?dospp=' + doink
                         })
                     }
                 })
-               
             },
             btn4:function(item){
                 var that = this
@@ -403,15 +367,12 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
-                        console.log(res.data.data)
                         var blone = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../completed/completed?deattr=' + blone
                         })
                     }
                 })
-
             }
         }
     }
@@ -434,7 +395,6 @@
            width: 100%;
            height: 640rpx;
        }
-       
        .tooc{
            height: 40rpx;
            margin-top: 140rpx;
@@ -451,7 +411,6 @@
            color: #949494;
        }
       .many{
-
         margin-left: 48rpx;
         line-height: 90rpx;
         color: #DCB16E;
@@ -485,11 +444,8 @@
            background-color: #F6F6F6;
            position: relative;
        }
-   
-   
        .list{
          height: auto;
-         
        }
    	.top{
    		height: 88rpx;
@@ -528,7 +484,6 @@
         font-size: 28rpx;
         color: #333333;
        }
-           
        .numbe{
    		float: left;
    		height: 90rpx;
@@ -538,7 +493,6 @@
    		padding-left: 48rpx;
         font-size: 28rpx;
         color: #333333;
-   
        }
        .trading{
    		float: left;
@@ -549,7 +503,6 @@
    		padding-left: 48rpx;
         font-size: 28rpx;
         color: #333333;
-   
        }
        .date{
    		float: left;
@@ -560,7 +513,6 @@
    		padding-left: 48rpx;
         font-size: 28rpx;
         color: #333333;
-   
        }
        .line1 {
             width: 92%;
@@ -582,16 +534,6 @@
             border-radius: 10rpx;
             line-height: 60rpx;
             background-color: #fff;
-/*            width: 170rpx;
-            height: 60rpx;
-            line-height: 80rpx;
-            font-size: 20rpx;
-            text-align: center;
-            margin-left: 40rpx;
-            margin-top: 60rpx;
-            border: 1rpx solid #999999;
-            color: #999999; */
-
        }
        .btn2 {
    		float: right;
@@ -606,17 +548,12 @@
            background-color: #091219;
        }
        .swiper-tab {
-        
            display: flex;
-            
            flex-direction: row;
-            
            line-height: 80rpx;
-       
            background: #EDEDED;  
        }
        .tab-item {
-    
             width: 33%;
             height:auto;
             text-align: center;

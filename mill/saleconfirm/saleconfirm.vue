@@ -19,7 +19,6 @@ that. <template>
                 </text>
             </view>
             <view class="small">
-
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -39,7 +38,6 @@ that. <template>
                     </text>
                 </view>
             </view>
-
             <view>
                 <button class="primary" @click="btn1">{{checkall}}</button>
             </view>
@@ -81,13 +79,11 @@ that. <template>
                 </view>  
             </view>
         </view>
-       
         <view class="box4">
             <button class="primary1" @click="btn">确认收款</button>
             <!-- #ifndef H5 -->
             <password-input v-if="passIn" @clo="clo" ref='wrong'  @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
-            
             <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
             <!-- #ifdef H5 -->
             <view v-if="passIn" @tap="openKeyBoard('number')" @clo="clo">
@@ -119,7 +115,6 @@ that. <template>
                 set_time:'',
                 name:'',
                 contact:'',
-                
                 numberList: [],
                 length: 6,
                 type: 'number',
@@ -129,17 +124,13 @@ that. <template>
             }
         },
         components: {
-               
         	keyboardPackage,
         	passwordInput
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var vn = JSON.parse(option.mvp)
             that.vn = vn
-            console.log(vn)
-            
             var boe = that.vn[1]
             that.boe = that.vn[1]
             that.state = vn[0][0].order_status
@@ -153,13 +144,9 @@ that. <template>
             that.contact = that.vn[0][0].mobile
             that.set_time = that.vn[0][0].set_time
             that.pay_time = that.vn[0][0].pay_time
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            // openKeyBoard:function () {
-                
-            // },
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
@@ -169,7 +156,6 @@ that. <template>
             	this.numberList.pop();
             },
             onChange(e){
-            	console.log(e.show)
             	if(e.show==false){
             		this.passIn = false
             	}
@@ -187,7 +173,6 @@ that. <template>
             onInput(val) {
                 var that = this
             	that.numberList.push(val);
-            	console.log(this.numberList.join().replace(/,/g, ''));
             	that.password = that.numberList.join().replace(/,/g, '');
             	if (that.numberList.length >= that.length) {
             		uni.request({
@@ -201,7 +186,6 @@ that. <template>
             				Authorization: 'JWT' + ' ' + this.global_.token
             			},
             			success(res) {
-            				console.log(res);
                             if(res.statusCode==400){
                                 that.numberList.pop();
                                 that.numberList.length= 0;
@@ -234,12 +218,9 @@ that. <template>
             				if (page == undefined || page == null) return;
             				page.onLoad(that.val);
             			},
-                       
             		});
                     this.numberList.length= 0;
             	}
-            	
-            
             },
             btn:function () {
                 var that = this
@@ -296,7 +277,6 @@ that. <template>
     }
     .smallx1{
         float: left;
-        
     }
     .small1{
         box-sizing: border-box;

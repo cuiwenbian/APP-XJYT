@@ -73,7 +73,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==202){
 							uni.showToast({
 								title:'地址格式不正确(只能是字母或数字)',
@@ -111,7 +110,6 @@
 							if (page == undefined || page == null) return; 
 							page.onLoad(); 
 						}
-						
 					}
 				})
 			}

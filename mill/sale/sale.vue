@@ -45,7 +45,6 @@
                                 <button class="btn2" @click="btn(item)">查看详细</button>
                         </view>
                         </view>
-                        <!-- <view class="line1"></view> -->
                     </view>
                     <view class="tooc"></view>
                 </view>
@@ -56,7 +55,6 @@
                         <button class="bn" @click="deer">提交</button>
                     </view>
                 </view>
-                
                 </scroll-view>
             </view>
             <view class="list" v-if="tabCurrentIndex === 1">
@@ -70,7 +68,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -86,7 +83,6 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
@@ -106,7 +102,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -141,7 +136,6 @@
                                 联系方式: <text class="cool">{{item.mobile}}</text>
                             </text>
                     	</view>
-                    	
                     	<view class="line"></view>
                     	<view class="xi">
                     		<view class="edit">
@@ -157,7 +151,6 @@
                                 创建日期:<text class="cool">{{item.set_time}}</text>
                             </view>
                     	</view>
-                    
                     	<view class="line1"></view>
                     </view>
                     <view class="hz">
@@ -205,7 +198,6 @@
                         state: 3,
                         text:  '已完成'
                     }
-                	
                 ]
     		};
         },
@@ -219,11 +211,7 @@
                 },
                 success(res) {
                     var dater = res.data.data
-                    // for(dater)
                     that.dater = dater.reverse()
-                    console.log(dater)
-                    // console.log(dater.data.order_num)
-                    console.log(that.dater.order_num)
                 }
             })
             uni.request({
@@ -233,17 +221,14 @@
                     Authorization: 'JWT'+' '+this.global_.token
                 },
                 success(res) {
-                    console.log(res.data.data)
                     that.many = res.data.data
                 }
             })
-           
         },
         methods:{
             obtainOrderNum:function(e) {
                 var that = this
                 that.ebit = e
-                console.log(that.ebit)
             },
             getPhoneValue:function(e){
             	this.phone=e.detail.value
@@ -265,14 +250,9 @@
                         },
                         success(res) {
                             var dater = res.data.data
-                            // for(dater)
                             that.dater = dater.reverse()
-                            console.log(dater)
-                            // console.log(dater.data.order_num)
-                            console.log(that.dater.order_num)
                         }
                     })
-                               
                 }
                 if(this.tabCurrentIndex === 1) {
                     var that  = this
@@ -283,12 +263,8 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var ter = res.data.data
                             that.ter = ter.reverse()
-                            console.log(that.ter)
-                            
-                            
                         }
                     })
                 }
@@ -301,10 +277,8 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var delwen = res.data.data
                             that.delwen = delwen.reverse()
-                            console.log(that.delwen)
                         }
                     })
                 }
@@ -317,10 +291,8 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var delewen = res.data.data
                             that.delewen = delewen.reverse()
-							// that.many = that.delewen
                         }
                     })
                 }
@@ -340,18 +312,14 @@
                     success(res) {
                         console.log(res)
                         var order = JSON.stringify(res.data.data)
-                        
                         uni.navigateTo({
                             url:'../salepay/salepay?aser=' + order
                         })
                     }
                 })
-                
             },
             btn1:function(item){
-                console.log(item)
                 var that = this
-                console.log(that.ter[0].order_num)
                 uni.request({
                     url:this.url + 'salemessage/',
                     method:'GET',
@@ -362,20 +330,15 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res) 
-                        console.log(res.data.data)
                         var ordear = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../saleconfirm/saleconfirm?mvp=' + ordear
                         })
                     }
                 })
-               
             },
             btn2:function(item){
-                console.log(item)
                 var that = this
-                console.log(that.delwen[0].order_num)
                 uni.request({
                     url:this.url + 'salemessage/',
                     method:'GET',
@@ -386,19 +349,15 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                       console.log(res) 
                        var nuso = JSON.stringify(res.data.data)
-                       console.log(nuso)
                        uni.navigateTo({
                            url:'../saleaudit/saleaudit?suxang=' + nuso
                        })
                     }
                 })
-               
             },
             btn3:function(item){
                 var that = this
-                console.log(that.delewen[0].order_num)
                 uni.request({
                     url:this.url + 'salemessage/',
                     method:'GET',
@@ -409,14 +368,12 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                       console.log(res) 
                        var ksa = JSON.stringify(res.data.data)
                        uni.navigateTo({
                            url:'../salecompleted/salecompleted?cshug=' + ksa
                        })
                     }
                 })
-               
             },
             butto:function () {
                 var that = this 
@@ -425,8 +382,6 @@
             },
             deer:function() {
                 var that = this
-                // console.log(that.dater.oreder_num)
-                
                 uni.request({
                     url:this.url + 'orderappeal/',
                     method:'POST',
@@ -438,7 +393,6 @@
                         order_num:that.ebit
                     },
                     success(res) {
-                        console.log(res)
                         if(res.statusCode == 200) {
                             that.flag = false
                             uni.showToast({
@@ -451,8 +405,6 @@
                             })
                             that.flag = false
                         }
-                        console.log(that.ebit)
-                        console.log(that.phone)
                     }
                 })
             }
@@ -476,7 +428,6 @@
         width: 100%;
         height: 640rpx;
     }
-    
     .tooc{
         height: 40rpx;
         margin-top: 140rpx;
@@ -603,7 +554,6 @@
 		padding-left: 48rpx;
         font-size: 28rpx;
     }
-        
     .numbe{
 		float: left;
 		height: 90rpx;
@@ -611,7 +561,6 @@
 		width: 100%;
 		padding-left: 48rpx;
         font-size: 28rpx;
-
     }
     .trading{
 		float: left;
@@ -620,7 +569,6 @@
 		line-height: 90rpx;
 		padding-left: 48rpx;
         font-size: 28rpx;
-
     }
     .date{
 		float: left;
@@ -629,7 +577,6 @@
 		line-height: 90rpx;
 		padding-left: 48rpx;
         font-size: 28rpx;
-
     }
     .line1 {
         width: 92%;
@@ -664,30 +611,20 @@
         background-color: #0A1117;
     }
     .swiper-tab {
-     
         display: flex;
-         
         flex-direction: row;
-         
         line-height: 80rpx;
-    
         background: #EDEDED;  
     }
     .tab-item {
- 
          width: 33.3%;
          height:auto;
          text-align: center;
-         
          font-size: 34rpx;
-         
          color: #777;
     }
     .current {
-     
         color: #B39C01;
-         
         border-bottom: 5rpx solid #B39C01;
-     
     }
 </style>

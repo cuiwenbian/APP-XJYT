@@ -19,7 +19,6 @@
                 </text>
             </view>
             <view class="small">
-
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -39,7 +38,6 @@
                     </text>
                 </view>
             </view>
-
             <view>
                 <button class="primary" @click="btn">{{checkall}}</button>
             </view>
@@ -109,14 +107,10 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var fanta = JSON.parse(option.main)
             that.fanta = fanta
-            console.log(fanta)
-            
             var ig = that.fanta[1]
             that.ig = that.fanta[1]
-            
             that.state = fanta[0][0].order_status
             if(that.state == 102) {
                 that.state = '待确认'
@@ -128,8 +122,6 @@
             that.contact = fanta[0][0].mobile
             that.set_time = fanta[0][0].set_time
             that.pay_time = fanta[0][0].pay_time
-            console.log(that.price)
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -178,7 +170,6 @@
  }
  .smallx1{
      float: left;
-     
  }
  .small1{
      box-sizing: border-box;

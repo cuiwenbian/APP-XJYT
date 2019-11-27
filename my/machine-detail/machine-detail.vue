@@ -9,7 +9,6 @@
 		</view>
 		<!-- 显示区域 -->
 		<view class="list"  v-if="tabCurrentIndex === 0">
-			
 				 <view class='pagex'>
 					<view class="nav_right_items">
 						<text class='te'>名称 ：</text>
@@ -51,7 +50,6 @@
 						<text class='te1'>{{machine_config.data_hard_disk}}</text>
 					 </view>
 					 <view class="line1"></view>
-				    
 					 <view class="nav_right_items">
 						<text class='te'>地区 ：</text>
 						<text class='te1'>{{machine_config.area}}</text>
@@ -63,8 +61,6 @@
 					</view>
 					<view class="line1"></view>
 				</view>
-			   
-			   
 		</view>
 		<view class="list"  v-if="tabCurrentIndex === 1">
 			 <view class='pagex' >
@@ -91,7 +87,6 @@
 			 </view>
 		</view> 
 		<view class="list"  v-if="tabCurrentIndex === 2">
-			
 		</view>
 	</view>
 </template>
@@ -121,14 +116,12 @@
 						text: '矿机记录',
 						orderList: []
 					},
-					
 				]
 			};
 		}, 
 		onLoad(options) {
 			that=this;
 			 this.machine_id=options.machine_id;
-			 console.log(this.machine_id)
 			 this.tabCurrentIndex = 0;         // 页面显示是默认选中第一个	 
 			  uni.request({
 			  	url:this.url+'usermachineinfo/'+'1/'+ this.machine_id,
@@ -137,9 +130,7 @@
 					Authorization:'JWT'+' '+this.global_.token 
 				},
 				success(res) {
-					//console.log(res)
 					that.machine_config=res.data.data
-					console.log(that.machine_config)
 				}
 			  }) 
 			  uni.request({
@@ -149,21 +140,16 @@
 			  		Authorization:'JWT'+' '+this.global_.token 
 			  	},
 			  	success(res) {
-			  		console.log(res)
 					that.machine_status=res.data.data	
-					
 			  	}			
 			  }) 
-			 
 		}, 
 		methods: {
 			changeTab(e) {
 				this.tabCurrentIndex = e.target.current;
 			},
-			//顶部tab点击
 			tabClick(index) {
 				that.tabCurrentIndex = index;
-				
 			}
 		}
 	};
@@ -174,14 +160,12 @@
 		background:#fff;
 		height: 100%;
 	}
-	
 	.swiper-box {
 		height: calc(100% - 40px);
 	}
 	.list-scroll-content {
 		height: 100%;
 	}
-	
 	.navbar {
 		display: flex;
 		height: 80rpx;
@@ -190,7 +174,6 @@
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
 		position: relative;
 		z-index: 10;
-		
 	}
 	.nav-item {
 			flex: 1;
@@ -218,7 +201,6 @@
 	.uni-swiper-item {
 		height: auto;
 	}
-	 
 	.line1{
 	  width: 100%;
 	  height: 3rpx;
@@ -237,7 +219,6 @@
 	   margin-left: 50rpx;
 	   color: #888;
 	   font-size:30rpx;
-	
 	}
 	.te1{
 	  float: right;
@@ -252,31 +233,18 @@
 	  text-align: center;  
 	} 
 	.swiper-tab {
-	 
 	display: flex;
-	 
 	flex-direction: row;
-	 
 	line-height: 80rpx;
-	
 	background: #01c0dd;  
-	 
-	/* border-bottom: 2rpx solid #777; */
-	 
 	}
 	 .tab-item {
-	 
 	width: 33.3%;
-	 
 	text-align: center;
-	 
 	font-size: 34rpx;
-	 
 	color: #777;
-	 
 	}
 	.swiper {
-	 
 	height: 100%;
 	overflow: hidden;
 	}
@@ -284,12 +252,8 @@
 	  background: #fff;
 	   height: 100%;
 	}
-	 
 	  .on {
-	 
 	color: #fff;
-	 
 	border-bottom: 5rpx solid #fff;
-	 
 	}
 </style>

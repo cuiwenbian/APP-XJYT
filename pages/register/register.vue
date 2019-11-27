@@ -51,16 +51,13 @@
 				flag:true
 			}
 		},
-		
 		methods:{
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
-			
 			getPwdValue:function(e){
 				this.pwd=e.detail.value
 			},
-			
 			getPwdValue1:function(e){
 				this.pwd1=e.detail.value
 			},
@@ -98,12 +95,10 @@
 			          },
 			          success(res) {
 			            //根据code判断
-			            console.log(res)
+			           
 			            var ocode = res.statusCode
-			            console.log(ocode)
 			            if (ocode == 200) {
-			              _this.iscode = res.data.data,
-			              console.log(res.data.data)
+			              _this.iscode = res.data.data
 			            } else if (ocode == 400) {
 			              uni.showToast({
 			                title: '手机号已注册',
@@ -119,7 +114,6 @@
 			                clearInterval(timer);
 			                _this.codename = '重新发送',
 			                _this.disabled = false
-			
 			              } else {
 							_this.flag=false,
 			                _this.codename = num + "s",
@@ -128,9 +122,7 @@
 			            }, 1000)
 			          }
 			        })
-			
 			      }
-			
 			},
 			//获取验证码
 			getCodeBtn: function(e){
@@ -147,7 +139,6 @@
 					})
 					return false
 				}
-				
 				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
 				 if(!myreg.test(this.phone)){
 					   uni.showToast({
@@ -221,10 +212,6 @@
 					success: res => {
 						_self.global_.phone=this.phone;
 						_self.global_.token=res.data.token;
-						// uni.setStorageSync('token',res.data.token)
-						console.log(res) 
-						console.log(res.statusCode)
-						
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'验证码已过期',
@@ -234,12 +221,10 @@
 						if(res.statusCode==201){
 							this.shade=true
 						}
-						
 					},
 				    fail: () => {},
 					complete: () => {}
 				});
-				 
 			},
 			sure:function(){
 				uni.navigateTo({
@@ -265,10 +250,8 @@
 		height:100rpx;
 		display: block;	
 		margin:0 auto 100rpx;
-		
 	}
 	.enter{
-		
 		width:600rpx;
 		height:100rpx;
 		margin: 0 auto;
@@ -302,7 +285,6 @@
 		bottom: 20rpx;
 		right: 0;
 	}
-		
 	.getcode1{
 		border-radius: 50rpx;
 		width:220rpx;
@@ -316,7 +298,6 @@
 		bottom: 20rpx;
 		right: 0;
 	}
-	
 	.btn{
 		width:680rpx;
 		height:80rpx;

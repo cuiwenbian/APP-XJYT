@@ -13,7 +13,6 @@
     </view>
 </template>
 
-
 <script>
     export default {
         data() {
@@ -24,27 +23,21 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var data = JSON.parse(option.app)
             var date = JSON.parse(option.sunt)
             var datr = JSON.parse(option.tilo)
             that.data = data
             that.date = date
             that.datr = datr
-            console.log(that.data)
-            console.log(that.date)
-            console.log(that.datr)
         },
         methods:{
             end:function (e) {
                 var that = this
                 this.name = e.detail.value
-                console.log(that.name)
             },
             ennd:function(e){
                 var that = this
                 this.coloe = e.detail.value
-                console.log(that.coloe)
             },
             end1:function () {
                 if(this.coloe==""){
@@ -70,7 +63,6 @@
                 var data = that.data
                 var date = that.date
                 var datr = that.datr
-                
                 uni.request({
                     url:this.url + 'buildorders/',
                     method:'POST',
@@ -85,10 +77,7 @@
                         sale_money:datr
                     },
                     success(res) {
-                        console.log(res)
-                        console.log(res.data)
                         var posf = JSON.stringify(res.data.data)
-                        console.log(posf)
                         if(res.statusCode == 204) {
                             uni.showToast({
                                 title:'买家信息不存在',
@@ -102,7 +91,6 @@
                             uni.showToast({
                                 title:'矿机不能卖给自己',
                                 icon:'none'
-                                
                             })
                         }else if(res.statusCode == 400) {
                             uni.showToast({
@@ -111,12 +99,10 @@
                         }
                     }
                 })
-
             }
         }
     }
 </script>
-
 
 <style>
     page{
@@ -136,7 +122,6 @@
         font-size: 26rpx;
         line-height: 150rpx;
         padding-left: 48rpx;
-        
     }
     .name1 {
         float: left;

@@ -6,14 +6,12 @@
 			<view class="txt">地址昵称</view>
 			<input class="enter" type="text" :value="nickname" @input='getRemark' />
 		</view>
-		 
 		<view class="line"></view>
 		<view class="list">
 			<view class="txt">提币地址</view>
 			<input class="enter" type="text" :value="address" @input='getAddress'/>
 		</view>
 		<view class="save"  @click="save">保存</view>
-		
 		<!-- #ifndef H5 -->
 		<password-input v-if='passIn' ref='wrong' @tap="openKeyBoard('number')"  @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
@@ -25,8 +23,6 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="number" @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-	    
-		
 		<!-- #ifndef H5 -->
 		<password-input v-if='delShow' ref='wrong' @tap="openKeyBoard('number')"  @clo="cloo" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
@@ -38,12 +34,10 @@
 		<!-- #endif -->
 		<!-- 数字键盘 -->
 		<keyboard-package ref="numbers" @onChange='onChange1' @onInput="onInput1" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
-			  
 	</view>
 </template>
 
 <script>
-	
 	import keyboardPackage from "../../components/keyboard-package/keyboard-package.vue"
 	import passwordInput from "../../components/password-input/password-input.vue"
 	export default{
@@ -59,7 +53,6 @@
 				type: 'number',
 				passIn:false,
 				delShow:false,
-				
 			}
 		},
 		components: {	
@@ -93,7 +86,6 @@
 				this.numberList.length= 0;
 			},
 			onChange(e){
-				console.log(e.show)
 				if(e.show==false){
 					this.passIn = false;
 				}
@@ -118,7 +110,6 @@
 					});
 				}
 			},
-			
 			getAddress:function(e){
 				this.address=e.detail.value
 			},
@@ -158,11 +149,8 @@
 			onInput(val) {
 				var that=this;
 				that.numberList.push(val);
-				console.log(that.numberList.join().replace(/,/g, ""))
 				that.password=that.numberList.join().replace(/,/g, "")
-				console.log(that.password)
 				if (that.numberList.length >= that.length) {
-					
 			        uni.request({
 			        	url:that.url+'updatadeleteaddress/',   //编辑地址接口
 			        	method:'PUT',
@@ -177,7 +165,6 @@
 			        		Authorization:'JWT'+' '+this.global_.token
 			        	},
 			        	success(res) {
-			        		console.log(res)
 			        		if(res.statusCode==400){
 								that.numberList.pop();
 								that.numberList.length = 0;
@@ -206,13 +193,11 @@
 			        				icon:'none',
 			        				duration:1500
 			        			})
-			        			
 			        		}
 							var page = getCurrentPages().pop();
 							if (page == undefined || page == null) return; 
 							page.onLoad();
 			        	}
-						
 			        });
 					this.numberList.length = 0;
 				}
@@ -240,7 +225,6 @@
 							Authorization: 'JWT' + ' ' + this.global_.token
 						},
 						success(res) {
-							console.log(res);
 							if (res.statusCode == 204) {
 								that.passIn=false
 								that.$refs['number'].close()
@@ -274,13 +258,10 @@
 							if (page == undefined || page == null) return;
 							page.onLoad();
 						},
-			           
 					});
 					this.numberList.length = 0;
 				}	
-			
 			},
-			
 		}
 	}
 </script>

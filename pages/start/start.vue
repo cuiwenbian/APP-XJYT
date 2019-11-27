@@ -15,16 +15,8 @@
 			var star;
 			var _self=this;
 			function loadExecution(){
-				
-				/**
-				 * 获取本地存储中的值
-				 * 若存在，说明不是首次启动，直接进入首页；
-				 * 若不存在，说明是首次启动，进入引导页；
-				 */
 				    const value = uni.getStorageSync('token');
 					const value1 = uni.getStorageSync('phone');
-					console.log(value)
-					console.log(value1)
 				    if (value&&value1) {
 						_self.global_.phone=value1;
 						_self.global_.token=value;
@@ -80,7 +72,6 @@
 		width:185rpx;
 		height:185rpx;
 		margin: 150rpx auto 0;
-		
 	}
 	.fil{
 		width:250rpx;
@@ -113,5 +104,4 @@
 		bottom: 49rpx;
 		left:161rpx;
 	}
-	
 </style>

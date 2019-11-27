@@ -26,20 +26,17 @@
 				disabled:false
 			};
 		},
-		
 		methods:{
 			getPhoneValue: function(e) {
 				if (e.detail.value.length == 11) {
 					this.disabled = false;
 				}
 				this.phone = e.detail.value;
-				console.log(this.phone);
 			},
 			getCodeValue: function(e) {
 				this.code = e.detail.value;
 			},
 			getCode: function () {
-			
 			      var _this = this;
 			      //判断手机号格式
 			      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
@@ -69,15 +66,12 @@
 			          header: {
 			            "Content-Type": "application/x-www-form-urlencoded"
 			          },
-			
 			          success(res) {
 			            //根据code判断
-			            console.log(res)
 			            var ocode = res.statusCode
-			            console.log(ocode)
 			            if (ocode == 200) {
-			              _this.iscode = res.data.data,
-			              console.log(res.data.data)
+			              _this.iscode = res.data.data
+			          
 			            } else if (ocode == 400) {
 			              uni.showToast({
 			                title: '用户不存在',
@@ -86,7 +80,6 @@
 			              })
 			              return false;
 			            }
-			            console.log(res)
 			            var num = 61;
 			            var timer = setInterval(function () {
 			              num--;
@@ -102,7 +95,6 @@
 			            }, 1000)
 			          }
 			        })
-			
 			      }	
 			},
 			//获取验证码
@@ -113,9 +105,7 @@
 			//提交表单信息
 			next: function() {
 				var _this = this;
-				// var pre = that.data;
 				var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-			
 				if (this.phone == '') {
 					uni.showToast({
 						title: '手机号不能为空',
@@ -158,7 +148,6 @@
 					  "Content-Type": "application/x-www-form-urlencoded"
 					},
 					success(res) {
-						console.log(res);
 						if(res.statusCode==401){
 							uni.showToast({
 								title:'wrong',
@@ -166,7 +155,6 @@
 								duration:2000
 							})
 						}
-						
 						if(res.statusCode==400){
 							uni.showToast({
 								title:'手机号验证码不匹配',
@@ -181,10 +169,7 @@
 						}
 					}
 				});
-				
 			}
-			
-			
 		}
 	}
 </script>

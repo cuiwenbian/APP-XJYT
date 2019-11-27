@@ -68,7 +68,6 @@
 			},
 			getCode: function () {
 			      var _this = this;
-			     
 			        uni.request({
 						//短信接口
 					  url: _this.url + 'users/login/sms/',
@@ -81,12 +80,9 @@
 			          },
 			          success(res) {
 			            //根据code判断
-			            console.log(res)
 			            var ocode = res.statusCode
-			            console.log(ocode)
 			            if (ocode == 200) {
-			              _this.iscode = res.data.data,
-			              console.log(res.data.data)
+			              _this.iscode = res.data.data
 			            } 
 			            var num = 61;
 			            var timer = setInterval(function () {
@@ -96,7 +92,6 @@
 							_this.flag=true,
 			                _this.codename = '重新发送',
 			                _this.disabled = false
-			
 			              } else {
 							_this.flag=false
 			                _this.codename = num + "s"
@@ -105,13 +100,11 @@
 			            }, 1000)
 			          }
 			        })
-			
 			},
 			//获取验证码
 			getCodeBtn: function(e){
 			      this.getCode();
 			      var _this = this
-			     
 			},
 			save(){
 				var _self=this;
@@ -157,7 +150,6 @@
 					})
 					return false
 				}
-				
 				if(this.code!=this.iscode){
 					uni.showToast({
 						title:'验证码错误',
@@ -179,8 +171,6 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
-			
-						console.log(res) 
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'登陆密码设置成功',
@@ -192,7 +182,6 @@
 							uni.reLaunch({
 								url:'../../pages/login/login'
 							})
-							
 						}
 						if(res.statusCode==400){
 							uni.showToast({
@@ -200,19 +189,11 @@
 								icon:'none'
 							})
 						}
-						// if(res.statusCode==201){
-						// 	uni.navigateTo({
-						// 		url:'../login/login'
-						// 	})
-						// }
-						
 					},
 				    fail: () => {},
 					complete: () => {}
 				});
-				 
 			}
-			
 		}
 	}
 </script>
@@ -224,7 +205,6 @@
 	.line{
 		height:50rpx;
 	}
-	
 	.list{
 		height:100rpx;
 		width:100%;
@@ -238,7 +218,6 @@
 	    line-height: 100rpx;
 	    font-size:30rpx;
 	    color:#333333;
-		
 	}
 	.email1{
 		line-height: 100rpx;
@@ -251,7 +230,6 @@
 		height:100rpx;
 		line-height: 100rpx;
 		font-size: 30rpx;
-		
 	}
 	.getcode{
 		float:right;
@@ -286,7 +264,6 @@
 		height:30rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
-		
 	}
 	.linee{
 		height:20rpx;
@@ -306,5 +283,4 @@
 		line-height: 90rpx;
 		color: #fff;
 	}
-	
 </style>

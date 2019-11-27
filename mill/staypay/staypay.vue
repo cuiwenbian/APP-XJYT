@@ -80,7 +80,6 @@
             <!-- #ifndef H5 -->
             <password-input v-if="passIn" ref='wrong' @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
-            
             <!-- H5 openKeyBoard 点击事件失效，需要在外侧包裹一层view外衣 -->
             <!-- #ifdef H5 -->
             <view v-if="passIn"  @tap="openKeyBoard('number')" @clo="clo">
@@ -120,17 +119,13 @@
             }
         },
         components: {
-       
         	keyboardPackage,
         	passwordInput
         },
         onLoad(option) {
             var that = this
-            console.log(option)
             var ction = JSON.parse(option.mvvp)
             that.ction = ction
-            console.log(that.ction)
-            
             var vior = that.ction[1]
             that.vior = that.ction[1]
             that.state = ction[0][0].order_status
@@ -143,13 +138,10 @@
             that.name = that.ction[0][0].name
             that.contact = that.ction[0][0].mobile
             that.time = that.ction[0][0].set_time
-            
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
             openKeyBoard:function () {
-                
             },
             clo:function() {
             	this.passIn = false;
@@ -177,13 +169,9 @@
                   },
             onInput(val) {
                 var that = this
-                console.log(that.$refs.wrong.flag)
             	that.numberList.push(val);
-            	console.log(this.numberList.join().replace(/,/g, ''));
             	that.password = that.numberList.join().replace(/,/g, '');
             	if (that.numberList.length >= that.length) {
-            		// this.passIn = false;
-            		// this.$refs['number'].close();
             		uni.request({
             			url: that.url + 'buyaffirm/',
             			method: 'POST',
@@ -195,8 +183,6 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
-            				
-            				console.log(res);
                             if(res.statusCode==400){
                                 that.numberList.pop()
                                 that.numberList.length= 0;
@@ -239,14 +225,11 @@
                             }
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
-            				// page.onLoad();
             			},
                        
             		});
                     this.numberList.length= 0;
             	}
-            	
-            
             },
             btn:function () {
                 var that = this
@@ -268,7 +251,6 @@
 </script>
 
 <style>
-
   page {
       background-color: #DCDCDC;
       margin-bottom:40rpx;
@@ -300,7 +282,6 @@
   }
   .smallx1{
       float: left;
-      
   }
   .small1{
       box-sizing: border-box;

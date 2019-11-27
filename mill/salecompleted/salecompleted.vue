@@ -19,7 +19,6 @@
                 </text>
             </view>
             <view class="small">
-             
                 <text class="smallx1">人民币:
                     <text class="lop">{{rmb}}</text>
                 </text>
@@ -49,7 +48,6 @@
                      </text>
                  </view>
             </view>
-
             <view>
                 <button class="primary" @click="btn">{{checkall}}</button>
             </view>
@@ -119,14 +117,10 @@
         },
         onLoad(option) {
             var that = this
-            console.log(option);
             var italn = JSON.parse(option.cshug)
-            console.log(italn)
             that.italn = italn
-                
             var nuecv = that.italn[1]
             that.nuecv =that.italn[1]
-            
             that.state = italn[0][0].order_status
             if(that.state == 104) {
                 that.state = '已完成'
@@ -140,7 +134,6 @@
             that.set_time = italn[0][0].set_time
             that.confirm_time = italn[0][0].confirm_time
             that.finish_time = italn[0][0].finish_time
-            
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
@@ -189,7 +182,6 @@
  }
  .smallx1{
      float: left;
-     
  }
  .small1{
      box-sizing: border-box;

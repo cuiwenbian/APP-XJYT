@@ -80,7 +80,6 @@
     import dyDatePicker from '../../common/dy-Date.vue'
 	export default {
 		data() {
-
 			return {
 				num: '',
 				ber: '',
@@ -111,7 +110,6 @@
 				date: '本月',
 				date1: '本月',
 				teran: ''
-
 			}
 		},
         components: {
@@ -124,7 +122,6 @@
 			var txt = data.getMonth()+1
 			var teran = text + '-' + txt
 			that.teran = teran
-            console.log(teran)
 			uni.request({
 				url: this.url + "assets/",
 				method: 'GET',
@@ -132,12 +129,10 @@
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					that.num = res.data.fil_count
 					that.ber = res.data.availed_num 
 					that.nuber = res.data.locked_num
 					that.fee = res.data.fee
-
 				}
 			})
             // 这是收入记录请求API
@@ -151,28 +146,20 @@
 					month: teran
 				},
 				success(res) {
-					console.log(res.data.data)
 					var seront = res.data.data
 					var ention = res.data.data.profit_records
 					that.ention = ention
-					console.log(ention)
 					if(ention.length==0){
 						that.flag=true
 					}else{
 						that.flag=false
 					}
 					that.month_profit = seront.month_profit
-                    console.log(that.month_profit)
 					that.add_item = ention[0].add_time
 					that.numm = ention[0].num
-					console.log(ention)
-					
 				}
 			})
-         
-			
 		},
-
 		methods: {
 			tabClick: function(index) {
 				var that = this
@@ -197,7 +184,6 @@
                     		month: teran
                     	},
                     	success(res) {
-                    		console.log(res.data.data)
                     		var seront = res.data.data
                     		var ention = res.data.data.profit_records
                     		that.ention = ention
@@ -225,13 +211,9 @@
                     		month: teran
                     	},
                     	success(res) {
-                    		console.log(res)
-                    		console.log(res.data.data)
                     		var seron = res.data.data
                     		var entin = res.data.data.bill_records
                     		that.entin = entin
-            
-                    		console.log(entin)
 							if(entin.length==0){
 								that.flag=true
 							}else{
@@ -242,7 +224,6 @@
                     		that.numm = entin[0].num
                     	}
                     })
-                    
                 }
 			},
 			bindChange(e) {
@@ -256,7 +237,6 @@
 					url: '/my/transfer/transfer?bar=' + this.ber + '&fee=' + this.fee,
 				})
 			},
-			
 			optionTap(e) {
 				var that = this;
 				let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
@@ -273,14 +253,11 @@
 						Authorization: 'JWT' + ' ' + this.global_.token
 					},
 					success(res) {
-						console.log(res)
 					}
 				})
 			},
 			DateChange(e) {
 				var that = this
-                console.log(that.date)
-				console.log(e)
 				that.date = e
 				uni.request({
 					url: this.url + 'assets/month/profit/',
@@ -292,31 +269,22 @@
 						month: e
 					},
 					success(res) {
-						console.log(res.data.data)
 						var seront = res.data.data
-                        console.log(seront)
 						var ention = res.data.data.profit_records
 						that.ention = ention
-						console.log(ention.length)
 						if(ention.length == 0){
 							that.flag=true
 						}else{
 							that.flag=false
 						}
 						that.month_profit = seront.month_profit
-                        // console.log(that.month_profit)
 						that.add_time = ention[0].add_time
 						that.numm = ention[0].num
-                        
-                       
-
 					}
 				})
 			},
 			DateChang(e) {
 				var that = this
-				console.log(e)
-				
 				this.date1 = e
 				uni.request({
 					url: this.url + 'assets/month/bill/',
@@ -328,11 +296,9 @@
 						month: e
 					},
 					success(res) {
-						console.log(res.data.data)
 						var seron = res.data.data
 						var entin = res.data.data.bill_records
 						that.entin = entin
-						console.log(entin)
 						if(entin.length == 0){
 							that.flag=true
 						}else{
@@ -341,8 +307,6 @@
 						that.profit = seron.month_bill
 						that.add_item = entin[0].add_time
 						that.numm = entin[0].num
-
-
 					}
 				})
 			},
@@ -351,8 +315,6 @@
 					url: '../transfer/transfer'
 				})
 			}
-
-
 		}
 	}
 </script>
@@ -376,7 +338,6 @@
 		background-color: #EDEDED;
         padding-top: 20rpx;
         padding-left: 45rpx;
-		/* margin-bottom: 20rpx; */
 		text-align: left;
 	}
 	.assets {
@@ -393,14 +354,12 @@
 		padding-top: 40rpx;
 		color: #F0AD4E;
 	}
-
 	.coin {
 		float: left;
 		padding-left: 48rpx;
 		font-size: 24rpx;
 		color: #FFFFFF;
 	}
-
 	.lock {
 		float: right;
 		padding-right: 48rpx;
@@ -415,7 +374,6 @@
 		height: 150rpx;
 		width: 100%;
 	}
-
 	.picker {
 		width: 30%;
 		text-align: center;
@@ -425,7 +383,6 @@
 		border: 2rpx solid #CCCCCC;
 		border-radius: 25rpx;
 	}
-
 	.primary {
 		width: 220rpx;
 		height: 88rpx;
@@ -434,37 +391,31 @@
 		margin-top: 40rpx;
         font-size: 32rpx;
 	}
-
 	.primary1 {
 		width: 220rpx;
         font-size: 32rpx;
 		height: 88rpx;
 		float: right;
 		margin-right: 48rpx;
-
 		margin-top: 40rpx;
 		background-color: #121212;
 		color: #FFFFFF;
 	}
-
 	.haide {
 		width: 100%;
 		height: 60rpx;
 		background-color: #EDEDED;
 	}
-
 	.transfer {
 		width: 130rpx;
 		height: 130rpx;
 		display: block;
 		margin: 150rpx auto 20rpx;
 	}
-
 	.info {
 		text-align: center;
 		font-size: 32rpx;
 	}
-
 	.all1 {
 		float: right;
 		font-size: 30rpx;
@@ -472,11 +423,9 @@
         margin-top: 20rpx;
 		margin-right: 48rpx;
 	}
-
 	.list {
 		height: 100;
 	}
-
 	.list-one {
 		width: 100%;
 		height: 116rpx;
@@ -485,7 +434,6 @@
 		box-sizing: border-box;
         position: relative;
 	}
-
 	.list-icon {
 		float: left;
 		width: 70rpx;
@@ -493,22 +441,18 @@
 		display: block;
 		margin-top: 15rpx;
 	}
-
 	.list-txt {
 		float: left;
 		margin-left: 20rpx;
 		color: #121212;
 		line-height: 50rpx;
 	}
-
 	.list-info {
 		font-size: 30rpx;
 	}
-
 	.list-time {
 		font-size: 30rpx;
 	}
-
 	.list-income {
 		float: right;
 		margin-right: 48rpx;
@@ -516,38 +460,26 @@
 		color: #41BEC9;
 		font-size: 34rpx;
 	}
-
 	.swiper-tab {
-
 		display: flex;
-
 		flex-direction: row;
-
 		line-height: 80rpx;
-
 		background: #EDEDED;
-		
 		padding-left:48rpx;
-		
 		box-sizing: border-box;
 	}
-
 	.tab-item {
-
 		width: 25%;
 		height: auto;
 		text-align: center;
 		font-size: 30rpx;
-
 		color: #777;
 	}
-
 	.current {
         width: 25%;
 		color: #B39C01;
 		border-bottom: 2rpx solid #B39C01;
 	}
-
     .l{
     	width:90%;
     	height:1rpx;

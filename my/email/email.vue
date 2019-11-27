@@ -76,7 +76,6 @@
 						email:that.email
 					},
 				 	 success:function(res){
-				 		 console.log(res)
 						 if(res.statusCode==200){
 							var num = 121;
 							var timer = setInterval(function () {
@@ -104,10 +103,8 @@
 						 }
 				 	 },
 				 	 fail: function(err){
-				 	     console.log(err)
 				 	}
 				 })
-								
 			},
 			save:function(){
 				if(this.email==''){
@@ -137,7 +134,6 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
-						console.log(res)
 						if(res.statusCode==200){
 							uni.showToast({
 								title:'邮箱已绑定',
@@ -159,7 +155,6 @@
 				})
 			}
 		}
-		
 	}
 </script>
 
@@ -177,6 +172,7 @@
 		padding-right:48rpx;
 		box-sizing: border-box;
 		background: #fff;
+	
 	}
 	.icon{
 		float: left;
@@ -196,7 +192,6 @@
 	.enter1{
 		width:300rpx;
 	}
-	
 	.getcode{
 		float:right;
 		width:200rpx;
