@@ -174,17 +174,14 @@
                 	{
                 		state: 0,
                 		text: '待付款'
-                	
                 	},
                 	{
                 		state: 1,
                 		text: '待确认'
-                		
                 	},
                 	{
                 		state: 2,
                 		text: '待审核'
-                		
                 	},
                     {
                         state: 3,
@@ -317,7 +314,6 @@
                         that.getData()
                     }
                 })
-                
             },
             btn2:function(item) {
                 var that = this

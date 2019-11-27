@@ -99,12 +99,10 @@
 				navList: [{
 						state: 0,
 						text: '收入记录'
-
 					},
 					{
 						state: 1,
 						text: '支出记录'
-
 					}
 				],
 				date: '本月',
