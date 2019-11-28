@@ -20,7 +20,7 @@
 					<image  class='te2' src='../../static/images/tuo9.png'></image>
 				  </view>
 				  </view>
-				   <view><image class='te' src='../../static/images/jian.png'></image></view>
+				  <view><image class='te' src='../../static/images/jian.png'></image></view>
 					  <image  class='te1' src='../../static/images/kuangji.png'></image>
 					  <text class='obg'>{{item.number}}</text>
 					  <text class='obg1'>{{item.type}}</text>
