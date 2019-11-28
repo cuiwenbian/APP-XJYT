@@ -172,6 +172,7 @@
 		padding-right:48rpx;
 		box-sizing: border-box;
 		background: #fff;
+	
 	}
 	.icon{
 		float: left;

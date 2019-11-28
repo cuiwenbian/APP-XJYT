@@ -29,8 +29,8 @@
     export default {
         data() {
             return {
-                windowHeight: '603px'  ,//定义手机屏幕高度值变量
-				windowWidth:'375px',
+                windowHeight: ''  ,//定义手机屏幕高度值变量
+				windowWidth:'',
 				indicator:true
             }
         },

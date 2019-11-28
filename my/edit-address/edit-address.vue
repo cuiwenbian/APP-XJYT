@@ -228,14 +228,14 @@
 							if (res.statusCode == 204) {
 								that.passIn=false
 								that.$refs['number'].close()
+								uni.navigateBack({
+									delta:1
+								})
 								uni.showToast({
 									title: '删除成功',
 									icon: 'none',
 									duration: 2000
 								});
-								uni.navigateBack({
-									delta:1
-								})
 							}
 							if(res.statusCode==400){
 								that.numberList.pop();

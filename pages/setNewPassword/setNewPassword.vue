@@ -92,7 +92,7 @@
 					header:{
 					},
 					success(res) {
-						console.log(res)
+						
 						uni.navigateTo({
 							url:'../login/login'
 						})

@@ -70,8 +70,8 @@
 			            //根据code判断
 			            var ocode = res.statusCode
 			            if (ocode == 200) {
-			              _this.iscode = res.data.data,
-			              console.log(res.data.data)
+			              _this.iscode = res.data.data
+			          
 			            } else if (ocode == 400) {
 			              uni.showToast({
 			                title: '用户不存在',
