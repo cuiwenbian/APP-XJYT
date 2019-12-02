@@ -60,7 +60,7 @@
 			</view>
 		</view>
 	</view>
-    <view class="shade" v-if="shade">
+  <view class="shade" v-if="shade">
     	<view class="pop">
     		<view class='pop-title'>若不阅读和同意协议,无法使用此功能哦</view>
     		<view class="pops">
@@ -79,19 +79,28 @@
 			  flag:false,
 			  user_machine:'',
 			  machine_id:'',
-			  shade:true
+              user_agreement:'',
+			  shade:false
 		  }	
 		},
 		onLoad() {
 			uni.request({
-				url: this.url+'usermachine/',
+				url: 'http://192.168.1.218:8000/api/v1.1.0/usermachine/',
 				method: 'GET',
 				data: {},
 				header:{
 					 Authorization:'JWT'+' '+this.global_.token
 				},
 				success: res => {
-					this.user_machine=res.data.data
+                    console.log(res)
+					this.user_machine=res.data.data.machine_datas
+                    this.user_agreement = res.data.data.user_agreement
+                    if(this.user_agreement == 0) {
+                        this.shade = true
+                    }else if(this.user_agreement == 1)  {
+                        this.shade = false
+                    }
+                    console.log(this.user_agreement)
 					if(res.data.data==''){
 						this.flag=true
 					}
@@ -100,23 +109,6 @@
 				complete: () => {}
 			});
 		},
-        onShow() {
-            var that = this
-            uni.request({
-                url:this.url + '',
-                method:'',
-                data:{},
-                header:{					
-                    Authorization:'JWT'+' '+this.global_.token,
-                },
-                success(res) {
-                    console.log(res)
-                    if(res.statusCode == '') {
-                        that.shade = !that.shade
-                    }
-                }
-            })
-        },
 		methods:{
             cancel:function(){
                 uni.navigateBack({
@@ -128,6 +120,11 @@
 					url:'../../pages/agreement/agreement'
 				})
 			},
+            sure:function(){
+                uni.navigateTo({
+                	url:'../../pages/agreement/agreement'
+                })
+            },
 			select:function(item){
 				uni.navigateTo({
 					url:'../machine-detail/machine-detail?machine_id='+item.machine_id
@@ -142,7 +139,7 @@
 		width:100%;
 		height:100%;
 		background:rgba(255,255,255,0.5);
-		position: absolute;
+		position: fixed;
 		left:0;
 		top:0;
 		z-index:99

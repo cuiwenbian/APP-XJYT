@@ -51,7 +51,7 @@
 					this.indicator=false;
                     setTimeout(function() {
                         uni.redirectTo({
-                            url: '/pages/index/index'
+                           url: '/pages/index/index'
                         });
                     }, 1000)
                 }else{
