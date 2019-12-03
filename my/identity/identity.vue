@@ -75,7 +75,9 @@
 		     </view>
 		</view>
 		<view class='out2'>
-		 <button :class=' idcard && name && imgs.length==2 ?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		 <button class='changeBtn2' v-if="idcard && name && imgs.length==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		 <button class='changeBtn1' v-if="!idcard || !name || imgs.length!==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		 <!-- <button :class=' idcard && name && imgs.length==2 ?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button> -->
 		</view>
         <view class="shade" v-show="shade">
         	<view class="pop">
@@ -232,6 +234,7 @@
 					      Authorization:'JWT'+' '+token
 					    },
 					    success: function (res) {
+							console.log(res)
 					 	if(res.statusCode==400){
 					 		uni.showToast({
 					 			title:'图片太大，请重新上传',
