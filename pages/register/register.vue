@@ -270,7 +270,7 @@
 		height:80rpx;
 		line-height: 80rpx;
 		border-bottom: 1rpx solid #555555;
-		color:#646464;
+		color:#fff;
 		font-size: 24rpx;
 	}
 	.getcode {

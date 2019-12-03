@@ -68,6 +68,7 @@
 					Authorization:'JWT'+' '+this.global_.token
 				},
 				success(res) {
+					console.log(res)
 					if(res.data.data==''){
 						_this.flag=true
 					}else{

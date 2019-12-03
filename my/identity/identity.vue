@@ -7,7 +7,7 @@
 		<view class='enter enters'>
 		  <view>
 		  <text class='enter-2'>姓名</text>
-		  <input class="weui-input1 input1" placeholder="请输入您的姓名" maxlength="11" @input='getName' :value='name' />
+		  <input class="weui-input1 input1" placeholder="请输入您的姓名"  @input='getName' :value='name' />
 		  </view>
 		</view>
 		<view class='enter'>
@@ -75,7 +75,7 @@
 		     </view>
 		</view>
 		<view class='out2'>
-		 <button :class=' name && idcard && imgs.length==2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		 <button :class=' idcard && name && imgs.length==2 ?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		</view>
         <view class="shade" v-show="shade">
         	<view class="pop">
@@ -104,7 +104,8 @@
 				r_flag: true,
 				p_url:'',
 				r_url:'',
-				shade:false
+				shade:false,
+				
 			}
 		},
         onBackPress(option){

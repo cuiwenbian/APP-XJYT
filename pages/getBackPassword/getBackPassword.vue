@@ -26,6 +26,9 @@
 				disabled:false
 			};
 		},
+		onBackPress(option){
+		      plus.key.hideSoftKeybord()    
+		},
 		methods:{
 			getPhoneValue: function(e) {
 				if (e.detail.value.length == 11) {

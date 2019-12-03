@@ -20,7 +20,7 @@
             chnerot:'',
             flag:false,
             fllaag:false,
-            lujing:''
+            
       }
     },
     onShow() {
