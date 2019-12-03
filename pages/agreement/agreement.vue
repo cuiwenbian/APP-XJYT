@@ -26,6 +26,7 @@
     onShow() {
         var that = this
         uni.request({
+
             url:this.url + "usermachine/agreement/",
             method:'GET',
             header:{

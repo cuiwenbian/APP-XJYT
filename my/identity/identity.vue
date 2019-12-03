@@ -75,7 +75,7 @@
 		     </view>
 		</view>
 		<view class='out2'>
-		 <button :class=' name && idcard && imgs.length===2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
+		 <button :class=' name && idcard && imgs.length==2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		</view>
         <view class="shade" v-show="shade">
         	<view class="pop">
