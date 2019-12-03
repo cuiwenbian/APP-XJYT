@@ -1,10 +1,8 @@
 <template>
   <!-- 用户协议 -->
   <view class="container">
-      <view>
-          <text class="agreemen">
-              {{agreement}}
-          </text>
+      <view  class="dde">
+            <rich-text :nodes="agreement"></rich-text>
       </view>
     <view class="fix">
       <button class='down' @click="aaa">下载</button>
@@ -22,7 +20,7 @@
             chnerot:'',
             flag:false,
             fllaag:false,
-            luj:''
+            lujing:''
       }
     },
     onShow() {
@@ -36,12 +34,12 @@
             success(res) {
                console.log(res) 
                that.chnerot = res.data.data.user_agreement
-               console.log(that.chnerot)
                that.agreement = res.data.data.agreement
+               console.log(that.agreement)
                if(that.chnerot == 0){
                    that.flag = true
                }
-              
+
             }
         })
     },
@@ -49,7 +47,7 @@
         sss:function(){
             var that = this
             uni.request({
-                url:'http://192.168.1.218:8000/api/v1.1.0/usermachine/agreement/',
+                url:this.url + 'usermachine/agreement/',
                 method:'POST',
                 header:{
                     Authorization:'JWT'+' '+this.global_.token
@@ -68,37 +66,31 @@
                    }
                 }
             })
-          // this.flag=!this.flag
-          // if(this.flag == false) {
-          //     uni.showToast({
-          //         title:'已阅读并同意协议'
-          //     })
-          // }
+         
         },
-        aaa:function(){ 
-            const downloadTask = uni.downloadFile({
-                url: 'http://192.168.1.218:8000/api/v1.1.0/media/1.pdf',
-                 header:{
+
+        aaa:function(){
+           const downloadTask = uni.downloadFile({
+                url: "http://192.168.1.218:8000/api/v1.1.0/media/1.pdf",
+                header:{
                      Authorization:'JWT'+' '+this.global_.token
-                 },//仅为示例，并非真实的资源
+                },//仅为示例，并非真实的资源
                 success: (res) => {
                     console.log(res)
                     if (res.statusCode === 200) {
-						
                         console.log('下载成功');
                         uni.showToast({
-                            title:'下载成功'
+                            title:'下载成功',
+							duration:3000
                         })
-                    }
-					let that = this;
-					uni.saveFile({
-					    tempFilePath: res.tempFilePath,
-					    success: function(red) {
-					        that.luj = red.savedFilePath
-					        console.log(red)
-					    }
-					});                    
+						//res={tempFilePath:tempFilePath}
+                    }               
                 }
+            });
+            downloadTask.onProgressUpdate((res) => {
+                  console.log('下载进度' + res.progress);
+                  console.log('已经下载的数据长度' + res.totalBytesWritten);
+                  console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);                                       
             });
         }
     }
@@ -107,6 +99,9 @@
 </script>
 
 <style>
+    .dde{
+        height: 500rpx;
+    }
   .fix{
     width:100%;
     height:98rpx;

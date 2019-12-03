@@ -228,7 +228,7 @@
 	  position: relative;
 	  display: block;
 	  float: left;
-	  margin-left: -226rpx;
+	  margin-left: -206rpx;
 	  font-size : 30rpx;
 	  margin-top: 64rpx;
 	  color: #999999;
