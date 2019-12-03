@@ -60,9 +60,6 @@
                        uni.showToast({
                            title:'已阅读并同意协议'
                        })
-					   uni.navigateBack({
-					   	delta:1
-					   })
                    }
                 }
             })
@@ -70,7 +67,7 @@
         },
         aaa:function(){
            const downloadTask = uni.downloadFile({
-                url: "http://192.168.1.218:8000/api/v1.1.0/media/1.pdf",
+                url: this.url+"media/用户服务协议.pdf",
                 header:{
                      Authorization:'JWT'+' '+this.global_.token
                 },//仅为示例，并非真实的资源

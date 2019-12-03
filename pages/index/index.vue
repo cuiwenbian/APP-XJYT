@@ -107,7 +107,6 @@
                 pixelRatio:1,
                 notice:'',
                 csgo:'',
-                s:'123987998449898',
                 time:[],
                 price:[],
 				hure:[],
