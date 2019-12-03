@@ -75,9 +75,13 @@
 		     </view>
 		</view>
 		<view class='out2'>
+<<<<<<< HEAD
 		 <button class='changeBtn2' v-if="idcard && name && imgs.length==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		 <button class='changeBtn1' v-if="!idcard || !name || imgs.length!==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
 		 <!-- <button :class=' idcard && name && imgs.length==2 ?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button> -->
+=======
+		 <button :class=' name || idcard ||imgs.length==2?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button>
+>>>>>>> ac448381b5b112c14b4dda283ee4ab175e71bf54
 		</view>
         <view class="shade" v-show="shade">
         	<view class="pop">

@@ -400,10 +400,7 @@
         font-size: 20rpx;
         color: #F2F2F2;
     }
-    .price1{
-        float: right;
-        margin-right: 24rpx;
-    }
+    
     .Todayprice{
 			float: left;
 			line-height: 120rpx;
@@ -412,17 +409,37 @@
             margin-left: 20rpx;
 			color: #e3ba85;
 	}
-    .bot1 {
+    .price1{
+        float: right;
+        margin-right: 24rpx;
+    }
+    .bot1{
+        float: left;
+        line-height: 120rpx;
+        font-size: 20rpx;
+        color: #F2F2F2;
+    }
+    
+    .yesterdayprice{
+    		float: left;
+    		line-height: 120rpx;
+            text-align: center;
+    		font-size: 38rpx;
+            margin-left: 20rpx;
+    		color: #e3ba85;
+    }
+   /* .bot1 {
         color: #FFFFFF;
         font-size: 20rpx;
+        line-height: 120rpx;
     }
     .yesterdayprice {
         font-size: 38rpx;
         margin-left: 10rpx;
         padding-top: 20rpx;
-        line-height: 120rpx;
+        line-height: 100rpx;
         color: #DCB16E;
-    }
+    } */
 	.gg{
         width: 100%;
         height: 600rpx;

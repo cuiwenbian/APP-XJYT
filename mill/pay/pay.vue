@@ -163,7 +163,7 @@
     export default {
     	data() {
     		return {
-                many:'',
+                many:'0',
                 tabCurrentIndex:0,
                 contion:'',
                 daker:'',
