@@ -26,7 +26,8 @@
     onShow() {
         var that = this
         uni.request({
-            url:this.url+"usermachine/agreement/",
+
+            url:this.url + "usermachine/agreement/",
             method:'GET',
             header:{
                 Authorization:'JWT'+' '+this.global_.token
@@ -68,7 +69,6 @@
             })
          
         },
-
         aaa:function(){
            const downloadTask = uni.downloadFile({
                 url: this.url+"media/用户服务协议.pdf",

@@ -85,7 +85,7 @@
 		},
 		onLoad() {
 			uni.request({
-				url: 'http://192.168.1.218:8000/api/v1.1.0/usermachine/',
+				url: this.url + 'usermachine/',
 				method: 'GET',
 				data: {},
 				header:{
