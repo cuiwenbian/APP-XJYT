@@ -61,9 +61,6 @@
                        uni.showToast({
                            title:'已阅读并同意协议'
                        })
-					   uni.navigateBack({
-					   	delta:1
-					   })
                    }
                 }
             })

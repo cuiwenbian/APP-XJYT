@@ -83,7 +83,7 @@
 			  shade:false
 		  }	
 		},
-		onLoad() {
+		onShow() {
 			uni.request({
 				url: this.url + 'usermachine/',
 				method: 'GET',
@@ -110,6 +110,11 @@
 			});
 		},
 		methods:{
+            sure:function(){
+                uni.navigateTo({
+                    url:'../../pages/agreement/agreement'
+                })
+            },
             cancel:function(){
                 uni.navigateBack({
                     url:'../my/my'
@@ -120,11 +125,7 @@
 					url:'../../pages/agreement/agreement'
 				})
 			},
-            sure:function(){
-                uni.navigateTo({
-                	url:'../../pages/agreement/agreement'
-                })
-            },
+
 			select:function(item){
 				uni.navigateTo({
 					url:'../machine-detail/machine-detail?machine_id='+item.machine_id
