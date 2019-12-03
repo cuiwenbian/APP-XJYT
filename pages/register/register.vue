@@ -6,7 +6,7 @@
 		<!-- <view class='fil'>Filecoin</view> -->
 		<view class="enter">
 			<text class="title">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</text> 
-			<input class="number" type="number" @input='getPhoneValue'  :value="phone" placeholder="请输入手机号" />
+			<input class="number" type="number" maxlength="11" @input='getPhoneValue'  :value="phone" placeholder="请输入手机号" />
 		</view>
 		<view class="enter">
 			<text class="title">登录密码</text>
@@ -95,10 +95,23 @@
 			          },
 			          success(res) {
 			            //根据code判断
-			           
-			            var ocode = res.statusCode
+			            console.log(res)
+			            var ocode = res.statusCode;
 			            if (ocode == 200) {
-			              _this.iscode = res.data.data
+			              _this.iscode = res.data.data;
+						  var num = 61;
+						  var timer = setInterval(function () {
+						    num--;
+						    if (num <= 0) {
+						      clearInterval(timer);
+						      _this.codename = '重新发送',
+						      _this.disabled = false
+						    } else {
+						  	_this.flag=false,
+						      _this.codename = num + "s",
+						      _this.disabled = true
+						    }
+						  }, 1000)
 			            } else if (ocode == 400) {
 			              uni.showToast({
 			                title: '手机号已注册',
@@ -107,19 +120,7 @@
 			              })
 			              return false;
 			            }
-			            var num = 61;
-			            var timer = setInterval(function () {
-			              num--;
-			              if (num <= 0) {
-			                clearInterval(timer);
-			                _this.codename = '重新发送',
-			                _this.disabled = false
-			              } else {
-							_this.flag=false,
-			                _this.codename = num + "s",
-			                _this.disabled = true
-			              }
-			            }, 1000)
+			           
 			          }
 			        })
 			      }
@@ -127,7 +128,7 @@
 			//获取验证码
 			getCodeBtn: function(e){
 			      this.getCode();
-			      var _this = this
+			      
 			},
 			register(){
 				var _self=this;

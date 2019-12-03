@@ -191,6 +191,7 @@
 						Authorization:'JWT'+' '+this.global_.token
 					},
 					success(res) {
+						console.log(res)
 						if(res.statusCode==200||res.statusCode==201){
 							uni.navigateTo({
 								url:'../email/email'
@@ -217,6 +218,7 @@
 				   Authorization:'JWT'+' '+this.global_.token
 				  },
 				  success: function (res) {
+					  console.log(res)
 					if(res.statusCode==202){
 						uni.showToast({
 							title:'已实名认证',
