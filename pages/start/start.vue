@@ -11,6 +11,7 @@
 
 <script>
 	export default{
+		
 		onShow() {
 			var star;
 			var _self=this;

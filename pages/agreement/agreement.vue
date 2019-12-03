@@ -20,7 +20,7 @@
             chnerot:'',
             flag:false,
             fllaag:false,
-          
+            lujing:''
       }
     },
     onShow() {
@@ -39,6 +39,7 @@
                if(that.chnerot == 0){
                    that.flag = true
                }
+
             }
         })
     },
@@ -59,33 +60,37 @@
                        uni.showToast({
                            title:'已阅读并同意协议'
                        })
+					   uni.navigateBack({
+					   	delta:1
+					   })
                    }
                 }
             })
          
         },
-        
         aaa:function(){
-            const downloadTask = uni.downloadFile({
-            url: "http://192.168.1.218:8000/api/v1.1.0/media/1.pdf",
-            header:{
-                Authorization:'JWT'+' '+this.global_.token
-            },
-            success: (res) => {
-                if (res.statusCode === 200) {
-                       console.log('下载成功');
-                       uni.showToast({
-                           title:'下载成功'
-                       })
-                    }
-                    
-                  }
-                });
+           const downloadTask = uni.downloadFile({
+                url: "http://192.168.1.218:8000/api/v1.1.0/media/1.pdf",
+                header:{
+                     Authorization:'JWT'+' '+this.global_.token
+                },//仅为示例，并非真实的资源
+                success: (res) => {
+                    console.log(res)
+                    if (res.statusCode === 200) {
+                        console.log('下载成功');
+                        uni.showToast({
+                            title:'下载成功',
+							duration:3000
+                        })
+						//res={tempFilePath:tempFilePath}
+                    }               
+                }
+            });
             downloadTask.onProgressUpdate((res) => {
-                console.log('下载进度' + res.progress);
-                console.log('已经下载的数据长度' + res.totalBytesWritten);
-                console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);
-                });
+                  console.log('下载进度' + res.progress);
+                  console.log('已经下载的数据长度' + res.totalBytesWritten);
+                  console.log('预期需要下载的数据总长度' + res.totalBytesExpectedToWrite);                                       
+            });
         }
     }
 
@@ -102,7 +107,7 @@
     position: fixed;
     left:0;
     bottom:0;
-    background: #EDEDED;
+    background:rgba(0,0,0,0.4);
     display: flex;
     justify-content: space-between;
   }
@@ -128,3 +133,4 @@
       font-size: 20rpx;
   }
 </style>
+

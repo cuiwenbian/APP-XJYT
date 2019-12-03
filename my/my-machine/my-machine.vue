@@ -20,7 +20,7 @@
 					<image  class='te2' src='../../static/images/tuo9.png'></image>
 				  </view>
 				  </view>
-				   <view><image class='te' src='../../static/images/jian.png'></image></view>
+				  <view><image class='te' src='../../static/images/jian.png'></image></view>
 					  <image  class='te1' src='../../static/images/kuangji.png'></image>
 					  <text class='obg'>{{item.number}}</text>
 					  <text class='obg1'>{{item.type}}</text>
@@ -139,7 +139,7 @@
 		width:100%;
 		height:100%;
 		background:rgba(255,255,255,0.5);
-		position: absolute;
+		position: fixed;
 		left:0;
 		top:0;
 		z-index:99
