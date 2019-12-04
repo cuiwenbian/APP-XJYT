@@ -146,7 +146,8 @@
 		float:right;
 		width:520rpx;
 		height:100rpx;
-		color:#646464;
+		/* color:#646464; */
+		color:#fff;
 		font-size: 30rpx;
 	}
 	.tip{

@@ -30,6 +30,9 @@
 			this.iscode=options.code;
 			this.phone=options.phone;
 		},
+		onBackPress(option){
+		      plus.key.hideSoftKeybord()    
+		},
 		methods:{
 			newpassword:function(e){
 				this.newPwd=e.detail.value

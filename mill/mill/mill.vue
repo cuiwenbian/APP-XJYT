@@ -122,9 +122,9 @@ export default {
 		btn2: function() {
 			var that = this;
 			var a = that.arr.join(',');
-            console.log(a)
+			console.log(a)
 			uni.request({
-				url: this.url + 'buildorders/',
+				url:'http://192.168.1.208:8000/api/v1.1.0/buildorders/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -133,38 +133,44 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
-                    console.log(res)
+					console.log(res)
 					var asr = JSON.stringify(res.data.data);
 					if (res.statusCode == 401) {
 						uni.showModal({
-							title: '未进行实名认证',
-							confirmText: '去验证',
-							success(res) {
-								if (res.confirm == true) {
-									uni.navigateTo({
-										url: '../../my/identity/identity'
-									});
-								}
-							}
+						    
+						    content: '未进行实名认证',
+							confirmText:'去验证',
+						    success: function (res) {
+						        if (res.confirm) {
+						           uni.navigateTo({
+						           	url: '../../my/identity/identity'
+						           });
+						        } else if (res.cancel) {
+						            console.log('用户点击取消');
+						        }
+						    }
 						});
+						
 					} else if (res.statusCode == 302) {
                         uni.showToast({
                             title:'实名认证审核中',
                         })
-                    }
-                    else if (res.statusCode == 400) {
-                        uni.showModal({
-                           
-                            title:'未设置交易密码',
-                            confirmText:'去设置',
-                            // success(res) {
-                            //     if(res.confirm == true) {
-                            //         uni.switchTab({
-                            //             url:'../../my/my/my'
-                            //         })
-                            //     }
-                            // }
-                        })
+                    }else if (res.statusCode == 400) {
+			            uni.showModal({
+			                
+			                content: '未设置交易密码',
+							confirmText:'去设置',
+			                success: function (res) {
+			                    if (res.confirm) {
+			                        uni.switchTab({
+			                        	url:'../../my/my/my'
+			                        })
+			                    } else if (res.cancel) {
+			                        console.log('用户点击取消');
+			                    }
+			                }
+			            });
+                        
                     }
                     else if (that.arr.length == 0) {
 						uni.showToast({

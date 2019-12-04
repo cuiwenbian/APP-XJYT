@@ -490,7 +490,8 @@
 	.desc{
 		padding: 5rpx 40rpx;
 		box-sizing: border-box;
-		
+
+		float: left;
 	}
 	.yu {
         float:left;
@@ -502,7 +503,8 @@
         width: 36rpx;
         height: 26rpx;
 		margin-left: 180rpx;
-        margin-top:10rpx;
+
+
     }
     .yjj {
         font-size: 14rpx;

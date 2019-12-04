@@ -72,30 +72,40 @@ export default {
 		
 		          success(res) {
 		            //根据code判断
+					console.log(res)
 		            var ocode = res.statusCode;
 		            if (ocode == 200) {
-		              _this.iscode = res.data.data
-		            } else if (ocode == 400) {
+		              _this.iscode = res.data.data;
+					  var num = 61;
+					  var timer = setInterval(function () {
+					    num--;
+					    if (num <= 0) {
+					      clearInterval(timer);
+					      _this.codename = '重新发送',
+					      _this.disabled = false
+					    } else {
+					  	 _this.flag=false,
+					      _this.codename = num + "s"
+					      _this.disabled = true
+					    }
+					  }, 1000)
+		            } 
+					else if (ocode == 400) {
 		              uni.showToast({
 		                title: '用户不存在',
 		                icon: 'none',
 		                duration: 2000
 		              })
 		              return false;
-		            }
-		            var num = 61;
-		            var timer = setInterval(function () {
-		              num--;
-		              if (num <= 0) {
-		                clearInterval(timer);
-		                _this.codename = '重新发送',
-		                _this.disabled = false
-		              } else {
-						 _this.flag=false,
-		                _this.codename = num + "s"
-		                _this.disabled = true
-		              }
-		            }, 1000)
+		            }else if(ocode == 411){
+						uni.showToast({
+						  title: '操作太频繁，请稍候重试',
+						  icon: 'none',
+						  duration: 2000
+						})
+						return false;
+					}
+		           
 		          }
 		        })
 		      }	
@@ -146,6 +156,9 @@ export default {
 						code:_this.code
 					}, 
 					success(res) {
+						console.log(res)
+						uni.setStorageSync('phone',_this.phone)
+						uni.setStorageSync('token',res.data.data)
 						_this.global_.phone=_this.phone;
 						_this.global_.token=res.data.data;
 						if(res.statusCode==400){
@@ -202,7 +215,7 @@ page {
 	float: right;
 	width: 520rpx;
 	height: 100rpx;
-	color: #646464;
+	color: #fff;
 	font-size: 30rpx;
 }
 

@@ -112,7 +112,14 @@
 						      _this.disabled = true
 						    }
 						  }, 1000)
-			            } else if (ocode == 400) {
+			            } else if (ocode == 411) {
+			              uni.showToast({
+			                title: '操作太频繁，请稍候重试',
+			                icon: 'none',
+			                duration: 2000
+			              })
+			              return false;
+			            }else if (ocode == 400) {
 			              uni.showToast({
 			                title: '手机号已注册',
 			                icon: 'none',
@@ -270,7 +277,7 @@
 		height:80rpx;
 		line-height: 80rpx;
 		border-bottom: 1rpx solid #555555;
-		color:#646464;
+		color:#fff;
 		font-size: 24rpx;
 	}
 	.getcode {

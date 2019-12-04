@@ -1,4 +1,3 @@
-
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -41,6 +40,7 @@
 				}
 			}
 		},
+
 		{
 			"path": "pages/getBackPassword/getBackPassword",
 			"style": {
@@ -76,6 +76,14 @@
 		{
 		    "path":"pages/web2/web2",
 		    "style":{"navigationBarTitleText": "星际云通"}
+		},
+		{
+			"path":"pages/banner/banner",
+			"style":{
+				"titleNView":{
+					"titleText":"文章详情"
+				}
+			}
 		}
 		
 	],
