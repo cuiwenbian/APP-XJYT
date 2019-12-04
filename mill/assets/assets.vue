@@ -13,7 +13,7 @@
             </text>
 		</view>
 		<view class="btn">
-			<button class="primary">提交</button>
+			<button class="primary">提币</button>
 			<button class="primary1" @click="btn">转账</button>
 		</view>
 		<view class="haide">

@@ -1,0 +1,49 @@
+<template>
+	<view class="container">
+		<view>
+			<text class="fz">{{fz}}</text>
+		</view>
+		<view>
+			<text class="mlet">
+				{{mlet}}
+			</text>
+		</view>
+		<view  class="ttt">
+			<text>
+				   带爬上扣皮带怕是都叫澳康达破损都快破啊是的空啊是都可怕送卡片的安排口水都破卡上恐怕是大码数的吗爱上碰口
+				萨卡大派送到浦口阿三都卡哦怕卡送的票烤烤电阿空的恐怕都可怕送块披萨的恐怕看哦批萨卡懂啊数控啊是破开的哦怕谁开的恐怕是的恐怕恐怕是短款、
+				阿斯卡德安顺到平时都皮卡是打孔啊谁都怕卡上破开
+			</text>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data () {
+			return {
+				tet:"",
+				fz:'',
+				mlet:''
+			}
+		}
+	}
+</script>
+
+<style>
+	.fz{
+		color: red;
+		font-weight: 600;
+		font-size: 30rpx;
+		padding-left: 48rpx;
+	}
+	.mlet{
+		font-size: 20rpx;
+		padding-left: 48rpx;
+		color: #999999;
+	}
+	.ttt{
+		font-size: 20rpx;
+		text-indent: 2em;
+	}
+</style>

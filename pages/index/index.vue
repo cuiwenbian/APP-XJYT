@@ -120,7 +120,7 @@
             _self = this;
             var that = this
             this.cWidth=uni.upx2px(750);
-            this.cHeight=uni.upx2px(500);
+            this.cHeight=uni.upx2px(550);
             _self.getServerData();
             uni.request({
                 url:this.url + 'home/',
@@ -496,8 +496,7 @@
 	.desc{
 		padding: 5rpx 40rpx;
 		box-sizing: border-box;
-		display: flex;
-		justify-content: space-between;
+		float: left;
 	}
 	.yu {
         font-size: 14rpx;
@@ -506,7 +505,7 @@
     .yj {
         width: 36rpx;
         height: 26rpx;
-		margin-left: 280rpx;
+		margin-left: 180rpx;
 
     }
     .yjj {

@@ -12,3 +12,10 @@ const app = new Vue({
     ...App
 })
 app.$mount()
+ 
+		
+function clear() {
+	uni.removeStorageSync('token');
+	uni.removeStorageSync('phone');
+}
+setInterval(clear, 2592000);
