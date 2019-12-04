@@ -108,6 +108,7 @@
         onLoad(option) {
             var that = this
             var fanta = JSON.parse(option.main)
+            console.log(fanta)
             that.fanta = fanta
             var ig = that.fanta[1]
             that.ig = that.fanta[1]

@@ -303,7 +303,6 @@
 
 
 
-
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2015,10 +2014,6 @@ swiper-item image {
         font-size: 20rpx;
         color: #F2F2F2;
 }
-.price1{
-        float: right;
-        margin-right: 24rpx;
-}
 .Todayprice{
 			float: left;
 			line-height: 120rpx;
@@ -2027,20 +2022,32 @@ swiper-item image {
             margin-left: 20rpx;
 			color: #e3ba85;
 }
-.bot1 {
-        color: #FFFFFF;
-        font-size: 20rpx;
+.price1{
+        float: right;
+        margin-right: 24rpx;
 }
-.yesterdayprice {
-        font-size: 38rpx;
-        margin-left: 10rpx;
-        padding-top: 20rpx;
+.bot1{
+        float: left;
+        padding-right: 20rpx;
         line-height: 120rpx;
-        color: #DCB16E;
+        font-size: 20rpx;
+        color: #F2F2F2;
+}
+.yesterdayprice{
+    		float: left;
+    		line-height: 120rpx;
+            text-align: center;
+    		font-size: 38rpx;
+            margin-left: 20rpx;
+    		color: #e3ba85;
+}
+.yesterday{
+        padding-right: 48rpx;
 }
 .gg{
         width: 100%;
         height: 600rpx;
+        background: #007AFF;
 }
 .Small{
         width: 100%;
@@ -2097,27 +2104,23 @@ swiper-item image {
 		padding: 5rpx 40rpx;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: justify;
-		-webkit-justify-content: space-between;
-		    -ms-flex-pack: justify;
-		        justify-content: space-between;
 }
 .yu {
+        float:left;
         font-size: 14rpx;
         color: #5A5A5A;
+        margin-top:10rpx;
 }
 .yj {
         width: 36rpx;
         height: 26rpx;
-		margin-left: 280rpx;
+		margin-left: 180rpx;
+        margin-top:10rpx;
 }
 .yjj {
         font-size: 14rpx;
         color: #5A5A5A;
+        margin-top:-10rpx;
 }
 .b {
         display: block;

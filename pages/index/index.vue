@@ -43,19 +43,19 @@
                 <text class="bot1">
                     较昨日:
                 </text>
-                <text class="yesterdayprice"> {{yesterdayprice}}  {{yesterday}}</text>
+                <text class="yesterdayprice"> <text class="yesterday">{{yesterdayprice}}</text>  {{yesterday}}</text>
             </view>
         </view>
         <view class="gg">
             <div class="charts">
             	<view class="qiun-columns">
-            		<view class="qiun-charts" >
+            		<view class="qiun-charts">
             			<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchCandle" @touchmove="moveCandle" @touchend="touchEndCandle"></canvas>
                     </view>
             	</view>
             </div>
         </view>
-            <view class="Small">
+        <view class="Small">
 				<text class="te">热门资讯</text> 
             </view>
         <view class="bt" @click="web1">
@@ -74,18 +74,18 @@
         </view>
         <text class="b"></text>
 		<view class="bt" @click="web2">
-        <view class="left">
-        	<text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
-        	<view class="desc">
-        		<text class="yu">6月</text>
-        		<image class="yj" src="../../static/images/eye.png"> 
-        		</image>
-        		<text class="yjj">1000人看过</text>
-        	</view>
-        </view>
-        <view class="right">
-        	<image class="ig" src="../../static/images/kuangji.png"></image>
-        </view>
+            <view class="left">
+                <text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
+                <view class="desc">
+                    <text class="yu">6月</text>
+                    <image class="yj" src="../../static/images/eye.png"> 
+                    </image>
+                    <text class="yjj">1000人看过</text>
+                </view>
+            </view>
+            <view class="right">
+                <image class="ig" src="../../static/images/kuangji.png"></image>
+            </view>
 		</view>
 	</view>
 </template>
@@ -120,7 +120,7 @@
             _self = this;
             var that = this
             this.cWidth=uni.upx2px(750);
-            this.cHeight=uni.upx2px(500);
+            this.cHeight=uni.upx2px(550);
             _self.getServerData();
             uni.request({
                 url:this.url + 'home/',
@@ -415,6 +415,7 @@
     }
     .bot1{
         float: left;
+        padding-right: 20rpx;
         line-height: 120rpx;
         font-size: 20rpx;
         color: #F2F2F2;
@@ -428,26 +429,19 @@
             margin-left: 20rpx;
     		color: #e3ba85;
     }
-   /* .bot1 {
-        color: #FFFFFF;
-        font-size: 20rpx;
-        line-height: 120rpx;
+    .yesterday{
+        padding-right: 48rpx;
     }
-    .yesterdayprice {
-        font-size: 38rpx;
-        margin-left: 10rpx;
-        padding-top: 20rpx;
-        line-height: 100rpx;
-        color: #DCB16E;
-    } */
 	.gg{
         width: 100%;
         height: 600rpx;
+        background: #007AFF;
     }
     .Small{
         width: 100%;
 		height: 80rpx;
 		margin-top: 14rpx;
+      
     }
     .te {
 		float: left;
@@ -496,22 +490,24 @@
 	.desc{
 		padding: 5rpx 40rpx;
 		box-sizing: border-box;
-		display: flex;
-		justify-content: space-between;
+		
 	}
 	.yu {
+        float:left;
         font-size: 14rpx;
         color: #5A5A5A;
+        margin-top:10rpx;
     }
     .yj {
         width: 36rpx;
         height: 26rpx;
-		margin-left: 280rpx;
-
+		margin-left: 180rpx;
+        margin-top:10rpx;
     }
     .yjj {
         font-size: 14rpx;
         color: #5A5A5A;
+        margin-top:-10rpx;
     }
     .b {
         display: block;

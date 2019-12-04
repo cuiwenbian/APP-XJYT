@@ -68,17 +68,7 @@ export default {
 			]
 		};
 	},
-     onLoad: function (options) {
-            setTimeout(function () {
-                console.log('start pulldown');
-            }, 100);
-            uni.startPullDownRefresh();
-        },
-        onPullDownRefresh() {
-            setTimeout(function () {
-                uni.stopPullDownRefresh();
-            }, 100);
-        },
+
 	onShow(options) {
 		var that = this;
 		uni.request({
@@ -132,6 +122,7 @@ export default {
 		btn2: function() {
 			var that = this;
 			var a = that.arr.join(',');
+            console.log(a)
 			uni.request({
 				url: this.url + 'buildorders/',
 				method: 'GET',
@@ -142,6 +133,7 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
+                    console.log(res)
 					var asr = JSON.stringify(res.data.data);
 					if (res.statusCode == 401) {
 						uni.showModal({
@@ -159,17 +151,19 @@ export default {
                         uni.showToast({
                             title:'实名认证审核中',
                         })
-                    }else if (res.statusCode == 400) {
+                    }
+                    else if (res.statusCode == 400) {
                         uni.showModal({
+                           
                             title:'未设置交易密码',
                             confirmText:'去设置',
-                            success(res) {
-                                if(res.confirm == true) {
-                                    uni.navigateTo({
-                                        url:'../../my/trade-password/trade-password'
-                                    })
-                                }
-                            }
+                            // success(res) {
+                            //     if(res.confirm == true) {
+                            //         uni.switchTab({
+                            //             url:'../../my/my/my'
+                            //         })
+                            //     }
+                            // }
                         })
                     }
                     else if (that.arr.length == 0) {
