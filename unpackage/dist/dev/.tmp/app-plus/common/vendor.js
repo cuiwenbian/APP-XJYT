@@ -25,9 +25,9 @@ eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.de
 /***/ }),
 
 /***/ 142:
-/*!*************************************!*\
-  !*** D:/APP-XJYT/common/requset.js ***!
-  \*************************************/
+/*!***************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/requset.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -60,9 +60,9 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ }),
 
 /***/ 287:
-/*!***********************************!*\
-  !*** D:/APP-XJYT/common/utils.js ***!
-  \***********************************/
+/*!*************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/utils.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -84,9 +84,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ }),
 
 /***/ 4:
-/*!******************************!*\
-  !*** D:/APP-XJYT/pages.json ***!
-  \******************************/
+/*!********************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -96,9 +96,9 @@ eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset
 /***/ }),
 
 /***/ 451:
-/*!**********************************************************!*\
-  !*** D:/APP-XJYT/components/uni-swipe-action/mpother.js ***!
-  \**********************************************************/
+/*!************************************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mpother.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -108,9 +108,9 @@ eval("/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, 
 /***/ }),
 
 /***/ 452:
-/*!*****************************************************!*\
-  !*** D:/APP-XJYT/components/uni-swipe-action/mp.js ***!
-  \*****************************************************/
+/*!*******************************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mp.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -132,9 +132,9 @@ eval("/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_requir
 /***/ }),
 
 /***/ 57:
-/*!**************************************!*\
-  !*** D:/APP-XJYT/common/u-charts.js ***!
-  \**************************************/
+/*!****************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/u-charts.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -155,9 +155,9 @@ eval("module.exports = {\"_from\":\"@dcloudio/uni-stat@next\",\"_id\":\"@dcloudi
 /***/ }),
 
 /***/ 7:
-/*!***********************************************!*\
-  !*** D:/APP-XJYT/pages.json?{"type":"style"} ***!
-  \***********************************************/
+/*!*************************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"style"} ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -167,14 +167,14 @@ eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.de
 /***/ }),
 
 /***/ 8:
-/*!**********************************************!*\
-  !*** D:/APP-XJYT/pages.json?{"type":"stat"} ***!
-  \**********************************************/
+/*!************************************************************!*\
+  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"stat"} ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;var _default = { \"appid\": \"__UNI__1EA8345\" };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJzR0FBZSxFQUFDLFNBQVEsZ0JBQVQsRSIsImZpbGUiOiI4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQge1wiYXBwaWRcIjpcIl9fVU5JX18xRUE4MzQ1XCJ9Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///8\n");
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;var _default = { \"appid\": \"__UNI__DD12265\" };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJzR0FBZSxFQUFDLFNBQVEsZ0JBQVQsRSIsImZpbGUiOiI4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQge1wiYXBwaWRcIjpcIl9fVU5JX19ERDEyMjY1XCJ9Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///8\n");
 
 /***/ })
 
