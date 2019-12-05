@@ -12,10 +12,10 @@
             </view>
             <view class="small">
                 <text class="ser">
-                     矿机数量:<text class="smallxx1">{{mill}}台</text>
+                     矿机数量:<text class="smallxx1">{{instant.sale_num}}台</text>
                 </text>
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{instant.sale_money}}</text>
                 </text>
             </view>
             <view class="small">
@@ -25,23 +25,23 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{instant.order_num}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <view>
                     <text>
-                        创建时间:<text class="smallxx1">{{set_time}}</text>
+                        创建时间:<text class="smallxx1">{{instant.set_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        支付时间:<text class="smallxx1">{{pay_time}}</text>
+                        支付时间:<text class="smallxx1">{{instant.pay_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        确认时间:<text class="smallxx1">{{confirm_time}}</text>
+                        确认时间:<text class="smallxx1">{{instant.confirm_time}}</text>
                     </text>
                 </view>
             </view>
@@ -54,10 +54,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{instant.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{instant.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -97,19 +97,13 @@
     export default {
         data(){
             return {
+                instant:'',
                 type:'买入',
                 state:'',
                 cander:'',
-                mill:'',
                 price:'',
                 hberd:'',
                 rmb:'',
-                x:'',
-                set_time:'',
-                pay_time:'',
-                confirm_time:'',
-                name:'',
-                contact:'',
                 frte:true,
                 checkall:'查看全部'
             }
@@ -124,14 +118,9 @@
             if(that.state == 103) {
                 that.state = '待审核'
             }
-            that.mill = that.cander[0][0].sale_num
-            that.price = that.cander[0][0].sale_money
-            that.x = that.cander[0][0].order_num
-            that.name = that.cander[0][0].name
-            that.contact = that.cander[0][0].mobile
-            that.confirm_time = that.cander[0][0].confirm_time
-            that.set_time = that.cander[0][0].set_time
-            that.pay_time = that.cander[0][0].pay_time
+            
+            that.instant = that.cander[0][0]
+            that.price = that.instant.sale_money
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

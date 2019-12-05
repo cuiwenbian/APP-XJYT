@@ -85,6 +85,7 @@
 			return {
 				num: '',
 				ber: '',
+				
 				nuber: '',
 				fee: '',
 				month_profit: '0',
@@ -146,6 +147,7 @@
 					month: teran
 				},
 				success(res) {
+					console.log(res)
 					var seront = res.data.data
 					var ention = res.data.data.profit_records
 					that.ention = ention
@@ -155,8 +157,6 @@
 						that.flag=false
 					}
 					that.month_profit = seront.month_profit
-					that.add_item = ention[0].add_time
-					that.numm = ention[0].num
 				}
 			})
 		},
@@ -194,8 +194,6 @@
 								that.flag=false
 							}
                     		that.month_profit = seront.month_profit
-                    		that.add_item = ention[0].add_time
-                    		that.numm = ention[0].num
                     	}
                     })
                 }
@@ -220,8 +218,6 @@
 								that.flag=false
 							}
                     		that.profit = seron.month_bill
-                    		that.add_item = entin[0].add_time
-                    		that.numm = entin[0].num
                     	}
                     })
                 }
@@ -278,8 +274,6 @@
 							that.flag=false
 						}
 						that.month_profit = seront.month_profit
-						that.add_time = ention[0].add_time
-						that.numm = ention[0].num
 					}
 				})
 			},
@@ -305,8 +299,6 @@
 							that.flag=false
 						}
 						that.profit = seron.month_bill
-						that.add_item = entin[0].add_time
-						that.numm = entin[0].num
 					}
 				})
 			},

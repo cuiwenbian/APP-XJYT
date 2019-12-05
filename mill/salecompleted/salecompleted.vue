@@ -12,10 +12,10 @@
             </view>
             <view class="small">   
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{coffee.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1">{{mill}}</text>台
+                    矿机数量:<text class="smallxx1">{{coffee.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -25,26 +25,26 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{coffee.order_num}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{set_time}}</text>
+                    创建时间:<text class="smallxx1">{{coffee.set_time}}</text>
                 </text>
                 <view>
                     <text>
-                        支付时间:<text class="smallxx1">{{pay_time}}</text>
+                        支付时间:<text class="smallxx1">{{coffee.pay_time}}</text>
                     </text>
                 </view>
                <view>
                     <text>
-                        确认时间:<text class="smallxx1">{{confirm_time}}</text>
+                        确认时间:<text class="smallxx1">{{coffee.confirm_time}}</text>
                     </text>
                 </view>
                 <view>
                      <text>
-                         完成时间:<text class="smallxx1">{{finish_time}}</text>
+                         完成时间:<text class="smallxx1">{{coffee.finish_time}}</text>
                      </text>
                  </view>
             </view>
@@ -57,10 +57,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{coffee.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{coffee.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -99,17 +99,10 @@
             return {
                 type:'卖出',
                 state:'',
-                mill:'',
                 price:'',
                 rmb:'',
-                x:'',
-                pay_time:'',
-                name:'',
-                set_time:'',
-                finish_time:'',
-                confirm_time:'',
+                coffee:'',
                 nuecv:'',
-                contact:'',
                 italn:'',
                 frte:true,
                 checkall:'查看全部'
@@ -125,15 +118,8 @@
             if(that.state == 104) {
                 that.state = '已完成'
             }
-            that.mill = italn[0][0].sale_num
+            that.coffee = italn[0][0]
             that.price = italn[0][0].sale_money
-            that.x = italn[0][0].order_num
-            that.name = italn[0][0].name
-            that.contact = italn[0][0].mobile
-            that.pay_time = italn[0][0].pay_time
-            that.set_time = italn[0][0].set_time
-            that.confirm_time = italn[0][0].confirm_time
-            that.finish_time = italn[0][0].finish_time
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

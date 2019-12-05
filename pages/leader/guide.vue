@@ -49,11 +49,6 @@
                 //判断到最后一张后，自动转向进入首页
                 if (e.detail.current == 2) {
 					this.indicator=false;
-                    // setTimeout(function() {
-                    //     uni.redirectTo({
-                    //        url: '/pages/index/index'
-                    //     });
-                    // }, 1000)
                 }else{
 					this.indicator=true;
 				}
