@@ -26,7 +26,6 @@
     onShow() {
         var that = this
         uni.request({
-
             url:this.url + "usermachine/agreement/",
             method:'GET',
             header:{
@@ -69,9 +68,6 @@
         aaa:function(){
            const downloadTask = uni.downloadFile({
                 url: this.url+"media/用户服务协议.pdf",
-                // header:{
-                //      Authorization:'JWT'+' '+this.global_.token
-                // },//仅为示例，并非真实的资源
                 success: (res) => {
                     console.log(res)
                     if (res.statusCode === 200) {
@@ -80,7 +76,6 @@
                             title:'下载成功',
 							duration:3000
                         })
-						//res={tempFilePath:tempFilePath}
                     }               
                 }
             });

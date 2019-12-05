@@ -3,12 +3,16 @@
 	<view class="container">
 		<view class="line"></view>
 		<view class="list">
-			<image class="icon" src="../../static/images/icon-email.png" mode=""></image>
+			<view class="icon">
+				<image src="../../static/images/icon-email.png" style="width:38rpx;height:30rpx;" mode=""></image>
+			</view>
 			<view class="enter" :value='email'>{{email}}</view>
 		</view>
 		<view class="line"></view>
 		<view class="list">
-			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
+			<view class="icon">
+				<image src="../../static/images/icon-code.png" style="width:36rpx;height:42rpx;" mode=""></image>
+			</view>
 			<input class="enter enter1" type="number" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
 			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
@@ -153,7 +157,7 @@
 		width:60rpx;
 		height: 60rpx;
 		margin-right: 20rpx;
-		margin-top:30rpx;
+		margin-top:38rpx;
 	}
 	.enter{
 		float: left;
@@ -170,23 +174,23 @@
 		float:right;
 		width:200rpx;
 		height:50rpx;
-		background: #f2f2f2;
-		border: 1rpx solid #797979;
-		border-radius: 50rpx;
-		font-size: 24rpx;
+		background:rgba(244,244,244,1);
+		border:1px solid rgba(226, 226, 226, 1);
+		border-radius:25px;
+		font-size: 26rpx;
 		text-align: center;
 		line-height: 50rpx;
 		margin-top:35rpx;
-		color:#333;
+		color:#666666;
 	}
 	.getcode1{
 		float:right;
 		width:200rpx;
 		height:50rpx;
-		background: #f2f2f2;
-		border: 1rpx solid #B2B2B2;
-		border-radius: 50rpx;
-		font-size: 24rpx;
+		background:rgba(244,244,244,1);
+		border:1px solid rgba(226, 226, 226, 1);
+		border-radius: 25rpx;
+		font-size: 26rpx;
 		text-align: center;
 		line-height: 50rpx;
 		margin-top:35rpx;
@@ -194,12 +198,13 @@
 	}
 	.save{
 		margin: 100rpx auto;
-		width:654rpx;
-		height:90rpx;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
 		line-height: 90rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 </style>

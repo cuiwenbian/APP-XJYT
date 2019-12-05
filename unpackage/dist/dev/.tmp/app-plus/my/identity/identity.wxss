@@ -3,19 +3,22 @@ page{
   background: #EDEDED;
 }
 .line{
-	line-height: 80rpx;
+	line-height: 120rpx;
 	font-size: 32rpx;
-	color:#797979;
+	color:#333333;
 	padding-left: 24rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }
 .enter{
+	width:710rpx;
+	margin:0 auto;
   padding-left: 30rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #fff;
   overflow: hidden;
+  border-radius: 5rpx;
 }
 .enters{
 	border-bottom: 1rpx solid #f2f2f2;
@@ -68,6 +71,7 @@ page{
 	line-height: 100rpx;
 	font-size: 30rpx;
 	text-align: center;
+	color:#999999;
 }
 .up-card{
 	display: block;
@@ -100,9 +104,9 @@ page{
 .line2{
   width:100%;
   height:2rpx;
-  border-top:2rpx solid #ccc;
   position: relative;
   margin-top:50rpx;
+  margin-bottom: 30rpx;
 }
 .reque{
   width:200rpx;
@@ -156,60 +160,28 @@ page{
   overflow: hidden;
 }
 .changeBtn1{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 80%;
-  height: 80rpx;
-  font-size: 30rpx;
-  margin:25rpx auto;
-  background-color:#DCDCDC;
-  color: #fff;
-  margin-bottom: 25rpx;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 15rpx;
-  border: none;
+	 margin:25rpx auto;
+	width:690rpx;
+	height:90rpx;
+	background:rgba(153,153,153,1);
+	border-radius:5rpx;
+	text-align: center;
+	line-height: 90rpx;
+	color: #fff;
+	font-size: 30rpx;
+	border: none;
 }
 .changeBtn2{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 80%;
-  height: 90rpx;
-  font-size: 30rpx;
-  margin:25rpx auto;
-  background-color:#0A1117;
-  color: #fff;
-  margin-bottom: 25rpx;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 15rpx;
-  border: none;
+	 margin:25rpx auto;
+	width:690rpx;
+	height:90rpx;
+	background:#0A1117;
+	border-radius:5rpx;
+	text-align: center;
+	line-height: 90rpx;
+	color: #fff;
+	font-size: 30rpx;
+	border: none;
 }
 .shade{
 	position: fixed;

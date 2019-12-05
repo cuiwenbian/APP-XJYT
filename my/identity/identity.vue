@@ -19,24 +19,24 @@
 		<view class="line">上传身份证</view>
 		<view class="uploadfile">
 			<view class="list"  v-show="p_flag" @click='chooseImageTap' :data-flag='positive'>
-				<text class='tips'>上传身份证<text style='color:red'>人像</text>面</text>
-				<image class="up-card" src="../../static/images/shen1.jpg" mode=""></image>
-				<view class='shen1-1'  :data-flag='positive'>+</view>
-				<text class="click" >点击上传</text>
+				<text class='tips'>上传身份证<text style='color:#333333'>人像</text>面</text>
+				<image class="up-card" src="../../static/images/shen1.png" mode=""></image>
+				<!-- <view class='shen1-1'  :data-flag='positive'>+</view>
+				<text class="click" >点击上传</text> -->
 			</view>
 			<view class="list"  v-show="!p_flag" @click='chooseImageTap' :data-flag='positive'>
-				<text class='tips'>上传身份证<text style='color:red'>人像</text>面</text>
+				<text class='tips'>上传身份证<text style='color:#333333'>人像</text>面</text>
 				<image class='prev' :src="p_url" :data-src="p_url" @click='chooseImageTap' :data-flag='positive' style="width:250rpx;height:150rpx;"></image>
 			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>	
 			<view class="list" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverse'>
-				<text class='tips'>上传身份证<text style='color:red'>国徽</text>面</text>
-				<image class="up-card" src="../../static/images/shen2.jpg" mode=""></image>
-				<view class='shen1-1'  :data-flag='positive'>+</view>
-				<text class="click" >点击上传</text>
+				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
+				<image class="up-card" src="../../static/images/shen2.png" mode=""></image>
+				<!-- <view class='shen1-1'  :data-flag='positive'>+</view>
+				<text class="click" >点击上传</text> -->
 			</view>
 			<view class="list" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverse'>
-				<text class='tips'>上传身份证<text style='color:red'>国徽</text>面</text>
+				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
 				<image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverse' style="width:250rpx;height:150rpx;"></image>
 			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>
@@ -239,7 +239,7 @@
 							console.log(res)
 					 	if(res.statusCode==400){
 					 		uni.showToast({
-					 			title:'图片太大，请重新上传',
+					 			title:'身份证号已存在，请重新认证',
 					 			icon:'none',
 					 			duration:2000
 					 		})
@@ -307,17 +307,20 @@
 	  background: #EDEDED;
 	}
 	.line{
-		line-height: 80rpx;
+		line-height: 120rpx;
 		font-size: 32rpx;
-		color:#797979;
+		color:#333333;
 		padding-left: 24rpx;
 		box-sizing: border-box;
 	}
 	.enter{
+		width:710rpx;
+		margin:0 auto;
 	  padding-left: 30rpx;
 	  box-sizing: border-box;
 	  background: #fff;
 	  overflow: hidden;
+	  border-radius: 5rpx;
 	}
 	.enters{
 		border-bottom: 1rpx solid #f2f2f2;
@@ -370,6 +373,7 @@
 		line-height: 100rpx;
 		font-size: 30rpx;
 		text-align: center;
+		color:#999999;
 	}
 	.up-card{
 		display: block;
@@ -402,9 +406,9 @@
 	.line2{
 	  width:100%;
 	  height:2rpx;
-	  border-top:2rpx solid #ccc;
 	  position: relative;
 	  margin-top:50rpx;
+	  margin-bottom: 30rpx;
 	}
 	.reque{
 	  width:200rpx;
@@ -430,6 +434,7 @@
 	.c{
 	  width:100%;
 	  height:80rpx;
+	  
 	}
 	.biaozhun{
 	  width:100%;
@@ -452,35 +457,30 @@
 	  overflow: hidden;
 	}
 	.changeBtn1{
-	  display: flex;
-	  width: 80%;
-	  height: 80rpx;
-	  font-size: 30rpx;
-	  margin:25rpx auto;
-	  background-color:#DCDCDC;
-	  color: #fff;
-	  margin-bottom: 25rpx;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  border-radius: 15rpx;
-	  border: none;
+		 margin:25rpx auto;
+		width:690rpx;
+		height:90rpx;
+		background:rgba(153,153,153,1);
+		border-radius:5rpx;
+		text-align: center;
+		line-height: 90rpx;
+		color: #fff;
+		font-size: 30rpx;
+		border: none;
 	}
 	.changeBtn2{
-	  display: flex;
-	  width: 80%;
-	  height: 90rpx;
-	  font-size: 30rpx;
-	  margin:25rpx auto;
-	  background-color:#0A1117;
-	  color: #fff;
-	  margin-bottom: 25rpx;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  border-radius: 15rpx;
-	  border: none;
+		 margin:25rpx auto;
+		width:690rpx;
+		height:90rpx;
+		background:#0A1117;
+		border-radius:5rpx;
+		text-align: center;
+		line-height: 90rpx;
+		color: #fff;
+		font-size: 30rpx;
+		border: none;
 	}
+	
 	.shade{
 		position: fixed;
 		top:0;
