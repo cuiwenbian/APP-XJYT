@@ -1,7 +1,7 @@
 <template>
 	<!-- 我的钱包 -->
 	<view class="container">
-		<image class="bg" src="../../static/images/wallet-bg.png" mode="">
+		<image class="bg" src="../../static/images/banners.png" mode="">
 			<view class="bgTop">
 				<view class="line"></view>
 				<view class="txt">Filecoin</view>
@@ -188,6 +188,7 @@
 	.bg{
 		width:100%;
 		height:300rpx;
+		display: block;
 		position: relative;
 	}
 	.bgTop{
@@ -204,6 +205,7 @@
 	.txt{
 		line-height: 50rpx;
 		margin-left:56rpx;
+		color:#333333;
 	}
 	.mess{
 		width:654rpx;
@@ -212,13 +214,14 @@
 	}
 	.num{
 		float: left;
-		color:#121212;
-		font-size: 30rpx;
+		font-size:30rpx;
+		color:#333333;
 		line-height:70rpx;
 	}
 	.number{
-		color:#F0AD4E;
-		font-size: 42rpx;
+		font-size:50rpx;
+		color:#DFAF72;
+		font-weight:bold;
 	}
 	.trade{
 		float: right;

@@ -19,7 +19,7 @@
 		<view class="enter" style="position: relative;">
 			<text class="title">验 &nbsp;证&nbsp; 码</text>
 			<button :class="flag?'getcode':'getcode1'" @click='getCodeBtn' :disabled="disabled">{{codename}}</button>
-			<input class="number" style="width:230rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
+			<input class="number" style="width:250rpx;float: left;margin-left:10rpx" type="text"  @input='getCodeValue' :value="code" placeholder="请输入短信验证码"/>
 		</view>
 		<view class='btn' @click='register'>注册</view>
 
@@ -282,13 +282,15 @@
 	}
 	.getcode {
 		border-radius: 50rpx;
-		width:220rpx;
-		height: 60rpx;
-		font-size: 30rpx;
-		background:#EBEBEB;
-		color: #333;
+		width:180rpx;
+		height: 50rpx;
+		font-size: 10rpx;
+		background:rgba(243,243,243,0.5);
+		/* border:1px solid rgba(226, 226, 226, 0.66); */
+		border-radius:25px;
+		color: #fff;
 		text-align: center;
-		line-height: 60rpx;
+		line-height: 50rpx;
 		position: absolute;
 		bottom: 20rpx;
 		right: 0;
@@ -307,24 +309,25 @@
 		right: 0;
 	}
 	.btn{
-		width:680rpx;
-		height:80rpx;
+		width:664rpx;
+		height:88rpx;
 		background: #fff;
 		border-radius: 50rpx;
 		margin:80rpx auto;
 		color:#333;
 		text-align: center;
-		line-height: 80rpx;
+		line-height: 88rpx;
 	}
 	.goback{
-		width:280rpx;
-		height:57rpx;
-		border-radius: 30rpx;
-		border: 1px solid #fff;
+		width:263rpx;
+		height:58rpx;
+		border:1px solid rgba(255, 255, 255, 1);
+		border-radius:29px;
 		margin:80rpx auto;
-		color:#fff;
-		font-size: 26rpx;
-		line-height: 57rpx;
+		font-weight:400;
+		font-size: 24rpx;
+		color:rgba(177,177,177,1);
+		line-height: 58rpx;
 		text-align: center;
 	}
 	.shade{

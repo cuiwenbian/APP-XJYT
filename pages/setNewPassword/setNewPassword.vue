@@ -145,12 +145,13 @@
 	}
 	.next{
 		margin: 100rpx auto;
-		width:600rpx;
-		height:90rpx;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
-		line-height: 90rpx;
+		line-height: 88rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 </style>

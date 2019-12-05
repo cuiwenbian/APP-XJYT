@@ -14,12 +14,12 @@
 		<view class="set">设置交易密码</view>
 		<view class="list">
 			<input class="code" type='digit' :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
-			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
+			<image :class="isPassword?'close':'cloose'" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
 			<input class="code" type='digit' :password="isPassword1" :value="password1" @input="getPassword1" placeholder="请再次输入交易密码" />
-			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
+			<image :class="isPassword1?'close':'cloose'" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="setPwd">确认</view>
 		<view class="shade" v-show="shade">
@@ -232,38 +232,45 @@
 		float:right;
 		width:200rpx;
 		height:50rpx;
-		background: #f2f2f2;
-		border: 1rpx solid #797979;
-		border-radius: 50rpx;
-		font-size: 24rpx;
+		background:rgba(244,244,244,1);
+		border:1px solid rgba(226, 226, 226, 1);
+		border-radius:25px;
+		font-size: 26rpx;
 		text-align: center;
 		line-height: 50rpx;
-		margin-top:25rpx;
+		margin-top:30rpx;
 		margin-right: 48rpx;
-		color:#333;
+		color:#666666;
 	}
 	.getcode1{
 		float:right;
 		width:200rpx;
 		height:50rpx;
-		background: #f2f2f2;
-		border: 1rpx solid #B2B2B2;
-		border-radius: 50rpx;
-		font-size: 24rpx;
+		background:rgba(244,244,244,1);
+		border:1px solid rgba(226, 226, 226, 1);
+		border-radius: 25rpx;
+		font-size: 26rpx;
 		text-align: center;
 		line-height: 50rpx;
-		margin-top:25rpx;
+		margin-top:30rpx;
 		margin-right: 48rpx;
 		color:#B2B2B2;
 	}
 	.close{
 		float: right;
 		display: block;
-		width:50rpx;
-		height:25rpx;
+		width:34rpx;
+		height:15rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
-		
+	}
+	.cloose{
+		float: right;
+		display: block;
+		width:34rpx;
+		height:24rpx;
+		margin-right:48rpx;
+		margin-top:40rpx;
 	}
 	.linee{
 		height:20rpx;
@@ -275,13 +282,14 @@
 	}
 	.save{
 		margin: 100rpx auto 0;
-		width:654rpx;
-		height:90rpx;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
-		line-height: 90rpx;
+		line-height: 88rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 	.shade{
 		position: absolute;

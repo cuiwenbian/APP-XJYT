@@ -131,7 +131,7 @@ export default {
 			var a = that.arr.join(',');
 			console.log(a)
 			uni.request({
-				url:this.url + 'buildorders/',
+				url:this.url+'buildorders/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -144,7 +144,6 @@ export default {
 					var asr = JSON.stringify(res.data.data);
 					if (res.statusCode == 401) {
 						uni.showModal({
-						    
 						    content: '未进行实名认证',
 							confirmText:'去验证',
 						    success: function (res) {

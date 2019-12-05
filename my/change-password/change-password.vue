@@ -9,12 +9,12 @@
 		<view class="list">
 			<view class="title">交易密码</view>
 			<input class="code" type='digit' :password="isPassword" :value="newPassword" @input='getNewPassword' placeholder="请输入新的交易密码" />
-			<image class="close" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
+			<image :class="isPassword?'close':'cloose'" :src="isPassword?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show" mode=""></image>
 		</view>
 		<view class="linee"></view>
 		<view class="list">
 			<input class="code" type='digit' :password="isPassword1" :value="newPassword1" @input='getNewPassword1'  placeholder="请再次输入新密码" />
-			<image class="close" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
+			<image :class="isPassword1?'close':'cloose'" :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 		</view>
 		<view class="save"  @click="changePassword">确认修改</view>
 		<view class="other" @click="other">找回密码</view>
@@ -166,8 +166,16 @@
 	.close{
 		float: right;
 		display: block;
-		width:50rpx;
-		height:25rpx;
+		width:34rpx;
+		height:15rpx;
+		margin-right:48rpx;
+		margin-top:40rpx;
+	}
+	.cloose{
+		float: right;
+		display: block;
+		width:34rpx;
+		height:24rpx;
 		margin-right:48rpx;
 		margin-top:40rpx;
 	}
@@ -186,19 +194,20 @@
 	}
 	.save{
 		margin: 100rpx auto 0;
-		width:654rpx;
-		height:90rpx;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
-		line-height: 90rpx;
+		line-height: 88rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 	.other{
 		line-height: 100rpx;
 		float: right;
 		margin-right:48rpx;
-		color:#8080FF;
-		font-size: 28rpx;
+		color:#41BEC9;
+		font-size: 24rpx;
 	}
 </style>

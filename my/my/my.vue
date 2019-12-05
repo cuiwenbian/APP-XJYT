@@ -12,35 +12,51 @@
 		<view class="line"></view>
     	<view class="list">
     		<view class="listItem" @click="wallet">
-				<image class="pic" src="../../static/images/my-1.png" mode=""></image>
+				<view class="pic">
+				<image  src="../../static/images/icon-wallet.png" style="width:50rpx;height:44rpx;" mode=""></image>
+				</view>
 				<view class="txt">我的钱包</view>
 			</view>
 			<view class="listItem" @click="address">
-				<image class="pic"  src="../../static/images/my-2.png" mode=""></image>
+				<view class="pic">
+					<image   src="../../static/images/icon-address.png" style="width:40rpx;height:46rpx; " mode=""></image>
+				</view>
 				<view class="txt" >提币地址</view>
 			</view>
 			<view class="listItem" @click="certification">
-				<image class="pic" src="../../static/images/my-3.png" mode=""></image>
+				<view class="pic">
+					<image  src="../../static/images/icon-identity.png" style="width:48rpx;height:36rpx;" mode=""></image>
+				</view>
 				<view class="txt" >实名认证</view> 
 			</view>
 			<view class="listItem" @click="mymachine">
-				<image class="pic" src="../../static/images/my-4.png" mode=""></image>
+				<view class="pic">
+					<image  src="../../static/images/icon-machine.png" style="width:46rpx;height:40rpx;" mode=""></image>
+				</view>
 				<view class="txt" >我的矿机</view>
 			</view>
 			<view class="listItem" @click="tradePassword">
-				<image class="pic" src="../../static/images/my-5.png" mode=""></image>
+				<view class="pic">
+					<image  src="../../static/images/icon-trade.png" style="width:43rpx;height:52rpx;" mode=""></image>
+				</view>
 				<view class="txt" >交易密码</view>
 			</view>
 			<view class="listItem" @click="loginPassword">
-				<image class="pic" src="../../static/images/my-6.png" mode=""></image>
+				<view class="pic">
+					<image  src="../../static/images/icon-login.png" style="width:43rpx;height:52rpx;" mode=""></image>
+				</view>
 				<view class="txt" >登录密码</view>
 			</view>
 			<view class="listItem"  @click="bindEmail" >
-				<image class="pic"  src="../../static/images/my-7.png" mode=""></image>
+				<view class="pic">
+					<image   src="../../static/images/icon-emails.png" style="width:48rpx;height:36rpx;" mode=""></image>
+				</view>
 				<view class="txt" >邮箱绑定</view>
 			</view>
 			<view class="listItem" @click="suggest">
-				<image class="pic" src="../../static/images/my-8.png" mode=""></image>
+				<view class="pic">
+					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:46rpx;" mode=""></image>
+				</view>
 				<view class="txt" >建议反馈</view>
 			</view>	
     	</view>
@@ -378,5 +394,6 @@
 		line-height: 20rpx;
 		font-size: 28rpx;
 		text-align: center;
+		color:#333333;
 	}
 </style>

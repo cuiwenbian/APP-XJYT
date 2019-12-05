@@ -147,13 +147,14 @@
 		color:#333;
 	}
 	.save{
-		margin: 100rpx auto;
-		width:654rpx;
-		height:90rpx;
+		margin: 100rpx auto 0;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
 		border-radius: 80rpx;
 		text-align: center;
-		line-height: 90rpx;
+		line-height: 88rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 </style>

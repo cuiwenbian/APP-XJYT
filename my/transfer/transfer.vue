@@ -10,12 +10,14 @@
 		<view class="box1">
 			<view class="top">
 				<view class="lab">转账地址</view>
-				<input class="address" type="text" @input='getTranferAdd' :value='wallet_value' placeholder="请输入转账地址" placeholder-style="color:#DADADA">
-				<image class="right" src="../../static/images/jiantou3.png"  @click="link"></image>
+				<input class="address" type="text" @input='getTranferAdd' :value='wallet_value' placeholder="请输入转账地址" placeholder-style="color:#999999">
+				<view class="right" @click="link">
+					<image  class="in" src="../../static/images/jiantou3.png"  ></image>
+				</view>
 			</view>
 			<view class="top1">
 				<view class="lab">提币数量</view>
-				<input class="address" type="text" @input='getFilNum' v-model="moder" placeholder="请输入提币数量" placeholder-style="color:#DADADA">
+				<input class="address" type="text" @input='getFilNum' v-model="moder" placeholder="请输入提币数量" placeholder-style="color:#999999">
 				<view class="all" @click="fusre">全部</view>
 			</view>
 		</view>
@@ -341,14 +343,16 @@
 	.desc{
 		font-size: 30rpx;
 		line-height: 80rpx;
+		color:#5B5B5B;
 	}
 	.num{
 		font-size:30rpx;
-		color:#555555;
+		color:#5B5B5B;
 	}
 	.number{
-		font-size:56rpx;
-		color:#E4BF8C;
+		font-size:50rpx;
+		color:#DFAF72;
+		font-weight:bold;
 	}
 	.top{
 		height:147rpx;
@@ -359,21 +363,26 @@
 		margin-left:48rpx;
 		line-height: 147rpx;
 		font-size: 26rpx;
-		color:#9F9F9F;
+		color:#333333;
 	}
 	.address{
 		float: left;
-		width:300rpx;
+		width:350rpx;
 		height:147rpx;
 		margin-left:20rpx;
 		font-size: 26rpx;
 	}
 	.right{
 		float: right;
-		width:30rpx;
-		height:35rpx;
-		margin-top:56rpx;
-		margin-right:24rpx;
+		width:100rpx;
+		height:100%;
+		
+	}
+	.in{
+		width:15rpx;
+		height:20rpx;
+		margin-top: 65rpx;
+		margin-left: 50rpx;
 	}
 	.all{
 		float:right;
@@ -391,12 +400,13 @@
 	}
 	.next{
 		margin: 100rpx auto;
-		width:654rpx;
-		height:90rpx;
+		width:690rpx;
+		height:88rpx;
 		background: #0A1117;
-		border-radius: 80rpx;
+		border-radius:5px;
 		text-align: center;
-		line-height: 90rpx;
+		line-height: 88rpx;
 		color: #fff;
+		font-size: 30rpx;
 	}
 </style>
