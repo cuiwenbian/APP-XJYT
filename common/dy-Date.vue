@@ -409,7 +409,7 @@
         line-height: 48rpx;
         text-align: center;
         border-radius: 60rpx;
-        border: 2rpx solid #F6F6F6;
+        border: 2rpx solid #E2E2E2;
         background-color: #FFFFFF;
 		font-size: 24rpx;
 	}
@@ -420,7 +420,7 @@
         line-height: 48rpx;
         text-align: center;
         border-radius: 60rpx;
-        border: 2rpx solid #F6F6F6;
+        border: 2rpx solid #E2E2E2;
         background-color: #FFFFFF;
         font-size: 24rpx;
     }

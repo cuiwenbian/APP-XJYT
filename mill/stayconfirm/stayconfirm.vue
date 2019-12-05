@@ -29,12 +29,14 @@
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
-                <text>
-                    创建时间:<text class="smallxx1">{{set_time}}</text>
-                </text>
+                <view>
+                    <text>
+                        创建时间:<text class="samkx">{{set_time}}</text>
+                    </text>
+                </view>
                 <view >
                     <text>
-                        支付时间：<text class="smallxx1">{{pay_time}}</text>
+                        支付时间:<text class="samkx">{{pay_time}}</text>
                     </text>
                 </view>
             </view>
@@ -97,6 +99,7 @@
                 x:'',
                 fanta:'',
                 pay_time:'',
+                price:'',
                 set_time:'',
                 name:'',
                 contact:'',
@@ -200,7 +203,10 @@
      padding-left: 40rpx;
  }
  .smallxx1{
-     margin-left: 48rpx;
+     padding-left: 48rpx;
+ }
+ .samkx{
+     padding-left: 48rpx;
  }
  .primary {
      width: 180rpx;

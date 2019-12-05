@@ -30,9 +30,12 @@
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
-                <text>
-                    创建时间:<text class="smallxx1">{{set_time}}</text>
-                </text>
+                <view>
+                    <text>
+                        创建时间:<text class="smallxx1">{{set_time}}</text>
+                    </text>
+                </view>
+                
                 <view>
                     <text>
                         支付时间：<text class="smallxx1">{{pay_time}}</text>

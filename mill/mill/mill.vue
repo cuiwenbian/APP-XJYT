@@ -2,8 +2,10 @@
 	<view class="container">
 		<view class="height"></view>
 		<view class="box1">
-			<view class="colo">矿机交易</view>
-			<view class="many">{{ many }}台</view>
+            <image src="../../static/images/banner.png" class="banner">
+                <view class="colo">矿机交易</view>
+                <view class="many">{{ many }}</view>
+            </image>
 		</view>
 		<view class="box2">
 			<view class="market">
@@ -12,12 +14,12 @@
 			</view>
 		</view>
 		<view class="box3">
-			<text>可出售</text>
+			<view class="kcs">可出售</view>
 			<button class="btn" @click="btn2">出售</button>
 		</view>
 		<view v-if="flag">
-			<image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
-			<view class="infoo">没有可出售矿机</view>
+			<image class="transfer" src="../../static/images/add.png" mode=""></image>
+			<view class="infoo">没有可售矿机</view>
 		</view>
 		<block v-else>
 		<checkbox-group class="block" @change="CheckboxChange" >
@@ -78,14 +80,19 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				if (res.statusCode == 200) {
+                console.log(res)
+                var cer = res.data.data.length
+                console.log(cer)
+				
 					that.user_id = res.data.data;
 					that.many = res.data.data.length
-					that.machine_id=res.data.data[length].machine_id;
-				}
-				if (res.statusCode == 205) {
+					// this.machine_id=res.data.data[length].machine_id;
+                    // console.log(this.machine_id)
+				if (cer == 0) {
 					that.flag = true;
-				}
+				}else {
+                    that.flag = false
+                }
 			}
 		});
 	},
@@ -124,7 +131,7 @@ export default {
 			var a = that.arr.join(',');
 			console.log(a)
 			uni.request({
-				url:'http://192.168.1.208:8000/api/v1.1.0/buildorders/',
+				url:this.url + 'buildorders/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -197,45 +204,48 @@ export default {
 	background-color: #121212;
 }
 .box1 {
-	height: 400rpx;
-	background-color: #091219;
+	height: 330rpx;
+}
+.banner{
+    height: 330rpx;
+    position: relative;
+    width: 100%;
 }
 .colo {
-	float: left;
-	width: 100%;
-	height: 40rpx;
-	font-size: 40rpx;
-	text-align: center;
-	padding-top: 120rpx;
-	color: #ffffff;
+    position: absolute;
+    top: 103rpx;
+    color: #FFFFFF;
+	font-size: 30rpx;
+    padding-left: 320rpx;
+    box-sizing: border-box;
 }
 .many {
-	float: left;
-	width: 100%;
-	height: 60rpx;
-	padding-left: 348rpx;
+    position: absolute;
+    top: 140rpx;
+	padding-left: 366rpx;
 	box-sizing: border-box;
 	padding-top: 40rpx;
-	font-size: 28rpx;
-	color: #dcb16e;
+	font-size: 48rpx;
+	color: #DFAF72;
 }
 .box2 {
-	height: 150rpx;
+	height: 200rpx;
 	width: 100%;
 }
 .market {
 	width: 100%;
 }
 .transfer {
-	width: 130rpx;
-	height: 130rpx;
+	width: 170rpx;
+	height: 111rpx;
 	display: block;
 	margin: 150rpx auto 20rpx;
 }
 .infoo {
 	margin-left: 10rpx;
 	text-align: center;
-	font-size: 32rpx;
+    color: #999999;
+	font-size: 26rpx;
 }
 .te {
 	display: block;
@@ -253,48 +263,49 @@ export default {
 	margin-right: 90rpx;
 }
 .primary {
-	width: 220rpx;
-	height: 88rpx;
-	line-height: 88rpx;
-	color: #333333;
-	background-color: #f9f9f9;
+	width: 260rpx;
+	height: 78rpx;
+    text-align: center;
+	color: #757575;
+	background-color: #F9F9F9;
 	float: left;
-	font-size: 32rpx;
+	font-size: 30rpx;
 	margin-left: 48rpx;
-	margin-top: 40rpx;
+	margin-top: 60rpx;
 }
 .primary1 {
-	width: 220rpx;
-	height: 88rpx;
-	font-size: 32rpx;
-	line-height: 88rpx;
+	width: 260rpx;
+	height: 78rpx;
+	font-size: 30rpx;
+    text-align: center;
 	float: right;
 	margin-right: 48rpx;
-	margin-top: 40rpx;
-	background-color: #091119;
+	margin-top: 60rpx;
+	background:linear-gradient(0deg,rgba(16,14,19,1),rgba(2,21,28,1));
 	color: #f0f0f0;
 }
 .box3 {
 	width: 100%;
-	height: 100rpx;
+	height: 92rpx;
 	background-color: #f6f6f6;
 }
-.box3 text {
-	width: 108rpx;
-	line-height: 100rpx;
+.kcs {
+	width: 90rpx;
+	line-height: 92rpx;
 	float: left;
-	font-size: 30rpx;
-	margin-left: 48rpx;
+	font-size: 26rpx;
+	margin-left: 46rpx;
 	color: #b38701;
 	border-bottom: 1rpx solid #dcb16e;
 }
 .btn {
 	float: right;
+    color: #333333;
 	margin-right: 48rpx;
-	margin-top: 30rpx;
-	width: 120rpx;
-	height: 45rpx;
-	line-height: 45rpx;
+	margin-top: 16rpx;
+    text-align: center;
+	width: 140rpx;
+	height: 60rpx;
 	font-size: 24rpx;
 }
 .pagex {

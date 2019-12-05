@@ -34,12 +34,12 @@
                 </text>           
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{time_pay}}</text>
+                        支付时间:<text class="smallxx1">{{time_pay}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        确认时间：<text class="smallxx1">{{time}}</text>
+                        确认时间:<text class="smallxx1">{{time}}</text>
                     </text>
                 </view>
             </view>

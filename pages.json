@@ -95,8 +95,7 @@
                          "path":"mill/mill",
                          
 						 "style": {
-						 	"navigationStyle": "custom",
-                            "enablePullDownRefresh": true
+						 	"navigationStyle": "custom"
 						 }
 
                      },

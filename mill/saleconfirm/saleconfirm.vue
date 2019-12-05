@@ -34,7 +34,7 @@ that. <template>
                 </text>            
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{pay_time}}</text>
+                        支付时间:<text class="smallxx1">{{pay_time}}</text>
                     </text>
                 </view>
             </view>

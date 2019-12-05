@@ -3,14 +3,16 @@
 	<view class="container">
 		<view class="height"></view>
 		<view class="box">
-			<text class="assets">总资产</text>
-			<view class="number">{{num}} FIL</view>
-			<text class="coin">可用币: 
-                <text class="berot">{{ber}}</text>
-            </text>
-			<text class="lock">锁定币: 
-                <text class="berot">{{nuber}}</text>
-            </text>
+            <image src="../../static/images/yot.png" class="yot">
+                <view class="assets">总资产</view>
+                <view class="number">{{num}} FIL</view>
+                <view class="coin">可用币 
+                    <text class="berot">{{ber}}</text>
+                </view>
+                <view class="lock">锁定币
+                    <text class="berot">{{nuber}}</text>
+                </view>
+            </image>
 		</view>
 		<view class="btn">
 			<button class="primary">提币</button>
@@ -325,51 +327,62 @@
 	.box {
 		width: 100%;
 		height: 400rpx;
-		background-color: #121212;
 	}
 	.boxx {
 		height: 100%;
 	}
+    .yot{
+        height: 400rpx;
+        position: relative;
+        width: 100%;
+    }
 	.item {
 		height: 70rpx;
         font-size: 22rpx;
-		background-color: #EDEDED;
         padding-top: 20rpx;
         padding-left: 45rpx;
 		text-align: left;
 	}
 	.assets {
-		text-align: center;
-		padding-top: 80rpx;
-		height: 60rpx;
-		width: 100%;
-		float: left;
-		color: #FFFFFF;
+        height: 60rpx;
+        width: 100%;
+        position: absolute;
+        top: 75rpx;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 30rpx;
 	}
 	.number {
+        position: absolute;
+        top: 160rpx;
 		height: 300rpx;
 		padding-left: 268rpx;
 		padding-top: 40rpx;
-		color: #F0AD4E;
+		color: #DFAF72;
 	}
 	.coin {
+        position: absolute;
+        top: 340rpx;
 		float: left;
 		padding-left: 48rpx;
 		font-size: 24rpx;
 		color: #FFFFFF;
 	}
 	.lock {
-		float: right;
+        position: absolute;
+        top: 340rpx;
+        right: 0;
 		padding-right: 48rpx;
 		font-size: 24rpx;
 		color: #FFFFFF;
 	}
     .berot{
+        padding-left: 20rpx;
         font-size: 24rpx;
-        color:#F0AD4E ;
+        color:#DFAF72 ;
     }
 	.btn {
-		height: 150rpx;
+		height: 200rpx;
 		width: 100%;
 	}
 	.picker {
@@ -382,22 +395,26 @@
 		border-radius: 25rpx;
 	}
 	.primary {
-		width: 220rpx;
-		height: 88rpx;
+		width: 260rpx;
+		height: 78rpx;
+		text-align: center;
+		color: #757575;
+		background-color: #F9F9F9;
 		float: left;
+		font-size: 30rpx;
 		margin-left: 48rpx;
-		margin-top: 40rpx;
-        font-size: 32rpx;
+		margin-top: 54rpx;
 	}
 	.primary1 {
-		width: 220rpx;
-        font-size: 32rpx;
-		height: 88rpx;
-		float: right;
-		margin-right: 48rpx;
-		margin-top: 40rpx;
-		background-color: #121212;
-		color: #FFFFFF;
+        width: 260rpx;
+        height: 78rpx;
+        font-size: 30rpx;
+        text-align: center;
+        float: right;
+        margin-right: 48rpx;
+        margin-top: 54rpx;
+        background:linear-gradient(0deg,rgba(16,14,19,1),rgba(2,21,28,1));
+        color: #f0f0f0;
 	}
 	.haide {
 		width: 100%;
@@ -416,8 +433,8 @@
 	}
 	.all1 {
 		float: right;
-		font-size: 30rpx;
-		color: #333;
+		font-size: 26rpx;
+		color: #333333;
         margin-top: 20rpx;
 		margin-right: 48rpx;
 	}
@@ -467,15 +484,16 @@
 		box-sizing: border-box;
 	}
 	.tab-item {
-		width: 25%;
+		width: 20%;
 		height: auto;
 		text-align: center;
-		font-size: 30rpx;
+		font-size: 26rpx;
 		color: #777;
 	}
 	.current {
-        width: 25%;
-		color: #B39C01;
+        width: 20%;
+		color: #DFAF72;
+        font-size: 26rpx;
 		border-bottom: 2rpx solid #B39C01;
 	}
     .l{
