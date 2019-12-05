@@ -63,7 +63,10 @@ page {
     padding-left: 40rpx;
 }
 .smallxx1{
-    margin-left: 48rpx;
+    padding-left: 48rpx;
+}
+.samkx{
+    padding-left: 48rpx;
 }
 .primary {
     width: 180rpx;
