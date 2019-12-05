@@ -111,7 +111,6 @@
 			//获取验证码
 			getCodeNumber: function(e) {
 				this.getCode();
-				var _this = this;
 			},
 			//提交表单信息
 			next: function() {

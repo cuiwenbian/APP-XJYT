@@ -218,6 +218,6 @@
 }
 .current {
         color: #B39C01;
-        border-bottom: 5rpx solid #B39C01;
+        border-bottom: 2rpx solid #B39C01;
 }
 

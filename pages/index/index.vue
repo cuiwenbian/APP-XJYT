@@ -259,7 +259,7 @@
 											splitNumber:4,
 											min:_self.minn,
 											max:_self.hige,
-											axisLineColor:'#333',		
+											axisLineColor:'red',		
 											format:(val)=>{return val.toFixed(1)}
 										},
 										width: _self.cWidth*_self.pixelRatio,

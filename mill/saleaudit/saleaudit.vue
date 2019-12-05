@@ -12,10 +12,10 @@
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{information.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1">{{mill}}</text>台
+                    矿机数量:<text class="smallxx1">{{information.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -25,21 +25,21 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{information.order_num}}</text>
                 </text>
             </view>
             <view  :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{time_set}}</text>
+                    创建时间:<text class="smallxx1">{{information.set_time}}</text>
                 </text>           
                 <view>
                     <text>
-                        支付时间:<text class="smallxx1">{{time_pay}}</text>
+                        支付时间:<text class="smallxx1">{{information.pay_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        确认时间:<text class="smallxx1">{{time}}</text>
+                        确认时间:<text class="smallxx1">{{information.confirm_time}}</text>
                     </text>
                 </view>
             </view>
@@ -52,10 +52,10 @@
         </view> 
       <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{information.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{information.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -98,38 +98,28 @@
                 type:'卖出',
                 vinda:'',
                 state:'',
-                mill:'',
                 price:'',
                 rmb:'',
-                x:'',
-                time_set:'',
-                time_pay:'',
                 clorn:'',
-                time:'',
-                name:'',
-                contact:'',
                 frte:true,
-                checkall:'查看全部'
+                checkall:'查看全部',
+				information:''
             }
         },
         onLoad(option) {
             var that = this
             var vinda = JSON.parse(option.suxang)
             that.vinda = vinda
+			console.log(that.vinda)
             var clorn = that.vinda[1]
             that.clorn = that.vinda[1]
             that.state = vinda[0][0].order_status
             if(that.state == 103) {
                 that.state = '待确认'
             }
-            that.mill = that.vinda[0][0].sale_num
+			that.information=that.vinda[0][0]
+			console.log(that.information)
             that.price = that.vinda[0][0].sale_money
-            that.x = that.vinda[0][0].order_num
-            that.name = that.vinda[0][0].name
-            that.contact = that.vinda[0][0].mobile
-            that.time = that.vinda[0][0].confirm_time
-            that.time_pay = that.vinda[0][0].pay_time
-            that.time_set = that.vinda[0][0].set_time
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

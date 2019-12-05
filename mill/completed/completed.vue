@@ -228,6 +228,7 @@
      line-height: 40rpx;
      margin-top: 60rpx;
      font-size: 22rpx;
+	 padding-bottom: 20rpx;
  }
  .box1 {
      height: 78rpx;
