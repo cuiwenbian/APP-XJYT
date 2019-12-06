@@ -180,7 +180,6 @@ export default {
 				
 			});
 		},
-		
 		//返回 
 		back: function() {
 			uni.navigateBack({
@@ -196,9 +195,7 @@ export default {
 			that.user_id = item.user_id;
 			uni.navigateTo({
 				url: '../edit-address/edit-address?id=' + that.id + '&wallet_key=' + that.wallet_key + '&wallet_value=' + that.wallet_value + '&user_id=' + that.user_id,
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
+				
 			});
 		}
 	}
