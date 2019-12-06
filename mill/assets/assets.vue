@@ -131,7 +131,7 @@
 				},
 				success(res) {
 					that.num = res.data.fil_count
-					that.ber = res.data.availed_num 
+					that.ber = res.data.availed_num
 					that.nuber = res.data.locked_num
 					that.fee = res.data.fee
 				}
@@ -339,7 +339,7 @@
         height: 60rpx;
         width: 100%;
         position: absolute;
-        top: 75rpx;
+        top: 140rpx;
         text-align: center;
         color: #FFFFFF;
         font-size: 30rpx;
@@ -421,7 +421,8 @@
 	}
 	.info {
 		text-align: center;
-		font-size: 32rpx;
+        color: #999999;
+		font-size: 26rpx;
 	}
 	.all1 {
 		float: right;

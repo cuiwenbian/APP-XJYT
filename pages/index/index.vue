@@ -397,7 +397,7 @@
     .bot{
         float: left;
         line-height: 120rpx;
-        font-size: 20rpx;
+        font-size: 26rpx;
         color: #F2F2F2;
     }
     
@@ -417,7 +417,7 @@
         float: left;
         padding-right: 20rpx;
         line-height: 120rpx;
-        font-size: 20rpx;
+        font-size: 24rpx;
         color: #F2F2F2;
     }
     

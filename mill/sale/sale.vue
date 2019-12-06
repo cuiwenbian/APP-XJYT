@@ -168,7 +168,7 @@
     	data() {
     		return {
                 flag:false,
-                many:'',
+                many:'0',
                 tabCurrentIndex:0,
                 dater:'',
                 ter:'',
