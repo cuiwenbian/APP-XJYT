@@ -39,7 +39,6 @@
             uni.getSystemInfo({//获取手机屏幕高度信息，让swiper的高度和手机屏幕一样高
                 success: function(res) {
                     _me.windowHeight = res.windowHeight + 'px';
-                    console.log( _me.windowHeight)
 					_me.windowWidth = res.windowWidth + 'px';
                 }
             });
