@@ -105,6 +105,7 @@
         },
         onLoad(option) {
             var that = this
+            //获取上个页面携带的数据，并复制
             var fanta = JSON.parse(option.main)
             that.fanta = fanta
             var ig = that.fanta[1]

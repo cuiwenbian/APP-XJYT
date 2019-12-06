@@ -12,10 +12,10 @@
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{cprop.sale_money}}</text>
                 </text>
                 <text class="re">
-                    矿机数量:<text class="smallxx1">{{mill}}台</text>
+                    矿机数量:<text class="smallxx1">{{cprop.sale_num}}台</text>
                 </text>
             </view>
             <view class="small">
@@ -26,29 +26,29 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{cprop.order_num}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <view>
                     <text>
-                        创建时间:<text class="smallxx1">{{set_time}}</text>
+                        创建时间:<text class="smallxx1">{{cprop.set_time}}</text>
                     </text>
                 </view>
                 
                 <view>
                     <text>
-                        支付时间：<text class="smallxx1">{{pay_time}}</text>
+                        支付时间：<text class="smallxx1">{{cprop.pay_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        确认时间：<text class="smallxx1">{{time}}</text>
+                        确认时间：<text class="smallxx1">{{cprop.confirm_time}}</text>
                     </text>
                 </view>
                 <view>
                     <text>
-                        完成时间：<text class="smallxx1">{{finish_time}}</text>
+                        完成时间：<text class="smallxx1">{{cprop.finish_time}}</text>
                     </text>
                 </view>
             </view>
@@ -62,10 +62,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{cprop.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{cprop.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -102,20 +102,13 @@
     export default {
         data(){
             return {
+                cprop:'',
                 type:'买入',
                 state:'',
-                mill:'',
                 price:'',
                 rmb:'',
                 bsow:'',
                 geunt:'',
-                finish_time:'',
-                pay_time:'',
-                set_time:'',
-                x:'',
-                time:'',
-                name:'',
-                contact:'',
                 frte:true,
                 checkall:'查看全部'
             }
@@ -130,15 +123,9 @@
             if(that.state == 104) {
                 that.state = '已完成'
             }
-            that.mill = bsow[0][0].sale_num
+            
+            that.cprop = bsow[0][0]
             that.price = bsow[0][0].sale_money
-            that.x = bsow[0][0].order_num
-            that.name = bsow[0][0].name
-            that.contact = bsow[0][0].mobile
-            that.time = bsow[0][0].confirm_time
-            that.finish_time = bsow[0][0].finish_time
-            that.pay_time = bsow[0][0].pay_time
-            that.set_time = bsow[0][0].set_time
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

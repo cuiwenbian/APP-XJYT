@@ -108,6 +108,7 @@
         },
         onLoad(option) {
             var that = this
+            //获取上个页面携带的数据，并复制
             var vinda = JSON.parse(option.suxang)
             that.vinda = vinda
 			console.log(that.vinda)

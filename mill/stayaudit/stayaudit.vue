@@ -110,6 +110,7 @@
         },
         onLoad(option) {
             var that = this
+            //获取上个页面携带的数据，并复制
             var cander = JSON.parse(option.dospp)
             that.cander = cander
             var hberd = that.cander[1]

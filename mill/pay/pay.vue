@@ -194,7 +194,7 @@
             var that=this;
             this.getData()
             uni.request({
-                url:this.url + 'ordernum/1',
+                url:this.url + 'ordernum/1',//获取订单数api
                 method:'GET',
                 header:{
                     Authorization: 'JWT'+' '+this.global_.token
@@ -208,7 +208,7 @@
             getData(){
                 var that=this;
                 uni.request({
-                    url:this.url + 'buyall/101',
+                    url:this.url + 'buyall/101',//获取101的数据
                     method:'GET',
                     header:{
                          Authorization: 'JWT'+' '+this.global_.token
@@ -228,7 +228,7 @@
                 }
                 if(this.tabCurrentIndex === 1) {
                     uni.request({
-                        url:this.url + 'buyall/102',
+                        url:this.url + 'buyall/102',//获取102的数据
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -241,7 +241,7 @@
                 }
                 if(this.tabCurrentIndex === 2) {
                     uni.request({
-                        url:this.url + 'buyall/103',
+                        url:this.url + 'buyall/103',//获取103的数据
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token
@@ -254,7 +254,7 @@
                 }
                 if(this.tabCurrentIndex === 3) {
                     uni.request({
-                        url:this.url + 'buyall/104',
+                        url:this.url + 'buyall/104',//获取104的数据
                         method:'GET',
                         header:{
                             Authorization: 'JWT'+' '+this.global_.token

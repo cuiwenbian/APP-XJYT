@@ -102,20 +102,15 @@
         onLoad(option) {
             
             var that = this
+            //获取上个页面携带的数据，并复制
             var datn = JSON.parse(option.aser)
             that.datn = datn
             var stw = that.datn[1]
             that.stw = that.datn[1]
             
             that.labnrv = that.datn[0][0]
-            console.log(that.labnrv)
             that.state = that.datn[0][0].order_status
-            that.mill = that.datn[0][0].sale_num
             that.price = that.datn[0][0].sale_money
-            that.x = that.datn[0][0].order_num
-            that.name = that.datn[0][0].name
-            that.contact = that.datn[0][0].mobile
-            that.time = that.datn[0][0].set_time
             if(that.state == 101) {
                 that.state = '待付款'
             }

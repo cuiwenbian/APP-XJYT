@@ -264,7 +264,7 @@
                         },
                         success(res) {
                             var ter = res.data.data
-                            that.ter = ter.reverse()
+                            that.ter = ter.reverse()//倒序
                         }
                     })
                 }

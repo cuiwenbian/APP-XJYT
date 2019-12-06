@@ -83,8 +83,6 @@ export default {
                 console.log(res)
 					that.user_id = res.data.data;
 					that.many = res.data.data.length
-					// this.machine_id=res.data.data[length].machine_id;
-                    // console.log(this.machine_id)
 				if (that.many == 0) {
 					that.flag = true;
 				}else {
@@ -107,6 +105,7 @@ export default {
 				url: '../sale/sale'
 			});
 		},
+        // 点击选中矿机
 		CheckboxChange(e) {
 			var that = this;
 			that.arr = [];

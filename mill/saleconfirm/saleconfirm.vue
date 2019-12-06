@@ -124,6 +124,7 @@ that. <template>
         },
         onLoad(option) {
             var that = this
+            //获取上个页面携带的数据，并复制
             var vn = JSON.parse(option.mvp)
             that.vn = vn
             var boe = that.vn[1]

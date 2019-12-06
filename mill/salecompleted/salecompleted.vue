@@ -110,6 +110,7 @@
         },
         onLoad(option) {
             var that = this
+            //获取上个页面携带的数据，并复制
             var italn = JSON.parse(option.cshug)
             that.italn = italn
             var nuecv = that.italn[1]
