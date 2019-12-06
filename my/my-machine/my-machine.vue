@@ -1,7 +1,7 @@
 <template>
 	<!-- 我的矿机 -->
 	<view class="container">	
-	<view v-if="flag==false">
+	<view v-if="flag">
 		<view class='qaz'>
 			<block v-for="(item, index) in user_machine" :key="index" >	
 				<view class='page' @tap="select(item)" :id='item.machine_id'>
@@ -24,7 +24,7 @@
 					  <image  class='te1' src='../../static/images/kuangji.png'></image>
 					  <text class='obg'>{{item.number}}</text>
 					  <text class='obg1'>{{item.type}}</text>
-					  <text class='obg2'>{{item.machine_disk}}T/{{item.disk}}T</text>     
+					  <text class='obg2'>{{item.machine_disk}}T/{{item.disk}}T</text>
 				<view>
 				  <view v-if="item.status == '10'">
 					 <text class='obg3'>正在挖矿</text>
@@ -76,7 +76,7 @@
 	export default{
 		data(){
 		  return{
-			  flag:false,
+			  flag:true,
 			  user_machine:'',
 			  machine_id:'',
               user_agreement:'',
@@ -87,13 +87,18 @@
 			uni.request({
 				url: this.url + 'usermachine/',
 				method: 'GET',
-				data: {},
 				header:{
 					 Authorization:'JWT'+' '+this.global_.token
 				},
 				success: res => {
                     console.log(res)
 					this.user_machine=res.data.data.machine_datas
+					if(this.user_machine.length==0){
+						this.flag = false
+					}
+					//else {
+					// 	this.flag = false
+					// }
                     this.user_agreement = res.data.data.user_agreement
                     if(this.user_agreement == 0) {
                         this.shade = true
@@ -101,9 +106,7 @@
                         this.shade = false
                     }
                     console.log(this.user_agreement)
-					if(res.data.data==''){
-						this.flag=true
-					}
+					
 				},
 				fail: () => {},
 				complete: () => {}
@@ -139,7 +142,7 @@
 	.shade{
 		width:100%;
 		height:100%;
-		background:rgba(255,255,255,0.5);
+		background:rgba(0,0,0,0.4); 
 		position: fixed;
 		left:0;
 		top:0;

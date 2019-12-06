@@ -284,7 +284,7 @@
 		border-radius: 50rpx;
 		width:180rpx;
 		height: 50rpx;
-		font-size: 10rpx;
+		font-size: 22rpx;
 		background:rgba(243,243,243,0.5);
 		/* border:1px solid rgba(226, 226, 226, 0.66); */
 		border-radius:25px;
@@ -299,7 +299,7 @@
 		border-radius: 50rpx;
 		width:220rpx;
 		height: 60rpx;
-		font-size: 30rpx;
+		font-size: 22rpx;
 		background: #EDEDED;
 		color:#646464;
 		text-align: center;

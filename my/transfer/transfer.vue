@@ -12,12 +12,12 @@
 				<view class="lab">转账地址</view>
 				<input class="address" type="text" @input='getTranferAdd' :value='wallet_value' placeholder="请输入转账地址" placeholder-style="color:#999999">
 				<view class="right" @click="link">
-					<image  class="in" src="../../static/images/jiantou3.png"  ></image>
+					<image  class="in" src="../../static/images/jiantou3.png" ></image>
 				</view>
 			</view>
 			<view class="top1">
 				<view class="lab">提币数量</view>
-				<input class="address" type="text" @input='getFilNum' v-model="moder" placeholder="请输入提币数量" placeholder-style="color:#999999">
+				<input class="address" type="text" @input='getFilNum' v-model="fil_num" placeholder="请输入提币数量" placeholder-style="color:#999999">
 				<view class="all" @click="fusre">全部</view>
 			</view>
 		</view>
@@ -113,7 +113,7 @@
 				})
             },
             fusre(){
-                this.moder = this.bar
+                this.fil_num = this.bar
             },
 			clo: function() {
 				this.passIn = false;

@@ -176,16 +176,7 @@
 					     "path":"address/address",
 					     "style":{
 							 "navigationStyle": "custom"
-							  // "titleNView": {
-								 //  "titleText":"提币地址",
-							  //     "buttons": [ //原生标题栏按钮配置,
-							  //         {
-							  //             "text": "添加", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-							  //             "fontSize":"32rpx",
-									// 	  "width":"50px"
-									//   }
-							  //     ]                   
-							  // }
+							 
 						 }
 					 },
 					 
@@ -265,7 +256,7 @@
 					 },
 					 {
 					     "path":"suggest/suggest",
-					     "style":{"navigationBarTitleText":"建议反馈"}
+					     "style":{"navigationStyle": "custom"}
 					 },
 					 {
 					     "path":"suggest-detail/suggest-detail",

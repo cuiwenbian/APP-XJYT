@@ -7,7 +7,7 @@
 			<view class="line"></view>
 		</view>
 		<view class="pass">
-			<image class="icon" src="../../static/images/icon-code.png" mode=""></image>
+			<image class="icon"  src="../../static/images/codess.png" mode=""></image>
 			<button class="getcode" @click="getCodeNumber" hover-class="none" :disabled="disabled">{{ codename }}</button>
 			<input class="code" type="number"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
