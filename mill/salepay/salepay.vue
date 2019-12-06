@@ -13,10 +13,10 @@
                 </view>
                 <view class="small">
                     <text>交易总价:
-                        <text class="lop">{{price}}</text>
+                        <text class="lop">{{labnrv.sale_money}}</text>
                     </text>
                     <text class="ser">
-                        矿机数量:<text class="lop">{{mill}}</text>台
+                        矿机数量:<text class="lop">{{labnrv.sale_num}}</text>台
                     </text>
                 </view>
                 <view class="small">
@@ -27,12 +27,12 @@
                 </view>
                 <view class="small" >
                     <text>
-                        订单编号:<text class="lop">{{x}}</text>
+                        订单编号:<text class="lop">{{labnrv.order_num}}</text>
                     </text>
                 </view>
                 <view :class="frte?'small1':'smallpo'" >
                         <text>
-                            创建时间:<text class="smallxx1">{{time}}</text>
+                            创建时间:<text class="smallxx1">{{labnrv.set_time}}</text>
                         </text>
                 </view>
                 <view>
@@ -44,10 +44,10 @@
             </view>
             <view class="box2">
                 <view class="bx">姓名:
-                    <text class="bxx">{{name}}</text>
+                    <text class="bxx">{{labnrv.name}}</text>
                 </view>
                 <view class="bx">联系方式:
-                    <text class="bxx">{{contact}}</text>
+                    <text class="bxx">{{labnrv.mobile}}</text>
                 </view>
             </view>
             <view class="box1">
@@ -88,17 +88,13 @@
     export default {
         data(){
             return {
+                labnrv:'',
                 type:'卖单',
                 datn:'',
                 state:'',
-                mill:'',
                 stw:'',
                 price:'',
                 rmb:'',
-                x:'',
-                time:'',
-                name:'',
-                contact:'', 
                 frte:true,
                 checkall:'查看全部'
             }
@@ -110,6 +106,9 @@
             that.datn = datn
             var stw = that.datn[1]
             that.stw = that.datn[1]
+            
+            that.labnrv = that.datn[0][0]
+            console.log(that.labnrv)
             that.state = that.datn[0][0].order_status
             that.mill = that.datn[0][0].sale_num
             that.price = that.datn[0][0].sale_money

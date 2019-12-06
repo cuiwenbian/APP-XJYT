@@ -12,10 +12,10 @@ that. <template>
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{taste.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1smallxx1">{{mill}}</text>台
+                    矿机数量:<text class="smallxx1smallxx1">{{taste.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -25,16 +25,16 @@ that. <template>
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{taste.order_num}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <text>
-                    创建时间:<text class="smallxx1">{{set_time}}</text>
+                    创建时间:<text class="smallxx1">{{taste.set_time}}</text>
                 </text>            
                 <view>
                     <text>
-                        支付时间:<text class="smallxx1">{{pay_time}}</text>
+                        支付时间:<text class="smallxx1">{{taste.pay_time}}</text>
                     </text>
                 </view>
             </view>
@@ -47,10 +47,10 @@ that. <template>
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{taste.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{taste.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -104,17 +104,12 @@ that. <template>
     export default {
         data(){
             return {
+                taste:'',
                 type1:'卖出',
                 state:'',
-                mill:'',
                 boe:'',
                 price:'',
                 rmb:'',
-                x:'',
-                pay_time:'',
-                set_time:'',
-                name:'',
-                contact:'',
                 numberList: [],
                 length: 6,
                 type: 'number',
@@ -137,13 +132,8 @@ that. <template>
             if(that.state == 102) {
                 that.state = '已确认'
             }
-            that.mill = that.vn[0][0].sale_num
-            that.price = that.vn[0][0].sale_money
-            that.x = that.vn[0][0].order_num
-            that.name = that.vn[0][0].name
-            that.contact = that.vn[0][0].mobile
-            that.set_time = that.vn[0][0].set_time
-            that.pay_time = that.vn[0][0].pay_time
+            that.taste = that.vn[0][0]
+            that.price = that.taste.sale_money
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

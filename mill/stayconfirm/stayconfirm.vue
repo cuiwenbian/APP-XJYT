@@ -12,10 +12,10 @@
             </view>
             <view class="small">                
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{remark.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1">{{mill}}</text>台
+                    矿机数量:<text class="smallxx1">{{remark.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -25,18 +25,18 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{remark.order_num}}</text>
                 </text>
             </view>
             <view :class="frte?'small1':'smallpo'">
                 <view>
                     <text>
-                        创建时间:<text class="samkx">{{set_time}}</text>
+                        创建时间:<text class="samkx">{{remark.set_time}}</text>
                     </text>
                 </view>
                 <view >
                     <text>
-                        支付时间:<text class="samkx">{{pay_time}}</text>
+                        支付时间:<text class="samkx">{{remark.pay_time}}</text>
                     </text>
                 </view>
             </view>
@@ -49,10 +49,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{remark.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{remark.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -92,17 +92,12 @@
     export default {
         data(){
             return {
+                remark:'',
                 type:'买入',
                 state:'',
-                mill:'',
-                rmb:'',
-                x:'',
-                fanta:'',
-                pay_time:'',
                 price:'',
-                set_time:'',
-                name:'',
-                contact:'',
+                rmb:'',
+                fanta:'',
                 ig:'',
                 frte:true,
                 checkall:'查看全部'
@@ -111,7 +106,6 @@
         onLoad(option) {
             var that = this
             var fanta = JSON.parse(option.main)
-            console.log(fanta)
             that.fanta = fanta
             var ig = that.fanta[1]
             that.ig = that.fanta[1]
@@ -119,13 +113,8 @@
             if(that.state == 102) {
                 that.state = '待确认'
             }
-            that.mill = fanta[0][0].sale_num
-            that.price = fanta[0][0].sale_money
-            that.x = fanta[0][0].order_num
-            that.name = fanta[0][0].name
-            that.contact = fanta[0][0].mobile
-            that.set_time = fanta[0][0].set_time
-            that.pay_time = fanta[0][0].pay_time
+            that.remark = fanta[0][0]
+            that.price = that.remark.sale_money
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{

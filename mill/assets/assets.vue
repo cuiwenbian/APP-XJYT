@@ -354,7 +354,7 @@
 	}
 	.coin {
         position: absolute;
-        top: 340rpx;
+        top: 390rpx;
 		float: left;
 		padding-left: 48rpx;
 		font-size: 24rpx;
@@ -362,7 +362,7 @@
 	}
 	.lock {
         position: absolute;
-        top: 340rpx;
+        top: 390rpx;
         right: 0;
 		padding-right: 48rpx;
 		font-size: 24rpx;

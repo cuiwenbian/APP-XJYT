@@ -81,17 +81,17 @@ export default {
 			},
 			success(res) {
                 console.log(res)
-                var cer = res.data.data.length
-                console.log(cer)
-				
 					that.user_id = res.data.data;
 					that.many = res.data.data.length
 					// this.machine_id=res.data.data[length].machine_id;
                     // console.log(this.machine_id)
-				if (cer == 0) {
+				if (that.many == 0) {
 					that.flag = true;
 				}else {
                     that.flag = false
+                }
+                if(res.statusCode == 205) {
+                    that.flag = true
                 }
 			}
 		});

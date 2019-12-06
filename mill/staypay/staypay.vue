@@ -12,10 +12,10 @@
             </view>
             <view class="small">
                 <text>交易总价:
-                    <text class="smallxx1">{{price}}</text>
+                    <text class="smallxx1">{{laiqi.sale_money}}</text>
                 </text>
                 <text class="sam">
-                    矿机数量:<text class="smallxx1">{{mill}}台</text>
+                    矿机数量:<text class="smallxx1">{{laiqi.sale_num}}台</text>
                 </text>
             </view>
             <view class="small">
@@ -26,12 +26,12 @@
             </view>
             <view class="small">
                 <text>
-                    订单编号:<text class="smallxx1">{{x}}</text>
+                    订单编号:<text class="smallxx1">{{laiqi.order_num}}</text>
                 </text>
             </view>
            <view :class="frte?'small1':'smallpo'" >
                    <text>
-                       创建时间:<text class="smallxx1">{{time}}</text>
+                       创建时间:<text class="smallxx1">{{laiqi.set_time}}</text>
                    </text>
            </view>
             <view>
@@ -43,10 +43,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{name}}</text>
+                <text class="bxx">{{laiqi.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{contact}}</text>
+                <text class="bxx">{{laiqi.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -100,16 +100,12 @@
     export default {
         data(){
             return {
+                laiqi:'',
                 type1:'买入',
                 state:'',
-                mill:'',
                 price:'',
                 vior:'',
                 rmb:'',
-                x:'',
-                time:'',
-                name:'',
-                contact:'',
                 numberList: [],
                 length: 6,
                 type: 'number',
@@ -132,12 +128,8 @@
             if(that.state == 101) {
                 that.state = '待付款'
             }
-            that.mill = that.ction[0][0].sale_num
-            that.price = that.ction[0][0].sale_money
-            that.x = that.ction[0][0].order_num
-            that.name = that.ction[0][0].name
-            that.contact = that.ction[0][0].mobile
-            that.time = that.ction[0][0].set_time
+            that.laiqi = that.ction[0][0]
+            that.price = that.laiqi.sale_money
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
