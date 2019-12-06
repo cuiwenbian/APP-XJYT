@@ -1,178 +1,183 @@
 
-page{
-    background: #EDEEEE;
+page {
+	background: #edeeee;
 }
-.t{
-	height:30rpx;
+.height {
+		height: var(--status-bar-height);
+		background-color: #121212;
+		z-index:999;
 }
-.suggest-list{
-	width:100%;
-	height:auto;
+.t {
+	height: 30rpx;
+}
+.suggest-list {
+	width: 100%;
+	height: auto;
 	background: #fff;
 	padding: 20rpx 48rpx;
 	overflow: hidden;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }
-.time{
-	height:90rpx;
-	width:100%;
-	border-bottom:1rpx solid #f2f2f2;
+.time {
+	height: 90rpx;
+	width: 100%;
+	border-bottom: 1rpx solid #f2f2f2;
 }
-.submit-time{
-	height:90rpx;
-	width:520rpx;
+.submit-time {
+	height: 90rpx;
+	width: 520rpx;
 	line-height: 90rpx;
-	float:left;
+	float: left;
 	font-size: 28rpx;
-	color:#A0A0A0;
+	color: #a0a0a0;
 }
-.status{
-	height:90rpx;
+.status {
+	height: 90rpx;
 	line-height: 90rpx;
 	float: right;
-	color:#DCB16E;
+	color: #dcb16e;
 	font-size: 28rpx;
 }
-.question{
-	color:#121212;
-	margin-top:20rpx;
-	margin-bottom:20rpx;
-	width:100%;
+.question {
+	color: #121212;
+	margin-top: 20rpx;
+	margin-bottom: 20rpx;
+	width: 100%;
 }
-.tit{
-	width:15%;
-	height:90rpx;
+.tit {
+	width: 15%;
+	height: 90rpx;
 	float: left;
 	line-height: 90rpx;
 	font-size: 28rpx;
 }
-.answer{
+.answer {
 	height: auto;
-	width:85%;
-	word-break:break-all;
-	word-wrap:break-word;
+	width: 85%;
+	word-break: break-all;
+	word-wrap: break-word;
 	float: left;
 	line-height: 90rpx;
 	font-size: 28rpx;
 }
-.box{
-	height:200rpx;
+.box {
+	height: 200rpx;
 }
-.none{
+.none {
 	display: block;
-	width:250rpx;
-	height:150rpx;
-	margin:0 auto;
+	width: 250rpx;
+	height: 150rpx;
+	margin: 0 auto;
 }
-.tips{
-	margin-top:50rpx;
+.tips {
+	margin-top: 50rpx;
 	text-align: center;
-	color:#797979;
+	color: #797979;
 	font-size: 28rpx;
 }
-.newadd{
-	width:200rpx;
-	height:70rpx;
-	background: #0A1117;
+.newadd {
+	width: 200rpx;
+	height: 70rpx;
+	background: #0a1117;
 	border-radius: 50rpx;
-	color:#fff;
+	color: #fff;
 	text-align: center;
 	line-height: 70rpx;
-	margin:80rpx auto;
+	margin: 80rpx auto;
 	font-size: 30rpx;
 }
-.cover{
-	width:100%;
-	height:100%;
-	background: rgba(0,0,0,0.3);
+.cover {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
 	z-index: 9;
 	position: fixed;
-	left:0;
-	top:0;
+	left: 0;
+	top: 0;
 }
-.cover1{
+.cover1 {
 	display: none;
 }
-.frame{
-	width:624rpx;
-	height:600rpx;
+.frame {
+	width: 624rpx;
+	height: 600rpx;
 	position: absolute;
-	top:300rpx;
-	left:63rpx;
+	top: 300rpx;
+	left: 63rpx;
 	border-radius: 8rpx;
 	background: #fff;
-	padding:100rpx 50rpx;
+	padding: 100rpx 50rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }
-.title{
-	width:524rpx;
-	height:80rpx;
-	padding:0 10rpx;
+.title {
+	width: 524rpx;
+	height: 80rpx;
+	padding: 0 10rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	border:1rpx solid #f2f2f2;
+	border: 1rpx solid #f2f2f2;
 	line-height: 80rpx;
 	font-size: 30rpx;
 }
-.area{
-	width:524rpx;
-	height:240rpx;
-	padding:5rpx 10rpx;
+.area {
+	width: 524rpx;
+	height: 240rpx;
+	padding: 5rpx 10rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	border:1rpx solid #f2f2f2;
+	border: 1rpx solid #f2f2f2;
 	line-height: 80rpx;
 	font-size: 30rpx;
-	margin-top:30rpx;
+	margin-top: 30rpx;
 }
-.plac{
+.plac {
 	line-height: 80rpx;
 }
-.submit{
-	width:480rpx;
-	height:80rpx;
+.submit {
+	width: 480rpx;
+	height: 80rpx;
 	background: #000000;
-	margin:30rpx auto;
+	margin: 30rpx auto;
 	text-align: center;
 	line-height: 80rpx;
-	color:#fff;
+	color: #fff;
 	border-radius: 8rpx;
 	font-size: 30rpx;
 }
-.close{
-	width:40rpx;
-	height:40rpx;
+.close {
+	width: 40rpx;
+	height: 40rpx;
 	position: absolute;
-	top:20rpx;
-	right:20rpx;
+	top: 20rpx;
+	right: 20rpx;
 }
-.shade{
+.shade {
 	position: absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 }
-.pop{
-	width:500rpx;
-	height:250rpx;
-	margin:450rpx auto 0;
+.pop {
+	width: 500rpx;
+	height: 250rpx;
+	margin: 450rpx auto 0;
 	background: #fff;
 	border-radius: 20rpx;
 }
-.pop-title{
+.pop-title {
 	text-align: center;
 	font-size: 32rpx;
-	color:#121212;
+	color: #121212;
 	line-height: 150rpx;
 }
-.pop-btn{
-	width:126rpx;
-	height:56rpx;
-	margin:20rpx auto 0;
+.pop-btn {
+	width: 126rpx;
+	height: 56rpx;
+	margin: 20rpx auto 0;
 	border-radius: 10rpx;
 	background: #121212;
 	color: #fff;

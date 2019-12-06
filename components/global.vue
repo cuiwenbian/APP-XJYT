@@ -12,7 +12,7 @@
 	const phone='';
 	export default
 	  {
-		  checkPassword,
+		checkPassword,
 	    token,//验证用户身份
 		phone,//用户手机号
 	  }

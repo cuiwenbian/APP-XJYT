@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "建议反馈",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  }
 }

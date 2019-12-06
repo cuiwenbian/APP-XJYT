@@ -36,30 +36,32 @@ page {
 	font-size: 30rpx;
 }
 .getcode {
-	border-radius: 50rpx;
-	width:250rpx;
-	height: 60rpx;
-	font-size: 30rpx;
-	background: #EBEBEB;
-	color: #333;
-	text-align: center;
-	line-height: 60rpx;
-	position: absolute;
-	bottom: 20rpx;
-	right: 0;
+		border-radius: 50rpx;
+		width:180rpx;
+		height: 50rpx;
+		font-size: 22rpx;
+		background:rgba(243,243,243,0.5);
+		/* border:1px solid rgba(226, 226, 226, 0.66); */
+		border-radius:25px;
+		color: #fff;
+		text-align: center;
+		line-height: 50rpx;
+		position: absolute;
+		bottom: 20rpx;
+		right: 0;
 }
 .getcode1{
-	border-radius: 50rpx;
-	width:250rpx;
-	height: 60rpx;
-	font-size: 30rpx;
-	background: #EDEDED;
-	color:#646464;
-	text-align: center;
-	line-height: 60rpx;
-	position: absolute;
-	bottom: 20rpx;
-	right: 0;
+		border-radius: 50rpx;
+		width:220rpx;
+		height: 60rpx;
+		font-size: 22rpx;
+		background: #EDEDED;
+		color:#646464;
+		text-align: center;
+		line-height: 60rpx;
+		position: absolute;
+		bottom: 20rpx;
+		right: 0;
 }
 .btn {
 	width: 680rpx;

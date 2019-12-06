@@ -1,9 +1,9 @@
 <template>
 	<!-- 提币地址 -->
 	<view class="container" style="position: relative;">
-		<view class="height"></view>
+		<!-- <view class="height"></view> -->
 		<view v-if="flag">
-			<uni-nav-bar left-icon="back"  title="提币地址" right-text="添加" @click-left="back" @click-right='add_address' background-color="#121212" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#121212" color="#fff" ></uni-nav-bar>
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
@@ -17,13 +17,13 @@
 			</block>
 		</view>
 		<view v-else>
-			<uni-nav-bar left-icon="back" title="提币地址"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="提币地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/no-add.png" mode=""></image>
 				<view class="tips">您还没有提币地址哦！</view>
 			</view>
-			<view class="newadd" @click="add">新建地址</view>
+			<view class="newadd" @click="add_address">新建地址</view>
 		</view>
 		<!-- #ifndef H5 -->
 		<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
@@ -177,19 +177,10 @@ export default {
 		add_address: function() {
 			uni.navigateTo({
 				url: '../add-address/add-address?flag=' + this.flag,
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
+				
 			});
 		},
-		add: function() {
-			uni.navigateTo({
-				url: '../add-address/add-address?flag=' + this.flag,
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
-			});
-		},
+		
 		//返回 
 		back: function() {
 			uni.navigateBack({

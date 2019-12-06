@@ -144,6 +144,7 @@ export default {
 				// line-height: $nav-height;
 				display: flex;
 				align-items: center;
+			    font-size:16px;
 			}
 		}
 
