@@ -940,29 +940,29 @@
 .box1 {
 	height: 330rpx;
 }
-.banner{
-    height: 330rpx;
-    position: relative;
-    width: 100%;
+.banner {
+	height: 330rpx;
+	position: relative;
+	width: 100%;
 }
 .colo {
-    position: absolute;
-    top: 103rpx;
-    color: #FFFFFF;
+	position: absolute;
+	top: 103rpx;
+	color: #ffffff;
 	font-size: 30rpx;
-    padding-left: 320rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+	padding-left: 320rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 .many {
-    position: absolute;
-    top: 140rpx;
+	position: absolute;
+	top: 140rpx;
 	padding-left: 366rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 	padding-top: 40rpx;
 	font-size: 48rpx;
-	color: #DFAF72;
+	color: #dfaf72;
 }
 .box2 {
 	height: 200rpx;
@@ -980,7 +980,7 @@
 .infoo {
 	margin-left: 10rpx;
 	text-align: center;
-    color: #999999;
+	color: #999999;
 	font-size: 26rpx;
 }
 .te {
@@ -1001,9 +1001,9 @@
 .primary {
 	width: 260rpx;
 	height: 78rpx;
-    text-align: center;
+	text-align: center;
 	color: #757575;
-	background-color: #F9F9F9;
+	background-color: #f9f9f9;
 	float: left;
 	font-size: 30rpx;
 	margin-left: 48rpx;
@@ -1013,13 +1013,13 @@
 	width: 260rpx;
 	height: 78rpx;
 	font-size: 30rpx;
-    text-align: center;
+	text-align: center;
 	float: right;
 	margin-right: 48rpx;
 	margin-top: 60rpx;
-	background:-webkit-gradient(linear,left bottom, left top,from(rgba(16,14,19,1)),to(rgba(2,21,28,1)));
-	background:-o-linear-gradient(bottom,rgba(16,14,19,1),rgba(2,21,28,1));
-	background:linear-gradient(0deg,rgba(16,14,19,1),rgba(2,21,28,1));
+	background: -webkit-gradient(linear, left bottom, left top, from(rgba(16, 14, 19, 1)), to(rgba(2, 21, 28, 1)));
+	background: -o-linear-gradient(bottom, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
+	background: linear-gradient(0deg, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
 	color: #f0f0f0;
 }
 .box3 {
@@ -1038,10 +1038,10 @@
 }
 .btn {
 	float: right;
-    color: #333333;
+	color: #333333;
 	margin-right: 48rpx;
 	margin-top: 16rpx;
-    text-align: center;
+	text-align: center;
 	width: 140rpx;
 	height: 60rpx;
 	font-size: 24rpx;
