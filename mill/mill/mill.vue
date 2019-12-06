@@ -80,17 +80,19 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
+   
                 console.log(res)
-					that.user_id = res.data.data;
-					that.many = res.data.data.length
-				if (that.many == 0) {
-					that.flag = true;
-				}else {
-                    that.flag = false
-                }
                 if(res.statusCode == 205) {
                     that.flag = true
                 }
+					that.user_id = res.data.data;
+					that.many = res.data.data.length
+                if (that.many == 0) {
+                        that.flag = true
+                    }else {
+                        that.flag = false
+                    }
+                    console.log(res.statusCode)
 			}
 		});
 	},
