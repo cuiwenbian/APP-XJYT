@@ -109,6 +109,7 @@ that. <template>
                 state:'',
                 boe:'',
                 price:'',
+                x:'',
                 rmb:'',
                 numberList: [],
                 length: 6,
@@ -134,6 +135,7 @@ that. <template>
                 that.state = '已确认'
             }
             that.taste = that.vn[0][0]
+            that.x = that.taste.order_num
             that.price = that.taste.sale_money
             that.rmb = getRmb.getrmb(that.price)
         },

@@ -74,7 +74,7 @@
                 sun:'',
                 paymentPwd:'',
                 forget:false,
-                password:'123456',
+                password:'',
                 arr:[],
                 numberList: [],
                 length: 6,
@@ -104,8 +104,6 @@
           this.arr = arr
         },
         methods:{
-            openKeyBoard:function () {
-            },
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();
@@ -215,12 +213,14 @@
         float: left;
         width: 124rpx;
         color: #A0A0A0;
+        font-size: 26rpx;
         line-height: 120rpx;
         margin-left: 20rpx;
     }
     .pag {
         float: left;
         color: #A0A0A0;
+        font-size: 26rpx;
         line-height: 120rpx;
         margin-left: 120rpx;
     }

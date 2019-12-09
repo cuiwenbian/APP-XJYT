@@ -105,6 +105,7 @@
                 state:'',
                 price:'',
                 vior:'',
+                x:'',
                 rmb:'',
                 numberList: [],
                 length: 6,
@@ -131,11 +132,11 @@
             }
             that.laiqi = that.ction[0][0]
             that.price = that.laiqi.sale_money
+            that.x = that.laiqi.order_num
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            openKeyBoard:function () {
-            },
+            
             clo:function() {
             	this.passIn = false;
             	this.$refs['number'].close();
@@ -176,6 +177,8 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
+                            console.log(that.order_num)
+                            
                             if(res.statusCode==400){
                                 that.numberList.pop()
                                 that.numberList.length= 0;
@@ -195,13 +198,16 @@
                             	that.success=true
                             }
             				if (res.statusCode == 200) {
+                                that.passIn = false;
+                                that.$refs['number'].close();
             					uni.showToast({
-            						title: '付款完成',
+            						title: '付款完成', 
             						duration: 2000
             					});
                                 uni.navigateBack({
-                                       url:'../pay/pay'
+                                    delta:2
                                 })
+                              
             				}
                             if (res.statusCode == 400) {
                                 uni.showModal({

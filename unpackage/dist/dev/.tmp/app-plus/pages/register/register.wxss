@@ -52,10 +52,17 @@ page{
 }
 .getcode1{
 	border-radius: 50rpx;
+<<<<<<< HEAD
 	width:220rpx;
 	height: 60rpx;
 	font-size: 22rpx;
 	background: #EDEDED;
+=======
+	width:180rpx;
+	height: 50rpx;
+	font-size: 22rpx;
+	background:rgba(243,243,243,0.5);
+>>>>>>> 315298d5991bbabe9f465eb412dba078aa669635
 	color:#646464;
 	text-align: center;
 	line-height: 60rpx;
