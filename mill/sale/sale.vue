@@ -201,7 +201,7 @@
                 ]
     		};
         },
-        onShow(options) {
+        onLoad(options) {
             var  that  = this
             uni.request({
                 url: this.url + 'saleall/101',

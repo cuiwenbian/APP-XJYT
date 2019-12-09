@@ -297,7 +297,7 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
+                        // console.log(res)
                         if(res.statusCode == 200) {
                             uni.showToast({
                                 title:'删除成功',

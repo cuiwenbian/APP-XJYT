@@ -187,7 +187,8 @@ export default {
 					}
 					if (res.statusCode == 302) {
 						uni.showToast({
-							title: '实名认证审核中'
+							title: '实名认证审核中',
+                            icon:'none'
 						});
 						return false
 					}
@@ -213,7 +214,7 @@ export default {
 							icon: 'none'
 						});
 						return false
-					}
+					}else
 					if (res.statusCode == 410) {
 						uni.showToast({
 							title:'请阅读服务协议'

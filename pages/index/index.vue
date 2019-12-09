@@ -1,6 +1,5 @@
 <template>
 	<view class="container">
-        <view class="height"></view>
         <swiper 
         indicator-dots 
         autoplay interval="3000"
@@ -330,9 +329,6 @@
         margin-left: 20rpx;
         border-radius: 8rpx;
     }
-	.height {
-		height: var(--status-bar-height);
-	}
     .swiper{
 		width:720rpx;
 		height:270rpx;

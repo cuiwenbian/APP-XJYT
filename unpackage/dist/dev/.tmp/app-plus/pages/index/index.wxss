@@ -302,7 +302,6 @@
 
 
 
-
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1941,9 +1940,6 @@ page {
         font-size: 14rpx;
         margin-left: 20rpx;
         border-radius: 8rpx;
-}
-.height {
-		height: var(--status-bar-height);
 }
 .swiper{
 		width:720rpx;
