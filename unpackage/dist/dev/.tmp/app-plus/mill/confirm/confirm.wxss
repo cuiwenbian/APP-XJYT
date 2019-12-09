@@ -17,20 +17,14 @@ page {
     float: left;
     width: 124rpx;
     color: #A0A0A0;
-<<<<<<< HEAD
-=======
     font-size: 26rpx;
->>>>>>> 315298d5991bbabe9f465eb412dba078aa669635
     line-height: 120rpx;
     margin-left: 20rpx;
 }
 .pag {
     float: left;
     color: #A0A0A0;
-<<<<<<< HEAD
-=======
     font-size: 26rpx;
->>>>>>> 315298d5991bbabe9f465eb412dba078aa669635
     line-height: 120rpx;
     margin-left: 120rpx;
 }
