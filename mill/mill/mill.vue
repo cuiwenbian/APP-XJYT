@@ -47,6 +47,15 @@
 				</view>
 			</checkbox-group>
 		</block>
+       <view class="shade" v-if="shade">
+          	<view class="pop">
+          		<view class='pop-title'>若不阅读和同意协议,无法使用此功能哦</view>
+          		<view class="pops">
+          			<view class='pop-btn' @click="cancel">取消</view>
+          			<view class='pop-btn' @click="sure">去阅读</view>
+          		</view>
+          	</view>
+          </view>
 	</view>
 </template>
 
@@ -58,6 +67,7 @@ export default {
 			user_id: [],
 			flag: false,
 			selectilall: false,
+            shade:false,
 			machine_id: '',
 			lo: false,
 			arr: [],
@@ -94,6 +104,9 @@ export default {
 			}
 		});
 	},
+    onHide() {
+          this.shade=false
+        },
 	methods: {
 		pay: function() {
 			uni.navigateTo({
@@ -125,6 +138,7 @@ export default {
 				}
 			}
 		},
+        
 		btn2: function() {
 			var that = this;
 			var a = that.arr.join(',');
@@ -139,8 +153,21 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
-					console.log(res);
-					var asr = JSON.stringify(res.data.data);
+
+					console.log(res)
+                    console.log(that.shade)
+                    var asr = JSON.stringify(res.data.data);
+                    if(res.statusCode == 410) {
+                        that.shade = true
+                    } else
+                        if (that.arr.length == 0) {
+                    	uni.showToast({
+                    		title: '请选择矿机',
+                    		icon: 'none'
+                    	});
+                        return false
+                    }
+
 					if (res.statusCode == 401) {
 						uni.showModal({
 							content: '未进行实名认证',
@@ -155,6 +182,7 @@ export default {
 								}
 							}
 						});
+
 						return false
 					}
 					if (res.statusCode == 302) {
@@ -193,19 +221,68 @@ export default {
 						return false
 					}
 					if (res.statusCode == 200) {
+
 						uni.navigateTo({
 							url: '../sell/sell?tar=' + asr
 						});
 					}
 				}
 			});
-		}
+		},
+        sure:function(){
+            uni.navigateTo({
+                url:'../../pages/agreement/agreement'
+            })
+        },
+        cancel:function(){
+           this.shade = false
+        },
 	}
 };
 </script>
 
 <style>
 @import url('../../common/icon.css');
+	.shade{
+		width:100%;
+		height:100%;
+		background:rgba(255,255,255,0.5);
+		position: fixed;
+		left:0;
+		top:0;
+		z-index:99
+	}
+	.pop{
+		width:550rpx;
+		height:260rpx;
+		margin:500rpx auto;
+		padding:0 40rpx;
+		box-sizing: border-box;
+		background: #f0efef;
+	}
+	.pop-title{
+		height:150rpx;
+		line-height: 150rpx;
+		text-align: center;
+		font-size: 20rpx;
+	}
+	.pops{
+		height:100rpx;
+		width:100%;
+		padding: 0 50rpx;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+	}
+	.pop-btn{
+		width:120rpx;
+		height:60rpx;
+		background:#121212;
+		line-height: 60rpx;
+		font-size: 30rpx;
+		color:#fff;
+		text-align: center;
+	}
 .height {
 	height: var(--status-bar-height);
 	background-color: #121212;
