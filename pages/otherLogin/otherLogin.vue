@@ -236,10 +236,10 @@ page {
 	}
 	.getcode1{
 		border-radius: 50rpx;
-		width:220rpx;
-		height: 60rpx;
+		width:180rpx;
+		height: 50rpx;
 		font-size: 22rpx;
-		background: #EDEDED;
+		background:rgba(243,243,243,0.5);
 		color:#646464;
 		text-align: center;
 		line-height: 60rpx;

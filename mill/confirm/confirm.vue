@@ -74,7 +74,7 @@
                 sun:'',
                 paymentPwd:'',
                 forget:false,
-                password:'123456',
+                password:'',
                 arr:[],
                 numberList: [],
                 length: 6,
@@ -104,8 +104,6 @@
           this.arr = arr
         },
         methods:{
-            openKeyBoard:function () {
-            },
             clo: function() {
             	this.passIn = false;
             	this.$refs['number'].close();

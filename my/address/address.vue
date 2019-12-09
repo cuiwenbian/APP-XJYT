@@ -163,7 +163,7 @@ export default {
 					},
 				});
 				this.numberList.length = 0;
-			}	
+			}	 
 		},
 		//点击删除按钮
 		click: function(item) {
