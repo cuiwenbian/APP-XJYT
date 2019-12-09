@@ -2,10 +2,10 @@
 	<view class="container">
 		<view class="height"></view>
 		<view class="box1">
-            <image src="../../static/images/banner.png" class="banner">
-                <view class="colo">矿机交易</view>
-                <view class="many">{{ many }}</view>
-            </image>
+			<image src="../../static/images/banner.png" class="banner">
+				<view class="colo">矿机交易</view>
+				<view class="many">{{ many }}</view>
+			</image>
 		</view>
 		<view class="box2">
 			<view class="market">
@@ -22,30 +22,30 @@
 			<view class="infoo">没有可售矿机</view>
 		</view>
 		<block v-else>
-		<checkbox-group class="block" @change="CheckboxChange" >
-			<view v-for="(item, index) in user_id" :key="index" >
-				<view class="cu-form-group margin-top">
-					<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
-				<view class="pagex" >
-					<view class="page1">
-						<view class="img"><image class="por" src="../../static/images/kuangji.png"></image></view>
-						<view class="info">
-							<view class="obg">{{ item.name }} {{ item.number }}</view>
-							<view class="obg_one">
-								<text class="days">已运行{{ item.data }}天</text>
-								| 剩余{{ item.usedata }}天
-							</view>
+			<checkbox-group class="block" @change="CheckboxChange">
+				<view v-for="(item, index) in user_id" :key="index">
+					<view class="cu-form-group margin-top">
+						<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
+						<view class="pagex">
+							<view class="page1">
+								<view class="img"><image class="por" src="../../static/images/kuangji.png"></image></view>
+								<view class="info">
+									<view class="obg">{{ item.name }} {{ item.number }}</view>
+									<view class="obg_one">
+										<text class="days">已运行{{ item.data }}天</text>
+										| 剩余{{ item.usedata }}天
+									</view>
 
-							<view class="obg_one">
-								<text class="days">储存{{ item.freedisk }}T</text>
-								| 总容量{{ item.disk }}
+									<view class="obg_one">
+										<text class="days">储存{{ item.freedisk }}T</text>
+										| 总容量{{ item.disk }}
+									</view>
+								</view>
 							</view>
 						</view>
 					</view>
 				</view>
-                </view>
-			</view>
-		</checkbox-group>
+			</checkbox-group>
 		</block>
        <view class="shade" v-if="shade">
           	<view class="pop">
@@ -90,19 +90,17 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-   
-                console.log(res)
-                if(res.statusCode == 205) {
-                    that.flag = true
-                }
-					that.user_id = res.data.data;
-					that.many = res.data.data.length
-                if (that.many == 0) {
-                        that.flag = true
-                    }else {
-                        that.flag = false
-                    }
-                    console.log(res.statusCode)
+				console.log(res);
+				that.user_id = res.data.data;
+				that.many = res.data.data.length;
+				if (that.many == 0) {
+					that.flag = true;
+				} else {
+					that.flag = false;
+				}
+				if (res.statusCode == 205) {
+					that.flag = true;
+				}
 			}
 		});
 	},
@@ -120,7 +118,7 @@ export default {
 				url: '../sale/sale'
 			});
 		},
-        // 点击选中矿机
+		// 点击选中矿机
 		CheckboxChange(e) {
 			var that = this;
 			that.arr = [];
@@ -130,7 +128,7 @@ export default {
 			var items = that.user_id;
 			var values = e.detail.value;
 			for (var i = 0, lenI = items.length; i < lenI; ++i) {
-				items.checked = true; 
+				items.checked = true;
 				for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
 					if (items[i].number == values[j]) {
 						items.checked = true;
@@ -144,9 +142,9 @@ export default {
 		btn2: function() {
 			var that = this;
 			var a = that.arr.join(',');
-			console.log(a)
+			console.log(a);
 			uni.request({
-				url:this.url+'buildorders/',
+				url: this.url + 'buildorders/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -155,6 +153,7 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
+
 					console.log(res)
                     console.log(that.shade)
                     var asr = JSON.stringify(res.data.data);
@@ -168,44 +167,61 @@ export default {
                     	});
                         return false
                     }
+
 					if (res.statusCode == 401) {
 						uni.showModal({
-						    content: '未进行实名认证',
-							confirmText:'去验证',
-						    success: function (res) {
-						        if (res.confirm) {
-						           uni.navigateTo({
-						           	url: '../../my/identity/identity'
-						           });
-						        } else if (res.cancel) {
-						            console.log('用户点击取消');
-						        }
-						    }
+							content: '未进行实名认证',
+							confirmText: '去验证',
+							success: function(res) {
+								if (res.confirm) {
+									uni.navigateTo({
+										url: '../../my/identity/identity'
+									});
+								} else if (res.cancel) {
+									console.log('用户点击取消');
+								}
+							}
 						});
-						
-					} else if (res.statusCode == 302) {
-                        uni.showToast({
-                            title:'实名认证审核中',
-                        })
-                    }else if (res.statusCode == 400) {
-			            uni.showModal({
-			                
-			                content: '未设置交易密码',
-							confirmText:'去设置',
-			                success: function (res) {
-			                    if (res.confirm) {
-			                        uni.switchTab({
-			                        	url:'../../my/my/my'
-			                        })
-			                    } else if (res.cancel) {
-			                        console.log('用户点击取消');
-			                    }
-			                }
-			            });
-                        
-                    }
-                   
-                    else if (res.statusCode == 200) {
+
+						return false
+					}
+					if (res.statusCode == 302) {
+						uni.showToast({
+							title: '实名认证审核中'
+						});
+						return false
+					}
+					if (res.statusCode == 400) {
+						uni.showModal({
+							content: '未设置交易密码',
+							confirmText: '去设置',
+							success: function(res) {
+								if (res.confirm) {
+									uni.switchTab({
+										url: '../../my/my/my'
+									});
+								} else if (res.cancel) {
+									console.log('用户点击取消');
+								}
+							}
+						});
+						return false
+					}
+					if (that.arr.length == 0) {
+						uni.showToast({
+							title: '请选择矿机',
+							icon: 'none'
+						});
+						return false
+					}
+					if (res.statusCode == 410) {
+						uni.showToast({
+							title:'请阅读服务协议'
+						})
+						return false
+					}
+					if (res.statusCode == 200) {
+
 						uni.navigateTo({
 							url: '../sell/sell?tar=' + asr
 						});
@@ -274,27 +290,27 @@ export default {
 .box1 {
 	height: 330rpx;
 }
-.banner{
-    height: 330rpx;
-    position: relative;
-    width: 100%;
+.banner {
+	height: 330rpx;
+	position: relative;
+	width: 100%;
 }
 .colo {
-    position: absolute;
-    top: 103rpx;
-    color: #FFFFFF;
+	position: absolute;
+	top: 103rpx;
+	color: #ffffff;
 	font-size: 30rpx;
-    padding-left: 320rpx;
-    box-sizing: border-box;
+	padding-left: 320rpx;
+	box-sizing: border-box;
 }
 .many {
-    position: absolute;
-    top: 140rpx;
+	position: absolute;
+	top: 140rpx;
 	padding-left: 366rpx;
 	box-sizing: border-box;
 	padding-top: 40rpx;
 	font-size: 48rpx;
-	color: #DFAF72;
+	color: #dfaf72;
 }
 .box2 {
 	height: 200rpx;
@@ -312,7 +328,7 @@ export default {
 .infoo {
 	margin-left: 10rpx;
 	text-align: center;
-    color: #999999;
+	color: #999999;
 	font-size: 26rpx;
 }
 .te {
@@ -333,9 +349,9 @@ export default {
 .primary {
 	width: 260rpx;
 	height: 78rpx;
-    text-align: center;
+	text-align: center;
 	color: #757575;
-	background-color: #F9F9F9;
+	background-color: #f9f9f9;
 	float: left;
 	font-size: 30rpx;
 	margin-left: 48rpx;
@@ -345,11 +361,11 @@ export default {
 	width: 260rpx;
 	height: 78rpx;
 	font-size: 30rpx;
-    text-align: center;
+	text-align: center;
 	float: right;
 	margin-right: 48rpx;
 	margin-top: 60rpx;
-	background:linear-gradient(0deg,rgba(16,14,19,1),rgba(2,21,28,1));
+	background: linear-gradient(0deg, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
 	color: #f0f0f0;
 }
 .box3 {
@@ -368,10 +384,10 @@ export default {
 }
 .btn {
 	float: right;
-    color: #333333;
+	color: #333333;
 	margin-right: 48rpx;
 	margin-top: 16rpx;
-    text-align: center;
+	text-align: center;
 	width: 140rpx;
 	height: 60rpx;
 	font-size: 24rpx;
