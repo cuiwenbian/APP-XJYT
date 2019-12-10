@@ -19,7 +19,7 @@ page{
 	width:60rpx;
 	height: 60rpx;
 	margin-right: 20rpx;
-	margin-top:38rpx;
+	margin-top:30rpx;
 }
 .enter{
 	float: left;
