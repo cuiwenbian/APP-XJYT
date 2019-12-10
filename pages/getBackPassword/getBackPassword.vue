@@ -220,7 +220,7 @@
 		width: 180rpx;
 		height: 50rpx;
 		font-size: 22rpx;
-		background: #5E5E5E;
+		background: #797979;
 		color: #fff;
 		text-align: center;
 		line-height: 50rpx;
@@ -228,7 +228,7 @@
 		margin-top:35rpx;
 	}
 	button[disabled] {
-		background:  #5E5E5E !important;
+		background:  #797979 !important;
 		color: #fff !important;
 	}
 	.line{

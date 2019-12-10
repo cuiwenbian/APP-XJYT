@@ -42,7 +42,7 @@
 	border-radius: 10rpx;
 	line-height: 66rpx;
 	font-size: 30rpx;
-	color:#fff;
+	color:#797979;
 	text-align: center;
 	background:#121212;
 }

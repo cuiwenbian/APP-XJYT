@@ -41,7 +41,6 @@ page {
 	height: 50rpx;
 	font-size: 22rpx;
 	background: rgba(243, 243, 243, 0.5);
-	border-radius: 25px;
 	color: #fff;
 	text-align: center;
 	line-height: 50rpx;
