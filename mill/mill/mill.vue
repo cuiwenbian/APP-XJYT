@@ -97,7 +97,6 @@ export default {
 			success(res) {
 				console.log(res);
 				that.user_id = res.data.data;
-				that.many = res.data.data.length;
 				if (that.many == 0) {
 					that.flag = true;
 				} else {
@@ -106,6 +105,7 @@ export default {
 				if (res.statusCode == 205) {
 					that.flag = true;
 				}
+                that.many = res.data.data.length;
 			}
 		});
 	},
