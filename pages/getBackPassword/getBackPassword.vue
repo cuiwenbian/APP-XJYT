@@ -8,7 +8,7 @@
 		</view>
 		<view class="pass">
 			<image class="icon"  src="../../static/images/codess.png" mode=""></image>
-			<button class="getcode" @click="getCodeNumber" hover-class="none" :disabled="disabled">{{ codename }}</button>
+			<button class="getcode" @click="getCodeNumber"  :disabled="disabled">{{ codename }}</button>
 			<input class="code" type="number"  @input="getCodeValue" :value="code" placeholder="请输入手机验证码" />
 		</view>
 		<view class="next" type="primary" @click="next">下一步</view>
@@ -209,23 +209,27 @@
 	}
 	.code{
 		float: right;
-		width:350rpx;
+		width:376rpx;
 		height:120rpx;
 		font-size: 30rpx;
 	}
-	button::after{border:none}
+	
 	.getcode{
 		float: right;
-		border-radius: 10rpx;
-		width:230rpx;
-		height:60rpx;
-		margin-right:24rpx;
-		margin-top:30rpx;
-		border: 1px solid #f1f1f1;
-		font-size: 30rpx;
+		border-radius: 50rpx;
+		width: 180rpx;
+		height: 50rpx;
+		font-size: 22rpx;
+		background: #5E5E5E;
+		color: #fff;
 		text-align: center;
-		line-height: 60rpx;
-		background: #EDEDED;
+		line-height: 50rpx;
+		margin-right:48rpx;
+		margin-top:35rpx;
+	}
+	button[disabled] {
+		background:  #5E5E5E !important;
+		color: #fff !important;
 	}
 	.line{
 		width:650rpx;

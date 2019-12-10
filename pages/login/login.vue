@@ -165,7 +165,7 @@
 	.pop-btn{
 		width:158rpx;
 		height:66rpx;
-		border-radius: 5rpx;
+		border-radius: 10rpx;
 		line-height: 66rpx;
 		font-size: 30rpx;
 		color:#fff;

@@ -272,6 +272,7 @@
 </script>
 
 <style>
+	
 	.shade{
 		width:100%;
 		height:100%;
@@ -305,7 +306,7 @@
 	.pop-btn{
 		width:158rpx;
 		height:66rpx;
-		border-radius: 5rpx;
+		border-radius: 10rpx;
 		line-height: 66rpx;
 		font-size: 30rpx;
 		color:#fff;

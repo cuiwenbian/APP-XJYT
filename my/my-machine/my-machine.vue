@@ -161,7 +161,7 @@
 		height:180rpx;
 		line-height: 180rpx;
 		text-align: center;
-		font-size: 26rpx;
+		font-size: 24rpx;
 	}
 	.pops{
 		height:100rpx;
@@ -172,11 +172,12 @@
 	.pop-btn{
 		width:158rpx;
 		height:66rpx;
-		border-radius: 5rpx;
+		border-radius: 10rpx;
 		line-height: 66rpx;
 		font-size: 30rpx;
 		color:#797979;
 		text-align: center;
+		background:#121212;
 	}
 	.box{
 		height:200rpx;
