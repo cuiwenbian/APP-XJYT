@@ -54,10 +54,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{instant.name}}</text>
+                <text class="bxx">{{instant.bname}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{instant.mobile}}</text>
+                <text class="bxx">{{instant.bmobile}}</text>
             </view>
         </view>
         <view class="box1">

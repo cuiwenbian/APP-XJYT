@@ -62,10 +62,10 @@
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{cprop.name}}</text>
+                <text class="bxx">{{cprop.bname}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{cprop.mobile}}</text>
+                <text class="bxx">{{cprop.bmobile}}</text>
             </view>
         </view>
         <view class="box1">

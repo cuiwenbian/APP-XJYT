@@ -39,14 +39,14 @@
             </view>
         </view>
         <view class="box1">
-            买家信息
+            卖家信息
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{laiqi.name}}</text>
+                <text class="bxx">{{laiqi.bname}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{laiqi.mobile}}</text>
+                <text class="bxx">{{laiqi.bmobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -124,6 +124,7 @@
             //获取上个页面携带的数据，并复制
             var ction = JSON.parse(option.mvvp)
             that.ction = ction
+            console.log(123)
             var vior = that.ction[1]
             that.vior = that.ction[1]
             that.state = ction[0][0].order_status

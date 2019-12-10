@@ -45,14 +45,14 @@
             </view>
         </view>
         <view class="box1">
-            买家信息
+            卖家信息
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{remark.name}}</text>
+                <text class="bxx">{{remark.bname}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{remark.mobile}}</text>
+                <text class="bxx">{{remark.bmobile}}</text>
             </view>
         </view>
         <view class="box1">

@@ -22,7 +22,7 @@
                     <view>
                     	<view class="top">
                     		<text class="mation">
-                                买家姓名: <text class="cool">{{item.name}}</text>
+                                卖家姓名: <text class="cool">{{item.name}}</text>
                             </text>
                     		<text class="cont">
                                 联系方式: <text class="cool">{{item.mobile}}</text>
@@ -58,7 +58,7 @@
                     <view class="order">
                     	<view class="top">
                     		<text class="mation">
-                                买家姓名: <text class="cool">{{item.name}}</text>
+                                卖家姓名: <text class="cool">{{item.name}}</text>
                             </text>
                     		<text class="cont">
                                 联系方式: <text class="cool">{{item.mobile}}</text>
@@ -92,7 +92,7 @@
                     <view class="order">
                     	<view class="top">
                     		<text class="mation">
-                                买家姓名: <text class="cool">{{item.name}}</text>
+                                卖家姓名: <text class="cool">{{item.name}}</text>
                             </text>
                     		<text class="cont">
                                 联系方式: <text class="cool">{{item.mobile}}</text>
@@ -126,7 +126,7 @@
                     <view class="order">
                     	<view class="top">
                     		<text class="mation">
-                                买家姓名: <text class="cool">{{item.name}}</text>
+                                卖家姓名: <text class="cool">{{item.name}}</text>
                             </text>
                     		<text class="cont">
                                 联系方式: <text class="cool">{{item.mobile}}</text>
@@ -279,6 +279,7 @@
                         order_num:item.order_num
                     },
                     success(res) {
+                        console.log(res)
                         var ord = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:"../staypay/staypay?mvvp=" + ord
@@ -301,7 +302,7 @@
                         // console.log(res)
                         if(res.statusCode == 200) {
                             uni.showToast({
-                                title:'删除成功',
+                                title:'取消成功',
                                 icon:'none',
                                 duration:2000
                             })
@@ -328,6 +329,7 @@
                         order_num:item.order_num
                     },
                     success(res) {
+                        console.log(res)
                         var supers = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayconfirm/stayconfirm?main=' + supers
@@ -347,6 +349,7 @@
                         order_num:item.order_num
                     },
                     success(res) {
+                        console.log(res)
                         var doink = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayaudit/stayaudit?dospp=' + doink

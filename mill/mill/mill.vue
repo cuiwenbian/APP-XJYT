@@ -56,6 +56,14 @@
           		</view>
           	</view>
           </view>
+          <view class="shade" v-if="shade1">
+            	<view class="pop">
+            		<view class='pop-title'>实名认证审核中,请耐心等待...</view>
+            		<view class="pops">
+            			<view class='pop-bbt' @click="sure">确定</view>
+            		</view>
+            	</view>
+            </view>
 	</view>
 </template>
  
@@ -68,11 +76,12 @@ export default {
 			flag: false,
             greed:'去阅读',
             cancl:'取消',
-            lerst:'若不阅读和同意协议,无法使用此功能哦',
+            lerst:'若不阅读和同意协议,无法使用此功能',
 			selectilall: false,
             deoor:false,
             stus:'',
             shade:false,
+            shade1:false,
 			machine_id: '',
 			lo: false,
 			arr: [],
@@ -184,10 +193,8 @@ export default {
 						return false
 					}
 					if (res.statusCode == 302) {
-						uni.showToast({
-							title: '实名认证审核中,请耐心等待...',
-                            icon:'none'
-						});
+                        that.stus = res.statusCode
+                        that.shade1 = true
 						return false
 					}
 					if (res.statusCode == 400) {
@@ -221,6 +228,9 @@ export default {
                 uni.navigateTo({
                 	url: '../../my/identity/identity'
                 });
+            }
+            if(this.stus == 302) {
+                this.shade1 = false
             }
         },
         cancel:function(){
@@ -274,13 +284,25 @@ export default {
     .pop-bn{
         width:158rpx;
         height:66rpx;
-        border-radius: 5rpx;
+        border-radius: 10rpx;
         line-height: 66rpx;
         font-size: 28rpx;
         color: #FFFFFF;
         background-color: #000000;
         text-align: center;
     }
+    .pop-bbt{
+        width:158rpx;
+        height:66rpx;
+        border-radius: 10rpx;
+        line-height: 66rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        background-color: #000000;
+        text-align: center;
+        margin:0 auto;
+    }
+        
 .height {
 	height: var(--status-bar-height);
 	background-color: #121212;
