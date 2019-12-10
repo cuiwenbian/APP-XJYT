@@ -65,7 +65,7 @@
 					<text class="yu">6月</text>
 					<image class="yj" src="../../static/images/eye.png"> 
 					</image>
-					<text class="yjj">1000人看过</text>
+					<view class="yjj">1000人看过</view>
 				</view>
 			</view>
 			<view class="right">
@@ -78,9 +78,11 @@
                 <text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
                 <view class="desc">
                     <text class="yu">6月</text>
-                    <image class="yj" src="../../static/images/eye.png"> 
-                    </image>
-                    <text class="yjj">1000人看过</text>
+
+                        <image class="yj" src="../../static/images/eye.png"> 
+                        </image>
+                    
+                    <view class="yjj">1000人看过</view>
                 </view>
             </view>
             <view class="right">
@@ -495,19 +497,24 @@
         float:left;
         font-size: 14rpx;
         color: #5A5A5A;
-        margin-top:10rpx;
+        margin-top:14rpx;
+    }
+    .bobx{
+        margin-top: 10rpx;
     }
     .yj {
         width: 36rpx;
+        margin-top: 14rpx;
         height: 26rpx;
-		margin-left: 180rpx;
-
-
+        float: left;
+        margin-left: 40rpx;
     }
     .yjj {
         font-size: 14rpx;
+        float: left;
         color: #5A5A5A;
-        margin-top:-10rpx;
+        margin-top: 12rpx;
+        margin-left: 14rpx;
     }
     .b {
         display: block;

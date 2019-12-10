@@ -1,2 +1,0 @@
-setCssToHead([".",[1],"fz{ color: red; font-weight: 600; font-size: ",[0,30],"; padding-left: ",[0,48],"; }\n.",[1],"mlet{ font-size: ",[0,20],"; padding-left: ",[0,48],"; color: #999999; }\n.",[1],"ttt{ font-size: ",[0,20],"; text-indent: 2em; }\n",],undefined,{path:"./pages/banner/banner.wxss"})();
-document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/banner/banner.wxml') } }));

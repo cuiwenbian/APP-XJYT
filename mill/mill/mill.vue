@@ -97,15 +97,17 @@ export default {
 			success(res) {
 				console.log(res);
 				that.user_id = res.data.data;
-				if (that.many == 0) {
-					that.flag = true;
-				} else {
-					that.flag = false;
-				}
+				
 				if (res.statusCode == 205) {
 					that.flag = true;
 				}
                 that.many = res.data.data.length;
+                console.log(that.many)
+                if (that.many == 0) {
+                	that.flag = true;
+                } else {
+                	that.flag = false;
+                }
 			}
 		});
 	},
