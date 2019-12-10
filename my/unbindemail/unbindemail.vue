@@ -14,7 +14,7 @@
 				<image src="../../static/images/icon-code.png" style="width:36rpx;height:42rpx;" mode=""></image>
 			</view>
 			<input class="enter enter1" type="number" :value="emailCode" @input='getEmailCode' placeholder="请输入邮箱验证码" />
-			<button :class="flag?'getcode':'getcode1'" @click="sendcode" :disabled="disabled">{{ codename }}</button>
+			<button class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</button>
 		</view>
 		<view class="save"  @click="unbind">确认</view>
 	</view>
@@ -30,7 +30,7 @@
 				emailCode:'',
 				codename: ' 获取验证码',
 				disabled:false,
-				flag:true
+				
 			}
 		},
 		onShow() {
@@ -77,12 +77,12 @@
 				 	       num--;
 				 	        if (num <= 0) {
 				 	         clearInterval(timer);
-							 that.flag =  true,
+							
 				 	         that.codename = '重新发送',
 				 	         that.disabled = false
 				 	     			
 				 	       } else{
-							 that.flag =  false
+							 
 							 that.disabled = true
 				 	         that.codename = num + "s"
 				 	       }
@@ -171,30 +171,20 @@
 		width:300rpx;
 	}
 	.getcode{
-		float:right;
-		width:200rpx;
-		height:50rpx;
-		background:rgba(244,244,244,1);
-		border:1px solid rgba(226, 226, 226, 1);
-		border-radius:25px;
-		font-size: 26rpx;
+		float: right;
+		border-radius: 50rpx;
+		width: 180rpx;
+		height: 50rpx;
+		font-size: 22rpx;
+		background: #797979;
+		color: #fff;
 		text-align: center;
 		line-height: 50rpx;
 		margin-top:35rpx;
-		color:#666666;
 	}
-	.getcode1{
-		float:right;
-		width:200rpx;
-		height:50rpx;
-		background:rgba(244,244,244,1);
-		border:1px solid rgba(226, 226, 226, 1);
-		border-radius: 25rpx;
-		font-size: 26rpx;
-		text-align: center;
-		line-height: 50rpx;
-		margin-top:35rpx;
-		color:#B2B2B2;
+	button[disabled] {
+		background:  #797979 !important;
+		color: #fff !important;
 	}
 	.save{
 		margin: 100rpx auto;

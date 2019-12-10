@@ -9,7 +9,7 @@
 		<view class="linee"></view>
 		<view class="list">
 			<input class="code" type="digit" @input="getCodeValue" :value="code" placeholder="请输入邮箱验证码" />
-			<button :class="flag?'getcode':'getcode1'" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
+			<button class="getcode" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
 		</view>
 		<view class="set">设置交易密码</view>
 		<view class="list">
@@ -45,7 +45,7 @@
 				password1:'',
 				shade:false,
 				disabled:false,
-				flag:true
+				
 			}
 		}, 
 		onLoad() {
@@ -104,11 +104,11 @@
 			              num--;
 			              if (num <= 0) {
 			                clearInterval(timer);
-							_this.flag = true,
+							
 			                _this.codename = '重新发送',
 			                _this.disabled = false
 			              } else {
-							_this.flag = false 
+							
 			                _this.codename = num + "s"
 			                _this.disabled = true
 			              }
@@ -229,32 +229,21 @@
 		font-size: 30rpx;
 	}
 	.getcode{
-		float:right;
-		width:200rpx;
-		height:50rpx;
-		background:rgba(244,244,244,1);
-		border:1px solid rgba(226, 226, 226, 1);
-		border-radius:25px;
-		font-size: 26rpx;
+		float: right;
+		border-radius: 50rpx;
+		width: 180rpx;
+		height: 50rpx;
+		font-size: 22rpx;
+		background: #797979;
+		color: #fff;
 		text-align: center;
 		line-height: 50rpx;
-		margin-top:30rpx;
 		margin-right: 48rpx;
-		color:#666666;
+		margin-top:35rpx;
 	}
-	.getcode1{
-		float:right;
-		width:200rpx;
-		height:50rpx;
-		background:rgba(244,244,244,1);
-		border:1px solid rgba(226, 226, 226, 1);
-		border-radius: 25rpx;
-		font-size: 26rpx;
-		text-align: center;
-		line-height: 50rpx;
-		margin-top:30rpx;
-		margin-right: 48rpx;
-		color:#B2B2B2;
+	button[disabled] {
+		background:  #797979 !important;
+		color: #fff !important;
 	}
 	.close{
 		float: right;

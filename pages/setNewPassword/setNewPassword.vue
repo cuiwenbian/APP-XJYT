@@ -3,7 +3,7 @@
 	<view class="container" >
 		<view class="pass">
 			<text class="title">新密码</text>
-			<input class="phone" type="text" :password="isPassword" :value="newPwd"  @input="newpassword" placeholder="6-16位数字、字母" />
+			<input class="phone" type="text" :password="isPassword" :value="newPwd"  @input="newpassword" placeholder="6-16位数字,字母组合" />
 			<view class="line"></view> 
 		</view>
 		<view class="pass">
@@ -95,12 +95,11 @@
 					header:{
 					},
 					success(res) {
-						
 						uni.navigateTo({
 							url:'../login/login'
 						})
 						uni.showToast({
-							title:'密码已重设，请登录',
+							title:'密码找回成功',
 							icon:'none',
 							duration:2000
 						})
