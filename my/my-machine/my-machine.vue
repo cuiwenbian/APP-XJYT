@@ -175,7 +175,7 @@
 		border-radius: 10rpx;
 		line-height: 66rpx;
 		font-size: 30rpx;
-		color:#797979;
+		color:#fff;
 		text-align: center;
 		background:#121212;
 	}
