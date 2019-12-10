@@ -67,7 +67,7 @@
         position: relative;
 }
 .list{
-      height: auto;
+      height: 100rpx;
 }
 .top{
 		height: 88rpx;
