@@ -64,8 +64,8 @@
 			<view class="pop">
 				<view class='pop-title'>确定退出登录？</view>
 				<view class="pops">
-					<view class='pop-btn' @click="cancel">取消</view>
-					<view class='pop-btn' @click="sure">确定</view>
+					<view class='pop-btn quxiao' @click="cancel">取消</view>
+					<view class='pop-btn yess' @click="sure">确认</view>
 				</view>
 			</view>
 		</view>
@@ -282,16 +282,17 @@
 		z-index:99
 	}
 	.pop{
-		width:500rpx;
-		height:260rpx;
+		width:550rpx;
+		height:300rpx;
 		margin:500rpx auto;
-		padding:0 40rpx;
+		padding:0 60rpx;
 		box-sizing: border-box;
-		background: #f0efef;
+		background:#fff;
+		border-radius:10rpx;
 	}
 	.pop-title{
-		height:150rpx;
-		line-height: 130rpx;
+		height:180rpx;
+		line-height: 180rpx;
 		text-align: center;
 		font-size: 34rpx;
 	}
@@ -302,13 +303,19 @@
 		justify-content: space-between;
 	}
 	.pop-btn{
-		width:120rpx;
-		height:60rpx;
-		background:#121212;
-		line-height: 60rpx;
+		width:158rpx;
+		height:66rpx;
+		border-radius: 5rpx;
+		line-height: 66rpx;
 		font-size: 30rpx;
 		color:#fff;
 		text-align: center;
+	}
+	.yess{
+		background:#121212;
+	}
+	.quxiao{
+		color:rgba(137,137,137,1);
 	}
 	.height {
 		height: var(--status-bar-height);

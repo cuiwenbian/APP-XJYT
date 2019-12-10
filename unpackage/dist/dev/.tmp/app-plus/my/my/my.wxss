@@ -9,17 +9,18 @@
 	z-index:99
 }
 .pop{
-	width:500rpx;
-	height:260rpx;
+	width:550rpx;
+	height:300rpx;
 	margin:500rpx auto;
-	padding:0 40rpx;
+	padding:0 60rpx;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
-	background: #f0efef;
+	background:rgba(255,255,255,0.9);
+	border-radius:20px;
 }
 .pop-title{
-	height:150rpx;
-	line-height: 130rpx;
+	height:180rpx;
+	line-height: 180rpx;
 	text-align: center;
 	font-size: 34rpx;
 }
@@ -38,11 +39,18 @@
 .pop-btn{
 	width:120rpx;
 	height:60rpx;
-	background:#121212;
+	
 	line-height: 60rpx;
 	font-size: 30rpx;
 	color:#fff;
 	text-align: center;
+}
+.yess{
+	background:#121212;
+}
+.quxiao{
+	/* background:rgba(255,255,255,0.9); */
+	color:rgba(137,137,137,1);
 }
 .height {
 	height: var(--status-bar-height);

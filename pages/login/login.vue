@@ -18,7 +18,16 @@
 		<view class='btn'  @click="login">登录</view>
 		<navigator url="../register/register" class="register">
 			注册
-		</navigator>
+		</navigator> 
+		<view class="shade" v-if="shade">
+			<view class="pop">
+				<view class='pop-title'>用户不存在，是否注册？</view>
+				<view class="pops">
+					<view class='pop-btn quxiao' @click="cancel">暂不</view>
+					<view class='pop-btn yess' @click="sure">前往注册</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 <script>
@@ -28,16 +37,25 @@
 				show:false,
 				phone:'',
 				password:'',
+				shade:false
 			};
 		},	
 		onLoad() {
 		},
 		methods:{
+			cancel:function(){
+				this.shade=false
+			},
 			getPhoneValue:function(e){
 				this.phone=e.detail.value
 			},
 			getPasswordValue:function(e){
 				this.password=e.detail.value
+			},
+			sure:function(){
+				uni.navigateTo({
+					url:'../register/register'
+				})
 			},
 			login() {
 				var _self=this;
@@ -82,10 +100,8 @@
 						_self.global_.phone=this.phone;
 						_self.global_.token=res.data.token;
 						if(res.statusCode==401){
-							uni.showToast({
-								title:'用户信息不存在',
-								icon:'none'
-							})
+							this.shade=true
+							
 						}
 						if(res.statusCode==402){
 							uni.showToast({
@@ -115,6 +131,51 @@
 <style>
 	page{
 		background: #121212;
+	}
+	.shade{
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0,0.4);
+		position: fixed;
+		left:0;
+		top:0;
+		z-index:99
+	}
+	.pop{
+		width:550rpx;
+		height:300rpx;
+		margin:500rpx auto;
+		padding:0 60rpx;
+		box-sizing: border-box;
+		background:#fff;
+		border-radius:10rpx;
+	}
+	.pop-title{
+		height:180rpx;
+		line-height: 180rpx;
+		text-align: center;
+		font-size: 34rpx;
+	}
+	.pops{
+		height:100rpx;
+		width:100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	.pop-btn{
+		width:158rpx;
+		height:66rpx;
+		border-radius: 5rpx;
+		line-height: 66rpx;
+		font-size: 30rpx;
+		color:#fff;
+		text-align: center;
+	}
+	.yess{
+		background:#121212;
+	}
+	.quxiao{
+		color:rgba(137,137,137,1);
 	}
 	.logo{  
 		display: block;

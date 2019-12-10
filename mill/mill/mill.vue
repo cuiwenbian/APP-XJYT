@@ -156,7 +156,6 @@ export default {
 
 					console.log(res)
                     console.log(that.shade)
-                    var asr = JSON.stringify(res.data.data);
                     if(res.statusCode == 410) {
                         that.shade = true
                     } else
@@ -187,7 +186,8 @@ export default {
 					}
 					if (res.statusCode == 302) {
 						uni.showToast({
-							title: '实名认证审核中'
+							title: '实名认证审核中',
+							icon: 'none'
 						});
 						return false
 					}
@@ -221,7 +221,7 @@ export default {
 						return false
 					}
 					if (res.statusCode == 200) {
-
+						var asr = JSON.stringify(res.data.data);
 						uni.navigateTo({
 							url: '../sell/sell?tar=' + asr
 						});

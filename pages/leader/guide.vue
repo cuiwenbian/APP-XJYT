@@ -31,15 +31,17 @@
             return {
                 windowHeight: ''  ,//定义手机屏幕高度值变量
 				windowWidth:'',
-				indicator:true
+				indicator:true,
+				
             }
         },
         onLoad() {
             var _me = this;
             uni.getSystemInfo({//获取手机屏幕高度信息，让swiper的高度和手机屏幕一样高
                 success: function(res) {
-                    _me.windowHeight = res.windowHeight + 'px';
-					_me.windowWidth = res.windowWidth + 'px';
+                    _me.windowHeight = res.screenHeight	 + 'px';
+					_me.windowWidth = res.screenWidth + 'px';
+					
                 }
             });
         },
