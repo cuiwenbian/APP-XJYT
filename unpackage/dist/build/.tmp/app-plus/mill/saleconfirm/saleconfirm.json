@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "待确认单详情",
+  "usingComponents": {
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
+  }
+}
