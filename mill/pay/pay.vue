@@ -10,7 +10,7 @@
             </view>
 			<view class="many1">买 入</view>
         </view>
-        <view class="box3">
+        <view>
             <view class="swiper-tab">
             	<view v-for="(item, index) in navList" :key="index" class="tab-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
             		{{item.text}}
@@ -378,10 +378,10 @@
 </script>
 
 <style>
-   .box1{
+.box1{
            height: 280rpx;
        }
-       .colo {
+      .colo {
    		float: left;
    		width: 20%;
    		height: 90rpx;
@@ -390,45 +390,45 @@
         color: #000000;
         font-size: 36rpx;
        }
-       .boss{
+      .boss{
            width: 100%;
            height: 640rpx;
        }
-       .tooc{
+      .tooc{
            height: 40rpx;
            margin-top: 140rpx;
            background-color: #EDEDED;
        }
-       .too {
+      .too {
            height: 20rpx;
            margin-top: 40rpx;
            background-color: #EDEDED;
        }
-       .cool{
+      .cool{
            margin-left: 40rpx;
            font-size: 30rpx;
            color: #949494;
        }
-      .many{
+     .many{
         margin-left: 48rpx;
         line-height: 90rpx;
         color: #DCB16E;
         font-size: 34rpx;
-       }    
-   	.colo1{
+       }   
+  	.colo1{
    		height: 60rpx;
         box-sizing: border-box;
         padding-top: 50rpx;
         margin-right: 48rpx;
    	}
-       .dx {
+      .dx {
            width: 68rpx;
            height: 68rpx;
            line-height: 60rpx;
            float: right;
            margin-right: 130rpx;
        }
-   	.many1{
+  	.many1{
    		float: right;
    		width: 90rpx;
    		height: 60rpx;
@@ -438,21 +438,16 @@
         font-size: 20rpx;
         color: #979797;
    	}
-    .box3 {
-           height: 90rpx;
-           background-color: #F6F6F6;
-           position: relative;
-       }
-    .list{
+   .list{
          height: 100rpx;
        }
-   	.top{
+  	.top{
    		height: 88rpx;
    	}
-   	.xi {
+  	.xi {
    		height: 360rpx;
    	}
-    .mation{
+   .mation{
         float: left;
    		height: 40rpx;
         line-height: 90rpx;
@@ -461,64 +456,64 @@
         box-sizing: border-box;
         padding-left: 48rpx;
        }
-       .cont{
+      .cont{
            float: right;
            font-size: 30rpx;
            color: #333333;
            line-height: 90rpx;
            margin-right: 80rpx;
        }
-       .line{
+     .line{
            width: 92%;
            border: 1rpx solid #F2F2F2;
            margin: 0 auto;
        }
-       .edit{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-        box-sizing: border-box;
-   		line-height: 90rpx;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+      .edit{
+            float: left;
+            width: 100%;
+            height: 90rpx;
+            box-sizing: border-box;
+            line-height: 90rpx;
+            padding-left: 48rpx;
+            font-size: 28rpx;
+            color: #333333;
        }
-       .numbe{
-   		float: left;
-   		height: 90rpx;
-   		line-height: 90rpx;
-   		width: 100%;
-        box-sizing: border-box;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+      .numbe{
+            float: left;
+            height: 90rpx;
+            line-height: 90rpx;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 48rpx;
+            font-size: 28rpx;
+            color: #333333;
        }
-       .trading{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-        box-sizing: border-box;
-   		line-height: 90rpx;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+      .trading{
+            float: left;
+            width: 100%;
+            height: 90rpx;
+            box-sizing: border-box;
+            line-height: 90rpx;
+            padding-left: 48rpx;
+            font-size: 28rpx;
+            color: #333333;
        }
-       .date{
-   		float: left;
-   		width: 100%;
-   		height: 90rpx;
-   		line-height: 90rpx;
-        box-sizing: border-box;
-   		padding-left: 48rpx;
-        font-size: 28rpx;
-        color: #333333;
+      .date{
+            float: left;
+            width: 100%;
+            height: 90rpx;
+            line-height: 90rpx;
+            box-sizing: border-box;
+            padding-left: 48rpx;
+            font-size: 28rpx;
+            color: #333333;
        }
-       .line1 {
+     .line1 {
             width: 92%;
             margin: 6rpx auto;
             border: 1rpx solid #F2F2F2;
        }
-       .hz{
+      .hz{
            width: 100%;
            height: 80rpx;
        }
@@ -559,7 +554,7 @@
             font-size: 32rpx;
             color: #333333;
        }
-       .current {
+      .current {
            color: #B39C01;
            border-bottom: 1rpx solid #B39C01;
        }

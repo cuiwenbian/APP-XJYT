@@ -13,8 +13,7 @@
 	height:300rpx;
 	margin:500rpx auto;
 	padding:0 60rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	background:#fff;
 	border-radius:10rpx;
 }
@@ -29,11 +28,9 @@
 	width:100%;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack: justify;
 	-webkit-justify-content: space-between;
-	    -ms-flex-pack: justify;
 	        justify-content: space-between;
 }
 .pop-btn{
@@ -116,24 +113,19 @@
 	height:500rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-pack:justify;
 	-webkit-justify-content:space-between;
-	    -ms-flex-pack:justify;
 	        justify-content:space-between;
 	-webkit-flex-wrap: wrap;
-	    -ms-flex-wrap: wrap;
 	        flex-wrap: wrap;
 	padding:50rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .listItem{
 	width:25%;
 	height:50%;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .pic{
 	display: block;

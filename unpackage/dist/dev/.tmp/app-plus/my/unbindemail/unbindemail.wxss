@@ -10,8 +10,7 @@ page{
 	height:120rpx;
 	padding-left:48rpx;
 	padding-right:48rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	background: #fff;
 }
 .icon{

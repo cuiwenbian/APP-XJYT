@@ -8,7 +8,7 @@
 			<view class="colo1"><image class="dx" src="../../static/images/miai.png" mode=""></image></view>
 			<view class="many1">卖出</view>
         </view>
-        <view class="box3">
+        <view>
             <view class="swiper-tab">
             	<view v-for="(item, index) in navList" :key="index" class="tab-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
             		{{item.text}}
@@ -515,10 +515,6 @@
         font-size: 24rpx;
         color: #ACABAB;
 	}
-    .box3 {
-        height: 90rpx;
-        background-color: #F6F6F6;
-    }
     .list{
       height: auto;
     }
