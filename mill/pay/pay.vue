@@ -234,6 +234,7 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
+                            console.log(res)
                             var kolo = res.data.data
                             that.kolo = kolo.reverse()
                         }
