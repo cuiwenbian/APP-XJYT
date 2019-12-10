@@ -2,7 +2,10 @@
     <view class="container">
         <view class="box">
             <text class="name">姓名:</text><input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
-            <view class="name1">联系方式:<input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/></view>
+            <view class="line"></view>
+            <view class="name1">联系方式:
+                <input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/>
+            </view>
         </view>
         <view>
             <text class="stop">提示:交易需要买家和卖家进行实名认证</text>
@@ -106,7 +109,7 @@
 
 <style>
     page{
-        background-color: #DCDCDC;
+        background-color: #EDEEEE;
     }
     .box {
         width: 650rpx;
@@ -118,16 +121,22 @@
     }
     .name{
         float: left;
-        height: 150rpx;
+        height: 140rpx;
         font-size: 26rpx;
-        line-height: 150rpx;
+        line-height: 140rpx;
         padding-left: 48rpx;
+    }
+    .line {
+        height: 20rpx;
+        width: 100%;
+        padding-top: 128rpx;
+        border-bottom: 1rpx solid #E4E4E4;
     }
     .name1 {
         float: left;
         font-size: 26rpx;
-        height: 150rpx;
-        line-height: 150rpx;
+        height: 140rpx;
+        line-height: 140rpx;
         padding-left: 48rpx;
     }
     .inp {
@@ -138,9 +147,8 @@
         float: right;
     }
     .int {
-        width: 300rpx;
         font-size: 26rpx;
-        height: 150rpx;
+        height: 140rpx;
         float: right;
         padding-left: 60rpx;
     }
@@ -148,16 +156,20 @@
         float: left;
         padding-left: 96rpx;
         font-size: 26rpx;
+        color: #A0A0A0;
     }
     .btn{
         height: 120rpx;
     }
     .primary {
-        width: 650rpx;
-        height: 100rpx;
-        margin: 340rpx auto;
-        border-radius: 80rpx;
-        color: #FFFFFF;
-        background-color: #121212;
+       margin: 134rpx auto 0;
+       width:690rpx;
+       height:88rpx;
+       background: #0A1117;
+       border-radius: 80rpx;
+       text-align: center;
+       line-height: 88rpx;
+       color: #fff;
+       font-size: 30rpx;
     }
 </style>

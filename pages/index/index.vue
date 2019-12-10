@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+
         <swiper 
         indicator-dots 
         autoplay interval="3000"
@@ -155,6 +156,7 @@
             			method: 'POST',
             			success: function(res) {
 							//转换时间戳
+							console.log(res)
 							function formatDate(v) {
 							    let date = new Date(v);
 							    let y = date.getFullYear();

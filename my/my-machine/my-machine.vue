@@ -142,7 +142,7 @@
 	.shade{
 		width:100%;
 		height:100%;
-		background:rgba(0,0,0,0.4); 
+		background:rgba(0,0,0,0.4);
 		position: fixed;
 		left:0;
 		top:0;
@@ -150,33 +150,32 @@
 	}
 	.pop{
 		width:550rpx;
-		height:260rpx;
+		height:300rpx;
 		margin:500rpx auto;
-		padding:0 40rpx;
+		padding:0 60rpx;
 		box-sizing: border-box;
-		background: #f0efef;
+		background:#fff;
+		border-radius:10rpx;
 	}
 	.pop-title{
-		height:150rpx;
-		line-height: 150rpx;
+		height:180rpx;
+		line-height: 180rpx;
 		text-align: center;
-		font-size: 20rpx;
+		font-size: 26rpx;
 	}
 	.pops{
 		height:100rpx;
 		width:100%;
-		padding: 0 50rpx;
-		box-sizing: border-box;
 		display: flex;
 		justify-content: space-between;
 	}
 	.pop-btn{
-		width:120rpx;
-		height:60rpx;
-		background:#121212;
-		line-height: 60rpx;
+		width:158rpx;
+		height:66rpx;
+		border-radius: 5rpx;
+		line-height: 66rpx;
 		font-size: 30rpx;
-		color:#fff;
+		color:#797979;
 		text-align: center;
 	}
 	.box{

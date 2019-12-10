@@ -47,12 +47,12 @@
 				</view>
 			</checkbox-group>
 		</block>
-       <view class="shade" v-if="shade">
+        <view class="shade" v-if="shade">
           	<view class="pop">
-          		<view class='pop-title'>若不阅读和同意协议,无法使用此功能哦</view>
+          		<view class='pop-title'>{{lerst}}</view>
           		<view class="pops">
-          			<view class='pop-btn' @click="cancel">取消</view>
-          			<view class='pop-btn' @click="sure">去阅读</view>
+          			<view class='pop-btn' @click="cancel">{{cancl}}</view>
+          			<view class='pop-bn' @click="sure">{{greed}}</view>
           		</view>
           	</view>
           </view>
@@ -66,7 +66,12 @@ export default {
 			many: '0',
 			user_id: [],
 			flag: false,
+            greed:'去阅读',
+            cancl:'取消',
+            lerst:'若不阅读和同意协议,无法使用此功能哦',
 			selectilall: false,
+            deoor:false,
+            stus:'',
             shade:false,
 			machine_id: '',
 			lo: false,
@@ -159,6 +164,7 @@ export default {
                     var asr = JSON.stringify(res.data.data);
                     if(res.statusCode == 410) {
                         that.shade = true
+                        that.stus = res.statusCode
                     } else
                         if (that.arr.length == 0) {
                     	uni.showToast({
@@ -169,56 +175,24 @@ export default {
                     }
 
 					if (res.statusCode == 401) {
-						uni.showModal({
-							content: '未进行实名认证',
-							confirmText: '去验证',
-							success: function(res) {
-								if (res.confirm) {
-									uni.navigateTo({
-										url: '../../my/identity/identity'
-									});
-								} else if (res.cancel) {
-									console.log('用户点击取消');
-								}
-							}
-						});
-
+                        that.stus = res.statusCode
+                        that.lerst = '未进行实名认证'
+                        that.greed = '去验证'
+                        that.shade = true
 						return false
 					}
 					if (res.statusCode == 302) {
 						uni.showToast({
-							title: '实名认证审核中',
+							title: '实名认证审核中,请耐心等待...',
                             icon:'none'
 						});
 						return false
 					}
 					if (res.statusCode == 400) {
-						uni.showModal({
-							content: '未设置交易密码',
-							confirmText: '去设置',
-							success: function(res) {
-								if (res.confirm) {
-									uni.switchTab({
-										url: '../../my/my/my'
-									});
-								} else if (res.cancel) {
-									console.log('用户点击取消');
-								}
-							}
-						});
-						return false
-					}
-					if (that.arr.length == 0) {
-						uni.showToast({
-							title: '请选择矿机',
-							icon: 'none'
-						});
-						return false
-					}else
-					if (res.statusCode == 410) {
-						uni.showToast({
-							title:'请阅读服务协议'
-						})
+                        that.stus = res.statusCode
+                        that.lerst = '未设置交易密码'
+                        that.greed = '去设置'
+                        that.shade = true
 						return false
 					}
 					if (res.statusCode == 200) {
@@ -231,9 +205,21 @@ export default {
 			});
 		},
         sure:function(){
-            uni.navigateTo({
-                url:'../../pages/agreement/agreement'
-            })
+            if(this.stus == 400) {
+             	uni.switchTab({
+                	url: '../../my/my/my'
+                });
+            }
+            if(this.stus == 410) {
+                uni.navigateTo({
+                    url:'../../pages/agreement/agreement'
+                })
+            }
+            if(this.stus == 401) {
+                uni.navigateTo({
+                	url: '../../my/identity/identity'
+                });
+            }
         },
         cancel:function(){
            this.shade = false
@@ -247,7 +233,7 @@ export default {
 	.shade{
 		width:100%;
 		height:100%;
-		background:rgba(255,255,255,0.5);
+		background:rgba(0,0,0,0.4);
 		position: fixed;
 		left:0;
 		top:0;
@@ -255,35 +241,44 @@ export default {
 	}
 	.pop{
 		width:550rpx;
-		height:260rpx;
+		height:300rpx;
 		margin:500rpx auto;
-		padding:0 40rpx;
+		padding:0 60rpx;
 		box-sizing: border-box;
-		background: #f0efef;
+		background:#fff;
+		border-radius:10rpx;
 	}
 	.pop-title{
-		height:150rpx;
-		line-height: 150rpx;
+		height:180rpx;
+		line-height: 180rpx;
 		text-align: center;
-		font-size: 20rpx;
+		font-size: 26rpx;
 	}
 	.pops{
 		height:100rpx;
 		width:100%;
-		padding: 0 50rpx;
-		box-sizing: border-box;
 		display: flex;
 		justify-content: space-between;
 	}
 	.pop-btn{
-		width:120rpx;
-		height:60rpx;
-		background:#121212;
-		line-height: 60rpx;
+		width:158rpx;
+		height:66rpx;
+		border-radius: 5rpx;
+		line-height: 66rpx;
 		font-size: 30rpx;
-		color:#fff;
+		color:#797979;
 		text-align: center;
 	}
+    .pop-bn{
+        width:158rpx;
+        height:66rpx;
+        border-radius: 5rpx;
+        line-height: 66rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        background-color: #000000;
+        text-align: center;
+    }
 .height {
 	height: var(--status-bar-height);
 	background-color: #121212;

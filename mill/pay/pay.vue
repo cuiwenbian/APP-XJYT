@@ -19,7 +19,7 @@
             <view class="list" v-if="tabCurrentIndex === 0">
                 <scroll-view scroll-y='true' >
                 <view v-for="(item , index) in contion" :key="index">
-                    <view  class="order" >
+                    <view>
                     	<view class="top">
                     		<text class="mation">
                                 买家姓名: <text class="cool">{{item.name}}</text>
@@ -438,13 +438,13 @@
         font-size: 20rpx;
         color: #979797;
    	}
-       .box3 {
+    .box3 {
            height: 90rpx;
            background-color: #F6F6F6;
            position: relative;
        }
-       .list{
-         height: auto;
+    .list{
+         height: 100rpx;
        }
    	.top{
    		height: 88rpx;

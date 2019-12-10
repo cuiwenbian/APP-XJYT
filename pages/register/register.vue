@@ -105,7 +105,8 @@
 						    if (num <= 0) {
 						      clearInterval(timer);
 						      _this.codename = '重新发送',
-						      _this.disabled = false
+						      _this.disabled = false,
+							  _this.flag=true
 						    } else {
 						  	_this.flag=false,
 						      _this.codename = num + "s",
@@ -303,7 +304,7 @@
 		background:rgba(243,243,243,0.5);
 		color:#646464;
 		text-align: center;
-		line-height: 60rpx;
+		line-height: 50rpx;
 		position: absolute;
 		bottom: 20rpx;
 		right: 0;
