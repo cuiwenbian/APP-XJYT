@@ -207,7 +207,7 @@
 				}
 				if(that.fil_num<0.001){
 					uni.showToast({
-						title:'请输入正确的金额(提币数量不能少于0.001)',
+						title:'提币数量无效',
 						icon:'none',
 						duration:2000
 					})

@@ -2,7 +2,7 @@
 	<!-- 快速登录 -->
 	<view class="container">
 		<image class="logo" src="../../static/images/FIL.png" mode=""></image>
-		<image class='fil' src="../../static/images/filecoin.png" mode=""></image>
+		<image class="fil" src="../../static/images/filecoin.png" mode=""></image>
 		<!-- <view class="fil">Filecoin</view> -->
 		<view class="enter">
 			<image class="icon" src="../../static/images/phone.png" mode=""></image>
@@ -10,10 +10,10 @@
 		</view>
 		<view class="enter" style="position: relative;">
 			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<button :class="flag?'getcode':'getcode1'" @click="getCodeNumber" :disabled="disabled">{{ codename }}</button>
+			<button class="getcode" @click="getCodeNumber" :disabled="disabled" hover-class="none">{{ codename }}</button>
 			<input class="number" style="width:300rpx;float:left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
 		</view>
-		<view class="btn"  @click="login">立刻登录</view>
+		<view class="btn" @click="login">立刻登录</view>
 		<navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
 	</view>
 </template>
@@ -26,8 +26,7 @@ export default {
 			code: '', //验证码
 			iscode: '', //用于存放验证码接口里获取到的code
 			codename: ' 获取验证码',
-			disabled:false,
-			flag:true
+			disabled: false
 		};
 	},
 	methods: {
@@ -40,76 +39,72 @@ export default {
 		getCodeValue: function(e) {
 			this.code = e.detail.value;
 		},
-		getCode: function () {
-		      var _this = this;
-		      //判断手机号格式
-		      var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-		      if (_this.phone == "") {
-		        uni.showToast({
-		          title: '手机号不能为空',
-		          icon: 'none',
-		          duration: 1000
-		        })
-		        return false;
-		      } else if (!myreg.test(_this.phone)) {
-		        uni.showToast({
-		          title: '请输入正确的手机号',
-		          icon: 'none',
-		          duration: 1000
-		        })
-		        return false;
-		      } else {
-		        uni.request({
-		          method: 'POST',
-		          data: {
-		            mobile: _this.phone,
-		          },
-		            //短信接口
-		          'url': _this.url + 'users/forgot/sms/',
-		          header: {
-		            "Content-Type": "application/x-www-form-urlencoded"
-		          },
-		
-		          success(res) {
-		            //根据code判断
-					console.log(res)
-		            var ocode = res.statusCode;
-		            if (ocode == 200) {
-		              _this.iscode = res.data.data;
-					  var num = 61;
-					  var timer = setInterval(function () {
-					    num--;
-					    if (num <= 0) {
-					      clearInterval(timer);
-					      _this.codename = '重新发送',
-					      _this.disabled = false,
-						  _this.flag=true
-					    } else {
-					  	 _this.flag=false,
-					      _this.codename = num + "s"
-					      _this.disabled = true
-					    }
-					  }, 1000)
-		            } 
-					else if (ocode == 400) {
-		              uni.showToast({
-		                title: '用户不存在',
-		                icon: 'none',
-		                duration: 2000
-		              })
-		              return false;
-		            }else if(ocode == 411){
-						uni.showToast({
-						  title: '操作太频繁，请稍候重试',
-						  icon: 'none',
-						  duration: 2000
-						})
-						return false;
+		getCode: function() {
+			var _this = this;
+			//判断手机号格式
+			var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+			if (_this.phone == '') {
+				uni.showToast({
+					title: '手机号不能为空',
+					icon: 'none',
+					duration: 1000
+				});
+				return false;
+			} else if (!myreg.test(_this.phone)) {
+				uni.showToast({
+					title: '请输入正确的手机号',
+					icon: 'none',
+					duration: 1000
+				});
+				return false;
+			} else {
+				uni.request({
+					method: 'POST',
+					data: {
+						mobile: _this.phone
+					},
+					//短信接口
+					url: _this.url + 'users/forgot/sms/',
+					header: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+
+					success(res) {
+						//根据code判断
+						console.log(res);
+						var ocode = res.statusCode;
+						if (ocode == 200) {
+							_this.iscode = res.data.data;
+							var num = 61;
+							var timer = setInterval(function() {
+								num--;
+								if (num <= 0) {
+									clearInterval(timer);
+									_this.codename = '重新发送';
+									_this.disabled = false;
+								} else {
+									_this.codename = num + 's';
+									_this.disabled = true;
+								}
+							}, 1000);
+						} else if (ocode == 400) {
+							uni.showToast({
+								title: '用户不存在',
+								icon: 'none',
+								duration: 2000
+							});
+							return false;
+						} else if (ocode == 411) {
+							uni.showToast({
+								title: '操作太频繁，请稍候重试',
+								icon: 'none',
+								duration: 2000
+							});
+							return false;
+						}
 					}
-		           
-		          }
-		        })
-		      }	
+				});
+			}
 		},
 		//获取验证码
 		getCodeNumber: function(e) {
@@ -150,31 +145,31 @@ export default {
 				return false;
 			} else {
 				uni.request({
-					url:_this.url+'users/login/',
-					method:'POST',
-					data:{
-						mobile:_this.phone,
-						code:_this.code
-					}, 
+					url: _this.url + 'users/login/',
+					method: 'POST',
+					data: {
+						mobile: _this.phone,
+						code: _this.code
+					},
 					success(res) {
-						console.log(res)
-						uni.setStorageSync('phone',_this.phone)
-						uni.setStorageSync('token',res.data.data)
-						_this.global_.phone=_this.phone;
-						_this.global_.token=res.data.data;
-						if(res.statusCode==400){
+						console.log(res);
+						uni.setStorageSync('phone', _this.phone);
+						uni.setStorageSync('token', res.data.data);
+						_this.global_.phone = _this.phone;
+						_this.global_.token = res.data.data;
+						if (res.statusCode == 400) {
 							uni.showToast({
-								title:'验证码不正确',
-								icon:'none'
-							})
+								title: '验证码不正确',
+								icon: 'none'
+							});
 						}
-						if(res.statusCode==200){
+						if (res.statusCode == 200) {
 							uni.switchTab({
-								url:'../index/index'
-							})
+								url: '../index/index'
+							});
 						}
 					}
-				})
+				});
 			}
 		}
 	}
@@ -191,13 +186,12 @@ page {
 	margin-top: 135rpx;
 	margin-left: calc((100% - 185rpx) / 2);
 }
-.fil{
-		width:250rpx;
-		height:100rpx;
-		display: block;	
-		margin:0 auto 100rpx;
-		
-	}
+.fil {
+	width: 250rpx;
+	height: 100rpx;
+	display: block;
+	margin: 0 auto 100rpx;
+}
 .enter {
 	width: 600rpx;
 	height: 100rpx;
@@ -221,33 +215,23 @@ page {
 }
 
 .getcode {
-		border-radius: 50rpx;
-		width:180rpx;
-		height: 50rpx;
-		font-size: 22rpx;
-		background:rgba(243,243,243,0.5);
-		/* border:1px solid rgba(226, 226, 226, 0.66); */
-		border-radius:25px;
-		color: #fff;
-		text-align: center;
-		line-height: 50rpx;
-		position: absolute;
-		bottom: 20rpx;
-		right: 0;
-	}
-	.getcode1{
-		border-radius: 50rpx;
-		width:180rpx;
-		height: 50rpx;
-		font-size: 22rpx;
-		background:rgba(243,243,243,0.5);
-		color:#646464;
-		text-align: center;
-		line-height: 50rpx;
-		position: absolute;
-		bottom: 20rpx;
-		right: 0;
-	}
+	border-radius: 50rpx;
+	width: 180rpx;
+	height: 50rpx;
+	font-size: 22rpx;
+	background: rgba(243, 243, 243, 0.5);
+	color: #fff;
+	text-align: center;
+	line-height: 50rpx;
+	position: absolute;
+	bottom: 20rpx;
+	right: 0;
+}
+button[disabled] {
+	background: rgba(243, 243, 243, 0.5) !important;
+	color: #fff !important;
+}
+
 .btn {
 	width: 680rpx;
 	height: 80rpx;
