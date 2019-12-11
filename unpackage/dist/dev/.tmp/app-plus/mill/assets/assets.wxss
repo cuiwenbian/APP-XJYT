@@ -92,8 +92,7 @@
         float: right;
         margin-right: 48rpx;
         margin-top: 54rpx;
-        background:-webkit-gradient(linear,left bottom, left top,from(rgba(16,14,19,1)),to(rgba(2,21,28,1)));
-        background:-o-linear-gradient(bottom,rgba(16,14,19,1),rgba(2,21,28,1));
+        background:-webkit-linear-gradient(bottom,rgba(16,14,19,1),rgba(2,21,28,1));
         background:linear-gradient(0deg,rgba(16,14,19,1),rgba(2,21,28,1));
         color: #f0f0f0;
 }
@@ -128,8 +127,7 @@
 		height: 116rpx;
 		background: #fff;
 		padding-left: 50rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
         position: relative;
 }
 .list-icon {
@@ -161,18 +159,15 @@
 .swiper-tab {
 		display: -webkit-box;
 		display: -webkit-flex;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 		-webkit-flex-direction: row;
-		    -ms-flex-direction: row;
 		        flex-direction: row;
 		line-height: 80rpx;
 		background: #EDEDED;
 		padding-left:48rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 }
 .tab-item {
 		width: 20%;

@@ -23,7 +23,7 @@
                     <text class="lop">{{rmb}}</text>
                 </text>
             </view>
-            <view class="small">
+            <view class="smallss">
                 <text>
                     订单编号:<text class="smallxx1">{{coffee.order_num}}</text>
                 </text>
@@ -48,9 +48,7 @@
                      </text>
                  </view>
             </view>
-            <view>
-                <button class="primary" @click="btn">{{checkall}}</button>
-            </view>
+           <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:25rpx;height:20rpx;margin-left: 6rpx;" mode=""></image></button>
         </view>
         <view class="box1">
             买家信息
@@ -105,7 +103,7 @@
                 nuecv:'',
                 italn:'',
                 frte:true,
-                checkall:'查看全部'
+                checkall:'展示完整信息'
             }
         },
         onLoad(option) {
@@ -130,7 +128,7 @@
                 if(that.frte==false){
                     that.checkall='收起';
                 }else{
-                    that.checkall='查看全部'
+                    that.checkall='展示完整信息'
                 }
             }
         }
@@ -145,6 +143,37 @@
  .box {
      width: 100%;
      background-color: #fff;
+     padding-bottom:20rpx;
+ }
+ .primary {
+     width: 240rpx;
+     height: 40rpx;
+        border-radius: 70rpx;
+         border: 1rpx solid #333333;
+     background-color: #FFFFFF;
+     line-height: 40rpx;
+      margin-top:20rpx;
+     font-size: 22rpx;
+ }
+ .primary2 {
+     width: 180rpx;
+     height: 40rpx;
+     border-radius:70rpx;
+     border: 0.5rpx solid #333333;
+     background-color: #FFFFFF;
+     line-height: 40rpx;
+      margin-top:20rpx;
+     font-size: 16rpx;
+ }
+ .smallss{
+     box-sizing: border-box;
+     width: 100%;
+     height: 110rpx;
+     line-height: 110rpx;
+     float: left;
+     padding-left: 48rpx;
+     margin-bottom: 20rpx;
+     font-size: 28rpx;
  }
  .small {
      box-sizing: border-box;
@@ -199,13 +228,6 @@
  }
  .smallxx1{
      margin-left: 48rpx;
- }
- .primary {
-     width: 180rpx;
-     height: 40rpx;
-     line-height: 40rpx;
-     margin-top: 60rpx;
-     font-size: 22rpx;
  }
  .box1 {
      height: 78rpx;

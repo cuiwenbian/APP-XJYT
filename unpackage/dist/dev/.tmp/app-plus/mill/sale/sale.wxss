@@ -195,12 +195,10 @@
 .swiper-tab {
         display: -webkit-box;
         display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -webkit-flex-direction: row;
-            -ms-flex-direction: row;
                 flex-direction: row;
         line-height: 80rpx;
         background: #EDEDED;

@@ -45,8 +45,7 @@ page{
 	border-radius: 12rpx;
 	text-align: center;
 	padding: 50rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .box1{
 	width:654rpx;

@@ -7,15 +7,13 @@ page{
 	font-size: 32rpx;
 	color:#333333;
 	padding-left: 24rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .enter{
 	width:710rpx;
 	margin:0 auto;
   padding-left: 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background: #fff;
   overflow: hidden;
   border-radius: 5rpx;
@@ -124,11 +122,9 @@ page{
    margin:50rpx auto 0;
    display: -webkit-box;
    display: -webkit-flex;
-   display: -ms-flexbox;
    display: flex;
    -webkit-box-pack: justify;
    -webkit-justify-content: space-between;
-       -ms-flex-pack: justify;
            justify-content: space-between;
 }
 .id1{

@@ -979,12 +979,23 @@
 .pop-bn{
         width:158rpx;
         height:66rpx;
-        border-radius: 5rpx;
+        border-radius: 10rpx;
         line-height: 66rpx;
         font-size: 28rpx;
         color: #FFFFFF;
         background-color: #000000;
         text-align: center;
+}
+.pop-bbt{
+        width:158rpx;
+        height:66rpx;
+        border-radius: 10rpx;
+        line-height: 66rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        background-color: #000000;
+        text-align: center;
+        margin:0 auto;
 }
 .height {
 	height: var(--status-bar-height);

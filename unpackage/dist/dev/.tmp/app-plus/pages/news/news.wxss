@@ -13,8 +13,7 @@
     padding-left: 24rpx;
     display: -webkit-box;
     overflow: hidden;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
     word-wrap: break-word;
     white-space: normal !important;
     -webkit-line-clamp: 2;

@@ -947,8 +947,7 @@
 		height:300rpx;
 		margin:500rpx auto;
 		padding:0 60rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 		background:#fff;
 		border-radius:10rpx;
 }
@@ -963,11 +962,9 @@
 		width:100%;
 		display: -webkit-box;
 		display: -webkit-flex;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-box-pack: justify;
 		-webkit-justify-content: space-between;
-		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 }
 .pop-btn{
@@ -982,12 +979,23 @@
 .pop-bn{
         width:158rpx;
         height:66rpx;
-        border-radius: 5rpx;
+        border-radius: 10rpx;
         line-height: 66rpx;
         font-size: 28rpx;
         color: #FFFFFF;
         background-color: #000000;
         text-align: center;
+}
+.pop-bbt{
+        width:158rpx;
+        height:66rpx;
+        border-radius: 10rpx;
+        line-height: 66rpx;
+        font-size: 28rpx;
+        color: #FFFFFF;
+        background-color: #000000;
+        text-align: center;
+        margin:0 auto;
 }
 .height {
 	height: var(--status-bar-height);
@@ -1007,15 +1015,13 @@
 	color: #ffffff;
 	font-size: 30rpx;
 	padding-left: 320rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .many {
 	position: absolute;
 	top: 140rpx;
 	padding-left: 366rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	padding-top: 40rpx;
 	font-size: 48rpx;
 	color: #dfaf72;
@@ -1073,8 +1079,7 @@
 	float: right;
 	margin-right: 48rpx;
 	margin-top: 60rpx;
-	background: -webkit-gradient(linear, left bottom, left top, from(rgba(16, 14, 19, 1)), to(rgba(2, 21, 28, 1)));
-	background: -o-linear-gradient(bottom, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
+	background: -webkit-linear-gradient(bottom, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
 	background: linear-gradient(0deg, rgba(16, 14, 19, 1), rgba(2, 21, 28, 1));
 	color: #f0f0f0;
 }
