@@ -32,30 +32,20 @@ page{
 	width:300rpx;
 }
 .getcode{
-	float:right;
-	width:200rpx;
-	height:50rpx;
-	background:rgba(244,244,244,1);
-	border:1px solid rgba(226, 226, 226, 1);
-	border-radius:25px;
-	font-size: 26rpx;
+	float: right;
+	border-radius: 50rpx;
+	width: 180rpx;
+	height: 50rpx;
+	font-size: 22rpx;
+	background: #797979;
+	color: #fff;
 	text-align: center;
 	line-height: 50rpx;
 	margin-top:35rpx;
-	color:#333;
 }
-.getcode1{
-	float:right;
-	width:200rpx;
-	height:50rpx;
-	background:rgba(244,244,244,1);
-	border:1px solid rgba(226, 226, 226, 1);
-	border-radius: 25rpx;
-	font-size: 26rpx;
-	text-align: center;
-	line-height: 50rpx;
-	margin-top:35rpx;
-	color:#B2B2B2;
+button[disabled] {
+	background:  #797979 !important;
+	color: #fff !important;
 }
 .save{
 	margin: 100rpx auto 0;

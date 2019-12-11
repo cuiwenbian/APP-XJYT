@@ -1253,7 +1253,9 @@ function gz$gwx_12(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_12)return __WXML_GLOBAL__.ops_cached.$gwx_12
 __WXML_GLOBAL__.ops_cached.$gwx_12=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'container'])
 Z([[7],[3,'shade']])
+Z([[7],[3,'shade1']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_12);return __WXML_GLOBAL__.ops_cached.$gwx_12
 }
 function gz$gwx_13(){
@@ -2047,72 +2049,80 @@ e_[x[10]]={f:m10,j:[],i:[],ti:[],ic:[]}
 d_[x[11]]={}
 var m11=function(e,s,r,gg){
 var z=gz$gwx_12()
-var fCC=_v()
-_(r,fCC)
-if(_oz(z,0,e,s,gg)){fCC.wxVkey=1
+var fCC=_n('view')
+_rz(z,fCC,'class',0,e,s,gg)
+var cDC=_v()
+_(fCC,cDC)
+if(_oz(z,1,e,s,gg)){cDC.wxVkey=1
 }
-fCC.wxXCkey=1
+var hEC=_v()
+_(fCC,hEC)
+if(_oz(z,2,e,s,gg)){hEC.wxVkey=1
+}
+cDC.wxXCkey=1
+hEC.wxXCkey=1
+_(r,fCC)
 return r
 }
 e_[x[11]]={f:m11,j:[],i:[],ti:[],ic:[]}
 d_[x[12]]={}
 var m12=function(e,s,r,gg){
 var z=gz$gwx_13()
-var hEC=_n('view')
-var oFC=_v()
-_(hEC,oFC)
-if(_oz(z,0,e,s,gg)){oFC.wxVkey=1
-}
-var cGC=_v()
-_(hEC,cGC)
-if(_oz(z,1,e,s,gg)){cGC.wxVkey=1
-}
+var cGC=_n('view')
 var oHC=_v()
-_(hEC,oHC)
-if(_oz(z,2,e,s,gg)){oHC.wxVkey=1
+_(cGC,oHC)
+if(_oz(z,0,e,s,gg)){oHC.wxVkey=1
 }
 var lIC=_v()
-_(hEC,lIC)
-if(_oz(z,3,e,s,gg)){lIC.wxVkey=1
+_(cGC,lIC)
+if(_oz(z,1,e,s,gg)){lIC.wxVkey=1
 }
-oFC.wxXCkey=1
-cGC.wxXCkey=1
+var aJC=_v()
+_(cGC,aJC)
+if(_oz(z,2,e,s,gg)){aJC.wxVkey=1
+}
+var tKC=_v()
+_(cGC,tKC)
+if(_oz(z,3,e,s,gg)){tKC.wxVkey=1
+}
 oHC.wxXCkey=1
 lIC.wxXCkey=1
-_(r,hEC)
+aJC.wxXCkey=1
+tKC.wxXCkey=1
+_(r,cGC)
 return r
 }
 e_[x[12]]={f:m12,j:[],i:[],ti:[],ic:[]}
 d_[x[13]]={}
 var m13=function(e,s,r,gg){
 var z=gz$gwx_14()
-var tKC=_n('view')
-var eLC=_v()
-_(tKC,eLC)
-if(_oz(z,0,e,s,gg)){eLC.wxVkey=1
-var oPC=_v()
-_(eLC,oPC)
-if(_oz(z,1,e,s,gg)){oPC.wxVkey=1
-}
-oPC.wxXCkey=1
-}
-var bMC=_v()
-_(tKC,bMC)
-if(_oz(z,2,e,s,gg)){bMC.wxVkey=1
-}
+var bMC=_n('view')
 var oNC=_v()
-_(tKC,oNC)
-if(_oz(z,3,e,s,gg)){oNC.wxVkey=1
+_(bMC,oNC)
+if(_oz(z,0,e,s,gg)){oNC.wxVkey=1
+var cRC=_v()
+_(oNC,cRC)
+if(_oz(z,1,e,s,gg)){cRC.wxVkey=1
+}
+cRC.wxXCkey=1
 }
 var xOC=_v()
-_(tKC,xOC)
-if(_oz(z,4,e,s,gg)){xOC.wxVkey=1
+_(bMC,xOC)
+if(_oz(z,2,e,s,gg)){xOC.wxVkey=1
 }
-eLC.wxXCkey=1
-bMC.wxXCkey=1
+var oPC=_v()
+_(bMC,oPC)
+if(_oz(z,3,e,s,gg)){oPC.wxVkey=1
+}
+var fQC=_v()
+_(bMC,fQC)
+if(_oz(z,4,e,s,gg)){fQC.wxVkey=1
+}
 oNC.wxXCkey=1
 xOC.wxXCkey=1
-_(r,tKC)
+oPC.wxXCkey=1
+fQC.wxXCkey=1
+_(r,bMC)
 return r
 }
 e_[x[13]]={f:m13,j:[],i:[],ti:[],ic:[]}
@@ -2131,19 +2141,19 @@ e_[x[15]]={f:m15,j:[],i:[],ti:[],ic:[]}
 d_[x[16]]={}
 var m16=function(e,s,r,gg){
 var z=gz$gwx_17()
-var oTC=_n('view')
-_rz(z,oTC,'class',0,e,s,gg)
-var cUC=_v()
-_(oTC,cUC)
-if(_oz(z,1,e,s,gg)){cUC.wxVkey=1
-var oVC=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(cUC,oVC)
+var oVC=_n('view')
+_rz(z,oVC,'class',0,e,s,gg)
+var lWC=_v()
+_(oVC,lWC)
+if(_oz(z,1,e,s,gg)){lWC.wxVkey=1
+var aXC=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(lWC,aXC)
 }
-var lWC=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(oTC,lWC)
-cUC.wxXCkey=1
-cUC.wxXCkey=3
-_(r,oTC)
+var tYC=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(oVC,tYC)
+lWC.wxXCkey=1
+lWC.wxXCkey=3
+_(r,oVC)
 return r
 }
 e_[x[16]]={f:m16,j:[],i:[],ti:[],ic:[]}
@@ -2174,19 +2184,19 @@ e_[x[20]]={f:m20,j:[],i:[],ti:[],ic:[]}
 d_[x[21]]={}
 var m21=function(e,s,r,gg){
 var z=gz$gwx_22()
-var x3C=_n('view')
-_rz(z,x3C,'class',0,e,s,gg)
-var o4C=_v()
-_(x3C,o4C)
-if(_oz(z,1,e,s,gg)){o4C.wxVkey=1
-var f5C=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(o4C,f5C)
+var f5C=_n('view')
+_rz(z,f5C,'class',0,e,s,gg)
+var c6C=_v()
+_(f5C,c6C)
+if(_oz(z,1,e,s,gg)){c6C.wxVkey=1
+var h7C=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(c6C,h7C)
 }
-var c6C=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(x3C,c6C)
-o4C.wxXCkey=1
-o4C.wxXCkey=3
-_(r,x3C)
+var o8C=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(f5C,o8C)
+c6C.wxXCkey=1
+c6C.wxXCkey=3
+_(r,f5C)
 return r
 }
 e_[x[21]]={f:m21,j:[],i:[],ti:[],ic:[]}
@@ -2205,42 +2215,42 @@ e_[x[23]]={f:m23,j:[],i:[],ti:[],ic:[]}
 d_[x[24]]={}
 var m24=function(e,s,r,gg){
 var z=gz$gwx_25()
-var o0C=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
-var lAD=_v()
-_(o0C,lAD)
-if(_oz(z,2,e,s,gg)){lAD.wxVkey=1
-var tCD=_n('view')
-var eDD=_mz(z,'uni-nav-bar',['backgroundColor',3,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'rightText',8,'statusBar',9,'title',10,'vueId',11],[],e,s,gg)
-_(tCD,eDD)
-var bED=_v()
+var aBD=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
+var tCD=_v()
+_(aBD,tCD)
+if(_oz(z,2,e,s,gg)){tCD.wxVkey=1
+var bED=_n('view')
+var oFD=_mz(z,'uni-nav-bar',['backgroundColor',3,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'rightText',8,'statusBar',9,'title',10,'vueId',11],[],e,s,gg)
+_(bED,oFD)
+var xGD=_v()
+_(bED,xGD)
+var oHD=function(cJD,fID,hKD,gg){
+var cMD=_mz(z,'uni-swipe-action',['bind:__l',19,'bind:click',1,'data-event-opts',2,'options',3,'vueId',4,'vueSlots',5],[],cJD,fID,gg)
+_(hKD,cMD)
+return hKD
+}
+xGD.wxXCkey=4
+_2z(z,17,oHD,e,s,gg,xGD,'item','__i0__','id')
 _(tCD,bED)
-var oFD=function(oHD,xGD,fID,gg){
-var hKD=_mz(z,'uni-swipe-action',['bind:__l',19,'bind:click',1,'data-event-opts',2,'options',3,'vueId',4,'vueSlots',5],[],oHD,xGD,gg)
-_(fID,hKD)
-return fID
 }
-bED.wxXCkey=4
-_2z(z,17,oFD,e,s,gg,bED,'item','__i0__','id')
-_(lAD,tCD)
+else{tCD.wxVkey=2
+var oND=_mz(z,'uni-nav-bar',['backgroundColor',25,'bind:__l',1,'bind:clickLeft',2,'color',3,'data-event-opts',4,'fixed',5,'leftIcon',6,'statusBar',7,'title',8,'vueId',9],[],e,s,gg)
+_(tCD,oND)
 }
-else{lAD.wxVkey=2
-var oLD=_mz(z,'uni-nav-bar',['backgroundColor',25,'bind:__l',1,'bind:clickLeft',2,'color',3,'data-event-opts',4,'fixed',5,'leftIcon',6,'statusBar',7,'title',8,'vueId',9],[],e,s,gg)
-_(lAD,oLD)
+var eDD=_v()
+_(aBD,eDD)
+if(_oz(z,35,e,s,gg)){eDD.wxVkey=1
+var lOD=_mz(z,'password-input',['bind:__l',36,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(eDD,lOD)
 }
-var aBD=_v()
-_(o0C,aBD)
-if(_oz(z,35,e,s,gg)){aBD.wxVkey=1
-var cMD=_mz(z,'password-input',['bind:__l',36,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(aBD,cMD)
-}
-var oND=_mz(z,'keyboard-package',['bind:__l',46,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(o0C,oND)
-lAD.wxXCkey=1
-lAD.wxXCkey=3
-lAD.wxXCkey=3
-aBD.wxXCkey=1
-aBD.wxXCkey=3
-_(r,o0C)
+var aPD=_mz(z,'keyboard-package',['bind:__l',46,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(aBD,aPD)
+tCD.wxXCkey=1
+tCD.wxXCkey=3
+tCD.wxXCkey=3
+eDD.wxXCkey=1
+eDD.wxXCkey=3
+_(r,aBD)
 return r
 }
 e_[x[24]]={f:m24,j:[],i:[],ti:[],ic:[]}
@@ -2283,28 +2293,28 @@ e_[x[30]]={f:m30,j:[],i:[],ti:[],ic:[]}
 d_[x[31]]={}
 var m31=function(e,s,r,gg){
 var z=gz$gwx_32()
-var oVD=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
-var fWD=_v()
-_(oVD,fWD)
-if(_oz(z,2,e,s,gg)){fWD.wxVkey=1
-var hYD=_mz(z,'password-input',['bind:__l',3,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(fWD,hYD)
+var cXD=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
+var hYD=_v()
+_(cXD,hYD)
+if(_oz(z,2,e,s,gg)){hYD.wxVkey=1
+var c1D=_mz(z,'password-input',['bind:__l',3,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(hYD,c1D)
 }
-var oZD=_mz(z,'keyboard-package',['bind:__l',13,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(oVD,oZD)
-var cXD=_v()
-_(oVD,cXD)
-if(_oz(z,23,e,s,gg)){cXD.wxVkey=1
-var c1D=_mz(z,'password-input',['bind:__l',24,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(cXD,c1D)
+var o2D=_mz(z,'keyboard-package',['bind:__l',13,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(cXD,o2D)
+var oZD=_v()
+_(cXD,oZD)
+if(_oz(z,23,e,s,gg)){oZD.wxVkey=1
+var l3D=_mz(z,'password-input',['bind:__l',24,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(oZD,l3D)
 }
-var o2D=_mz(z,'keyboard-package',['bind:__l',34,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(oVD,o2D)
-fWD.wxXCkey=1
-fWD.wxXCkey=3
-cXD.wxXCkey=1
-cXD.wxXCkey=3
-_(r,oVD)
+var a4D=_mz(z,'keyboard-package',['bind:__l',34,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(cXD,a4D)
+hYD.wxXCkey=1
+hYD.wxXCkey=3
+oZD.wxXCkey=1
+oZD.wxXCkey=3
+_(r,cXD)
 return r
 }
 e_[x[31]]={f:m31,j:[],i:[],ti:[],ic:[]}
@@ -2317,19 +2327,19 @@ e_[x[32]]={f:m32,j:[],i:[],ti:[],ic:[]}
 d_[x[33]]={}
 var m33=function(e,s,r,gg){
 var z=gz$gwx_34()
-var t5D=_n('view')
-_rz(z,t5D,'class',0,e,s,gg)
-var e6D=_v()
-_(t5D,e6D)
-if(_oz(z,1,e,s,gg)){e6D.wxVkey=1
+var b7D=_n('view')
+_rz(z,b7D,'class',0,e,s,gg)
+var o8D=_v()
+_(b7D,o8D)
+if(_oz(z,1,e,s,gg)){o8D.wxVkey=1
 }
-var b7D=_v()
-_(t5D,b7D)
-if(_oz(z,2,e,s,gg)){b7D.wxVkey=1
+var x9D=_v()
+_(b7D,x9D)
+if(_oz(z,2,e,s,gg)){x9D.wxVkey=1
 }
-e6D.wxXCkey=1
-b7D.wxXCkey=1
-_(r,t5D)
+o8D.wxXCkey=1
+x9D.wxXCkey=1
+_(r,b7D)
 return r
 }
 e_[x[33]]={f:m33,j:[],i:[],ti:[],ic:[]}
@@ -2342,132 +2352,132 @@ e_[x[34]]={f:m34,j:[],i:[],ti:[],ic:[]}
 d_[x[35]]={}
 var m35=function(e,s,r,gg){
 var z=gz$gwx_36()
-var o0D=_n('view')
-_rz(z,o0D,'class',0,e,s,gg)
-var fAE=_v()
-_(o0D,fAE)
-if(_oz(z,1,e,s,gg)){fAE.wxVkey=1
-}
-var cBE=_v()
-_(o0D,cBE)
-if(_oz(z,2,e,s,gg)){cBE.wxVkey=1
-}
+var cBE=_n('view')
+_rz(z,cBE,'class',0,e,s,gg)
 var hCE=_v()
-_(o0D,hCE)
-if(_oz(z,3,e,s,gg)){hCE.wxVkey=1
+_(cBE,hCE)
+if(_oz(z,1,e,s,gg)){hCE.wxVkey=1
 }
-fAE.wxXCkey=1
-cBE.wxXCkey=1
+var oDE=_v()
+_(cBE,oDE)
+if(_oz(z,2,e,s,gg)){oDE.wxVkey=1
+}
+var cEE=_v()
+_(cBE,cEE)
+if(_oz(z,3,e,s,gg)){cEE.wxVkey=1
+}
 hCE.wxXCkey=1
-_(r,o0D)
+oDE.wxXCkey=1
+cEE.wxXCkey=1
+_(r,cBE)
 return r
 }
 e_[x[35]]={f:m35,j:[],i:[],ti:[],ic:[]}
 d_[x[36]]={}
 var m36=function(e,s,r,gg){
 var z=gz$gwx_37()
-var cEE=_n('view')
-_rz(z,cEE,'class',0,e,s,gg)
-var oFE=_v()
-_(cEE,oFE)
-if(_oz(z,1,e,s,gg)){oFE.wxVkey=1
+var lGE=_n('view')
+_rz(z,lGE,'class',0,e,s,gg)
 var aHE=_v()
-_(oFE,aHE)
-var tIE=function(bKE,eJE,oLE,gg){
-var oNE=_mz(z,'view',['bindtap',6,'class',1,'data-event-opts',2,'id',3],[],bKE,eJE,gg)
-var fOE=_n('view')
-_rz(z,fOE,'class',10,bKE,eJE,gg)
-var cPE=_n('view')
-var hQE=_v()
-_(cPE,hQE)
-if(_oz(z,11,bKE,eJE,gg)){hQE.wxVkey=1
-}
-else{hQE.wxVkey=2
-var oTE=_v()
-_(hQE,oTE)
-if(_oz(z,12,bKE,eJE,gg)){oTE.wxVkey=1
-}
-oTE.wxXCkey=1
-}
-var oRE=_v()
-_(cPE,oRE)
-if(_oz(z,13,bKE,eJE,gg)){oRE.wxVkey=1
-}
+_(lGE,aHE)
+if(_oz(z,1,e,s,gg)){aHE.wxVkey=1
+var eJE=_v()
+_(aHE,eJE)
+var bKE=function(xME,oLE,oNE,gg){
+var cPE=_mz(z,'view',['bindtap',6,'class',1,'data-event-opts',2,'id',3],[],xME,oLE,gg)
+var hQE=_n('view')
+_rz(z,hQE,'class',10,xME,oLE,gg)
+var oRE=_n('view')
 var cSE=_v()
-_(cPE,cSE)
-if(_oz(z,14,bKE,eJE,gg)){cSE.wxVkey=1
+_(oRE,cSE)
+if(_oz(z,11,xME,oLE,gg)){cSE.wxVkey=1
 }
-hQE.wxXCkey=1
-oRE.wxXCkey=1
-cSE.wxXCkey=1
-_(fOE,cPE)
-var lUE=_n('view')
+else{cSE.wxVkey=2
 var aVE=_v()
-_(lUE,aVE)
-if(_oz(z,15,bKE,eJE,gg)){aVE.wxVkey=1
-}
-var tWE=_v()
-_(lUE,tWE)
-if(_oz(z,16,bKE,eJE,gg)){tWE.wxVkey=1
-}
-var eXE=_v()
-_(lUE,eXE)
-if(_oz(z,17,bKE,eJE,gg)){eXE.wxVkey=1
-}
-var bYE=_v()
-_(lUE,bYE)
-if(_oz(z,18,bKE,eJE,gg)){bYE.wxVkey=1
-}
-var oZE=_v()
-_(lUE,oZE)
-if(_oz(z,19,bKE,eJE,gg)){oZE.wxVkey=1
-}
-var x1E=_v()
-_(lUE,x1E)
-if(_oz(z,20,bKE,eJE,gg)){x1E.wxVkey=1
+_(cSE,aVE)
+if(_oz(z,12,xME,oLE,gg)){aVE.wxVkey=1
 }
 aVE.wxXCkey=1
-tWE.wxXCkey=1
+}
+var oTE=_v()
+_(oRE,oTE)
+if(_oz(z,13,xME,oLE,gg)){oTE.wxVkey=1
+}
+var lUE=_v()
+_(oRE,lUE)
+if(_oz(z,14,xME,oLE,gg)){lUE.wxVkey=1
+}
+cSE.wxXCkey=1
+oTE.wxXCkey=1
+lUE.wxXCkey=1
+_(hQE,oRE)
+var tWE=_n('view')
+var eXE=_v()
+_(tWE,eXE)
+if(_oz(z,15,xME,oLE,gg)){eXE.wxVkey=1
+}
+var bYE=_v()
+_(tWE,bYE)
+if(_oz(z,16,xME,oLE,gg)){bYE.wxVkey=1
+}
+var oZE=_v()
+_(tWE,oZE)
+if(_oz(z,17,xME,oLE,gg)){oZE.wxVkey=1
+}
+var x1E=_v()
+_(tWE,x1E)
+if(_oz(z,18,xME,oLE,gg)){x1E.wxVkey=1
+}
+var o2E=_v()
+_(tWE,o2E)
+if(_oz(z,19,xME,oLE,gg)){o2E.wxVkey=1
+}
+var f3E=_v()
+_(tWE,f3E)
+if(_oz(z,20,xME,oLE,gg)){f3E.wxVkey=1
+}
 eXE.wxXCkey=1
 bYE.wxXCkey=1
 oZE.wxXCkey=1
 x1E.wxXCkey=1
-_(fOE,lUE)
-_(oNE,fOE)
-_(oLE,oNE)
-return oLE
+o2E.wxXCkey=1
+f3E.wxXCkey=1
+_(hQE,tWE)
+_(cPE,hQE)
+_(oNE,cPE)
+return oNE
 }
-aHE.wxXCkey=2
-_2z(z,4,tIE,e,s,gg,aHE,'item','index','index')
+eJE.wxXCkey=2
+_2z(z,4,bKE,e,s,gg,eJE,'item','index','index')
 }
-else{oFE.wxVkey=2
+else{aHE.wxVkey=2
 }
-var lGE=_v()
-_(cEE,lGE)
-if(_oz(z,21,e,s,gg)){lGE.wxVkey=1
+var tIE=_v()
+_(lGE,tIE)
+if(_oz(z,21,e,s,gg)){tIE.wxVkey=1
 }
-oFE.wxXCkey=1
-lGE.wxXCkey=1
-_(r,cEE)
+aHE.wxXCkey=1
+tIE.wxXCkey=1
+_(r,lGE)
 return r
 }
 e_[x[36]]={f:m36,j:[],i:[],ti:[],ic:[]}
 d_[x[37]]={}
 var m37=function(e,s,r,gg){
 var z=gz$gwx_38()
-var f3E=_mz(z,'dy-date-picker',['bind:__l',0,'bind:getData',1,'data-event-opts',1,'placeholder',2,'timeType',3,'value',4,'vueId',5],[],e,s,gg)
-_(r,f3E)
+var h5E=_mz(z,'dy-date-picker',['bind:__l',0,'bind:getData',1,'data-event-opts',1,'placeholder',2,'timeType',3,'value',4,'vueId',5],[],e,s,gg)
+_(r,h5E)
 return r
 }
 e_[x[37]]={f:m37,j:[],i:[],ti:[],ic:[]}
 d_[x[38]]={}
 var m38=function(e,s,r,gg){
 var z=gz$gwx_39()
-var h5E=_v()
-_(r,h5E)
-if(_oz(z,0,e,s,gg)){h5E.wxVkey=1
+var c7E=_v()
+_(r,c7E)
+if(_oz(z,0,e,s,gg)){c7E.wxVkey=1
 }
-h5E.wxXCkey=1
+c7E.wxXCkey=1
 return r
 }
 e_[x[38]]={f:m38,j:[],i:[],ti:[],ic:[]}
@@ -2486,21 +2496,21 @@ e_[x[40]]={f:m40,j:[],i:[],ti:[],ic:[]}
 d_[x[41]]={}
 var m41=function(e,s,r,gg){
 var z=gz$gwx_42()
-var l9E=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
-var a0E=_v()
-_(l9E,a0E)
-if(_oz(z,2,e,s,gg)){a0E.wxVkey=1
-var tAF=_mz(z,'uni-nav-bar',['backgroundColor',3,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'statusBar',8,'title',9,'vueId',10],[],e,s,gg)
-_(a0E,tAF)
+var tAF=_mz(z,'view',['class',0,'style',1],[],e,s,gg)
+var eBF=_v()
+_(tAF,eBF)
+if(_oz(z,2,e,s,gg)){eBF.wxVkey=1
+var bCF=_mz(z,'uni-nav-bar',['backgroundColor',3,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'statusBar',8,'title',9,'vueId',10],[],e,s,gg)
+_(eBF,bCF)
 }
-else{a0E.wxVkey=2
-var eBF=_mz(z,'uni-nav-bar',['backgroundColor',14,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'rightText',8,'statusBar',9,'title',10,'vueId',11],[],e,s,gg)
-_(a0E,eBF)
+else{eBF.wxVkey=2
+var oDF=_mz(z,'uni-nav-bar',['backgroundColor',14,'bind:__l',1,'bind:clickLeft',2,'bind:clickRight',3,'color',4,'data-event-opts',5,'fixed',6,'leftIcon',7,'rightText',8,'statusBar',9,'title',10,'vueId',11],[],e,s,gg)
+_(eBF,oDF)
 }
-a0E.wxXCkey=1
-a0E.wxXCkey=3
-a0E.wxXCkey=3
-_(r,l9E)
+eBF.wxXCkey=1
+eBF.wxXCkey=3
+eBF.wxXCkey=3
+_(r,tAF)
 return r
 }
 e_[x[41]]={f:m41,j:[],i:[],ti:[],ic:[]}
@@ -2513,19 +2523,19 @@ e_[x[42]]={f:m42,j:[],i:[],ti:[],ic:[]}
 d_[x[43]]={}
 var m43=function(e,s,r,gg){
 var z=gz$gwx_44()
-var xEF=_n('view')
-_rz(z,xEF,'class',0,e,s,gg)
-var oFF=_v()
-_(xEF,oFF)
-if(_oz(z,1,e,s,gg)){oFF.wxVkey=1
-var fGF=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
-_(oFF,fGF)
+var fGF=_n('view')
+_rz(z,fGF,'class',0,e,s,gg)
+var cHF=_v()
+_(fGF,cHF)
+if(_oz(z,1,e,s,gg)){cHF.wxVkey=1
+var hIF=_mz(z,'password-input',['bind:__l',2,'bind:clo',1,'bind:tap',2,'class',3,'data-event-opts',4,'data-ref',5,'gutter',6,'length',7,'list',8,'vueId',9],[],e,s,gg)
+_(cHF,hIF)
 }
-var cHF=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
-_(xEF,cHF)
-oFF.wxXCkey=1
-oFF.wxXCkey=3
-_(r,xEF)
+var oJF=_mz(z,'keyboard-package',['bind:__l',12,'bind:onChange',1,'bind:onConfirm',2,'bind:onDelete',3,'bind:onInput',4,'class',5,'data-event-opts',6,'data-ref',7,'disableDot',8,'vueId',9],[],e,s,gg)
+_(fGF,oJF)
+cHF.wxXCkey=1
+cHF.wxXCkey=3
+_(r,fGF)
 return r
 }
 e_[x[43]]={f:m43,j:[],i:[],ti:[],ic:[]}
@@ -2538,19 +2548,19 @@ e_[x[44]]={f:m44,j:[],i:[],ti:[],ic:[]}
 d_[x[45]]={}
 var m45=function(e,s,r,gg){
 var z=gz$gwx_46()
-var cKF=_n('view')
-_rz(z,cKF,'class',0,e,s,gg)
-var oLF=_v()
-_(cKF,oLF)
-if(_oz(z,1,e,s,gg)){oLF.wxVkey=1
+var lMF=_n('view')
+_rz(z,lMF,'class',0,e,s,gg)
+var aNF=_v()
+_(lMF,aNF)
+if(_oz(z,1,e,s,gg)){aNF.wxVkey=1
 }
-var lMF=_v()
-_(cKF,lMF)
-if(_oz(z,2,e,s,gg)){lMF.wxVkey=1
+var tOF=_v()
+_(lMF,tOF)
+if(_oz(z,2,e,s,gg)){tOF.wxVkey=1
 }
-oLF.wxXCkey=1
-lMF.wxXCkey=1
-_(r,cKF)
+aNF.wxXCkey=1
+tOF.wxXCkey=1
+_(r,lMF)
 return r
 }
 e_[x[45]]={f:m45,j:[],i:[],ti:[],ic:[]}
@@ -2581,11 +2591,11 @@ e_[x[49]]={f:m49,j:[],i:[],ti:[],ic:[]}
 d_[x[50]]={}
 var m50=function(e,s,r,gg){
 var z=gz$gwx_51()
-var xSF=_v()
-_(r,xSF)
-if(_oz(z,0,e,s,gg)){xSF.wxVkey=1
+var fUF=_v()
+_(r,fUF)
+if(_oz(z,0,e,s,gg)){fUF.wxVkey=1
 }
-xSF.wxXCkey=1
+fUF.wxXCkey=1
 return r
 }
 e_[x[50]]={f:m50,j:[],i:[],ti:[],ic:[]}
@@ -2831,7 +2841,7 @@ __wxAppCode__['pages/web2/web2.wxml']=$gwx('./pages/web2/web2.wxml');
 
 
 define('common/main.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["common/main"],{"20db":function(t,e,n){"use strict";n.r(e);var o=n("9afb");for(var u in o)"default"!==u&&function(t){n.d(e,t,function(){return o[t]})}(u);n("850f");var r,a,f=n("2877"),c=Object(f["a"])(o["default"],r,a,!1,null,null,null);e["default"]=c.exports},"403d":function(t,e,n){"use strict";function o(t){var e=/^\d{6}$/;return!!e.test(t)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var u="",r="",a={checkPassword:o,token:u,phone:r};e.default=a},7803:function(t,e,n){},"850f":function(t,e,n){"use strict";var o=n("7803"),u=n.n(o);u.a},"9afb":function(t,e,n){"use strict";n.r(e);var o=n("e189"),u=n.n(o);for(var r in o)"default"!==r&&function(t){n.d(e,t,function(){return o[t]})}(r);e["default"]=u.a},d03f:function(t,e,n){"use strict";(function(t,e){n("c860"),n("921b");var o=a(n("66fd")),u=a(n("20db")),r=a(n("d769"));function a(t){return t&&t.__esModule?t:{default:t}}function f(t){for(var e=1;e<arguments.length;e++){var n=null!=arguments[e]?arguments[e]:{},o=Object.keys(n);"function"===typeof Object.getOwnPropertySymbols&&(o=o.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),o.forEach(function(e){c(t,e,n[e])})}return t}function c(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}o.default.config.productionTip=!1,o.default.prototype.global_=r.default,o.default.prototype.url="http://47.102.112.106/api/v1.1.0/",u.default.mpType="app";var l=new o.default(f({},u.default));function i(){e.removeStorageSync("token"),e.removeStorageSync("phone")}t(l).$mount(),setInterval(i,2592e3)}).call(this,n("6e42")["createApp"],n("6e42")["default"])},d769:function(t,e,n){"use strict";n.r(e);var o=n("f685");for(var u in o)"default"!==u&&function(t){n.d(e,t,function(){return o[t]})}(u);var r,a,f=n("2877"),c=Object(f["a"])(o["default"],r,a,!1,null,null,null);e["default"]=c.exports},e189:function(t,e,n){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={onLaunch:function(){console.log(t("App Launch"," at App.vue:4"))},onShow:function(){console.log(t("App Show"," at App.vue:7"))},onHide:function(){console.log(t("App Hide"," at App.vue:11"))}};e.default=n}).call(this,n("0de9")["default"])},f685:function(t,e,n){"use strict";n.r(e);var o=n("403d"),u=n.n(o);for(var r in o)"default"!==r&&function(t){n.d(e,t,function(){return o[t]})}(r);e["default"]=u.a}},[["d03f","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["common/main"],{"20db":function(t,e,n){"use strict";n.r(e);var o=n("9afb");for(var u in o)"default"!==u&&function(t){n.d(e,t,function(){return o[t]})}(u);n("850f");var r,a,f=n("2877"),c=Object(f["a"])(o["default"],r,a,!1,null,null,null);e["default"]=c.exports},"403d":function(t,e,n){"use strict";function o(t){var e=/^\d{6}$/;return!!e.test(t)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var u="",r="",a={checkPassword:o,token:u,phone:r};e.default=a},7803:function(t,e,n){},"850f":function(t,e,n){"use strict";var o=n("7803"),u=n.n(o);u.a},"9afb":function(t,e,n){"use strict";n.r(e);var o=n("e189"),u=n.n(o);for(var r in o)"default"!==r&&function(t){n.d(e,t,function(){return o[t]})}(r);e["default"]=u.a},d03f:function(t,e,n){"use strict";(function(t,e){n("c860"),n("921b");var o=a(n("66fd")),u=a(n("20db")),r=a(n("d769"));function a(t){return t&&t.__esModule?t:{default:t}}function f(t){for(var e=1;e<arguments.length;e++){var n=null!=arguments[e]?arguments[e]:{},o=Object.keys(n);"function"===typeof Object.getOwnPropertySymbols&&(o=o.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),o.forEach(function(e){c(t,e,n[e])})}return t}function c(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}o.default.config.productionTip=!1,o.default.prototype.global_=r.default,o.default.prototype.url="http://192.168.1.208:8000/api/v1.1.0/",u.default.mpType="app";var l=new o.default(f({},u.default));function i(){e.removeStorageSync("token"),e.removeStorageSync("phone")}t(l).$mount(),setInterval(i,2592e3)}).call(this,n("6e42")["createApp"],n("6e42")["default"])},d769:function(t,e,n){"use strict";n.r(e);var o=n("f685");for(var u in o)"default"!==u&&function(t){n.d(e,t,function(){return o[t]})}(u);var r,a,f=n("2877"),c=Object(f["a"])(o["default"],r,a,!1,null,null,null);e["default"]=c.exports},e189:function(t,e,n){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={onLaunch:function(){console.log(t("App Launch"," at App.vue:4"))},onShow:function(){console.log(t("App Show"," at App.vue:7"))},onHide:function(){console.log(t("App Hide"," at App.vue:11"))}};e.default=n}).call(this,n("0de9")["default"])},f685:function(t,e,n){"use strict";n.r(e);var o=n("403d"),u=n.n(o);for(var r in o)"default"!==r&&function(t){n.d(e,t,function(){return o[t]})}(r);e["default"]=u.a}},[["d03f","common/runtime","common/vendor"]]]);
 });
 define('common/runtime.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 "use strict";
@@ -4594,7 +4604,7 @@ require('pages/getBackPassword/getBackPassword.js');
 __wxRoute = 'pages/setNewPassword/setNewPassword';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/setNewPassword/setNewPassword.js';
 
 define('pages/setNewPassword/setNewPassword.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["pages/setNewPassword/setNewPassword"],{"0499":function(e,t,n){"use strict";var o=function(){var e=this,t=e.$createElement;e._self._c},i=[];n.d(t,"a",function(){return o}),n.d(t,"b",function(){return i})},"272d":function(e,t,n){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n={data:function(){return{isPassword:!0,isPassword1:!0,newPwd:"",newPwd1:"",iscode:"",phone:""}},onLoad:function(e){this.iscode=e.code,this.phone=e.phone},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{newpassword:function(e){this.newPwd=e.detail.value},newpassword1:function(e){this.newPwd1=e.detail.value},next:function(){var t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;if(t.test(this.newPwd)||e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),""==this.newPwd)return e.showToast({title:"请输入新密码",icon:"none",duration:2e3}),!1;if(""==this.newPwd1)return e.showToast({title:"请确认密码",icon:"none",duration:2e3}),!1;if(this.newPwd1!==this.newPwd)return e.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1;t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;if(!t.test(this.newPwd))return e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1;e.request({url:this.url+"users/forgot/change/",method:"POST",data:{mobile:this.phone,password:this.newPwd,sec_password:this.newPwd1,code:this.iscode},header:{},success:function(t){e.navigateTo({url:"../login/login"}),e.showToast({title:"密码已重设，请登录",icon:"none",duration:2e3})}})}}};t.default=n}).call(this,n("6e42")["default"])},"5dec":function(e,t,n){},6013:function(e,t,n){"use strict";var o=n("5dec"),i=n.n(o);i.a},"781d":function(e,t,n){"use strict";(function(e){n("c860"),n("921b");o(n("66fd"));var t=o(n("eca7"));function o(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,n("6e42")["createPage"])},a476:function(e,t,n){"use strict";n.r(t);var o=n("272d"),i=n.n(o);for(var s in o)"default"!==s&&function(e){n.d(t,e,function(){return o[e]})}(s);t["default"]=i.a},eca7:function(e,t,n){"use strict";n.r(t);var o=n("0499"),i=n("a476");for(var s in i)"default"!==s&&function(e){n.d(t,e,function(){return i[e]})}(s);n("6013");var a=n("2877"),u=Object(a["a"])(i["default"],o["a"],o["b"],!1,null,null,null);t["default"]=u.exports}},[["781d","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["pages/setNewPassword/setNewPassword"],{"272d":function(e,t,n){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n={data:function(){return{isPassword:!0,isPassword1:!0,newPwd:"",newPwd1:"",iscode:"",phone:""}},onLoad:function(e){this.iscode=e.code,this.phone=e.phone},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{newpassword:function(e){this.newPwd=e.detail.value},newpassword1:function(e){this.newPwd1=e.detail.value},next:function(){var t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;if(t.test(this.newPwd)||e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),""==this.newPwd)return e.showToast({title:"请输入新密码",icon:"none",duration:2e3}),!1;if(""==this.newPwd1)return e.showToast({title:"请确认密码",icon:"none",duration:2e3}),!1;if(this.newPwd1!==this.newPwd)return e.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1;t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;if(!t.test(this.newPwd))return e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1;e.request({url:this.url+"users/forgot/change/",method:"POST",data:{mobile:this.phone,password:this.newPwd,sec_password:this.newPwd1,code:this.iscode},header:{},success:function(t){e.navigateTo({url:"../login/login"}),e.showToast({title:"密码找回成功",icon:"none",duration:2e3})}})}}};t.default=n}).call(this,n("6e42")["default"])},"5dec":function(e,t,n){},6013:function(e,t,n){"use strict";var o=n("5dec"),i=n.n(o);i.a},"74f6":function(e,t,n){"use strict";var o=function(){var e=this,t=e.$createElement;e._self._c},i=[];n.d(t,"a",function(){return o}),n.d(t,"b",function(){return i})},"781d":function(e,t,n){"use strict";(function(e){n("c860"),n("921b");o(n("66fd"));var t=o(n("eca7"));function o(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,n("6e42")["createPage"])},a476:function(e,t,n){"use strict";n.r(t);var o=n("272d"),i=n.n(o);for(var s in o)"default"!==s&&function(e){n.d(t,e,function(){return o[e]})}(s);t["default"]=i.a},eca7:function(e,t,n){"use strict";n.r(t);var o=n("74f6"),i=n("a476");for(var s in i)"default"!==s&&function(e){n.d(t,e,function(){return i[e]})}(s);n("6013");var a=n("2877"),u=Object(a["a"])(i["default"],o["a"],o["b"],!1,null,null,null);t["default"]=u.exports}},[["781d","common/runtime","common/vendor"]]]);
 });
 require('pages/setNewPassword/setNewPassword.js');
 __wxRoute = 'pages/agreement/agreement';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/agreement/agreement.js';
@@ -4636,37 +4646,37 @@ require('pages/banner/banner.js');
 __wxRoute = 'mill/mill/mill';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/mill/mill.js';
 
 define('mill/mill/mill.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/mill/mill"],{"50be":function(e,t,a){},"517a":function(e,t,a){"use strict";(function(e,a){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n={data:function(){return{many:"0",user_id:[],flag:!1,greed:"去阅读",cancl:"取消",lerst:"若不阅读和同意协议,无法使用此功能哦",selectilall:!1,deoor:!1,stus:"",shade:!1,machine_id:"",lo:!1,arr:[],isSelected:!1,checkbox:[{value:"A",checked:!1}]}},onShow:function(t){var n=this;e.request({url:this.url+"mainmachine/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(e){console.log(a(e," at mill\\mill\\mill.vue:98")),n.user_id=e.data.data,205==e.statusCode&&(n.flag=!0),n.many=e.data.data.length,console.log(a(n.many," at mill\\mill\\mill.vue:105")),0==n.many?n.flag=!0:n.flag=!1}})},onHide:function(){this.shade=!1},methods:{pay:function(){e.navigateTo({url:"../pay/pay"})},sale:function(){e.navigateTo({url:"../sale/sale"})},CheckboxChange:function(e){var t=this;t.arr=[];for(var a=0;a<t.user_id.length;a++)t.user_id.checked=!1;for(var n=t.user_id,l=e.detail.value,i=0,s=n.length;i<s;++i){n.checked=!0;for(var u=0,o=l.length;u<o;++u)if(n[i].number==l[u]){n.checked=!0,t.arr.push(n[i].machine_id);break}}},btn2:function(){var t=this,n=t.arr.join(",");console.log(a(n," at mill\\mill\\mill.vue:152")),e.request({url:this.url+"buildorders/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{machine_id_list:n},success:function(n){console.log(a(n," at mill\\mill\\mill.vue:164")),console.log(a(t.shade," at mill\\mill\\mill.vue:165"));var l=JSON.stringify(n.data.data);if(410==n.statusCode)t.shade=!0,t.stus=n.statusCode;else if(0==t.arr.length)return e.showToast({title:"请选择矿机",icon:"none"}),!1;return 401==n.statusCode?(t.stus=n.statusCode,t.lerst="未进行实名认证",t.greed="去验证",t.shade=!0,!1):302==n.statusCode?(e.showToast({title:"实名认证审核中,请耐心等待...",icon:"none"}),!1):400==n.statusCode?(t.stus=n.statusCode,t.lerst="未设置交易密码",t.greed="去设置",t.shade=!0,!1):void(200==n.statusCode&&e.navigateTo({url:"../sell/sell?tar="+l}))}})},sure:function(){400==this.stus&&e.switchTab({url:"../../my/my/my"}),410==this.stus&&e.navigateTo({url:"../../pages/agreement/agreement"}),401==this.stus&&e.navigateTo({url:"../../my/identity/identity"})},cancel:function(){this.shade=!1}}};t.default=n}).call(this,a("6e42")["default"],a("0de9")["default"])},"5d46":function(e,t,a){"use strict";var n=function(){var e=this,t=e.$createElement;e._self._c},l=[];a.d(t,"a",function(){return n}),a.d(t,"b",function(){return l})},"67f0":function(e,t,a){"use strict";var n=a("50be"),l=a.n(n);l.a},"747d":function(e,t,a){"use strict";(function(e){a("c860"),a("921b");n(a("66fd"));var t=n(a("89e2"));function n(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,a("6e42")["createPage"])},"89e2":function(e,t,a){"use strict";a.r(t);var n=a("5d46"),l=a("d5ff");for(var i in l)"default"!==i&&function(e){a.d(t,e,function(){return l[e]})}(i);a("67f0");var s=a("2877"),u=Object(s["a"])(l["default"],n["a"],n["b"],!1,null,null,null);t["default"]=u.exports},d5ff:function(e,t,a){"use strict";a.r(t);var n=a("517a"),l=a.n(n);for(var i in n)"default"!==i&&function(e){a.d(t,e,function(){return n[e]})}(i);t["default"]=l.a}},[["747d","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/mill/mill"],{"50be":function(e,t,a){},"517a":function(e,t,a){"use strict";(function(e,a){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var l={data:function(){return{many:"0",user_id:[],flag:!1,greed:"去阅读",cancl:"取消",lerst:"若不阅读和同意协议,无法使用此功能",selectilall:!1,deoor:!1,stus:"",shade:!1,shade1:!1,machine_id:"",lo:!1,arr:[],isSelected:!1,checkbox:[{value:"A",checked:!1}]}},onShow:function(t){var l=this;e.request({url:this.url+"mainmachine/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(e){console.log(a(e," at mill\\mill\\mill.vue:107")),l.user_id=e.data.data,205==e.statusCode&&(l.flag=!0),l.many=e.data.data.length,console.log(a(l.many," at mill\\mill\\mill.vue:114")),0==l.many?l.flag=!0:l.flag=!1}})},onHide:function(){this.shade=!1},methods:{pay:function(){e.navigateTo({url:"../pay/pay"})},sale:function(){e.navigateTo({url:"../sale/sale"})},CheckboxChange:function(e){var t=this;t.arr=[];for(var a=0;a<t.user_id.length;a++)t.user_id.checked=!1;for(var l=t.user_id,n=e.detail.value,s=0,i=l.length;s<i;++s){l.checked=!0;for(var u=0,o=n.length;u<o;++u)if(l[s].number==n[u]){l.checked=!0,t.arr.push(l[s].machine_id);break}}},btn2:function(){var t=this,l=t.arr.join(",");console.log(a(l," at mill\\mill\\mill.vue:161")),e.request({url:this.url+"buildorders/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{machine_id_list:l},success:function(l){console.log(a(l," at mill\\mill\\mill.vue:173")),console.log(a(t.shade," at mill\\mill\\mill.vue:174"));var n=JSON.stringify(l.data.data);if(410==l.statusCode)t.shade=!0,t.stus=l.statusCode;else if(0==t.arr.length)return e.showToast({title:"请选择矿机",icon:"none"}),!1;return 401==l.statusCode?(t.stus=l.statusCode,t.lerst="未进行实名认证",t.greed="去验证",t.shade=!0,!1):302==l.statusCode?(t.stus=l.statusCode,t.shade1=!0,!1):400==l.statusCode?(t.stus=l.statusCode,t.lerst="未设置交易密码",t.greed="去设置",t.shade=!0,!1):void(200==l.statusCode&&e.navigateTo({url:"../sell/sell?tar="+n}))}})},sure:function(){400==this.stus&&e.switchTab({url:"../../my/my/my"}),410==this.stus&&e.navigateTo({url:"../../pages/agreement/agreement"}),401==this.stus&&e.navigateTo({url:"../../my/identity/identity"}),302==this.stus&&(this.shade1=!1)},cancel:function(){this.shade=!1}}};t.default=l}).call(this,a("6e42")["default"],a("0de9")["default"])},"67f0":function(e,t,a){"use strict";var l=a("50be"),n=a.n(l);n.a},"747d":function(e,t,a){"use strict";(function(e){a("c860"),a("921b");l(a("66fd"));var t=l(a("89e2"));function l(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,a("6e42")["createPage"])},"77b7":function(e,t,a){"use strict";var l=function(){var e=this,t=e.$createElement;e._self._c},n=[];a.d(t,"a",function(){return l}),a.d(t,"b",function(){return n})},"89e2":function(e,t,a){"use strict";a.r(t);var l=a("77b7"),n=a("d5ff");for(var s in n)"default"!==s&&function(e){a.d(t,e,function(){return n[e]})}(s);a("67f0");var i=a("2877"),u=Object(i["a"])(n["default"],l["a"],l["b"],!1,null,null,null);t["default"]=u.exports},d5ff:function(e,t,a){"use strict";a.r(t);var l=a("517a"),n=a.n(l);for(var s in l)"default"!==s&&function(e){a.d(t,e,function(){return l[e]})}(s);t["default"]=n.a}},[["747d","common/runtime","common/vendor"]]]);
 });
 require('mill/mill/mill.js');
 __wxRoute = 'mill/pay/pay';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/pay/pay.js';
 
 define('mill/pay/pay.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/pay/pay"],{"0e22":function(t,e,a){},"0fe9":function(t,e,a){"use strict";a.r(e);var n=a("50c8"),r=a.n(n);for(var o in n)"default"!==o&&function(t){a.d(e,t,function(){return n[t]})}(o);e["default"]=r.a},"1cd1":function(t,e,a){"use strict";a.r(e);var n=a("bb95"),r=a("0fe9");for(var o in r)"default"!==o&&function(t){a.d(e,t,function(){return r[t]})}(o);a("92c5");var u=a("2877"),s=Object(u["a"])(r["default"],n["a"],n["b"],!1,null,null,null);e["default"]=s.exports},"50c8":function(t,e,a){"use strict";(function(t,a){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={data:function(){return{many:"0",tabCurrentIndex:0,contion:"",daker:"",lornd:"",kolo:"",flag:!1,navList:[{state:0,text:"待付款"},{state:1,text:"待确认"},{state:2,text:"待审核"},{state:3,text:"已完成"}]}},onLoad:function(e){var a=this;this.getData(),t.request({url:this.url+"ordernum/1",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){a.many=t.data.data}})},methods:{getData:function(){var e=this;t.request({url:this.url+"buyall/101",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var a=t.data.data;e.contion=a.reverse()}})},tabClick:function(e){var n=this;if(this.tabCurrentIndex===e)return!1;n.tabCurrentIndex=e,1===this.tabCurrentIndex&&t.request({url:this.url+"buyall/102",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){console.log(a(t," at mill\\pay\\pay.vue:237"));var e=t.data.data;n.kolo=e.reverse()}}),2===this.tabCurrentIndex&&t.request({url:this.url+"buyall/103",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var e=t.data.data;n.lornd=e.reverse()}}),3===this.tabCurrentIndex&&t.request({url:this.url+"buyall/104",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var e=t.data.data;n.daker=e.reverse()}})},btn:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){var a=JSON.stringify(e.data.data);t.navigateTo({url:"../staypay/staypay?mvvp="+a})}})},bt:function(e){var a=this;t.request({url:this.url+"ordercancel/",method:"POST",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){200==e.statusCode?t.showToast({title:"删除成功",icon:"none",duration:2e3}):400==e.statusCode&&t.showToast({title:"该订单不可删除",icon:"none",duration:2e3}),a.getData()}})},btn2:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){var a=JSON.stringify(e.data.data);t.navigateTo({url:"../stayconfirm/stayconfirm?main="+a})}})},btn3:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){var a=JSON.stringify(e.data.data);t.navigateTo({url:"../stayaudit/stayaudit?dospp="+a})}})},btn4:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){var a=JSON.stringify(e.data.data);t.navigateTo({url:"../completed/completed?deattr="+a})}})}}};e.default=n}).call(this,a("6e42")["default"],a("0de9")["default"])},"6f02":function(t,e,a){"use strict";(function(t){a("c860"),a("921b");n(a("66fd"));var e=n(a("1cd1"));function n(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,a("6e42")["createPage"])},"92c5":function(t,e,a){"use strict";var n=a("0e22"),r=a.n(n);r.a},bb95:function(t,e,a){"use strict";var n=function(){var t=this,e=t.$createElement;t._self._c},r=[];a.d(e,"a",function(){return n}),a.d(e,"b",function(){return r})}},[["6f02","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/pay/pay"],{"0e22":function(t,e,a){},"0fe9":function(t,e,a){"use strict";a.r(e);var n=a("50c8"),r=a.n(n);for(var o in n)"default"!==o&&function(t){a.d(e,t,function(){return n[t]})}(o);e["default"]=r.a},"1cd1":function(t,e,a){"use strict";a.r(e);var n=a("dc83"),r=a("0fe9");for(var o in r)"default"!==o&&function(t){a.d(e,t,function(){return r[t]})}(o);a("92c5");var u=a("2877"),s=Object(u["a"])(r["default"],n["a"],n["b"],!1,null,null,null);e["default"]=s.exports},"50c8":function(t,e,a){"use strict";(function(t,a){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={data:function(){return{many:"0",tabCurrentIndex:0,contion:"",daker:"",lornd:"",kolo:"",flag:!1,navList:[{state:0,text:"待付款"},{state:1,text:"待确认"},{state:2,text:"待审核"},{state:3,text:"已完成"}]}},onLoad:function(e){var a=this;this.getData(),t.request({url:this.url+"ordernum/1",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){a.many=t.data.data}})},methods:{getData:function(){var e=this;t.request({url:this.url+"buyall/101",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var a=t.data.data;e.contion=a.reverse()}})},tabClick:function(e){var n=this;if(this.tabCurrentIndex===e)return!1;n.tabCurrentIndex=e,1===this.tabCurrentIndex&&t.request({url:this.url+"buyall/102",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){console.log(a(t," at mill\\pay\\pay.vue:237"));var e=t.data.data;n.kolo=e.reverse()}}),2===this.tabCurrentIndex&&t.request({url:this.url+"buyall/103",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var e=t.data.data;n.lornd=e.reverse()}}),3===this.tabCurrentIndex&&t.request({url:this.url+"buyall/104",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var e=t.data.data;n.daker=e.reverse()}})},btn:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){console.log(a(e," at mill\\pay\\pay.vue:282"));var n=JSON.stringify(e.data.data);t.navigateTo({url:"../staypay/staypay?mvvp="+n})}})},bt:function(e){var a=this;t.request({url:this.url+"ordercancel/",method:"POST",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){200==e.statusCode?t.showToast({title:"取消成功",icon:"none",duration:2e3}):400==e.statusCode&&t.showToast({title:"该订单不可删除",icon:"none",duration:2e3}),a.getData()}})},btn2:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){console.log(a(e," at mill\\pay\\pay.vue:332"));var n=JSON.stringify(e.data.data);t.navigateTo({url:"../stayconfirm/stayconfirm?main="+n})}})},btn3:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){console.log(a(e," at mill\\pay\\pay.vue:352"));var n=JSON.stringify(e.data.data);t.navigateTo({url:"../stayaudit/stayaudit?dospp="+n})}})},btn4:function(e){t.request({url:this.url+"salemessage/",method:"GET",header:{Authorization:"JWT "+this.global_.token},data:{order_num:e.order_num},success:function(e){var a=JSON.stringify(e.data.data);t.navigateTo({url:"../completed/completed?deattr="+a})}})}}};e.default=n}).call(this,a("6e42")["default"],a("0de9")["default"])},"6f02":function(t,e,a){"use strict";(function(t){a("c860"),a("921b");n(a("66fd"));var e=n(a("1cd1"));function n(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,a("6e42")["createPage"])},"92c5":function(t,e,a){"use strict";var n=a("0e22"),r=a.n(n);r.a},dc83:function(t,e,a){"use strict";var n=function(){var t=this,e=t.$createElement;t._self._c},r=[];a.d(e,"a",function(){return n}),a.d(e,"b",function(){return r})}},[["6f02","common/runtime","common/vendor"]]]);
 });
 require('mill/pay/pay.js');
 __wxRoute = 'mill/staypay/staypay';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/staypay/staypay.js';
 
 define('mill/staypay/staypay.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/staypay/staypay"],{"00eb":function(t,e,n){"use strict";n.r(e);var o=n("89a6"),a=n.n(o);for(var s in o)"default"!==s&&function(t){n.d(e,t,function(){return o[t]})}(s);e["default"]=a.a},"0871":function(t,e,n){"use strict";var o=function(){var t=this,e=t.$createElement;t._self._c},a=[];n.d(e,"a",function(){return o}),n.d(e,"b",function(){return a})},2406:function(t,e,n){},"89a6":function(t,e,n){"use strict";(function(t,o){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),s=function(){return Promise.all([n.e("common/vendor"),n.e("components/keyboard-package/keyboard-package")]).then(n.bind(null,"2e84"))},r=function(){return Promise.all([n.e("common/vendor"),n.e("components/password-input/password-input")]).then(n.bind(null,"2d9e"))},i={data:function(){return{laiqi:"",type1:"买入",state:"",price:"",vior:"",x:"",rmb:"",numberList:[],length:6,type:"number",passIn:!1,frte:!0,checkall:"查看全部"}},components:{keyboardPackage:s,passwordInput:r},onLoad:function(t){var e=this,n=JSON.parse(t.mvvp);e.ction=n;e.ction[1];e.vior=e.ction[1],e.state=n[0][0].order_status,101==e.state&&(e.state="待付款"),e.laiqi=e.ction[0][0],e.price=e.laiqi.sale_money,e.x=e.laiqi.order_num,e.rmb=a.getrmb(e.price)},methods:{clo:function(){this.passIn=!1,this.$refs["number"].close(),this.numberList.length=0},onChange:function(e){console.log(t(e.show," at mill\\staypay\\staypay.vue:146")),0==e.show&&(this.passIn=!1),this.numberList.length=0},onDelete:function(){this.numberList.pop()},onConfirm:function(){6!=this.numberList.length&&o.showToast({title:"请输入六位交易密码！",duration:2e3,icon:"none"})},onInput:function(e){var n=this;n.numberList.push(e),n.password=n.numberList.join().replace(/,/g,""),n.numberList.length>=n.length&&(o.request({url:n.url+"buyaffirm/",method:"POST",data:{order_num:n.x,password:n.password},header:{Authorization:"JWT "+n.global_.token},success:function(e){if(console.log(t(n.order_num," at mill\\staypay\\staypay.vue:180")),400==e.statusCode){n.numberList.pop(),n.numberList.length=0,n.$refs.wrong.flag=!1;var a=e.data.data.err_num,s=5-a;n.$refs.wrong.tip="剩余"+s+"次机会"}423==e.statusCode&&o.showToast({title:"交易密码已锁定,请在今日24:00后进行交易",icon:"none",duration:2e3}),201==e.statusCode&&(n.success=!0),200==e.statusCode&&(n.passIn=!1,n.$refs["number"].close(),o.showToast({title:"付款完成",duration:2e3}),o.navigateBack({delta:2})),400==e.statusCode&&o.showModal({title:"未设置交易密码",confirmText:"去设置",success:function(t){1==t.confirm&&o.navigateTo({url:"../../my/trade-password/trade-password"})}});getCurrentPages().pop()}}),this.numberList.length=0)},btn:function(){this.passIn=!0,this.$refs["number"].open(),this.onInput(val)},btn1:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=i}).call(this,n("0de9")["default"],n("6e42")["default"])},e1ec:function(t,e,n){"use strict";(function(t){n("c860"),n("921b");o(n("66fd"));var e=o(n("e7c6"));function o(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},e7c6:function(t,e,n){"use strict";n.r(e);var o=n("0871"),a=n("00eb");for(var s in a)"default"!==s&&function(t){n.d(e,t,function(){return a[t]})}(s);n("fd6a");var r=n("2877"),i=Object(r["a"])(a["default"],o["a"],o["b"],!1,null,null,null);e["default"]=i.exports},fd6a:function(t,e,n){"use strict";var o=n("2406"),a=n.n(o);a.a}},[["e1ec","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/staypay/staypay"],{"00eb":function(t,e,n){"use strict";n.r(e);var o=n("89a6"),a=n.n(o);for(var s in o)"default"!==s&&function(t){n.d(e,t,function(){return o[t]})}(s);e["default"]=a.a},2406:function(t,e,n){},"4c20":function(t,e,n){"use strict";var o=function(){var t=this,e=t.$createElement;t._self._c},a=[];n.d(e,"a",function(){return o}),n.d(e,"b",function(){return a})},"89a6":function(t,e,n){"use strict";(function(t,o){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),s=function(){return Promise.all([n.e("common/vendor"),n.e("components/keyboard-package/keyboard-package")]).then(n.bind(null,"2e84"))},r=function(){return Promise.all([n.e("common/vendor"),n.e("components/password-input/password-input")]).then(n.bind(null,"2d9e"))},i={data:function(){return{laiqi:"",type1:"买入",state:"",price:"",vior:"",x:"",rmb:"",numberList:[],length:6,type:"number",passIn:!1,frte:!0,checkall:"查看全部"}},components:{keyboardPackage:s,passwordInput:r},onLoad:function(e){var n=this,o=JSON.parse(e.mvvp);n.ction=o,console.log(t(123," at mill\\staypay\\staypay.vue:127"));n.ction[1];n.vior=n.ction[1],n.state=o[0][0].order_status,101==n.state&&(n.state="待付款"),n.laiqi=n.ction[0][0],n.price=n.laiqi.sale_money,n.x=n.laiqi.order_num,n.rmb=a.getrmb(n.price)},methods:{clo:function(){this.passIn=!1,this.$refs["number"].close(),this.numberList.length=0},onChange:function(e){console.log(t(e.show," at mill\\staypay\\staypay.vue:147")),0==e.show&&(this.passIn=!1),this.numberList.length=0},onDelete:function(){this.numberList.pop()},onConfirm:function(){6!=this.numberList.length&&o.showToast({title:"请输入六位交易密码！",duration:2e3,icon:"none"})},onInput:function(e){var n=this;n.numberList.push(e),n.password=n.numberList.join().replace(/,/g,""),n.numberList.length>=n.length&&(o.request({url:n.url+"buyaffirm/",method:"POST",data:{order_num:n.x,password:n.password},header:{Authorization:"JWT "+n.global_.token},success:function(e){if(console.log(t(n.order_num," at mill\\staypay\\staypay.vue:181")),400==e.statusCode){n.numberList.pop(),n.numberList.length=0,n.$refs.wrong.flag=!1;var a=e.data.data.err_num,s=5-a;n.$refs.wrong.tip="剩余"+s+"次机会"}423==e.statusCode&&o.showToast({title:"交易密码已锁定,请在今日24:00后进行交易",icon:"none",duration:2e3}),201==e.statusCode&&(n.success=!0),200==e.statusCode&&(n.passIn=!1,n.$refs["number"].close(),o.showToast({title:"付款完成",duration:2e3}),o.navigateBack({delta:2})),400==e.statusCode&&o.showModal({title:"未设置交易密码",confirmText:"去设置",success:function(t){1==t.confirm&&o.navigateTo({url:"../../my/trade-password/trade-password"})}});getCurrentPages().pop()}}),this.numberList.length=0)},btn:function(){this.passIn=!0,this.$refs["number"].open(),this.onInput(val)},btn1:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=i}).call(this,n("0de9")["default"],n("6e42")["default"])},e1ec:function(t,e,n){"use strict";(function(t){n("c860"),n("921b");o(n("66fd"));var e=o(n("e7c6"));function o(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},e7c6:function(t,e,n){"use strict";n.r(e);var o=n("4c20"),a=n("00eb");for(var s in a)"default"!==s&&function(t){n.d(e,t,function(){return a[t]})}(s);n("fd6a");var r=n("2877"),i=Object(r["a"])(a["default"],o["a"],o["b"],!1,null,null,null);e["default"]=i.exports},fd6a:function(t,e,n){"use strict";var o=n("2406"),a=n.n(o);a.a}},[["e1ec","common/runtime","common/vendor"]]]);
 });
 require('mill/staypay/staypay.js');
 __wxRoute = 'mill/stayconfirm/stayconfirm';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/stayconfirm/stayconfirm.js';
 
 define('mill/stayconfirm/stayconfirm.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/stayconfirm/stayconfirm"],{"196e":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),r={data:function(){return{remark:"",type:"买入",state:"",price:"",rmb:"",fanta:"",ig:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.main);e.fanta=n;e.fanta[1];e.ig=e.fanta[1],e.state=n[0][0].order_status,102==e.state&&(e.state="待确认"),e.remark=n[0][0],e.price=e.remark.sale_money,e.rmb=a.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=r},"304b":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");a(n("66fd"));var e=a(n("c928"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},5078:function(t,e,n){},"63f6":function(t,e,n){"use strict";n.r(e);var a=n("196e"),r=n.n(a);for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);e["default"]=r.a},c0a5:function(t,e,n){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},r=[];n.d(e,"a",function(){return a}),n.d(e,"b",function(){return r})},c928:function(t,e,n){"use strict";n.r(e);var a=n("c0a5"),r=n("63f6");for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);n("ce83");var u=n("2877"),f=Object(u["a"])(r["default"],a["a"],a["b"],!1,null,null,null);e["default"]=f.exports},ce83:function(t,e,n){"use strict";var a=n("5078"),r=n.n(a);r.a}},[["304b","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/stayconfirm/stayconfirm"],{"196e":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),r={data:function(){return{remark:"",type:"买入",state:"",price:"",rmb:"",fanta:"",ig:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.main);e.fanta=n;e.fanta[1];e.ig=e.fanta[1],e.state=n[0][0].order_status,102==e.state&&(e.state="待确认"),e.remark=n[0][0],e.price=e.remark.sale_money,e.rmb=a.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=r},"304b":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");a(n("66fd"));var e=a(n("c928"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},5078:function(t,e,n){},"5a8a":function(t,e,n){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},r=[];n.d(e,"a",function(){return a}),n.d(e,"b",function(){return r})},"63f6":function(t,e,n){"use strict";n.r(e);var a=n("196e"),r=n.n(a);for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);e["default"]=r.a},c928:function(t,e,n){"use strict";n.r(e);var a=n("5a8a"),r=n("63f6");for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);n("ce83");var u=n("2877"),f=Object(u["a"])(r["default"],a["a"],a["b"],!1,null,null,null);e["default"]=f.exports},ce83:function(t,e,n){"use strict";var a=n("5078"),r=n.n(a);r.a}},[["304b","common/runtime","common/vendor"]]]);
 });
 require('mill/stayconfirm/stayconfirm.js');
 __wxRoute = 'mill/stayaudit/stayaudit';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/stayaudit/stayaudit.js';
 
 define('mill/stayaudit/stayaudit.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/stayaudit/stayaudit"],{"0ce3":function(t,e,n){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},r=[];n.d(e,"a",function(){return a}),n.d(e,"b",function(){return r})},"1b4b":function(t,e,n){"use strict";n.r(e);var a=n("86c8"),r=n.n(a);for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);e["default"]=r.a},"797f":function(t,e,n){},"80f7":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");a(n("66fd"));var e=a(n("b83a"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},"86c8":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),r={data:function(){return{instant:"",type:"买入",state:"",cander:"",price:"",hberd:"",rmb:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.dospp);e.cander=n;e.cander[1];e.hberd=e.cander[1],e.state=n[0][0].order_status,103==e.state&&(e.state="待审核"),e.instant=e.cander[0][0],e.price=e.instant.sale_money,e.rmb=a.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=r},a986:function(t,e,n){"use strict";var a=n("797f"),r=n.n(a);r.a},b83a:function(t,e,n){"use strict";n.r(e);var a=n("0ce3"),r=n("1b4b");for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);n("a986");var u=n("2877"),i=Object(u["a"])(r["default"],a["a"],a["b"],!1,null,null,null);e["default"]=i.exports}},[["80f7","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/stayaudit/stayaudit"],{"1b4b":function(t,e,n){"use strict";n.r(e);var a=n("86c8"),r=n.n(a);for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);e["default"]=r.a},"797f":function(t,e,n){},"80f7":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");a(n("66fd"));var e=a(n("b83a"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},"86c8":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var a=n("980d"),r={data:function(){return{instant:"",type:"买入",state:"",cander:"",price:"",hberd:"",rmb:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.dospp);e.cander=n;e.cander[1];e.hberd=e.cander[1],e.state=n[0][0].order_status,103==e.state&&(e.state="待审核"),e.instant=e.cander[0][0],e.price=e.instant.sale_money,e.rmb=a.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=r},a986:function(t,e,n){"use strict";var a=n("797f"),r=n.n(a);r.a},b83a:function(t,e,n){"use strict";n.r(e);var a=n("dff1"),r=n("1b4b");for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);n("a986");var u=n("2877"),f=Object(u["a"])(r["default"],a["a"],a["b"],!1,null,null,null);e["default"]=f.exports},dff1:function(t,e,n){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},r=[];n.d(e,"a",function(){return a}),n.d(e,"b",function(){return r})}},[["80f7","common/runtime","common/vendor"]]]);
 });
 require('mill/stayaudit/stayaudit.js');
 __wxRoute = 'mill/completed/completed';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/completed/completed.js';
 
 define('mill/completed/completed.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/completed/completed"],{"20e4":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");r(n("66fd"));var e=r(n("3da0"));function r(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},"3da0":function(t,e,n){"use strict";n.r(e);var r=n("855b"),a=n("7f6a");for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);n("d7c7");var u=n("2877"),o=Object(u["a"])(a["default"],r["a"],r["b"],!1,null,null,null);e["default"]=o.exports},"7f6a":function(t,e,n){"use strict";n.r(e);var r=n("b8a1"),a=n.n(r);for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);e["default"]=a.a},"855b":function(t,e,n){"use strict";var r=function(){var t=this,e=t.$createElement;t._self._c},a=[];n.d(e,"a",function(){return r}),n.d(e,"b",function(){return a})},b8a1:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var r=n("980d"),a={data:function(){return{cprop:"",type:"买入",state:"",price:"",rmb:"",bsow:"",geunt:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.deattr);e.bsow=n;e.bsow[1];e.geunt=e.bsow[1],e.state=n[0][0].order_status,104==e.state&&(e.state="已完成"),e.cprop=n[0][0],e.price=n[0][0].sale_money,e.rmb=r.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=a},d7c7:function(t,e,n){"use strict";var r=n("e78c"),a=n.n(r);a.a},e78c:function(t,e,n){}},[["20e4","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["mill/completed/completed"],{"20e4":function(t,e,n){"use strict";(function(t){n("c860"),n("921b");r(n("66fd"));var e=r(n("3da0"));function r(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,n("6e42")["createPage"])},3327:function(t,e,n){"use strict";var r=function(){var t=this,e=t.$createElement;t._self._c},a=[];n.d(e,"a",function(){return r}),n.d(e,"b",function(){return a})},"3da0":function(t,e,n){"use strict";n.r(e);var r=n("3327"),a=n("7f6a");for(var c in a)"default"!==c&&function(t){n.d(e,t,function(){return a[t]})}(c);n("d7c7");var u=n("2877"),o=Object(u["a"])(a["default"],r["a"],r["b"],!1,null,null,null);e["default"]=o.exports},"7f6a":function(t,e,n){"use strict";n.r(e);var r=n("b8a1"),a=n.n(r);for(var c in r)"default"!==c&&function(t){n.d(e,t,function(){return r[t]})}(c);e["default"]=a.a},b8a1:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var r=n("980d"),a={data:function(){return{cprop:"",type:"买入",state:"",price:"",rmb:"",bsow:"",geunt:"",frte:!0,checkall:"查看全部"}},onLoad:function(t){var e=this,n=JSON.parse(t.deattr);e.bsow=n;e.bsow[1];e.geunt=e.bsow[1],e.state=n[0][0].order_status,104==e.state&&(e.state="已完成"),e.cprop=n[0][0],e.price=n[0][0].sale_money,e.rmb=r.getrmb(e.price)},methods:{btn:function(){var t=this;t.frte=!t.frte,0==t.frte?t.checkall="收起":t.checkall="查看全部"}}};e.default=a},d7c7:function(t,e,n){"use strict";var r=n("e78c"),a=n.n(r);a.a},e78c:function(t,e,n){}},[["20e4","common/runtime","common/vendor"]]]);
 });
 require('mill/completed/completed.js');
 __wxRoute = 'mill/sale/sale';__wxRouteBegin = true;__wxAppCurrentFile__ = 'mill/sale/sale.js';
@@ -4756,13 +4766,13 @@ require('my/edit-address/edit-address.js');
 __wxRoute = 'my/email/email';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/email/email.js';
 
 define('my/email/email.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/email/email"],{"0d1b":function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;e._self._c},a=[];n.d(t,"a",function(){return i}),n.d(t,"b",function(){return a})},3440:function(e,t,n){},"3a18":function(e,t,n){"use strict";n.r(t);var i=n("0d1b"),a=n("5dee");for(var o in a)"default"!==o&&function(e){n.d(t,e,function(){return a[e]})}(o);n("e5d9");var u=n("2877"),l=Object(u["a"])(a["default"],i["a"],i["b"],!1,null,null,null);t["default"]=l.exports},"5dee":function(e,t,n){"use strict";n.r(t);var i=n("eaf8"),a=n.n(i);for(var o in i)"default"!==o&&function(e){n.d(t,e,function(){return i[e]})}(o);t["default"]=a.a},6286:function(e,t,n){"use strict";(function(e){n("c860"),n("921b");i(n("66fd"));var t=i(n("3a18"));function i(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,n("6e42")["createPage"])},e5d9:function(e,t,n){"use strict";var i=n("3440"),a=n.n(i);a.a},eaf8:function(e,t,n){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var i=n("965e"),a={data:function(){return{email:"",emailCode:"",codename:" 获取验证码",disabled:!1,flag:!0}},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getEmailValue:function(e){this.email=e.detail.value},getEmailStyle:function(t){var n=i.checkEmail(this.email);if(!n)return e.showToast({title:"邮箱格式不正确",icon:"none",duration:2e3}),!1},getEmailCode:function(e){this.emailCode=e.detail.value},sendcode:function(){var t=this;if(!t.email)return e.showToast({title:"请输入邮箱",icon:"none",duration:2e3}),!1;var n=i.checkEmail(t.email);if(!n)return e.showToast({title:"邮箱格式不正确",icon:"none",duration:2e3}),!1;e.request({url:this.url+"binding/",method:"POST",data:{email:t.email},success:function(n){if(200==n.statusCode)var i=121,a=setInterval(function(){i--,i<=0?(clearInterval(a),t.flag=!0,t.codename="重新发送",t.disabled=!1):(t.flag=!1,t.codename=i+"s",t.disabled=!0)},1e3);if(401==n.statusCode)return e.showToast({title:"该邮箱已被使用",icon:"none",duration:2e3}),!1},fail:function(e){}})},save:function(){return""==this.email?(e.showToast({title:"请输入邮箱地址",icon:"none",duration:2e3}),!1):""==this.emailCode?(e.showToast({title:"请输入验证码",icon:"none",duration:2e3}),!1):void e.request({url:this.url+"linkemail/",method:"POST",data:{email:this.email,email_msg:this.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(t){200==t.statusCode&&(e.showToast({title:"邮箱已绑定",icon:"none",duration:2e3}),e.switchTab({url:"../my/my"})),400==t.statusCode&&e.showToast({title:"验证码错误",icon:"none",duration:2e3})}})}}};t.default=a}).call(this,n("6e42")["default"])}},[["6286","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/email/email"],{3440:function(e,t,n){},"3a18":function(e,t,n){"use strict";n.r(t);var i=n("cd91"),a=n("5dee");for(var o in a)"default"!==o&&function(e){n.d(t,e,function(){return a[e]})}(o);n("e5d9");var u=n("2877"),l=Object(u["a"])(a["default"],i["a"],i["b"],!1,null,null,null);t["default"]=l.exports},"5dee":function(e,t,n){"use strict";n.r(t);var i=n("eaf8"),a=n.n(i);for(var o in i)"default"!==o&&function(e){n.d(t,e,function(){return i[e]})}(o);t["default"]=a.a},6286:function(e,t,n){"use strict";(function(e){n("c860"),n("921b");i(n("66fd"));var t=i(n("3a18"));function i(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,n("6e42")["createPage"])},cd91:function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;e._self._c},a=[];n.d(t,"a",function(){return i}),n.d(t,"b",function(){return a})},e5d9:function(e,t,n){"use strict";var i=n("3440"),a=n.n(i);a.a},eaf8:function(e,t,n){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var i=n("965e"),a={data:function(){return{email:"",emailCode:"",codename:" 获取验证码",disabled:!1}},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getEmailValue:function(e){this.email=e.detail.value},getEmailStyle:function(t){var n=i.checkEmail(this.email);if(!n)return e.showToast({title:"邮箱格式不正确",icon:"none",duration:2e3}),!1},getEmailCode:function(e){this.emailCode=e.detail.value},sendcode:function(){var t=this;if(!t.email)return e.showToast({title:"请输入邮箱",icon:"none",duration:2e3}),!1;var n=i.checkEmail(t.email);if(!n)return e.showToast({title:"邮箱格式不正确",icon:"none",duration:2e3}),!1;e.request({url:this.url+"binding/",method:"POST",data:{email:t.email},success:function(n){if(200==n.statusCode)var i=121,a=setInterval(function(){i--,i<=0?(clearInterval(a),t.codename="重新发送",t.disabled=!1):(t.codename=i+"s",t.disabled=!0)},1e3);if(401==n.statusCode)return e.showToast({title:"该邮箱已被使用",icon:"none",duration:2e3}),!1},fail:function(e){}})},save:function(){return""==this.email?(e.showToast({title:"请输入邮箱地址",icon:"none",duration:2e3}),!1):""==this.emailCode?(e.showToast({title:"请输入验证码",icon:"none",duration:2e3}),!1):void e.request({url:this.url+"linkemail/",method:"POST",data:{email:this.email,email_msg:this.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(t){200==t.statusCode&&(e.showToast({title:"邮箱已绑定",icon:"none",duration:2e3}),e.switchTab({url:"../my/my"})),400==t.statusCode&&e.showToast({title:"验证码错误",icon:"none",duration:2e3})}})}}};t.default=a}).call(this,n("6e42")["default"])}},[["6286","common/runtime","common/vendor"]]]);
 });
 require('my/email/email.js');
 __wxRoute = 'my/unbindemail/unbindemail';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/unbindemail/unbindemail.js';
 
 define('my/unbindemail/unbindemail.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/unbindemail/unbindemail"],{"0391":function(e,t,a){"use strict";var n=a("fe86"),i=a.n(n);i.a},"0e11":function(e,t,a){"use strict";(function(e){a("c860"),a("921b");n(a("66fd"));var t=n(a("da72"));function n(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,a("6e42")["createPage"])},"0ee0":function(e,t,a){"use strict";var n=function(){var e=this,t=e.$createElement;e._self._c},i=[];a.d(t,"a",function(){return n}),a.d(t,"b",function(){return i})},"0f99":function(e,t,a){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;a("965e");var n={data:function(){return{email:"",email1:"",emailCode:"",codename:" 获取验证码",disabled:!1,flag:!0}},onShow:function(){var t=this;e.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(e){var a=e.data.data,n=e.data.data;t.email1=n;var i=a.split("@");a=i[0].substr(0,i[0].length-5)+"****@"+i[1],t.email=a}})},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getEmailCode:function(e){this.emailCode=e.detail.value},sendcode:function(){var t=this;e.request({url:this.url+"deleteemail/",method:"POST",data:{email:t.email,email_msg:t.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(e){var a=121,n=setInterval(function(){a--,a<=0?(clearInterval(n),t.flag=!0,t.codename="重新发送",t.disabled=!1):(t.flag=!1,t.disabled=!0,t.codename=a+"s")},1e3)},fail:function(e){}})},unbind:function(){if(""==this.emailCode)return e.showToast({title:"请输入验证码",icon:"none",duration:2e3}),!1;e.request({url:this.url+"delemail/",method:"POST",data:{email:this.email1,email_msg:this.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(t){if(400==t.statusCode)return e.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1;200==t.statusCode&&(e.showToast({title:"邮箱已解绑",icon:"none",duration:2e3}),e.switchTab({url:"../my/my"}))}})}}};t.default=n}).call(this,a("6e42")["default"])},ab4f:function(e,t,a){"use strict";a.r(t);var n=a("0f99"),i=a.n(n);for(var o in n)"default"!==o&&function(e){a.d(t,e,function(){return n[e]})}(o);t["default"]=i.a},da72:function(e,t,a){"use strict";a.r(t);var n=a("0ee0"),i=a("ab4f");for(var o in i)"default"!==o&&function(e){a.d(t,e,function(){return i[e]})}(o);a("0391");var u=a("2877"),l=Object(u["a"])(i["default"],n["a"],n["b"],!1,null,null,null);t["default"]=l.exports},fe86:function(e,t,a){}},[["0e11","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/unbindemail/unbindemail"],{"0391":function(e,t,a){"use strict";var n=a("fe86"),i=a.n(n);i.a},"0e11":function(e,t,a){"use strict";(function(e){a("c860"),a("921b");n(a("66fd"));var t=n(a("da72"));function n(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,a("6e42")["createPage"])},"0f99":function(e,t,a){"use strict";(function(e){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;a("965e");var n={data:function(){return{email:"",email1:"",emailCode:"",codename:" 获取验证码",disabled:!1}},onShow:function(){var t=this;e.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(e){var a=e.data.data,n=e.data.data;t.email1=n;var i=a.split("@");a=i[0].substr(0,i[0].length-5)+"****@"+i[1],t.email=a}})},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getEmailCode:function(e){this.emailCode=e.detail.value},sendcode:function(){var t=this;e.request({url:this.url+"deleteemail/",method:"POST",data:{email:t.email,email_msg:t.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(e){var a=121,n=setInterval(function(){a--,a<=0?(clearInterval(n),t.codename="重新发送",t.disabled=!1):(t.disabled=!0,t.codename=a+"s")},1e3)},fail:function(e){}})},unbind:function(){if(""==this.emailCode)return e.showToast({title:"请输入验证码",icon:"none",duration:2e3}),!1;e.request({url:this.url+"delemail/",method:"POST",data:{email:this.email1,email_msg:this.emailCode},header:{Authorization:"JWT "+this.global_.token},success:function(t){if(400==t.statusCode)return e.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1;200==t.statusCode&&(e.showToast({title:"邮箱已解绑",icon:"none",duration:2e3}),e.switchTab({url:"../my/my"}))}})}}};t.default=n}).call(this,a("6e42")["default"])},ab4f:function(e,t,a){"use strict";a.r(t);var n=a("0f99"),i=a.n(n);for(var o in n)"default"!==o&&function(e){a.d(t,e,function(){return n[e]})}(o);t["default"]=i.a},ba19:function(e,t,a){"use strict";var n=function(){var e=this,t=e.$createElement;e._self._c},i=[];a.d(t,"a",function(){return n}),a.d(t,"b",function(){return i})},da72:function(e,t,a){"use strict";a.r(t);var n=a("ba19"),i=a("ab4f");for(var o in i)"default"!==o&&function(e){a.d(t,e,function(){return i[e]})}(o);a("0391");var u=a("2877"),l=Object(u["a"])(i["default"],n["a"],n["b"],!1,null,null,null);t["default"]=l.exports},fe86:function(e,t,a){}},[["0e11","common/runtime","common/vendor"]]]);
 });
 require('my/unbindemail/unbindemail.js');
 __wxRoute = 'my/identity/identity';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/identity/identity.js';
@@ -4774,7 +4784,7 @@ require('my/identity/identity.js');
 __wxRoute = 'my/login-password/login-password';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/login-password/login-password.js';
 
 define('my/login-password/login-password.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/login-password/login-password"],{"3afe":function(t,e,o){"use strict";(function(t){o("c860"),o("921b");n(o("66fd"));var e=n(o("aab3"));function n(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,o("6e42")["createPage"])},"3c50":function(t,e,o){"use strict";var n=o("883d"),s=o.n(n);s.a},"652d":function(t,e,o){"use strict";(function(t,o){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={data:function(){return{phone:this.global_.phone,isPassword:!0,isPassword1:!0,codename:" 获取验证码 ",pwd:"",pwd1:"",iscode:"",code:"",disabled:!1,flag:!0}},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{getLoginPassword:function(t){this.pwd=t.detail.value},getLoginPassword1:function(t){this.pwd1=t.detail.value},getCodeValue:function(t){this.code=t.detail.value},show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCode:function(){var e=this;t.request({url:e.url+"users/login/sms/",method:"POST",data:{mobile:this.phone},header:{"Content-Type":"application/x-www-form-urlencoded"},success:function(n){console.log(o(n," at my\\login-password\\login-password.vue:77"));var s=n.statusCode;if(200==s){e.iscode=n.data.data;var i=61,a=setInterval(function(){i--,i<=0?(clearInterval(a),e.flag=!0,e.codename="重新发送",e.disabled=!1):(e.flag=!1,e.codename=i+"s",e.disabled=!0)},1e3)}else if(411==s)return t.showToast({title:"操作太频繁，请稍候重试",icon:"none",duration:2e3}),!1}})},getCodeBtn:function(t){this.getCode()},save:function(){if(""==this.pwd)return t.showToast({title:"请输入登录密码",icon:"none",duration:2e3}),!1;var e=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;return e.test(this.pwd)?""==this.pwd1?(t.showToast({title:"请确认登录密码",icon:"none",duration:2e3}),!1):this.pwd1!==this.pwd?(t.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1):""==this.code?(t.showToast({title:"验证码不能为空",icon:"none",duration:2e3}),!1):this.code!=this.iscode?(t.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1):void t.request({url:this.url+"updataloginpassword/",method:"POST",data:{mobile:this.phone,password:this.pwd,password1:this.pwd1,code:this.code},headers:{"Content-Type":"application/json"},success:function(e){200==e.statusCode&&(t.showToast({title:"登陆密码修改成功",icon:"none",duration:2e3}),t.removeStorageSync("phone"),t.removeStorageSync("token"),t.reLaunch({url:"../../pages/login/login"})),400==e.statusCode&&t.showToast({title:"验证码已过期",icon:"none"})},fail:function(){},complete:function(){}}):(t.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1)}}};e.default=n}).call(this,o("6e42")["default"],o("0de9")["default"])},"883d":function(t,e,o){},9922:function(t,e,o){"use strict";var n=function(){var t=this,e=t.$createElement;t._self._c},s=[];o.d(e,"a",function(){return n}),o.d(e,"b",function(){return s})},aab3:function(t,e,o){"use strict";o.r(e);var n=o("9922"),s=o("ff07");for(var i in s)"default"!==i&&function(t){o.d(e,t,function(){return s[t]})}(i);o("3c50");var a=o("2877"),d=Object(a["a"])(s["default"],n["a"],n["b"],!1,null,null,null);e["default"]=d.exports},ff07:function(t,e,o){"use strict";o.r(e);var n=o("652d"),s=o.n(n);for(var i in n)"default"!==i&&function(t){o.d(e,t,function(){return n[t]})}(i);e["default"]=s.a}},[["3afe","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/login-password/login-password"],{"3afe":function(t,e,o){"use strict";(function(t){o("c860"),o("921b");n(o("66fd"));var e=n(o("aab3"));function n(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,o("6e42")["createPage"])},"3c50":function(t,e,o){"use strict";var n=o("883d"),s=o.n(n);s.a},"652d":function(t,e,o){"use strict";(function(t,o){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={data:function(){return{phone:this.global_.phone,isPassword:!0,isPassword1:!0,codename:" 获取验证码 ",pwd:"",pwd1:"",iscode:"",code:"",disabled:!1}},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{getLoginPassword:function(t){this.pwd=t.detail.value},getLoginPassword1:function(t){this.pwd1=t.detail.value},getCodeValue:function(t){this.code=t.detail.value},show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCode:function(){var e=this;t.request({url:e.url+"users/login/sms/",method:"POST",data:{mobile:this.phone},header:{"Content-Type":"application/x-www-form-urlencoded"},success:function(n){console.log(o(n," at my\\login-password\\login-password.vue:77"));var s=n.statusCode;if(200==s){e.iscode=n.data.data;var i=61,a=setInterval(function(){i--,i<=0?(clearInterval(a),e.codename="重新发送",e.disabled=!1):(e.codename=i+"s",e.disabled=!0)},1e3)}else if(411==s)return t.showToast({title:"操作太频繁，请稍候重试",icon:"none",duration:2e3}),!1}})},getCodeBtn:function(t){this.getCode()},save:function(){if(""==this.pwd)return t.showToast({title:"请输入登录密码",icon:"none",duration:2e3}),!1;var e=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;return e.test(this.pwd)?""==this.pwd1?(t.showToast({title:"请确认登录密码",icon:"none",duration:2e3}),!1):this.pwd1!==this.pwd?(t.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1):""==this.code?(t.showToast({title:"验证码不能为空",icon:"none",duration:2e3}),!1):this.code!=this.iscode?(t.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1):void t.request({url:this.url+"updataloginpassword/",method:"POST",data:{mobile:this.phone,password:this.pwd,password1:this.pwd1,code:this.code},headers:{"Content-Type":"application/json"},success:function(e){200==e.statusCode&&(t.showToast({title:"登陆密码修改成功",icon:"none",duration:2e3}),t.removeStorageSync("phone"),t.removeStorageSync("token"),t.reLaunch({url:"../../pages/login/login"})),400==e.statusCode&&t.showToast({title:"验证码已过期",icon:"none"})},fail:function(){},complete:function(){}}):(t.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1)}}};e.default=n}).call(this,o("6e42")["default"],o("0de9")["default"])},"883d":function(t,e,o){},aab3:function(t,e,o){"use strict";o.r(e);var n=o("b84b"),s=o("ff07");for(var i in s)"default"!==i&&function(t){o.d(e,t,function(){return s[t]})}(i);o("3c50");var a=o("2877"),d=Object(a["a"])(s["default"],n["a"],n["b"],!1,null,null,null);e["default"]=d.exports},b84b:function(t,e,o){"use strict";var n=function(){var t=this,e=t.$createElement;t._self._c},s=[];o.d(e,"a",function(){return n}),o.d(e,"b",function(){return s})},ff07:function(t,e,o){"use strict";o.r(e);var n=o("652d"),s=o.n(n);for(var i in n)"default"!==i&&function(t){o.d(e,t,function(){return n[t]})}(i);e["default"]=s.a}},[["3afe","common/runtime","common/vendor"]]]);
 });
 require('my/login-password/login-password.js');
 __wxRoute = 'my/change-pass/change-pass';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/change-pass/change-pass.js';
@@ -4786,7 +4796,7 @@ require('my/change-pass/change-pass.js');
 __wxRoute = 'my/change-loginPassword/change-loginPassword';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/change-loginPassword/change-loginPassword.js';
 
 define('my/change-loginPassword/change-loginPassword.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/change-loginPassword/change-loginPassword"],{3294:function(e,t,o){},"71c9":function(e,t,o){"use strict";o.r(t);var n=o("eaa2"),s=o("c20b");for(var a in s)"default"!==a&&function(e){o.d(t,e,function(){return s[e]})}(a);o("b005");var i=o("2877"),d=Object(i["a"])(s["default"],n["a"],n["b"],!1,null,null,null);t["default"]=d.exports},"75c2":function(e,t,o){"use strict";(function(e,o){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n={data:function(){return{isPassword:!0,isPassword1:!0,phone:this.global_.phone,codename:" 获取验证码 ",pwd:"",pwd1:"",iscode:"",code:"",disabled:!1,flag:!0}},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getLoginPassword:function(e){this.pwd=e.detail.value},getLoginPassword1:function(e){this.pwd1=e.detail.value},getCodeValue:function(e){this.code=e.detail.value},show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},other:function(){e.navigateTo({url:"../change-pass/change-pass"})},getCode:function(){var t=this;e.request({url:t.url+"users/login/sms/",method:"POST",data:{mobile:this.phone},header:{"Content-Type":"application/x-www-form-urlencoded"},success:function(n){console.log(o(n," at my\\change-loginPassword\\change-loginPassword.vue:83"));var s=n.statusCode;if(200==s){t.iscode=n.data.data;var a=61,i=setInterval(function(){a--,a<=0?(clearInterval(i),t.flag=!0,t.codename="重新发送",t.disabled=!1):(t.flag=!1,t.codename=a+"s",t.disabled=!0)},1e3)}else if(411==s)return e.showToast({title:"操作太频繁，请稍候重试",icon:"none",duration:2e3}),!1}})},getCodeBtn:function(e){this.getCode()},save:function(){if(""==this.pwd)return e.showToast({title:"请输入登录密码",icon:"none",duration:2e3}),!1;var t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;return t.test(this.pwd)?""==this.pwd1?(e.showToast({title:"请确认登录密码",icon:"none",duration:2e3}),!1):this.pwd1!==this.pwd?(e.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1):""==this.code?(e.showToast({title:"验证码不能为空",icon:"none",duration:2e3}),!1):this.code!=this.iscode?(e.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1):void e.request({url:this.url+"updataloginpassword/",method:"POST",data:{mobile:this.phone,password:this.pwd,password1:this.pwd1,code:this.code},headers:{"Content-Type":"application/json"},success:function(t){200==t.statusCode&&(e.showToast({title:"登陆密码设置成功",icon:"none",duration:2e3}),e.removeStorageSync("phone"),e.removeStorageSync("token"),e.reLaunch({url:"../../pages/login/login"})),400==t.statusCode&&e.showToast({title:"验证码已过期",icon:"none"})},fail:function(){},complete:function(){}}):(e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1)}}};t.default=n}).call(this,o("6e42")["default"],o("0de9")["default"])},b005:function(e,t,o){"use strict";var n=o("3294"),s=o.n(n);s.a},c20b:function(e,t,o){"use strict";o.r(t);var n=o("75c2"),s=o.n(n);for(var a in n)"default"!==a&&function(e){o.d(t,e,function(){return n[e]})}(a);t["default"]=s.a},e150:function(e,t,o){"use strict";(function(e){o("c860"),o("921b");n(o("66fd"));var t=n(o("71c9"));function n(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,o("6e42")["createPage"])},eaa2:function(e,t,o){"use strict";var n=function(){var e=this,t=e.$createElement;e._self._c},s=[];o.d(t,"a",function(){return n}),o.d(t,"b",function(){return s})}},[["e150","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/change-loginPassword/change-loginPassword"],{3294:function(e,t,o){},"71c9":function(e,t,o){"use strict";o.r(t);var n=o("fe07"),s=o("c20b");for(var i in s)"default"!==i&&function(e){o.d(t,e,function(){return s[e]})}(i);o("b005");var a=o("2877"),d=Object(a["a"])(s["default"],n["a"],n["b"],!1,null,null,null);t["default"]=d.exports},"75c2":function(e,t,o){"use strict";(function(e,o){Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n={data:function(){return{isPassword:!0,isPassword1:!0,phone:this.global_.phone,codename:" 获取验证码 ",pwd:"",pwd1:"",iscode:"",code:"",disabled:!1}},onBackPress:function(e){plus.key.hideSoftKeybord()},methods:{getLoginPassword:function(e){this.pwd=e.detail.value},getLoginPassword1:function(e){this.pwd1=e.detail.value},getCodeValue:function(e){this.code=e.detail.value},show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},other:function(){e.navigateTo({url:"../change-pass/change-pass"})},getCode:function(){var t=this;e.request({url:t.url+"users/login/sms/",method:"POST",data:{mobile:this.phone},header:{"Content-Type":"application/x-www-form-urlencoded"},success:function(n){console.log(o(n," at my\\change-loginPassword\\change-loginPassword.vue:83"));var s=n.statusCode;if(200==s){t.iscode=n.data.data;var i=61,a=setInterval(function(){i--,i<=0?(clearInterval(a),t.codename="重新发送",t.disabled=!1):(t.codename=i+"s",t.disabled=!0)},1e3)}else if(411==s)return e.showToast({title:"操作太频繁，请稍候重试",icon:"none",duration:2e3}),!1}})},getCodeBtn:function(e){this.getCode()},save:function(){if(""==this.pwd)return e.showToast({title:"请输入登录密码",icon:"none",duration:2e3}),!1;var t=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;return t.test(this.pwd)?""==this.pwd1?(e.showToast({title:"请确认登录密码",icon:"none",duration:2e3}),!1):this.pwd1!==this.pwd?(e.showToast({title:"两次密码不一致",icon:"none",duration:2e3}),!1):""==this.code?(e.showToast({title:"验证码不能为空",icon:"none",duration:2e3}),!1):this.code!=this.iscode?(e.showToast({title:"验证码错误",icon:"none",duration:2e3}),!1):void e.request({url:this.url+"updataloginpassword/",method:"POST",data:{mobile:this.phone,password:this.pwd,password1:this.pwd1,code:this.code},headers:{"Content-Type":"application/json"},success:function(t){200==t.statusCode&&(e.showToast({title:"登陆密码设置成功",icon:"none",duration:2e3}),e.removeStorageSync("phone"),e.removeStorageSync("token"),e.reLaunch({url:"../../pages/login/login"})),400==t.statusCode&&e.showToast({title:"验证码已过期",icon:"none"})},fail:function(){},complete:function(){}}):(e.showToast({title:"密码格式不正确",icon:"none",duration:2e3}),!1)}}};t.default=n}).call(this,o("6e42")["default"],o("0de9")["default"])},b005:function(e,t,o){"use strict";var n=o("3294"),s=o.n(n);s.a},c20b:function(e,t,o){"use strict";o.r(t);var n=o("75c2"),s=o.n(n);for(var i in n)"default"!==i&&function(e){o.d(t,e,function(){return n[e]})}(i);t["default"]=s.a},e150:function(e,t,o){"use strict";(function(e){o("c860"),o("921b");n(o("66fd"));var t=n(o("71c9"));function n(e){return e&&e.__esModule?e:{default:e}}e(t.default)}).call(this,o("6e42")["createPage"])},fe07:function(e,t,o){"use strict";var n=function(){var e=this,t=e.$createElement;e._self._c},s=[];o.d(t,"a",function(){return n}),o.d(t,"b",function(){return s})}},[["e150","common/runtime","common/vendor"]]]);
 });
 require('my/change-loginPassword/change-loginPassword.js');
 __wxRoute = 'my/change-password/change-password';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/change-password/change-password.js';
@@ -4798,13 +4808,13 @@ require('my/change-password/change-password.js');
 __wxRoute = 'my/trade-password/trade-password';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/trade-password/trade-password.js';
 
 define('my/trade-password/trade-password.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/trade-password/trade-password"],{"1a7c":function(t,e,s){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var s={data:function(){return{isPassword:!0,isPassword1:!0,email:"",email1:"",code:"",codename:" 获取验证码",password:"",password1:"",shade:!1,disabled:!1,flag:!0}},onLoad:function(){var e=this;t.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=t.data.data,a=t.data.data;e.email1=a;var o=s.split("@");s=o[0].substr(0,o[0].length-5)+"****@"+o[1],e.email=s}})},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCodeValue:function(t){this.code=t.detail.value},getPassword:function(t){this.password=t.detail.value},getPassword1:function(t){this.password1=t.detail.value},getCode:function(){var e=this;t.request({method:"POST",data:{email:this.email1},url:this.url+"setemail/",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=121,a=setInterval(function(){s--,s<=0?(clearInterval(a),e.flag=!0,e.codename="重新发送",e.disabled=!1):(e.flag=!1,e.codename=s+"s",e.disabled=!0)},1e3)}})},getCodeNumber:function(t){this.getCode()},setPwd:function(){if(""==this.code)return t.showToast({icon:"none",title:"请输入验证码",duration:2e3}),!1;if(""==this.password)return t.showToast({icon:"none",title:"请输入交易密码",duration:2e3}),!1;var e=this.global_.checkPassword(this.password);return e?""==this.password1?(t.showToast({icon:"none",title:"请确认交易密码",duration:2e3}),!1):this.password1!==this.password?(t.showToast({icon:"none",title:"两次密码不一致",duration:2e3}),!1):void t.request({url:this.url+"setmoney/",method:"POST",data:{email:this.email1,email_msg:this.code,password:this.password,password1:this.password1},header:{Authorization:"JWT "+this.global_.token},success:function(e){200==e.statusCode&&(t.showToast({title:"资金密码已设置",icon:"none",duration:2e3}),t.switchTab({url:"../my/my"})),400==e.statusCode&&t.showToast({title:"验证码错误",icon:"none",duration:2e3})}}):(t.showToast({title:"交易密码为六位数字!",icon:"none",duration:2e3}),!1)}}};e.default=s}).call(this,s("6e42")["default"])},"2ac5":function(t,e,s){"use strict";var a=s("eeb7"),o=s.n(a);o.a},"2e7f":function(t,e,s){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},o=[];s.d(e,"a",function(){return a}),s.d(e,"b",function(){return o})},a7c3:function(t,e,s){"use strict";(function(t){s("c860"),s("921b");a(s("66fd"));var e=a(s("c7da"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,s("6e42")["createPage"])},c7da:function(t,e,s){"use strict";s.r(e);var a=s("2e7f"),o=s("f404");for(var n in o)"default"!==n&&function(t){s.d(e,t,function(){return o[t]})}(n);s("2ac5");var i=s("2877"),r=Object(i["a"])(o["default"],a["a"],a["b"],!1,null,null,null);e["default"]=r.exports},eeb7:function(t,e,s){},f404:function(t,e,s){"use strict";s.r(e);var a=s("1a7c"),o=s.n(a);for(var n in a)"default"!==n&&function(t){s.d(e,t,function(){return a[t]})}(n);e["default"]=o.a}},[["a7c3","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/trade-password/trade-password"],{"1a7c":function(t,e,s){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var s={data:function(){return{isPassword:!0,isPassword1:!0,email:"",email1:"",code:"",codename:" 获取验证码",password:"",password1:"",shade:!1,disabled:!1}},onLoad:function(){var e=this;t.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=t.data.data,a=t.data.data;e.email1=a;var o=s.split("@");s=o[0].substr(0,o[0].length-5)+"****@"+o[1],e.email=s}})},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCodeValue:function(t){this.code=t.detail.value},getPassword:function(t){this.password=t.detail.value},getPassword1:function(t){this.password1=t.detail.value},getCode:function(){var e=this;t.request({method:"POST",data:{email:this.email1},url:this.url+"setemail/",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=121,a=setInterval(function(){s--,s<=0?(clearInterval(a),e.codename="重新发送",e.disabled=!1):(e.codename=s+"s",e.disabled=!0)},1e3)}})},getCodeNumber:function(t){this.getCode()},setPwd:function(){if(""==this.code)return t.showToast({icon:"none",title:"请输入验证码",duration:2e3}),!1;if(""==this.password)return t.showToast({icon:"none",title:"请输入交易密码",duration:2e3}),!1;var e=this.global_.checkPassword(this.password);return e?""==this.password1?(t.showToast({icon:"none",title:"请确认交易密码",duration:2e3}),!1):this.password1!==this.password?(t.showToast({icon:"none",title:"两次密码不一致",duration:2e3}),!1):void t.request({url:this.url+"setmoney/",method:"POST",data:{email:this.email1,email_msg:this.code,password:this.password,password1:this.password1},header:{Authorization:"JWT "+this.global_.token},success:function(e){200==e.statusCode&&(t.showToast({title:"资金密码已设置",icon:"none",duration:2e3}),t.switchTab({url:"../my/my"})),400==e.statusCode&&t.showToast({title:"验证码错误",icon:"none",duration:2e3})}}):(t.showToast({title:"交易密码为六位数字!",icon:"none",duration:2e3}),!1)}}};e.default=s}).call(this,s("6e42")["default"])},"2ac5":function(t,e,s){"use strict";var a=s("eeb7"),o=s.n(a);o.a},"37d2":function(t,e,s){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},o=[];s.d(e,"a",function(){return a}),s.d(e,"b",function(){return o})},a7c3:function(t,e,s){"use strict";(function(t){s("c860"),s("921b");a(s("66fd"));var e=a(s("c7da"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,s("6e42")["createPage"])},c7da:function(t,e,s){"use strict";s.r(e);var a=s("37d2"),o=s("f404");for(var n in o)"default"!==n&&function(t){s.d(e,t,function(){return o[t]})}(n);s("2ac5");var i=s("2877"),r=Object(i["a"])(o["default"],a["a"],a["b"],!1,null,null,null);e["default"]=r.exports},eeb7:function(t,e,s){},f404:function(t,e,s){"use strict";s.r(e);var a=s("1a7c"),o=s.n(a);for(var n in a)"default"!==n&&function(t){s.d(e,t,function(){return a[t]})}(n);e["default"]=o.a}},[["a7c3","common/runtime","common/vendor"]]]);
 });
 require('my/trade-password/trade-password.js');
 __wxRoute = 'my/change-otherPassword/change_otherPassword';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/change-otherPassword/change_otherPassword.js';
 
 define('my/change-otherPassword/change_otherPassword.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
-(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/change-otherPassword/change_otherPassword"],{"090a":function(t,e,s){"use strict";var a=function(){var t=this,e=t.$createElement;t._self._c},o=[];s.d(e,"a",function(){return a}),s.d(e,"b",function(){return o})},"49bf":function(t,e,s){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var s={data:function(){return{isPassword:!0,isPassword1:!0,email:"",email1:"",code:"",codename:" 获取验证码",password:"",password1:"",shade:!1,flag:!0,disabled:!1}},onLoad:function(){var e=this;t.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=t.data.data,a=t.data.data;e.email1=a;var o=s.split("@");s=o[0].substr(0,o[0].length-5)+"****@"+o[1],e.email=s}})},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCodeValue:function(t){this.code=t.detail.value},getPassword:function(t){this.password=t.detail.value},getPassword1:function(t){this.password1=t.detail.value},getCode:function(){var e=this;t.request({method:"POST",data:{email:this.email1},url:this.url+"setemail/",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=121,a=setInterval(function(){s--,s<=0?(clearInterval(a),e.flag=!0,e.codename="重新发送",e.disabled=!1):(e.flag=!1,e.codename=s+"s",e.disabled=!0)},1e3)}})},getCodeNumber:function(t){this.getCode()},setPwd:function(){if(""==this.code)return t.showToast({icon:"none",title:"请输入验证码",duration:2e3}),!1;if(""==this.password)return t.showToast({icon:"none",title:"请输入交易密码",duration:2e3}),!1;var e=this.global_.checkPassword(this.password);return e?""==this.password1?(t.showToast({icon:"none",title:"请确认交易密码",duration:2e3}),!1):this.password1!==this.password?(t.showToast({icon:"none",title:"两次密码不一致",duration:2e3}),!1):void t.request({url:this.url+"setmoney/",method:"POST",data:{email:this.email1,email_msg:this.code,password:this.password,password1:this.password1},header:{Authorization:"JWT "+this.global_.token},success:function(e){200==e.statusCode&&(t.showToast({title:"资金密码已修改",icon:"none",duration:2e3}),t.switchTab({url:"../my/my"})),400==e.statusCode&&t.showToast({title:"验证码错误",icon:"none",duration:2e3})}}):(t.showToast({title:"交易密码为六位数字",icon:"none",duration:2e3}),!1)}}};e.default=s}).call(this,s("6e42")["default"])},"502a":function(t,e,s){"use strict";s.r(e);var a=s("49bf"),o=s.n(a);for(var n in a)"default"!==n&&function(t){s.d(e,t,function(){return a[t]})}(n);e["default"]=o.a},8067:function(t,e,s){"use strict";var a=s("a3e0"),o=s.n(a);o.a},a3e0:function(t,e,s){},a862:function(t,e,s){"use strict";s.r(e);var a=s("090a"),o=s("502a");for(var n in o)"default"!==n&&function(t){s.d(e,t,function(){return o[t]})}(n);s("8067");var i=s("2877"),r=Object(i["a"])(o["default"],a["a"],a["b"],!1,null,null,null);e["default"]=r.exports},c8d2:function(t,e,s){"use strict";(function(t){s("c860"),s("921b");a(s("66fd"));var e=a(s("a862"));function a(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,s("6e42")["createPage"])}},[["c8d2","common/runtime","common/vendor"]]]);
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["my/change-otherPassword/change_otherPassword"],{"49bf":function(t,e,s){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var s={data:function(){return{isPassword:!0,isPassword1:!0,email:"",email1:"",code:"",codename:" 获取验证码",password:"",password1:"",shade:!1,disabled:!1}},onLoad:function(){var e=this;t.request({url:this.url+"delemail/",method:"GET",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=t.data.data,o=t.data.data;e.email1=o;var a=s.split("@");s=a[0].substr(0,a[0].length-5)+"****@"+a[1],e.email=s}})},onBackPress:function(t){plus.key.hideSoftKeybord()},methods:{show:function(){this.isPassword=!this.isPassword},show1:function(){this.isPassword1=!this.isPassword1},getCodeValue:function(t){this.code=t.detail.value},getPassword:function(t){this.password=t.detail.value},getPassword1:function(t){this.password1=t.detail.value},getCode:function(){var e=this;t.request({method:"POST",data:{email:this.email1},url:this.url+"setemail/",header:{Authorization:"JWT "+this.global_.token},success:function(t){var s=121,o=setInterval(function(){s--,s<=0?(clearInterval(o),e.codename="重新发送",e.disabled=!1):(e.codename=s+"s",e.disabled=!0)},1e3)}})},getCodeNumber:function(t){this.getCode()},setPwd:function(){if(""==this.code)return t.showToast({icon:"none",title:"请输入验证码",duration:2e3}),!1;if(""==this.password)return t.showToast({icon:"none",title:"请输入交易密码",duration:2e3}),!1;var e=this.global_.checkPassword(this.password);return e?""==this.password1?(t.showToast({icon:"none",title:"请确认交易密码",duration:2e3}),!1):this.password1!==this.password?(t.showToast({icon:"none",title:"两次密码不一致",duration:2e3}),!1):void t.request({url:this.url+"setmoney/",method:"POST",data:{email:this.email1,email_msg:this.code,password:this.password,password1:this.password1},header:{Authorization:"JWT "+this.global_.token},success:function(e){200==e.statusCode&&(t.showToast({title:"资金密码已修改",icon:"none",duration:2e3}),t.switchTab({url:"../my/my"})),400==e.statusCode&&t.showToast({title:"验证码错误",icon:"none",duration:2e3})}}):(t.showToast({title:"交易密码为六位数字",icon:"none",duration:2e3}),!1)}}};e.default=s}).call(this,s("6e42")["default"])},"502a":function(t,e,s){"use strict";s.r(e);var o=s("49bf"),a=s.n(o);for(var n in o)"default"!==n&&function(t){s.d(e,t,function(){return o[t]})}(n);e["default"]=a.a},8067:function(t,e,s){"use strict";var o=s("a3e0"),a=s.n(o);a.a},"9cb9":function(t,e,s){"use strict";var o=function(){var t=this,e=t.$createElement;t._self._c},a=[];s.d(e,"a",function(){return o}),s.d(e,"b",function(){return a})},a3e0:function(t,e,s){},a862:function(t,e,s){"use strict";s.r(e);var o=s("9cb9"),a=s("502a");for(var n in a)"default"!==n&&function(t){s.d(e,t,function(){return a[t]})}(n);s("8067");var i=s("2877"),r=Object(i["a"])(a["default"],o["a"],o["b"],!1,null,null,null);e["default"]=r.exports},c8d2:function(t,e,s){"use strict";(function(t){s("c860"),s("921b");o(s("66fd"));var e=o(s("a862"));function o(t){return t&&t.__esModule?t:{default:t}}t(e.default)}).call(this,s("6e42")["createPage"])}},[["c8d2","common/runtime","common/vendor"]]]);
 });
 require('my/change-otherPassword/change_otherPassword.js');
 __wxRoute = 'my/my-machine/my-machine';__wxRouteBegin = true;__wxAppCurrentFile__ = 'my/my-machine/my-machine.js';
