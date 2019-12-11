@@ -35,7 +35,7 @@
                             创建时间:<text class="smallxx1">{{labnrv.set_time}}</text>
                         </text>
                 </view>
-            <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:25rpx;height:20rpx; margin-left: 6rpx;" mode=""></image></button>
+            <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:30rpx;height:25rpx; margin-left: 12rpx;" mode=""></image></button>
             </view>
             <view class="box1">
                 买家信息
@@ -142,7 +142,8 @@ page {
         width: 240rpx;
         height: 40rpx;
          border-radius: 70rpx;
-         border: 1rpx solid #333333;
+         border: 1rpx solid #000000;
+         color: #000000;
         background-color: #FFFFFF;
         line-height: 40rpx;
          margin-top:20rpx;
@@ -152,7 +153,8 @@ page {
         width: 180rpx;
         height: 40rpx;
         border-radius:70rpx;
-        border: 0.5rpx solid #333333;
+        color: #000000;
+        border: 0.5rpx solid #000000;
         background-color: #FFFFFF;
         line-height: 40rpx;
          margin-top:20rpx;

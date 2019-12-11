@@ -243,10 +243,11 @@ that. <template>
         padding-bottom:20rpx;
     }
     .primary {
-        width: 240rpx;
+        width: 250rpx;
         height: 40rpx;
         border-radius: 70rpx;
-         border: 1rpx solid #333333;
+         border: 1rpx solid #000000;
+         color: #000000;
         background-color: #FFFFFF;
         line-height: 40rpx;
          margin-top:20rpx;
@@ -256,7 +257,8 @@ that. <template>
         width: 180rpx;
         height: 40rpx;
         border-radius: 70rpx;
-         border: 1rpx solid #333333;
+        color: #000000;
+         border: 1rpx solid #000000;
         background-color: #FFFFFF;
         line-height: 40rpx;
          margin-top:20rpx;

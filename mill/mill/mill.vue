@@ -172,7 +172,6 @@ export default {
 
 					console.log(res)
                     console.log(that.shade)
-                    var asr = JSON.stringify(res.data.data);
                     if(res.statusCode == 410) {
                         that.shade = true
                         that.stus = res.statusCode
@@ -205,7 +204,7 @@ export default {
 						return false
 					}
 					if (res.statusCode == 200) {
-
+                        var asr = JSON.stringify(res.data.data);
 						uni.navigateTo({
 							url: '../sell/sell?tar=' + asr
 						});
