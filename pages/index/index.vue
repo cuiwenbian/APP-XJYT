@@ -108,6 +108,8 @@
                 cWidth:'',
                 cHeight:'',
                 pixelRatio:1,
+                link:'',
+                text_content:'',
                 notice:'',
                 csgo:'',
                 time:[],
@@ -161,12 +163,12 @@
                     },
                     success(res) {
                         console.log(res)
-                        var link = res.data.link
-                        var text_content = res.data.text_content.replace(/=/g,"_");
-                        console.log(text_content)
-                        if(link == null) {
+                        that.link = res.data.link
+                        that.text_content = res.data.text_content.replace(/=/g,"_");
+                        console.log(that.text_content)
+                        if(that.link == null) {
                             uni.navigateTo({
-                                url:'../banner/banner?content='+ text_content
+                                url:'../banner/banner?content=' + that.text_content
                             })
                         }
                     }
