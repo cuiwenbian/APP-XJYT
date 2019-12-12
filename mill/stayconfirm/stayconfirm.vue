@@ -40,7 +40,7 @@
                     </text>
                 </view>
             </view>
-                <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:25rpx;height:20rpx; margin-left: 6rpx;" mode=""></image></button>
+                <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:30rpx;height:25rpx; margin-left: 12rpx;" mode=""></image></button>
         </view>
         <view class="box1">
             卖家信息
@@ -106,6 +106,7 @@
             //获取上个页面携带的数据，并复制
             var fanta = JSON.parse(option.main)
             that.fanta = fanta
+            console.log(that.fanta)
             var ig = that.fanta[1]
             that.ig = that.fanta[1]
             that.state = fanta[0][0].order_status
@@ -208,10 +209,11 @@
      padding-left: 48rpx;
  }
  .primary {
-     width: 240rpx;
+     width: 250rpx;
      height: 40rpx;
      border-radius: 70rpx;
-     border: 1rpx solid #333333;
+     border: 1rpx solid #000000;
+     color: #000000;
      background-color: #FFFFFF;
      line-height: 40rpx;
       margin-top:20rpx;
@@ -221,7 +223,8 @@
      width: 180rpx;
      height: 40rpx;
      border-radius:70rpx;
-     border: 0.5rpx solid #333333;
+     border: 0.5rpx solid #000000;
+     color: #000000;
      background-color: #FFFFFF;
      line-height: 40rpx;
       margin-top:20rpx;
