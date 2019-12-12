@@ -6,6 +6,39 @@ page {
 .box {
       width: 100%;
       background-color: #fff;
+      padding-bottom:20rpx;
+}
+.primary {
+      width: 250rpx;
+      height: 40rpx;
+      border-radius: 70rpx;
+       border: 1rpx solid #000000;
+       color: #000000;
+      background-color: #FFFFFF;
+      line-height: 40rpx;
+       margin-top:20rpx;
+      font-size: 22rpx;
+}
+.primary2 {
+      width: 180rpx;
+      height: 40rpx;
+      border-radius: 70rpx;
+      color: #000000;
+       border: 1rpx solid #000000;
+      background-color: #FFFFFF;
+      line-height: 40rpx;
+       margin-top:20rpx;
+      font-size: 22rpx;
+}
+.smallss{
+      box-sizing: border-box;
+      width: 100%;
+      height: 110rpx;
+      line-height: 110rpx;
+      float: left;
+      padding-left: 48rpx;
+      margin-bottom: 20rpx;
+      font-size: 28rpx;
 }
 .small {
       box-sizing: border-box;
@@ -64,13 +97,6 @@ page {
 }
 .smallxx1{
       margin-left: 48rpx;
-}
-.primary {
-      width: 180rpx;
-      height: 40rpx;
-      line-height: 40rpx;
-      margin-top: 60rpx;
-      font-size: 22rpx;
 }
 .box1 {
       height: 78rpx;
