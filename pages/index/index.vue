@@ -7,15 +7,16 @@
         circular
         indicator-color="rgda(255 , 255 , 255 , .6)"
         >
-            <swiper-item>
-                <image class="ttt" src="../../static/images/banner1.png"></image>
+            <swiper-item v-for="(item, index) in baner" :key="index">
+                
+                <image class="ttt" @click="some(item.id)" :src="'http://192.168.1.218/api/v1.1.0/media/'+ item.cover_pic"></image>
             </swiper-item>
-            <swiper-item>
+           <!-- <swiper-item>
                 <image class="ttt" src="../../static/images/banner3.png"></image>
             </swiper-item>
             <swiper-item>
                 <image class="ttt" src="../../static/images/lb.png"></image>
-            </swiper-item>
+            </swiper-item> -->
         </swiper>
         <view class="uni-swiper-msg">
         	<view class="uni-swiper-msg-icon">
@@ -114,6 +115,8 @@
 				hure:[],
                 feck:[],
                 usd:'',
+                suner:'',
+                baner:'',
                 hige:'',
                 minn:'',
 			}
@@ -130,13 +133,45 @@
                 header:{
                     Authorization:'JWT'+' '+this.global_.token
                 },
-                success(res) {
+                success(res) { 
                     var csgo = res.data
                     that.csgo = csgo
                 }
             })
+            uni.request({
+                url:'http://192.168.1.218/api/v1.1.0/home/rotation/',
+                method:'GET',
+                header:{
+                    Authorization:'JWT'+' '+this.global_.token
+                },
+                success(res) {
+                    console.log(res.data)
+                    _self.baner = res.data
+                }
+            })
         },
 		methods: {
+            some:function(item){
+                var that = this
+                uni.request({
+                    url:'http://192.168.1.218/api/v1.1.0/home/rotation/details/'+ item+ '/',
+                    method:'GET',
+                    header:{
+                        Authorization:'JWT'+' '+this.global_.token
+                    },
+                    success(res) {
+                        console.log(res)
+                        var link = res.data.link
+                        var text_content = res.data.text_content.replace(/=/g,"_");
+                        console.log(text_content)
+                        if(link == null) {
+                            uni.navigateTo({
+                                url:'../banner/banner?content='+ text_content
+                            })
+                        }
+                    }
+                })
+            },
 			web1:function(){
 				uni.navigateTo({
 					url:'../web1/web1'
@@ -158,7 +193,7 @@
             			method: 'POST',
             			success: function(res) {
 							//转换时间戳
-							console.log(res)
+							// console.log(res)
 							function formatDate(v) {
 							    let date = new Date(v);
 							    let y = date.getFullYear();

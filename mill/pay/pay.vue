@@ -214,6 +214,7 @@
                          Authorization: 'JWT'+' '+this.global_.token
                     },
                     success(res) {
+                        console.log(res)
                         var contion = res.data.data
                         that.contion = contion.reverse()
                     }
