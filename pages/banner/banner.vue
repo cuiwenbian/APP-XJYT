@@ -1,9 +1,6 @@
 <template>
-	<view class="container">
-  
-            <rich-text :nodes="aa"></rich-text>
-       
-
+	<view class="con">
+        <rich-text :nodes="aa"></rich-text>
 	</view>
 </template>
 
@@ -12,12 +9,11 @@
 		data () {
 			return {
                 ction:'',
-                aa:''
+                aa:'',
 			}
 		},
         
         onLoad(option) {
-            console.log(option.content)
             this.ction = option.content;
             this.aa=this.ction.replace(/_/g,"=");
             console.log(this.aa)
@@ -27,4 +23,8 @@
 
 <style>
 
+.con{
+	padding: 36rpx;
+    box-sizing: border-box;
+}
 </style>
