@@ -4,12 +4,7 @@
 			<swiper-item v-for="(item, index) in baner" :key="index">
 				<image class="ttt" @click="some(item.id)" :src="'http://192.168.1.218/api/v1.1.0/media/' + item.cover_pic"></image>
 			</swiper-item>
-			<!-- <swiper-item>
-                <image class="ttt" src="../../static/images/banner3.png"></image>
-            </swiper-item>
-            <swiper-item>
-                <image class="ttt" src="../../static/images/lb.png"></image>
-            </swiper-item> -->
+			
 		</swiper>
 		<view class="uni-swiper-msg">
 			<view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>
@@ -116,22 +111,23 @@ export default {
 			}
 		});
 		uni.request({
-			url: 'http://192.168.1.218/api/v1.1.0/home/rotation/',
+			url: this.url+'home/rotation/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res.data);
+				//console.log(res.data);
 				_self.baner = res.data;
 			}
 		});
+		
 	},
 	methods: {
 		some: function(item) {
 			var that = this;
 			uni.request({
-				url: 'http://192.168.1.218/api/v1.1.0/home/rotation/details/' + item + '/',
+				url: this.url+'home/rotation/details/' + item + '/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -158,16 +154,7 @@ export default {
 				}
 			});
 		},
-		web1: function() {
-			uni.navigateTo({
-				url: '../web1/web1'
-			});
-		},
-		web2: function() {
-			uni.navigateTo({
-				url: '../web2/web2'
-			});
-		},
+		
 		getServerData() {
 			var that = this;
 			var timestamp = Date.parse(new Date()) / 1000;
@@ -204,7 +191,6 @@ export default {
 						var t = formatDate(parseInt(date));
 						time.push(t);
 						that.time = time;
-						console.log(that.time);
 						var day1 = new Date();
 						day1.setTime(day1.getTime() - 24 * 60 * 60 * 1000);
 						var s1 = day1.getFullYear() + '-' + (day1.getMonth() + 1) + '-' + day1.getDate();

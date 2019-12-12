@@ -1,5 +1,7 @@
 <template>
-	<view><web-view :src="url"></web-view></view>
+	<view>
+		<web-view :src="url"></web-view>
+		</view>
 </template>
 <script>
 export default {
