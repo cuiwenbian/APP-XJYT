@@ -144,16 +144,15 @@ export default {
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content='+ encodeURIComponent(text_content),
-							success: res => {
-								console.log(res)
-							},
-							fail: () => {},
-							complete: () => {}
+						
 						});
 						
 					} else {
 						uni.navigateTo({
-							url: `../web1/web1?url=${link}`
+							url: `../web1/web1?url=${link}`,
+							success: res => {},
+							fail: () => {},
+							complete: () => {}
 						});
 					}
 				}

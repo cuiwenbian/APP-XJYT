@@ -1,8 +1,7 @@
 <template>
-	<view class="container">
+	<view class="con">
   
             <rich-text :nodes="aa"></rich-text>
-       
 
 	</view>
 </template>
@@ -26,5 +25,8 @@
 </script>
 
 <style>
-
+.con{
+	padding: 36rpx;
+	box-sizing: border-box;
+}
 </style>

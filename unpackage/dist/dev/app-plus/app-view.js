@@ -4317,7 +4317,7 @@ function gz$gwx_47(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_47)return __WXML_GLOBAL__.ops_cached.$gwx_47
 __WXML_GLOBAL__.ops_cached.$gwx_47=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'container'])
+Z([3,'con'])
 Z([[7],[3,'aa']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_47);return __WXML_GLOBAL__.ops_cached.$gwx_47
 }
@@ -11617,7 +11617,7 @@ __wxAppCode__['my/unbindemail/unbindemail.wxml']=$gwx('./my/unbindemail/unbindem
 __wxAppCode__['pages/agreement/agreement.wxss']=setCssToHead([".",[1],"dde{ height: ",[0,500],"; }\n.",[1],"fix{ width:100%; height:",[0,98],"; position: fixed; left:0; bottom:0; background:rgba(0,0,0,0.4); display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; justify-content: space-between; }\n.",[1],"down{ width:",[0,130],"; height:",[0,60],"; font-size: ",[0,30],"; line-height: ",[0,60],"; margin-top:",[0,19],"; color:#fff; background: #121212; }\n.",[1],"dowwn{ width:",[0,160],"; height:",[0,60],"; font-size: ",[0,30],"; line-height: ",[0,60],"; margin-top:",[0,19],"; color:#fff; background: #121212; }\n.",[1],"agreemen{ font-size: ",[0,20],"; }\n",],undefined,{path:"./pages/agreement/agreement.wxss"});    
 __wxAppCode__['pages/agreement/agreement.wxml']=$gwx('./pages/agreement/agreement.wxml');
 
-__wxAppCode__['pages/banner/banner.wxss']=undefined;    
+__wxAppCode__['pages/banner/banner.wxss']=setCssToHead([".",[1],"con{ padding: ",[0,36],"; box-sizing: border-box; }\n",],undefined,{path:"./pages/banner/banner.wxss"});    
 __wxAppCode__['pages/banner/banner.wxml']=$gwx('./pages/banner/banner.wxml');
 
 __wxAppCode__['pages/getBackPassword/getBackPassword.wxss']=setCssToHead(["body{ background:#EDEEEE; }\n.",[1],"pass{ width:100%; height:",[0,120],"; background: #FFFFFF; position: relative; }\n.",[1],"icon{ float: left; width:",[0,60],"; height: ",[0,60],"; margin-left: ",[0,48],"; margin-top:",[0,30],"; }\n.",[1],"phone{ float: right; width:",[0,600],"; height:",[0,120],"; font-size: ",[0,30],"; }\n.",[1],"code{ float: right; width:",[0,376],"; height:",[0,120],"; font-size: ",[0,30],"; }\n.",[1],"getcode{ float: right; border-radius: ",[0,50],"; width: ",[0,180],"; height: ",[0,50],"; font-size: ",[0,22],"; background: #797979; color: #fff; text-align: center; line-height: ",[0,50],"; margin-right:",[0,48],"; margin-top:",[0,35],"; }\nwx-button[disabled] { background: #797979 !important; color: #fff !important; }\n.",[1],"line{ width:",[0,650],"; height:",[0,1],"; border-bottom: ",[0,1]," solid #EDEDED; position: absolute; left:",[0,48],"; bottom:0; }\n.",[1],"next{ margin: ",[0,100]," auto; width:",[0,690],"; height:",[0,88],"; background: #0A1117; border-radius: ",[0,80],"; text-align: center; line-height: ",[0,88],"; color: #fff; font-size: ",[0,30],"; }\n",],"Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors.(./pages/getBackPassword/getBackPassword.wxss:43:8)",{path:"./pages/getBackPassword/getBackPassword.wxss"});    
