@@ -1,12 +1,17 @@
 <template>
-	<view>
-		 <web-view src="https://mp.weixin.qq.com/s?__biz=MzU3MTcxNzA2OA==&mid=2247483841&idx=3&sn=9344703b529ccd00038aadeb4c3589a7&chksm=fcdaa562cbad2c742511c81be6562140f31933714e2a538cfa58e30ad2b26575f1803b286c44&mpshare=1&scene=1&srcid=0428qO9aeeyJ5KId3KbZJZPo#rd"></web-view>
-	</view>
+	<view><web-view :src="url"></web-view></view>
 </template>
-
 <script>
-	
+export default {
+	data() {
+		return {
+			url: ''
+		};
+	},
+	onLoad(e) {
+		// 获取传递过来的链接
+		this.url = e.url;
+	}
+};
 </script>
-<style>
-	
-</style>
+<style></style>

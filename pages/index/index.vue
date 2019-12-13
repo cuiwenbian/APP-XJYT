@@ -2,7 +2,7 @@
 	<view class="container">
 		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
 			<swiper-item v-for="(item, index) in baner" :key="index">
-				<image class="ttt" @click="some(item.id)" :src="'http://192.168.1.218/api/v1.1.0/media/' + item.cover_pic"></image>
+				<image class="ttt" @click="some(item.id)" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image>
 			</swiper-item>
 			
 		</swiper>
@@ -37,30 +37,17 @@
 			</div>
 		</view>
 		<view class="Small"><text class="te">热门资讯</text></view>
-		<view class="bt" @click="web1">
+		<view class="bt" @click="information(item.id)" v-for="(item , index) in title" :key="index">
 			<view class="left">
-				<text class="tex">2018年第四季度，官方对IPFS项目进行了新的规划，更加清晰地定义了今年的愿景、目标和路线图</text>
+				<text class="tex">{{item.title}}</text>
 				<view class="desc">
-					<text class="yu">6月</text>
+					<text class="yu">{{item.add_time}}</text>
 					<image class="yj" src="../../static/images/eye.png"></image>
-					<view class="yjj">1000人看过</view>
+					<view class="yjj">{{item.read_volume}}人看过</view>
 				</view>
 			</view>
-			<view class="right"><image class="ig" src="../../static/images/kuangji.png"></image></view>
-		</view>
-		<text class="b"></text>
-		<view class="bt" @click="web2">
-			<view class="left">
-				<text class="tex">协议实验室Protocol labs推出IPFS-星际文件系统以来，其在链圈、币圈的关注度就像火箭一样腾飞</text>
-				<view class="desc">
-					<text class="yu">6月</text>
-
-					<image class="yj" src="../../static/images/eye.png"></image>
-
-					<view class="yjj">1000人看过</view>
-				</view>
-			</view>
-			<view class="right"><image class="ig" src="../../static/images/kuangji.png"></image></view>
+			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
+            <view class="b"></view>
 		</view>
 	</view>
 </template>
@@ -76,6 +63,7 @@ export default {
 			yesterdayprice: '',
 			yesterday: '',
 			seven_profit: '',
+            title:'',
 			total_profit: '',
 			cWidth: '',
 			cHeight: '',
@@ -84,7 +72,7 @@ export default {
 			csgo: '',
 			time: [],
 			price: [],
-			hure: [],
+			hure: [], 
 			feck: [],
 			usd: '',
 			suner: '',
@@ -111,50 +99,87 @@ export default {
 			}
 		});
 		uni.request({
-			url: this.url+'home/rotation/',
+
+			url: this.url + 'home/rotation/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				//console.log(res.data);
+
+                console.log(res)
+                
 				_self.baner = res.data;
 			}
 		});
-		
+        uni.request({
+            url: this.url + '/home/news/',
+            method: 'GET',
+            header:{
+                Authorization: 'JWT' + ' ' + this.global_.token
+            },
+            success: res => {
+                console.log(res.data)
+                that.title = res.data
+                
+            },
+        });
 	},
 	methods: {
 		some: function(item) {
 			var that = this;
 			uni.request({
-				url: this.url+'home/rotation/details/' + item + '/',
+
+				url: this.url +'home/rotation/details/' + item + '/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success(res) {
-					console.log(res);
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
-					console.log(text_content);
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content='+ encodeURIComponent(text_content),
-						
 						});
-						
 					} else {
 						uni.navigateTo({
 							url: `../web1/web1?url=${link}`,
-							success: res => {},
-							fail: () => {},
-							complete: () => {}
 						});
 					}
 				}
 			});
 		},
-		
+
+        information:function (item) {
+            console.log(item)
+            uni.request({
+                url: this.url +'home/news/details/' + item+'/',
+                method: 'PUT',
+                header:{
+                    Authorization: 'JWT' + ' ' + this.global_.token
+                },
+                success: res => {
+                    console.log(res)
+                    var ingym = res.data.data
+                    var link2 = ingym.link
+                    console.log(link2)
+                    var read_volume = ingym.read_volume
+                    var text_content2 = ingym.text_content
+                    var add_time = ingym.add_time
+                    var title = ingym.title
+                    if(link2 == null){
+                        uni.navigateTo({
+                            url: '../banner2/banner2?volume=' + read_volume + '&cont='+ text_content2 + '&add=' + add_time + '&title=' + title
+                        });
+                    }else {
+						uni.navigateTo({
+							url: `../web2/web2?url=${link2}`,
+						});
+					}
+                },
+            });
+        },
 		getServerData() {
 			var that = this;
 			var timestamp = Date.parse(new Date()) / 1000;

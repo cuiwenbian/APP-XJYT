@@ -68,7 +68,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _HBu
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("//\n//\n//\n//\n//\n//\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIxMTEuanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///111\n");
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0; //\n//\n//\nvar _default =\n{\n  data: function data() {\n    return {\n      url: '' };\n\n  },\n  onLoad: function onLoad(e) {\n    // 获取传递过来的链接\n    this.url = e.url;\n  } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vcGFnZXMvd2ViMi93ZWIyLnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBSUE7QUFDQSxNQURBLGtCQUNBO0FBQ0E7QUFDQSxhQURBOztBQUdBLEdBTEE7QUFNQSxRQU5BLGtCQU1BLENBTkEsRUFNQTtBQUNBO0FBQ0E7QUFDQSxHQVRBLEUiLCJmaWxlIjoiMTExLmpzIiwic291cmNlc0NvbnRlbnQiOlsiPHRlbXBsYXRlPlxyXG5cdDx2aWV3Pjx3ZWItdmlldyA6c3JjPVwidXJsXCI+PC93ZWItdmlldz48L3ZpZXc+XHJcbjwvdGVtcGxhdGU+XHJcbjxzY3JpcHQ+XHJcbmV4cG9ydCBkZWZhdWx0IHtcclxuXHRkYXRhKCkge1xyXG5cdFx0cmV0dXJuIHtcclxuXHRcdFx0dXJsOiAnJ1xyXG5cdFx0fTtcclxuXHR9LFxyXG5cdG9uTG9hZChlKSB7XHJcblx0XHQvLyDojrflj5bkvKDpgJLov4fmnaXnmoTpk77mjqVcclxuXHRcdHRoaXMudXJsID0gZS51cmw7XHJcblx0fVxyXG59O1xyXG48L3NjcmlwdD5cclxuPHN0eWxlPjwvc3R5bGU+XHJcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///111\n");
 
 /***/ })
 

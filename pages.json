@@ -84,7 +84,15 @@
 					"titleText":"文章详情"
 				}
 			}
-		}
+		},
+        {
+        	"path":"pages/banner2/banner2",
+        	"style":{
+        		"titleNView":{
+        			"titleText":"文章详情2"
+        		}
+        	}
+        }
 		
 	],
     "subPackages":[
