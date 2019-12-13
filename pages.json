@@ -9,17 +9,16 @@
 				}
 			}
 		},
-		
+
 		{
 			"path": "pages/leader/guide",
 			"style": {
-				"navigationBarTitleText": "引导页",
 				"app-plus": {
-					"titleNView": false
+					"titleNView": false //禁用原生导航栏
 				}
 			}
 		},
-		
+
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -36,7 +35,7 @@
 			"path": "pages/index/index",
 			"style": {
 				"titleNView": {
-					"titleText":"星际云通" 
+					"titleText": "星际云通"
 				}
 			}
 		},
@@ -65,256 +64,320 @@
 				"navigationStyle": "custom"
 			}
 		},
-        {
-            "path":"pages/news/news",
-            "style":"热门新闻"
-        },
 		{
-		    "path":"pages/web1/web1",
-		    "style":{"navigationBarTitleText": "星际云通"}
+			"path": "pages/news/news",
+			"style": "热门新闻"
 		},
 		{
-		    "path":"pages/web2/web2",
-		    "style":{"navigationBarTitleText": "星际云通"}
+			"path": "pages/web1/web1",
+			"style": {
+				"navigationBarTitleText": "星际云通"
+			}
 		},
 		{
-			"path":"pages/banner/banner",
-			"style":{
-				"titleNView":{
-					"titleText":"文章详情"
+			"path": "pages/web2/web2",
+			"style": {
+				"navigationBarTitleText": "星际云通"
+			}
+		},
+		{
+			"path": "pages/banner/banner",
+			"style": {
+				"titleNView": {
+					"titleText": "文章详情"
 				}
 			}
 		},
-        {
-        	"path":"pages/banner2/banner2",
-        	"style":{
-        		"titleNView":{
-        			"titleText":"文章详情2"
-        		}
-        	}
-        }
-		
-	],
-    "subPackages":[
-             {
-                 "root":"mill",
-                 "pages":[
-                     {
-                         "path":"mill/mill",
-                         
-						 "style": {
-						 	"navigationStyle": "custom"
-						 }
+		{
+			"path": "pages/banner2/banner2",
+			"style": {
+				"titleNView": {
+					"titleText": "文章详情2"
+				}
+			}
+		}
 
-                     },
-                     {
-                         "path":"pay/pay",
-                         "style":{"navigationBarTitleText":"买单"}
-                     },
-                     {
-                         "path":"staypay/staypay",
-                         "style":{"navigationBarTitleText":"待付款订单详情"}
-                     },
-                     {
-                         "path":"stayconfirm/stayconfirm",
-                         "style":{"navigationBarTitleText":"待确认订单详情"}
-                     },
-                     {
-                         "path":"stayaudit/stayaudit",
-                         "style":{"navigationBarTitleText":"待审核订单详情"}
-                     },
-                     {
-                         "path":"completed/completed",
-                         "style":{"navigationBarTitleText":"已完成订单详情"}
-                     },
-                     {
-                         "path":"sale/sale",
-                         "style":{"navigationBarTitleText":"卖单"}
-                     },
-                     {
-                         "path":"salepay/salepay",
-                         "style":{"navigationBarTitleText":"待付款订单详情"}
-                     },
-                     {
-                         "path":"saleconfirm/saleconfirm",
-                         "style":{"navigationBarTitleText":"待确认单详情"}
-                     },
-                     {
-                         "path":"saleaudit/saleaudit",
-                         "style":{"navigationBarTitleText":"待审核订单详情"}
-                     },
-                     {
-                         "path":"salecompleted/salecompleted",
-                         "style":{"navigationBarTitleText":"已完成订单详情"}
-                     },
-                     {
-                         "path":"assets/assets",
-                         "style":{"navigationStyle": "custom"}              
-                     },
-                     {
-                         "path":"sell/sell",
-                         "style":{"navigationBarTitleText":"出售"}
-                     },
-                     {
-                         "path":"validation/validation",
-                         "style":{"navigationBarTitleText":"验证"}
-                     },
-                     {
-                         "path":"confirm/confirm",
-                         "style":{"navigationBarTitleText":"确认订单"}
-                     }
-                 ]
-             },
-             {
-                 "root":"my",
-                 "pages":[
-                     {
-                         "path":"my/my",
-                         "style":{"navigationStyle": "custom"}
-                     },
-					 {
-					     "path":"personal/personal",
-					     "style":{"navigationBarTitleText":"个人资料"}
-					 },
-					 {
-					     "path":"add-address/add-address",
-					     "style":{"navigationBarTitleText":"新增提币地址"}
-					 },
-					 {
-					     "path":"address/address",
-					     "style":{
-							 "navigationStyle": "custom"
-							 
-						 }
-					 },
-					 
-					 {
-					     "path":"edit-address/edit-address",
-					     "style":{
-							 "titleNView": {
-							 	"titleText":"编辑提币地址",							 
-							     "buttons": [ //原生标题栏按钮配置,
-							         {
-							             "text": "删除", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-							             "fontSize":"32rpx",
-							 			 "width":"50px"
-							 		}
-							     ]                   
-							 }
-						 }
-					 },
-					 {
-					     "path":"email/email",
-					     "style":{"navigationBarTitleText":"邮箱认证"}
-					 },
-					 {
-					     "path":"unbindemail/unbindemail",
-					     "style":{"navigationBarTitleText":"解绑邮箱"}
-					 },
-					 {
-					     "path":"identity/identity",
-					     "style":{"navigationBarTitleText":"身份认证"}
-					 },
-					 {
-					     "path":"login-password/login-password",
-					     "style":{"navigationBarTitleText":"修改登录密码"}
-					 },
-					 {
-					     "path":"change-pass/change-pass",
-					     "style":{"navigationBarTitleText":"修改登录密码"}
-					 },
-					 {
-					     "path":"change-loginPassword/change-loginPassword",
-					     "style":{"navigationBarTitleText":"设置登录密码"}
-					 },
-					 {
-					     "path":"change-password/change-password",
-					     "style":{"navigationBarTitleText":"修改交易密码"}
-					 },
-					 {
-					     "path":"trade-password/trade-password",
-					     "style":{"navigationBarTitleText":"设置交易密码"}
-					 },
-					 {
-					     "path":"change-otherPassword/change_otherPassword",
-					     "style":{"navigationBarTitleText":"找回密码"}
-					 },
-					 {
-					     "path":"my-machine/my-machine",
-					     "style":{
-							 "titleNView": {
-							 	"titleText":"我的矿机",							 
-							     "buttons": [ //原生标题栏按钮配置,
-							         {
-							             "text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-							             "fontSize":"32rpx",
-							 			 "width":"80px"
-							 		}
-							     ]                   
-							 }
-						 }
-					 },
-					 {
-					     "path":"machine-detail/machine-detail",
-					     "style":{"navigationBarTitleText":"矿机详情"}
-					 },
-					 {
-					     "path":"my-wallet/my-wallet",
-					     "style":{"navigationBarTitleText":"我的钱包"}
-					 },
-					 {
-					     "path":"suggest/suggest",
-					     "style":{"navigationStyle": "custom"}
-					 },
-					 {
-					     "path":"suggest-detail/suggest-detail",
-					     "style":{"navigationBarTitleText":"反馈详情"}
-					 },
-					 
-					 {
-					     "path":"transfer/transfer",
-					     "style":{"navigationBarTitleText":"转账"}
-					 },
-					 {
-					     "path":"commit/commit",
-					     "style":{
-							 "navigationStyle": "custom"
-							 }
-					 },
-					 {
-					     "path":"choose-address/choose-address",
-					     "style":{"navigationBarTitleText":"选择地址"}
-					 }
-					 
-                 ]
-             }
-    ],
+	],
+	"subPackages": [{
+			"root": "mill",
+			"pages": [{
+					"path": "mill/mill",
+
+					"style": {
+						"navigationStyle": "custom"
+					}
+
+				},
+				{
+					"path": "pay/pay",
+					"style": {
+						"navigationBarTitleText": "买单"
+					}
+				},
+				{
+					"path": "staypay/staypay",
+					"style": {
+						"navigationBarTitleText": "待付款订单详情"
+					}
+				},
+				{
+					"path": "stayconfirm/stayconfirm",
+					"style": {
+						"navigationBarTitleText": "待确认订单详情"
+					}
+				},
+				{
+					"path": "stayaudit/stayaudit",
+					"style": {
+						"navigationBarTitleText": "待审核订单详情"
+					}
+				},
+				{
+					"path": "completed/completed",
+					"style": {
+						"navigationBarTitleText": "已完成订单详情"
+					}
+				},
+				{
+					"path": "sale/sale",
+					"style": {
+						"navigationBarTitleText": "卖单"
+					}
+				},
+				{
+					"path": "salepay/salepay",
+					"style": {
+						"navigationBarTitleText": "待付款订单详情"
+					}
+				},
+				{
+					"path": "saleconfirm/saleconfirm",
+					"style": {
+						"navigationBarTitleText": "待确认单详情"
+					}
+				},
+				{
+					"path": "saleaudit/saleaudit",
+					"style": {
+						"navigationBarTitleText": "待审核订单详情"
+					}
+				},
+				{
+					"path": "salecompleted/salecompleted",
+					"style": {
+						"navigationBarTitleText": "已完成订单详情"
+					}
+				},
+				{
+					"path": "assets/assets",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "sell/sell",
+					"style": {
+						"navigationBarTitleText": "出售"
+					}
+				},
+				{
+					"path": "validation/validation",
+					"style": {
+						"navigationBarTitleText": "验证"
+					}
+				},
+				{
+					"path": "confirm/confirm",
+					"style": {
+						"navigationBarTitleText": "确认订单"
+					}
+				}
+			]
+		},
+		{
+			"root": "my",
+			"pages": [{
+					"path": "my/my",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "personal/personal",
+					"style": {
+						"navigationBarTitleText": "个人资料"
+					}
+				},
+				{
+					"path": "add-address/add-address",
+					"style": {
+						"navigationBarTitleText": "新增提币地址"
+					}
+				},
+				{
+					"path": "address/address",
+					"style": {
+						"navigationStyle": "custom"
+
+					}
+				},
+
+				{
+					"path": "edit-address/edit-address",
+					"style": {
+						"titleNView": {
+							"titleText": "编辑提币地址",
+							"buttons": [ //原生标题栏按钮配置,
+								{
+									"text": "删除", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+									"fontSize": "32rpx",
+									"width": "50px"
+								}
+							]
+						}
+					}
+				},
+				{
+					"path": "email/email",
+					"style": {
+						"navigationBarTitleText": "邮箱认证"
+					}
+				},
+				{
+					"path": "unbindemail/unbindemail",
+					"style": {
+						"navigationBarTitleText": "解绑邮箱"
+					}
+				},
+				{
+					"path": "identity/identity",
+					"style": {
+						"navigationBarTitleText": "身份认证"
+					}
+				},
+				{
+					"path": "login-password/login-password",
+					"style": {
+						"navigationBarTitleText": "修改登录密码"
+					}
+				},
+				{
+					"path": "change-pass/change-pass",
+					"style": {
+						"navigationBarTitleText": "修改登录密码"
+					}
+				},
+				{
+					"path": "change-loginPassword/change-loginPassword",
+					"style": {
+						"navigationBarTitleText": "设置登录密码"
+					}
+				},
+				{
+					"path": "change-password/change-password",
+					"style": {
+						"navigationBarTitleText": "修改交易密码"
+					}
+				},
+				{
+					"path": "trade-password/trade-password",
+					"style": {
+						"navigationBarTitleText": "设置交易密码"
+					}
+				},
+				{
+					"path": "change-otherPassword/change_otherPassword",
+					"style": {
+						"navigationBarTitleText": "找回密码"
+					}
+				},
+				{
+					"path": "my-machine/my-machine",
+					"style": {
+						"titleNView": {
+							"titleText": "我的矿机",
+							"buttons": [ //原生标题栏按钮配置,
+								{
+									"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+									"fontSize": "32rpx",
+									"width": "80px"
+								}
+							]
+						}
+					}
+				},
+				{
+					"path": "machine-detail/machine-detail",
+					"style": {
+						"navigationBarTitleText": "矿机详情"
+					}
+				},
+				{
+					"path": "my-wallet/my-wallet",
+					"style": {
+						"navigationBarTitleText": "我的钱包"
+					}
+				},
+				{
+					"path": "suggest/suggest",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "suggest-detail/suggest-detail",
+					"style": {
+						"navigationBarTitleText": "反馈详情"
+					}
+				},
+
+				{
+					"path": "transfer/transfer",
+					"style": {
+						"navigationBarTitleText": "转账"
+					}
+				},
+				{
+					"path": "commit/commit",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+				{
+					"path": "choose-address/choose-address",
+					"style": {
+						"navigationBarTitleText": "选择地址"
+					}
+				}
+
+			]
+		}
+	],
 	"tabBar": {
-	    "color": "#8a8a8a",
-	    "selectedColor": "#3cbfb1",
-	    "backgroundColor": "#121212",
-	    "list": [{
-	        "pagePath": "pages/index/index",
-	        "text": "首页",
-	        "iconPath": "static/images/tab1.png",
-	        "selectedIconPath": "static/images/tab-index.png"
-	    }, {
-            "pagePath":"mill/mill/mill",
-            "text":"矿机",
-            "iconPath": "static/images/tab2.png",
-            "selectedIconPath": "static/images/tab-machine.png"
-        },{
-            "pagePath":"mill/assets/assets",
-            "text":"资产",
-            "iconPath": "static/images/tab3.png",
-            "selectedIconPath": "static/images/tab-captial.png"
-        },{
-	        "pagePath": "my/my/my",
-	        "text": "我的",
-	        "iconPath": "static/images/tab4.png",
-	        "selectedIconPath": "static/images/tab-mine.png"
-	    }
-		]
+		"color": "#8a8a8a",
+		"selectedColor": "#3cbfb1",
+		"backgroundColor": "#121212",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "static/images/tab1.png",
+			"selectedIconPath": "static/images/tab-index.png"
+		}, {
+			"pagePath": "mill/mill/mill",
+			"text": "矿机",
+			"iconPath": "static/images/tab2.png",
+			"selectedIconPath": "static/images/tab-machine.png"
+		}, {
+			"pagePath": "mill/assets/assets",
+			"text": "资产",
+			"iconPath": "static/images/tab3.png",
+			"selectedIconPath": "static/images/tab-captial.png"
+		}, {
+			"pagePath": "my/my/my",
+			"text": "我的",
+			"iconPath": "static/images/tab4.png",
+			"selectedIconPath": "static/images/tab-mine.png"
+		}]
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -322,17 +385,16 @@
 		"navigationBarBackgroundColor": "#121212",
 		"backgroundColor": "#121212"
 	},
-	"style": {  
-	                "statusbar": { //沉浸式状态栏下禁用系统状态栏  
-	                    "background": "#176EB1"  
-	                },  
-	                "app-plus": {  
-	                    "scrollIndicator": "none", //不显示滚动条  
-	                    "bounce": "none", //禁用下拉刷新样式  
-	                    "titleNView": {  
-	                        //空的不设值也会有问题  
-	                    }  
-	                }
-   }		
+	"style": {
+		"statusbar": { //沉浸式状态栏下禁用系统状态栏  
+			"background": "#176EB1"
+		},
+		"app-plus": {
+			"scrollIndicator": "none", //不显示滚动条  
+			"bounce": "none", //禁用下拉刷新样式  
+			"titleNView": {
+				//空的不设值也会有问题  
+			}
+		}
+	}
 }
-

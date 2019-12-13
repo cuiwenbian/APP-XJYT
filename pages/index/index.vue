@@ -106,9 +106,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-
                 console.log(res)
-                
 				_self.baner = res.data;
 			}
 		});
