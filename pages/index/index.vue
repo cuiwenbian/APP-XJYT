@@ -4,12 +4,6 @@
 			<swiper-item v-for="(item, index) in baner" :key="index">
 				<image class="ttt" @click="some(item.id)" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image>
 			</swiper-item>
-			<!-- <swiper-item>
-                <image class="ttt" src="../../static/images/banner3.png"></image>
-            </swiper-item>
-            <swiper-item>
-                <image class="ttt" src="../../static/images/lb.png"></image>
-            </swiper-item> -->
 		</swiper>
 		<view class="uni-swiper-msg">
 			<view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>

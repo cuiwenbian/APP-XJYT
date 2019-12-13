@@ -83,7 +83,7 @@
 	export default {
 		data() {
 			return {
-				num: '',
+				num: '0.000',
 				ber: '',
 				
 				nuber: '',
