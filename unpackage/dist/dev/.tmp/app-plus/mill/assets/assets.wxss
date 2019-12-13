@@ -32,10 +32,11 @@
         font-size: 30rpx;
 }
 .number {
+        width: 100%;
         position: absolute;
         top: 160rpx;
 		height: 300rpx;
-		padding-left: 268rpx;
+		text-align: center;
 		padding-top: 40rpx;
 		color: #DFAF72;
 }
