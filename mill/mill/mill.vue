@@ -104,6 +104,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
+                
 				console.log(res);
 				that.user_id = res.data.data;
 				if (res.statusCode == 205) {
