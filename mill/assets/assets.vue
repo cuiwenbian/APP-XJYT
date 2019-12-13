@@ -83,10 +83,10 @@
 	export default {
 		data() {
 			return {
-				num: '',
-				ber: '',
+				num: '0.0000',
+				ber: '0.0000',
 				
-				nuber: '',
+				nuber: '0.0000',
 				fee: '',
 				month_profit: '0',
 				numm: '',
