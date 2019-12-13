@@ -4,6 +4,10 @@
 			<swiper-item v-for="(item, index) in baner" :key="index">
 				<image class="ttt" @click="some(item.id)" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image>
 			</swiper-item>
+<<<<<<< HEAD
+=======
+			
+>>>>>>> c5992fbebeb0f5382a0c652b5346366c90582e0e
 		</swiper>
 		<view class="uni-swiper-msg">
 			<view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>
@@ -98,12 +102,14 @@ export default {
 			}
 		});
 		uni.request({
+
 			url: this.url + 'home/rotation/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
+
                 console.log(res)
                 
 				_self.baner = res.data;
@@ -126,6 +132,7 @@ export default {
 		some: function(item) {
 			var that = this;
 			uni.request({
+
 				url: this.url +'home/rotation/details/' + item + '/',
 				method: 'GET',
 				header: {
@@ -146,6 +153,7 @@ export default {
 				}
 			});
 		},
+
         information:function (item) {
             console.log(item)
             uni.request({
