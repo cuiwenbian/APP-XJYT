@@ -80,6 +80,7 @@
 						email:that.email
 					},
 				 	 success:function(res){
+						 console.log(res)
 						 if(res.statusCode==200){
 							var num = 121;
 							var timer = setInterval(function () {

@@ -357,6 +357,13 @@ __webpack_require__.r(__webpack_exports__);
         url: '../../my/transfer/transfer?bar=' + this.ber + '&fee=' + this.fee });
 
     },
+    btnCoin: function btnCoin() {
+      uni.showToast({
+        title: '此功能暂未开放',
+        duration: 2000,
+        icon: 'none' });
+
+    },
     optionTap: function optionTap(e) {
       var that = this;
       var Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标

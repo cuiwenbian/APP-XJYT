@@ -15,7 +15,7 @@
             </image>
 		</view>
 		<view class="btn">
-			<button class="primary">提币</button>
+			<button class="primary" @click="btnCoin">提币</button>
 			<button class="primary1" @click="btn">转账</button>
 		</view>
 		<view class="haide">
@@ -231,6 +231,13 @@
 			btn() {
 				uni.navigateTo({
 					url: '../../my/transfer/transfer?bar=' + this.ber + '&fee=' + this.fee,
+				})
+			},
+			btnCoin(){
+				uni.showToast({
+					title:'此功能暂未开放',
+					duration:2000,
+					icon:'none'
 				})
 			},
 			optionTap(e) {

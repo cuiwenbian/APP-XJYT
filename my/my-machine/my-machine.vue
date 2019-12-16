@@ -151,7 +151,7 @@
 	.pop{
 		width:550rpx;
 		height:300rpx;
-		margin:500rpx auto;
+		margin:400rpx auto;
 		padding:0 60rpx;
 		box-sizing: border-box;
 		background:#fff;

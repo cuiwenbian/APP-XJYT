@@ -204,6 +204,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 286);var _default =
           email: that.email },
 
         success: function success(res) {
+          console.log(res);
           if (res.statusCode == 200) {
             var num = 121;
             var timer = setInterval(function () {

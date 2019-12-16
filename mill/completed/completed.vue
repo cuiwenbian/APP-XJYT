@@ -153,13 +153,13 @@
  .primary {
      width: 240rpx;
      height: 40rpx;
-     border-radius: 70rpx;
+     border-radius: 70rpx; 
      border: 1rpx solid #000000;
      color: #000000;
      background-color: #FFFFFF;
      line-height: 40rpx;
       margin-top:20rpx;
-     font-size: 22rpx;
+     font-size: 16rpx;
  }
  .primary2 {
      width: 180rpx;
