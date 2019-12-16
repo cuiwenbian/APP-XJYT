@@ -131,6 +131,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -145,6 +146,7 @@ var _default =
   onLoad: function onLoad(option) {
     this.title = option.title;
     this.cont = option.cont;
+
     this.aa = this.cont.replace(/_/g, "=");
     this.add = option.add;
     this.volume = option.volume;

@@ -146,29 +146,29 @@ export default {
 			});
 		},
 
-		information: function(item) {
-			console.log(item);
-			uni.request({
-				url: this.url + 'home/news/details/' + item + '/',
-				method: 'PUT',
-				header: {
-					Authorization: 'JWT' + ' ' + this.global_.token
-				},
-				success: res => {
-					console.log(res);
-					var ingym = res.data.data;
-					var link2 = ingym.link;
-					console.log(link2);
-					var read_volume = ingym.read_volume;
-					var text_content2 = ingym.text_content.replace(/=/g, '_');
-					console.log(text_content2);
-					var add_time = ingym.add_time;
-					var title = ingym.title;
-					if (link2 == null) {
-						uni.navigateTo({
-							url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
-						});
-					} else {
+        information:function (item) {
+            console.log(item)
+            uni.request({
+                url: this.url +'home/news/details/' + item+'/',
+                method: 'PUT',
+                header:{
+                    Authorization: 'JWT' + ' ' + this.global_.token
+                },
+                success: res => {
+                    console.log(res)
+                    var ingym = res.data.data
+                    var link2 = ingym.link
+                    console.log(link2)
+                    var read_volume = ingym.read_volume
+                    var text_content2 = ingym.text_content.replace(/=/g, '_');
+                    var add_time = ingym.add_time
+                    var title = ingym.title
+                    if(link2 == null){
+                        uni.navigateTo({
+                            url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
+                        });
+                    }else {
+
 						uni.navigateTo({
 							url: `../web2/web2?url=${link2}`
 						});

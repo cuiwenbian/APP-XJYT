@@ -285,7 +285,6 @@ var canvaArea = null;var _default =
           console.log(link2);
           var read_volume = ingym.read_volume;
           var text_content2 = ingym.text_content.replace(/=/g, '_');
-          console.log(text_content2);
           var add_time = ingym.add_time;
           var title = ingym.title;
           if (link2 == null) {
@@ -293,6 +292,7 @@ var canvaArea = null;var _default =
               url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title });
 
           } else {
+
             uni.navigateTo({
               url: "../web2/web2?url=".concat(link2) });
 
