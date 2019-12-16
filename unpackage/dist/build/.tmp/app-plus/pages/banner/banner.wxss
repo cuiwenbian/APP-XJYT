@@ -1,0 +1,6 @@
+
+.con{
+	padding: 36rpx;
+    box-sizing: border-box;
+}
+

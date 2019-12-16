@@ -80,7 +80,7 @@ export default {
 			minn: ''
 		};
 	},
-	onLoad() {
+	onShow() {
 		_self = this;
 		var that = this;
 		this.cWidth = uni.upx2px(750);
@@ -164,12 +164,12 @@ export default {
                     var link2 = ingym.link
                     console.log(link2)
                     var read_volume = ingym.read_volume
-                    var text_content2 = ingym.text_content
+                    var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time
                     var title = ingym.title
                     if(link2 == null){
                         uni.navigateTo({
-                            url: '../banner2/banner2?volume=' + read_volume + '&cont='+ text_content2 + '&add=' + add_time + '&title=' + title
+                            url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
                         });
                     }else {
 						uni.navigateTo({
