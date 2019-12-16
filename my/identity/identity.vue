@@ -295,7 +295,7 @@
 			},
 			sure:function(){
 				uni.switchTab({
-					url:'../my/my'
+					url:'../../pages/my/my'
 				})
 			}
 		}

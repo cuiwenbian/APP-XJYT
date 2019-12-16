@@ -3,19 +3,14 @@
 		{
 			"path": "pages/start/start",
 			"style": {
-				"navigationBarTitleText": "启动页",
-				"app-plus": {
-					"titleNView": false
-				}
+				"navigationStyle": "custom"
 			}
 		},
 
 		{
 			"path": "pages/leader/guide",
 			"style": {
-				"app-plus": {
-					"titleNView": false //禁用原生导航栏
-				}
+				"navigationStyle": "custom"
 			}
 		},
 
@@ -39,7 +34,26 @@
 				}
 			}
 		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mill/mill",
 
+			"style": {
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/assets/assets",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
 		{
 			"path": "pages/getBackPassword/getBackPassword",
 			"style": {
@@ -65,10 +79,6 @@
 			}
 		},
 		{
-			"path": "pages/news/news",
-			"style": "热门新闻"
-		},
-		{
 			"path": "pages/web1/web1",
 			"style": {
 				"navigationBarTitleText": "星际云通"
@@ -92,7 +102,7 @@
 			"path": "pages/banner2/banner2",
 			"style": {
 				"titleNView": {
-					"titleText": "文章详情2"
+					"titleText": "文章详情"
 				}
 			}
 		}
@@ -101,14 +111,6 @@
 	"subPackages": [{
 			"root": "mill",
 			"pages": [{
-					"path": "mill/mill",
-
-					"style": {
-						"navigationStyle": "custom"
-					}
-
-				},
-				{
 					"path": "pay/pay",
 					"style": {
 						"navigationBarTitleText": "买单"
@@ -168,12 +170,7 @@
 						"navigationBarTitleText": "已完成订单详情"
 					}
 				},
-				{
-					"path": "assets/assets",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
+				
 				{
 					"path": "sell/sell",
 					"style": {
@@ -197,12 +194,6 @@
 		{
 			"root": "my",
 			"pages": [{
-					"path": "my/my",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
-				{
 					"path": "personal/personal",
 					"style": {
 						"navigationBarTitleText": "个人资料"
@@ -363,17 +354,17 @@
 			"iconPath": "static/images/tab1.png",
 			"selectedIconPath": "static/images/tab-index.png"
 		}, {
-			"pagePath": "mill/mill/mill",
+			"pagePath": "pages/mill/mill",
 			"text": "矿机",
 			"iconPath": "static/images/tab2.png",
 			"selectedIconPath": "static/images/tab-machine.png"
 		}, {
-			"pagePath": "mill/assets/assets",
+			"pagePath": "pages/assets/assets",
 			"text": "资产",
 			"iconPath": "static/images/tab3.png",
 			"selectedIconPath": "static/images/tab-captial.png"
 		}, {
-			"pagePath": "my/my/my",
+			"pagePath": "pages/my/my",
 			"text": "我的",
 			"iconPath": "static/images/tab4.png",
 			"selectedIconPath": "static/images/tab-mine.png"
@@ -381,7 +372,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "xjyt",
+		"navigationBarTitleText": "星际云通",
 		"navigationBarBackgroundColor": "#121212",
 		"backgroundColor": "#121212"
 	},

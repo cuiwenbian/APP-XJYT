@@ -16,7 +16,6 @@
         onLoad(option) {
             this.ction = option.content;
             this.aa=this.ction.replace(/_/g,"=");
-            console.log(this.aa)
         }
 	}
 </script>

@@ -27,7 +27,7 @@
 		<view class="shade" v-show="shade">
 			<view class="pop">
 				<view class="pop-title">注册成功</view>
-				<view class="pop-btn" @click="sure">去登陆</view>
+				<view class="pop-btn" @click="sure">去登录</view>
 			</view>
 		</view>
 	</view>
