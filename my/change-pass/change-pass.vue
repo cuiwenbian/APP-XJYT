@@ -13,6 +13,7 @@
 			</view>
 			<view class="linee"></view>
 			<view class="list">
+				<view class="title">确认密码</view>
 				<input class="code"  :password="isPassword1" :value="pwd2" @input='getPwd2' placeholder="请再次输入新密码" />
 				<image :class="isPassword1?'close':'cloose'"  :src="isPassword1?'../../static/images/password.png':'../../static/images/openeye.png'" @click="show1" mode=""></image>
 			</view>
