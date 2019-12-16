@@ -20,7 +20,6 @@
             chnerot:'',
             flag:false,
             fllaag:false,
-            
       }
     },
     onShow() {
@@ -32,7 +31,7 @@
                 Authorization:'JWT'+' '+this.global_.token
             },
             success(res) {
-               console.log(res) 
+               console.log(res)
                that.chnerot = res.data.data.user_agreement
                that.agreement = res.data.data.agreement
                console.log(that.agreement)

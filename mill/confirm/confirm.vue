@@ -175,7 +175,7 @@
             						duration: 2000
             					});
                                 uni.switchTab({
-                                    url:'../mill/mill'
+                                    url:'../../pages/mill/mill'
                                 })
             				}
             				var page = getCurrentPages().pop();

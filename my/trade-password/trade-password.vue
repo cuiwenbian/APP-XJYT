@@ -184,7 +184,7 @@
 								duration:2000
 							})
 							uni.switchTab({
-								url:'../my/my'
+								url:'../../pages/my/my'
 							})
 						}
 						if(res.statusCode==400){

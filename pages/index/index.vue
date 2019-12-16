@@ -36,17 +36,17 @@
 			</div>
 		</view>
 		<view class="Small"><text class="te">热门资讯</text></view>
-		<view class="bt" @click="information(item.id)" v-for="(item , index) in title" :key="index">
+		<view class="bt" @click="information(item.id)" v-for="(item, index) in title" :key="index">
 			<view class="left">
-				<text class="tex">{{item.title}}</text>
+				<text class="tex">{{ item.title }}</text>
 				<view class="desc">
-					<text class="yu">{{item.add_time}}</text>
+					<text class="yu">{{ item.add_time }}</text>
 					<image class="yj" src="../../static/images/eye.png"></image>
-					<view class="yjj">{{item.read_volume}}人看过</view>
+					<view class="yjj">{{ item.read_volume }}人看过</view>
 				</view>
 			</view>
 			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
-            <view class="b"></view>
+			<view class="b"></view>
 		</view>
 	</view>
 </template>
@@ -62,7 +62,7 @@ export default {
 			yesterdayprice: '',
 			yesterday: '',
 			seven_profit: '',
-            title:'',
+			title: '',
 			total_profit: '',
 			cWidth: '',
 			cHeight: '',
@@ -71,7 +71,8 @@ export default {
 			csgo: '',
 			time: [],
 			price: [],
-			hure: [], 
+			price_all: [],
+			hure: [],
 			feck: [],
 			usd: '',
 			suner: '',
@@ -98,38 +99,33 @@ export default {
 			}
 		});
 		uni.request({
-
 			url: this.url + 'home/rotation/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-
-                console.log(res)
-                
+				console.log(res);
 				_self.baner = res.data;
 			}
 		});
-        uni.request({
-            url: this.url + '/home/news/',
-            method: 'GET',
-            header:{
-                Authorization: 'JWT' + ' ' + this.global_.token
-            },
-            success: res => {
-                console.log(res.data)
-                that.title = res.data
-                
-            },
-        });
+		uni.request({
+			url: this.url + '/home/news/',
+			method: 'GET',
+			header: {
+				Authorization: 'JWT' + ' ' + this.global_.token
+			},
+			success: res => {
+				console.log(res.data);
+				that.title = res.data;
+			}
+		});
 	},
 	methods: {
 		some: function(item) {
 			var that = this;
 			uni.request({
-
-				url: this.url +'home/rotation/details/' + item + '/',
+				url: this.url + 'home/rotation/details/' + item + '/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -139,11 +135,11 @@ export default {
 					var text_content = res.data.text_content.replace(/=/g, '_');
 					if (link == null) {
 						uni.navigateTo({
-							url: '../banner/banner?content='+ encodeURIComponent(text_content),
+							url: '../banner/banner?content=' + encodeURIComponent(text_content)
 						});
 					} else {
 						uni.navigateTo({
-							url: `../web1/web1?url=${link}`,
+							url: `../web1/web1?url=${link}`
 						});
 					}
 				}
@@ -172,13 +168,14 @@ export default {
                             url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
                         });
                     }else {
+
 						uni.navigateTo({
-							url: `../web2/web2?url=${link2}`,
+							url: `../web2/web2?url=${link2}`
 						});
 					}
-                },
-            });
-        },
+				}
+			});
+		},
 		getServerData() {
 			var that = this;
 			var timestamp = Date.parse(new Date()) / 1000;
@@ -208,6 +205,7 @@ export default {
 					that.usd = a;
 					var time = [];
 					var price = [];
+					var price_all = [];
 					var hure = [];
 					var feck = [];
 					for (let i = 1; i < that.usd.length - 1; i++) {
@@ -221,10 +219,23 @@ export default {
 					}
 					for (let j = 1; j < that.usd.length - 1; j++) {
 						var data1 = a[j].split(',')[2];
+
 						var cert = parseFloat(data1);
 						price.push(cert);
 						that.price = price;
 					}
+
+					for (let j = 1; j < that.usd.length - 1; j++) {
+						var numss = a[j].split(',')[2];
+						var certss = parseFloat(numss);
+						price_all.push(certss);
+						that.price_all = price_all.sort();
+						var arrs = that.price_all.sort();
+						var mins = arrs[0];   //最小值
+						var maxs = arrs[arrs.length - 1];   //最大值
+					}
+					_self.hige = parseFloat(maxs) + 1;
+					_self.minn = parseFloat(mins) - 1;
 					for (let o = 1; o < that.usd.length - 1; o++) {
 						var data3 = a[o].split(',')[1];
 						var tert = parseFloat(data3);
@@ -240,8 +251,9 @@ export default {
 					var yest = incrace.toFixed(2);
 					var thi = (now_price / data3 - 1) * 100;
 					var t = thi.toFixed(2) + '%';
-					_self.hige = parseFloat(data1) + 1;
-					_self.minn = parseFloat(min) - 1;
+
+					
+
 					that.Todayprice = now_price;
 					that.yesterday = t;
 					that.yesterdayprice = yest;
