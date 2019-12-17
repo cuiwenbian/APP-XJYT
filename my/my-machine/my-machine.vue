@@ -24,7 +24,7 @@
 					  <image  class='te1' src='../../static/images/kuangji.png'></image>
 					  <text class='obg'>{{item.number}}</text>
 					  <text class='obg1'>{{item.type}}</text>
-					  <text class='obg2'>{{item.machine_disk}}T/{{item.disk}}T</text>
+					  <text class='obg2'>{{item.machine_disk}}T/{{item.disk}}</text>
 				<view>
 				  <view v-if="item.status == '10'">
 					 <text class='obg3'>正在挖矿</text>

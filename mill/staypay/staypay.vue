@@ -176,7 +176,7 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
-                            console.log(that.order_num)
+                            console.log(that.x)
                             
                             if(res.statusCode==400){
                                 that.numberList.pop()
@@ -208,7 +208,7 @@
                                 })
                               
             				}
-                            if (res.statusCode == 400) {
+                            if (res.statusCode == 401) {
                                 uni.showModal({
                                     title:'未设置交易密码',
                                     confirmText:'去设置',
@@ -269,7 +269,7 @@
       margin-top:20rpx;
       font-size: 16rpx;
   }
-  .primary2 {
+  .primary2 { 
       width: 180rpx;
       height: 40rpx;
       border-radius:70rpx;

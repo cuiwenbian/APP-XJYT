@@ -215,7 +215,7 @@ export default {
         sure:function(){
             if(this.stus == 400) {
              	uni.switchTab({
-                	url: '../../my/my/my'
+                	url: '../my/my'
                 });
             }
             if(this.stus == 410) {

@@ -300,7 +300,7 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 157);var keyboar
             Authorization: 'JWT' + ' ' + that.global_.token },
 
           success: function success(res) {
-            console.log(that.order_num);
+            console.log(that.x);
 
             if (res.statusCode == 400) {
               that.numberList.pop();
@@ -332,7 +332,7 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 157);var keyboar
 
 
             }
-            if (res.statusCode == 400) {
+            if (res.statusCode == 401) {
               uni.showModal({
                 title: '未设置交易密码',
                 confirmText: '去设置',

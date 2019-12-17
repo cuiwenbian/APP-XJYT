@@ -339,7 +339,7 @@ var _default =
     sure: function sure() {
       if (this.stus == 400) {
         uni.switchTab({
-          url: '../../my/my/my' });
+          url: '../my/my' });
 
       }
       if (this.stus == 410) {
