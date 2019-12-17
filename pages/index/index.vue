@@ -105,7 +105,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res);
+				//console.log(res);
 				_self.baner = res.data;
 			}
 		});
@@ -116,7 +116,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
-				console.log(res.data);
+				
 				that.title = res.data;
 			}
 		});
@@ -147,7 +147,7 @@ export default {
 		},
 
         information:function (item) {
-            console.log(item)
+           
             uni.request({
                 url: this.url +'home/news/details/' + item+'/',
                 method: 'PUT',
@@ -155,10 +155,10 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success: res => {
-                    console.log(res)
+                   
                     var ingym = res.data.data
                     var link2 = ingym.link
-                    console.log(link2)
+                   
                     var read_volume = ingym.read_volume
                     var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time
