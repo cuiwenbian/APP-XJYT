@@ -302,6 +302,19 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 157);var keyboar
                 url: '../../pages/mill/mill' });
 
             }
+            if (res.statusCode == 302) {
+              uni.showModal({
+                title: '未设置交易密码',
+                confirmText: '去设置',
+                success: function success(res) {
+                  if (res.confirm == true) {
+                    uni.navigateTo({
+                      url: '../../my/trade-password/trade-password' });
+
+                  }
+                } });
+
+            }
             var page = getCurrentPages().pop();
             if (page == undefined || page == null) return;
           } });

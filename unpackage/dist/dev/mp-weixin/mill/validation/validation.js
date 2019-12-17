@@ -140,6 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -167,6 +168,7 @@ var _default =
       this.coloe = e.detail.value;
     },
     end1: function end1() {
+      var that = this;
       if (this.coloe == "") {
         uni.showToast({
           icon: 'none',
@@ -184,7 +186,6 @@ var _default =
 
         return false;
       }
-      var that = this;
       var name = that.name;
       var cool = that.coloe;
       var data = that.data;
@@ -204,13 +205,20 @@ var _default =
           sale_money: datr },
 
         success: function success(res) {
-          var posf = JSON.stringify(res.data.data);
+          console.log(res);
+          if (res.statusCode == 302) {
+            uni.showToast({
+              title: '买家信息审核中',
+              icon: 'none' });
+
+          }
           if (res.statusCode == 204) {
             uni.showToast({
               title: '买家信息不存在',
               icon: 'none' });
 
           } else if (res.statusCode == 200) {
+            var posf = JSON.stringify(res.data.data);
             uni.navigateTo({
               url: '../confirm/confirm?ront=' + posf });
 

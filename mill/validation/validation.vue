@@ -12,8 +12,9 @@
         </view>
         <view class="btn">
             <button class="primary" @click="end1">确认</button>
-        </view>
+        </view> 
     </view>
+  
 </template>
 
 <script>
@@ -21,7 +22,7 @@
         data() {
             return {
                 name:'',
-                coloe:''
+                coloe:'',
             }
         },
         onLoad(option) {
@@ -43,6 +44,7 @@
                 this.coloe = e.detail.value
             },
             end1:function () {
+                var that = this
                 if(this.coloe==""){
                 	uni.showToast({
                 		icon:'none',
@@ -60,7 +62,6 @@
                 	 })
                 	  return false
                  }
-                var that = this
                 var name = that.name
                 var cool = that.coloe
                 var data = that.data
@@ -80,13 +81,20 @@
                         sale_money:datr
                     },
                     success(res) {
-                        var posf = JSON.stringify(res.data.data)
+                        console.log(res)
+                        if(res.statusCode == 302){
+                           uni.showToast({
+                               title:'买家信息审核中',
+                               icon:'none'
+                           })
+                        }
                         if(res.statusCode == 204) {
                             uni.showToast({
                                 title:'买家信息不存在',
                                 icon:'none'
                             })
                         }else if(res.statusCode == 200){
+                            var posf = JSON.stringify(res.data.data)
                             uni.navigateTo({
                                 url:'../confirm/confirm?ront=' + posf
                             })
@@ -102,7 +110,7 @@
                         }
                     }
                 })
-            }
+            },
         }
     }
 </script>
