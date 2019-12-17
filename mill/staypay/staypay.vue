@@ -65,10 +65,10 @@
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{item.data_hard_disk}} | 
+                        储存{{item.usedisk}} T| 
                     </text>
                     <text class="smalx">
-                        总容量{{item.usedisk}}T
+                        总容量{{item.data_hard_disk}}
                     </text>
                 </view>  
             </view>
@@ -88,6 +88,15 @@
             <keyboard-package ref="number"  @onChange='onChange' @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
             <!-- <button class="primary1">我已付款</button> -->
         </view>
+        <view class="shade" v-if="shade">
+          	<view class="pop">
+          		<view class='pop-title'>未设置资金密码</view>
+          		<view class="pops">
+          			<view class='pop-btn' @click="cancel">取消</view>
+          			<view class='pop-bn' @click="sure">去设置</view>
+          		</view>
+          	</view>
+          </view>
     </view>
 </template>
 
@@ -107,8 +116,10 @@
                 rmb:'',
                 numberList: [],
                 length: 6,
+                stuse:'',
                 type: 'number',
                 passIn: false,
+                shade:false,
                 frte:true,
                 checkall:'展示完整信息'
             }
@@ -135,7 +146,7 @@
             that.rmb = getRmb.getrmb(that.price)
         },
         methods:{
-            
+
             clo:function() {
             	this.passIn = false;
             	this.$refs['number'].close();
@@ -176,7 +187,7 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
-                            console.log(that.order_num)
+                            console.log(res)
                             
                             if(res.statusCode==400){
                                 that.numberList.pop()
@@ -185,6 +196,12 @@
                                 var n=res.data.data.err_num;
                                 var s=5-n;
                                 that.$refs.wrong.tip='剩余'+ s +'次机会';
+                            }
+                            if (res.statusCode == 401) {
+                                that.passIn = false;
+                                that.$refs['number'].close();
+                                that.shade = true
+                                that.stuse = res.statusCode
                             }
                             if(res.statusCode==423){
                             	uni.showToast({
@@ -208,19 +225,7 @@
                                 })
                               
             				}
-                            if (res.statusCode == 400) {
-                                uni.showModal({
-                                    title:'未设置交易密码',
-                                    confirmText:'去设置',
-                                    success(res) {
-                                        if(res.confirm == true) {
-                                            uni.navigateTo({
-                                                url:'../../my/trade-password/trade-password'
-                                            })
-                                        }
-                                    }
-                                })
-                            }
+
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
             			},
@@ -234,6 +239,16 @@
                 this.passIn = true;
                 this.$refs['number'].open();
                 this.onInput(val);
+            },
+            cancel:function() {
+                this.shade = false
+            },
+            sure:function(){
+                if(this.stuse == 401) {
+                    uni.switchTab({
+                        url:'../../pages/my/my'
+                    })
+                }
             },
             btn1:function () {
                 var that = this
@@ -252,6 +267,55 @@
   page {
       background-color: #DCDCDC;
       margin-bottom:40rpx;
+  }
+  .shade{
+  	width:100%;
+  	height:100%;
+  	background:rgba(0,0,0,0.4);
+  	position: fixed;
+  	left:0;
+  	top:0;
+  	z-index:99
+  }
+  .pop{
+  	width:550rpx;
+  	height:300rpx;
+  	margin:500rpx auto;
+  	padding:0 60rpx;
+  	box-sizing: border-box;
+  	background:#fff;
+  	border-radius:10rpx;
+  }
+  .pop-title{
+  	height:180rpx;
+  	line-height: 180rpx;
+  	text-align: center;
+  	font-size: 26rpx;
+  }
+  .pops{
+  	height:100rpx;
+  	width:100%;
+  	display: flex;
+  	justify-content: space-between;
+  }
+  .pop-btn{
+  	width:158rpx;
+  	height:66rpx;
+  	border-radius: 5rpx;
+  	line-height: 66rpx;
+  	font-size: 30rpx;
+  	color:#797979;
+  	text-align: center;
+  }
+  .pop-bn{
+      width:158rpx;
+      height:66rpx;
+      border-radius: 10rpx;
+      line-height: 66rpx;
+      font-size: 28rpx;
+      color: #FFFFFF;
+      background-color: #000000;
+      text-align: center;
   }
   .box {
       width: 100%;

@@ -104,7 +104,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-                
 				console.log(res);
 				that.user_id = res.data.data;
 				if (res.statusCode == 205) {
@@ -323,11 +322,12 @@ export default {
 	box-sizing: border-box;
 }
 .many {
+    width: 100%;
 	position: absolute;
 	top: 140rpx;
-	padding-left: 366rpx;
 	box-sizing: border-box;
 	padding-top: 40rpx;
+    text-align: center;
 	font-size: 48rpx;
 	color: #dfaf72;
 }

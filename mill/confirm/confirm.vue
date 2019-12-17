@@ -178,6 +178,19 @@
                                     url:'../../pages/mill/mill'
                                 })
             				}
+                            if(res.statusCode == 302) {
+                                uni.showModal({
+                                    title:'未设置交易密码',
+                                    confirmText:'去设置',
+                                    success(res) {
+                                        if(res.confirm == true) {
+                                            uni.navigateTo({
+                                                url:'../../my/trade-password/trade-password'
+                                            })
+                                        }
+                                    }
+                                })
+                            }
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
             			},

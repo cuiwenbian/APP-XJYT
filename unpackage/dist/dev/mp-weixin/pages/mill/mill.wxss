@@ -1018,11 +1018,12 @@
 	box-sizing: border-box;
 }
 .many {
+    width: 100%;
 	position: absolute;
 	top: 140rpx;
-	padding-left: 366rpx;
 	box-sizing: border-box;
 	padding-top: 40rpx;
+    text-align: center;
 	font-size: 48rpx;
 	color: #dfaf72;
 }
