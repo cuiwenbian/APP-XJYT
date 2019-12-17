@@ -81,7 +81,6 @@
                         sale_money:datr
                     },
                     success(res) {
-                        console.log(res)
                         if(res.statusCode == 302){
                            uni.showToast({
                                title:'买家信息审核中',

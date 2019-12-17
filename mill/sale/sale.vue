@@ -298,7 +298,6 @@
                 }
             },
             btn:function(item){
-                console.log(item)
                 var that = this   
                 uni.request({
                     url:this.url + 'salemessage/',
@@ -310,7 +309,6 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
                         var order = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../salepay/salepay?aser=' + order

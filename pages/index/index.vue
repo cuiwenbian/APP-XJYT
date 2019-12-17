@@ -105,7 +105,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				//console.log(res);
 				_self.baner = res.data;
 			}
 		});
@@ -187,7 +186,6 @@ export default {
 				method: 'POST',
 				success: function(res) {
 					//转换时间戳
-					// console.log(res)
 					function formatDate(v) {
 						let date = new Date(v);
 						let y = date.getFullYear();
