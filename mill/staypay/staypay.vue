@@ -187,7 +187,7 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
-                            
+                            console.log(res)
                             if(res.statusCode==400){
                                 that.numberList.pop()
                                 that.numberList.length= 0;

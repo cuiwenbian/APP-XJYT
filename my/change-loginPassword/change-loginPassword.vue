@@ -114,7 +114,7 @@
 			//获取验证码
 			getCodeBtn: function(e){
 			      this.getCode();
-			      var _this = this
+			      // var _this = this
 			},
 			save(){
 				var _self=this;
