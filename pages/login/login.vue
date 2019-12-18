@@ -95,6 +95,7 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
+						console.log(res)
 						uni.setStorageSync('phone',this.phone)
 						uni.setStorageSync('token',res.data.token)
 						_self.global_.phone=this.phone;
@@ -109,10 +110,16 @@
 								icon:'none'
 							})
 						}
-						if(res.statusCode==200){
+						if(res.statusCode==200){console.log(res)
 							uni.reLaunch({
 								url:'../index/index'
 							});
+						}
+						if(res.statusCode==412){
+							uni.showToast({
+								title:'请用手机短信快速登录,并设置密码',
+								icon:'none'
+							})
 						}
 					},
 		            fail: () => {},
