@@ -72,7 +72,7 @@ page {
     margin-top:20rpx;
     font-size: 16rpx;
 }
-.primary2 { 
+.primary2 {
     width: 180rpx;
     height: 40rpx;
     border-radius:70rpx;

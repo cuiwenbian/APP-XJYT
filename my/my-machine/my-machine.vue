@@ -22,7 +22,7 @@
 									<view class="obg2" style="color:red;">{{ item.machine_disk }}T/{{ item.disk }}</view>
 								</view>
 								<view class="desc1">
-									<view class="obg">{{ item.type }}</view>
+									<view class="obg" style='color: #999999;'>{{ item.type }}</view>
 									<view style="color: #61e458;">
 										<view v-if="item.status == '10'"><text class="obg2">正在挖矿</text></view>
 										<view v-if="item.status == '11'"><text class="obg2">警告</text></view>
@@ -216,6 +216,7 @@ export default {
 .desc1{
 	height:50%;
 	line-height: 100%;
+
 }
 .obg {
 	font-size: 32rpx;
