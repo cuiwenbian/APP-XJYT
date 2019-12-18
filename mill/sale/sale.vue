@@ -201,7 +201,7 @@
                 ]
     		};
         },
-        onLoad(options) {
+        onShow(options) {
             var  that  = this
             uni.request({
                 url: this.url + 'saleall/101',
@@ -394,7 +394,7 @@
                         if(res.statusCode == 200) {
                             that.flag = false
                             uni.showToast({
-                                title:'已提交您的'
+                                title:'已提交'
                             })
                         }else if (res.statusCode == 400) {
                             uni.showToast({

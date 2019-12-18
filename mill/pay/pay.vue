@@ -190,7 +190,7 @@
                 ]
     		};
         },
-        onLoad(options) {
+        onShow(options) {
             var that=this;
             this.getData()
             uni.request({

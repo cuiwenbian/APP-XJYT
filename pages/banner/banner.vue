@@ -12,9 +12,8 @@
                 aa:'',
 			}
 		},
-        
         onLoad(option) {
-            this.ction = option.content;
+            this.ction = decodeURIComponent(option.content);
             this.aa=this.ction.replace(/_/g,"=");
         }
 	}

@@ -1,19 +1,20 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
+		// #ifdef APP-PLUS
+        {
 			"path": "pages/start/start",
 			"style": {
 				"navigationStyle": "custom"
 			}
 		},
-
+       
 		{
 			"path": "pages/leader/guide",
 			"style": {
 				"navigationStyle": "custom"
 			}
 		},
-
+       // #endif
 		{
 			"path": "pages/login/login",
 			"style": {
