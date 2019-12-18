@@ -132,7 +132,7 @@ export default {
 				success(res) {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
-                    console.log(text_content)
+                   
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content=' + encodeURIComponent(text_content)
@@ -155,14 +155,14 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success: res => {
-                    console.log(res)
+                    
                     var ingym = res.data.data
                     var link2 = ingym.link
                     var read_volume = ingym.read_volume
                     var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time
                     var title = ingym.title
-                    console.log(text_content2)
+                   
                     if(link2 == null){
                         uni.navigateTo({
                             url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title

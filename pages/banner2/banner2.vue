@@ -20,8 +20,7 @@
     		}
     	},
         onLoad(option) {
-            console.log(option.cont)
-            console.log(option)
+            
             this.title = option.title
             this.cont = decodeURIComponent(option.cont);
             
