@@ -106,7 +106,6 @@
             //获取上个页面携带的数据，并复制
             var fanta = JSON.parse(option.main)
             that.fanta = fanta
-            console.log(that.fanta)
             var ig = that.fanta[1]
             that.ig = that.fanta[1]
             that.state = fanta[0][0].order_status

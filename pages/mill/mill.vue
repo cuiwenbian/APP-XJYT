@@ -168,9 +168,6 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
-
-					console.log(res)
-                    console.log(that.shade)
                     if(res.statusCode == 410) {
                         that.shade = true
                         that.stus = res.statusCode

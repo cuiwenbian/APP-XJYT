@@ -113,7 +113,6 @@
             	this.numberList.pop();
             },
             onChange(e){
-            	console.log(e.show)
             	if(e.show==false){
             		this.passIn = false
             	}
@@ -149,7 +148,6 @@
             				Authorization: 'JWT' + ' ' + this.global_.token
             			},
             			success(res) {
-            				console.log(res);
                             if(res.statusCode==400){
                                 that.numberList.pop();
                                 that.numberList.length= 0;

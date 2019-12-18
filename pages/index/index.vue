@@ -105,7 +105,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				//console.log(res);
 				_self.baner = res.data;
 			}
 		});
@@ -133,6 +132,7 @@ export default {
 				success(res) {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
+                    console.log(text_content)
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content=' + encodeURIComponent(text_content)
@@ -155,20 +155,19 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success: res => {
-                   
+                    console.log(res)
                     var ingym = res.data.data
                     var link2 = ingym.link
-                   
                     var read_volume = ingym.read_volume
                     var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time
                     var title = ingym.title
+                    console.log(text_content2)
                     if(link2 == null){
                         uni.navigateTo({
                             url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
                         });
                     }else {
-
 						uni.navigateTo({
 							url: `../web2/web2?url=${link2}`
 						});
@@ -187,7 +186,6 @@ export default {
 				method: 'POST',
 				success: function(res) {
 					//转换时间戳
-					// console.log(res)
 					function formatDate(v) {
 						let date = new Date(v);
 						let y = date.getFullYear();

@@ -20,9 +20,11 @@
     		}
     	},
         onLoad(option) {
+            console.log(option.cont)
+            console.log(option)
             this.title = option.title
-            this.cont = option.cont
-
+            this.cont = decodeURIComponent(option.cont);
+            
 			this.aa=this.cont.replace(/_/g,"=");
             this.add = option.add
             this.volume = option.volume

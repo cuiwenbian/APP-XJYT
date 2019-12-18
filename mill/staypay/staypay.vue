@@ -133,7 +133,6 @@
             //获取上个页面携带的数据，并复制
             var ction = JSON.parse(option.mvvp)
             that.ction = ction
-            console.log(123)
             var vior = that.ction[1]
             that.vior = that.ction[1]
             that.state = ction[0][0].order_status
@@ -153,7 +152,6 @@
             	this.numberList.length= 0;
             },
             onChange(e){
-            	console.log(e.show)
             	if(e.show==false){
             		this.passIn = false
             	}
@@ -187,7 +185,7 @@
             				Authorization: 'JWT' + ' ' + that.global_.token
             			},
             			success(res) {
-                            console.log(res)
+
                             if(res.statusCode==400){
                                 that.numberList.pop()
                                 that.numberList.length= 0;
@@ -224,19 +222,6 @@
                                 })
                               
             				}
-                            if (res.statusCode == 401) {
-                                uni.showModal({
-                                    title:'未设置交易密码',
-                                    confirmText:'去设置',
-                                    success(res) {
-                                        if(res.confirm == true) {
-                                            uni.navigateTo({
-                                                url:'../../my/trade-password/trade-password'
-                                            })
-                                        }
-                                    }
-                                })
-                            }
 
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
@@ -345,7 +330,7 @@
       margin-top:20rpx;
       font-size: 16rpx;
   }
-  .primary2 { 
+  .primary2 {
       width: 180rpx;
       height: 40rpx;
       border-radius:70rpx;

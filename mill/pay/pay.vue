@@ -190,7 +190,7 @@
                 ]
     		};
         },
-        onLoad(options) {
+        onShow(options) {
             var that=this;
             this.getData()
             uni.request({
@@ -214,7 +214,6 @@
                          Authorization: 'JWT'+' '+this.global_.token
                     },
                     success(res) {
-                        console.log(res)
                         var contion = res.data.data
                         that.contion = contion.reverse()
                     }
@@ -235,7 +234,6 @@
                             Authorization: 'JWT'+' '+this.global_.token
                         },
                         success(res) {
-                            console.log(res)
                             var kolo = res.data.data
                             that.kolo = kolo.reverse()
                         }
@@ -280,7 +278,6 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
                         var ord = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:"../staypay/staypay?mvvp=" + ord
@@ -300,7 +297,6 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        // console.log(res)
                         if(res.statusCode == 200) {
                             uni.showToast({
                                 title:'取消成功',
@@ -330,7 +326,6 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
                         var supers = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayconfirm/stayconfirm?main=' + supers
@@ -350,7 +345,6 @@
                         order_num:item.order_num
                     },
                     success(res) {
-                        console.log(res)
                         var doink = JSON.stringify(res.data.data)
                         uni.navigateTo({
                             url:'../stayaudit/stayaudit?dospp=' + doink

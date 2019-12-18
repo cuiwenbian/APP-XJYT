@@ -110,7 +110,6 @@
             //获取上个页面携带的数据，并复制
             var vinda = JSON.parse(option.suxang)
             that.vinda = vinda
-			console.log(that.vinda)
             var clorn = that.vinda[1]
             that.clorn = that.vinda[1]
             that.state = vinda[0][0].order_status
@@ -118,7 +117,6 @@
                 that.state = '待确认'
             }
 			that.information=that.vinda[0][0]
-			console.log(that.information)
             that.price = that.vinda[0][0].sale_money
             that.rmb = getRmb.getrmb(that.price)
         },

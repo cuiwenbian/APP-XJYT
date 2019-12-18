@@ -1,4 +1,5 @@
 <template>
+    
     <view class="content">
         <swiper :indicator-dots="indicator"   :autoplay="false" indicator-color="#fff" indicator-active-color="#3891ef"  :duration="150" class="swiper" :style="{'height':windowHeight}"
          @change="change">
@@ -22,7 +23,6 @@
 				</view>
 			</swiper-item>
         </swiper>
-  
     </view>
 </template>
 <script>
