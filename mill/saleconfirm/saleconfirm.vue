@@ -69,7 +69,7 @@ that. <template>
                 </view>
                 <view class="small3">
                     <text class="smalx">
-                        储存{{item.usedisk}} T| 
+                        储存{{item.usedisk}}T| 
                     </text>
                     <text class="smalx">
                         总容量{{item.data_hard_disk}}
