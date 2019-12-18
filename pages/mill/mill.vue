@@ -136,7 +136,7 @@ export default {
 		// 点击选中矿机
 		CheckboxChange(e) {
 			var that = this;
-			that.arr = [];
+            that.arr.length = 0;
 			for (let i = 0; i < that.user_id.length; i++) {
 				that.user_id.checked = false;
 			}
@@ -146,7 +146,7 @@ export default {
 				items.checked = true;
 				for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
 					if (items[i].number == values[j]) {
-						items.checked = true;
+						items[i].checked = true;
 						that.arr.push(items[i].machine_id);
 						break;
 					}
@@ -158,6 +158,7 @@ export default {
 			var that = this;
 			var a = that.arr.join(',');
 			console.log(a);
+            console.log(that.arr)
 			uni.request({
 				url: this.url + 'buildorders/',
 				method: 'GET',
@@ -168,6 +169,7 @@ export default {
 					machine_id_list: a
 				},
 				success(res) {
+                    console.log(res)
                     if(res.statusCode == 410) {
                         that.shade = true
                         that.stus = res.statusCode
@@ -202,7 +204,10 @@ export default {
 					if (res.statusCode == 200) {
                         var asr = JSON.stringify(res.data.data);
 						uni.navigateTo({
-							url: '../../mill/sell/sell?tar=' + asr
+							url: '../../mill/sell/sell?tar=' + asr,
+                            success: () => {
+                                that.arr = [];
+                            }
 						});
 					}
 				}
