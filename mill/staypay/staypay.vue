@@ -213,16 +213,15 @@
             				if (res.statusCode == 200) {
                                 that.passIn = false;
                                 that.$refs['number'].close();
-            					uni.showToast({
-            						title: '付款完成', 
-            						duration: 2000
-            					});
                                 uni.navigateBack({
                                     delta:2
                                 })
-                              
-            				}
-
+            					uni.showToast({
+            						title: '付款完成', 
+                                    duration: 3000,
+                                });
+                               
+                            }
             				var page = getCurrentPages().pop();
             				if (page == undefined || page == null) return;
             			},
