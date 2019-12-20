@@ -351,6 +351,141 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1854,6 +1989,53 @@ radio-group label, checkbox-group label{
 }
 page {
 	background-color: #1c1c1c;
+}
+.shade{
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left:0;
+}
+.pop{
+	width:600rpx;
+	height:auto;
+	margin:200rpx auto;
+	background: #fff;
+	border-radius: 20rpx;
+	padding:20rpx;
+	box-sizing: border-box;
+}
+.close{
+	width:40rpx;
+	height:40rpx;
+	display: block;
+	float:right;
+}
+.desc{
+	line-height: 80rpx;
+	font-size: 24rpx;
+}
+uni-button:after{
+	border: none;
+}
+button{
+	width:480rpx;
+	height:60rpx;
+	line-height: 60rpx;
+	border: none;
+	border-radius: 20rpx;
+	/* font-size: 24rpx; */
+}
+.new{
+	font-size: 24rpx;
+	margin-bottom: 20rpx;
+}
+.now{
+	background: #C0C0C0;
+	color:#fff;
+	margin-top:20rpx;
 }
 .charts {
 	width: 750rpx;

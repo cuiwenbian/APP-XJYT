@@ -4,11 +4,11 @@
     "iPhone",
     "iPad"
   ],
-  "id": "__UNI__5DAA020",
+  "id": "__UNI__27F1459",
   "name": "星际云通",
   "version": {
-    "name": "1.0.0",
-    "code": "100"
+    "name": "1.0.2",
+    "code": 102
   },
   "description": "",
   "launch_path": "__uniappview.html",
