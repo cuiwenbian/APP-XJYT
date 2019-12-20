@@ -2,14 +2,14 @@
 	export default {
 		onLaunch: function () {
 			console.log('App Launch')
+			plus.runtime.getProperty(plus.runtime.appid,function(inf){  
+						        var wgtVer=inf.version;  
+						        console.log("当前应用版本："+wgtVer);
+								uni.setStorageSync('version',wgtVer)
+		 });
 		},
 		onShow: function () {
 			console.log('App Show')
-            plus.runtime.getProperty(plus.runtime.appid,function(inf){  
-                          var wgtVer=inf.version;  
-                          console.log("当前应用版本："+wgtVer);
-                      uni.setStorageSync('version',wgtVer)
-                      });
 		},
 		onHide: function () {
 			console.log('App Hide')
@@ -28,7 +28,6 @@
     	flex-direction: column;
     	box-sizing: border-box;
     	background-color: #FFFFFF;
-		
     }
     .example{
         padding: 0 30upx 30upx;
