@@ -48,11 +48,22 @@
 			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
 			<view class="b"></view>
 		</view>
+<!--        <view class="shae"  v-if="According" >
+            <view class="gongl">
+                <view v-for="(item , index) in weak" :key="index" class="maingb">
+                    <rich-text :nodes="item.remark"></rich-text>
+                </view>
+                <button class="net" @click="download">立即更新</button>
+                <button class="ten" @click="down">暂不更新</button>
+            </view>
+        </view> -->
+
 	</view>
 </template>
 
 <script>
 import uCharts from '../../common/u-charts.js';
+import appUpdate from '../../common/appUpdate.js';
 var _self;
 var canvaArea = null;
 export default {
@@ -73,31 +84,72 @@ export default {
 			price: [],
 			price_all: [],
 			hure: [],
+            According:false,
 			feck: [],
 			usd: '',
+            link:'',
 			suner: '',
+            // version:'',
+            // andri:'',
+            weak:'',
 			baner: '',
 			hige: '',
 			minn: ''
 		};
 	},
+    onLoad(){ 
+        // _self = this;
+        //  uni.getSystemInfo({  
+        //         success:(res) => {  
+        //             console.log(res.platform);  
+        //                 //检测当前平台，如果是安卓则启动安卓更新  
+        //             if(res.platform=="android"){  
+        //                 this.download();  
+        //            }  
+        //         }  
+        //     })  
+        
+        // uni.request({
+        // 	url:'http://192.168.1.208:8000/api/v1.1.0/home/',
+        // 	method: 'GET',
+        // 	header: {
+        // 		Authorization: 'JWT' + ' ' + this.global_.token
+        // 	},
+        // 	success(res) { 
+        //         console.log(res)
+        //         _self.version = res.data.data.version
+        //         _self.andri = uni.getStorageSync('version')
+        //         console.log(_self.andri)
+        //         console.log(_self.version)
+        //         //这个是当前版本
+        //         //这是个后台获取的版本
+        //         if(_self.andri != _self.version) {
+        //             //判断当前版本号
+        //             uni.request({
+        //                 url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+        //                 method: 'GET',
+        //                 header: {
+        //                 	Authorization: 'JWT' + ' ' + _self.global_.token
+        //                 },
+        //                 success: res => {
+        //                     console.log(res)
+        //                     _self.weak = res.data
+        //                     _self.link = _self.weak[0].link
+        //                 },
+        //             });
+        //             _self.According = true;
+        //         }
+        // 		var csgo = res.data;
+        // 		_self.csgo = csgo;
+        // 	}
+        // });
+    },
 	onShow() {
 		_self = this;
 		var that = this;
 		this.cWidth = uni.upx2px(750);
 		this.cHeight = uni.upx2px(550);
 		_self.getServerData();
-		uni.request({
-			url: this.url + 'home/',
-			method: 'GET',
-			header: {
-				Authorization: 'JWT' + ' ' + this.global_.token
-			},
-			success(res) {
-				var csgo = res.data;
-				that.csgo = csgo;
-			}
-		});
 		uni.request({
 			url: this.url + 'home/rotation/',
 			method: 'GET',
@@ -121,6 +173,13 @@ export default {
 		});
 	},
 	methods: {
+        // download:function () {
+            // console.log(_self.link)
+            //这是刚打包的
+            // appUpdate.downUpdate('https://service.dcloud.net.cn/build/download/7f5d6840-22ef-11ea-931c-55b9610690aa');
+        down:function () {
+            _self.According = false;
+        },
 		some: function(item) {
 			var that = this;
 			uni.request({
@@ -319,7 +378,10 @@ export default {
 						addLine: true,
 						width: 1,
 						gradient: true
-					}
+					},
+                    toolTip:{
+                        gridColor:'#f4645f'
+                    }
 				}
 			});
 		},
@@ -355,7 +417,7 @@ export default {
 .qiun-charts {
 	width: 750upx;
 	height: 500upx;
-	background-color: #ffffff;
+	background-color: #FFFFFF;
 }
 page {
 	background-color: #1c1c1c;
@@ -566,5 +628,5 @@ swiper-item image {
 	float: right;
 	border-bottom: 1rpx solid #333333;
 }
-/*  #endif  */
+/*  #endif */
 </style>

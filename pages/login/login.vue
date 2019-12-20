@@ -95,7 +95,6 @@
 					    "Content-Type": "application/json"
 					},
 					success: res => {
-						console.log(res)
 						uni.setStorageSync('phone',this.phone)
 						uni.setStorageSync('token',res.data.token)
 						_self.global_.phone=this.phone;

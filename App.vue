@@ -5,6 +5,11 @@
 		},
 		onShow: function () {
 			console.log('App Show')
+            plus.runtime.getProperty(plus.runtime.appid,function(inf){  
+                          var wgtVer=inf.version;  
+                          console.log("当前应用版本："+wgtVer);
+                      uni.setStorageSync('version',wgtVer)
+                      });
 		},
 		onHide: function () {
 			console.log('App Hide')

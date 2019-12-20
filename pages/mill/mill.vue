@@ -104,7 +104,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				console.log(res);
 				that.user_id = res.data.data;
 				if (res.statusCode == 205) {
 					that.flag = true;
@@ -157,8 +156,6 @@ export default {
 		btn2: function() {
 			var that = this;
 			var a = that.arr.join(',');
-			console.log(a);
-            console.log(that.arr)
 			uni.request({
 				url: this.url + 'buildorders/',
 				method: 'GET',
