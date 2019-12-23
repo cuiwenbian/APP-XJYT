@@ -8,8 +8,8 @@
 		<view class="uni-swiper-msg">
 			<view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>
 			<swiper class="bgc" autoplay="true" circular="true" interval="5000" vertical:true indicator-dots:false>
-				<swiper-item class="fz" v-for="(item, index) in csgo" :key="index">
-					<text class="clor">{{ item.notice }}</text>
+				<swiper-item class="fz" >
+					<text class="clor">{{ csgo }}</text>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -48,17 +48,16 @@
 			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
 			<view class="b"></view>
 		</view>
-		<view class="shade">
+		<view class="shade" v-if="According">
 			<view class="pop">
 				<view class='close' style='width:100%;'>
 					<image class="close" src="../../static/images/close.png" mode="" @click="quit"></image>
 				</view>
 				<view class="desc">
-					描述dsfs反对过分放大V非得让购打发打发·额说的是那件粉润和你你说你等甲方承诺的时间
-					都扫码率方面V客门口某吃饭开始大门口房等果果V法人的官方大哥VV地方svgV
+					{{remark}}
 				</view>
 				<button class='new now' @click='update'>立即升级</button>
-				<button class='new'>暂不更新</button>
+				<button class='new' @click="noupdate" v-if="diro">暂不更新</button>
 			</view>
 		</view>
 	</view>
@@ -66,7 +65,6 @@
 
 <script>
 import uCharts from '../../common/u-charts.js';
-import appUpdate from '../../common/appUpdate.js';
 var _self;
 var canvaArea = null;
 export default {
@@ -88,65 +86,75 @@ export default {
 			price_all: [],
 			hure: [],
             According:false,
+            diro:true,
 			feck: [],
 			usd: '',
             link:'',
 			suner: '',
-            // version:'',
-            // andri:'',
             weak:'',
 			baner: '',
 			hige: '',
 			minn: '',
-			version:''
+			version:'',
+            remark:''
 		};
 	},
     onLoad(){ 
-        // _self = this;
-        //  uni.getSystemInfo({  
-        //         success:(res) => {  
-        //             console.log(res.platform);  
-        //                 //检测当前平台，如果是安卓则启动安卓更新  
-        //             if(res.platform=="android"){  
-        //                 this.download();  
-        //            }  
-        //         }  
-        //     })  
+        _self = this;
+         uni.getSystemInfo({  
+                success:(res) => {  
+                    console.log(res.platform);  
+                        //检测当前平台，如果是安卓则启动安卓更新  
+                    if(res.platform=="android"){  
+                        this.download();  
+                   }  
+                }  
+            })  
         
-        // uni.request({
-        // 	url:'http://192.168.1.208:8000/api/v1.1.0/home/',
-        // 	method: 'GET',
-        // 	header: {
-        // 		Authorization: 'JWT' + ' ' + this.global_.token
-        // 	},
-        // 	success(res) { 
-        //         console.log(res)
-        //         _self.version = res.data.data.version
-        //         _self.andri = uni.getStorageSync('version')
-        //         console.log(_self.andri)
-        //         console.log(_self.version)
-        //         //这个是当前版本
-        //         //这是个后台获取的版本
-        //         if(_self.andri != _self.version) {
-        //             //判断当前版本号
-        //             uni.request({
-        //                 url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
-        //                 method: 'GET',
-        //                 header: {
-        //                 	Authorization: 'JWT' + ' ' + _self.global_.token
-        //                 },
-        //                 success: res => {
-        //                     console.log(res)
-        //                     _self.weak = res.data
-        //                     _self.link = _self.weak[0].link
-        //                 },
-        //             });
-        //             _self.According = true;
-        //         }
-        // 		var csgo = res.data;
-        // 		_self.csgo = csgo;
-        // 	}
-        // });
+        uni.request({
+        	url:'http://192.168.1.208:8000/api/v1.1.0/home/',
+        	method: 'GET',
+        	header: {
+        		Authorization: 'JWT' + ' ' + this.global_.token
+        	},
+        	success(res) { 
+                console.log(res)
+                _self.csgo = res.data.data.notice;
+                console.log(_self.csgo)
+                _self.daern = res.data.data.must
+                if(_self.daern == 1) {
+                    _self.diro = false
+                    console.log(_self.diro)
+                }
+                _self.version = res.data.data.version
+                _self.andri = uni.getStorageSync('version')
+                console.log(_self.andri)
+                console.log(_self.version)
+                //这个是当前版本
+                //这是个后台获取的版本
+                if(_self.andri != _self.version) {
+                    //判断当前版本号
+                    _self.According = true;
+                    //uni.hideTabbar()
+                    console.log(_self.According)
+                    uni.request({
+                        url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+                        method: 'GET',
+                        header: {
+                        	Authorization: 'JWT' + ' ' + _self.global_.token
+                        },
+                        success: res => {
+                            console.log(res)
+                            _self.remark=res.data[0].remark;
+                            console.log(_self.remark)
+                           
+                        },
+                    });
+                    
+                }
+
+        	}
+        });
     },
 	onShow() {
 		_self = this;
@@ -171,7 +179,6 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
-				
 				that.title = res.data;
 			}
 		});
@@ -181,69 +188,36 @@ export default {
 	},
 	methods: {
 		quit(){
-			plus.runtime.quit();  //退出应用
+            if(this.daern == 1){
+                plus.runtime.quit();  //退出应用
+            }else {
+                this.According = false;
+            }
 		},
 		update(){
 			var _self=this;
 			uni.request({
 					//请求地址，设置为自己的服务器链接
-			        url:'http://192.168.1.208:8000/api/v1.1.0/home/',
+			        url:'http://192.168.1.208:8000/api/v1.1.0/version/',
 			        method: 'GET',
 			        header: {
 			           Authorization: 'JWT' + ' ' + this.global_.token
 			        },  
 			        success: resMz => {
-						var server_version = resMz.data.data.version;
+						var server_version = resMz.data[0].version;
 						console.log(server_version)
+                        _self.link = resMz.data[0].link
+                        console.log(_self.link)
 						_self.version = uni.getStorageSync('version')
 						console.log(_self.version)
 						_self.checkVersionToLoadUpdate(server_version, _self.version);
-						//var currTimeStamp = resMz.data.data.timestamp;
-						// 判断缓存时间
-						// uni.getStorage({
-						// 	key: 'tip_version_update_time',
-						// 	success: function (res) {
-						// 		var lastTimeStamp = res.data;
-						// 		//定义提醒的时间间隔，避免烦人的一直提示，一个小时：3600；一天：86400
-						// 		var tipTimeLength = 3600;
-						// 		if((lastTimeStamp+tipTimeLength) > currTimeStamp){
-						// 			//避免多次提醒，不要更新
-						// 			console.log("避免多次提醒，不要更新");
-						// 		}else{
-						// 			//重新设置时间戳
-						// 			_this.setStorageForAppVersion(currTimeStamp);
-						// 			//进行版本型号的比对 以及下载更新请求
-						// 			_this.checkVersionToLoadUpdate(server_version, _this.version);
-						// 		}
-						// 	},
-						// 	fail:function(res){
-						// 		_this.setStorageForAppVersion(currTimeStamp);
-						// 	}
-						// });
 			        },  
 			        fail: () => {},  
 			        complete: () => {}  
 			    });  
 			},  
-			/**
-			 * //设置应用版本号对应的缓存信息
-			 * @param {Object} currTimeStamp 当前获取的时间戳
-			 */
-			// setStorageForAppVersion:function(currTimeStamp){
-			// 	uni.setStorage({
-			// 		key: 'tip_version_update_time',
-			// 		data: currTimeStamp,
-			// 		success: function () {
-			// 			console.log('setStorage-success');
-			// 		}
-			// 	});
-			// },
-			/**
-			 * 进行版本型号的比对 以及下载更新请求
-			 * @param {Object} server_version 服务器最新 应用版本号
-			 * @param {Object} curr_version 当前应用版本号
-			 */
 			checkVersionToLoadUpdate:function(server_version,curr_version){
+                var that=this;
 				if(server_version != curr_version){
 					//TODO 此处判断是否为 WIFI连接状态
 				    if(plus.networkinfo.getCurrentType()!=3){
@@ -269,7 +243,8 @@ export default {
 									    duration: 5000,  
 									}); 
 									//设置 最新版本apk的下载链接
-									var downloadApkUrl = 'https://service.dcloud.net.cn/build/download/7f5d6840-22ef-11ea-931c-55b9610690aa';
+									var downloadApkUrl = that.link;
+                                    console.log(downloadApkUrl)
 									var dtask = plus.downloader.createDownload( downloadApkUrl, {}, function ( d, status ) {  
 									        // 下载完成  
 									        if ( status == 200 ) {   
@@ -294,7 +269,10 @@ export default {
 						});
 					}
 				}
-			},
+			}, 
+            noupdate(){
+                this.According = false;
+            },
 		some: function(item) {
 			var that = this;
 			uni.request({
@@ -564,6 +542,7 @@ page {
 .desc{
 	line-height: 80rpx;
 	font-size: 24rpx;
+    width:100%;
 }
 uni-button:after{
 	border: none;

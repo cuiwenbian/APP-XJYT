@@ -1,0 +1,24 @@
+
+.swiper.data-v-85749734 {
+        width: 100%;
+		background: #161822;
+}
+.experice.data-v-85749734{
+		width:200px;
+		height:44px;
+		position: fixed;
+		left:88px;
+		bottom:50px;
+		z-index: 999;
+}
+.experices.data-v-85749734{
+		width:200px;
+		height:44px;
+		display: block;
+		z-index: 999;
+}
+.uni-swiper .uni-swiper-dots-horizontal.data-v-85749734{
+		background: #fff;
+		bottom:100px;
+}
+
