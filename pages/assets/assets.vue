@@ -27,7 +27,7 @@
 			</view>
 			<view class="list" v-if="tabCurrentIndex === 0">
 				<view>
-					<text class="all1">Filecoin:{{month_profit}}</text>
+					<text class="all1">FIL:{{month_profit}}</text>
 					<div class="item">
                         <dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
 					</div>

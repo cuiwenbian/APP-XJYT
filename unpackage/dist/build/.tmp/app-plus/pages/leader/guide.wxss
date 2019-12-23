@@ -1,9 +1,9 @@
 
-.swiper.data-v-f2507e86 {
+.swiper.data-v-85749734 {
         width: 100%;
 		background: #161822;
 }
-.experice.data-v-f2507e86{
+.experice.data-v-85749734{
 		width:200px;
 		height:44px;
 		position: fixed;
@@ -11,13 +11,13 @@
 		bottom:50px;
 		z-index: 999;
 }
-.experices.data-v-f2507e86{
+.experices.data-v-85749734{
 		width:200px;
 		height:44px;
 		display: block;
 		z-index: 999;
 }
-.uni-swiper .uni-swiper-dots-horizontal.data-v-f2507e86{
+.uni-swiper .uni-swiper-dots-horizontal.data-v-85749734{
 		background: #fff;
 		bottom:100px;
 }

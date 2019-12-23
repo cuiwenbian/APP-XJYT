@@ -228,7 +228,6 @@ var _default =
         Authorization: 'JWT' + ' ' + this.global_.token },
 
       success: function success(res) {
-        console.log(res);
         that.user_id = res.data.data;
         if (res.statusCode == 205) {
           that.flag = true;
@@ -281,8 +280,6 @@ var _default =
     btn2: function btn2() {
       var that = this;
       var a = that.arr.join(',');
-      console.log(a);
-      console.log(that.arr);
       uni.request({
         url: this.url + 'buildorders/',
         method: 'GET',

@@ -214,33 +214,83 @@ var canvaArea = null;var _default =
       price: [],
       price_all: [],
       hure: [],
+      According: false,
+      diro: true,
       feck: [],
       usd: '',
+      link: '',
       suner: '',
+      weak: '',
       baner: '',
       hige: '',
       minn: '',
-      version: '' };
+      version: '',
+      remark: '' };
 
   },
+  onLoad: function onLoad() {var _this = this;
+    _self = this;
+    uni.getSystemInfo({
+      success: function success(res) {
+        console.log(res.platform);
+        //检测当前平台，如果是安卓则启动安卓更新  
+        if (res.platform == "android") {
+          _this.download();
+        }
+      } });
 
+
+    uni.request({
+      url: 'http://192.168.1.208:8000/api/v1.1.0/home/',
+      method: 'GET',
+      header: {
+        Authorization: 'JWT' + ' ' + this.global_.token },
+
+      success: function success(res) {
+        console.log(res);
+        _self.csgo = res.data.data.notice;
+        console.log(_self.csgo);
+        _self.daern = res.data.data.must;
+        if (_self.daern == 1) {
+          _self.diro = false;
+          console.log(_self.diro);
+        }
+        _self.version = res.data.data.version;
+        _self.andri = uni.getStorageSync('version');
+        console.log(_self.andri);
+        console.log(_self.version);
+        //这个是当前版本
+        //这是个后台获取的版本
+        if (_self.andri != _self.version) {
+          //判断当前版本号
+          _self.According = true;
+          //uni.hideTabbar()
+          console.log(_self.According);
+          uni.request({
+            url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+            method: 'GET',
+            header: {
+              Authorization: 'JWT' + ' ' + _self.global_.token },
+
+            success: function success(res) {
+              console.log(res);
+              _self.remark = res.data[0].remark;
+              console.log(_self.remark);
+
+            } });
+
+
+        }
+
+      } });
+
+  },
   onShow: function onShow() {
     _self = this;
     var that = this;
     this.cWidth = uni.upx2px(750);
     this.cHeight = uni.upx2px(550);
     _self.getServerData();
-    uni.request({
-      url: this.url + 'home/',
-      method: 'GET',
-      header: {
-        Authorization: 'JWT' + ' ' + this.global_.token },
-
-      success: function success(res) {
-        var csgo = res.data;
-        that.csgo = csgo;
-      } });
-
     uni.request({
       url: this.url + 'home/rotation/',
       method: 'GET',
@@ -258,7 +308,6 @@ var canvaArea = null;var _default =
         Authorization: 'JWT' + ' ' + this.global_.token },
 
       success: function success(res) {
-
         that.title = res.data;
       } });
 
@@ -268,70 +317,37 @@ var canvaArea = null;var _default =
   },
   methods: {
     quit: function quit() {
-      plus.runtime.quit(); //退出应用
+      if (this.daern == 1) {
+        plus.runtime.quit(); //退出应用
+      } else {
+        this.According = false;
+      }
     },
     update: function update() {
       var _self = this;
       uni.request({
         //请求地址，设置为自己的服务器链接
-        url: 'http://192.168.1.208:8000/api/v1.1.0/home/',
+        url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
         method: 'GET',
         header: {
           Authorization: 'JWT' + ' ' + this.global_.token },
 
         success: function success(resMz) {
-          console.log(resMz);
-          var server_version = resMz.data.data.version;
+
+          var server_version = resMz.data[0].version;
           console.log(server_version);
+          _self.link = resMz.data[0].link;
+          console.log(_self.link);
           _self.version = uni.getStorageSync('version');
           console.log(_self.version);
           _self.checkVersionToLoadUpdate(server_version, _self.version);
-          //var currTimeStamp = resMz.data.data.timestamp;
-          // 判断缓存时间
-          // uni.getStorage({
-          // 	key: 'tip_version_update_time',
-          // 	success: function (res) {
-          // 		var lastTimeStamp = res.data;
-          // 		//定义提醒的时间间隔，避免烦人的一直提示，一个小时：3600；一天：86400
-          // 		var tipTimeLength = 3600;
-          // 		if((lastTimeStamp+tipTimeLength) > currTimeStamp){
-          // 			//避免多次提醒，不要更新
-          // 			console.log("避免多次提醒，不要更新");
-          // 		}else{
-          // 			//重新设置时间戳
-          // 			_this.setStorageForAppVersion(currTimeStamp);
-          // 			//进行版本型号的比对 以及下载更新请求
-          // 			_this.checkVersionToLoadUpdate(server_version, _this.version);
-          // 		}
-          // 	},
-          // 	fail:function(res){
-          // 		_this.setStorageForAppVersion(currTimeStamp);
-          // 	}
-          // });
         },
         fail: function fail() {},
         complete: function complete() {} });
 
     },
-    /**
-        * //设置应用版本号对应的缓存信息
-        * @param {Object} currTimeStamp 当前获取的时间戳
-        */
-    // setStorageForAppVersion:function(currTimeStamp){
-    // 	uni.setStorage({
-    // 		key: 'tip_version_update_time',
-    // 		data: currTimeStamp,
-    // 		success: function () {
-    // 			console.log('setStorage-success');
-    // 		}
-    // 	});
-    // },
-    /**
-     * 进行版本型号的比对 以及下载更新请求
-     * @param {Object} server_version 服务器最新 应用版本号
-     * @param {Object} curr_version 当前应用版本号
-     */
     checkVersionToLoadUpdate: function checkVersionToLoadUpdate(server_version, curr_version) {
+      var that = this;
       if (server_version != curr_version) {
         //TODO 此处判断是否为 WIFI连接状态
         if (plus.networkinfo.getCurrentType() != 3) {
@@ -357,7 +373,8 @@ var canvaArea = null;var _default =
                   duration: 5000 });
 
                 //设置 最新版本apk的下载链接
-                var downloadApkUrl = 'https://service.dcloud.net.cn/build/download/7f5d6840-22ef-11ea-931c-55b9610690aa';
+                var downloadApkUrl = that.link;
+                console.log(downloadApkUrl);
                 var dtask = plus.downloader.createDownload(downloadApkUrl, {}, function (d, status) {
                   // 下载完成  
                   if (status == 200) {
@@ -383,7 +400,9 @@ var canvaArea = null;var _default =
         }
       }
     },
-
+    noupdate: function noupdate() {
+      this.According = false;
+    },
     some: function some(item) {
       var that = this;
       uni.request({
@@ -582,7 +601,10 @@ var canvaArea = null;var _default =
           opacity: 0.2,
           addLine: true,
           width: 1,
-          gradient: true } }), _ref));
+          gradient: true },
+
+        toolTip: {
+          gridColor: '#f4645f' } }), _ref));
 
 
 

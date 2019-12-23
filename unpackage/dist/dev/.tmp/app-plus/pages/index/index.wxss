@@ -487,6 +487,29 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> bf9d37dc1ab8a96bd85a5daeef2bf735705280ee
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1986,7 +2009,7 @@ radio-group label, checkbox-group label{
 .qiun-charts {
 	width: 750rpx;
 	height: 500rpx;
-	background-color: #ffffff;
+	background-color: #FFFFFF;
 }
 page {
 	background-color: #1c1c1c;
@@ -2017,6 +2040,7 @@ page {
 .desc{
 	line-height: 80rpx;
 	font-size: 24rpx;
+    width:100%;
 }
 uni-button:after{
 	border: none;

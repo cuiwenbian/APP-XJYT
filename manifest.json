@@ -1,6 +1,6 @@
 {
     "name" : "星际云通",
-    "appid" : "__UNI__27F1459",
+    "appid" : "__UNI__F0230C1",
     "description" : "",
     "versionName" : "1.0.2",
     "versionCode" : 102,
@@ -81,5 +81,16 @@
         "setting" : {
             "urlCheck" : true
         }
+    },
+    "plus" : {
+        "confusion" : {
+            "description" : "JS原生混淆",
+            "resources" : {
+                "js/common.js" : {},
+                "js/immersed.js" : {}
+            }
+        }
     }
 }
+// ...    
+
