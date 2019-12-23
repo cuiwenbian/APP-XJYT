@@ -3,9 +3,9 @@
 		onLaunch: function () {
 			console.log('App Launch')
 			plus.runtime.getProperty(plus.runtime.appid,function(inf){  
-						        var wgtVer=inf.version;  
-						        console.log("当前应用版本："+wgtVer);
-								uni.setStorageSync('version',wgtVer)
+			    var wgtVer=inf.version;  
+				console.log("当前应用版本："+wgtVer);
+				uni.setStorageSync('version',wgtVer)
 		 });
 		},
 		onShow: function () {

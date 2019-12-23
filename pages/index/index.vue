@@ -48,6 +48,7 @@
 			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
 			<view class="b"></view>
 		</view>
+		<!-- #ifdef APP-PLUS -->
 		<view class="shade">
 			<view class="pop">
 				<view class='close' style='width:100%;'>
@@ -61,6 +62,9 @@
 				<button class='new'>暂不更新</button>
 			</view>
 		</view>
+		<!-- #endif -->
+		
+		
 	</view>
 </template>
 
@@ -152,6 +156,7 @@ export default {
 			           Authorization: 'JWT' + ' ' + this.global_.token
 			        },  
 			        success: resMz => {
+						console.log(resMz);
 						var server_version = resMz.data.data.version;
 						console.log(server_version)
 						_self.version = uni.getStorageSync('version')
@@ -207,7 +212,7 @@ export default {
 					//TODO 此处判断是否为 WIFI连接状态
 				    if(plus.networkinfo.getCurrentType()!=3){
 				        uni.showToast({  
-				            title: '有新的版本发布，检测到您目前非Wifi连接，为节约您的流量，程序已停止自动更新，将在您连接WIFI之后重新检测更新',  
+				            title: '有新的版本发布，检测到您目前非Wifi连接，为节约您的流量，程序已停止更新，将在您连接WIFI之后重新检测更新',  
 				            mask: true,  
 				            duration: 5000,
 							icon:"none"
