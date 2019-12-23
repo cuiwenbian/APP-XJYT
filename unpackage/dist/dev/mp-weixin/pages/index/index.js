@@ -225,23 +225,24 @@ var canvaArea = null;var _default =
       hige: '',
       minn: '',
       version: '',
-      remark: '' };
+      remark: '',
+      urll: this.urll };
 
   },
-  onLoad: function onLoad() {var _this = this;
+  onLoad: function onLoad() {
     _self = this;
     uni.getSystemInfo({
       success: function success(res) {
         console.log(res.platform);
         //检测当前平台，如果是安卓则启动安卓更新  
-        if (res.platform == "android") {
-          _this.download();
-        }
+        //  if(res.platform=="android"){  
+        //      this.download();  
+        // }  
       } });
 
 
     uni.request({
-      url: 'http://192.168.1.208:8000/api/v1.1.0/home/',
+      url: this.url + 'home/',
       method: 'GET',
       header: {
         Authorization: 'JWT' + ' ' + this.global_.token },
@@ -267,7 +268,7 @@ var canvaArea = null;var _default =
           //uni.hideTabbar()
           console.log(_self.According);
           uni.request({
-            url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+            url: this.url + 'version/',
             method: 'GET',
             header: {
               Authorization: 'JWT' + ' ' + _self.global_.token },
@@ -327,7 +328,7 @@ var canvaArea = null;var _default =
       var _self = this;
       uni.request({
         //请求地址，设置为自己的服务器链接
-        url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+        url: this.url + 'version/',
         method: 'GET',
         header: {
           Authorization: 'JWT' + ' ' + this.global_.token },

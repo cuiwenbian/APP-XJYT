@@ -2,7 +2,7 @@
 	<view class="container">
 		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
 			<swiper-item v-for="(item, index) in baner" :key="index">
-				<image class="ttt" @click="some(item.id)" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image>
+				<image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image>
 			</swiper-item>
 		</swiper>
 		<view class="uni-swiper-msg">
@@ -45,7 +45,7 @@
 					<view class="yjj">{{ item.read_volume }}人看过</view>
 				</view>
 			</view>
-			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
+			<view class="right"><image class="ig" :src="urll + item.cover_pic"></image></view>
 			<view class="b"></view>
 		</view>
 		<!-- #ifdef APP-PLUS -->
@@ -101,7 +101,8 @@ export default {
 			hige: '',
 			minn: '',
 			version:'',
-            remark:''
+            remark:'',
+			urll:this.urll
 		};
 	},
     onLoad(){ 
@@ -110,14 +111,14 @@ export default {
                 success:(res) => {  
                     console.log(res.platform);  
                         //检测当前平台，如果是安卓则启动安卓更新  
-                    if(res.platform=="android"){  
-                        this.download();  
-                   }  
+                   //  if(res.platform=="android"){  
+                   //      this.download();  
+                   // }  
                 }  
             })  
         
         uni.request({
-        	url:'http://192.168.1.208:8000/api/v1.1.0/home/',
+        	url:this.url+'home/',
         	method: 'GET',
         	header: {
         		Authorization: 'JWT' + ' ' + this.global_.token
@@ -143,7 +144,7 @@ export default {
                     //uni.hideTabbar()
                     console.log(_self.According)
                     uni.request({
-                        url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+                        url: this.url+'version/',
                         method: 'GET',
                         header: {
                         	Authorization: 'JWT' + ' ' + _self.global_.token
@@ -203,7 +204,7 @@ export default {
 			var _self=this;
 			uni.request({
 					//请求地址，设置为自己的服务器链接
-			        url:'http://192.168.1.208:8000/api/v1.1.0/version/',
+			        url:this.url+'version/',
 			        method: 'GET',
 			        header: {
 			           Authorization: 'JWT' + ' ' + this.global_.token
