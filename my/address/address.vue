@@ -1,9 +1,11 @@
 <template>
 	<!-- 提币地址 -->
 	<view class="container" style="position: relative;">
-		<!-- <view class="height"></view> -->
+		
 		<view v-if="flag">
+			<!-- #ifdef APP-PLUS -->
 			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#121212" color="#fff" ></uni-nav-bar>
+			<!-- #endif -->
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
@@ -15,9 +17,14 @@
 					</view>
 				</uniSwipeAction>
 			</block>
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="newadd" @click="add_address">新建地址</view>
+			<!-- #endif -->
 		</view>
 		<view v-else>
+			<!-- #ifdef APP-PLUS -->
 			<uni-nav-bar left-icon="back" title="提币地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
+			<!-- #endif -->
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/no-add.png" mode=""></image>
@@ -25,6 +32,7 @@
 			</view>
 			<view class="newadd" @click="add_address">新建地址</view>
 		</view>
+		
 		<!-- #ifndef H5 -->
 		<password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
 		<!-- #endif -->
@@ -75,7 +83,7 @@ export default {
 		passwordInput,
 		uniNavBar
 	},
-	onLoad() {
+	onShow() {
 		var that = this;
 		uni.request({
 			url: this.url + 'walletaddress/',

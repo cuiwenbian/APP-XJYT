@@ -14,7 +14,7 @@ const app = new Vue({
     ...App
 })
 app.$mount()
- 
+
 		
 function clear() {
 	uni.removeStorageSync('token');

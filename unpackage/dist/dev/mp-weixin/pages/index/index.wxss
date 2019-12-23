@@ -2040,7 +2040,7 @@ page {
 	display: block;
 	float:right;
 }
-.desc{
+.desc1{
 	line-height: 80rpx;
 	font-size: 24rpx;
     width:100%;

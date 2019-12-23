@@ -206,6 +206,7 @@
 						"navigationBarTitleText": "新增提币地址"
 					}
 				},
+				// #ifdef APP-PLUS
 				{
 					"path": "address/address",
 					"style": {
@@ -213,7 +214,6 @@
 
 					}
 				},
-
 				{
 					"path": "edit-address/edit-address",
 					"style": {
@@ -229,6 +229,56 @@
 						}
 					}
 				},
+				{
+					"path": "my-machine/my-machine",
+					"style": {
+						"titleNView": {
+							"titleText": "我的矿机",
+							"buttons": [ //原生标题栏按钮配置,
+								{
+									"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+									"fontSize": "32rpx",
+									"width": "80px"
+								}
+							]
+						}
+					}
+				},
+				{
+					"path": "suggest/suggest",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				},
+                // #endif
+				// #ifdef MP-WEIXIN
+				{
+					"path": "address/address",
+					"style": {
+						"navigationBarTitleText": "提币地址"
+					}
+				},
+				{
+					"path": "edit-address/edit-address",
+					"style": {
+						"navigationBarTitleText": "编辑提币地址"
+					}
+				},
+				{
+					"path": "my-machine/my-machine",
+					"style": {
+						"navigationBarTitleText": "我的矿机"
+							
+					}
+				},
+				{
+					"path": "suggest/suggest",
+					"style": {
+						"navigationBarTitleText": "建议反馈"
+					}
+				},
+				// #endif
+				
 				{
 					"path": "email/email",
 					"style": {
@@ -283,21 +333,7 @@
 						"navigationBarTitleText": "找回密码"
 					}
 				},
-				{
-					"path": "my-machine/my-machine",
-					"style": {
-						"titleNView": {
-							"titleText": "我的矿机",
-							"buttons": [ //原生标题栏按钮配置,
-								{
-									"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-									"fontSize": "32rpx",
-									"width": "80px"
-								}
-							]
-						}
-					}
-				},
+				
 				{
 					"path": "machine-detail/machine-detail",
 					"style": {
@@ -310,12 +346,7 @@
 						"navigationBarTitleText": "我的钱包"
 					}
 				},
-				{
-					"path": "suggest/suggest",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
+				
 				{
 					"path": "suggest-detail/suggest-detail",
 					"style": {

@@ -4,7 +4,9 @@
 		 <view class="height"></view>
 		<view class="top">
 			<image class="bg" src="../../static/images/background.png" mode="aspectFill">
+				<!-- #ifdef APP-PLUS -->
 				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
+				<!-- #endif -->
 			</image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.jpg" mode=""></image></view>
 			<view class="phone">{{phone}}</view>
@@ -58,7 +60,15 @@
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:46rpx;" mode=""></image>
 				</view>
 				<view class="txt" >建议反馈</view>
-			</view>	
+			</view>
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="listItem" @click="logout">
+				<view class="pic">
+					<image  src="../../static/images/icon-quit.png" style="width:44rpx;height:46rpx;" mode=""></image>
+				</view>
+				<view class="txt" >退出应用</view>
+			</view>
+			<!-- #endif -->	
     	</view>
 		<view class="shade" v-if="shade">
 			<view class="pop">

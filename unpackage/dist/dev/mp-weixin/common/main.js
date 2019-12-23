@@ -107,14 +107,34 @@ __webpack_require__.r(__webpack_exports__);
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
-    plus.runtime.getProperty(plus.runtime.appid, function (inf) {
-      var wgtVer = inf.version;
-      console.log("当前应用版本：" + wgtVer);
-      uni.setStorageSync('version', wgtVer);
-    });
+
+
+
+
+
+
+
+
   },
   onShow: function onShow() {
     console.log('App Show');
+
+    var value = uni.getStorageSync('token');
+    var value1 = uni.getStorageSync('phone');
+    console.log(value);
+    console.log(value1);
+    if (value && value1) {
+      this.global_.phone = value1;
+      this.global_.token = value;
+      uni.switchTab({
+        url: '/pages/index/index' });
+
+    } else {
+      uni.navigateTo({
+        url: '/pages/login/login' });
+
+    }
+
   },
   onHide: function onHide() {
     console.log('App Hide');

@@ -167,6 +167,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
@@ -199,7 +207,7 @@ __webpack_require__.r(__webpack_exports__);
     passwordInput: passwordInput,
     uniNavBar: uniNavBar },
 
-  onLoad: function onLoad() {
+  onShow: function onShow() {
     var that = this;
     uni.request({
       url: this.url + 'walletaddress/',

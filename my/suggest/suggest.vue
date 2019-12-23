@@ -3,7 +3,9 @@
 	<view class="container" style="position: relative;">
 		<!-- <view class="height"></view> -->
 		<view v-if="flag">
+			<!-- #ifdef APP-PLUS -->
 			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" @click-left="back" @click-right="add_address" background-color="#121212" color="#fff"></uni-nav-bar>
+			<!-- #endif -->
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/add.png" mode=""></image>
@@ -12,7 +14,9 @@
 			<view class="newadd" @click="addMessage">提交建议</view>
 		</view>
 		<view v-else>
+			<!-- #ifdef APP-PLUS -->
 			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" right-text="提建议" @click-left="back" @click-right="addMessage" background-color="#121212" color="#fff"></uni-nav-bar>
+			<!-- #endif -->
 			<view v-for="item in messages" :key="item.id" @click="detail(item)">
 				<view class="t"></view>
 				<view class="suggest-list">
@@ -31,7 +35,11 @@
 					</view>
 				</view>
 			</view>
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="newadd" @click="addMessage">提交建议</view>
+			<!-- #endif -->
 		</view>
+		
 		<view :class="hidden ? 'cover1' : 'cover'">
 			<view class="frame">
 				<input class="title" type="text" :value="title" @input="getTitleContent" placeholder="标题" />

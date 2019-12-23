@@ -55,7 +55,7 @@
 				<view class='close' style='width:100%;'>
 					<image class="close" src="../../static/images/close.png" mode="" @click="quit"></image>
 				</view>
-				<view class="desc">
+				<view class="desc1">
 					{{remark}}
 				</view>
 				<button class='new now' @click='update'>立即升级</button>
@@ -545,7 +545,7 @@ page {
 	display: block;
 	float:right;
 }
-.desc{
+.desc1{
 	line-height: 80rpx;
 	font-size: 24rpx;
     width:100%;

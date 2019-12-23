@@ -2,14 +2,34 @@
 	export default {
 		onLaunch: function () {
 			console.log('App Launch')
+			// #ifdef APP-PLUS
 			plus.runtime.getProperty(plus.runtime.appid,function(inf){  
 			    var wgtVer=inf.version;  
 				console.log("当前应用版本："+wgtVer);
 				uni.setStorageSync('version',wgtVer)
-		 });
+		   });
+		   // #endif
+		 
 		},
 		onShow: function () {
 			console.log('App Show')
+			// #ifdef MP-WEIXIN
+			var value = uni.getStorageSync('token');
+			var value1 = uni.getStorageSync('phone');
+			console.log(value)
+			console.log(value1)
+			if (value && value1) {
+				this.global_.phone = value1;
+				this.global_.token = value;
+			     uni.switchTab({
+			     	url: '/pages/index/index'
+			     });
+			}else{
+				uni.navigateTo({
+					url: '/pages/login/login'
+				});		 
+			}
+			// #endif
 		},
 		onHide: function () {
 			console.log('App Hide')

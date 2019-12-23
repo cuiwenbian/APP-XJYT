@@ -106,9 +106,9 @@
 								icon:'none',
 								duration:1500
 							})
-							var page = getCurrentPages().pop();
-							if (page == undefined || page == null) return; 
-							page.onLoad(); 
+							// var page = getCurrentPages().pop();
+							// if (page == undefined || page == null) return; 
+							// page.onLoad(); 
 						}
 					}
 				})
