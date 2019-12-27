@@ -4,14 +4,13 @@
 		 <view class="height"></view>
 		<view class="top">
 			<image class="bg" src="../../static/images/background.png" mode="aspectFill">
-				<!-- #ifdef APP-PLUS -->
 				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
-				<!-- #endif -->
 			</image>
-			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.jpg" mode=""></image></view>
+			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.png" mode=""></image></view>
+			<view class="nickname">用户昵称</view>
 			<view class="phone">{{phone}}</view>
 		</view>
-		<view class="line"></view>
+		
     	<view class="list">
     		<view class="listItem" @click="wallet">
 				<view class="pic">
@@ -25,35 +24,61 @@
 				</view>
 				<view class="txt" >提币地址</view>
 			</view>
-			<view class="listItem" @click="certification">
+			<view class="listItem" @click="wallet">
 				<view class="pic">
-					<image  src="../../static/images/icon-identity.png" style="width:48rpx;height:36rpx;" mode=""></image>
+				<image  src="../../static/images/icon-cunli.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
-				<view class="txt" >实名认证</view> 
+				<view class="txt">我的存力</view>
 			</view>
+			<view class="listItem" @click="trans">
+				<view class="pic">
+				<image  src="../../static/images/icon-trans.png" style="width:44rpx;height:44rpx;" mode=""></image>
+				</view>
+				<view class="txt">矿机交易</view>
+			</view>
+			
+			<view class="listItem" @click="tradePassword">
+				<view class="pic">
+					<image  src="../../static/images/icon-trade.png" style="width:41rpx;height:49rpx;" mode=""></image>
+				</view>
+				<view class="txt" >交易密码</view>
+			</view>
+			<view class="listItem" @click="loginPassword">
+				<view class="pic">
+					<image  src="../../static/images/icon-login.png" style="width:41rpx;height:49rpx;" mode=""></image>
+				</view>
+				<view class="txt" >登录密码</view>
+			</view>
+			<view class="listItem"  @click="bindEmail" >
+				<view class="pic">
+					<image   src="../../static/images/icon-emails.png" style="width:46rpx;height:36rpx;" mode=""></image>
+				</view>
+				<view class="txt" >邮箱绑定</view>
+			</view>
+			<view class="listItem" @click="suggest">
+				<view class="pic">
+					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:44rpx;" mode=""></image>
+				</view>
+				<view class="txt" >帮助中心</view>
+			</view>
+			
 			<view class="listItem" @click="mymachine">
 				<view class="pic">
 					<image  src="../../static/images/icon-machine.png" style="width:46rpx;height:40rpx;" mode=""></image>
 				</view>
 				<view class="txt" >我的矿机</view>
 			</view>
-			<view class="listItem" @click="tradePassword">
+			<view class="listItem" @click="suggest">
 				<view class="pic">
-					<image  src="../../static/images/icon-trade.png" style="width:43rpx;height:52rpx;" mode=""></image>
+					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:42rpx;" mode=""></image>
 				</view>
-				<view class="txt" >交易密码</view>
+				<view class="txt" >优惠券</view>
 			</view>
-			<view class="listItem" @click="loginPassword">
+			<view class="listItem" @click="certification">
 				<view class="pic">
-					<image  src="../../static/images/icon-login.png" style="width:43rpx;height:52rpx;" mode=""></image>
+					<image  src="../../static/images/icon-identity.png" style="width:48rpx;height:39rpx;" mode=""></image>
 				</view>
-				<view class="txt" >登录密码</view>
-			</view>
-			<view class="listItem"  @click="bindEmail" >
-				<view class="pic">
-					<image   src="../../static/images/icon-emails.png" style="width:48rpx;height:36rpx;" mode=""></image>
-				</view>
-				<view class="txt" >邮箱绑定</view>
+				<view class="txt" >实名认证</view> 
 			</view>
 			<view class="listItem" @click="suggest">
 				<view class="pic">
@@ -72,10 +97,13 @@
     	</view>
 		<view class="shade" v-if="shade">
 			<view class="pop">
-				<view class='pop-title'>确定退出登录？</view>
+				<view class="tips">
+					提示
+				</view>
+				<view class='pop-title'>退出登录？</view>
 				<view class="pops">
 					<view class='pop-btn quxiao' @click="cancel">取消</view>
-					<view class='pop-btn yess' @click="sure">确认</view>
+					<view class='pop-btn yess' @click="sure">退出</view>
 				</view>
 			</view>
 		</view>
@@ -119,6 +147,11 @@
 			wallet:function(){
 				uni.navigateTo({
 					url:'../../my/my-wallet/my-wallet'
+				})
+			},
+			trans:function(){
+				uni.navigateTo({
+					url:'../mill/mill'
 				})
 			},
 			address:function(){
@@ -293,19 +326,26 @@
 		z-index:99
 	}
 	.pop{
-		width:550rpx;
-		height:300rpx;
-		margin:500rpx auto;
-		padding:0 60rpx;
+		width:636rpx;
+		height:368rpx;
+		margin:335rpx auto;
+		padding:47rpx 40rpx 48rpx;
 		box-sizing: border-box;
 		background:#fff;
-		border-radius:10rpx;
+		border-radius:5rpx;
+	}
+	.tips{
+		text-align: center;
+		font-size: 30rpx;
+		color:#333333;
+		font-weight: bold;
 	}
 	.pop-title{
-		height:180rpx;
-		line-height: 180rpx;
+		height:160rpx;
+		line-height: 160rpx;
 		text-align: center;
-		font-size: 34rpx;
+		font-size: 28rpx;
+		color:#666666;
 	}
 	.pops{
 		height:100rpx;
@@ -314,50 +354,55 @@
 		justify-content: space-between;
 	}
 	.pop-btn{
-		width:158rpx;
-		height:66rpx;
-		border-radius: 10rpx;
-		line-height: 66rpx;
-		font-size: 30rpx;
-		color:#fff;
+		width:260rpx;
+		height:72rpx;
+		border-radius: 5rpx;
+		line-height: 72rpx;
+		font-size: 26rpx;
+		color:#666666;
+		background:#CACACA;
 		text-align: center;
 	}
 	.yess{
-		background:#121212;
+		background:#41BEC9;
+		color:#FFFFFF;
 	}
-	.quxiao{
+	/* .quxiao{
 		color:rgba(137,137,137,1);
-	}
+	} */
 	.height {
 		height: var(--status-bar-height);
 		background: #121212;
 	}
+	page{
+		background: #121E2C;
+	}
 	.top{
 		width:100%;
-		height:480rpx;
+		height:516rpx;
 		position: relative;
 	}
 	.bg{
 		width:100%;
-		height:318rpx;
+		height:100%;
 		position: relative;
 	}
 	.logout{
-		width:50rpx;
-		height:45rpx;
+		width:36rpx;
+		height:32rpx;
 		position: absolute;
-		right:20rpx;
-		top:20rpx;
+		right:26rpx;
+		top:33rpx;
 	}
 	.avator{
-		width:150rpx;
-		height:150rpx;
+		width:146rpx;
+		height:146rpx;
 		z-index: 9;
 		position: absolute;
 		left:300rpx;
-		bottom:100rpx;
+		top:124rpx;
 		border-radius: 50%;
-		border: 1px solid #f2f2f2;
+		
 	}
 	.img{
 		width:100%;
@@ -369,19 +414,21 @@
 		width:100%;
 		height:30rpx;
 		position: absolute;
-		bottom: 90rpx;
+		top:305rpx;
 		text-align: center;
 		line-height: 30rpx;
-		font-size: 32rpx;
+		color:#FFFFFF;
+		font-size: 30rpx;
 	}
 	.phone{
 		width:100%;
 		height:30rpx;
 		position: absolute;
-		bottom: 30rpx;
+		top:356rpx;
 		text-align: center;
 		line-height: 30rpx;
-		font-size: 32rpx;
+		font-size: 24rpx;
+		color:#FFFFFF;
 	}
 	.line{
 		width:100%;
@@ -410,8 +457,8 @@
 	}
 	.txt{
 		line-height: 20rpx;
-		font-size: 28rpx;
+		font-size: 24rpx;
 		text-align: center;
-		color:#333333;
+		color:#FFFFFF;
 	}
 </style>

@@ -1,19 +1,80 @@
 <template>
 	<view class="container">
 		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
-			<swiper-item v-for="(item, index) in baner" :key="index">
-				<image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image>
-			</swiper-item>
+			<swiper-item v-for="(item, index) in baner" :key="index"><image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image></swiper-item>
 		</swiper>
 		<view class="uni-swiper-msg">
 			<view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>
 			<swiper class="bgc" autoplay="true" circular="true" interval="5000" vertical:true indicator-dots:false>
-				<swiper-item class="fz" >
-					<text class="clor">{{ csgo }}</text>
+				<swiper-item class="fz">
+					<text class="clor">公告：{{ csgo }}</text>
 				</swiper-item>
 			</swiper>
 		</view>
-		<view class="borx">
+		<view class="hotPool">
+			热销矿池
+		</view>
+		<view class="pools">
+			<view class="listItem">
+				<image class="hots" src="../../static/images/hot.png" mode=""></image>
+				<view class="poolName">
+					矿池名称
+				</view>
+				<view class="datess">
+					<view class='area'>
+						<view class="dayTrans">0.000<text class="fil">FIL</text></view>
+						<view class="txx">日理论收益</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">0<text class="fil">T</text></view>
+						<view class="txx">存储能力</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">4800<text class="fil">T</text></view>
+						<view class="txx">矿池总空间</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">400<text class="fil">T</text></view>
+						<view class="txx">可出售空间</view>
+					</view>
+					<view class="buy">
+						立即购买
+					</view>
+				</view>
+			</view>
+			<view class="listItem">
+				<image class="hots" src="../../static/images/hots.png" mode=""></image>
+				<view class="poolName">
+					矿池名称
+				</view>
+				<view class="datess">
+					<view class='area'>
+						<view class="dayTrans">0.000<text class="fil">FIL</text></view>
+						<view class="txx">日理论收益</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">0<text class="fil">T</text></view>
+						<view class="txx">存储能力</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">4800<text class="fil">T</text></view>
+						<view class="txx">矿池总空间</view>
+					</view>
+					<view class='area'>
+						<view class="dayTrans">400<text class="fil">T</text></view>
+						<view class="txx">可出售空间</view>
+					</view>
+					<view class="buy">
+						立即购买
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="line"></view>
+		<view class="hotPool">
+			热门资讯
+		</view>
+		<!-- <view class="borx">
 			<view class="price">
 				<text class="bot">今日币价:</text>
 				<text class="Todayprice">{{ Todayprice }}</text>
@@ -34,37 +95,36 @@
 					</view>
 				</view>
 			</div>
-		</view>
-		<view class="Small"><text class="te">热门资讯</text></view>
+		</view> -->
+		<!-- <view class="Small"><text class="te">热门资讯</text></view> -->
 		<view class="bt" @click="information(item.id)" v-for="(item, index) in title" :key="index">
+			<!-- <view class="b"></view> -->
 			<view class="left">
 				<text class="tex">{{ item.title }}</text>
 				<view class="desc">
-					<text class="yu">{{ item.add_time }}</text>
+					<text class="yu">{{ item.add_time }}发布</text>
 					<image class="yj" src="../../static/images/eye.png"></image>
 					<view class="yjj">{{ item.read_volume }}人看过</view>
 				</view>
 			</view>
 			<view class="right"><image class="ig" :src="urll + item.cover_pic"></image></view>
-			<view class="b"></view>
+			
 		</view>
 		<!-- #ifdef APP-PLUS -->
 
 		<view class="shade" v-if="According">
-			<view class="pop">
-				<view class='close' style='width:100%;'>
-					<image class="close" src="../../static/images/close.png" mode="" @click="quit"></image>
+			<image class="pop" src="../../static/images/update.png" mode="">
+				<view class="desc1" >
+					<view class='one' v-for="(item,index) in title" :key='index'>{{item.title}}</view>
 				</view>
-				<view class="desc1">
-					{{remark}}
+				<view class="pops">
+					<view class="pop-btn quxiao" @click="noupdate">暂不更新</view>
+					<view class="pop-btn yess" @click="update">立即升级</view>
 				</view>
-				<button class='new now' @click='update'>立即升级</button>
-				<button class='new' @click="noupdate" v-if="diro">暂不更新</button>
-			</view>
+				<view class='tishi'>您的当前版本过低影响使用，请立即更新</view>
+			</image>
 		</view>
 		<!-- #endif -->
-		
-		
 	</view>
 </template>
 
@@ -90,78 +150,75 @@ export default {
 			price: [],
 			price_all: [],
 			hure: [],
-            According:false,
-            diro:true,
+			According: false,
+			diro: true,
 			feck: [],
 			usd: '',
-            link:'',
+			link: '',
 			suner: '',
-            weak:'',
+			weak: '',
 			baner: '',
 			hige: '',
 			minn: '',
-			version:'',
-            remark:'',
-			urll:this.urll
+			version: '',
+			remark: '',
+			urll: this.urll,
 		};
 	},
-    onLoad(){ 
-        _self = this;
-         uni.getSystemInfo({  
-                success:(res) => {  
-                    console.log(res.platform);  
-                        //检测当前平台，如果是安卓则启动安卓更新  
-                   //  if(res.platform=="android"){  
-                   //      this.download();  
-                   // }  
-                }  
-            })  
-        
-        uni.request({
-        	url:this.url+'home/',
-        	method: 'GET',
-        	header: {
-        		Authorization: 'JWT' + ' ' + this.global_.token
-        	},
-        	success(res) { 
-                console.log(res)
-                _self.csgo = res.data.data.notice;
-                console.log(_self.csgo)
-                _self.daern = res.data.data.must
-                if(_self.daern == 1) {
-                    _self.diro = false
-                    console.log(_self.diro)
-                }
-                _self.version = res.data.data.version
-                _self.andri = uni.getStorageSync('version')
-                console.log(_self.andri)
-                console.log(_self.version)
-                //这个是当前版本
-                //这是个后台获取的版本
-                if(_self.andri != _self.version) {
-                    //判断当前版本号
-                    _self.According = true;
-                    //uni.hideTabbar()
-                    console.log(_self.According)
-                    uni.request({
-                        url: this.url+'version/',
-                        method: 'GET',
-                        header: {
-                        	Authorization: 'JWT' + ' ' + _self.global_.token
-                        },
-                        success: res => {
-                            console.log(res)
-                            _self.remark=res.data[0].remark;
-                            console.log(_self.remark)
-                           
-                        },
-                    });
-                    
-                }
+	onLoad() {
+		_self = this;
+		uni.getSystemInfo({
+			success: res => {
+				console.log(res.platform);
+				//检测当前平台，如果是安卓则启动安卓更新
+				//  if(res.platform=="android"){
+				//      this.download();
+				// }
+			}
+		});
 
-        	}
-        });
-    },
+		uni.request({
+			url: this.url + 'home/',
+			method: 'GET',
+			header: {
+				Authorization: 'JWT' + ' ' + this.global_.token
+			},
+			success(res) {
+				console.log(res);
+				_self.csgo = res.data.data.notice;
+				console.log(_self.csgo);
+				_self.daern = res.data.data.must;
+				if (_self.daern == 1) {
+					_self.diro = false;
+					console.log(_self.diro);
+				}
+				_self.version = res.data.data.version;
+				_self.andri = uni.getStorageSync('version');
+				console.log(_self.andri);
+				console.log(_self.version);
+				//这个是当前版本
+				//这是个后台获取的版本
+				if (_self.andri != _self.version) {
+					//判断当前版本号
+					_self.According = true;
+					//uni.hideTabbar()
+					console.log(_self.According);
+					uni.request({
+						url: this.url + 'version/',
+						method: 'GET',
+						header: {
+							Authorization: 'JWT' + ' ' + _self.global_.token
+						},
+						success: res => {
+							console.log(res);
+							_self.remark = res.data[0].remark;
+							console.log(_self.remark);
+						}
+					});
+				}
+			}
+		});
+	},
 	onShow() {
 		_self = this;
 		var that = this;
@@ -188,98 +245,94 @@ export default {
 				that.title = res.data;
 			}
 		});
-	 
-		                
-		
 	},
 	methods: {
-		quit(){
-            if(this.daern == 1){
-                plus.runtime.quit();  //退出应用
-            }else {
-                this.According = false;
-            }
+		quit() {
+			if (this.daern == 1) {
+				plus.runtime.quit(); //退出应用
+			} else {
+				this.According = false;
+			}
 		},
-		update(){
-			var _self=this;
+		update() {
+			var _self = this;
 			uni.request({
-					//请求地址，设置为自己的服务器链接
-			        url:this.url+'version/',
-			        method: 'GET',
-			        header: {
-			           Authorization: 'JWT' + ' ' + this.global_.token
-			        },  
-			        success: resMz => {
-
-						var server_version = resMz.data[0].version;
-						console.log(server_version)
-                        _self.link = resMz.data[0].link
-                        console.log(_self.link)
-						_self.version = uni.getStorageSync('version')
-						console.log(_self.version)
-						_self.checkVersionToLoadUpdate(server_version, _self.version);
-			        },  
-			        fail: () => {},  
-			        complete: () => {}  
-			    });  
-			},  
-			checkVersionToLoadUpdate:function(server_version,curr_version){
-                var that=this;
-				if(server_version != curr_version){
-					//TODO 此处判断是否为 WIFI连接状态
-				    if(plus.networkinfo.getCurrentType()!=3){
-				        uni.showToast({  
-				            title: '有新的版本发布，检测到您目前非Wifi连接，为节约您的流量，程序已停止更新，将在您连接WIFI之后重新检测更新',  
-				            mask: true,  
-				            duration: 5000,
-							icon:"none"
-				        });  
-				        return;  
-				    }else{
-						uni.showModal({
-							title: "版本更新",
-							content: '有新的版本发布，检测到您当前为Wifi连接，是否立即进行新版本下载？',
-							confirmText:'立即更新',
-							cancelText:'稍后进行',
-							success: function (res) {
-								if (res.confirm) {
-									uni.showToast({
-										icon:"none",
-										mask: true,
-									    title: '有新的版本发布，检测到您目前为Wifi连接，程序已启动自动更新。新版本下载完成后将自动弹出安装程序',  
-									    duration: 5000,  
-									}); 
-									//设置 最新版本apk的下载链接
-									var downloadApkUrl = that.link;
-                                    console.log(downloadApkUrl)
-									var dtask = plus.downloader.createDownload( downloadApkUrl, {}, function ( d, status ) {  
-									        // 下载完成  
-									        if ( status == 200 ) {   
-									            plus.runtime.install(plus.io.convertLocalFileSystemURL(d.filename),{},{},function(error){  
-									                uni.showToast({  
-									                    title: '安装失败', 
-									                    duration: 1500  
-									                });  
-									            })
-									        } else {  
-									             uni.showToast({  
-									                title: '更新失败',
-									                duration: 1500  
-									             });  
-									        }    
-									    });  
-									dtask.start();
-								} else if (res.cancel) {
-									console.log('稍后更新');
-								}
+				//请求地址，设置为自己的服务器链接
+				url: this.url + 'version/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				success: resMz => {
+					var server_version = resMz.data[0].version;
+					console.log(server_version);
+					_self.link = resMz.data[0].link;
+					console.log(_self.link);
+					_self.version = uni.getStorageSync('version');
+					console.log(_self.version);
+					_self.checkVersionToLoadUpdate(server_version, _self.version);
+				},
+				fail: () => {},
+				complete: () => {}
+			});
+		},
+		checkVersionToLoadUpdate: function(server_version, curr_version) {
+			var that = this;
+			if (server_version != curr_version) {
+				//TODO 此处判断是否为 WIFI连接状态
+				if (plus.networkinfo.getCurrentType() != 3) {
+					uni.showToast({
+						title: '有新的版本发布，检测到您目前非Wifi连接，为节约您的流量，程序已停止更新，将在您连接WIFI之后重新检测更新',
+						mask: true,
+						duration: 5000,
+						icon: 'none'
+					});
+					return;
+				} else {
+					uni.showModal({
+						title: '版本更新',
+						content: '有新的版本发布，检测到您当前为Wifi连接，是否立即进行新版本下载？',
+						confirmText: '立即更新',
+						cancelText: '稍后进行',
+						success: function(res) {
+							if (res.confirm) {
+								uni.showToast({
+									icon: 'none',
+									mask: true,
+									title: '有新的版本发布，检测到您目前为Wifi连接，程序已启动自动更新。新版本下载完成后将自动弹出安装程序',
+									duration: 5000
+								});
+								//设置 最新版本apk的下载链接
+								var downloadApkUrl = that.link;
+								console.log(downloadApkUrl);
+								var dtask = plus.downloader.createDownload(downloadApkUrl, {}, function(d, status) {
+									// 下载完成
+									if (status == 200) {
+										plus.runtime.install(plus.io.convertLocalFileSystemURL(d.filename), {}, {}, function(error) {
+											uni.showToast({
+												title: '安装失败',
+												duration: 1500
+											});
+										});
+									} else {
+										uni.showToast({
+											title: '更新失败',
+											duration: 1500
+										});
+									}
+								});
+								dtask.start();
+							} else if (res.cancel) {
+								console.log('稍后更新');
 							}
-						});
-					}
+						}
+					});
 				}
-			}, 
-            noupdate(){
-                this.According = false;
-            },
+			}
+		},
+		noupdate() {
+			this.According = false;
+		},
 		some: function(item) {
 			var that = this;
 			uni.request({
@@ -291,7 +344,7 @@ export default {
 				success(res) {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
-                   
+
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content=' + encodeURIComponent(text_content)
@@ -305,26 +358,26 @@ export default {
 			});
 		},
 
-        information:function (item) {
-            uni.request({
-                url: this.url +'home/news/details/' + item+'/',
-                method: 'PUT',
-                header:{
-                    Authorization: 'JWT' + ' ' + this.global_.token
-                },
-                success: res => {
-                    var ingym = res.data.data
-                    var link2 = ingym.link
-                    var read_volume = ingym.read_volume
-                    var text_content2 = ingym.text_content.replace(/=/g, '_');
-                    var add_time = ingym.add_time
-                    var title = ingym.title
-                   
-                    if(link2 == null){
-                        uni.navigateTo({
-                            url: '../banner2/banner2?volume=' + read_volume + '&cont='+ encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
-                        });
-                    }else {
+		information: function(item) {
+			uni.request({
+				url: this.url + 'home/news/details/' + item + '/',
+				method: 'PUT',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				success: res => {
+					var ingym = res.data.data;
+					var link2 = ingym.link;
+					var read_volume = ingym.read_volume;
+					var text_content2 = ingym.text_content.replace(/=/g, '_');
+					var add_time = ingym.add_time;
+					var title = ingym.title;
+
+					if (link2 == null) {
+						uni.navigateTo({
+							url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
+						});
+					} else {
 						uni.navigateTo({
 							url: `../web2/web2?url=${link2}`
 						});
@@ -386,8 +439,8 @@ export default {
 						price_all.push(certss);
 						that.price_all = price_all.sort();
 						var arrs = that.price_all.sort();
-						var mins = arrs[0];   //最小值
-						var maxs = arrs[arrs.length - 1];   //最大值
+						var mins = arrs[0]; //最小值
+						var maxs = arrs[arrs.length - 1]; //最大值
 					}
 					_self.hige = parseFloat(maxs) + 0.5;
 					_self.minn = parseFloat(mins) - 0.5;
@@ -406,8 +459,6 @@ export default {
 					var yest = incrace.toFixed(2);
 					var thi = (now_price / data3 - 1) * 100;
 					var t = thi.toFixed(2) + '%';
-
-					
 
 					that.Todayprice = now_price;
 					that.yesterday = t;
@@ -439,7 +490,7 @@ export default {
 					//数据列表
 					{
 						name: 'FIL价格', //数据名称
-						data: _self.price, //数据 
+						data: _self.price, //数据
 						color: '#58f4e3' //颜色,不传入则使用系统默认配色方案
 					}
 				],
@@ -470,8 +521,8 @@ export default {
 				width: _self.cWidth * _self.pixelRatio,
 				height: _self.cHeight * _self.pixelRatio,
 				extra: {
-					tooltip:{
-						gridColor:'#5d5d5d',//辅助线颜色
+					tooltip: {
+						gridColor: '#5d5d5d' //辅助线颜色
 					},
 					area: {
 						type: 'straight',
@@ -480,9 +531,9 @@ export default {
 						width: 1,
 						gradient: true
 					},
-                    toolTip:{
-                        gridColor:'#f4645f'
-                    }
+					toolTip: {
+						gridColor: '#f4645f'
+					}
 				}
 			});
 		},
@@ -518,58 +569,71 @@ export default {
 .qiun-charts {
 	width: 750upx;
 	height: 500upx;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 page {
-	background-color: #1c1c1c;
+	background-color:#121E2C;
 }
-.shade{
-	width:100%;
-	height:100%;
-	background: rgba(0,0,0,0.5);
+.shade {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
-	left:0;
+	left: 0;
 }
-.pop{
-	width:600rpx;
-	height:auto;
-	margin:200rpx auto;
-	background: #fff;
-	border-radius: 20rpx;
-	padding:20rpx;
-	box-sizing: border-box;
-}
-.close{
-	width:40rpx;
-	height:40rpx;
+.pop {
+	width: 632rpx;
+	height: 769rpx;
+	margin: 88rpx auto;
 	display: block;
-	float:right;
+	position: relative;
 }
-.desc1{
-	line-height: 80rpx;
+.desc1 {
+	width: 570rpx;
+	height: 150rpx;
+	position: absolute;
+	top: 504rpx;
+	left: 100rpx;
 	font-size: 24rpx;
-    width:100%;
 }
-uni-button:after{
-	border: none;
+.one{
+	width:100%;
+	height:50rpx;
+	overflow: hidden;
+	line-height: 50rpx;
 }
-button{
-	width:480rpx;
-	height:60rpx;
-	line-height: 60rpx;
-	border: none;
-	border-radius: 20rpx;
-	/* font-size: 24rpx; */
+.pops {
+	width: 570rpx;
+	height: 72rpx;
+	position: absolute;
+	top: 704rpx;
+	left: 100rpx;
+	display: flex;
+	justify-content: space-between;
 }
-.new{
+.pop-btn {
+	width: 260rpx;
+	height: 72rpx;
+	border-radius: 5rpx;
+	line-height: 72rpx;
+	font-size: 26rpx;
+	color: #666666;
+	background: #cacaca;
+	text-align: center;
+}
+.yess {
+	background: #41bec9;
+	color: #ffffff;
+}
+.tishi{
+	width:100%;
+	height:109rpx;
+	position: absolute;
+	top:805rpx;
+	text-align: center;
+	color:#FF3333;
 	font-size: 24rpx;
-	margin-bottom: 20rpx;
-}
-.now{
-	background: #C0C0C0;
-	color:#fff;
-	margin-top:20rpx;
 }
 .charts {
 	width: 750upx;
@@ -577,23 +641,26 @@ button{
 	background: linear-gradient(to bottom, #232323, #343434);
 	position: relative;
 }
-.fz {
-	line-height: 40rpx;
-}
+
 .bgc {
-	height: 40rpx;
-	line-height: 40rpx;
+	height: 81rpx;
+	line-height: 81rpx;
 	margin-right: 20rpx;
-	background-color: #333333;
-	font-size: 14rpx;
+	font-size: 22rpx;
 	margin-left: 20rpx;
-	border-radius: 8rpx;
+	color:#FFFFFF;
+}
+.clor {
+	margin-left: 20rpx;
+	font-size: 22rpx;
+	line-height: 81rpx;
 }
 .swiper {
-	width: 720rpx;
-	height: 270rpx;
+	width: 706rpx;
+	height: 300rpx;
 	margin: 20rpx auto;
-}
+	background: #09BB07;
+	}
 swiper-item image {
 	width: 100%;
 	height: 100%;
@@ -602,19 +669,111 @@ swiper-item image {
 	height: 60rpx;
 }
 .ttt {
-	width: 720rpx;
+	width: 706rpx;
 	height: 300rpx;
-	margin-top: 20rpx;
-	margin-left: 15rpx;
+	background: #0A98D5;
+	margin:24rpx auto;
+	margin-left: 22rpx;
 	border-radius: 8rpx;
 }
 .g {
-	width: 28rpx;
-	height: 28rpx;
+	width: 40rpx;
+	height: 40rpx;
 	float: left;
-	margin-left: 23rpx;
-	margin-top: 5rpx;
+	margin-left: 22rpx;
+	margin-top: 20rpx;
 }
+.hotPool{
+	margin-left:22rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	color:#FFFFFF;
+	line-height:80rpx;
+}
+.line{
+	width:100%;
+	height:16rpx;
+	background: #091926;
+}
+.pools{
+	width:100%;
+	height:438rpx;
+	padding-left:22rpx;
+	box-sizing: border-box;
+}
+.listItem{
+	width:342rpx;
+	height:388rpx;
+	background: #070E17;
+	margin-right:22rpx;
+	float: left;
+	position: relative;
+}
+.hots{
+	width: 68rpx;
+    height:60rpx;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.poolName{
+	text-align: center;
+	line-height: 67rpx;
+	color: #FFFFFF;
+}
+.datess{
+	width:100%;
+	height:321rpx;
+	background: #182A42;
+	padding:20rpx;
+	box-sizing: border-box;
+}
+.area{
+	width:136rpx;
+	height:120rpx;
+	margin-right:15rpx;
+	float: left;
+	position: relative;
+}
+.datess>.area:nth-child(odd):after{
+	content:'';
+	width:3rpx;
+	height:61rpx;
+	background: #091926;
+	position: absolute;
+	right:-10rpx;
+	top:20rpx;
+}
+.dayTrans{
+	text-align: center;
+	color:#FFFFFF;
+	font-size: 34rpx;
+	font-weight: bold;
+}
+.fil{
+	font-size: 20rpx;
+	font-weight: 200;
+}
+.txx{
+	text-align: center;
+	color: #8796AA;
+	font-size: 20rpx;
+}
+.buy{
+	clear: both;
+	width: 302rpx;
+	height:48rpx;
+	background: #41BEC9;
+	color:#FFFFFF;
+	text-align: center;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	border-radius: 5rpx;
+}
+
+
+
 .i {
 	width: 600rpx;
 	height: 40rpx;
@@ -630,13 +789,7 @@ swiper-item image {
 	font-size: 24rpx;
 	color: #ffffff;
 }
-.clor {
-	color: #f2f2f2;
-	float: left;
-	height: 90rpx;
-	margin-left: 20rpx;
-	font-size: 22rpx;
-}
+
 .bor {
 	width: 94%;
 	margin: 0 auto;
@@ -710,6 +863,7 @@ swiper-item image {
 .bt {
 	width: 100%;
 	height: 184rpx;
+	border-bottom: 1rpx solid #091926;
 }
 .left {
 	float: left;
@@ -717,8 +871,8 @@ swiper-item image {
 }
 .tex {
 	margin-left: 30rpx;
-	font-size: 26rpx;
-	color: #d7d7d7;
+	font-size: 24rpx;
+	color: #FFFFFF;
 	margin-top: 20rpx;
 	margin-left: 24rpx;
 	box-sizing: border-box;
@@ -740,7 +894,10 @@ swiper-item image {
 	margin-right: 20rpx;
 }
 .uni-swiper-msg {
-	margin-top: 20rpx;
+	width:100%;
+	height:81rpx;
+	margin-top: 24rpx;
+	background: #091926;
 }
 .desc {
 	padding: 5rpx 40rpx;
@@ -751,31 +908,26 @@ swiper-item image {
 .yu {
 	float: left;
 	font-size: 14rpx;
-	color: #5a5a5a;
+	color: #8796AA;
 	margin-top: 14rpx;
 }
 .bobx {
 	margin-top: 10rpx;
 }
 .yj {
-	width: 36rpx;
-	margin-top: 14rpx;
-	height: 26rpx;
+	width: 27rpx;
+	margin-top: 20rpx;
+	height: 15rpx;
 	float: left;
 	margin-left: 40rpx;
 }
 .yjj {
 	font-size: 14rpx;
 	float: left;
-	color: #5a5a5a;
+	color: #8796AA;
 	margin-top: 14rpx;
 	margin-left: 14rpx;
 }
-.b {
-	display: block;
-	width: 96%;
-	float: right;
-	border-bottom: 1rpx solid #333333;
-}
+
 /*  #endif */
 </style>

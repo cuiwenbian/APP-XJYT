@@ -40,8 +40,7 @@
 				shade:false
 			};
 		},	
-		onLoad() {
-		},
+		
 		methods:{
 			cancel:function(){
 				this.shade=false

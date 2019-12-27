@@ -7,7 +7,6 @@
 				"navigationStyle": "custom"
 			}
 		},
-       
 		{
 			"path": "pages/leader/guide",
 			"style": {
@@ -30,8 +29,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"titleNView": {
-					"titleText": "星际云通"
+				"style": {
+					"navigationStyle": "custom"
 				}
 			}
 		},
@@ -42,7 +41,7 @@
 			}
 		},
 		{
-			"path": "pages/mill/mill",
+			"path": "pages/pool/pool",
 
 			"style": {
 				"navigationStyle": "custom"
@@ -50,7 +49,23 @@
 
 		},
 		{
+			"path": "pages/mill/mill",
+		
+			"style": {
+				"navigationStyle": "custom"
+			}
+		
+		},
+		{
 			"path": "pages/assets/assets",
+		
+			"style": {
+				"navigationStyle": "custom"
+			}
+		
+		},
+		{
+			"path": "pages/order/order",
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -377,22 +392,22 @@
 		}
 	],
 	"tabBar": {
-		"color": "#8a8a8a",
-		"selectedColor": "#3cbfb1",
-		"backgroundColor": "#121212",
+		"color": "#FFFFFF",
+		"selectedColor": "#41BEC9",
+		"backgroundColor": "#182A42",
 		"list": [{
 			"pagePath": "pages/index/index",
 			"text": "首页",
 			"iconPath": "static/images/tab1.png",
 			"selectedIconPath": "static/images/tab-index.png"
 		}, {
-			"pagePath": "pages/mill/mill",
-			"text": "矿机",
+			"pagePath": "pages/pool/pool",
+			"text": "矿池",
 			"iconPath": "static/images/tab2.png",
 			"selectedIconPath": "static/images/tab-machine.png"
 		}, {
-			"pagePath": "pages/assets/assets",
-			"text": "资产",
+			"pagePath": "pages/order/order",
+			"text": "订单",
 			"iconPath": "static/images/tab3.png",
 			"selectedIconPath": "static/images/tab-captial.png"
 		}, {

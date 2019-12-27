@@ -1,6 +1,6 @@
 {
-  "titleNView": {
-    "titleText": "星际云通"
+  "style": {
+    "navigationStyle": "custom"
   },
   "usingComponents": {}
 }

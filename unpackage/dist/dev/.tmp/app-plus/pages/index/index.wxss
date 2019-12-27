@@ -514,6 +514,57 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2013,58 +2064,75 @@ radio-group label, checkbox-group label{
 .qiun-charts {
 	width: 750rpx;
 	height: 500rpx;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 page {
-	background-color: #1c1c1c;
+	background-color:#121E2C;
 }
-.shade{
-	width:100%;
-	height:100%;
-	background: rgba(0,0,0,0.5);
+.shade {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
-	left:0;
+	left: 0;
 }
-.pop{
-	width:600rpx;
-	height:auto;
-	margin:200rpx auto;
-	background: #fff;
-	border-radius: 20rpx;
-	padding:20rpx;
-	box-sizing: border-box;
-}
-.close{
-	width:40rpx;
-	height:40rpx;
+.pop {
+	width: 632rpx;
+	height: 769rpx;
+	margin: 88rpx auto;
 	display: block;
-	float:right;
+	position: relative;
 }
-.desc1{
-	line-height: 80rpx;
+.desc1 {
+	width: 570rpx;
+	height: 150rpx;
+	position: absolute;
+	top: 504rpx;
+	left: 100rpx;
 	font-size: 24rpx;
-    width:100%;
 }
-uni-button:after{
-	border: none;
+.one{
+	width:100%;
+	height:50rpx;
+	overflow: hidden;
+	line-height: 50rpx;
 }
-button{
-	width:480rpx;
-	height:60rpx;
-	line-height: 60rpx;
-	border: none;
-	border-radius: 20rpx;
-	/* font-size: 24rpx; */
+.pops {
+	width: 570rpx;
+	height: 72rpx;
+	position: absolute;
+	top: 704rpx;
+	left: 100rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
 }
-.new{
+.pop-btn {
+	width: 260rpx;
+	height: 72rpx;
+	border-radius: 5rpx;
+	line-height: 72rpx;
+	font-size: 26rpx;
+	color: #666666;
+	background: #cacaca;
+	text-align: center;
+}
+.yess {
+	background: #41bec9;
+	color: #ffffff;
+}
+.tishi{
+	width:100%;
+	height:109rpx;
+	position: absolute;
+	top:805rpx;
+	text-align: center;
+	color:#FF3333;
 	font-size: 24rpx;
-	margin-bottom: 20rpx;
-}
-.now{
-	background: #C0C0C0;
-	color:#fff;
-	margin-top:20rpx;
 }
 .charts {
 	width: 750rpx;
@@ -2073,22 +2141,24 @@ button{
 	background: linear-gradient(to bottom, #232323, #343434);
 	position: relative;
 }
-.fz {
-	line-height: 40rpx;
-}
 .bgc {
-	height: 40rpx;
-	line-height: 40rpx;
+	height: 81rpx;
+	line-height: 81rpx;
 	margin-right: 20rpx;
-	background-color: #333333;
-	font-size: 14rpx;
+	font-size: 22rpx;
 	margin-left: 20rpx;
-	border-radius: 8rpx;
+	color:#FFFFFF;
+}
+.clor {
+	margin-left: 20rpx;
+	font-size: 22rpx;
+	line-height: 81rpx;
 }
 .swiper {
-	width: 720rpx;
-	height: 270rpx;
+	width: 706rpx;
+	height: 300rpx;
 	margin: 20rpx auto;
+	background: #09BB07;
 }
 swiper-item image {
 	width: 100%;
@@ -2098,18 +2168,107 @@ swiper-item image {
 	height: 60rpx;
 }
 .ttt {
-	width: 720rpx;
+	width: 706rpx;
 	height: 300rpx;
-	margin-top: 20rpx;
-	margin-left: 15rpx;
+	background: #0A98D5;
+	margin:24rpx auto;
+	margin-left: 22rpx;
 	border-radius: 8rpx;
 }
 .g {
-	width: 28rpx;
-	height: 28rpx;
+	width: 40rpx;
+	height: 40rpx;
 	float: left;
-	margin-left: 23rpx;
-	margin-top: 5rpx;
+	margin-left: 22rpx;
+	margin-top: 20rpx;
+}
+.hotPool{
+	margin-left:22rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	color:#FFFFFF;
+	line-height:80rpx;
+}
+.line{
+	width:100%;
+	height:16rpx;
+	background: #091926;
+}
+.pools{
+	width:100%;
+	height:438rpx;
+	padding-left:22rpx;
+	box-sizing: border-box;
+}
+.listItem{
+	width:342rpx;
+	height:388rpx;
+	background: #070E17;
+	margin-right:22rpx;
+	float: left;
+	position: relative;
+}
+.hots{
+	width: 68rpx;
+    height:60rpx;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.poolName{
+	text-align: center;
+	line-height: 67rpx;
+	color: #FFFFFF;
+}
+.datess{
+	width:100%;
+	height:321rpx;
+	background: #182A42;
+	padding:20rpx;
+	box-sizing: border-box;
+}
+.area{
+	width:136rpx;
+	height:120rpx;
+	margin-right:15rpx;
+	float: left;
+	position: relative;
+}
+.datess>.area:nth-child(odd):after{
+	content:'';
+	width:3rpx;
+	height:61rpx;
+	background: #091926;
+	position: absolute;
+	right:-10rpx;
+	top:20rpx;
+}
+.dayTrans{
+	text-align: center;
+	color:#FFFFFF;
+	font-size: 34rpx;
+	font-weight: bold;
+}
+.fil{
+	font-size: 20rpx;
+	font-weight: 200;
+}
+.txx{
+	text-align: center;
+	color: #8796AA;
+	font-size: 20rpx;
+}
+.buy{
+	clear: both;
+	width: 302rpx;
+	height:48rpx;
+	background: #41BEC9;
+	color:#FFFFFF;
+	text-align: center;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	border-radius: 5rpx;
 }
 .i {
 	width: 600rpx;
@@ -2125,13 +2284,6 @@ swiper-item image {
 	margin-left: 90rpx;
 	font-size: 24rpx;
 	color: #ffffff;
-}
-.clor {
-	color: #f2f2f2;
-	float: left;
-	height: 90rpx;
-	margin-left: 20rpx;
-	font-size: 22rpx;
 }
 .bor {
 	width: 94%;
@@ -2205,6 +2357,7 @@ swiper-item image {
 .bt {
 	width: 100%;
 	height: 184rpx;
+	border-bottom: 1rpx solid #091926;
 }
 .left {
 	float: left;
@@ -2212,8 +2365,8 @@ swiper-item image {
 }
 .tex {
 	margin-left: 30rpx;
-	font-size: 26rpx;
-	color: #d7d7d7;
+	font-size: 24rpx;
+	color: #FFFFFF;
 	margin-top: 20rpx;
 	margin-left: 24rpx;
 	box-sizing: border-box;
@@ -2235,7 +2388,10 @@ swiper-item image {
 	margin-right: 20rpx;
 }
 .uni-swiper-msg {
-	margin-top: 20rpx;
+	width:100%;
+	height:81rpx;
+	margin-top: 24rpx;
+	background: #091926;
 }
 .desc {
 	padding: 5rpx 40rpx;
@@ -2246,31 +2402,25 @@ swiper-item image {
 .yu {
 	float: left;
 	font-size: 14rpx;
-	color: #5a5a5a;
+	color: #8796AA;
 	margin-top: 14rpx;
 }
 .bobx {
 	margin-top: 10rpx;
 }
 .yj {
-	width: 36rpx;
-	margin-top: 14rpx;
-	height: 26rpx;
+	width: 27rpx;
+	margin-top: 20rpx;
+	height: 15rpx;
 	float: left;
 	margin-left: 40rpx;
 }
 .yjj {
 	font-size: 14rpx;
 	float: left;
-	color: #5a5a5a;
+	color: #8796AA;
 	margin-top: 14rpx;
 	margin-left: 14rpx;
-}
-.b {
-	display: block;
-	width: 96%;
-	float: right;
-	border-bottom: 1rpx solid #333333;
 }
 
 
