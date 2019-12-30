@@ -403,25 +403,24 @@
 	}
 
 	.placeholder {
-		color: #000000;
+		color: #FFFFFF;
         width: 18%;
         height: 48rpx;
         line-height: 48rpx;
         text-align: center;
         border-radius: 60rpx;
-        border: 2rpx solid #E2E2E2;
-        background-color: #FFFFFF;
+        background-color: #182A42;
 		font-size: 24rpx;
 	}
     .uni-input{
-        color: #000000;
+        color: #FFFFFF;
         width: 18%;
         height: 48rpx;
         line-height: 48rpx;
         text-align: center;
         border-radius: 60rpx;
-        border: 2rpx solid #E2E2E2;
-        background-color: #FFFFFF;
+        // border: 2rpx solid #E2E2E2;
+        background-color: #182A42;
         font-size: 24rpx;
     }
 	.fa-angle-right {

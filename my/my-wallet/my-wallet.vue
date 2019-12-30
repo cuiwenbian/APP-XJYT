@@ -1,97 +1,148 @@
 <template>
-	<!-- 我的钱包 -->
+	<!-- 资产 -->
 	<view class="container">
-		<image class="bg" src="../../static/images/banners.png" mode="">
-			<view class="bgTop">
-				<view class="line"></view>
-				<view class="txt">Filecoin</view>
-				<view class="mess">
-					<view class="num"><text class="number">{{num}}&nbsp;</text>&nbsp;个</view>
-					<view class="trade" @click="transfer">转账</view>
-				</view>
+		<view class="banner">
+			<view class="all">
+				总资产
 			</view>
-		</image>
-		<view class="income">
-			收支记录
-		</view>
-		<view>
-			<text class="all1">Filecoin:{{month_profit}}</text>
-			<div class="item">
-				<dyDatePicker timeType="month" :value="date" @getData="DateChang" :placeholder="date" ></dyDatePicker>
-			</div>
-			<view v-if="flag">
-				<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-				<view class="info">暂无记录</view>
-			</view>
-			<view v-else class="boxx">
-				<view class="list-one" v-for="(item , index) in profit_records" :key="index">
-					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-					<view class='list-txt'>
-						<view class='list-info'>收款</view>
-						<view class='list-time'>{{item.add_time}}</view>
-					</view>
-					<view class='list-income'>+{{item.num}}</view>
-					<view class='l'></view>
-				</view>
-				<view class="list-one" v-for="(item , index) in bill_records" :key="index">
-					<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
-					<view class='list-txt'>
-						<view class='list-info'>收款</view>
-						<view class='list-time'>{{item.add_time}}</view>
-					</view>
-					<view class='list-income'>-{{item.num}}</view>
-					<view class='l'></view>
-				</view>       	
+			<view class='assets'>0.000000</view>
+			<view class="coins">
+				<view class='availed_num'>可用币：54.47854</view>
+				<view class='lock_num'>可用币：0.00</view>
+				<button type="primary" class="transer">转账</button>
 			</view>
 		</view>
+		<!-- <image class="banner" src="../../static/images/wallet-banner.png" mode="">
+			
+		</image> -->
+		<view class='mill'> 
+			<view class="machine">
+				<view>0</view>
+				<view>矿机收益</view>
+			</view>
+			<view class="machine">
+				<view>0</view>
+				<view>存力收益</view>
+			</view>
+		</view>
+		<view class='line'></view>
+		<view class="haide">
+			<view class="navbar">
+				<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
+			</view>
+			<view class="list" v-if="tabCurrentIndex === 0">
+				<view>
+					<text class="all1">FIL:{{month_profit}}</text>
+					<div class="item">
+                        <dyDatePicker  :value="date"   timeType="month" @getData="DateChange" :placeholder="date"></dyDatePicker>
+					</div>
+					<view v-if="flag">
+						<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+						<view class="info">没有记录～</view>
+					</view>
+					<view v-else class="boxx">
+						<view class="list-one" v-for="(item , index) in ention" :key="index">
+							<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+							<view class='list-txt'>
+								<view class='list-info'>收款</view>
+								<view class='list-time'>{{item.add_time}}</view>
+							</view>
+							<view class='list-income'>+{{item.num}}</view>
+                            <view class="l"></view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="list" v-if="tabCurrentIndex === 1">
+				<scroll-view scroll-y='true'>
+					<view>
+						<text class="all1">FIL:{{profit}}</text>
+						<div class="item">
+							<dyDatePicker timeType="month" :value="date1" @getData="DateChang" :placeholder="date1" ></dyDatePicker>
+						</div>
+						<view v-if="flag">
+							<image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+							<view class="info">没有记录～</view>
+						</view>
+						<view v-else class="boxx">	
+							<view class="list-one" v-for="(item , index) in entin" :key="index">
+								<image class='list-icon' src="../../static/images/FIL.png" mode=""></image>
+								<view class='list-txt'>
+									<view class='list-info'>支出</view>
+									<view class='list-time'>{{item.add_time}}</view>
+								</view>
+								<view class='list-income'>-{{item.num}}</view>
+                                <view class="l"></view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>                 
+		</view>
+	</view>
 	</view>
 </template>
 
 <script>
-	 import dyDatePicker from '../../common/dy-Date.vue'
-	export default{
-		data(){
-			return{
-				flag:false,
-				date:'本月',
-				num:'0',
-				ber:'',
-				nuber:'',
-				fee:'',
-				entin:'',
-				teran: '',
-				month_profit:'0',
-				profit_records:[],
-				month_bill:'',
-				bill_records:[],
-				length:'',
-				length1:''
+    import dyDatePicker from '../../common/dy-Date.vue'
+	export default {
+		data() {
+			return {
+				num: '0.0000',
+				ber: '0.0000',
+				
+				nuber: '0.0000',
+				fee: '',
+				month_profit: '0',
+				numm: '',
+				tabCurrentIndex: 0,
+				add_item: '',
+				profit:'0',
+				entin: '',
+				flag: false,
+				ention: '',
+				//控制下拉列表的显示隐藏，false隐藏、true显示
+				index: 0,
+				//选择的下拉列表下标
+				navList: [{
+						state: 0,
+						text: '收入'
+					},
+					{
+						state: 1,
+						text: '支出'
+					}
+				],
+				date: '本月',
+				date1: '本月',
+				teran: ''
 			}
 		},
-		components: {
-			dyDatePicker
-		},
-		onShow:function () {
-		    var that = this
-		    var data = new Date()
-		    var text = data.getFullYear('-')
-		    var txt = data.getMonth()+1
-		    var teran = text + '-' + txt
-		    that.teran = teran
-		    uni.request({
-		        url:this.url + "assets/",
-		        method:'GET',
-		        header:{
-		            Authorization:'JWT'+' '+this.global_.token
-		        },
-		        success(res) {
-		            that.num = res.data.availed_num
-		            that.ber = res.data.fil_count
-		            that.nuber = res.data.locked_num
-					that.fee=res.data.fee
-		        }
-		    })
-		   uni.request({
+        components: {
+        	dyDatePicker
+        },
+		onShow: function(opetions) {
+            var that = this
+			var data = new Date()
+			var text = data.getFullYear('-')
+			var txt = data.getMonth()+1
+			var teran = text + '-' + txt
+			that.teran = teran
+			uni.request({
+				url: this.url + "assets/",
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				success(res) {
+					that.num = res.data.fil_count
+					that.ber = res.data.availed_num
+					that.nuber = res.data.locked_num
+					that.fee = res.data.fee
+				}
+			})
+            // 这是收入记录请求API
+			uni.request({
 				url: this.url + 'assets/month/profit/',
 				method: 'GET',
 				header: {
@@ -101,34 +152,119 @@
 					month: teran
 				},
 				success(res) {
-					that.month_profit = res.data.data.month_profit
-					that.profit_records = res.data.data.profit_records
-					that.length=res.data.data.profit_records.length
-				}
-		   })
-		   uni.request({
-				url: this.url + 'assets/month/bill/',
-				method: 'GET',
-				header: {
-					Authorization: 'JWT' + ' ' + this.global_.token
-				},
-				data: {
-					month: teran
-				},
-				success(res) {
-					that.month_bill = res.data.data.month_bill
-					that.bill_records = res.data.data.bill_records
-					that.length1=res.data.data.bill_records.length	
-					if(that.length==0 && that.length1==0){
+					console.log(res)
+					var seront = res.data.data
+					var ention = res.data.data.profit_records
+					that.ention = ention
+					if(ention.length==0){
 						that.flag=true
 					}else{
 						that.flag=false
 					}
+					that.month_profit = seront.month_profit
 				}
-		   })
+			})
 		},
 		methods: {
-			DateChang(e) {
+			tabClick: function(index) {
+				var that = this
+                var data = new Date()
+                var text = data.getFullYear('-')
+                var txt = data.getMonth()+1
+                var teran = text + '-' + txt
+                that.teran = teran
+				if (this.tabCurrentIndex === index) {
+					return false
+				} else {
+					that.tabCurrentIndex = index
+				}if(this.tabCurrentIndex === 0){
+					that.date="本月";
+                    uni.request({
+                    	url: this.url + 'assets/month/profit/',
+                    	method: 'GET',
+                    	header: {
+                    		Authorization: 'JWT' + ' ' + this.global_.token
+                    	},
+                    	data: {
+                    		month: teran
+                    	},
+                    	success(res) {
+                    		var seront = res.data.data
+                    		var ention = res.data.data.profit_records
+                    		that.ention = ention
+                    		console.log(ention)
+							if(ention.length==0){
+								that.flag=true
+							}else{
+								that.flag=false
+							}
+                    		that.month_profit = seront.month_profit
+                    	}
+                    })
+                }
+                if(this.tabCurrentIndex === 1){
+				    that.date1="本月";
+                    uni.request({
+                    	url: this.url + 'assets/month/bill/',
+                    	method: 'GET',
+                    	header: {
+                    		Authorization: 'JWT' + ' ' + this.global_.token
+                    	},
+                    	data: {
+                    		month: teran
+                    	},
+                    	success(res) {
+                    		var seron = res.data.data
+                    		var entin = res.data.data.bill_records
+                    		that.entin = entin
+							if(entin.length==0){
+								that.flag=true
+							}else{
+								that.flag=false
+							}
+                    		that.profit = seron.month_bill
+                    	}
+                    })
+                }
+			},
+			bindChange(e) {
+				const val = e.detail.value
+				this.year = this.years[val[0]]
+				this.month = this.months[val[1]]
+				this.day = this.days[val[2]]
+			},
+			btn() {
+				uni.navigateTo({
+					url: '../../my/transfer/transfer?bar=' + this.ber + '&fee=' + this.fee,
+				})
+			},
+			btnCoin(){
+				uni.showToast({
+					title:'此功能暂未开放',
+					duration:2000,
+					icon:'none'
+				})
+			},
+			optionTap(e) {
+				var that = this;
+				let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+				var time = this.selectData[Index];
+				this.index = Index,
+					this.selectShow = !this.selectShow
+				uni.request({
+					url: this.url + 'month/profit/',
+					method: 'GET',
+					data: {
+						month: that.selectData[that.index]
+					},
+					header: {
+						Authorization: 'JWT' + ' ' + this.global_.token
+					},
+					success(res) {
+					}
+				})
+			},
+			DateChange(e) {
 				var that = this
 				that.date = e
 				uni.request({
@@ -141,16 +277,21 @@
 						month: e
 					},
 					success(res) {
-						that.month_profit = res.data.data.month_profit
-						that.profit_records = res.data.data.profit_records
-						that.length=res.data.data.profit_records.length
-						if(that.length==0 && that.length1==0){
+						var seront = res.data.data
+						var ention = res.data.data.profit_records
+						that.ention = ention
+						if(ention.length == 0){
 							that.flag=true
 						}else{
 							that.flag=false
 						}
-					}			
+						that.month_profit = seront.month_profit
+					}
 				})
+			},
+			DateChang(e) {
+				var that = this
+				this.date1 = e
 				uni.request({
 					url: this.url + 'assets/month/bill/',
 					method: 'GET',
@@ -161,165 +302,198 @@
 						month: e
 					},
 					success(res) {
-						that.month_bill = res.data.data.month_bill
-						that.bill_records = res.data.data.bill_records
-						that.length1=res.data.data.bill_records.length	
-						if(that.length==0 && that.length1==0){
+						var seron = res.data.data
+						var entin = res.data.data.bill_records
+						that.entin = entin
+						if(entin.length == 0){
 							that.flag=true
 						}else{
 							that.flag=false
 						}
-					}			
+						that.profit = seron.month_bill
+					}
 				})
 			},
-		    transfer:function(){
-				uni.navigateTo({
-					url:'../transfer/transfer?bar='+ this.num+'&fee='+this.fee
-				})
-			}
+			
 		}
 	}
 </script>
 
 <style>
 	page{
-		background:#EDEEEE;
+		background:#121E2C;
 	}
-	.bg{
-		width:100%;
-		height:300rpx;
+	.banner{
+		width:706rpx;
+		height:296rpx;
 		display: block;
+		margin:35rpx auto;
+		background-image: url('../../static/images/wallet-banner.png');
+		background-size: 706rpx 296rpx;
 		position: relative;
+		padding-top:69rpx;
+		padding-left:60rpx;
+		box-sizing: border-box;
 	}
-	.bgTop{
+	.all{
+		font-size: 30rpx;
+		color:#FFFFFF;
+	}
+	.assets{
+		font-size: 42rpx;
+		color:#FFFFFF;
+		margin-top:19rpx;
+	}
+	.coins{
 		width:100%;
-		height:300rpx;
-		z-index:99;
-		position: absolute;
-		top:0;
-		left:0;
+		height:46rpx;
+		margin-top:35rpx;
+	}
+	.availed_num{
+		float: left;
+		font-size: 24rpx;
+		color:#FFFFFF;
+		margin-right:20rpx;
+	}
+	.lock_num{
+		float: left;
+		font-size: 24rpx;
+		color:#FFFFFF;
+	}
+	.transer{
+		float:right;
+		width:110rpx;
+		height:46rpx;
+		color:#FFFFFF;
+		text-align: center;
+		font-size: 22rpx;
+		line-height: 46rpx;
+		background: #41BEC9;
+		margin-top:-20rpx;
+		margin-right: 38rpx;
+	}
+	.mill{
+		width:100%;
+		height:165rpx;
+	}
+	.machine{
+		width:50%;
+		height:100%;
+		float: left;
+		text-align: center;
 	}
 	.line{
-		height:100rpx;
-	}
-	.txt{
-		line-height: 50rpx;
-		margin-left:56rpx;
-		color:#333333;
-	}
-	.mess{
-		width:654rpx;
-		height:70rpx;
-		margin:0 auto;
-	}
-	.num{
-		float: left;
-		font-size:30rpx;
-		color:#333333;
-		line-height:70rpx;
-	}
-	.number{
-		font-size:50rpx;
-		color:#DFAF72;
-		font-weight:bold;
-	}
-	.trade{
-		float: right;
-		width:130rpx;
-		height:60rpx;
-		border-radius: 10rpx;
-		background: #121212;
-		color:#fff;
-		text-align: center;
-		line-height: 60rpx;
-		font-size: 30rpx;
-	}
-	.income{
 		width:100%;
-		height:80rpx;
-		padding-left: 48rpx;
-		box-sizing: border-box;
-		line-height: 80rpx;
-		background: #FFFFFF;
-		color:#F0AD4E;
-		font-size: 30rpx;
-		position: relative;
+		height:20rpx;
+		background: #091926;
 	}
-	.income::after{
-		content: '';
-		width:140rpx;
-		height:4rpx;
-		background: #F0AD4E;
-		position: absolute;
-		top:78rpx;
-		left:40rpx;
-	}
-	.transfer{
-		width:130rpx;
-		height:130rpx;
-		display: block;
-		margin: 150rpx auto 20rpx;
-	}
-	.info{
-		text-align: center;
-		font-size: 32rpx;
-	}
-	.item {
-		height: 80rpx;
-	    font-size: 22rpx;
-		background-color: #EDEDED;
-	    padding-top: 20rpx;
-	    padding-left: 45rpx;
+.item {
+		height: 70rpx;
+        font-size: 22rpx;
+        padding-top: 20rpx;
+        padding-left: 45rpx;
 		text-align: left;
-		position: relative;
+	}
+	.picker {
+		width: 30%;
+		text-align: center;
+		margin-top: 40rpx;
+		margin-left: 40rpx;
+		font-size: 30rpx;
+		border: 2rpx solid #CCCCCC;
+		border-radius: 25rpx;
+	}
+
+	.haide {
+		width: 100%;
+		height: 60rpx;
+		background-color: #EDEDED;
+	}
+	.transfer {
+		width: 234rpx;
+		height: 147rpx;
+		display: block;
+		margin: 152rpx auto 35rpx;
+	}
+	.info {
+		text-align: center;
+        color:#8796AA;
+		font-size: 26rpx;
 	}
 	.all1 {
-	  float: right;
-	  font-size: 30rpx;
-	  color: #333;
-	  line-height: 90rpx;
-	  margin-right:48rpx;
+		float: right;
+		font-size: 24rpx;
+		color: #FFFFFF;
+        margin-top: 20rpx;
+		margin-right: 48rpx;
 	}
-	.list-one{
-		width:100%;
-		height:116rpx;
-		background: #fff;
+	.list {
+		height: 100;
+	}
+	.list-one {
+		width: 100%;
+		height: 116rpx;
+		background:#121E2C;
 		padding-left: 50rpx;
 		box-sizing: border-box;
-		position: relative;
+        position: relative;
 	}
-	.l{
-		width:90%;
-		height:1rpx;
-		background: rgba(0,0,0,0.1);
-		position: absolute;
-		right:0;
-		bottom:0;
-	}
-	.list-icon{
+	.list-icon {
 		float: left;
-		width:70rpx;
-		height:70rpx;
+		width: 70rpx;
+		height: 70rpx;
 		display: block;
-		margin-top:15rpx;
+		margin-top: 15rpx;
 	}
-	.list-txt{
+	.list-txt {
 		float: left;
-		margin-left:20rpx;
-		color:#121212;
+		margin-left: 20rpx;
+		color: #FFFFFF;
 		line-height: 50rpx;
 	}
-	.list-info{
+	.list-info {
+		font-size: 26rpx;
+	}
+	.list-time {
+		font-size: 30rpx;
+		color:#8796AA;
+	}
+	.list-income {
+		float: right;
+		margin-right: 48rpx;
+		line-height: 100rpx;
+		color: #FFFFFF;
 		font-size: 30rpx;
 	}
-	.list-time{
-	    font-size: 30rpx;	
+	.navbar {
+		display: flex;
+		height: 98rpx;
+		
+		background: #121E2C;
+		position: relative;
+		z-index: 10;
 	}
-	.list-income{
-		float:right;
-		margin-right:48rpx;
-		line-height: 100rpx;
-		color:#41BEC9;
-		font-size: 34rpx;
+	.nav-item {
+		float:left;
+		width:20%;
+		height: 100%;
+		font-size: 26rpx;
+		color: #FFFFFF;
+		position: relative;
+		text-align: center;
+		line-height: 98rpx;
 	}
+	.current {
+		color: #41bec9;
+	}
+	.current:after {
+		content: '';
+		width: 66rpx;
+		height: 1rpx;
+		background: #41bec9;
+		position: absolute;
+		top: 80rpx;
+		left: 40rpx;
+	}
+    
 </style>

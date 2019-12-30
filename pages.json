@@ -44,14 +44,25 @@
 			"path": "pages/pool/pool",
 
 			"style": {
-				"navigationBarTitleText": "我的矿池"
+				"navigationBarTitleText": "我的矿池",
+				"navigationBarBackgroundColor":"#182A42"
 			}
 
 		},
 		{
+			"path": "pages/poolDetails/poolDetails",
+		
+			"style": {
+				"navigationBarTitleText": "韭菜矿池",
+				"navigationBarBackgroundColor":"#182A42"
+			}
+		
+		},
+		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "我的订单"
+				"navigationBarTitleText": "我的订单",
+				"navigationBarBackgroundColor":"#182A42"
 			}
 		},
 		{

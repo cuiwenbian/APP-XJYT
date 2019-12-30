@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<view class='height'></view>
 		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
 			<swiper-item v-for="(item, index) in baner" :key="index"><image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image></swiper-item>
 		</swiper>
@@ -15,10 +16,10 @@
 			热销矿池
 		</view>
 		<view class="pools">
-			<view class="listItem">
+			<view  class="listItem" >
 				<image class="hots" src="../../static/images/hot.png" mode=""></image>
 				<view class="poolName">
-					矿池名称
+				  矿池名称
 				</view>
 				<view class="datess">
 					<view class='area'>
@@ -42,33 +43,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="listItem">
-				<image class="hots" src="../../static/images/hots.png" mode=""></image>
-				<view class="poolName">
-					矿池名称
-				</view>
-				<view class="datess">
-					<view class='area'>
-						<view class="dayTrans">0.000<text class="fil">FIL</text></view>
-						<view class="txx">日理论收益</view>
-					</view>
-					<view class='area'>
-						<view class="dayTrans">0<text class="fil">T</text></view>
-						<view class="txx">存储能力</view>
-					</view>
-					<view class='area'>
-						<view class="dayTrans">4800<text class="fil">T</text></view>
-						<view class="txx">矿池总空间</view>
-					</view>
-					<view class='area'>
-						<view class="dayTrans">400<text class="fil">T</text></view>
-						<view class="txx">可出售空间</view>
-					</view>
-					<view class="buy">
-						立即购买
-					</view>
-				</view>
-			</view>
+			
 		</view>
 		<view class="line"></view>
 		<view class="hotPool">
@@ -129,6 +104,7 @@
 </template>
 
 <script>
+// import 'swiper/dist/css/swiper.min.css';
 import uCharts from '../../common/u-charts.js';
 var _self;
 var canvaArea = null;
@@ -659,7 +635,6 @@ page {
 	width: 706rpx;
 	height: 300rpx;
 	margin: 20rpx auto;
-	background: #09BB07;
 	}
 swiper-item image {
 	width: 100%;
@@ -671,7 +646,6 @@ swiper-item image {
 .ttt {
 	width: 706rpx;
 	height: 300rpx;
-	background: #0A98D5;
 	margin:24rpx auto;
 	margin-left: 22rpx;
 	border-radius: 8rpx;

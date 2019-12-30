@@ -1,0 +1,252 @@
+
+page {
+	background: #121e2c;
+}
+.banner {
+	width: 704rpx;
+	height: 162rpx;
+	display: block;
+	margin: 43rpx auto 0;
+	position: relative;
+}
+.desc {
+	position: absolute;
+	top: 43rpx;
+	left: 0;
+	padding:25rpx 35rpx;
+}
+.name {
+	text-align: center;
+	color:#FFFFFF;
+	font-size: 30rpx;
+}
+.progress-box{
+	width:642rpx;
+	height:9rpx;
+	display: block;
+	margin:20rpx;
+}
+.sale{
+	color:#8796AA;
+	font-size: 20rpx;
+	text-align: center;
+}
+.info{
+	width:704rpx;
+	height:auto;
+	margin:0 auto;
+	background: #182A42;
+	padding:32rpx 0;
+}
+.opts{
+	width:100%;
+	height:312rpx;
+}
+.every{
+	float: left;
+	width:50%;
+	height:50%;
+	padding-top:30rpx;
+	box-sizing: border-box;
+}
+.date{
+	font-size: 42rpx;
+	color:#FFFFFF;
+	text-align: center;
+}
+.mark{
+	font-size: 22rpx;
+	color:#8796AA;
+	text-align: center;
+	line-height: 40rpx;
+}
+.line{
+	width:100%;
+	height: 1rpx;
+	background: #091926;
+}
+.item{
+	padding:30rpx;
+	box-sizing: border-box;
+}
+.listItem{
+	width:100%;
+	height:100rpx;
+}
+.time{
+	float: left;
+	font-size: 24rpx;
+	color:#FFFFFF;
+	line-height: 100rpx;
+}
+.mets{
+	float: left;
+	width:130rpx;
+	height:48rpx;
+	border: 1px solid #637489;
+	border-radius: 24rpx;
+	color:#FFFFFF;
+	font-size: 22rpx;
+	text-align: center;
+	line-height: 48rpx;
+	margin-top:25rpx;
+	margin-right:20rpx;
+}
+.metss{
+	float: left;
+	width:130rpx;
+	height:48rpx;
+	background: #41BEC9;
+	border-radius: 24rpx;
+	color:#FFFFFF;
+	font-size: 22rpx;
+	text-align: center;
+	line-height: 48rpx;
+	margin-top:25rpx;
+	margin-right:20rpx;
+}
+.months{
+	
+	width:276rpx;
+	height:53rpx;
+	border: 1rpx solid #41BEC9;
+	border-radius: 26.5rpx;
+	margin-top:23rpx;
+	margin-left:120rpx;
+}
+.years{
+	float: left;
+	width:84rpx;
+	height:46rpx;
+	border: 1rpx solid #637489;
+	border-radius: 26.5rpx;
+	margin-top:23rpx;
+	color:#8796AA;
+	font-size: 22rpx;
+	margin-right: 12rpx;
+	text-align: center;
+	line-height: 46rpx;
+}
+.btn{
+	text-align: center;
+	float: left;
+	width:60rpx;
+	line-height: 53rpx;
+	color:#41BEC9;
+	font-size: 30rpx;
+}
+.choosemonth{
+	width: 156rpx;
+	height:60rpx;
+	float:left;
+	font-size: 22rpx;
+	color:#FFFFFF;
+	text-align: center;
+}
+.nums{
+	float:left;
+	width:276rpx;
+	height:60rpx;
+	background: #637489;
+	border-radius: 5rpx;
+	margin-top:23rpx;
+}
+.red{
+	text-align: center;
+	float: left;
+	width:60rpx;
+	line-height: 60rpx;
+	color: #333333;
+	font-size: 30rpx;
+}
+.maney{
+	width: 156rpx;
+	height:60rpx;
+	float:left;
+	font-size: 22rpx;
+	color:#FEFEFE;
+	text-align: center;
+}
+.add{
+	text-align: center;
+	float: left;
+	width:50rpx;
+	line-height: 60rpx;
+}
+.man{
+	color:#FF2B2B;
+	font-size: 36rpx;
+	line-height: 100rpx;
+}
+.pay{
+	width:30rpx;
+	height:30rpx;
+	display: block;
+	float: left;
+	margin-top:35rpx;
+	margin-right: 20rpx;
+}
+.coin{
+	width:33.5rpx;
+	height:33rpx;
+	display: block;
+}
+.buy{
+	width:630rpx;
+	height:76rpx;
+	
+	font-size: 28rpx;
+	color:#FFFFFF;
+}
+uni-button:after{
+	background: #41BEC9;
+	margin:0 auto;
+}
+.navbar {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	height: 80rpx;
+	color: #ffffff;
+	position: relative;
+	z-index: 10;
+}
+.nav-item {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	height: 100%;
+	font-size: 26rpx;
+	color: #FFFFFF;
+	position: relative;
+}
+.current {
+	color: #41bec9;
+}
+.current:after {
+	content: '';
+	width: 66rpx;
+	height: 1rpx;
+	background: #41bec9;
+	position: absolute;
+	top: 80rpx;
+	left: 90rpx;
+}
+.list{
+	padding:49rpx 21rpx;
+}
+.intro{
+	line-height: 40rpx;
+	color:#FFFFFF;
+	font-size: 24rpx;
+}
+

@@ -7,6 +7,7 @@
     "pages/index/index",
     "pages/my/my",
     "pages/pool/pool",
+    "pages/poolDetails/poolDetails",
     "pages/order/order",
     "pages/mill/mill",
     "pages/assets/assets",

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import Global from './components/global.vue' //引用文件
 Vue.config.productionTip = false;
+import Swiper from 'swiper';
 Vue.prototype.global_=Global;   //挂载到vue实例上面
 
 //Vue.prototype.url='http://192.168.1.208:8000/api/v1.1.0/'
