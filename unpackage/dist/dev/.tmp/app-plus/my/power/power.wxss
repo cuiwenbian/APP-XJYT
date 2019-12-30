@@ -1,0 +1,61 @@
+
+page{
+    background-color: #0F1E2D;
+}
+.img{
+    width: 100%;
+    height: 326rpx;
+}
+.power{
+    text-align: center;
+    font-size: 34rpx;
+    color: #FFFFFF;
+}
+.power2{
+    font-size: 42rpx;
+    color: #FFFFFF;
+}
+.power3{
+    position: absolute;
+    top: 240rpx;
+    left: 140rpx;
+    font-size: 24rpx;
+    color: #FFFFFF;
+}
+.x{
+    position: absolute;
+    top: 190rpx;
+    left: 360rpx;
+    width: 3rpx;
+    height: 90rpx;
+    background:rgba(151,162,231,1);
+}
+.usage{
+    position: absolute;
+    top: 180rpx;
+    right: 158rpx;
+    font-size: 42rpx;
+    color: #FFFFFF;
+}
+.usage2{
+    position: absolute;
+    top: 240rpx;
+    right: 166rpx;
+    font-size: 24rpx;
+    color: #FFFFFF;
+}
+.border{
+     height: 30rpx;
+     width: 100%;
+     padding-top: -1rpx;
+     background-color: #12122c;
+}
+.pay{
+     
+     height: 85rpx;
+     line-height: 85rpx;
+     padding-left: 48rpx;
+     font-size: 26rpx;
+     color: #FFFFFF;
+}
+

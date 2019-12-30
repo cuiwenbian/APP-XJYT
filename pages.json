@@ -7,7 +7,6 @@
 				"navigationStyle": "custom"
 			}
 		},
-       
 		{
 			"path": "pages/leader/guide",
 			"style": {
@@ -30,8 +29,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"titleNView": {
-					"titleText": "星际云通"
+				"style": {
+					"navigationStyle": "custom"
 				}
 			}
 		},
@@ -42,19 +41,36 @@
 			}
 		},
 		{
-			"path": "pages/mill/mill",
+			"path": "pages/pool/pool",
 
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "我的矿池"
 			}
 
 		},
 		{
-			"path": "pages/assets/assets",
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/mill/mill",
+		
 			"style": {
 				"navigationStyle": "custom"
 			}
+		
 		},
+		{
+			"path": "pages/assets/assets",
+		
+			"style": {
+				"navigationStyle": "custom"
+			}
+		
+		},
+		
 		{
 			"path": "pages/getBackPassword/getBackPassword",
 			"style": {
@@ -244,13 +260,41 @@
 						}
 					}
 				},
-				{
-					"path": "suggest/suggest",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
+				
                 // #endif
+                {
+                	"path": "power/power",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+                {
+                	"path": "suggest/suggest",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+                {
+                    "path": "power-transfer/power-transfer",
+                    "style": {
+                    	"navigationBarTitleText": "算力转让",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
+                {
+                    "path": "confirm-order/confirm-order",
+                    "style": {
+                    	"navigationBarTitleText": "确认订单",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
+                {
+                    "path": "successful/successful",
+                    "style": {
+                        "navigationStyle": "custom",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
 				// #ifdef MP-WEIXIN
 				{
 					"path": "address/address",
@@ -377,22 +421,22 @@
 		}
 	],
 	"tabBar": {
-		"color": "#8a8a8a",
-		"selectedColor": "#3cbfb1",
-		"backgroundColor": "#121212",
+		"color": "#FFFFFF",
+		"selectedColor": "#41BEC9",
+		"backgroundColor": "#182A42",
 		"list": [{
 			"pagePath": "pages/index/index",
 			"text": "首页",
 			"iconPath": "static/images/tab1.png",
 			"selectedIconPath": "static/images/tab-index.png"
 		}, {
-			"pagePath": "pages/mill/mill",
-			"text": "矿机",
+			"pagePath": "pages/pool/pool",
+			"text": "矿池",
 			"iconPath": "static/images/tab2.png",
 			"selectedIconPath": "static/images/tab-machine.png"
 		}, {
-			"pagePath": "pages/assets/assets",
-			"text": "资产",
+			"pagePath": "pages/order/order",
+			"text": "订单",
 			"iconPath": "static/images/tab3.png",
 			"selectedIconPath": "static/images/tab-captial.png"
 		}, {

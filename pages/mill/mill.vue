@@ -7,12 +7,12 @@
 				<view class="many">{{ many }}</view>
 			</image>
 		</view>
-		<view class="box2">
+		<!-- <view class="box2">
 			<view class="market">
 				<button class="primary" @click="pay">买单</button>
 				<button class="primary1" @click="sale">卖单</button>
 			</view>
-		</view>
+		</view> -->
 		<view class="box3">
 			<view class="kcs">可出售</view>
 			<button class="btn" @click="btn2">出售</button>

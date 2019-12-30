@@ -18,7 +18,7 @@
 		<view class='btn'  @click="login">登录</view>
 		<navigator url="../register/register" class="register">
 			注册
-		</navigator> 
+		</navigator>
 		<view class="shade" v-if="shade">
 			<view class="pop">
 				<view class='pop-title'>用户不存在，是否注册？</view>
@@ -40,8 +40,7 @@
 				shade:false
 			};
 		},	
-		onLoad() {
-		},
+		
 		methods:{
 			cancel:function(){
 				this.shade=false
