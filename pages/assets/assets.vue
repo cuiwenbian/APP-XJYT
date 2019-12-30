@@ -51,7 +51,7 @@
 			<view class="list" v-if="tabCurrentIndex === 1">
 				<scroll-view scroll-y='true'>
 					<view>
-						<text class="all1">Filecoin:{{profit}}</text>
+						<text class="all1">FIL:{{profit}}</text>
 						<div class="item">
 							<dyDatePicker timeType="month" :value="date1" @getData="DateChang" :placeholder="date1" ></dyDatePicker>
 						</div>

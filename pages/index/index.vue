@@ -2,7 +2,7 @@
 	<view class="container">
 		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
 			<swiper-item v-for="(item, index) in baner" :key="index">
-				<image class="ttt" @click="some(item.id)" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image>
+				<image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image>
 			</swiper-item>
 		</swiper>
 		<view class="uni-swiper-msg">
@@ -45,7 +45,7 @@
 					<view class="yjj">{{ item.read_volume }}人看过</view>
 				</view>
 			</view>
-			<view class="right"><image class="ig" :src="'https://t.api.ipcn.xyz/media/' + item.cover_pic"></image></view>
+			<view class="right"><image class="ig" :src="urll + item.cover_pic"></image></view>
 			<view class="b"></view>
 		</view>
 		<!-- #ifdef APP-PLUS -->
@@ -117,14 +117,14 @@ export default {
             })  
         
         uni.request({
-        	url:'http://192.168.1.208:8000/api/v1.1.0/home/',
+        	url:this.url+'home/',
         	method: 'GET',
         	header: {
         		Authorization: 'JWT' + ' ' + this.global_.token
         	},
         	success(res) { 
                 console.log(res)
-                _self.csgo = res.data.data.notice;
+                _self.csgo = res.data[0].notice;
                 console.log(_self.csgo)
                 _self.daern = res.data.data.must
                 if(_self.daern == 1) {
@@ -143,7 +143,7 @@ export default {
                     //uni.hideTabbar()
                     console.log(_self.According)
                     uni.request({
-                        url: 'http://192.168.1.208:8000/api/v1.1.0/version/',
+                        url: this.url+'version/',
                         method: 'GET',
                         header: {
                         	Authorization: 'JWT' + ' ' + _self.global_.token
@@ -203,7 +203,7 @@ export default {
 			var _self=this;
 			uni.request({
 					//请求地址，设置为自己的服务器链接
-			        url:'http://192.168.1.208:8000/api/v1.1.0/version/',
+			        url:this.url+'version/',
 			        method: 'GET',
 			        header: {
 			           Authorization: 'JWT' + ' ' + this.global_.token
