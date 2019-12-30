@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class='height'></view>
+		<!-- <view class='height'></view> -->
 		<view class="navbar">
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
 		</view>

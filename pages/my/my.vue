@@ -24,7 +24,7 @@
 				</view>
 				<view class="txt" >提币地址</view>
 			</view>
-			<view class="listItem" @click="wallet">
+			<view class="listItem" @click="power">
 				<view class="pic">
 				<image  src="../../static/images/icon-cunli.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
@@ -137,6 +137,11 @@
 				uni.removeStorageSync('token')
 				uni.reLaunch({
 					url:'../login/login'
+				})
+			},
+			power:function(){
+				uni.navigateTo({
+					url:'../../my/power/power'
 				})
 			},
 	        personal:function(){

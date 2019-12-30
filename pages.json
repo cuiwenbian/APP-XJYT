@@ -44,9 +44,15 @@
 			"path": "pages/pool/pool",
 
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "我的矿池"
 			}
 
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
 		},
 		{
 			"path": "pages/mill/mill",
@@ -64,12 +70,7 @@
 			}
 		
 		},
-		{
-			"path": "pages/order/order",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
+		
 		{
 			"path": "pages/getBackPassword/getBackPassword",
 			"style": {
@@ -257,6 +258,12 @@
 								}
 							]
 						}
+					}
+				},
+				{
+					"path": "power/power",
+					"style": {
+						"navigationStyle": "custom"
 					}
 				},
 				{
