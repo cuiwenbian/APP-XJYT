@@ -2,8 +2,8 @@
     "name" : "星际云通",
     "appid" : "__UNI__F0230C1",
     "description" : "",
-    "versionName" : "1.0.2",
-    "versionCode" : 102,
+    "versionName" : "1.0.3",
+    "versionCode" : 103,
     "transformPx" : false,
     "networkTimeout" : {
         "uploadFile" : 20000,
@@ -76,7 +76,8 @@
     "quickapp" : {},
     /* 快应用特有相关 */
     "mp-weixin" : {
-        "appid" : "wxc62459b2d6b1d7f6",
+        /* 小程序特有相关 */
+        "appid" : "",
         "setting" : {
             "urlCheck" : true
         }

@@ -140,9 +140,9 @@
 				})
 			},
 			power:function(){
-				uni.navigateTo({
-					url:'../../my/power/power'
-				})
+                uni.navigateTo({
+                    url:'../../my/power/power'
+                })
 			},
 	        personal:function(){
 				uni.navigateTo({

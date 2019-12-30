@@ -271,19 +271,41 @@
 						}
 					}
 				},
-				{
-					"path": "power/power",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
-				{
-					"path": "suggest/suggest",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
+				
                 // #endif
+                {
+                	"path": "power/power",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+                {
+                	"path": "suggest/suggest",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+                {
+                    "path": "power-transfer/power-transfer",
+                    "style": {
+                    	"navigationBarTitleText": "算力转让",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
+                {
+                    "path": "confirm-order/confirm-order",
+                    "style": {
+                    	"navigationBarTitleText": "确认订单",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
+                {
+                    "path": "successful/successful",
+                    "style": {
+                        "navigationStyle": "custom",
+                        "navigationBarBackgroundColor":"#102A44"
+                    }
+                },
 				// #ifdef MP-WEIXIN
 				{
 					"path": "address/address",

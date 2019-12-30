@@ -83,7 +83,6 @@
 				</view>
 			</view>
 			<view class="right"><image class="ig" :src="urll + item.cover_pic"></image></view>
-			
 		</view>
 		<!-- #ifdef APP-PLUS -->
 
@@ -152,7 +151,6 @@ export default {
 				// }
 			}
 		});
-
 		uni.request({
 			url: this.url + 'home/',
 			method: 'GET',
