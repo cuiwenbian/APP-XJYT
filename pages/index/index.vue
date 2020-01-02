@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class='height'></view>
-		<swiper indicator-dots autoplay interval="3000" circular indicator-color="rgda(255 , 255 , 255 , .6)">
+		<swiper indicator-dots autoplay interval="3000" circul                                                                                                                                            ar indicator-color="rgda(255 , 255 , 255 , .6)">
 			<swiper-item v-for="(item, index) in baner" :key="index"><image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image></swiper-item>
 		</swiper>
 		<view class="uni-swiper-msg">
@@ -15,36 +15,42 @@
 		<view class="hotPool">
 			热销矿池
 		</view>
-		<view class="pools">
-					<view  class="listItem" v-for="(item, index) in pool" :key="index" >
-						<image class="hots" src="../../static/images/hot.png" mode=""></image>
-						<view class="poolName">
-						  {{item.name}}
+		
+			<scroll-view class='scr' scroll-x="true">
+				<view class="pools">
+				<view  class="listItem" v-for="(item, index) in pool" :key="index" >
+					<image class="hots" src="../../static/images/hot.png" mode=""></image>
+					<view class="poolName">
+					  {{item.name}}
+					</view>
+					<view class="datess">
+						<view class='area'>
+							<view class="dayTrans">{{item.theory_of_income}}<text class="fil">FIL</text></view>
+							<view class="txx">日理论收益</view>
 						</view>
-						<view class="datess">
-							<view class='area'>
-								<view class="dayTrans">{{item.theory_of_income}}<text class="fil">FIL</text></view>
-								<view class="txx">日理论收益</view>
-							</view>
-							<view class='area'>
-								<view class="dayTrans">{{item.cloud_hard_disk}}<text class="fil">T</text></view>
-								<view class="txx">存储能力</view>
-							</view>
-							<view class='area'>
-								<view class="dayTrans">{{item.hardfree}}<text class="fil">T</text></view>
-								<view class="txx">矿池总空间</view>
-							</view>
-							<view class='area'>
-								<view class="dayTrans">{{item.harduse}}<text class="fil">T</text></view>
-								<view class="txx">可出售空间</view>
-							</view>
-							<view :class="n?'buy':'buy1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">
-								立即购买
-							</view>
+						<view class='area'>
+							<view class="dayTrans">{{item.cloud_hard_disk}}<text class="fil">T</text></view>
+							<view class="txx">存储能力</view>
+						</view>
+						<view class='area'>
+							<view class="dayTrans">{{item.hardfree}}<text class="fil">T</text></view>
+							<view class="txx">矿池总空间</view>
+						</view>
+						<view class='area'>
+							<view class="dayTrans">{{item.harduse}}<text class="fil">T</text></view>
+							<view class="txx">可出售空间</view>
+						</view>
+						<view :class="n?'buy':'buy1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">
+							立即购买
 						</view>
 					</view>
+				</view>
 				
-		</view>
+				</view>	
+			</scroll-view>
+					
+			
+		<!-- </view> -->
 		<view class="line"></view>
 		<view class="hotPool">
 			热门资讯
@@ -112,6 +118,7 @@ var canvaArea = null;
 export default {
 	data() {
 		return {
+			scr:true,
 			n:true,
 			Todayprice: '',
 			yesterdayprice: '',
@@ -192,7 +199,7 @@ export default {
 					//uni.hideTabbar()
 					console.log(_self.According);
 					uni.request({
-						url: this.url + 'version/',
+						url: _self.url + 'version/',
 						method: 'GET',
 						header: {
 							Authorization: 'JWT' + ' ' + _self.global_.token
@@ -241,8 +248,8 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
-				console.log(res.data.data);
 				that.pool=res.data.data
+				console.log(res.data.data);
 			}
 		});
 	},
@@ -252,6 +259,11 @@ export default {
 		},
 		back:function(){
 		   this.n=true
+		},
+		buy:function(item){
+			uni.navigateTo({
+				url:'../poolDetails/poolDetails?cloudid='+item
+			})
 		},
 		quit() {
 			if (this.daern == 1) {
@@ -699,11 +711,21 @@ swiper-item image {
 	height:16rpx;
 	background: #091926;
 }
-.pools{
+
+.scr{
 	width:100%;
-	height:438rpx;
-	padding-left:22rpx;
+	height:388rpx;
+	overflow: hidden;
+}
+.pools{
+	width: 2000rpx;
+	height:388rpx;
+	/* #ifndef APP-PLUS */
+	white-space: nowrap;
+	/* #endif */
+	padding-left:22rpx; 
 	box-sizing: border-box;
+	overflow: hidden;
 }
 .listItem{
 	width:342rpx;

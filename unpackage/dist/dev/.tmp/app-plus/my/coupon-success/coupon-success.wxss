@@ -22,4 +22,12 @@ page{
         color: #FFFFFF;
 		line-height: 88rpx;
 }
+.btn1{
+	    width: 550rpx;
+	    height: 88rpx;
+	    background-color: rgba(65, 190, 201, 0.5);
+	    font-size: 30rpx;
+	    color: #FFFFFF;
+		line-height: 88rpx;
+}
 

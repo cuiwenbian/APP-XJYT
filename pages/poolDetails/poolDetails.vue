@@ -36,9 +36,9 @@
 				</view>
 				<view class="listItem" v-if='month'>
 				    <view class='months'>
-						<view class="btn" @click="reduce1">-</view>
-						<input class="choosemonth" type="text" value="" placeholder="1个月"  placeholder-style="color:#ffffff;"/>
-						<view class='btn' @click='add1'>+</view></view>					
+						<view class="btn" @click="nums==1?nums:nums--">-</view>
+						<input class="choosemonth" type="text" value="" placeholder="1个月"  placeholder-style="color:#ffffff;" :value="nums+'个月'"/>
+						<view class='btn' @click='nums++'>+</view></view>					
 				</view>
 				<view class="listItem" style='padding-left:120rpx;box-sizing: border-box;' v-if='year'>
 			         <view :class="one?'years':'yearss'">1年</view>
@@ -48,9 +48,9 @@
 				<view class="listItem" >
 					<view class='time'>购买份数：</view>
                     <view class='nums'>
-						<view class="red" @click="reduce">-</view>
-						<input class="maney" type="text" value="" placeholder="1T起购" placeholder-style="color:#FEFEFE;" />
-						<view class='red' @click='add'>+</view></view>					
+						<view class="red" @click="number==1?number:number--">-</view>
+						<input class="maney" type="number" value="" placeholder="1T起购" placeholder-style="color:#FEFEFE;" :value="number"/>
+						<view class='red' @click='number++'>+</view></view>					
 				</view>
 				<view class="listItem">
 					<view class='time'>付款金额：</view>
@@ -89,12 +89,13 @@
 			return {
 				persent:'',
 				n:true,
+				number:'',
 				id:'',
 				question:'',
 				poolDetail:'',
 				month:false,
 				year:false,
-				nums: 1 ,
+				nums: '1' ,
 				tabCurrentIndex: 0,
 				navList: [
 					{
@@ -155,17 +156,7 @@
 				var that=this;
 				that.tabCurrentIndex = index;
 			},
-			reduce(){
-				this.nums--;
-				if(this.nums=1){
-					this.nums='1T起购';
-					return false
-				}
-					
-			},
-			add(){
-				this.nums++;
-			},
+			
 			buy_month:function(){
 				this.month=true;
 				this.year=false;

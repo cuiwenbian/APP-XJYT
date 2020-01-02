@@ -571,6 +571,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2198,11 +2210,18 @@ swiper-item image {
 	height:16rpx;
 	background: #091926;
 }
-.pools{
+.scr{
 	width:100%;
-	height:438rpx;
-	padding-left:22rpx;
+	height:388rpx;
+	overflow: hidden;
+}
+.pools{
+	width: 2000rpx;
+	height:388rpx;
+	
+	padding-left:22rpx; 
 	box-sizing: border-box;
+	overflow: hidden;
 }
 .listItem{
 	width:342rpx;

@@ -44,8 +44,7 @@
 			"path": "pages/pool/pool",
 
 			"style": {
-				"navigationBarTitleText": "矿池",
-				"navigationBarBackgroundColor":"#102A44"
+				"navigationBarTitleText": "矿池"
 			}
 
 		},
@@ -53,29 +52,28 @@
 			"path": "pages/poolDetails/poolDetails",
 		
 			"style": {
-				"navigationBarTitleText": "矿池详情",
-				"navigationBarBackgroundColor":"#102A44"
+				"navigationBarTitleText": "矿池详情"
 			}
 		
 		},
 		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "订单",
-				"navigationBarBackgroundColor":"#102A44"
+				"navigationBarTitleText": "订单"
 			}
 		},
 		{
 			"path": "pages/mill/mill",
 		
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "black",
+				"titleNView": {
+					"titleText": "       "
+				}
 			}
-		
 		},
 		{
 			"path": "pages/assets/assets",
-		
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -336,7 +334,10 @@
 				{
 				    "path": "coupon-success/coupon-success",
 				    "style": {
-				    	 "navigationStyle": "custom"
+						"navigationBarBackgroundColor": "#0F1E2D",
+				    	"titleNView": {
+				    		"titleText": "       "
+				    	}
 				    }
 				},
 				// #ifdef MP-WEIXIN
