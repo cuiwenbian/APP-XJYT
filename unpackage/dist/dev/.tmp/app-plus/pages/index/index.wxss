@@ -2210,26 +2210,21 @@ swiper-item image {
 	height:16rpx;
 	background: #091926;
 }
-.scr{
-	width:100%;
+.pools{
+	width:auto;
 	height:388rpx;
 	overflow: hidden;
-}
-.pools{
-	width: 2000rpx;
-	height:388rpx;
-	
 	padding-left:22rpx; 
 	box-sizing: border-box;
-	overflow: hidden;
+	white-space: nowrap;
 }
 .listItem{
 	width:342rpx;
 	height:388rpx;
 	background: #070E17;
 	margin-right:22rpx;
-	float: left;
 	position: relative;
+	display: inline-block;
 }
 .hots{
 	width: 68rpx;

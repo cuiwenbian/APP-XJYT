@@ -16,8 +16,8 @@
 			热销矿池
 		</view>
 		
-			<scroll-view class='scr' scroll-x="true">
-				<view class="pools">
+			<scroll-view class='pools' scroll-x="true">
+				<!-- <view class="pools"> -->
 				<view  class="listItem" v-for="(item, index) in pool" :key="index" >
 					<image class="hots" src="../../static/images/hot.png" mode=""></image>
 					<view class="poolName">
@@ -46,7 +46,7 @@
 					</view>
 				</view>
 				
-				</view>	
+				<!-- </view>	 -->
 			</scroll-view>
 					
 			
@@ -712,28 +712,22 @@ swiper-item image {
 	background: #091926;
 }
 
-.scr{
-	width:100%;
+
+.pools{
+	width:auto;
 	height:388rpx;
 	overflow: hidden;
-}
-.pools{
-	width: 2000rpx;
-	height:388rpx;
-	/* #ifndef APP-PLUS */
-	white-space: nowrap;
-	/* #endif */
 	padding-left:22rpx; 
 	box-sizing: border-box;
-	overflow: hidden;
-}
+	white-space: nowrap;
+ }
 .listItem{
 	width:342rpx;
 	height:388rpx;
 	background: #070E17;
 	margin-right:22rpx;
-	float: left;
 	position: relative;
+	display: inline-block;
 }
 .hots{
 	width: 68rpx;
