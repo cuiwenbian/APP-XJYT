@@ -7,6 +7,7 @@
     "pages/index/index",
     "pages/my/my",
     "pages/pool/pool",
+    "pages/poolDetails/poolDetails",
     "pages/order/order",
     "pages/mill/mill",
     "pages/assets/assets",
@@ -37,10 +38,16 @@
     "my/edit-address/edit-address",
     "my/my-machine/my-machine",
     "my/power/power",
+    "my/order-money/order-money",
+    "my/submit/submit",
+    "my/line-item/line-item",
     "my/suggest/suggest",
     "my/power-transfer/power-transfer",
     "my/confirm-order/confirm-order",
     "my/successful/successful",
+    "my/coupon/coupon",
+    "my/coupon-transfer/coupon-transfer",
+    "my/coupon-success/coupon-success",
     "my/email/email",
     "my/unbindemail/unbindemail",
     "my/identity/identity",
@@ -60,7 +67,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "星际云通",
-    "navigationBarBackgroundColor": "#121212",
+    "navigationBarBackgroundColor": "#102A44",
     "backgroundColor": "#121212"
   },
   "tabBar": {

@@ -44,14 +44,25 @@
 			"path": "pages/pool/pool",
 
 			"style": {
-				"navigationBarTitleText": "我的矿池"
+				"navigationBarTitleText": "矿池",
+				"navigationBarBackgroundColor":"#102A44"
 			}
 
 		},
 		{
+			"path": "pages/poolDetails/poolDetails",
+		
+			"style": {
+				"navigationBarTitleText": "矿池详情",
+				"navigationBarBackgroundColor":"#102A44"
+			}
+		
+		},
+		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "我的订单"
+				"navigationBarTitleText": "订单",
+				"navigationBarBackgroundColor":"#102A44"
 			}
 		},
 		{
@@ -268,6 +279,24 @@
                 		"navigationStyle": "custom"
                 	}
                 },
+				{
+					"path": "order-money/order-money",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
+				{
+					"path": "submit/submit",
+					"style": {
+						"navigationBarTitleText": "提交订单"
+					}
+				},
+				{
+					"path": "line-item/line-item",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
+				},
                 {
                 	"path": "suggest/suggest",
                 	"style": {
@@ -277,24 +306,39 @@
                 {
                     "path": "power-transfer/power-transfer",
                     "style": {
-                    	"navigationBarTitleText": "算力转让",
-                        "navigationBarBackgroundColor":"#102A44"
+                    	"navigationBarTitleText": "算力转让"
                     }
                 },
                 {
                     "path": "confirm-order/confirm-order",
                     "style": {
-                    	"navigationBarTitleText": "确认订单",
-                        "navigationBarBackgroundColor":"#102A44"
+                    	"navigationBarTitleText": "确认订单"
                     }
                 },
                 {
                     "path": "successful/successful",
                     "style": {
-                        "navigationStyle": "custom",
-                        "navigationBarBackgroundColor":"#102A44"
+                        "navigationStyle": "custom"
                     }
                 },
+				{
+				    "path": "coupon/coupon",
+				    "style": {
+				    	"navigationBarTitleText": "优惠券"
+				    }
+				},
+				{
+				    "path": "coupon-transfer/coupon-transfer",
+				    "style": {
+				    	"navigationBarTitleText": "优惠券转让"
+				    }
+				},
+				{
+				    "path": "coupon-success/coupon-success",
+				    "style": {
+				    	 "navigationStyle": "custom"
+				    }
+				},
 				// #ifdef MP-WEIXIN
 				{
 					"path": "address/address",
@@ -449,7 +493,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "星际云通",
-		"navigationBarBackgroundColor": "#121212",
+		"navigationBarBackgroundColor": "#102A44",
 		"backgroundColor": "#121212"
 	},
 	"style": {

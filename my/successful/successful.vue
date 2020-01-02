@@ -10,11 +10,28 @@
                 <text class="name">10TB</text>
             </view>
         </view>
-        <button class="btn">完成</button>
+        <button class="btn" @click="btn">完成</button>
     </view>
 </template>
 
 <script>
+    export default {
+        data () {
+            return {
+                
+            }
+        },
+        onLoad() {
+            
+        },
+        methods:{
+            btn:function() {
+                uni.navigateBack({
+                    delta:1
+                })
+            }
+        }
+    }
 </script>
 
 <style>

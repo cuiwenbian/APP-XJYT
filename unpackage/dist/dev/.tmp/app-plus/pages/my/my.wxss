@@ -82,18 +82,18 @@ page{
 	top:33rpx;
 }
 .avator{
-	width:146rpx;
+	width:100%;
 	height:146rpx;
 	z-index: 9;
 	position: absolute;
-	left:300rpx;
 	top:124rpx;
 	border-radius: 50%;
 }
 .img{
-	width:100%;
-	height:100%;
+	width:146rpx;
+	height:146rpx;
 	display: block;
+	margin:0 auto;
 	border-radius: 50%;
 }
 .nickname{

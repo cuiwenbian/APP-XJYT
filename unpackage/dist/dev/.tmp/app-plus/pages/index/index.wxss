@@ -563,6 +563,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2156,7 +2165,6 @@ page {
 	width: 706rpx;
 	height: 300rpx;
 	margin: 20rpx auto;
-	background: #09BB07;
 }
 swiper-item image {
 	width: 100%;
@@ -2168,7 +2176,6 @@ swiper-item image {
 .ttt {
 	width: 706rpx;
 	height: 300rpx;
-	background: #0A98D5;
 	margin:24rpx auto;
 	margin-left: 22rpx;
 	border-radius: 8rpx;
@@ -2262,6 +2269,17 @@ swiper-item image {
 	width: 302rpx;
 	height:48rpx;
 	background: #41BEC9;
+	color:#FFFFFF;
+	text-align: center;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	border-radius: 5rpx;
+}
+.buy1{
+	clear: both;
+	width: 302rpx;
+	height:48rpx;
+	background: rgba(65, 190, 201, 0.5);
 	color:#FFFFFF;
 	text-align: center;
 	font-size: 24rpx;

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "确认订单",
-  "navigationBarBackgroundColor": "#102A44",
-  "usingComponents": {}
+  "usingComponents": {
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
+  }
 }

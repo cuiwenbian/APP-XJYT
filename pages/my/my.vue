@@ -55,7 +55,7 @@
 				</view>
 				<view class="txt" >邮箱绑定</view>
 			</view>
-			<view class="listItem" @click="suggest">
+			<view class="listItem" @click="help">
 				<view class="pic">
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
@@ -68,7 +68,7 @@
 				</view>
 				<view class="txt" >我的矿机</view>
 			</view>
-			<view class="listItem" @click="suggest">
+			<view class="listItem" @click="coupon">
 				<view class="pic">
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:42rpx;" mode=""></image>
 				</view>
@@ -314,6 +314,14 @@
 			},
 			logout:function(){
 				this.shade=true
+			},
+			coupon:function(){
+				uni.navigateTo({
+					url: '../../my/coupon/coupon',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}
@@ -400,19 +408,19 @@
 		top:33rpx;
 	}
 	.avator{
-		width:146rpx;
+		width:100%;
 		height:146rpx;
 		z-index: 9;
 		position: absolute;
-		left:300rpx;
 		top:124rpx;
 		border-radius: 50%;
 		
 	}
 	.img{
-		width:100%;
-		height:100%;
+		width:146rpx;
+		height:146rpx;
 		display: block;
+		margin:0 auto;
 		border-radius: 50%;
 	}
 	.nickname{

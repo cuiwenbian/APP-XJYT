@@ -280,8 +280,9 @@ page {
     padding-top: 27rpx;
 }
 .cancel{
-    width: 150rpx;
+    width: 160rpx;
     height: 52rpx;
+    line-height: 52rpx;
     float: right;
     text-align: center;
     margin-right: 20rpx;
@@ -293,6 +294,7 @@ page {
     float: right;
     width: 150rpx;
     height: 52rpx;
+    line-height: 52rpx;
     margin-right: 20rpx;
     background-color: #41BEC9;
     font-size: 24rpx;

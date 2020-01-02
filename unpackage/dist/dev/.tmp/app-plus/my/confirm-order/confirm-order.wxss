@@ -1,35 +1,42 @@
 
-page{
-    background-color: #0F1E2D;
+page {
+    background-color: #0f1e2d;
 }
-.box{
+.box {
     width: 704rpx;
     height: 652rpx;
-    background-color: #0F2439;
+    background-color: #0f2439;
     margin: 0 auto;
     margin-top: 20rpx;
     font-size: 26rpx;
     margin-bottom: 127rpx;
-    color: #FFFFFF;
+    color: #ffffff;
 }
-.transfer{
+.transfer {
     height: 111rpx;
     line-height: 111rpx;
     padding-left: 48rpx;
     border-bottom: 1rpx solid #091926;
 }
-.name{
+.name {
     padding-top: 57rpx;
     padding-left: 48rpx;
 }
-.name1{
+.name1 {
     padding-left: 40rpx;
 }
-.btn{
+.btn {
     width: 706rpx;
     height: 88rpx;
-    background-color: #41BEC9;
+    background-color: #41bec9;
     font-size: 30rpx;
-    color: #FFFFFF;
+    color: #ffffff;
+}
+.btn1 {
+    width: 706rpx;
+    height: 88rpx;
+    background: RGBA(0, 193, 203, 0.5);
+    font-size: 30rpx;
+    color: #ffffff;
 }
 

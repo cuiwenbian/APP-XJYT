@@ -1,7 +1,7 @@
 <template>
 	<!-- 资产 -->
 	<view class="container">
-		<view class="height"></view>
+		
 		<view class="box">
             <image src="../../static/images/yot.png" class="yot">
                 <view class="assets">总资产</view>
@@ -331,13 +331,7 @@
         position: relative;
         width: 100%;
     }
-	.item {
-		height: 70rpx;
-        font-size: 22rpx;
-        padding-top: 20rpx;
-        padding-left: 45rpx;
-		text-align: left;
-	}
+	
 	.assets {
         height: 60rpx;
         width: 100%;
