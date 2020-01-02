@@ -16,34 +16,34 @@
 			热销矿池
 		</view>
 		<view class="pools">
-			<view  class="listItem" >
-				<image class="hots" src="../../static/images/hot.png" mode=""></image>
-				<view class="poolName">
-				  矿池名称
-				</view>
-				<view class="datess">
-					<view class='area'>
-						<view class="dayTrans">0.000<text class="fil">FIL</text></view>
-						<view class="txx">日理论收益</view>
+					<view  class="listItem" v-for="(item, index) in pool" :key="index" >
+						<image class="hots" src="../../static/images/hot.png" mode=""></image>
+						<view class="poolName">
+						  {{item.name}}
+						</view>
+						<view class="datess">
+							<view class='area'>
+								<view class="dayTrans">{{item.theory_of_income}}<text class="fil">FIL</text></view>
+								<view class="txx">日理论收益</view>
+							</view>
+							<view class='area'>
+								<view class="dayTrans">{{item.cloud_hard_disk}}<text class="fil">T</text></view>
+								<view class="txx">存储能力</view>
+							</view>
+							<view class='area'>
+								<view class="dayTrans">{{item.hardfree}}<text class="fil">T</text></view>
+								<view class="txx">矿池总空间</view>
+							</view>
+							<view class='area'>
+								<view class="dayTrans">{{item.harduse}}<text class="fil">T</text></view>
+								<view class="txx">可出售空间</view>
+							</view>
+							<view :class="n?'buy':'buy1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">
+								立即购买
+							</view>
+						</view>
 					</view>
-					<view class='area'>
-						<view class="dayTrans">0<text class="fil">T</text></view>
-						<view class="txx">存储能力</view>
-					</view>
-					<view class='area'>
-						<view class="dayTrans">4800<text class="fil">T</text></view>
-						<view class="txx">矿池总空间</view>
-					</view>
-					<view class='area'>
-						<view class="dayTrans">400<text class="fil">T</text></view>
-						<view class="txx">可出售空间</view>
-					</view>
-					<view class="buy">
-						立即购买
-					</view>
-				</view>
-			</view>
-			
+				
 		</view>
 		<view class="line"></view>
 		<view class="hotPool">
@@ -105,11 +105,14 @@
 <script>
 // import 'swiper/dist/css/swiper.min.css';
 import uCharts from '../../common/u-charts.js';
+// import Swiper from 'swiper';
+// import 'swiper/dist/css/swiper.min.css'
 var _self;
 var canvaArea = null;
 export default {
 	data() {
 		return {
+			n:true,
 			Todayprice: '',
 			yesterdayprice: '',
 			yesterday: '',
@@ -138,6 +141,17 @@ export default {
 			version: '',
 			remark: '',
 			urll: this.urll,
+			swiperOption: {
+			          slidesPerView: 2,
+			          slidesPerColumn: 2,
+			          spaceBetween: 30,
+			          pagination: {
+			            el: '.swiper-pagination',
+			            clickable: true
+			          }
+			},
+			pool:''
+			
 		};
 	},
 	onLoad() {
@@ -210,17 +224,35 @@ export default {
 			}
 		});
 		uni.request({
-			url: this.url + '/home/news/',
+			url: this.url + 'home/news/',
 			method: 'GET',
 			header: {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
 				that.title = res.data;
+				console.log(that.title)
+			}
+		});
+		uni.request({
+			url: this.url + 'cloudinfo/',
+			method: 'GET',
+			header: {
+				Authorization: 'JWT' + ' ' + this.global_.token
+			},
+			success: res => {
+				console.log(res.data.data);
+				that.pool=res.data.data
 			}
 		});
 	},
 	methods: {
+		next:function(){
+			this.n=false
+		},
+		back:function(){
+		   this.n=true
+		},
 		quit() {
 			if (this.daern == 1) {
 				plus.runtime.quit(); //退出应用
@@ -744,7 +776,17 @@ swiper-item image {
 	border-radius: 5rpx;
 }
 
-
+.buy1{
+	clear: both;
+	width: 302rpx;
+	height:48rpx;
+	background: rgba(65, 190, 201, 0.5);
+	color:#FFFFFF;
+	text-align: center;
+	font-size: 24rpx;
+	line-height: 48rpx;
+	border-radius: 5rpx;
+}
 
 .i {
 	width: 600rpx;

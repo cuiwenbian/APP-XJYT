@@ -55,7 +55,7 @@
 				</view>
 				<view class="txt" >邮箱绑定</view>
 			</view>
-			<view class="listItem" @click="suggest">
+			<view class="listItem" @click="help">
 				<view class="pic">
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
@@ -68,7 +68,7 @@
 				</view>
 				<view class="txt" >我的矿机</view>
 			</view>
-			<view class="listItem" @click="suggest">
+			<view class="listItem" @click="coupon">
 				<view class="pic">
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:42rpx;" mode=""></image>
 				</view>
@@ -314,6 +314,14 @@
 			},
 			logout:function(){
 				this.shade=true
+			},
+			coupon:function(){
+				uni.navigateTo({
+					url: '../../my/coupon/coupon',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
 			}
 		}
 	}

@@ -1,0 +1,36 @@
+<template>
+    <view class="container">
+        <image src="../../static/images/tubiao.png" class="img"></image>
+        <view class="transfer">转让成功</view>
+        <button class="btn">完成</button>
+    </view>
+</template>
+
+<script>
+</script>
+
+<style>
+    page{
+        background-color: #0F1E2D;
+    }
+    .img{
+        display: block;
+        margin: 166rpx auto 61rpx;
+        width: 257rpx;
+        height: 166rpx;
+    }
+   .transfer{
+       text-align: center;
+       font-size: 34rpx;
+       color: #FFFFFF;
+       padding-bottom: 113rpx;
+   }
+    .btn{
+        width: 550rpx;
+        height: 88rpx;
+        background-color: #41BEC9;
+        font-size: 30rpx;
+        color: #FFFFFF;
+		line-height: 88rpx;
+    }
+</style>

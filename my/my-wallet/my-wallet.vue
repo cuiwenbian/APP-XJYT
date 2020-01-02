@@ -9,20 +9,20 @@
 			<view class="coins">
 				<view class='availed_num'>可用币：54.47854</view>
 				<view class='lock_num'>可用币：0.00</view>
-				<button type="primary" class="transer">转账</button>
+				<view :class="n?'transer':'transer1'" @click='btn' @touchstart="next" @touchend="back">转账</view>
 			</view>
 		</view>
 		<!-- <image class="banner" src="../../static/images/wallet-banner.png" mode="">
 			
 		</image> -->
 		<view class='mill'> 
-			<view class="machine">
-				<view>0</view>
-				<view>矿机收益</view>
+			<view class="machine machine-left">
+				<view class="machine-num">100.1</view>
+				<view class="machine-mill">矿机收益</view>
 			</view>
 			<view class="machine">
-				<view>0</view>
-				<view>存力收益</view>
+				<view class="machine-num">50.05</view>
+				<view class="machine-mill">存力收益</view>
 			</view>
 		</view>
 		<view class='line'></view>
@@ -88,6 +88,7 @@
 	export default {
 		data() {
 			return {
+				n:true,
 				num: '0.0000',
 				ber: '0.0000',
 				
@@ -166,6 +167,12 @@
 			})
 		},
 		methods: {
+			next:function(){
+				this.n=false
+			},
+			back:function(){
+			   this.n=true
+			},
 			tabClick: function(index) {
 				var that = this
                 var data = new Date()
@@ -371,16 +378,49 @@
 		background: #41BEC9;
 		margin-top:-20rpx;
 		margin-right: 38rpx;
+		border-radius: 5rpx;
+	}
+	.transer1{
+		float:right;
+		width:110rpx;
+		height:46rpx;
+		color:#FFFFFF;
+		text-align: center;
+		font-size: 22rpx;
+		line-height: 46rpx;
+		background: rgba(65, 190, 201, 0.5);
+		margin-top:-20rpx;
+		margin-right: 38rpx;
+		border-radius: 5rpx;
 	}
 	.mill{
 		width:100%;
 		height:165rpx;
+		position: relative;
 	}
 	.machine{
 		width:50%;
 		height:100%;
 		float: left;
 		text-align: center;
+	}
+	.machine-left:after{
+		content:'';
+		position: absolute;
+		top:30rpx;
+		left:50%;
+		width:3rpx;
+		height:72rpx;
+		background: #182A42;
+	}
+	.machine-num{
+		font-size: 34rpx;
+		line-height: 80rpx;
+	    color:#FFFFFF;
+	}
+	.machine-mill{
+		font-size:24rpx;
+		color:#FFFFFF;
 	}
 	.line{
 		width:100%;

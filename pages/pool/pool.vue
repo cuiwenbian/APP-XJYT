@@ -5,15 +5,15 @@
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 0">
-			<view class="boxx">
+			<view class="boxx"  v-for="(item, index) in pool" :key="index">
 				<image class="tag" src="../../static/images/news.png" mode=""></image>
 				<view class="title">
-					矿池名称
+					{{item.name}} 
 				</view>
 				<view class="opts">
 					<view class="lists">
 						<view class="dates">
-							4800
+							{{item.cloud_hard_disk}}
 						</view>
 						<view class="room">
 							矿池存储空间(T)
@@ -21,7 +21,7 @@
 					</view>
 					<view class="lists">
 						<view class="dates">
-							46427
+							{{item.theory_of_income}}
 						</view>
 						<view class="room">
 							日理论收益(FIL)
@@ -29,7 +29,7 @@
 					</view>
 					<view class="lists">
 						<view class="dates">
-							100
+							{{item.harduse}}
 						</view>
 						<view class="room">
 							存储能力(t)
@@ -37,7 +37,7 @@
 					</view>
 					<view class="lists">
 						<view class="dates">
-							2000
+							{{item.hardfree}}
 						</view>
 						<view class="room">
 							可出售空间(T)
@@ -45,7 +45,7 @@
 					</view>
 					<view class="lists">
 						<view class="dates">
-							¥1500/T
+							¥{{item.price}}/T
 						</view>
 						<view class="room">
 							每T价格
@@ -53,72 +53,16 @@
 					</view>
 					<view class="lists">
 						<view class="dates">
-							江浙沪
+							{{item.address}}
 						</view>
 						<view class="room">
 							地区
 						</view>
 					</view>
 				</view>
-			    <button type="primary" class='buys' @click="buy">立即购买</button>
+			    <view :class="n?'buys':'buys1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">立即购买</view>
 			</view>
-			<view class="boxx">
-				<image class="tag" src="../../static/images/remen.png" mode=""></image>
-				<view class="title">
-					矿池名称
-				</view>
-				<view class="opts">
-					<view class="lists">
-						<view class="dates">
-							4800
-						</view>
-						<view class="room">
-							矿池存储空间(T)
-						</view>
-					</view>
-					<view class="lists">
-						<view class="dates">
-							46427
-						</view>
-						<view class="room">
-							日理论收益(FIL)
-						</view>
-					</view>
-					<view class="lists">
-						<view class="dates">
-							100
-						</view>
-						<view class="room">
-							存储能力(t)
-						</view>
-					</view>
-					<view class="lists">
-						<view class="dates">
-							2000
-						</view>
-						<view class="room">
-							可出售空间(T)
-						</view>
-					</view>
-					<view class="lists">
-						<view class="dates">
-							¥1500/T
-						</view>
-						<view class="room">
-							每T价格
-						</view>
-					</view>
-					<view class="lists">
-						<view class="dates">
-							江浙沪
-						</view>
-						<view class="room">
-							地区
-						</view>
-					</view>
-				</view>
-			    <button type="primary" class='buys buysall'>售罄</button>
-			</view>
+			
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 1">2</view>
 		<view class="list" v-if="tabCurrentIndex === 2">3</view>
@@ -129,6 +73,8 @@
 export default {
 	data() {
 		return {
+			n:true,
+			pool:'',
 			tabCurrentIndex: 0,
 			navList: [
 				{
@@ -146,7 +92,26 @@ export default {
 			]
 		};
 	},
+	onLoad() {
+		uni.request({
+			url: this.url+'cloud/',
+			method: 'GET',
+			data: {},
+			success: res => {
+				console.log(res)
+				this.pool=res.data.data;
+			},
+			fail: () => {},
+			complete: () => {}
+		});
+	},
 	methods: {
+		next:function(){
+			this.n=false
+		},
+		back:function(){
+		   this.n=true
+		},
 		changeTab(e) {
 			this.tabCurrentIndex = e.target.current;
 		},
@@ -154,9 +119,9 @@ export default {
 			var that=this;
 			that.tabCurrentIndex = index;
 		},
-		buy:function(){
+		buy:function(item){
 			uni.navigateTo({
-				url:'../poolDetails/poolDetails'
+				url:'../poolDetails/poolDetails?cloudid='+item
 			})
 		}
 	}
@@ -251,11 +216,24 @@ page {
 	line-height: 60rpx;
 }
 .buys{
+	clear: both;
 	background: #41BEC9;
 	width:630rpx;
 	height:76rpx;
 	line-height: 76rpx;
 	font-size: 28rpx;
+	text-align: center;
+	color:#FFFFFF;
+}
+.buys1{
+	clear: both;
+	background: rgba(65, 190, 201, 0.5);
+	width:630rpx;
+	height:76rpx;
+	line-height: 76rpx;
+	font-size: 28rpx;
+	text-align: center;
+	color:#FFFFFF;
 }
 .buysall{
 	background: #B1B1B1;
