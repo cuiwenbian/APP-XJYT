@@ -5,10 +5,10 @@
 			<view class="all">
 				总资产
 			</view>
-			<view class='assets'>0.000000</view>
+			<view class='assets'>{{num}}</view>
 			<view class="coins">
-				<view class='availed_num'>可用币：54.47854</view>
-				<view class='lock_num'>可用币：0.00</view>
+				<view class='availed_num'>可用币：{{ber}}</view>
+				<view class='lock_num'>锁定币：{{nuber}}</view>
 				<view :class="n?'transer':'transer1'" @click='btn' @touchstart="next" @touchend="back">转账</view>
 			</view>
 		</view>

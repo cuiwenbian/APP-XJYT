@@ -2,11 +2,31 @@
     <view class="container">
         <image src="../../static/images/tubiao.png" class="img"></image>
         <view class="transfer">转让成功</view>
-        <button class="btn">完成</button>
+        <button :class="n?'btn':'btn1'" @touchstart="next" @touchend="back" @click='already'>完成</button>
     </view>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				n:true
+			}
+		},
+		methods:{
+			next: function() {
+				this.n = false;
+			},
+			back: function() {
+				this.n = true;
+			},
+			already:function(){
+				uni.navigateBack({
+					delta:2
+				})
+			}
+		}
+	}
 </script>
 
 <style>
@@ -33,4 +53,12 @@
         color: #FFFFFF;
 		line-height: 88rpx;
     }
+	.btn1{
+	    width: 550rpx;
+	    height: 88rpx;
+	    background-color: rgba(65, 190, 201, 0.5);
+	    font-size: 30rpx;
+	    color: #FFFFFF;
+		line-height: 88rpx;
+	}
 </style>
