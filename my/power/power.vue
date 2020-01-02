@@ -16,10 +16,10 @@
         <view class="pay">已购存力</view>
         <view class="box2">
             <view class="contract">
-                <text class="contract2">合约日期:
+                <view class="contract2">合约日期:
                     <text class="time">2019-12-30至2019-12-30</text>
                     <button class="transfer" @click="transfer">转让</button>
-                </text>
+                </view>
             </view>
             <view class="mill">
                 <view class="mill2">
@@ -149,8 +149,9 @@
          padding-left: 30rpx;
      }
      .transfer{
-         width: 103rpx;
+         width: 110rpx;
          height: 44rpx;
+         line-height: 44rpx;
          font-size: 22rpx;
          margin-top: 30rpx;
          margin-right: 10rpx;
@@ -160,8 +161,8 @@
          border: 1rpx solid #41BEC9;
          border-radius:5px;
      }
-     uni-button{
-         line-height: 1.6;
+    uni-button{
+         text-align: center;
      }
      .mill{
          position: fixed;
