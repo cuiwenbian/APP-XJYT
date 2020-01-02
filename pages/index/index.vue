@@ -18,6 +18,7 @@
 		
 			<scroll-view class='scr' scroll-x="true">
 				<view class="pools">
+                 
 				<view  class="listItem" v-for="(item, index) in pool" :key="index" >
 					<image class="hots" src="../../static/images/hot.png" mode=""></image>
 					<view class="poolName">
@@ -719,7 +720,7 @@ swiper-item image {
 	overflow: hidden;
 }
 .pools{
-	width: 2000rpx;
+	width: auto;
 	height:388rpx;
 	/* #ifndef APP-PLUS */
 	white-space: nowrap;
