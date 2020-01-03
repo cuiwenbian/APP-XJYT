@@ -56,8 +56,8 @@
 				<view class="xx"></view>
 			</view>
 			<view class="rening">
-				<button :class="bt?'btn2':'btm'" @click="ben">付款</button>
-				<button :class="n?'btn':'btnn'" @click="btn">取消订单</button>
+				<button :class="bt?'btn2':'btm'" @click="ben" @touchstart="next" @touchend="back">付款</button>
+				<button :class="n?'btn':'btnn'" @click="btn" @touchstart="next" @touchend="back">取消订单</button>
 			</view>
 
 		</view>

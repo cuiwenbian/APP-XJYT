@@ -19,7 +19,7 @@
                 <text class="name1">{{ days }}天</text>
             </view>
         </view>
-        <button :class="n ? 'btn' : 'btn1'" @click="btn">确认</button>
+        <button :class="n ? 'btn' : 'btn1'" @click="btn" @touchstart="next" @touchend="back">确认</button>
         <!-- #ifndef H5 -->
         <password-input v-if="passIn" ref="wrong" @clo="clo" @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
         <!-- #endif -->
@@ -43,16 +43,19 @@ export default {
             name: '',
             cool: '',
             numberList: [],
+            length: 6,
             passIn: false,
             days: '',
-            shadrate: ''
+            shadrate: '',
+            id:'',
+            password:''
         };
     },
     components: {
         keyboardPackage,
         passwordInput
     },
-    onLoad(option) {
+    onShow(option) {
         this.name = option.name;
         this.cool = option.cllo;
         this.id = option.ids;
@@ -98,11 +101,9 @@ export default {
                     method: 'POST',
                     data: {
                         name: this.name,
-                        cool: this.cool,
-                        days: this.days,
                         cloudid: this.id,
-                        hashrate: this.shadrate,
-                        mobile: ''
+                        mobile: this.cool,
+                        password:this.password
                     },
                     header: {
                         Authorization: 'JWT' + ' ' + that.global_.token

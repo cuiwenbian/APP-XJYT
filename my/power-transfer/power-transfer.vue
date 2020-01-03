@@ -12,7 +12,7 @@
             <text class="stop">提示:交易需要买家和卖家进行实名认证</text>
         </view>
         <view class="btn">
-            <button class="primary" @click="step">下一步</button>
+            <button class="primary" @click="step" @touchstart="next" @touchend="back">下一步</button>
            
         </view> 
     </view>

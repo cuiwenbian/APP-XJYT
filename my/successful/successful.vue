@@ -10,7 +10,7 @@
                 <text class="name">10TB</text>
             </view>
         </view>
-        <button class="btn" @click="btn">完成</button>
+        <button class="btn" @click="btn" @touchstart="next" @touchend="back">完成</button>
     </view>
 </template>
 
@@ -27,7 +27,7 @@
         methods:{
             btn:function() {
                 uni.navigateBack({
-                    delta:1
+                    delta:3
                 })
             }
         }

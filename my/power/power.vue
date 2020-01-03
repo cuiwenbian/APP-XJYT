@@ -22,7 +22,7 @@
                 <view class="contract2">
                     合约日期:
                     <text class="time">{{ item.starttime }}至{{ item.endtime }}</text>
-                    <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)">转让</button>
+                    <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)" @touchstart="next" @touchend="back">转让</button>
                 </view>
             </view>
             <view class="mill">
@@ -75,7 +75,7 @@ export default {
                         item.starttime = item.starttime ? item.starttime.substring(0, 10) : '';
                         item.endtime = item.endtime ? item.endtime.substring(0, 10) : '';
                         hashrate_total += parseFloat(item.hashrate || 0);
-                        use_avg += parseFloat(item.use || 0);
+                        use_total += parseFloat(item.use || 0);
                         return item;
                         use_avg = (use_total / res.data.data.length).toFixed(2);
                     });
