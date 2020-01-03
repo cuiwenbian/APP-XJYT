@@ -17,32 +17,38 @@
             </view>
         </view>
         <view class="pay">已购存力</view>
-        <view class="box2" v-for="(item, index) in contract" :key="index">
-            <view class="contract">
-                <view class="contract2">
-                    合约日期:
-                    <text class="time">{{ item.starttime }}至{{ item.endtime }}</text>
-                    <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)" @touchstart="next" @touchend="back">转让</button>
-                </view>
-            </view>
-            <view class="mill">
-                <view class="mill2">
-                    <text class="orepool">{{ item.name }}</text>
-                    <text>
-                        已购数量:
-                        <text class="linga">{{ item.hashrate }}TB</text>
-                    </text>
-                    <text>
-                        使用率:
-                        <text class="linga">{{ item.use }}%</text>
-                    </text>
-                    <text>
-                        剩余:
-                        <text class="linga">{{ item.days }}天</text>
-                    </text>
-                </view>
-            </view>
-        </view>
+		<view v-if='cunli'>
+			<view class="box2" v-for="(item, index) in contract" :key="index">
+			    <view class="contract">
+			        <view class="contract2">
+			            合约日期:
+			            <text class="time">{{ item.starttime }}至{{ item.endtime }}</text>
+			            <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)" @touchstart="next" @touchend="back">转让</button>
+			        </view>
+			    </view>
+			    <view class="mill">
+			        <view class="mill2">
+			            <text class="orepool">{{ item.name }}</text>
+			            <text>
+			                已购数量:
+			                <text class="linga">{{ item.hashrate }}TB</text>
+			            </text>
+			            <text>
+			                使用率:
+			                <text class="linga">{{ item.use }}%</text>
+			            </text>
+			            <text>
+			                剩余:
+			                <text class="linga">{{ item.days }}天</text>
+			            </text>
+			        </view>
+			    </view>
+			</view>
+		</view>
+       <view v-else>
+		   <image class="no-cunli" src="../../static/images/no-coupon.png" mode=""></image>
+		   <view class="nobuys">蹔无存力～</view>
+	   </view>
     </view>
 </template>
 
@@ -53,7 +59,8 @@ export default {
             n: true,
             contract: '',
             hashrate_total: '0',
-            use_avg: '0'
+            use_avg: '0',
+			cunli:true
         };
     },
     onLoad() {
@@ -83,6 +90,9 @@ export default {
                 that.hashrate_total = hashrate_total;
                 that.use_avg = use_avg;
                 that.contract = contract;
+				if(that.contract.length==0){
+					that.cunli=false
+				}
             }
         });
     },
@@ -265,5 +275,16 @@ uni-button {
 .linga {
     padding-right: 20rpx;
     padding-left: 20rpx;
+}
+.no-cunli {
+	width: 209rpx;
+	height: 148rpx;
+	display: block;
+	margin: 152rpx auto 35rpx;
+}
+.nobuys {
+	text-align: center;
+	color: #8796aa;
+	font-size: 26rpx;
 }
 </style>
