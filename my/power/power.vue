@@ -70,7 +70,7 @@ export default {
                 var hashrate_total = 0; // 总数
                 var use_total = 0;
                 var use_avg = 0; // 平均数
-                if (res.data.data instanceof Array) {
+                if (res.data.data && res.data.data.length) {
                     contract = res.data.data.map(item => {
                         item.starttime = item.starttime ? item.starttime.substring(0, 10) : '';
                         item.endtime = item.endtime ? item.endtime.substring(0, 10) : '';
@@ -139,7 +139,7 @@ page {
     height: 326rpx;
 }
 .images{
-    width: 16rpx;
+    width: 30rpx;
     height: 31rpx;
     position: absolute;
     top: 64rpx;
