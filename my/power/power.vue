@@ -77,8 +77,8 @@ export default {
                         hashrate_total += parseFloat(item.hashrate || 0);
                         use_total += parseFloat(item.use || 0);
                         return item;
-                        use_avg = (use_total / res.data.data.length).toFixed(2);
                     });
+                    use_avg = (use_total / res.data.data.length).toFixed(2);
                 }
                 that.hashrate_total = hashrate_total;
                 that.use_avg = use_avg;
