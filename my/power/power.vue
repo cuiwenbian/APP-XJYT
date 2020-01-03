@@ -52,8 +52,8 @@ export default {
         return {
             n: true,
             contract: '',
-            hashrate_total: '',
-            use_avg: ''
+            hashrate_total: '0',
+            use_avg: '0'
         };
     },
     onLoad() {
