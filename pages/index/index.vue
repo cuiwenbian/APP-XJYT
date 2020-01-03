@@ -717,7 +717,7 @@ swiper-item image {
 
 .pools{
 	width:auto;
-	height:388rpx;
+	height:438rpx;
 	overflow: hidden;
 	padding-left:22rpx; 
 	box-sizing: border-box;
