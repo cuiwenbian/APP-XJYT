@@ -52,7 +52,28 @@
 				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
 			</view>
 		</view>
-		<view class="list" v-if="tabCurrentIndex === 3"></view>
+		<view class="list" v-if="tabCurrentIndex === 3">
+			<view v-if="flag">
+				<image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
+				<view class="nobuys">暂无购买记录～</view>
+			</view>
+			<view v-else>
+				<view class="tablist">
+					<view class="li">序号</view>
+					<view class="li">接收人</view>
+					<view class="li">优惠券名称</view>
+					<view class="li">转让时间</view>
+					
+				</view>
+				<view class="tablists" v-for="(item,index) in couponTip" :key='index'>
+					<view class="li">1</view>
+					<view class="li">{{item.name}}</view>
+					<view class="li">{{item.discountname}}</view>
+					<view class="li">{{item.time }}</view>
+					
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -68,6 +89,8 @@ export default {
 			discount: '',
 			len: [],
 			tabCurrentIndex: 0,
+			couponTip:'',
+			nums:'1',
 			navList: [
 				{
 					state: 0,
@@ -96,13 +119,10 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
-					console.log(res.data.data[0].join());
 					this.type = res.data.data[0].join();
-					
 					if (this.type == 1) {
 						this.navList.length = 3;
 					}
-					console.log(res.data.data[1]);
 					this.coupon = res.data.data[1];
 					this.news = res.data.data[1].filter(val => {
 						return val.type === 1;
@@ -118,7 +138,6 @@ export default {
 						this.len.push(l);
 						console.log(this.len);
 						var sum = 0;
-			
 						for (var j = 0; j < this.len.length; j++) {
 							sum += parseInt(this.len[j]);
 							console.log(sum);
@@ -146,9 +165,19 @@ export default {
 					console.log(this.news);
 					console.log(this.discount);
 			},
-				
-				fail: () => {},
-				complete: () => {}
+		});
+		uni.request({
+			url: this.url+'discountrecode/',
+			method: 'GET',
+			header: {
+				Authorization: 'JWT' + ' ' + this.global_.token
+			},
+			success: res => {
+				console.log(res)
+				this.couponTip=res.data.data
+			},
+			fail: () => {},
+			complete: () => {}
 		});
 	},
 	methods: {
@@ -304,6 +333,46 @@ page {
 	color: #ffffff;
 	font-size: 22rpx;
 	line-height: 46rpx;
+	text-align: center;
+}
+.transfer {
+	width: 234rpx;
+	height: 147rpx;
+	display: block;
+	margin: 152rpx auto 35rpx;
+}
+.nobuys {
+	text-align: center;
+	color: #8796aa;
+	font-size: 26rpx;
+}
+.tablist {
+	height: 107rpx;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.tablists {
+	height: 107rpx;
+	width: 100%;
+	border-bottom: 1rpx solid #121e2c;
+	display: flex;
+	justify-content: space-around;
+}
+.li {
+	color: #ffffff;
+	font-size: 24rpx;
+	line-height: 107rpx;
+}
+.give{
+	width:76rpx;
+	height:34rpx;
+	border: 1rpx solid #41BEC9;
+	border-radius: 5rpx;
+	color:#41BEC9;
+	font-size: 20rpx;
+	margin-top:36rpx;
+	line-height: 34rpx;
 	text-align: center;
 }
 </style>

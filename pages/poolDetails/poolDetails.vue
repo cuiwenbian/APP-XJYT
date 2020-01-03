@@ -156,7 +156,17 @@
 				var that=this;
 				that.tabCurrentIndex = index;
 			},
-			
+			buynow:function(){
+				console.log(this.poolDetail)
+				var a=JSON.stringify(this.poolDetail)
+				console.log(a)
+				uni.navigateTo({
+					url: '../../my/submit/submit?a='+a,
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
 			buy_month:function(){
 				this.month=true;
 				this.year=false;
