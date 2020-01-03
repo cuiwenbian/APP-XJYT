@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class='height'></view>
+		<!-- <view class='height'></view> -->
 		<view class="navbar">
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
 		</view>
@@ -36,24 +36,24 @@
             </view>
             <view v-else>
                 <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-                <view class="info">没有记录～</view>
+                <view class="info">没有订单～</view>
             </view>
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 1">
             <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-            <view class="info">没有记录～</view>
+            <view class="info">没有订单～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 2">
             <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-            <view class="info">没有记录～</view>
+            <view class="info">没有订单～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 3">
            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-           <view class="info">没有记录～</view>
+           <view class="info">没有订单～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 4">
            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
-           <view class="info">没有记录～</view>
+           <view class="info">没有订单～</view>
         </view>
 	</view>
 </template>
