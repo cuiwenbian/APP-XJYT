@@ -160,8 +160,8 @@ page {
     z-index: 1;
 }
 .cter{
-    width: 40rpx;
-    height: 40rpx;
+    width: 60rpx;
+    height: 60rpx;
 }
 .power {
     width: 100%;
