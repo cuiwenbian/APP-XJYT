@@ -17,11 +17,11 @@
 		</image> -->
 		<view class='mill'> 
 			<view class="machine machine-left">
-				<view class="machine-num">100.1</view>
+				<view class="machine-num">0</view>
 				<view class="machine-mill">矿机收益</view>
 			</view>
 			<view class="machine">
-				<view class="machine-num">50.05</view>
+				<view class="machine-num">0</view>
 				<view class="machine-mill">存力收益</view>
 			</view>
 		</view>

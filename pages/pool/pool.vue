@@ -34,7 +34,7 @@
 						<view class="room">地区</view>
 					</view>
 				</view>
-				<view :class="n ? 'buys' : 'buys1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">立即购买</view>
+				<view :class="n ? 'buys' : 'buys1'" @click="buy(item.cloudid)" >立即购买</view>
 			</view>
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 1">
@@ -99,7 +99,7 @@ export default {
 					text: '已购买'
 				}
 			],
-			flag: false
+			flag: true
 		};
 	},
 	onLoad() {

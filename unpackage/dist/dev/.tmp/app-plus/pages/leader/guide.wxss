@@ -1,9 +1,17 @@
 
+<<<<<<< HEAD
 .swiper.data-v-00032ecc {
         width: 100%;
 		background: #161822;
 }
 .experice.data-v-00032ecc{
+=======
+.swiper.data-v-a177453a {
+        width: 100%;
+		background: #161822;
+}
+.experice.data-v-a177453a{
+>>>>>>> d64e3bf70a77e61fd8cce4cf32bc46f3e01297e9
 		width:200px;
 		height:44px;
 		position: fixed;
@@ -11,13 +19,21 @@
 		bottom:50px;
 		z-index: 999;
 }
+<<<<<<< HEAD
 .experices.data-v-00032ecc{
+=======
+.experices.data-v-a177453a{
+>>>>>>> d64e3bf70a77e61fd8cce4cf32bc46f3e01297e9
 		width:200px;
 		height:44px;
 		display: block;
 		z-index: 999;
 }
+<<<<<<< HEAD
 .uni-swiper .uni-swiper-dots-horizontal.data-v-00032ecc{
+=======
+.uni-swiper .uni-swiper-dots-horizontal.data-v-a177453a{
+>>>>>>> d64e3bf70a77e61fd8cce4cf32bc46f3e01297e9
 		background: #fff;
 		bottom:100px;
 }

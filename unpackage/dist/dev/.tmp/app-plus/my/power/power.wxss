@@ -143,4 +143,15 @@ uni-button {
     padding-right: 20rpx;
     padding-left: 20rpx;
 }
+.no-cunli {
+	width: 209rpx;
+	height: 148rpx;
+	display: block;
+	margin: 152rpx auto 35rpx;
+}
+.nobuys {
+	text-align: center;
+	color: #8796aa;
+	font-size: 26rpx;
+}
 

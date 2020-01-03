@@ -110,8 +110,8 @@ page {
     text-align: center;
 }
 .transfer {
-	width: 234rpx;
-	height: 147rpx;
+	width: 209rpx;
+	height: 148rpx;
 	display: block;
 	margin: 152rpx auto 35rpx;
 }
