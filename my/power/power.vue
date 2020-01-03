@@ -3,7 +3,9 @@
     <view class="container">
         <view class="box">
             <image src="../../static/images/fgm.png" class="img">
-                <image @click="bt" src="../../static/images/jt.png" class="images" ></image>
+                <view class="cter">
+                    <image @click="bt" src="../../static/images/jt.png" class="images" ></image>
+                </view>
                 <view class="power">我的存力</view>
             </image>
             <view class="power2">
@@ -77,7 +79,7 @@ export default {
                 var hashrate_total = 0; // 总数
                 var use_total = 0;
                 var use_avg = 0; // 平均数
-                if (res.data.data instanceof Array) {
+                if (res.data.data && res.data.data.length) {
                     contract = res.data.data.map(item => {
                         item.starttime = item.starttime ? item.starttime.substring(0, 10) : '';
                         item.endtime = item.endtime ? item.endtime.substring(0, 10) : '';
@@ -150,12 +152,16 @@ page {
     height: 326rpx;
 }
 .images{
-    width: 16rpx;
+    width: 28rpx;
     height: 31rpx;
     position: absolute;
     top: 64rpx;
     left: 32rpx;
     z-index: 1;
+}
+.cter{
+    width: 40rpx;
+    height: 40rpx;
 }
 .power {
     width: 100%;
