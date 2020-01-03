@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
 		<view class="box">
-			<view class="mill">矿池名称
-				<text class="mill2">韭菜矿池</text>
+			<view class="mill">矿池名称 
+				<text class="mill2">{{pool.name}}</text>
 			</view>
 			<view class="mill">产品名称
 				<text class="mill2">Filecoin云存力</text>
@@ -52,11 +52,13 @@
 			return {
 				agree:true,
 				aplay:true,
-				usdt:true
+				usdt:true,
+				pool:''
 			}
 		},
-		onLoad() {
-			
+		onLoad(option) {
+			this.pool=JSON.parse(option.a)
+			console.log(this.pool)
 		},
 		methods:{
 			pay(){

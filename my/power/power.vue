@@ -3,7 +3,7 @@
     <view class="container">
         <view class="box">
             <image src="../../static/images/fgm.png" class="img">
-                <image src="" mode=""></image>
+                <image @click="bt" src="../../static/images/jt.png" class="images" ></image>
                 <view class="power">我的存力</view>
             </image>
             <view class="power2">
@@ -103,8 +103,19 @@ export default {
                             url: '../power-transfer/power-transfer?ids=' + item.id + '&day='+ item.days +'&rate=' + item.hashrate
                         });
                     }
+                    if (res.statusCode == 400) {
+                        uni.showToast({
+                            icon:'none',
+                            title:'未实名认证通过或未设置资金密码'
+                        })
+                    }
                 }
             });
+        },
+        bt:function() {
+            uni.navigateBack({
+                delta:1
+            })
         }
     }
 };
@@ -126,6 +137,14 @@ page {
 .box {
     width: 100%;
     height: 326rpx;
+}
+.images{
+    width: 16rpx;
+    height: 31rpx;
+    position: absolute;
+    top: 64rpx;
+    left: 32rpx;
+    z-index: 1;
 }
 .power {
     width: 100%;

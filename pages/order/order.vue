@@ -5,7 +5,7 @@
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 0">
-			<view class="box">
+			<view class="box" v-if="shod">
                 <view class="order">订单编号:
                     <text class="right">777777777</text>
                     <text class="state">{{state}}</text>
@@ -33,127 +33,27 @@
                     <button class="cancel">取消订单</button>
                 </view>
                 <view class="blank"></view>
+            </view>
+            <view v-else>
+                <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+                <view class="info">没有记录～</view>
             </view>
 		</view>
 		<view class="list" v-if="tabCurrentIndex === 1">
-            <view class="box">
-                <view class="order">订单编号:
-                    <text class="right">777777777</text>
-                    <text class="state">{{state}}</text>
-                </view>
-                <view class="belongs">{{buy}}:
-                    <text class="right">韭菜矿池</text>
-                </view>
-                <view class="belongs">{{price}}:
-                    <text class="right">¥1500/T</text>    
-                </view>
-                <view class="belongs">{{numbr}}:
-                    <text class="right">10TB</text>
-                </view>
-                <view class="belongs">{{pay}}:
-                    <text class="right">¥10000</text>
-                </view>
-                <view class="belongs">{{trading}}:
-                    <text class="right">存力买入</text>
-                </view>
-                <view class="belongs">{{dater}}:
-                    <text class="right">2019-12-31</text>
-                </view>
-                <view class="a">
-                    <button class="payment">付款</button>
-                    <button class="cancel">取消订单</button>
-                </view>
-                <view class="blank"></view>
-            </view>
+            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+            <view class="info">没有记录～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 2">
-            <view class="box">
-                <view class="order">订单编号:
-                    <text class="right">777777777</text>
-                    <text class="state">{{state}}</text>
-                </view>
-                <view class="belongs">{{buy}}:
-                    <text class="right">韭菜矿池</text>
-                </view>
-                <view class="belongs">{{price}}:
-                    <text class="right">¥1500/T</text>    
-                </view>
-                <view class="belongs">{{numbr}}:
-                    <text class="right">10TB</text>
-                </view>
-                <view class="belongs">{{pay}}:
-                    <text class="right">¥10000</text>
-                </view>
-                <view class="belongs">{{trading}}:
-                    <text class="right">存力买入</text>
-                </view>
-                <view class="belongs">{{dater}}:
-                    <text class="right">2019-12-31</text>
-                </view>
-                <view class="a">
-                    <button class="payment">付款</button>
-                    <button class="cancel">取消订单</button>
-                </view>
-                <view class="blank"></view>
-            </view>
+            <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+            <view class="info">没有记录～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 3">
-            <view class="box">
-                <view class="order">订单编号:
-                    <text class="right">777777777</text>
-                    <text class="state">{{state}}</text>
-                </view>
-                <view class="belongs">{{buy}}:
-                    <text class="right">韭菜矿池</text>
-                </view>
-                <view class="belongs">{{price}}:
-                    <text class="right">¥1500/T</text>    
-                </view>
-                <view class="belongs">{{numbr}}:
-                    <text class="right">10TB</text>
-                </view>
-                <view class="belongs">{{pay}}:
-                    <text class="right">¥10000</text>
-                </view>
-                <view class="belongs">{{trading}}:
-                    <text class="right">存力买入</text>
-                </view>
-                <view class="belongs">{{dater}}:
-                    <text class="right">2019-12-31</text>
-                </view>
-                <view class="a">
-                    <button class="payment">付款</button>
-                    <button class="cancel">取消订单</button>
-                </view>
-                <view class="blank"></view>
-            </view>
+           <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+           <view class="info">没有记录～</view>
         </view>
 		<view class="list" v-if="tabCurrentIndex === 4">
-            <view class="box">
-                <view class="order">订单编号:
-                    <text class="right">777777777</text>
-                    <text class="state">已完成</text>
-                </view>
-                <view class="belongs">{{buy}}:
-                    <text class="right">韭菜矿池</text>
-                </view>
-                <view class="belongs">{{price}}:
-                    <text class="right">¥1500/T</text>    
-                </view>
-                <view class="belongs">{{numbr}}:
-                    <text class="right">10TB</text>
-                </view>
-                <view class="belongs">{{pay}}:
-                    <text class="right">¥10000</text>
-                </view>
-                <view class="belongs">{{trading}}:
-                    <text class="right">存力买入</text>
-                </view>
-                <view class="longs">{{dater}}:
-                    <text class="right">2019-12-31</text>
-                </view>
-                <view class="blank"></view>
-            </view>
+           <image class='transfer' src="../../static/images/no-transfer.png" mode=""></image>
+           <view class="info">没有记录～</view>
         </view>
 	</view>
 </template>
@@ -191,7 +91,8 @@ export default {
             numbr:'购买数量',
             pay:'支付金额',
             trading:'交易类型',
-            dater:'下单日期'
+            dater:'下单日期',
+            shod:false
 		};
 	},
     onShow() {
@@ -313,4 +214,15 @@ page {
     padding-top: 36rpx;
     padding-bottom: 20rpx;
 }
+.transfer {
+		width: 234rpx;
+		height: 147rpx;
+		display: block;
+		margin: 152rpx auto 35rpx;
+	}
+	.info {
+		text-align: center;
+        color:#8796AA;
+		font-size: 26rpx;
+	}
 </style>

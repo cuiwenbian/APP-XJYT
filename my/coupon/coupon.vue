@@ -1,59 +1,80 @@
 <template>
-    <!-- 优惠券 -->
-    <view class="container">
-        <view class="navbar">
-            <view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
-        </view>
-        <view class="list" v-if="tabCurrentIndex === 0">
-            <view class="coupon" v-for="(item, index) in news" :key="index">
-                <view class="discount">¥{{ item.discount }}</view>
-                <view class="info">
-                    <view class="name1">{{ item.name }}</view>
-                    <view class="require1">消费满{{ item.sill }}可用</view>
-                    <view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
-                    <view class="nums1">剩余{{ item.lens }}张</view>
-                </view>
-                <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-                <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-            </view>
-            <view class="coupon" v-for="(item, index) in discount" :key="index">
-                <view class="discount">{{ item.discount * 10 }}折</view>
-                <view class="info">
-                    <view class="name">{{ item.name }}</view>
-                    <view class="time">限{{ item.start }}至{{ item.end }}使用</view>
-                    <view class="nums">剩余{{ item.lens }}张</view>
-                </view>
-                <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-                <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-            </view>
-        </view>
-        <view class="list" v-if="tabCurrentIndex === 1">
-            <view class="coupon" v-for="(item, index) in news" :key="index">
-                <view class="discount">¥{{ item.discount }}</view>
-                <view class="info">
-                    <view class="name1">{{ item.name }}</view>
-                    <view class="require1">消费满{{ item.sill }}可用</view>
-                    <view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
-                    <view class="nums1">剩余{{ item.lens }}张</view>
-                </view>
-                <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-                <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-            </view>
-        </view>
-        <view class="list" v-if="tabCurrentIndex === 2">
-            <view class="coupon" v-for="(item, index) in discount" :key="index">
-                <view class="discount">{{ item.discount * 10 }}折</view>
-                <view class="info">
-                    <view class="name">{{ item.name }}</view>
-                    <view class="time">限{{ item.start }}至{{ item.end }}使用</view>
-                    <view class="nums">剩余{{ item.lens }}张</view>
-                </view>
-                <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-                <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-            </view>
-        </view>
-        <view class="list" v-if="tabCurrentIndex === 3"></view>
-    </view>
+	<!-- 优惠券 -->
+	<view class="container">
+		<view class="navbar">
+			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
+		</view>
+		<view class="list" v-if="tabCurrentIndex === 0">
+			<view class="coupon" v-for="(item, index) in news" :key="index">
+				<view class="discount">¥{{ item.discount }}</view>
+				<view class="info">
+					<view class="name1">{{ item.name }}</view>
+					<view class="require1">消费满{{ item.sill }}可用</view>
+					<view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
+					<view class="nums1">剩余{{ item.lens }}张</view>
+				</view>
+				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+			</view>
+			<view class="coupon" v-for="(item, index) in discount" :key="index">
+				<view class="discount">{{ item.discount * 10 }}折</view>
+				<view class="info">
+					<view class="name">{{ item.name }}</view>
+					<view class="time">限{{ item.start }}至{{ item.end }}使用</view>
+					<view class="nums">剩余{{ item.lens }}张</view>
+				</view>
+				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+			</view>
+		</view>
+		<view class="list" v-if="tabCurrentIndex === 1">
+			<view class="coupon" v-for="(item, index) in news" :key="index">
+				<view class="discount">¥{{ item.discount }}</view>
+				<view class="info">
+					<view class="name1">{{ item.name }}</view>
+					<view class="require1">消费满{{ item.sill }}可用</view>
+					<view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
+					<view class="nums1">剩余{{ item.lens }}张</view>
+				</view>
+				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+			</view>
+		</view>
+		<view class="list" v-if="tabCurrentIndex === 2">
+			<view class="coupon" v-for="(item, index) in discount" :key="index">
+				<view class="discount">{{ item.discount * 10 }}折</view>
+				<view class="info">
+					<view class="name">{{ item.name }}</view>
+					<view class="time">限{{ item.start }}至{{ item.end }}使用</view>
+					<view class="nums">剩余{{ item.lens }}张</view>
+				</view>
+				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+			</view>
+		</view>
+		<view class="list" v-if="tabCurrentIndex === 3">
+			<view v-if="flag">
+				<image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
+				<view class="nobuys">暂无购买记录～</view>
+			</view>
+			<view v-else>
+				<view class="tablist">
+					<view class="li">序号</view>
+					<view class="li">接收人</view>
+					<view class="li">优惠券名称</view>
+					<view class="li">转让时间</view>
+					
+				</view>
+				<view class="tablists" v-for="(item,index) in couponTip" :key='index'>
+					<view class="li">1</view>
+					<view class="li">{{item.name}}</view>
+					<view class="li">{{item.discountname}}</view>
+					<view class="li">{{item.time }}</view>
+					
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
@@ -68,6 +89,8 @@ export default {
             discount: '',
             len: [],
             tabCurrentIndex: 0,
+            couponTip:'',
+            nums:'1',
             navList: [
                 {
                     state: 0,
@@ -162,6 +185,19 @@ export default {
             fail: () => {},
             complete: () => {}
         });
+        uni.request({
+        	url: this.url+'discountrecode/',
+        	method: 'GET',
+        	header: {
+        		Authorization: 'JWT' + ' ' + this.global_.token
+        	},
+        	success: res => {
+        		console.log(res)
+        		this.couponTip=res.data.data
+        	},
+        	fail: () => {},
+        	complete: () => {}
+        });
     },
     methods: {
         changeTab(e) {
@@ -204,6 +240,7 @@ export default {
             this.n = true;
         }
     }
+
 };
 </script>
 
@@ -316,5 +353,45 @@ page {
     font-size: 22rpx;
     line-height: 46rpx;
     text-align: center;
+}
+.transfer {
+	width: 234rpx;
+	height: 147rpx;
+	display: block;
+	margin: 152rpx auto 35rpx;
+}
+.nobuys {
+	text-align: center;
+	color: #8796aa;
+	font-size: 26rpx;
+}
+.tablist {
+	height: 107rpx;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.tablists {
+	height: 107rpx;
+	width: 100%;
+	border-bottom: 1rpx solid #121e2c;
+	display: flex;
+	justify-content: space-around;
+}
+.li {
+	color: #ffffff;
+	font-size: 24rpx;
+	line-height: 107rpx;
+}
+.give{
+	width:76rpx;
+	height:34rpx;
+	border: 1rpx solid #41BEC9;
+	border-radius: 5rpx;
+	color:#41BEC9;
+	font-size: 20rpx;
+	margin-top:36rpx;
+	line-height: 34rpx;
+	text-align: center;
 }
 </style>

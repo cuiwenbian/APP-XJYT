@@ -112,7 +112,7 @@ export default {
                         if (res.statusCode == 400) {
                             uni.showToast({
                                 icon:'none',
-                                title:'用户未实名认证通过'
+                                title:'未实名认证通过'
                             })
                         }
                         if (res.statusCode == 401) {
