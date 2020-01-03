@@ -41,7 +41,7 @@
 							<view class="dayTrans">{{item.harduse}}<text class="fil">T</text></view>
 							<view class="txx">可出售空间</view>
 						</view>
-						<view :class="n?'buy':'buy1'" @click="buy(item.cloudid)" @touchstart="next" @touchend="back">
+						<view :class="n?'buy':'buy1'" @click="buy(item.cloudid)" >
 							立即购买
 						</view>
 					</view>
@@ -96,7 +96,7 @@
 		<view class="shade" v-if="According">
 			<image class="pop" src="../../static/images/update.png" mode="">
 				<view class="desc1" >
-					<view class='one' v-for="(item,index) in title" :key='index'>{{item.title}}</view>
+					<view class='one'>{{remark}}</view>
 				</view>
 				<view class="pops">
 					<view class="pop-btn quxiao" @click="noupdate">暂不更新</view>
