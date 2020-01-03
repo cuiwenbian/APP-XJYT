@@ -140,8 +140,8 @@ uni-button {
     padding-left: 20rpx;
 }
 .no-cunli {
-	width: 209rpx;
-	height: 148rpx;
+	width: 231rpx;
+	height: 162rpx;
 	display: block;
 	margin: 152rpx auto 35rpx;
 }

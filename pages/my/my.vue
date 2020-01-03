@@ -274,6 +274,13 @@
 					url:'../../my/suggest/suggest'
 				})
 			},
+			help:function(){
+				uni.showToast({
+					title: '暂未开放',
+					icon:'none',
+					duration:2000
+				});
+			},
 			certification:function(){
 				uni.request({
 				  url: this.url + 'realname/',

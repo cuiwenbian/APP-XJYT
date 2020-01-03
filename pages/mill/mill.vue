@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="height"></view>
+		<!-- <view class="height"></view> -->
 		<view class="box1">
 			<image src="../../static/images/banner.png" class="banner">
 				<view class="colo">矿机交易</view>

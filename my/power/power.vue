@@ -46,8 +46,8 @@
 			</view>
 		</view>
        <view v-else>
-		   <image class="no-cunli" src="../../static/images/no-coupon.png" mode=""></image>
-		   <view class="nobuys">蹔无存力～</view>
+		   <image class="no-cunli" src="../../static/images/cunli.png" mode=""></image>
+		   <view class="nobuys">暂无存力～</view>
 	   </view>
     </view>
 </template>
@@ -90,6 +90,7 @@ export default {
                 that.hashrate_total = hashrate_total;
                 that.use_avg = use_avg;
                 that.contract = contract;
+				console.log(that.contract)
 				if(that.contract.length==0){
 					that.cunli=false
 				}
@@ -277,8 +278,8 @@ uni-button {
     padding-left: 20rpx;
 }
 .no-cunli {
-	width: 209rpx;
-	height: 148rpx;
+	width: 231rpx;
+	height: 162rpx;
 	display: block;
 	margin: 152rpx auto 35rpx;
 }
