@@ -18,6 +18,7 @@
 		
 			<scroll-view class='pools' scroll-x="true">
 				<!-- <view class="pools"> -->
+
 				<view  class="listItem" v-for="(item, index) in pool" :key="index" >
 					<image class="hots" src="../../static/images/hot.png" mode=""></image>
 					<view class="poolName">
@@ -237,6 +238,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
+                console.log(res)
 				that.title = res.data;
 				console.log(that.title)
 			}

@@ -41,7 +41,7 @@
 				<image :src="agree?'../../static/images/xuanz.png':'../../static/images/xiaotu.png'" class="img2" @click="agreement"></image>
 				<text class="tet">我已阅读并同意用户存力租赁协议</text>
 			</view>
-			<button class="btn">付款</button>
+			<button class="btn">提交订单</button>
 		</view>
 	</view>
 </template>
@@ -50,8 +50,6 @@
 	export default {
 		data () {
 			return {
-				shad: false,
-				sha:true,
 				agree:true,
 				aplay:true,
 				usdt:true

@@ -56,8 +56,8 @@
 				<view class="xx"></view>
 			</view>
 			<view class="rening">
-				<button class="btn2">付款</button>
-				<button class="btn">取消订单</button>
+				<button :class="bt?'btn2':'btm'" @click="ben">付款</button>
+				<button :class="n?'btn':'btnn'" @click="btn">取消订单</button>
 			</view>
 
 		</view>
@@ -65,6 +65,25 @@
 </template>
 
 <script>
+    export default {
+        data () {
+            return {
+                n:true,
+                bt:true
+            }
+        },
+        onLoad() {
+            
+        },
+        methods:{
+            ben:function() {
+                
+            },
+            btn:function(){
+               
+            }
+        }
+    }
 </script>
 
 <style>
@@ -138,12 +157,21 @@
 	.btn{
 		margin-top: 60rpx;
 		float: right;
-		width: 150rpx;
+		width: 160rpx;
 		height: 56rpx;
 		margin-right: 32rpx;
 		background-color: #B1B1B1;
 		font-size: 24rpx;
 	}
+    .btnn{
+        margin-top: 60rpx;
+        float: right;
+        width: 160rpx;
+        height: 56rpx;
+        margin-right: 32rpx;
+        background: RGBA(0, 193, 203, 0.5);
+        font-size: 24rpx;
+    }
 	.btn2{
 		float: right;
 		width: 150rpx;
@@ -154,4 +182,14 @@
 		font-size: 24rpx;
 		color: #FFFFFF;
 	}
+    .btm{
+        float: right;
+        width: 150rpx;
+        height: 56rpx;
+        margin-top: 60rpx;
+        margin-right: 30rpx;
+        background: RGBA(0, 193, 203, 0.5);
+        font-size: 24rpx;
+        color: #FFFFFF;
+     }
 </style>
