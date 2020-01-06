@@ -13,7 +13,8 @@
 			}
 		},
         onLoad(option) {
-            this.ction = decodeURIComponent(option.content);
+            this.ction = option.content;
+			// this.ction = decodeURIComponent(option.content);
             this.aa=this.ction.replace(/_/g,"=");
         }
 	}
@@ -22,6 +23,7 @@
 <style>
 
 .con{
+	width:100%;
 	padding: 36rpx;
     box-sizing: border-box;
 }

@@ -15,10 +15,7 @@
 		<view class="hotPool">
 			热销矿池
 		</view>
-		
 			<scroll-view class='pools' scroll-x="true">
-				<!-- <view class="pools"> -->
-
 				<view  class="listItem" v-for="(item, index) in pool" :key="index" >
 					<image class="hots" src="../../static/images/hot.png" mode=""></image>
 					<view class="poolName">
@@ -46,12 +43,8 @@
 						</view>
 					</view>
 				</view>
-				
-				<!-- </view>	 -->
 			</scroll-view>
 					
-			
-		<!-- </view> -->
 		<view class="line"></view>
 		<view class="hotPool">
 			热门资讯
@@ -121,43 +114,34 @@ export default {
 		return {
 			scr:true,
 			n:true,
-			Todayprice: '',
-			yesterdayprice: '',
-			yesterday: '',
-			seven_profit: '',
+			// Todayprice: '',
+			// yesterdayprice: '',
+			// yesterday: '',
+			//seven_profit: '',
 			title: '',
-			total_profit: '',
-			cWidth: '',
-			cHeight: '',
-			pixelRatio: 1,
+			//total_profit: '',
+			//cWidth: '',
+			//cHeight: '',
+			//pixelRatio: 1,
 			notice: '',
 			csgo: '',
-			time: [],
-			price: [],
-			price_all: [],
-			hure: [],
+			//time: [],
+			//price: [],
+			//price_all: [],
+			//hure: [],
 			According: false,
 			diro: true,
-			feck: [],
-			usd: '',
+			//feck: [],
+			//usd: '',
 			link: '',
-			suner: '',
-			weak: '',
+			//suner: '',
+			//weak: '',
 			baner: '',
-			hige: '',
-			minn: '',
+			//hige: '',
+			//minn: '',
 			version: '',
 			remark: '',
 			urll: this.urll,
-			swiperOption: {
-			          slidesPerView: 2,
-			          slidesPerColumn: 2,
-			          spaceBetween: 30,
-			          pagination: {
-			            el: '.swiper-pagination',
-			            clickable: true
-			          }
-			},
 			pool:''
 			
 		};
@@ -216,11 +200,7 @@ export default {
 		});
 	},
 	onShow() {
-		_self = this;
 		var that = this;
-		this.cWidth = uni.upx2px(750);
-		this.cHeight = uni.upx2px(550);
-		_self.getServerData();
 		uni.request({
 			url: this.url + 'home/rotation/',
 			method: 'GET',
@@ -228,7 +208,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success(res) {
-				_self.baner = res.data;
+				that.baner = res.data;
 			}
 		});
 		uni.request({
@@ -364,7 +344,6 @@ export default {
 				success(res) {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
-
 					if (link == null) {
 						uni.navigateTo({
 							url: '../banner/banner?content=' + encodeURIComponent(text_content)
@@ -384,13 +363,14 @@ export default {
 				method: 'PUT',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
-				},
+				},   
 				success: res => {
                     console.log(res)
 					var ingym = res.data.data;
 					var link2 = ingym.link;
 					var read_volume = ingym.read_volume;
 					var text_content2 = ingym.text_content.replace(/=/g, '_');
+					console.log(res)
 					var add_time = ingym.add_time;
 					var title = ingym.title;
                     console.log()
@@ -407,180 +387,7 @@ export default {
 				}
 			});
 		},
-		getServerData() {
-			var that = this;
-			var timestamp = Date.parse(new Date()) / 1000;
-			var date2 = new Date();
-			var date4 = 86400 * 6;
-			var date3 = timestamp - date4; //时间差的毫秒数
-			uni.request({
-				url: `https://gateio.org/json_svr/query/?u=10&c=9137018&type=tvkline&symbol=fil_usdt&from=${date3}&to=${timestamp}&interval=28800`,
-				method: 'POST',
-				success: function(res) {
-					//转换时间戳
-					function formatDate(v) {
-						let date = new Date(v);
-						let y = date.getFullYear();
-						let MM = date.getMonth() + 1;
-						MM = MM < 10 ? '0' + MM : MM;
-						let d = date.getDate();
-						d = d < 10 ? '0' + d : d;
-						let h = date.getHours();
-						h = h < 10 ? '0' + h : h;
-						let m = date.getMinutes();
-						m = m < 10 ? '0' + m : m;
-						return MM + '-' + d;
-					}
-					var a = res.data.split('\n');
-					that.usd = a;
-					var time = [];
-					var price = [];
-					var price_all = [];
-					var hure = [];
-					var feck = [];
-					for (let i = 1; i < that.usd.length - 1; i++) {
-						var date = a[i].split(',')[0];
-						var t = formatDate(parseInt(date));
-						time.push(t);
-						that.time = time;
-						var day1 = new Date();
-						day1.setTime(day1.getTime() - 24 * 60 * 60 * 1000);
-						var s1 = day1.getFullYear() + '-' + (day1.getMonth() + 1) + '-' + day1.getDate();
-					}
-					for (let j = 1; j < that.usd.length - 1; j++) {
-						var data1 = a[j].split(',')[2];
 
-						var cert = parseFloat(data1);
-						price.push(cert);
-						that.price = price;
-					}
-
-					for (let j = 1; j < that.usd.length - 1; j++) {
-						var numss = a[j].split(',')[2];
-						var certss = parseFloat(numss);
-						price_all.push(certss);
-						that.price_all = price_all.sort();
-						var arrs = that.price_all.sort();
-						var mins = arrs[0]; //最小值
-						var maxs = arrs[arrs.length - 1]; //最大值
-					}
-					_self.hige = parseFloat(maxs) + 0.5;
-					_self.minn = parseFloat(mins) - 0.5;
-					for (let o = 1; o < that.usd.length - 1; o++) {
-						var data3 = a[o].split(',')[1];
-						var tert = parseFloat(data3);
-						feck.push(tert);
-						that.feck = feck;
-					}
-					for (let n = 1; n < that.usd.length - 1; n++) {
-						var min = a[n].split(',')[3];
-					}
-					var now_price = parseFloat(a[a.length - 2].split(',')[4]);
-					var yesterday_price = parseFloat(a[a.length - 6].split(',')[4]);
-					var incrace = now_price - yesterday_price;
-					var yest = incrace.toFixed(2);
-					var thi = (now_price / data3 - 1) * 100;
-					var t = thi.toFixed(2) + '%';
-
-					that.Todayprice = now_price;
-					that.yesterday = t;
-					that.yesterdayprice = yest;
-					if (yest > 0 || t > 0) {
-						that.yest = '+' + that.yest;
-					}
-					let Area = { list: [] };
-					//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-					Area.list = that.usd;
-					_self.showArea('canvasArea', that.usd);
-				}
-			});
-		},
-		showArea(canvasId, chartData) {
-			canvaArea = new uCharts({
-				$this: _self,
-				canvasId: canvasId,
-				type: 'area',
-				fontSize: 11,
-				legend: true,
-				dataLabel: false,
-				legend: { show: false },
-				dataPointShape: false,
-				legend: { show: false },
-				pixelRatio: _self.pixelRatio,
-				categories: _self.time, //数据类别(饼图.圆环图不需要)
-				series: [
-					//数据列表
-					{
-						name: 'FIL价格', //数据名称
-						data: _self.price, //数据
-						color: '#58f4e3' //颜色,不传入则使用系统默认配色方案
-					}
-				],
-				animation: true,
-				xAxis: {
-					type: 'grid',
-					gridColor: '#333535',
-					disableGrid: true,
-					gridType: 'solid',
-					dashLength: 8,
-					axisLineColor: '#333535',
-					itemCount: 20,
-					labelCount: 8
-				},
-				yAxis: {
-					type: 'grid',
-					gridType: 'solid',
-					gridColor: '#333535',
-					dashLength: 8,
-					splitNumber: 4,
-					min: _self.minn,
-					max: _self.hige,
-					axisLineColor: 'red',
-					format: val => {
-						return val.toFixed(1);
-					}
-				},
-				width: _self.cWidth * _self.pixelRatio,
-				height: _self.cHeight * _self.pixelRatio,
-				extra: {
-					tooltip: {
-						gridColor: '#5d5d5d' //辅助线颜色
-					},
-					area: {
-						type: 'straight',
-						opacity: 0.2,
-						addLine: true,
-						width: 1,
-						gradient: true
-					},
-					toolTip: {
-						gridColor: '#f4645f'
-					}
-				}
-			});
-		},
-		touchCandle(e) {
-			canvaArea.scrollStart(e);
-		},
-		moveCandle(e) {
-			canvaArea.scroll(e);
-		},
-		touchEndCandle(e) {
-			canvaArea.scrollEnd(e);
-			//下面是toolTip事件，如果滚动后不需要显示，可不填写
-			canvaArea.showToolTip(e, {
-				format: function(item, category) {
-					return category + ' ' + item.name + ':' + item.data;
-				}
-			});
-		},
-		touchArea(e) {
-			canvaArea.showToolTip(e, {
-				format: function(item, category) {
-					return category + ' ' + item.name + ':' + item.data;
-				}
-			});
-		}
 	}
 };
 </script>
