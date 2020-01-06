@@ -1,2 +1,2 @@
-setCssToHead([".",[1],"con{ padding: ",[0,36],"; box-sizing: border-box; }\n",],undefined,{path:"./pages/banner/banner.wxss"})();
+setCssToHead([".",[1],"con{ width:100%; padding: ",[0,36],"; box-sizing: border-box; }\n",],undefined,{path:"./pages/banner/banner.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/banner/banner.wxml') } }));
