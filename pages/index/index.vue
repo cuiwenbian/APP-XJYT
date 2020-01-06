@@ -386,12 +386,14 @@ export default {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success: res => {
+                    console.log(res)
 					var ingym = res.data.data;
 					var link2 = ingym.link;
 					var read_volume = ingym.read_volume;
 					var text_content2 = ingym.text_content.replace(/=/g, '_');
 					var add_time = ingym.add_time;
 					var title = ingym.title;
+                    console.log()
 
 					if (link2 == null) {
 						uni.navigateTo({

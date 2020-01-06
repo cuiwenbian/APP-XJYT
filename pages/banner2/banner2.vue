@@ -20,9 +20,9 @@
     		}
     	},
         onLoad(option) {
-            
+            console.log(option)
             this.title = option.title
-            this.cont = decodeURIComponent(option.cont);
+            // this.cont = decodeURIComponent(option.cont);
             
 			this.aa=this.cont.replace(/_/g,"=");
             this.add = option.add

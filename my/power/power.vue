@@ -14,7 +14,7 @@
             </view>
             <view class="x"></view>
             <view class="usage">
-                {{ use_avg }}%
+                {{use_avg }}%
                 <view class="usage2">使用率</view>
             </view>
         </view>
