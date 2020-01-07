@@ -41,6 +41,12 @@
 			}
 		},
 		{
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
 			"path": "pages/pool/pool",
 
 			"style": {
@@ -231,6 +237,21 @@
 						"navigationBarTitleText": "新增提币地址"
 					}
 				},
+				{
+					"path": "machine-sale/machine-sale",
+					"style": {
+						"titleNView": {
+							"titleText": "服务器出售",
+							"buttons": [ //原生标题栏按钮配置,
+								{
+									"text": "记录", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+									"fontSize": "24rpx",
+									"width": "50rpx"
+								}
+							]
+						}
+					}
+				},
 				// #ifdef APP-PLUS
 				{
 					"path": "address/address",
@@ -258,7 +279,7 @@
 					"path": "my-machine/my-machine",
 					"style": {
 						"titleNView": {
-							"titleText": "我的矿机",
+							"titleText": "服务器",
 							"buttons": [ //原生标题栏按钮配置,
 								{
 									"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
@@ -356,7 +377,7 @@
 				{
 					"path": "my-machine/my-machine",
 					"style": {
-						"navigationBarTitleText": "我的矿机"
+						"navigationBarTitleText": "我的服务器"
 							
 					}
 				},
@@ -426,7 +447,7 @@
 				{
 					"path": "machine-detail/machine-detail",
 					"style": {
-						"navigationBarTitleText": "矿机详情"
+						"navigationBarTitleText": "服务器详情"
 					}
 				},
 				{

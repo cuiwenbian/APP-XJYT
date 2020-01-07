@@ -127,9 +127,9 @@ page{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-box-pack:justify;
-	-webkit-justify-content:space-between;
-	        justify-content:space-between;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	        justify-content: flex-start;
 	-webkit-flex-wrap: wrap;
 	        flex-wrap: wrap;
 	padding:50rpx;

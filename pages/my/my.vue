@@ -36,8 +36,25 @@
 				</view>
 				<view class="txt">矿机交易</view>
 			</view>
-			
-			<view class="listItem" @click="tradePassword">
+			<view class="listItem" @click="mymachine">
+				<view class="pic">
+					<image  src="../../static/images/icon-machine.png" style="width:46rpx;height:40rpx;" mode=""></image>
+				</view>
+				<view class="txt" >我的矿机</view>
+			</view>
+			<view class="listItem" @click="machinsale">
+				<view class="pic">
+					<image  src="../../static/images/icon-sale.png" style="width:46rpx;height:40rpx;" mode=""></image>
+				</view>
+				<view class="txt" >矿机出售</view>
+			</view>
+			<view class="listItem" @click="coupon">
+				<view class="pic">
+					<image  src="../../static/images/icon-quan.png" style="width:44rpx;height:42rpx;" mode=""></image>
+				</view>
+				<view class="txt" >优惠券</view>
+			</view>
+			<!-- <view class="listItem" @click="tradePassword">
 				<view class="pic">
 					<image  src="../../static/images/icon-trade.png" style="width:41rpx;height:49rpx;" mode=""></image>
 				</view>
@@ -54,37 +71,30 @@
 					<image   src="../../static/images/icon-emails.png" style="width:46rpx;height:36rpx;" mode=""></image>
 				</view>
 				<view class="txt" >邮箱绑定</view>
-			</view>
+			</view> -->
 			<view class="listItem" @click="help">
 				<view class="pic">
 					<image  src="../../static/images/icon-help.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
 				<view class="txt" >帮助中心</view>
 			</view>
-			
-			<view class="listItem" @click="mymachine">
-				<view class="pic">
-					<image  src="../../static/images/icon-machine.png" style="width:46rpx;height:40rpx;" mode=""></image>
-				</view>
-				<view class="txt" >我的矿机</view>
-			</view>
-			<view class="listItem" @click="coupon">
-				<view class="pic">
-					<image  src="../../static/images/icon-quan.png" style="width:44rpx;height:42rpx;" mode=""></image>
-				</view>
-				<view class="txt" >优惠券</view>
-			</view>
-			<view class="listItem" @click="certification">
+			<!-- <view class="listItem" @click="certification">
 				<view class="pic">
 					<image  src="../../static/images/icon-identity.png" style="width:48rpx;height:39rpx;" mode=""></image>
 				</view>
 				<view class="txt" >实名认证</view> 
-			</view>
+			</view> -->
 			<view class="listItem" @click="suggest">
 				<view class="pic">
 					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:46rpx;" mode=""></image>
 				</view>
-				<view class="txt" >建议反馈</view>
+				<view class="txt" >意见反馈</view>
+			</view>
+			<view class="listItem" @click="set">
+				<view class="pic">
+					<image  src="../../static/images/icon-set.png" style="width:44rpx;height:46rpx;" mode=""></image>
+				</view>
+				<view class="txt" >设置</view>
 			</view>
 			<!-- #ifdef MP-WEIXIN -->
 			<view class="listItem" @click="logout">
@@ -155,6 +165,11 @@
 				})
 			},
 			trans:function(){
+				uni.navigateTo({
+					url:'../mill/mill'
+				})
+			},
+			machinsale:function(){
 				uni.navigateTo({
 					url:'../mill/mill'
 				})
@@ -329,6 +344,11 @@
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			set:function(){
+				uni.navigateTo({
+					url:'../set/set'
+				})
 			}
 		}
 	}
@@ -459,7 +479,7 @@
 		width:100%;
 		height:500rpx;
 		display: flex;
-		justify-content:space-between;
+		justify-content: flex-start;
 		flex-wrap: wrap;
 		padding:50rpx;
 		box-sizing: border-box;
