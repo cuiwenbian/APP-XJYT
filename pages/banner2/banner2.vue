@@ -19,8 +19,8 @@
     		}
     	},
         onLoad(option) {
+            console.log(option)
             this.title = option.title
-            // this.cont = decodeURIComponent(option.cont);
             this.cont = option.cont;
 			this.aa=this.cont.replace(/_/g,"=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
 			console.log(this.aa)

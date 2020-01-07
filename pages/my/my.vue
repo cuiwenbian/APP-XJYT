@@ -330,9 +330,9 @@
 				})
 			},
 			mymachine:function(){
-				uni.navigateTo({
-					url:'../../my/my-machine/my-machine'
-				})
+                uni.navigateTo({
+                    url:'../../my/my-machine/my-machine'
+                })
 			},
 			logout:function(){
 				this.shade=true
