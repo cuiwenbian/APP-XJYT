@@ -4,7 +4,7 @@
 		<!-- <view class="height"></view> -->
 		<view v-if="flag">
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" @click-left="back" @click-right="add_address" background-color="#121212" color="#fff"></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" @click-left="back" @click-right="add_address" background-color="#102A44" color="#fff"></uni-nav-bar>
 			<!-- #endif -->
 			<view class="box"></view>
 			<view>
@@ -15,7 +15,7 @@
 		</view>
 		<view v-else>
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" right-text="提建议" @click-left="back" @click-right="addMessage" background-color="#121212" color="#fff"></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="建议反馈" :fixed="true" :status-bar="true" right-text="提建议" @click-left="back" @click-right="addMessage" background-color="#102A44" color="#fff"></uni-nav-bar>
 			<!-- #endif -->
 			<view v-for="item in messages" :key="item.id" @click="detail(item)">
 				<view class="t"></view>

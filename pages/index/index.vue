@@ -342,9 +342,10 @@ export default {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success(res) {
+					console.log(res)
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
-					if (link == null) {
+					if (link == '') {
 						uni.navigateTo({
 							url: '../banner/banner?content=' + encodeURIComponent(text_content)
 						});
@@ -375,7 +376,7 @@ export default {
 					var title = ingym.title;
                     console.log()
 
-					if (link2 == null) {
+					if (link2 == '') {
 						uni.navigateTo({
 							url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
 						});
@@ -403,6 +404,7 @@ export default {
 page {
 	background-color:#121E2C;
 }
+
 .shade {
 	width: 100%;
 	height: 100%;

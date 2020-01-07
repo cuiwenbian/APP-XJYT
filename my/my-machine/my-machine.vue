@@ -1,6 +1,10 @@
 <template>
 	<!-- 我的矿机 -->
 	<view class="container">
+        <view class="tan" @click="prompt" v-if="verify">
+            <image src="../../static/images/tan.png" class="tanh"></image>
+            <text class="mill">您的矿机数量发生编号，点此验收。</text>
+        </view>
 		<view v-if="flag">
 			<view class="qaz">
 				<block v-for="(item, index) in user_machine" :key="index">
@@ -56,6 +60,15 @@
 				</view>
 			</view>
 		</view>
+        <view class="shade" v-if="sha">
+        	<view class="pop">
+        		<view class="pop-title">您有新的服务器需要验收</view>
+        		<view class="pops">
+        			<view class="pop-bt" @click="can">取消</view>
+        			<view class="pop-btn" @click="validation">验证</view>
+        		</view>
+        	</view>
+        </view>
 	</view>
 </template>
 
@@ -67,7 +80,9 @@ export default {
 			user_machine: '',
 			machine_id: '',
 			user_agreement: '',
-			shade: false
+			shade: false,
+            sha:false,
+            verify:true
 		};
 	},
 	onShow() {
@@ -119,7 +134,21 @@ export default {
 			uni.navigateTo({
 				url: '../machine-detail/machine-detail?machine_id=' + item.machine_id
 			});
-		}
+		},
+        prompt:function() {
+            this.sha = true
+        },
+        can:function () {
+            this.sha = false
+        },
+        validation:function () {
+            uni.showToast({
+                title:'已验证'
+            })
+            this.sha = false
+            this.verify = false
+            
+        }
 	}
 };
 </script>
@@ -164,6 +193,16 @@ export default {
 	color: #fff;
 	text-align: center;
 	background: #121212;
+}
+.pop-bt{
+    width: 158rpx;
+    height: 66rpx;
+    border-radius: 10rpx;
+    line-height: 66rpx;
+    font-size: 30rpx;
+    color: #999999;
+    text-align: center;
+    background: #fff;
 }
 .box {
 	height: 200rpx;
@@ -266,5 +305,26 @@ export default {
 	width: 20rpx;
 	height: 20rpx;
 	margin-left: -45rpx;
+}
+.tan{
+    width: 100%;
+    height: 66rpx;
+    position: fixed;
+    background-color: #FBE8E9;
+    opacity:0.9;
+    z-index: 9;
+}
+.tanh{
+    width: 32rpx;
+    height: 32rpx;
+    padding-left: 42rpx;
+    margin-top: 18rpx;
+}
+.mill{
+    color: #F3707C;
+    line-height: 66rpx;
+    font-size: 22rpx;
+    padding-left: 15rpx;
+    text-align: center;
 }
 </style>
