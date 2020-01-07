@@ -2,6 +2,7 @@
 page{
          background-color: #EDEDED;
 }
+uni-rich-text ._img{max-width:100% !important;}
 .con{
 		width:100%;
     	padding: 36rpx;

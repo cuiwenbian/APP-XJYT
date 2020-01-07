@@ -49,6 +49,7 @@
     	box-sizing: border-box;
     	background-color: #FFFFFF;
     }
+	
     .example{
         padding: 0 30upx 30upx;
     }

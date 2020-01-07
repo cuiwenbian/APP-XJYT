@@ -1,2 +1,2 @@
-setCssToHead([".",[1],"con{ width:100%; padding: ",[0,36],"; box-sizing: border-box; }\n",],undefined,{path:"./pages/banner/banner.wxss"})();
+setCssToHead(["wx-uni-rich-text .",[1],"_img{max-width:100% !important;}\n.",[1],"con{ width:100%; padding: ",[0,36],"; box-sizing: border-box; overflow: hidden; }\n",],"Some selectors are not allowed in component wxss, including tag name selectors, ID selectors, and attribute selectors.(./pages/banner/banner.wxss:2:1)",{path:"./pages/banner/banner.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/banner/banner.wxml') } }));

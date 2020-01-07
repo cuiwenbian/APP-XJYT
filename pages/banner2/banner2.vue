@@ -22,8 +22,8 @@
             this.title = option.title
             // this.cont = decodeURIComponent(option.cont);
             this.cont = option.cont;
-			console.log(this.cont)
-			this.aa=this.cont.replace(/_/g,"=");
+			this.aa=this.cont.replace(/_/g,"=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+			console.log(this.aa)
             this.add = option.add
             this.volume = option.volume
         }
@@ -34,7 +34,8 @@
     page{
          background-color: #EDEDED;
     }
-    .con{
+	uni-rich-text img{max-width:100% !important;}
+   .con{
 		width:100%;
     	padding: 36rpx;
         box-sizing: border-box;

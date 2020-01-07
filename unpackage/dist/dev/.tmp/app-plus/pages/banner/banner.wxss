@@ -1,7 +1,9 @@
 
+uni-rich-text ._img{max-width:100% !important;}
 .con{
 	width:100%;
 	padding: 36rpx;
     box-sizing: border-box;
+	overflow: hidden;
 }
 

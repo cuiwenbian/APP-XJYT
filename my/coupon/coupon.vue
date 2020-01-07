@@ -196,7 +196,7 @@ export default {
                 }
                 for (let i = 0; i < this.news.length; i++) {
                     var t = this.news[i].start;
-                    var tt = this.news[i].end;
+                    // var tt = this.news[i].end;
                     var t1 = t.substr(0, 10);
                     this.news[i].start = t1;
                     var up = this.news[i].end;

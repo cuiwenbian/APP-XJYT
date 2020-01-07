@@ -4,7 +4,7 @@
 		
 		<view v-if="flag">
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#121212" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#102A44" color="#fff" ></uni-nav-bar>
 			<!-- #endif -->
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
@@ -23,7 +23,7 @@
 		</view>
 		<view v-else>
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back" title="提币地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#121212" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="提币地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#102A44" color="#fff" ></uni-nav-bar>
 			<!-- #endif -->
 			<view class="box"></view>
 			<view>

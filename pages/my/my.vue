@@ -57,7 +57,7 @@
 			</view>
 			<view class="listItem" @click="help">
 				<view class="pic">
-					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:44rpx;" mode=""></image>
+					<image  src="../../static/images/icon-help.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
 				<view class="txt" >帮助中心</view>
 			</view>
@@ -70,7 +70,7 @@
 			</view>
 			<view class="listItem" @click="coupon">
 				<view class="pic">
-					<image  src="../../static/images/icon-suggest.png" style="width:44rpx;height:42rpx;" mode=""></image>
+					<image  src="../../static/images/icon-quan.png" style="width:44rpx;height:42rpx;" mode=""></image>
 				</view>
 				<view class="txt" >优惠券</view>
 			</view>
