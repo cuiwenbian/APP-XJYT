@@ -297,6 +297,7 @@
                 		}
                 	}
                 },
+                
 				{
 					"path": "order-money/order-money",
 					"style": {
@@ -309,6 +310,30 @@
 						"navigationBarTitleText": "提交订单"
 					}
 				},
+                {
+                	"path": "server-sale/server-sale",
+                	"style": {
+                		"navigationBarTitleText": "服务器出售"
+                	}
+                },
+                {
+                	"path": "server/server",
+                	"style": {
+                		"navigationBarTitleText": "服务器出售"
+                	}
+                },
+                {
+                	"path": "record/record",
+                	"style": {
+                		"navigationBarTitleText": "记录"
+                	}
+                },
+                {
+                	"path": "sful/sful",
+                	"style": {
+                		"navigationBarTitleText": "服务器出售"
+                	}
+                },
 				{
 					"path": "line-item/line-item",
 					"style": {

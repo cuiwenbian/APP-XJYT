@@ -42,9 +42,9 @@
 				</view>
 				<view class="txt" >我的矿机</view>
 			</view>
-			<view class="listItem" @click="machinsale">
+			<view class="listItem" @click="machinsale" v-if="categart == 2 || categart == 4">
 				<view class="pic">
-					<image  src="../../static/images/icon-sale.png" style="width:46rpx;height:40rpx;" mode=""></image>
+					<image  src="../../static/images/sale.png" style="width:49rpx;height:38rpx;" mode=""></image>
 				</view>
 				<view class="txt" >矿机出售</view>
 			</view>
@@ -55,7 +55,7 @@
 				<view class="txt" >优惠券</view>
 			</view>
 			<!-- <view class="listItem" @click="tradePassword">
-				<view class="pic">
+				<view class="pic">18895657393
 					<image  src="../../static/images/icon-trade.png" style="width:41rpx;height:49rpx;" mode=""></image>
 				</view>
 				<view class="txt" >交易密码</view>
@@ -92,7 +92,7 @@
 			</view>
 			<view class="listItem" @click="set">
 				<view class="pic">
-					<image  src="../../static/images/icon-set.png" style="width:44rpx;height:46rpx;" mode=""></image>
+					<image  src="../../static/images/set.png" style="width:50rpx;height:47rpx;" mode=""></image>
 				</view>
 				<view class="txt" >设置</view>
 			</view>
@@ -125,9 +125,23 @@
 		data() {
 			return {
 				phone:'',
-				shade:false
+				shade:false,
+                categart: ''
 			}
 		},
+        onShow() {
+            var _this = this;
+            uni.request({
+            	url: this.url + 'home/',
+            	method: 'GET',
+            	header: {
+            		Authorization: 'JWT' + ' ' + this.global_.token
+            	},
+            	success(res) {
+                   _this.categart = res.data.data.categart;
+                }
+            });
+        },
 		onLoad() {
 			var p=this.global_.phone
 			var p1=p.split('')         //字符串转为数组
@@ -171,7 +185,7 @@
 			},
 			machinsale:function(){
 				uni.navigateTo({
-					url:'../mill/mill'
+					url:'../../my/machine-sale/machine-sale'
 				})
 			},
 			address:function(){

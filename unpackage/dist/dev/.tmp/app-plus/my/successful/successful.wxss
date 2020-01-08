@@ -1,0 +1,37 @@
+
+page{
+    background-color: #0F1E2D;
+}
+.img{
+    display: block;
+    margin: 166rpx 0 61rpx 247rpx;
+    width: 257rpx;
+    height: 166rpx;
+}
+.box{
+    margin-bottom: 97rpx;
+}
+.transfer{
+    text-align: center;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    padding-bottom: 113rpx;
+}
+.Accept{
+    padding-left: 104rpx;
+    padding-bottom: 61rpx;
+    font-size: 26rpx;
+    color: #FFFFFF;
+}
+.name{
+    float: right;
+    padding-right: 105rpx;
+}
+.btn{
+    width: 550rpx;
+    height: 88rpx;
+    background-color: #41BEC9;
+    font-size: 30rpx;
+    color: #FFFFFF;
+}
+
