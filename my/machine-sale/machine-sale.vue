@@ -12,7 +12,7 @@
 		</view>
 		<block v-else>
 			<checkbox-group class="block" @change="CheckboxChange">
-				<view v-for="(item, index) in user_id" :key="index">
+				<view >
 					<view class="cu-form-group margin-top">
 						<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
 						<view class="pagex">
