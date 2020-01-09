@@ -18,7 +18,8 @@
                 coloe:'',
                 title: '',
                 type: '',
-                id: ''
+                id: '',
+                info: {}
             }
         },
         onLoad(options) {
@@ -35,9 +36,9 @@
                title: '服务器' + title
             });
             this.title = title;
-            this.id = options.id;
+            this.info = JSON.parse(options.info);
             this.type = options.type;
-            console.log(this.id)
+            console.log(this.info)
             console.log(options.type)
 
         },
@@ -47,16 +48,24 @@
                 console.log(this.coloe)
             },
             btn:function() {
-                if (!this.coloe) {
+                if (!this.coloe || isNaN(parseInt(this.coloe))) {
                     // 未填数量提示
                     uni.showToast({
                         title:'请填写数量',
                         icon:'none'
                     })
                     return false;
+                } else if (this.coloe > this.info.lens) {
+                    // 未填数量提示
+                    uni.showToast({
+                        title:'数量不够',
+                        icon:'none'
+                    })
+                    return false;
                 }
+                this.info.coloe = this.coloe;
                 uni.navigateTo({
-                    url:'../server-sale/server-sale?type=' + this.type + '&id=' + this.id + '&coloe=' + this.coloe
+                    url:'../server-sale/server-sale?type=' + this.type + '&info=' + JSON.stringify(this.info)
                 })
             }
         }

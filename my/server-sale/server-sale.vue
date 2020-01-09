@@ -34,7 +34,8 @@
                 passIn: false,
                 password: '',
                 way:'',
-                cool:''
+                cool:'',
+                info: {}
             }
         },
         components: {
@@ -43,8 +44,6 @@
         },
         onLoad(options) {
             console.log(options);
-            this.way = options.type//类型
-            this.cool = options.coloe//数量
             var title = '';
             if (options.type === '1') {
                 title = '转让'
@@ -57,11 +56,13 @@
                title: '服务器' + title
             });
             this.title = title;
-            this.id = options.id;
-            console.log(this.id)
+            this.info = JSON.parse(options.info);
+            this.way = options.type//类型
+            this.cool = parseInt(this.info.coloe)//数量
+            this.id = parseInt(this.info.id)//数量
             
-            console.log(way)
-            console.log(cool)
+            console.log(this.info)
+            console.log(this.id)
 
         },
         methods:{
@@ -97,6 +98,7 @@
             	that.numberList.push(val);
             	that.password = that.numberList.join().replace(/,/g, '');
             	if (that.numberList.length >= that.length) {
+                    console.log(that.way)
             		uni.request({
             			url: this.url + 'usermachine/transfer/',
             			method: 'POST',

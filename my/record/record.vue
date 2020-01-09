@@ -11,7 +11,7 @@
             <text class="time3">{{recode.num}}台</text>
             <text class="time4">{{recode.time}}</text>
             <text class="time2">
-            {{recode.status == '1' ? '已验收' : (recode.status == '3' ? '未验收' : '未知')}}
+            {{recode.status == '1' || '2' ? '已验收' : (recode.status == '3' || '0' ? '未验收' : '未知')}}
             </text>
         </view>
     </view>
