@@ -110,6 +110,7 @@ export default {
 			success: res => {
 				console.log(res);
 				this.pool = res.data.data;
+                console.log(this.pool);
 			},
 			fail: () => {},
 			complete: () => {}
