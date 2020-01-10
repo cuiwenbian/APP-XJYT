@@ -245,6 +245,7 @@ var _default =
       success: function success(res) {
         console.log(res);
         _this.pool = res.data.data;
+        console.log(_this.pool);
       },
       fail: function fail() {},
       complete: function complete() {} });
