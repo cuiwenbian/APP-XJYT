@@ -80,9 +80,9 @@
 			"path": "pages/mill/mill",
 		
 			"style": {
-				"navigationBarBackgroundColor": "#333",
+				"navigationBarBackgroundColor": "#000000",
 				"titleNView": {
-					"titleText": "       "
+					"titleText": ""
 				}
 			}
 		},
