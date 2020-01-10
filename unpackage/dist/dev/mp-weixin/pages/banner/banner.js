@@ -137,9 +137,20 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-var _default =
+
+function formatRichText() {var html = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var newContent = html.replace(/<img[^>]*>/gi, function (match, capture) {
+    match = match.replace(/style="[^"]+"/gi, '').replace(/style='[^']+'/gi, '');
+    return match;
+  });
+  newContent = newContent.replace(/style="[^"]+"/gi, function (match, capture) {
+    match = match.replace(/width:[^;]+;/gi, 'max-width:100%;height: auto;').replace(/width:[^;]+;/gi, 'max-width:100%;height: auto;');
+    return match;
+  });
+  newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;margin-top:0;margin-bottom:5px;height: auto;"');
+  console.log(newContent);
+  return newContent;
+}var _default =
 {
   data: function data() {
     return {
@@ -148,9 +159,19 @@ var _default =
 
   },
   onLoad: function onLoad(option) {
-    this.ction = option.content;
-    // this.ction = decodeURIComponent(option.content);
-    this.aa = this.ction.replace(/_/g, "=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+    console.log(option.content);
+    this.ction = decodeURIComponent(option.content);
+    console.log(this.ction);
+
+    var aa = this.ction.replace(/_/g, '=');
+    aa = formatRichText(aa);
+    console.log(aa);
+    this.aa = aa;
+    console.log(this.ction);
+
+
+
+
   } };exports.default = _default;
 
 /***/ }),

@@ -81,8 +81,7 @@
     font-size: 42rpx;
 }
 .inp{
-    color: #999999;
-    font-size: 20rpx;
+    font-size: 26rpx;
     padding-left: 42rpx;
     padding-top: 86rpx;
 }

@@ -3,7 +3,7 @@
 		<!-- <view class="height"></view> -->
 		<view class="box1">
 			<image src="../../static/images/banner.png" class="banner">
-				<view class="colo">矿机交易</view>
+				<view class="colo">服务器交易</view>
 				<view class="many">{{ many }}</view>
 			</image>
 		</view>
