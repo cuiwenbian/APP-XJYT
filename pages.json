@@ -14,6 +14,14 @@
 			}
 		},
        // #endif
+       // #ifdef MP-WEIXIN
+       {
+           "path":"pages/svgg/svgg",
+           "style":{
+               "navigationStyle":"custom"
+           }
+       },
+       // #endif
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -275,18 +283,11 @@
 						}
 					}
 				},
-                // #endif
-                {
-                	"path": "power/power",
-                	"style": {
-                		"navigationStyle": "custom"
-                	}
-                },
                 {
                 	"path": "my-machine/my-machine",
                 	"style": {
                 		"titleNView": {
-                			"titleText": "我的矿机",
+                			"titleText": "我的服务器",
                 			"buttons": [ //原生标题栏按钮配置,
                 				{
                 					"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
@@ -297,6 +298,20 @@
                 		}
                 	}
                 },
+                {
+                	"path": "suggest/suggest",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+                // #endif
+                {
+                	"path": "power/power",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
+               
                 
 				{
 					"path": "order-money/order-money",
@@ -340,12 +355,7 @@
 						"navigationBarTitleText": "订单详情"
 					}
 				},
-                {
-                	"path": "suggest/suggest",
-                	"style": {
-                		"navigationStyle": "custom"
-                	}
-                },
+               
                 {
                     "path": "power-transfer/power-transfer",
                     "style": {

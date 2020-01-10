@@ -66,6 +66,9 @@
 
         },
         methods:{
+            onBackPress(option){
+                      plus.key.hideSoftKeybord()    
+            },
             end:function (e) {
                 this.coloe = e.detail.value
                 console.log(this.coloe)

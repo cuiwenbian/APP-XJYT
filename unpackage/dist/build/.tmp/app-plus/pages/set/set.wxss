@@ -1,0 +1,25 @@
+
+.sets.data-v-4cd711a2 {
+	font-size: 14px;
+}
+.s-1.data-v-4cd711a2 {
+	padding: 0 30rpx;
+}
+.s-item.data-v-4cd711a2 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-align-content: center;
+	        align-content: center;
+	box-sizing: border-box;
+	padding: 30rpx 0;
+	border-bottom: 1px solid #eee;
+}
+.si-right.data-v-4cd711a2 {
+	width: 36rpx;
+	height: 36rpx;
+}
+

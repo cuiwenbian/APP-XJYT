@@ -25,9 +25,9 @@
 			     	url: '/pages/index/index'
 			     });
 			}else{
-				uni.navigateTo({
-					url: '/pages/login/login'
-				});		 
+				// uni.navigateTo({
+				// 	url: '/pages/login/login'
+				// });		 
 			}
 			// #endif
 		},
