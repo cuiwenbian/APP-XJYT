@@ -3,7 +3,7 @@
 	<view class="container">
         <view class="tan" @click="prompt" v-if="verify">
             <image src="../../static/images/tan.png" class="tanh"></image>
-            <text class="mill">您的矿机数量发生编号，点此验收。</text>
+            <text class="mill">您的矿机数量发生改变，点此验收。</text>
         </view>
 		<view v-if="flag">
 			<view class="qaz">
@@ -82,7 +82,8 @@ export default {
 			user_agreement: '',
 			shade: false,
             sha:false,
-            verify:true
+            ress:'',
+            verify:false
 		};
 	},
 	onShow() {
@@ -94,7 +95,8 @@ export default {
 			},
 			success: res => {
 				console.log(res);
-				this.user_machine = res.data.data.machine_datas;
+				this.user_machine = res.data.data.machine_datas[1];
+                console.log(this.user_machine)
 				if (this.user_machine.length == 0) {
 					this.flag = false;
 				}
@@ -107,7 +109,13 @@ export default {
 				} else if (this.user_agreement == 1) {
 					this.shade = false;
 				}
-				console.log(this.user_agreement);
+                this.ress = res.data.data.machine_datas[0]
+                if(this.ress == 0){
+                    this.verify = true
+                }else{
+                    this.verify = false
+                }
+                console.log(this.ress);
 			},
 			fail: () => {},
 			complete: () => {}
@@ -142,6 +150,16 @@ export default {
             this.sha = false
         },
         validation:function () {
+            uni.request({
+                url:this.url + 'usermachine/affirm/',
+                method:'POST',
+                header:{
+                    Authorization: 'JWT' + ' ' + this.global_.token
+                },
+                success(res) {
+                    console.log(res)
+                }
+            })
             uni.showToast({
                 title:'已验证'
             })

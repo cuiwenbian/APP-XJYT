@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "dy-date-picker": "/common/dy-Date"
+  }
+}

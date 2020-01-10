@@ -142,7 +142,8 @@ export default {
 			version: '',
 			remark: '',
 			urll: this.urll,
-			pool:''
+			pool:'',
+            // categart:''
 			
 		};
 	},
@@ -165,6 +166,8 @@ export default {
 			},
 			success(res) {
 				console.log(res);
+                // _self.categart = res.data.data.categart
+                //字段名字就是categart这里面有三个状态 1  2 4  1是隐藏  24显示 隐藏的是矿机出售
 				_self.csgo = res.data.data.notice;
 				console.log(_self.csgo);
 				_self.daern = res.data.data.must;
@@ -232,6 +235,7 @@ export default {
 			success: res => {
 				that.pool=res.data.data
 				console.log(res.data.data);
+                
 			}
 		});
 	},
