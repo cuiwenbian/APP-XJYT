@@ -22,7 +22,7 @@ export default {
         return {};
     },
     onLoad() {
-        console.log(111)
+        // console.log(111)
     },
     methods: {
         autuWXLogin(e) {
@@ -32,7 +32,8 @@ export default {
                 success: res => {
                     console.log(res.code); // code
                     uni.request({
-                        url:this.url +'users/authorization/',
+                        url:this.url+'users/authorization/',
+
                         method: 'POST',
                         data: {
                             code: res.code

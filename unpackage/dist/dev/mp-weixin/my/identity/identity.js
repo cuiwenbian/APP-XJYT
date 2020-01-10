@@ -265,6 +265,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
         itemList: ['从相册中选择', '拍照'],
         itemColor: "#00000",
         success: function success(res) {
+          console.log(res);
           if (!res.cancel) {
             if (res.tapIndex == 0) {
               if (flag == 'positive') {
@@ -295,6 +296,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
         sizeType: ['original', 'compressed'],
         sourceType: [type],
         success: function success(res) {
+          console.log(res);
           for (var i = imgsPaths.length - 1; i >= 0; i--) {
             for (var j in imgsPaths[i]) {
               if (j == 'positive') {
@@ -350,6 +352,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
 
           formData: null,
           success: function success(res) {
+            console.log(res);
             if (res.statusCode == 400) {
               uni.showToast({
                 title: '图片太大，请重新上传',

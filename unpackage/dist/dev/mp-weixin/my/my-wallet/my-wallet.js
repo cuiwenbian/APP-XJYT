@@ -271,6 +271,7 @@ __webpack_require__.r(__webpack_exports__);
         Authorization: 'JWT' + ' ' + this.global_.token },
 
       success: function success(res) {
+        console.log(res);
         that.num = res.data.fil_count;
         that.ber = res.data.availed_num;
         that.nuber = res.data.locked_num;

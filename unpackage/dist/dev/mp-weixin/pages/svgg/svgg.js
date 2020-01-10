@@ -157,7 +157,7 @@ var _default =
     return {};
   },
   onLoad: function onLoad() {
-    console.log(111);
+    // console.log(111)
   },
   methods: {
     autuWXLogin: function autuWXLogin(e) {var _this = this;
@@ -168,6 +168,7 @@ var _default =
           console.log(res.code); // code
           uni.request({
             url: _this.url + 'users/authorization/',
+
             method: 'POST',
             data: {
               code: res.code },
