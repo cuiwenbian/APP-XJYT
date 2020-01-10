@@ -1,3 +1,4 @@
+
 {
   "pages": [
     "pages/svgg/svgg",
@@ -122,6 +123,5 @@
     "uploadFile": 20000,
     "request": 20000
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap1.json"
+  "usingComponents": {}
 }

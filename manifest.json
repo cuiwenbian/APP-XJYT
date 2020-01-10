@@ -79,7 +79,8 @@
         /* 小程序特有相关 */
         "appid" : "wxc62459b2d6b1d7f6",
         "setting" : {
-            "urlCheck" : true
+            "urlCheck" : true,
+            "postcss" : false
         }
     },
     "plus" : {

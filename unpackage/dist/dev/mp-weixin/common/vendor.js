@@ -354,6 +354,7 @@ var interceptors = {
 
 
 var baseApi = /*#__PURE__*/Object.freeze({
+  __proto__: null,
   upx2px: upx2px,
   interceptors: interceptors,
   addInterceptor: addInterceptor,
@@ -540,6 +541,7 @@ function getProvider(_ref2)
 }
 
 var extraApi = /*#__PURE__*/Object.freeze({
+  __proto__: null,
   getProvider: getProvider });
 
 
@@ -575,6 +577,7 @@ function $emit() {
 }
 
 var eventApi = /*#__PURE__*/Object.freeze({
+  __proto__: null,
   $on: $on,
   $off: $off,
   $once: $once,
@@ -583,8 +586,8 @@ var eventApi = /*#__PURE__*/Object.freeze({
 
 
 
-var api = /*#__PURE__*/Object.freeze({});
-
+var api = /*#__PURE__*/Object.freeze({
+  __proto__: null });
 
 
 var MPPage = Page;
@@ -734,7 +737,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1218,14 +1221,17 @@ var mocks = ['__route__', '__wxExparserNodeId__', '__wxWebviewId__'];
 
 function findVmByVueId(vm, vuePid) {
   var $children = vm.$children;
-  // 优先查找直属
-  var parentVm = $children.find(function (childVm) {return childVm.$scope._$vueId === vuePid;});
-  if (parentVm) {
-    return parentVm;
+  // 优先查找直属(反向查找:https://github.com/dcloudio/uni-app/issues/1200)
+  for (var i = $children.length - 1; i >= 0; i--) {
+    var childVm = $children[i];
+    if (childVm.$scope._$vueId === vuePid) {
+      return childVm;
+    }
   }
   // 反向递归查找
-  for (var i = $children.length - 1; i >= 0; i--) {
-    parentVm = findVmByVueId($children[i], vuePid);
+  var parentVm;
+  for (var _i = $children.length - 1; _i >= 0; _i--) {
+    parentVm = findVmByVueId($children[_i], vuePid);
     if (parentVm) {
       return parentVm;
     }
@@ -1529,9 +1535,9 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 14:
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1552,12 +1558,26 @@ function normalizeComponent (
   injectStyles,
   scopeId,
   moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
 ) {
   // Vue.extend constructor export interop
   var options = typeof scriptExports === 'function'
     ? scriptExports.options
     : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    options.components = Object.assign(components, options.components || {})
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
 
   // render functions
   if (render) {
@@ -1864,7 +1884,7 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/*!
- * Vue.js v2.6.10
+ * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -2563,7 +2583,13 @@ var uid = 0;
  * directives subscribing to it.
  */
 var Dep = function Dep () {
-  this.id = uid++;
+  // fixed by xxxxxx (nvue vuex)
+  /* eslint-disable no-undef */
+  if(typeof SharedObject !== 'undefined'){
+    this.id = SharedObject.uid++;
+  } else {
+    this.id = uid++;
+  }
   this.subs = [];
 };
 
@@ -3827,7 +3853,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   };
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
   // Fallback to setImmediate.
-  // Techinically it leverages the (macro) task queue,
+  // Technically it leverages the (macro) task queue,
   // but it is still a better choice than setTimeout.
   timerFunc = function () {
     setImmediate(flushCallbacks);
@@ -3893,7 +3919,7 @@ if (true) {
     warn(
       "Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " +
       'properties starting with "$" or "_" are not proxied in the Vue instance to ' +
-      'prevent conflicts with Vue internals' +
+      'prevent conflicts with Vue internals. ' +
       'See: https://vuejs.org/v2/api/#data',
       target
     );
@@ -4093,17 +4119,48 @@ function updateListeners (
 
 /*  */
 
+// fixed by xxxxxx (mp properties)
+function extractPropertiesFromVNodeData(data, Ctor, res, context) {
+  var propOptions = Ctor.options.mpOptions && Ctor.options.mpOptions.properties;
+  if (isUndef(propOptions)) {
+    return res
+  }
+  var externalClasses = Ctor.options.mpOptions.externalClasses || [];
+  var attrs = data.attrs;
+  var props = data.props;
+  if (isDef(attrs) || isDef(props)) {
+    for (var key in propOptions) {
+      var altKey = hyphenate(key);
+      var result = checkProp(res, props, key, altKey, true) ||
+          checkProp(res, attrs, key, altKey, false);
+      // externalClass
+      if (
+        result &&
+        res[key] &&
+        externalClasses.indexOf(altKey) !== -1 &&
+        context[camelize(res[key])]
+      ) {
+        // 赋值 externalClass 真正的值(模板里 externalClass 的值可能是字符串)
+        res[key] = context[camelize(res[key])];
+      }
+    }
+  }
+  return res
+}
+
 function extractPropsFromVNodeData (
   data,
   Ctor,
-  tag
+  tag,
+  context// fixed by xxxxxx
 ) {
   // we are only extracting raw values here.
   // validation and default values are handled in the child
   // component itself.
   var propOptions = Ctor.options.props;
   if (isUndef(propOptions)) {
-    return
+    // fixed by xxxxxx
+    return extractPropertiesFromVNodeData(data, Ctor, {}, context)
   }
   var res = {};
   var attrs = data.attrs;
@@ -4131,7 +4188,8 @@ function extractPropsFromVNodeData (
       checkProp(res, attrs, key, altKey, false);
     }
   }
-  return res
+  // fixed by xxxxxx
+  return extractPropertiesFromVNodeData(data, Ctor, res, context)
 }
 
 function checkProp (
@@ -4464,12 +4522,12 @@ function renderList (
   if (Array.isArray(val) || typeof val === 'string') {
     ret = new Array(val.length);
     for (i = 0, l = val.length; i < l; i++) {
-      ret[i] = render(val[i], i);
+      ret[i] = render(val[i], i, i, i); // fixed by xxxxxx
     }
   } else if (typeof val === 'number') {
     ret = new Array(val);
     for (i = 0; i < val; i++) {
-      ret[i] = render(i + 1, i);
+      ret[i] = render(i + 1, i, i, i); // fixed by xxxxxx
     }
   } else if (isObject(val)) {
     if (hasSymbol && val[Symbol.iterator]) {
@@ -4477,7 +4535,7 @@ function renderList (
       var iterator = val[Symbol.iterator]();
       var result = iterator.next();
       while (!result.done) {
-        ret.push(render(result.value, ret.length));
+        ret.push(render(result.value, ret.length, i++, i)); // fixed by xxxxxx
         result = iterator.next();
       }
     } else {
@@ -4485,7 +4543,7 @@ function renderList (
       ret = new Array(keys.length);
       for (i = 0, l = keys.length; i < l; i++) {
         key = keys[i];
-        ret[i] = render(val[key], key, i);
+        ret[i] = render(val[key], key, i, i); // fixed by xxxxxx
       }
     }
   }
@@ -4520,7 +4578,8 @@ function renderSlot (
       }
       props = extend(extend({}, bindObject), props);
     }
-    nodes = scopedSlotFn(props) || fallback;
+    // fixed by xxxxxx app-plus scopedSlot
+    nodes = scopedSlotFn(props, this, props._i) || fallback;
   } else {
     nodes = this.$slots[name] || fallback;
   }
@@ -4748,7 +4807,7 @@ function bindDynamicKeys (baseObj, values) {
     if (typeof key === 'string' && key) {
       baseObj[values[i]] = values[i + 1];
     } else if ( true && key !== '' && key !== null) {
-      // null is a speical value for explicitly removing a binding
+      // null is a special value for explicitly removing a binding
       warn(
         ("Invalid value for dynamic directive argument (expected string or null): " + key),
         this
@@ -4972,6 +5031,8 @@ var componentVNodeHooks = {
     var context = vnode.context;
     var componentInstance = vnode.componentInstance;
     if (!componentInstance._isMounted) {
+      callHook(componentInstance, 'onServiceCreated');
+      callHook(componentInstance, 'onServiceAttached');
       componentInstance._isMounted = true;
       callHook(componentInstance, 'mounted');
     }
@@ -5061,7 +5122,7 @@ function createComponent (
   }
 
   // extract props
-  var propsData = extractPropsFromVNodeData(data, Ctor, tag);
+  var propsData = extractPropsFromVNodeData(data, Ctor, tag, context); // fixed by xxxxxx
 
   // functional component
   if (isTrue(Ctor.options.functional)) {
@@ -5244,6 +5305,12 @@ function _createElement (
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
     if (config.isReservedTag(tag)) {
       // platform built-in elements
+      if ( true && isDef(data) && isDef(data.nativeOn)) {
+        warn(
+          ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
+          context
+        );
+      }
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
@@ -5369,7 +5436,7 @@ function renderMixin (Vue) {
     // render self
     var vnode;
     try {
-      // There's no need to maintain a stack becaues all render fns are called
+      // There's no need to maintain a stack because all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm;
@@ -5904,7 +5971,10 @@ function updateChildComponent (
     // keep a copy of raw propsData
     vm.$options.propsData = propsData;
   }
-
+  
+  // fixed by xxxxxx update properties(mp runtime)
+  vm._$updateProperties && vm._$updateProperties(vm);
+  
   // update listeners
   listeners = listeners || emptyObject;
   var oldListeners = vm.$options._parentListeners;
@@ -7223,7 +7293,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.10';
+Vue.version = '2.6.11';
 
 /**
  * https://raw.githubusercontent.com/Tencent/westore/master/packages/westore/utils/diff.js
@@ -7336,7 +7406,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7357,14 +7427,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7440,7 +7510,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7613,7 +7683,13 @@ function getTarget(obj, path) {
 function internalMixin(Vue) {
 
   Vue.config.errorHandler = function(err) {
-    console.error(err);
+    /* eslint-disable no-undef */
+    var app = getApp();
+    if (app && app.onError) {
+      app.onError(err);
+    } else {
+      console.error(err);
+    }
   };
 
   var oldEmit = Vue.prototype.$emit;
@@ -7633,9 +7709,21 @@ function internalMixin(Vue) {
 
   MP_METHODS.forEach(function (method) {
     Vue.prototype[method] = function(args) {
-      if (this.$scope) {
+      if (this.$scope && this.$scope[method]) {
         return this.$scope[method](args)
       }
+      // mp-alipay
+      if (typeof my === 'undefined') {
+        return
+      }
+      if (method === 'createSelectorQuery') {
+        /* eslint-disable no-undef */
+        return my.createSelectorQuery(args)
+      } else if (method === 'createIntersectionObserver') {
+        /* eslint-disable no-undef */
+        return my.createIntersectionObserver(args)
+      }
+      // TODO mp-alipay 暂不支持 selectAllComponents,selectComponent
     };
   });
 
@@ -7656,7 +7744,7 @@ function internalMixin(Vue) {
       }
     }
     if (vm._hasHookEvent) {
-      vm.$emit('hook:' + hook);
+      vm.$emit('hook:' + hook, args);
     }
     popTarget();
     return ret
@@ -14754,7 +14842,7 @@ main();
 /*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id":"@dcloudio/uni-stat@2.0.0-v3-24020191018001","_inBundle":false,"_integrity":"sha512-nYBm5pRrYzrj2dKMqucWSF2PwInUMnn3MLHM/ik3gnLUEKSW61rzcY1RPlUwaH7c+Snm6N+bAJzmj3GvlrlVXA==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"^2.0.0-alpha-24420191128001","saveSpec":null,"fetchSpec":"^2.0.0-alpha-24420191128001"},"_requiredBy":["/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-v3-24020191018001.tgz","_shasum":"6ef04326cc0b945726413eebe442ab8f47c7536c","_spec":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/alpha/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"197e8df53cc9d4c3f6eb722b918ccf51672b5cfe","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-v3-24020191018001"};
+module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2.0.0-alpha-25120200103005","_inBundle":false,"_integrity":"sha512-nYoIrRV2e5o/vzr6foSdWi3Rl2p0GuO+LPY3JctyY6uTKgPnuH99d7aL/QQdJ1SacQjBWO+QGK1qankN7oyrWw==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@alpha","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"alpha","saveSpec":null,"fetchSpec":"alpha"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-alpha-25120200103005.tgz","_shasum":"a77a63481f36474f3e86686868051219d1bb12df","_spec":"@dcloudio/uni-stat@alpha","_where":"/Users/guoshengqiang/Documents/dcloud-plugins/alpha/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"6be187a3dfe15f95dd6146d9fec08e1f81100987","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-alpha-25120200103005"};
 
 /***/ }),
 
@@ -14766,7 +14854,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/svgg/svgg": { "navigationStyle": "custom", "usingComponents": {} }, "pages/login/login": { "navigationStyle": "custom", "usingComponents": {} }, "pages/register/register": { "navigationStyle": "custom", "usingComponents": {} }, "pages/index/index": { "style": { "navigationStyle": "custom" }, "usingComponents": {} }, "pages/my/my": { "navigationStyle": "custom", "usingComponents": {} }, "pages/set/set": { "navigationBarTitleText": "设置", "usingComponents": {} }, "pages/pool/pool": { "navigationBarTitleText": "矿池", "usingComponents": {} }, "pages/poolDetails/poolDetails": { "navigationBarTitleText": "矿池详情", "usingComponents": {} }, "pages/order/order": { "navigationBarTitleText": "订单", "usingComponents": {} }, "pages/mill/mill": { "navigationBarBackgroundColor": "#333", "titleNView": { "titleText": "       " }, "usingComponents": {} }, "pages/assets/assets": { "navigationStyle": "custom", "usingComponents": { "dy-date-picker": "/common/dy-Date" } }, "pages/getBackPassword/getBackPassword": { "navigationBarTitleText": "找回密码", "usingComponents": {} }, "pages/setNewPassword/setNewPassword": { "navigationBarTitleText": "设置新密码", "usingComponents": {} }, "pages/agreement/agreement": { "navigationBarTitleText": "用户协议", "usingComponents": {} }, "pages/otherLogin/otherLogin": { "navigationStyle": "custom", "usingComponents": {} }, "pages/web1/web1": { "navigationBarTitleText": "星际云通", "usingComponents": {} }, "pages/web2/web2": { "navigationBarTitleText": "星际云通", "usingComponents": {} }, "pages/banner/banner": { "titleNView": { "titleText": "文章详情" }, "usingComponents": {} }, "pages/banner2/banner2": { "titleNView": { "titleText": "文章详情" }, "usingComponents": {} }, "mill/pay/pay": { "navigationBarTitleText": "买单", "usingComponents": {} }, "mill/staypay/staypay": { "navigationBarTitleText": "待付款订单详情", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "mill/stayconfirm/stayconfirm": { "navigationBarTitleText": "待确认订单详情", "usingComponents": {} }, "mill/stayaudit/stayaudit": { "navigationBarTitleText": "待审核订单详情", "usingComponents": {} }, "mill/completed/completed": { "navigationBarTitleText": "已完成订单详情", "usingComponents": {} }, "mill/sale/sale": { "navigationBarTitleText": "卖单", "usingComponents": {} }, "mill/salepay/salepay": { "navigationBarTitleText": "待付款订单详情", "usingComponents": {} }, "mill/saleconfirm/saleconfirm": { "navigationBarTitleText": "待确认单详情", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "mill/saleaudit/saleaudit": { "navigationBarTitleText": "待审核订单详情", "usingComponents": {} }, "mill/salecompleted/salecompleted": { "navigationBarTitleText": "已完成订单详情", "usingComponents": {} }, "mill/sell/sell": { "navigationBarTitleText": "出售", "usingComponents": {} }, "mill/validation/validation": { "navigationBarTitleText": "验证", "usingComponents": {} }, "mill/confirm/confirm": { "navigationBarTitleText": "确认订单", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/personal/personal": { "navigationBarTitleText": "个人资料", "usingComponents": {} }, "my/add-address/add-address": { "navigationBarTitleText": "新增提币地址", "usingComponents": {} }, "my/machine-sale/machine-sale": { "titleNView": { "titleText": "服务器出售", "buttons": [{ "text": "记录", "fontSize": "24rpx", "width": "50rpx" }] }, "usingComponents": {} }, "my/power/power": { "navigationStyle": "custom", "usingComponents": {} }, "my/order-money/order-money": { "navigationBarTitleText": "订单详情", "usingComponents": {} }, "my/submit/submit": { "navigationBarTitleText": "提交订单", "usingComponents": {} }, "my/server-sale/server-sale": { "navigationBarTitleText": "服务器出售", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/server/server": { "navigationBarTitleText": "服务器出售", "usingComponents": {} }, "my/record/record": { "navigationBarTitleText": "记录", "usingComponents": {} }, "my/sful/sful": { "navigationBarTitleText": "服务器出售", "usingComponents": {} }, "my/line-item/line-item": { "navigationBarTitleText": "订单详情", "usingComponents": {} }, "my/power-transfer/power-transfer": { "navigationBarTitleText": "算力转让", "usingComponents": {} }, "my/confirm-order/confirm-order": { "navigationBarTitleText": "确认订单", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/successful/successful": { "navigationStyle": "custom", "usingComponents": {} }, "my/coupon/coupon": { "navigationBarTitleText": "优惠券", "usingComponents": {} }, "my/coupon-transfer/coupon-transfer": { "navigationBarTitleText": "优惠券转让", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/coupon-success/coupon-success": { "navigationBarBackgroundColor": "#0F1E2D", "titleNView": { "titleText": "       " }, "usingComponents": {} }, "my/address/address": { "navigationBarTitleText": "提币地址", "usingComponents": { "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action", "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input", "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar" } }, "my/edit-address/edit-address": { "navigationBarTitleText": "编辑提币地址", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/my-machine/my-machine": { "navigationBarTitleText": "我的服务器", "usingComponents": {} }, "my/suggest/suggest": { "navigationBarTitleText": "建议反馈", "usingComponents": { "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar" } }, "my/email/email": { "navigationBarTitleText": "邮箱认证", "usingComponents": {} }, "my/unbindemail/unbindemail": { "navigationBarTitleText": "解绑邮箱", "usingComponents": {} }, "my/identity/identity": { "navigationBarTitleText": "身份认证", "usingComponents": {} }, "my/login-password/login-password": { "navigationBarTitleText": "修改登录密码", "usingComponents": {} }, "my/change-pass/change-pass": { "navigationBarTitleText": "修改登录密码", "usingComponents": {} }, "my/change-loginPassword/change-loginPassword": { "navigationBarTitleText": "设置登录密码", "usingComponents": {} }, "my/change-password/change-password": { "navigationBarTitleText": "修改交易密码", "usingComponents": {} }, "my/trade-password/trade-password": { "navigationBarTitleText": "设置交易密码", "usingComponents": {} }, "my/change-otherPassword/change_otherPassword": { "navigationBarTitleText": "找回密码", "usingComponents": {} }, "my/machine-detail/machine-detail": { "navigationBarTitleText": "服务器详情", "usingComponents": {} }, "my/my-wallet/my-wallet": { "navigationBarTitleText": "我的钱包", "usingComponents": { "dy-date-picker": "/common/dy-Date" } }, "my/suggest-detail/suggest-detail": { "navigationBarTitleText": "反馈详情", "usingComponents": {} }, "my/transfer/transfer": { "navigationBarTitleText": "转账", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" } }, "my/commit/commit": { "navigationStyle": "custom", "usingComponents": {} }, "my/choose-address/choose-address": { "navigationBarTitleText": "选择地址", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "星际云通", "navigationBarBackgroundColor": "#102A44", "backgroundColor": "#121212" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/svgg/svgg": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/login/login": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/register/register": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/index": { "style": { "navigationStyle": "custom" }, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/my/my": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/set/set": { "navigationBarTitleText": "设置", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/pool/pool": { "navigationBarTitleText": "矿池", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/poolDetails/poolDetails": { "navigationBarTitleText": "矿池详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/order/order": { "navigationBarTitleText": "订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/mill/mill": { "navigationBarBackgroundColor": "#333", "titleNView": { "titleText": "       " }, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/assets/assets": { "navigationStyle": "custom", "usingComponents": { "dy-date-picker": "/common/dy-Date" }, "usingAutoImportComponents": {} }, "pages/getBackPassword/getBackPassword": { "navigationBarTitleText": "找回密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/setNewPassword/setNewPassword": { "navigationBarTitleText": "设置新密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/agreement/agreement": { "navigationBarTitleText": "用户协议", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/otherLogin/otherLogin": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/web1/web1": { "navigationBarTitleText": "星际云通", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/web2/web2": { "navigationBarTitleText": "星际云通", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/banner/banner": { "titleNView": { "titleText": "文章详情" }, "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/banner2/banner2": { "titleNView": { "titleText": "文章详情" }, "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/pay/pay": { "navigationBarTitleText": "买单", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/staypay/staypay": { "navigationBarTitleText": "待付款订单详情", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "mill/stayconfirm/stayconfirm": { "navigationBarTitleText": "待确认订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/stayaudit/stayaudit": { "navigationBarTitleText": "待审核订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/completed/completed": { "navigationBarTitleText": "已完成订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/sale/sale": { "navigationBarTitleText": "卖单", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/salepay/salepay": { "navigationBarTitleText": "待付款订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/saleconfirm/saleconfirm": { "navigationBarTitleText": "待确认单详情", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "mill/saleaudit/saleaudit": { "navigationBarTitleText": "待审核订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/salecompleted/salecompleted": { "navigationBarTitleText": "已完成订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/sell/sell": { "navigationBarTitleText": "出售", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/validation/validation": { "navigationBarTitleText": "验证", "usingComponents": {}, "usingAutoImportComponents": {} }, "mill/confirm/confirm": { "navigationBarTitleText": "确认订单", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/personal/personal": { "navigationBarTitleText": "个人资料", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/add-address/add-address": { "navigationBarTitleText": "新增提币地址", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/machine-sale/machine-sale": { "titleNView": { "titleText": "服务器出售", "buttons": [{ "text": "记录", "fontSize": "24rpx", "width": "50rpx" }] }, "usingComponents": {}, "usingAutoImportComponents": {} }, "my/power/power": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/order-money/order-money": { "navigationBarTitleText": "订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/submit/submit": { "navigationBarTitleText": "提交订单", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/server-sale/server-sale": { "navigationBarTitleText": "服务器出售", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/server/server": { "navigationBarTitleText": "服务器出售", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/record/record": { "navigationBarTitleText": "记录", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/sful/sful": { "navigationBarTitleText": "服务器出售", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/line-item/line-item": { "navigationBarTitleText": "订单详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/power-transfer/power-transfer": { "navigationBarTitleText": "算力转让", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/confirm-order/confirm-order": { "navigationBarTitleText": "确认订单", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/successful/successful": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/coupon/coupon": { "navigationBarTitleText": "优惠券", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/coupon-transfer/coupon-transfer": { "navigationBarTitleText": "优惠券转让", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/coupon-success/coupon-success": { "navigationBarBackgroundColor": "#0F1E2D", "titleNView": { "titleText": "       " }, "usingComponents": {}, "usingAutoImportComponents": {} }, "my/address/address": { "navigationBarTitleText": "提币地址", "usingComponents": { "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action", "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input", "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar" }, "usingAutoImportComponents": {} }, "my/edit-address/edit-address": { "navigationBarTitleText": "编辑提币地址", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/my-machine/my-machine": { "navigationBarTitleText": "我的服务器", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/suggest/suggest": { "navigationBarTitleText": "建议反馈", "usingComponents": { "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar" }, "usingAutoImportComponents": {} }, "my/email/email": { "navigationBarTitleText": "邮箱认证", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/unbindemail/unbindemail": { "navigationBarTitleText": "解绑邮箱", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/identity/identity": { "navigationBarTitleText": "身份认证", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/login-password/login-password": { "navigationBarTitleText": "修改登录密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/change-pass/change-pass": { "navigationBarTitleText": "修改登录密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/change-loginPassword/change-loginPassword": { "navigationBarTitleText": "设置登录密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/change-password/change-password": { "navigationBarTitleText": "修改交易密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/trade-password/trade-password": { "navigationBarTitleText": "设置交易密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/change-otherPassword/change_otherPassword": { "navigationBarTitleText": "找回密码", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/machine-detail/machine-detail": { "navigationBarTitleText": "服务器详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/my-wallet/my-wallet": { "navigationBarTitleText": "我的钱包", "usingComponents": { "dy-date-picker": "/common/dy-Date" }, "usingAutoImportComponents": {} }, "my/suggest-detail/suggest-detail": { "navigationBarTitleText": "反馈详情", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/transfer/transfer": { "navigationBarTitleText": "转账", "usingComponents": { "keyboard-package": "/components/keyboard-package/keyboard-package", "password-input": "/components/password-input/password-input" }, "usingAutoImportComponents": {} }, "my/commit/commit": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "my/choose-address/choose-address": { "navigationBarTitleText": "选择地址", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarTitleText": "星际云通", "navigationBarBackgroundColor": "#102A44", "backgroundColor": "#121212" } };exports.default = _default;
 
 /***/ }),
 
