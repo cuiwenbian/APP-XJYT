@@ -26,12 +26,13 @@
 					<image src="../../static/images/jj.png" class="si-right"></image>
 				</view>
 				<!-- #ifdef APP-PLUS -->
+
 				<view class="s-item">
 					<view>当前版本</view>
 					<view>V1.0</view>
 				</view>
-				<!-- #endif -->
-				
+
+                 <!-- #endif -->
 			</view>
 		</view>
 	</view>

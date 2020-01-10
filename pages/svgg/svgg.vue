@@ -33,6 +33,7 @@ export default {
                     console.log(res.code); // code
                     uni.request({
                         url:this.url+'users/authorization/',
+
                         method: 'POST',
                         data: {
                             code: res.code

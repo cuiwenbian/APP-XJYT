@@ -9,21 +9,21 @@
 
 <script>
     export default {
-    	data () {
-    		return {
+      data () {
+        return {
                 title:'',
                 cont:'',
                 add:'',
                 volume:'',
-				aa:''
-    		}
-    	},
+        aa:''
+        }
+      },
         onLoad(option) {
             console.log(option)
             this.title = option.title
             this.cont = option.cont;
-			this.aa=this.cont.replace(/_/g,"=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
-			console.log(this.aa)
+      this.aa=this.cont.replace(/_/g,"=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+      console.log(this.aa)
             this.add = option.add
             this.volume = option.volume
         }
@@ -34,12 +34,12 @@
     page{
          background-color: #EDEDED;
     }
-	uni-rich-text img{max-width:100% !important;}
+  uni-rich-text img{max-width:100% !important;}
    .con{
-		width:100%;
-    	padding: 36rpx;
+    width:100%;
+      padding: 36rpx;
         box-sizing: border-box;
-		overflow: hidden;
+    overflow: hidden;
     }
     .titel{
         line-height: 60rpx;
