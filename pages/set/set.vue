@@ -11,6 +11,7 @@
 					<image src="../../static/images/jj.png" class="si-right"></image>
 				</view>
 			</view>
+            <view class="s-line"></view>
 			<view class="s-1">
 				<view class="s-item" @click="authentication">
 					<view>实名认证</view>
@@ -179,6 +180,11 @@
 		padding: 30rpx 0;
 		border-bottom: 1px solid #eee;
 	}
+    .s-line {
+    	width: 100%;
+    	height: 20rpx;
+    	background: #eee;
+    }
 	.si-right {
 		width: 36rpx;
 		height: 36rpx;

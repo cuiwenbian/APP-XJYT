@@ -40,6 +40,7 @@
 	</view>
 =======
     <view class="container">
+        <!-- 提示 -->
         <view class="tan" @click="prompt" v-if="verify">
             <image src="../../static/images/tan.png" class="tanh"></image>
             <text class="mill">公司为您添加新的服务器，请确认查收。</text>
@@ -65,7 +66,7 @@
                             </view>
                             <view class="ii-other">数量：{{ server.lens }}台</view>
                         </view>
-                        <view :class="'si-radio' + (selected === server.id ? ' si-radio-selected' : '')"></view>
+                        <view :class="'si-radio' + (selected.id === server.id ? ' si-radio-selected' : '')"></view>
                     </view>
                 </view>
                 <view class="s-btns">
@@ -73,11 +74,12 @@
                     <view class="sn-btn sn-cs" @click="btn('2')">出售</view>
                 </view>
             </view>
-            <view class="shade" v-if="sha">
-                <view class="pop">
-                    <view class="pop-title">您有新的服务器需要验收</view>
-                    <view class="pops"><view class="pop-btn" @click="validation">验证</view></view>
-                </view>
+        </view>
+        <!-- 弹框 -->
+        <view class="shade" v-if="sha">
+            <view class="pop">
+                <view class="pop-title">您有新的服务器需要验收</view>
+                <view class="pops"><view class="pop-btn" @click="validation">验证</view></view>
             </view>
         </view>
     </view>
@@ -91,13 +93,13 @@ export default {
             flag: false,
             verify: false,
             sha: false,
-            selected: null,
+            selected: {},
             serverList: [],
             numb: [],
             lens: 0
         };
     },
-    onLoad() {
+    onShow() {
         var _this = this;
         uni.request({
             url: this.url + 'usermachine/transferlist/',
@@ -111,31 +113,33 @@ export default {
                 _this.serverList = res.data.data[1];
                 _this.numb = res.data.data[0];
                 console.log(_this.numb);
+                let lens = 0;
                 for (let i = 0; i < res.data.data[1].length; i++) {
                     let item = res.data.data[1][i];
                     console.log(item.lens);
-                    _this.lens += item.lens;
+                    lens += item.lens;
                 }
+                _this.lens = lens;
                 console.log(_this.serverList.length);
                 if (_this.numb == 0) {
                     _this.verify = true;
                 } else {
                     _this.verify = false;
                 }
-                if(_this.serverList.length === 0) {
-                    _this.flag = true
+                if (_this.serverList.length === 0) {
+                    _this.flag = true;
                 }
-                if(res.statusCode == 400) {
+                if (res.statusCode == 400) {
                     uni.showToast({
-                        title:'用户名实名认证未通过或未设置资金密码或',
-                        icon:'none'
-                    })
+                        title: '用户名实名认证未通过或未设置资金密码或',
+                        icon: 'none'
+                    });
                 }
-                if(res.statusCode == 204) {
+                if (res.statusCode == 204) {
                     uni.showToast({
-                        title:'由服务器未验收',
-                        icon:'none'
-                    })
+                        title: '由服务器未验收',
+                        icon: 'none'
+                    });
                 }
             }
         });
@@ -143,6 +147,9 @@ export default {
     methods: {
         prompt: function() {
             this.sha = true;
+            console.log(this.sha);
+            // 先解决bug把  不然没法走流程那个红色的提示 点击出弹框 但是现在不出了也不报错不知道为啥
+            // 上面显示是true但是没显示  上面设置true就谈一下
         },
         validation: function() {
             uni.request({
@@ -153,10 +160,10 @@ export default {
                 },
                 success(res) {
                     console.log(res);
-                    if(res.statusCode == 200) {
+                    if (res.statusCode == 200) {
                         uni.showToast({
-                            title:'已验证'
-                        })
+                            title: '已验证'
+                        });
                     }
                 }
             });
@@ -164,14 +171,14 @@ export default {
             this.verify = false;
         },
         handleSelectRadio(item) {
-            if (item.id === this.selected) {
-                this.selected = null;
+            if (item.id === this.selected.id) {
+                this.selected = {};
             } else {
-                this.selected = item.id;
+                this.selected = item;
             }
         },
         btn: function(type) {
-            if (!this.selected) {
+            if (!this.selected.id) {
                 //没有选中，可以弹框提示
                 uni.showToast({
                     title: '请选中服务器',
@@ -190,13 +197,13 @@ export default {
                 }
             });
             uni.navigateTo({
-                url: '../server/server?type=' + type + '&id=' + this.selected
+                url: '../server/server?type=' + type + '&info=' + JSON.stringify(this.selected)
             });
         },
-        onNavigationBarButtonTap:function(){
+        onNavigationBarButtonTap: function() {
             uni.navigateTo({
-                url:'../record/record'
-            })
+                url: '../record/record'
+            });
         }
     }
 };

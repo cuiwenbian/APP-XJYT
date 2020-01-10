@@ -6,13 +6,17 @@
             <text class="cool">时间</text>
             <text class="cool2">状态</text>
         </view>
-        <view v-for="(recode , index) in time" :key="index">
+        <view v-for="(recode , index) in time" :key="index" v-if="fll">
             <text class="time1">{{recode.name}}</text>
             <text class="time3">{{recode.num}}台</text>
             <text class="time4">{{recode.time}}</text>
             <text class="time2">
-            {{recode.status == '1' ? '已验收' : (recode.status == '3' ? '未验收' : '未知')}}
+            {{recode.status == '1' || '2' ? '已验收' : (recode.status == '3' || '0' ? '未验收' : '未知')}}
             </text>
+        </view>
+        <view v-else>
+            <image class="transfer" src="../../static/images/none.png" mode=""></image>
+            <view class="nomachine">暂无记录</view>
         </view>
     </view>
 </template>
@@ -21,7 +25,8 @@
     export default {
         data() {
             return {
-                time:''
+                time:'',
+                fll:true
             }
         },
         onLoad() {
@@ -35,6 +40,11 @@
                 success(res) {
                     that.time = res.data.data
                     console.log(that.time)
+                    if(that.time.length == 0) {
+                        that.fll = false
+                    }else {
+                        that.fll = true
+                    }
                 }
             })
         },

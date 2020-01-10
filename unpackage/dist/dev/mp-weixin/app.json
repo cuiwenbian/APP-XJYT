@@ -1,0 +1,127 @@
+{
+  "pages": [
+    "pages/svgg/svgg",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/my/my",
+    "pages/set/set",
+    "pages/pool/pool",
+    "pages/poolDetails/poolDetails",
+    "pages/order/order",
+    "pages/mill/mill",
+    "pages/assets/assets",
+    "pages/getBackPassword/getBackPassword",
+    "pages/setNewPassword/setNewPassword",
+    "pages/agreement/agreement",
+    "pages/otherLogin/otherLogin",
+    "pages/web1/web1",
+    "pages/web2/web2",
+    "pages/banner/banner",
+    "pages/banner2/banner2"
+  ],
+  "subPackages": [
+    {
+      "root": "mill",
+      "pages": [
+        "pay/pay",
+        "staypay/staypay",
+        "stayconfirm/stayconfirm",
+        "stayaudit/stayaudit",
+        "completed/completed",
+        "sale/sale",
+        "salepay/salepay",
+        "saleconfirm/saleconfirm",
+        "saleaudit/saleaudit",
+        "salecompleted/salecompleted",
+        "sell/sell",
+        "validation/validation",
+        "confirm/confirm"
+      ]
+    },
+    {
+      "root": "my",
+      "pages": [
+        "personal/personal",
+        "add-address/add-address",
+        "machine-sale/machine-sale",
+        "power/power",
+        "order-money/order-money",
+        "submit/submit",
+        "server-sale/server-sale",
+        "server/server",
+        "record/record",
+        "sful/sful",
+        "line-item/line-item",
+        "power-transfer/power-transfer",
+        "confirm-order/confirm-order",
+        "successful/successful",
+        "coupon/coupon",
+        "coupon-transfer/coupon-transfer",
+        "coupon-success/coupon-success",
+        "address/address",
+        "edit-address/edit-address",
+        "my-machine/my-machine",
+        "suggest/suggest",
+        "email/email",
+        "unbindemail/unbindemail",
+        "identity/identity",
+        "login-password/login-password",
+        "change-pass/change-pass",
+        "change-loginPassword/change-loginPassword",
+        "change-password/change-password",
+        "trade-password/trade-password",
+        "change-otherPassword/change_otherPassword",
+        "machine-detail/machine-detail",
+        "my-wallet/my-wallet",
+        "suggest-detail/suggest-detail",
+        "transfer/transfer",
+        "commit/commit",
+        "choose-address/choose-address"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "星际云通",
+    "navigationBarBackgroundColor": "#102A44",
+    "backgroundColor": "#121212"
+  },
+  "tabBar": {
+    "color": "#FFFFFF",
+    "selectedColor": "#41BEC9",
+    "backgroundColor": "#182A42",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tab1.png",
+        "selectedIconPath": "static/images/tab-index.png"
+      },
+      {
+        "pagePath": "pages/pool/pool",
+        "text": "矿池",
+        "iconPath": "static/images/tab2.png",
+        "selectedIconPath": "static/images/tab-machine.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "static/images/tab3.png",
+        "selectedIconPath": "static/images/tab-captial.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/images/tab4.png",
+        "selectedIconPath": "static/images/tab-mine.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "uploadFile": 20000,
+    "request": 20000
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap38.json"
+}

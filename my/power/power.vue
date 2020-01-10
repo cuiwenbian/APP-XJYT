@@ -3,8 +3,8 @@
     <view class="container">
         <view class="box">
             <image src="../../static/images/fgm.png" class="img">
-                <view class="cter">
-                    <image @click="bt" src="../../static/images/jt.png" class="images" ></image>
+               <view class="cter">
+                    <image @click="bt" src="../../static/images/zz.png" class="images" ></image>
                 </view>
                 <view class="power">我的存力</view>
             </image>
@@ -152,7 +152,7 @@ page {
     height: 326rpx;
 }
 .images{
-    width: 28rpx;
+    width: 16rpx;
     height: 31rpx;
     position: absolute;
     top: 64rpx;
@@ -160,8 +160,8 @@ page {
     z-index: 1;
 }
 .cter{
-    width: 60rpx;
-    height: 60rpx;
+    width: 80rpx;
+    height: 40rpx;
 }
 .power {
     width: 100%;

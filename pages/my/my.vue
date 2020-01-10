@@ -3,9 +3,11 @@
     <view class="container" style="position: relative;">
 		 <view class="height"></view>
 		<view class="top">
-			<image class="bg" src="../../static/images/background.png" mode="aspectFill">
-				<image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
-			</image>
+            <image class="bg" src="../../static/images/background.png" mode="aspectFill">
+                <!-- #ifdef APP-PLUS -->
+                <image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
+                <!-- #endif -->
+            </image>
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.png" mode=""></image></view>
 			<view class="nickname">用户昵称</view>
 			<view class="phone">{{phone}}</view>
@@ -34,19 +36,19 @@
 				<view class="pic">
 				<image  src="../../static/images/icon-trans.png" style="width:44rpx;height:44rpx;" mode=""></image>
 				</view>
-				<view class="txt">矿机交易</view>
+				<view class="txt">服务器交易</view>
 			</view>
 			<view class="listItem" @click="mymachine">
 				<view class="pic">
 					<image  src="../../static/images/icon-machine.png" style="width:46rpx;height:40rpx;" mode=""></image>
 				</view>
-				<view class="txt" >我的矿机</view>
+				<view class="txt" >我的服务器</view>
 			</view>
 			<view class="listItem" @click="machinsale" v-if="categart == 2 || categart == 4">
 				<view class="pic">
 					<image  src="../../static/images/sale.png" style="width:49rpx;height:38rpx;" mode=""></image>
 				</view>
-				<view class="txt" >矿机出售</view>
+				<view class="txt" >服务器出售</view>
 			</view>
 			<view class="listItem" @click="coupon">
 				<view class="pic">
@@ -120,6 +122,10 @@
     </view>
 </template>
 <!-- 我的 -->
+
+
+
+ 
 <script>
 	export default {
 		data() {
