@@ -1,44 +1,5 @@
 <template>
-<<<<<<< HEAD
-	<view class="container">
-		<view class="banner">
-			<view class="all">
-				数量(台)
-			</view>
-			<view class='assets'>{{num}}</view>
-		</view>
-		<view v-if="flag">
-			<image class='transfer' src="../../static/images/none.png" mode=""></image>
-			<view class="nomachine">暂无服务器</view>
-		</view>
-		<block v-else>
-			<checkbox-group class="block" @change="CheckboxChange">
-				<view >
-					<view class="cu-form-group margin-top">
-						<checkbox class="tee" :class="item.checked ? 'checked' : ''" :checked="item.checked ? true : false" :value="item.number"></checkbox>
-						<view class="pagex">
-							<view class="page1">
-								<view class="img"><image class="por" src="../../static/images/kuangji.png"></image></view>
-								<view class="info">
-									<view class="obg">{{ item.name }} {{ item.number }}</view>
-									<view class="obg_one">
-										<text class="days">已运行{{ item.data }}天</text>
-										| 剩余{{ item.usedata }}天
-									</view>
-		
-									<view class="obg_one">
-										<text class="days">储存{{ item.freedisk }}T</text>
-										| 总容量{{ item.disk }}
-									</view>
-								</view>
-							</view>
-						</view>
-					</view>
-				</view>
-			</checkbox-group>
-		</block>
-	</view>
-=======
+
     <view class="container">
         <!-- 提示 -->
         <view class="tan" @click="prompt" v-if="verify">
@@ -83,7 +44,6 @@
             </view>
         </view>
     </view>
->>>>>>> 0a0dd8dd71def9cafb9e9958932b74699ea2c9b5
 </template>
 
 <script>

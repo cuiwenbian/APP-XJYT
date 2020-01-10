@@ -4,7 +4,13 @@
             <image class="login-img" src="../../static/images/xiao.png"></image>
             <text class="login-text">欢迎来到星际云通</text>
         </view>
-        <view class="iti"></view>
+		<image class='img' src='../../static/images/hosting.svg'></image>
+		  <view class='txt'>
+		  <text class='item'>矿机在线管理</text>
+		  <text class='item'>|</text>
+		  <text class='item'>收益实时查询</text>
+		  </view>
+        <!-- <view class="iti"></view> -->
         <!--注册-->
         <button class="changeBtn" size="default" open-type="getUserInfo" @getuserinfo="autuWXLogin">授权登录</button>
     </view>
@@ -97,7 +103,7 @@ page {
 .img {
     width: 500rpx;
     height: 500rpx;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .txt {
@@ -119,7 +125,7 @@ page {
     background-color: #41BEC9;
     color: #fff;
     border-radius: 30rpx;
-    margin: 30rpx auto;
+    margin: 100rpx auto;
     line-height: 80rpx;
     font-size: 42rpx;
 }
