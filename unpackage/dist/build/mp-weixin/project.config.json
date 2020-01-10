@@ -4,12 +4,26 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
 	"appid": "wxc62459b2d6b1d7f6",
-	"projectname": "%E6%98%9F%E9%99%85%E4%BA%91%E9%80%9A",
+	"projectname": "星际云通",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

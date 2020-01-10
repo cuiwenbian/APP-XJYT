@@ -48,7 +48,7 @@ page {
 .img {
     width: 500rpx;
     height: 500rpx;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .txt {
     height: 100rpx;
@@ -72,7 +72,7 @@ page {
     background-color: #41BEC9;
     color: #fff;
     border-radius: 30rpx;
-    margin: 30rpx auto;
+    margin: 100rpx auto;
     line-height: 80rpx;
     font-size: 42rpx;
 }

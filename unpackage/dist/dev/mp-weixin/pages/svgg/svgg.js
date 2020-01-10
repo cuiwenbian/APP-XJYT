@@ -145,6 +145,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -154,14 +160,14 @@ var _default =
     console.log(111);
   },
   methods: {
-    autuWXLogin: function autuWXLogin(e) {
+    autuWXLogin: function autuWXLogin(e) {var _this = this;
       var _self = this;
       console.log('用户信息', e.detail);
       uni.login({
         success: function success(res) {
           console.log(res.code); // code
           uni.request({
-            url: 'http://192.168.1.218/api/v1.1.0/users/authorization/',
+            url: _this.url + 'users/authorization/',
             method: 'POST',
             data: {
               code: res.code },

@@ -1,4 +1,5 @@
 <template>
+
     <view class="container">
         <!-- 提示 -->
         <view class="tan" @click="prompt" v-if="verify">
