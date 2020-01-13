@@ -123,10 +123,8 @@
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success: res => {
-					console.log(res);
 					this.poolDetail=res.data.data;
 					this.persent=parseFloat(this.poolDetail.harduse/this.poolDetail.hardfree)*100
-					console.log(parseInt(this.persent))
 				}
 			});
 			uni.request({
@@ -136,7 +134,6 @@
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success: res => {
-					console.log(res.data.data);
 					this.question=res.data.data;
 				}
 			});
@@ -162,15 +159,6 @@
 					icon:'none',
 					duration:3000
 				})
-				// console.log(this.poolDetail)
-				// var a=JSON.stringify(this.poolDetail)
-				// console.log(a)
-				// uni.navigateTo({
-				// 	url: '../../my/submit/submit?a='+a,
-				// 	success: res => {},
-				// 	fail: () => {},
-				// 	complete: () => {}
-				// });
 			},
 			buy_month:function(){
 				this.month=true;

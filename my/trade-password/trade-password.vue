@@ -45,7 +45,6 @@
 				password1:'',
 				shade:false,
 				disabled:false,
-				
 			}
 		}, 
 		onLoad() {
@@ -104,11 +103,9 @@
 			              num--;
 			              if (num <= 0) {
 			                clearInterval(timer);
-							
 			                _this.codename = '重新发送',
 			                _this.disabled = false
 			              } else {
-							
 			                _this.codename = num + "s"
 			                _this.disabled = true
 			              }

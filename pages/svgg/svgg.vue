@@ -27,7 +27,6 @@ export default {
             console.log('用户信息', e.detail);
             uni.login({
                 success: res => {
-                    console.log(res.code); // code
                     uni.request({
                         url:this.url+'users/authorization/',
 

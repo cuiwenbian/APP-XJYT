@@ -13,7 +13,6 @@ function formatRichText(html = '') {
         return match;
     });
     newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;margin-top:0;margin-bottom:5px;height: auto;"');
-    console.log(newContent);
     return newContent;
 }
 export default {

@@ -71,7 +71,6 @@
 			          },
 			          success(res) {
 			            //根据code判断
-						console.log(res)
 			            var ocode = res.statusCode
 			            if (ocode == 200) {
 			              _this.iscode = res.data.data

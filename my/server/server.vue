@@ -1,100 +1,94 @@
 <template>
     <view class="container">
         <view>
-            <view class="tet">输入{{title}}数量</view>
-            <input type="number" :placeholder="'请输入' + title + '数量'" :value="coloe" class="inp" @input="end">
-            <view class="ber">
-                
-            </view>
+            <view class="tet">输入{{ title }}数量</view>
+            <input type="number" :placeholder="'请输入' + title + '数量'" :value="coloe" class="inp" @input="end" />
+            <view class="ber"></view>
         </view>
         <button class="btn" @click="btn">下一步</button>
     </view>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                coloe:'',
-                title: '',
-                type: '',
-                id: '',
-                info: {}
-            }
+export default {
+    data() {
+        return {
+            coloe: '',
+            title: '',
+            type: '',
+            id: '',
+            info: {}
+        };
+    },
+    onLoad(options) {
+        console.log(options);
+        var title = '';
+        if (options.type === '1') {
+            title = '转让';
+        } else if (options.type === '2') {
+            title = '出售';
+        } else {
+            return false;
+        }
+        uni.setNavigationBarTitle({
+            title: '服务器' + title
+        });
+        this.title = title;
+        this.info = JSON.parse(options.info);
+        this.type = options.type;
+    },
+    methods: {
+        end: function(e) {
+            this.coloe = e.detail.value;
         },
-        onLoad(options) {
-            console.log(options);
-            var title = '';
-            if (options.type === '1') {
-                title = '转让'
-            } else if (options.type === '2') {
-                title = '出售'
-            } else {
+        btn: function() {
+            if (!this.coloe || isNaN(parseInt(this.coloe))) {
+                // 未填数量提示
+                uni.showToast({
+                    title: '请填写数量',
+                    icon: 'none'
+                });
+                return false;
+            } else if (this.coloe > this.info.lens) {
+                // 未填数量提示
+                uni.showToast({
+                    title: '数量不够',
+                    icon: 'none'
+                });
                 return false;
             }
-            uni.setNavigationBarTitle({
-               title: '服务器' + title
+            this.info.coloe = this.coloe;
+            uni.navigateTo({
+                url: '../server-sale/server-sale?type=' + this.type + '&info=' + JSON.stringify(this.info)
             });
-            this.title = title;
-            this.info = JSON.parse(options.info);
-            this.type = options.type;
-            console.log(this.info)
-            console.log(options.type)
-
-        },
-        methods:{
-            end:function (e) {
-                this.coloe = e.detail.value
-                console.log(this.coloe)
-            },
-            btn:function() {
-                if (!this.coloe || isNaN(parseInt(this.coloe))) {
-                    // 未填数量提示
-                    uni.showToast({
-                        title:'请填写数量',
-                        icon:'none'
-                    })
-                    return false;
-                } else if (this.coloe > this.info.lens) {
-                    // 未填数量提示
-                    uni.showToast({
-                        title:'数量不够',
-                        icon:'none'
-                    })
-                    return false;
-                }
-                this.info.coloe = this.coloe;
-                uni.navigateTo({
-                    url:'../server-sale/server-sale?type=' + this.type + '&info=' + JSON.stringify(this.info)
-                })
-            }
         }
     }
+};
 </script>
 
 <style>
-.tet{
+.tet {
     padding-top: 110rpx;
     padding-left: 42rpx;
     color: #333333;
-    font-weight:600;
+    font-weight: 600;
     font-size: 42rpx;
 }
-.inp{
+.inp {
     font-size: 26rpx;
     padding-left: 42rpx;
     padding-top: 86rpx;
 }
-.ber{
+.ber {
     width: 90%;
     margin: 0 auto;
-    border-bottom: 1rpx solid #F5F5F5;
+    border-bottom: 1rpx solid #f5f5f5;
 }
 .btn {
     width: 690rpx;
     height: 90rpx;
     background-color: #040404;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-top: 220rpx;
     text-align: center;
 }

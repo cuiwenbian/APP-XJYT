@@ -1,100 +1,96 @@
 <template>
-	<!-- 优惠券 -->
-	<view class="container">
-		<view class="navbar">
-			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
-		</view>
-		<view class="list" v-if="tabCurrentIndex === 0">
-			<view v-if='all'>
-				<view class="coupon" v-for="(item, index) in news" :key="index">
-					<view class="discount">¥{{ item.discount }}</view>
-					<view class="info">
-						<view class="name1">{{ item.name }}</view>
-						<view class="require1">消费满{{ item.sill }}可用</view>
-						<view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
-						<view class="nums1">剩余{{ item.lens }}张</view>
-					</view>
-					<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-					<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-				</view>
-				<view class="coupon" v-for="(item, index) in discount" :key="index">
-					<view class="discount">{{ item.discount * 10 }}折</view>
-					<view class="info">
-						<view class="name">{{ item.name }}</view>
-						<view class="time">限{{ item.start }}至{{ item.end }}使用</view>
-						<view class="nums">剩余{{ item.lens }}张</view>
-					</view>
-					<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-					<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-				</view>
-			</view>
-			<view v-else>
-				<image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
-				<view class="nobuys">暂无优惠券～</view>
-			</view>
-			
-		</view>
-		<view class="list" v-if="tabCurrentIndex === 1">
-			<view v-if='all1'>
-			<view class="coupon" v-for="(item, index) in news" :key="index">
-				<view class="discount">¥{{ item.discount }}</view>
-				<view class="info">
-					<view class="name1">{{ item.name }}</view>
-					<view class="require1">消费满{{ item.sill }}可用</view>
-					<view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
-					<view class="nums1">剩余{{ item.lens }}张</view>
-				</view>
-				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-			</view>
-			</view>
-			<view v-else>
-				<image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
-				<view class="nobuys">暂无优惠券～</view>
-			</view>
-		</view>
-		<view class="list" v-if="tabCurrentIndex === 2">
-			<view v-if='all2'>
-			<view class="coupon" v-for="(item, index) in discount" :key="index">
-				<view class="discount">{{ item.discount * 10 }}折</view>
-				<view class="info">
-					<view class="name">{{ item.name }}</view>
-					<view class="time">限{{ item.start }}至{{ item.end }}使用</view>
-					<view class="nums">剩余{{ item.lens }}张</view>
-				</view>
-				<view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
-				<view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
-			</view>
-			</view>
-			<view v-else>
-				<image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
-				<view class="nobuys">暂无优惠券～</view>
-			</view>
-			
-		</view>
-		<view class="list" v-if="tabCurrentIndex === 3">
-			<view v-if="flag">
-				<image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
-				<view class="nobuys">暂无优惠券转让记录～</view>
-			</view>
-			<view v-else>
-				<view class="tablist">
-					<view class="li">序号</view>
-					<view class="li">接收人</view>
-					<view class="li">优惠券名称</view>
-					<view class="li">转让时间</view>
-					
-				</view>
-				<view class="tablists" v-for="(item,index) in couponTip" :key='index'>
-					<view class="li">1</view>
-					<view class="li">{{item.name}}</view>
-					<view class="li">{{item.discountname}}</view>
-					<view class="li">{{item.time }}</view>
-					
-				</view>
-			</view>
-		</view>
-	</view>
+    <!-- 优惠券 -->
+    <view class="container">
+        <view class="navbar">
+            <view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
+        </view>
+        <view class="list" v-if="tabCurrentIndex === 0">
+            <view v-if="all">
+                <view class="coupon" v-for="(item, index) in news" :key="index">
+                    <view class="discount">¥{{ item.discount }}</view>
+                    <view class="info">
+                        <view class="name1">{{ item.name }}</view>
+                        <view class="require1">消费满{{ item.sill }}可用</view>
+                        <view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
+                        <view class="nums1">剩余{{ item.lens }}张</view>
+                    </view>
+                    <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+                    <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+                </view>
+                <view class="coupon" v-for="(item, index) in discount" :key="index">
+                    <view class="discount">{{ item.discount * 10 }}折</view>
+                    <view class="info">
+                        <view class="name">{{ item.name }}</view>
+                        <view class="time">限{{ item.start }}至{{ item.end }}使用</view>
+                        <view class="nums">剩余{{ item.lens }}张</view>
+                    </view>
+                    <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+                    <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+                </view>
+            </view>
+            <view v-else>
+                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <view class="nobuys">暂无优惠券～</view>
+            </view>
+        </view>
+        <view class="list" v-if="tabCurrentIndex === 1">
+            <view v-if="all1">
+                <view class="coupon" v-for="(item, index) in news" :key="index">
+                    <view class="discount">¥{{ item.discount }}</view>
+                    <view class="info">
+                        <view class="name1">{{ item.name }}</view>
+                        <view class="require1">消费满{{ item.sill }}可用</view>
+                        <view class="time1">限{{ item.start }}至{{ item.end }}使用</view>
+                        <view class="nums1">剩余{{ item.lens }}张</view>
+                    </view>
+                    <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+                    <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+                </view>
+            </view>
+            <view v-else>
+                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <view class="nobuys">暂无优惠券～</view>
+            </view>
+        </view>
+        <view class="list" v-if="tabCurrentIndex === 2">
+            <view v-if="all2">
+                <view class="coupon" v-for="(item, index) in discount" :key="index">
+                    <view class="discount">{{ item.discount * 10 }}折</view>
+                    <view class="info">
+                        <view class="name">{{ item.name }}</view>
+                        <view class="time">限{{ item.start }}至{{ item.end }}使用</view>
+                        <view class="nums">剩余{{ item.lens }}张</view>
+                    </view>
+                    <view v-if="type == 2" :class="n ? 'use' : 'use1'" @click="transfer(item.type)" @touchstart="next" @touchend="back">转让</view>
+                    <view v-else :class="n ? 'use' : 'use1'" @click="use" @touchstart="next" @touchend="back">使用</view>
+                </view>
+            </view>
+            <view v-else>
+                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <view class="nobuys">暂无优惠券～</view>
+            </view>
+        </view>
+        <view class="list" v-if="tabCurrentIndex === 3">
+            <view v-if="flag">
+                <image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
+                <view class="nobuys">暂无优惠券转让记录～</view>
+            </view>
+            <view v-else>
+                <view class="tablist">
+                    <view class="li">序号</view>
+                    <view class="li">接收人</view>
+                    <view class="li">优惠券名称</view>
+                    <view class="li">转让时间</view>
+                </view>
+                <view class="tablists" v-for="(item, index) in couponTip" :key="index">
+                    <view class="li">1</view>
+                    <view class="li">{{ item.name }}</view>
+                    <view class="li">{{ item.discountname }}</view>
+                    <view class="li">{{ item.time }}</view>
+                </view>
+            </view>
+        </view>
+    </view>
 </template>
 
 <script>
@@ -109,8 +105,8 @@ export default {
             discount: '',
             len: [],
             tabCurrentIndex: 0,
-            couponTip:'',
-            nums:'1',
+            couponTip: '',
+            nums: '1',
             navList: [
                 {
                     state: 0,
@@ -129,10 +125,10 @@ export default {
                     text: '转出(0)'
                 }
             ],
-			all:true,
-			all1:true,
-			all2:true,
-			flag:false
+            all: true,
+            all1: true,
+            all2: true,
+            flag: false
         };
     },
     onShow() {
@@ -143,60 +139,51 @@ export default {
                 Authorization: 'JWT' + ' ' + this.global_.token
             },
             success: res => {
-                console.log(res);
-                console.log(res.data.data[0].join());
                 this.type = res.data.data[0].join();
-
                 if (this.type == 1) {
                     this.navList.length = 3;
                 }
-				
-                console.log(res.data.data[1].length);
-                var coupon_total = 0, news_total = 0, discount_total = 0;
+                var coupon_total = 0,
+                    news_total = 0,
+                    discount_total = 0;
                 for (let i = 0; i < res.data.data[1].length; i++) {
-                    let item = res.data.data[1][i], lens = parseInt(item.lens);
+                    let item = res.data.data[1][i],
+                        lens = parseInt(item.lens);
                     coupon_total += lens;
-                    if ( item.type === 1) {
+                    if (item.type === 1) {
                         news_total += lens;
-                    } else if ( item.type === 1) {
+                    } else if (item.type === 1) {
                         discount_total += lens;
                     }
                 }
                 this.coupon = res.data.data[1];
-                
                 this.news = res.data.data[1].filter(val => {
                     return val.type === 1;
                 });
                 this.discount = res.data.data[1].filter(val => {
                     return val.type === 2;
                 });
-				if(this.coupon.length==0){
-					this.all=false
-				}
-				if(this.news.length==0){
-					this.all1=false
-				}
-				if(this.discount.length==0){
-					this.all2=false
-				}
+                if (this.coupon.length == 0) {
+                    this.all = false;
+                }
+                if (this.news.length == 0) {
+                    this.all1 = false;
+                }
+                if (this.discount.length == 0) {
+                    this.all2 = false;
+                }
                 for (let i = 0; i < this.coupon.length; i++) {
                     this.couponType = this.coupon[i].type;
-                    console.log(this.couponType);
                     var l = this.coupon[i].lens;
-                    console.log(l);
                     this.len.push(l);
-                    console.log(this.len);
                     var sum = 0;
-
                     for (var j = 0; j < this.len.length; j++) {
                         sum += parseInt(this.len[j]);
-                        console.log(sum);
                         this.sum = sum;
                     }
                 }
                 for (let i = 0; i < this.news.length; i++) {
                     var t = this.news[i].start;
-                    // var tt = this.news[i].end;
                     var t1 = t.substr(0, 10);
                     this.news[i].start = t1;
                     var up = this.news[i].end;
@@ -212,28 +199,20 @@ export default {
                     var up1 = up.substr(0, 10);
                     this.discount[i].end = up1;
                 }
-                console.log(this.news);
-                console.log(this.discount);
-            },
-
-            fail: () => {},
-            complete: () => {}
+            }
         });
         uni.request({
-        	url: this.url+'discountrecode/',
-        	method: 'GET',
-        	header: {
-        		Authorization: 'JWT' + ' ' + this.global_.token
-        	},
-        	success: res => {
-        		console.log(res)
-        		this.couponTip=res.data.data
-				if(this.couponTip==0){
-					this.flag=true
-				}
-        	},
-        	fail: () => {},
-        	complete: () => {}
+            url: this.url + 'discountrecode/',
+            method: 'GET',
+            header: {
+                Authorization: 'JWT' + ' ' + this.global_.token
+            },
+            success: res => {
+                this.couponTip = res.data.data;
+                if (this.couponTip == 0) {
+                    this.flag = true;
+                }
+            }
         });
     },
     methods: {
@@ -252,7 +231,6 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success: res => {
-                    console.log(res);
                     if (res.statusCode == 200) {
                         uni.navigateTo({
                             url: '../coupon-transfer/coupon-transfer?t=' + item
@@ -265,9 +243,7 @@ export default {
                             icon: 'none'
                         });
                     }
-                },
-                fail: () => {},
-                complete: () => {}
+                }
             });
         },
         next: function() {
@@ -277,7 +253,6 @@ export default {
             this.n = true;
         }
     }
-
 };
 </script>
 
@@ -392,43 +367,43 @@ page {
     text-align: center;
 }
 .transfer {
-	width: 209rpx;
-	height: 148rpx;
-	display: block;
-	margin: 152rpx auto 35rpx;
+    width: 209rpx;
+    height: 148rpx;
+    display: block;
+    margin: 152rpx auto 35rpx;
 }
 .nobuys {
-	text-align: center;
-	color: #8796aa;
-	font-size: 26rpx;
+    text-align: center;
+    color: #8796aa;
+    font-size: 26rpx;
 }
 .tablist {
-	height: 107rpx;
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
+    height: 107rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 .tablists {
-	height: 107rpx;
-	width: 100%;
-	border-bottom: 1rpx solid #121e2c;
-	display: flex;
-	justify-content: space-around;
+    height: 107rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #121e2c;
+    display: flex;
+    justify-content: space-around;
 }
 .li {
-	color: #ffffff;
-	font-size: 24rpx;
-	line-height: 107rpx;
+    color: #ffffff;
+    font-size: 24rpx;
+    line-height: 107rpx;
 }
-.give{
-	width:76rpx;
-	height:34rpx;
-	border: 1rpx solid #41BEC9;
-	border-radius: 5rpx;
-	color:#41BEC9;
-	font-size: 20rpx;
-	margin-top:36rpx;
-	line-height: 34rpx;
-	text-align: center;
+.give {
+    width: 76rpx;
+    height: 34rpx;
+    border: 1rpx solid #41bec9;
+    border-radius: 5rpx;
+    color: #41bec9;
+    font-size: 20rpx;
+    margin-top: 36rpx;
+    line-height: 34rpx;
+    text-align: center;
 }
 </style>

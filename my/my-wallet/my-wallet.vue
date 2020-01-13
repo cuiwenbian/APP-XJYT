@@ -12,9 +12,6 @@
 				<view :class="n?'transer':'transer1'" @click='btn' @touchstart="next" @touchend="back">转账</view>
 			</view>
 		</view>
-		<!-- <image class="banner" src="../../static/images/wallet-banner.png" mode="">
-			
-		</image> -->
 		<view class='mill'> 
 			<view class="machine machine-left">
 				<view class="machine-num">0</view>
@@ -136,7 +133,6 @@
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					that.num = res.data.fil_count
 					that.ber = res.data.availed_num
 					that.nuber = res.data.locked_num
@@ -154,7 +150,6 @@
 					month: teran
 				},
 				success(res) {
-					console.log(res)
 					var seront = res.data.data
 					var ention = res.data.data.profit_records
 					that.ention = ention
@@ -200,7 +195,6 @@
                     		var seront = res.data.data
                     		var ention = res.data.data.profit_records
                     		that.ention = ention
-                    		console.log(ention)
 							if(ention.length==0){
 								that.flag=true
 							}else{

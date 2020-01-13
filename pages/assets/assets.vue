@@ -1,7 +1,6 @@
 <template>
 	<!-- 资产 -->
 	<view class="container">
-		
 		<view class="box">
             <image src="../../static/images/yot.png" class="yot">
                 <view class="assets">总资产</view>
@@ -85,7 +84,6 @@
 			return {
 				num: '0.0000',
 				ber: '0.0000',
-				
 				nuber: '0.0000',
 				fee: '',
 				month_profit: '0',
@@ -147,7 +145,6 @@
 					month: teran
 				},
 				success(res) {
-					console.log(res)
 					var seront = res.data.data
 					var ention = res.data.data.profit_records
 					that.ention = ention
@@ -187,7 +184,6 @@
                     		var seront = res.data.data
                     		var ention = res.data.data.profit_records
                     		that.ention = ention
-                    		console.log(ention)
 							if(ention.length==0){
 								that.flag=true
 							}else{
@@ -309,7 +305,6 @@
 					}
 				})
 			},
-			
 		}
 	}
 </script>

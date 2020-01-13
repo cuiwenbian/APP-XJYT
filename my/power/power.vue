@@ -3,9 +3,7 @@
     <view class="container">
         <view class="box">
             <image src="../../static/images/fgm.png" class="img">
-               <view class="cter">
-                    <image @click="bt" src="../../static/images/zz.png" class="images" ></image>
-                </view>
+                <view class="cter"><image @click="bt" src="../../static/images/zz.png" class="images"></image></view>
                 <view class="power">我的存力</view>
             </image>
             <view class="power2">
@@ -14,43 +12,43 @@
             </view>
             <view class="x"></view>
             <view class="usage">
-                {{use_avg }}%
+                {{ use_avg }}%
                 <view class="usage2">使用率</view>
             </view>
         </view>
         <view class="pay">已购存力</view>
-		<view v-if='cunli'>
-			<view class="box2" v-for="(item, index) in contract" :key="index">
-			    <view class="contract">
-			        <view class="contract2">
-			            合约日期:
-			            <text class="time">{{ item.starttime }}至{{ item.endtime }}</text>
-			            <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)" @touchstart="next" @touchend="back">转让</button>
-			        </view>
-			    </view>
-			    <view class="mill">
-			        <view class="mill2">
-			            <text class="orepool">{{ item.name }}</text>
-			            <text>
-			                已购数量:
-			                <text class="linga">{{ item.hashrate }}TB</text>
-			            </text>
-			            <text>
-			                使用率:
-			                <text class="linga">{{ item.use }}%</text>
-			            </text>
-			            <text>
-			                剩余:
-			                <text class="linga">{{ item.days }}天</text>
-			            </text>
-			        </view>
-			    </view>
-			</view>
-		</view>
-       <view v-else>
-		   <image class="no-cunli" src="../../static/images/cunli.png" mode=""></image>
-		   <view class="nobuys">暂无存力～</view>
-	   </view>
+        <view v-if="cunli">
+            <view class="box2" v-for="(item, index) in contract" :key="index">
+                <view class="contract">
+                    <view class="contract2">
+                        合约日期:
+                        <text class="time">{{ item.starttime }}至{{ item.endtime }}</text>
+                        <button :class="n ? 'transfer' : 'transfer1'" @click="transfer(item)" @touchstart="next" @touchend="back">转让</button>
+                    </view>
+                </view>
+                <view class="mill">
+                    <view class="mill2">
+                        <text class="orepool">{{ item.name }}</text>
+                        <text>
+                            已购数量:
+                            <text class="linga">{{ item.hashrate }}TB</text>
+                        </text>
+                        <text>
+                            使用率:
+                            <text class="linga">{{ item.use }}%</text>
+                        </text>
+                        <text>
+                            剩余:
+                            <text class="linga">{{ item.days }}天</text>
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view v-else>
+            <image class="no-cunli" src="../../static/images/cunli.png" mode=""></image>
+            <view class="nobuys">暂无存力～</view>
+        </view>
     </view>
 </template>
 
@@ -62,7 +60,7 @@ export default {
             contract: '',
             hashrate_total: '0',
             use_avg: '0',
-			cunli:true
+            cunli: true
         };
     },
     onLoad() {
@@ -74,7 +72,6 @@ export default {
                 Authorization: 'JWT' + ' ' + this.global_.token
             },
             success(res) {
-                console.log(res);
                 var contract = [];
                 var hashrate_total = 0; // 总数
                 var use_total = 0;
@@ -92,17 +89,15 @@ export default {
                 that.hashrate_total = hashrate_total;
                 that.use_avg = use_avg;
                 that.contract = contract;
-				console.log(that.contract)
-				if(that.contract.length==0){
-					that.cunli=false
-				}
+                if (that.contract.length == 0) {
+                    that.cunli = false;
+                }
             }
         });
     },
     methods: {
         transfer: function(item) {
             var that = this;
-            console.log(item.days);
             uni.request({
                 url: this.url + 'cloudtransfer/',
                 method: 'GET',
@@ -110,25 +105,24 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success(res) {
-                    console.log(res);
-                    if(res.statusCode == 200) {
+                    if (res.statusCode == 200) {
                         uni.navigateTo({
-                            url: '../power-transfer/power-transfer?ids=' + item.id + '&day='+ item.days +'&rate=' + item.hashrate
+                            url: '../power-transfer/power-transfer?ids=' + item.id + '&day=' + item.days + '&rate=' + item.hashrate
                         });
                     }
                     if (res.statusCode == 400) {
                         uni.showToast({
-                            icon:'none',
-                            title:'未实名认证通过或未设置资金密码'
-                        })
+                            icon: 'none',
+                            title: '未实名认证通过或未设置资金密码'
+                        });
                     }
                 }
             });
         },
-        bt:function() {
+        bt: function() {
             uni.navigateBack({
-                delta:1
-            })
+                delta: 1
+            });
         }
     }
 };
@@ -151,7 +145,7 @@ page {
     width: 100%;
     height: 326rpx;
 }
-.images{
+.images {
     width: 16rpx;
     height: 31rpx;
     position: absolute;
@@ -159,7 +153,7 @@ page {
     left: 32rpx;
     z-index: 1;
 }
-.cter{
+.cter {
     width: 80rpx;
     height: 40rpx;
 }
@@ -284,14 +278,14 @@ uni-button {
     padding-left: 20rpx;
 }
 .no-cunli {
-	width: 231rpx;
-	height: 162rpx;
-	display: block;
-	margin: 152rpx auto 35rpx;
+    width: 231rpx;
+    height: 162rpx;
+    display: block;
+    margin: 152rpx auto 35rpx;
 }
 .nobuys {
-	text-align: center;
-	color: #8796aa;
-	font-size: 26rpx;
+    text-align: center;
+    color: #8796aa;
+    font-size: 26rpx;
 }
 </style>

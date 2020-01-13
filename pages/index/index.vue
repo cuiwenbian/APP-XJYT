@@ -106,7 +106,6 @@ export default {
 		_self.global_.token=uni.getStorageSync('token');
 		uni.getSystemInfo({
 			success: res => {
-				console.log(res.platform);
 				//检测当前平台，如果是安卓则启动安卓更新
 				//  if(res.platform=="android"){
 				//      this.download();
@@ -120,27 +119,21 @@ export default {
 				Authorization: 'JWT' + ' ' + uni.getStorageSync('token')
 			},
 			success(res) {
-				console.log(res);
                 // _self.categart = res.data.data.categart
                 //字段名字就是categart这里面有三个状态 1  2 4  1是隐藏  24显示 隐藏的是矿机出售
 				_self.csgo = res.data.data.notice;
-				console.log(_self.csgo);
 				_self.daern = res.data.data.must;
 				if (_self.daern == 1) {
 					_self.diro = false;
-					console.log(_self.diro);
 				}
 				_self.version = res.data.data.version;
 				_self.andri = uni.getStorageSync('version');
-				console.log(_self.andri);
-				console.log(_self.version);
 				//这个是当前版本
 				//这是个后台获取的版本
 				if (_self.andri != _self.version) {
 					//判断当前版本号
 					_self.According = true;
 					//uni.hideTabbar()
-					console.log(_self.According);
 					uni.request({
 						url: _self.url + 'version/',
 						method: 'GET',
@@ -148,9 +141,7 @@ export default {
 							Authorization: 'JWT' + ' ' + uni.getStorageSync('token')
 						},
 						success: res => {
-							console.log(res);
 							_self.remark = res.data[0].remark;
-							console.log(_self.remark);
 						}
 					});
 				}
@@ -176,9 +167,7 @@ export default {
 				Authorization: 'JWT' + ' ' + this.global_.token
 			},
 			success: res => {
-                console.log(res)
 				that.title = res.data;
-				console.log(that.title)
 			}
 		});
 		uni.request({
@@ -189,7 +178,6 @@ export default {
 			},
 			success: res => {
 				that.pool=res.data.data
-				console.log(res.data.data);
                 
 			}
 		});
@@ -224,11 +212,8 @@ export default {
 				},
 				success: resMz => {
 					var server_version = resMz.data[0].version;
-					console.log(server_version);
 					_self.link = resMz.data[0].link;
-					console.log(_self.link);
 					_self.version = uni.getStorageSync('version');
-					console.log(_self.version);
 					_self.checkVersionToLoadUpdate(server_version, _self.version);
 				},
 				fail: () => {},
@@ -263,7 +248,6 @@ export default {
 								});
 								//设置 最新版本apk的下载链接
 								var downloadApkUrl = that.link;
-								console.log(downloadApkUrl);
 								var dtask = plus.downloader.createDownload(downloadApkUrl, {}, function(d, status) {
 									// 下载完成
 									if (status == 200) {
@@ -282,7 +266,6 @@ export default {
 								});
 								dtask.start();
 							} else if (res.cancel) {
-								console.log('稍后更新');
 							}
 						}
 					});
@@ -301,7 +284,6 @@ export default {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},
 				success(res) {
-					console.log(res)
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
 					if (link == '') {
@@ -326,16 +308,12 @@ export default {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},   
 				success: res => {
-                    console.log(res)
 					var ingym = res.data.data;
 					var link2 = ingym.link;
 					var read_volume = ingym.read_volume;
 					var text_content2 = ingym.text_content.replace(/=/g, '_');
-					console.log(res)
 					var add_time = ingym.add_time;
 					var title = ingym.title;
-                    console.log()
-
 					if (link2 == '') {
 						uni.navigateTo({
 							url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
