@@ -149,6 +149,7 @@ export default {
 	},
 	onLoad() {
 		_self = this;
+		_self.global_.token=uni.getStorageSync('token');
 		uni.getSystemInfo({
 			success: res => {
 				console.log(res.platform);
@@ -162,7 +163,7 @@ export default {
 			url: this.url + 'home/',
 			method: 'GET',
 			header: {
-				Authorization: 'JWT' + ' ' + this.global_.token
+				Authorization: 'JWT' + ' ' + uni.getStorageSync('token')
 			},
 			success(res) {
 				console.log(res);
@@ -190,7 +191,7 @@ export default {
 						url: _self.url + 'version/',
 						method: 'GET',
 						header: {
-							Authorization: 'JWT' + ' ' + _self.global_.token
+							Authorization: 'JWT' + ' ' + uni.getStorageSync('token')
 						},
 						success: res => {
 							console.log(res);

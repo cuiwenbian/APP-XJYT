@@ -10,30 +10,31 @@
 		   });
 		   // #endif
 		 
+		   // #ifdef MP-WEIXIN
+		   var value = uni.getStorageSync('wxtoken');
+		   var value1 = uni.getStorageSync('token');
+		   console.log(value)
+		   console.log(value1)
+		   if (value && value1) {
+		   	this.global_.phone = value1;
+		   	this.global_.token = value;
+		        uni.switchTab({
+		        	url: '/pages/index/index'
+		        });
+		   }else if(value){
+		   	uni.navigateTo({
+		   		url: '/pages/login/login'
+		   	});		 
+		   }
+		   // #endif
+		 
 		},
 		onShow: function () {
-			console.log('App Show')
-			// #ifdef MP-WEIXIN
-			var value = uni.getStorageSync('token');
-			var value1 = uni.getStorageSync('phone');
-			console.log(value)
-			console.log(value1)
-			if (value && value1) {
-				this.global_.phone = value1;
-				this.global_.token = value;
-			     uni.switchTab({
-			     	url: '/pages/index/index'
-			     });
-			}else{
-				// uni.navigateTo({
-				// 	url: '/pages/login/login'
-				// });		 
-			}
-			// #endif
+			
 		},
-		onHide: function () {
-			console.log('App Hide')
-		},
+		// onHide: function () {
+		// 	console.log('App Hide')
+		// },
 	
 	}
 </script>

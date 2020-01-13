@@ -44,9 +44,9 @@ export default {
                         success: res => {
                             console.log(res);
                             // uni.setStorageSync('phone', this.phone);
-                            uni.setStorageSync('token', res.data.token);
+                            uni.setStorageSync('wxtoken', res.data.data);
                             // _self.global_.phone = this.phone;
-                            _self.global_.token = res.data.token;
+                            //_self.global_.token = res.data.token;
                             if (res.statusCode == 200) {
                                 console.log(res);
                                 uni.reLaunch({

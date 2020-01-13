@@ -29,15 +29,15 @@
 				<image class='prev' :src="p_url" :data-src="p_url" @click='chooseImageTap' :data-flag='positive' style="width:250rpx;height:150rpx;"></image>
 			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>	
-			<view class="list" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverse'>
+			<view class="list" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverses'>
 				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
 				<image class="up-card" src="../../static/images/shen2.png" mode=""></image>
 				<!-- <view class='shen1-1'  :data-flag='positive'>+</view>
 				<text class="click" >点击上传</text> -->
 			</view>
-			<view class="list" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverse'>
+			<view class="list" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverses'>
 				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
-				<image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverse' style="width:250rpx;height:150rpx;"></image>
+				<image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverses' style="width:250rpx;height:150rpx;"></image>
 			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
 			</view>
 		</view>
@@ -100,7 +100,7 @@
 				imgs: [], //本地图片地址数组
 				picPaths: [], //网络路径
 				positive: 'positive',
-				reverse: 'reverse',
+				reverses: 'reverses',
 				pos:'',
 				rev:'',
 				type:'',
@@ -114,7 +114,7 @@
 		},
         onBackPress(option){
               plus.key.hideSoftKeybord()    
-            },
+        },
 		methods:{
 			getName:function(e){
 				this.name=e.detail.value
@@ -136,14 +136,14 @@
 			            if (flag == 'positive') {
 			                that.chooseWxImage1('album')
 			            }
-			            if (flag == 'reverse') {
+			            if (flag == 'reverses') {
 			              that.chooseWxImage2('album')
 			            }
 			            } else if (res.tapIndex == 1) {
 			            if (flag == 'positive') {
 			              that.chooseWxImage1('camera')
 			            }
-			            if (flag == 'reverse') {
+			            if (flag == 'reverses') {
 			              that.chooseWxImage2('camera')
 			            }
 			          }
@@ -171,10 +171,14 @@
 			          }
 			          obj.positive=res.tempFilePaths[0];
 			          that.imgs.push(obj);
+					  console.log(that.imgs)
 			          that.p_url=res.tempFilePaths[0];
 			          that.p_flag=false;
 			          that.imgs=that.imgs
-			      }
+			      },
+				  fail:function(res){
+					  console.log(res)
+				  }
 			    })
 			  },
 			chooseWxImage2: function(type) {
@@ -188,17 +192,17 @@
 			      success: function (res) {
 			        for (var i = imgsPaths.length-1; i >= 0; i--) {
 			          for (var j in imgsPaths[i]) {
-			            if (j == 'reverse') {
+			            if (j == 'reverses') {
 			              imgsPaths.splice(i, 1)
 			            }
 			          }
 			        }
-			        obj.reverse =res.tempFilePaths[0] ;
+			        obj.reverses =res.tempFilePaths[0] ;
 			          that.imgs.push(obj);
 			          that.r_url=res.tempFilePaths[0],
 			          that.r_flag=false,
 			          that.imgs=that.imgs
-					  that.rev=imgsPaths[1].reverse;
+					  that.rev=imgsPaths[1].reverses;
 					  that.pos=imgsPaths[0].positive;
 			        }
 			      })

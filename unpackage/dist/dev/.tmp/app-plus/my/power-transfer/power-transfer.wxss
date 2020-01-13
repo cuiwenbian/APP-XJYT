@@ -1,0 +1,68 @@
+
+page{
+    background-color: #0F1E2D;
+}
+.box {
+    width: 704rpx;
+    height: 288rpx;
+    background-color: #0F2439;
+    margin: 40rpx auto;
+}
+.name{
+    float: left;
+    color:#ffffff;
+    height: 144rpx;
+    font-size: 26rpx;
+    line-height: 144rpx;
+    padding-left: 48rpx;
+}
+.line {
+    height: 20rpx;
+    width: 100%;
+    padding-top: 128rpx;
+    border-bottom: 1rpx solid #091926;
+}
+.name1 {
+    float: left;
+    color:#ffffff;
+    font-size: 26rpx;
+    height: 144rpx;
+    line-height: 144rpx;
+    padding-left: 48rpx;
+}
+.inp {
+     width: 300rpx;
+     padding-right: 240rpx;
+     font-size: 24rpx;
+     color: #FFFFFF;
+     height: 144rpx;
+     float: right;
+}
+.int {
+    font-size: 24rpx;
+    height: 144rpx;
+    float: right;
+    color: #FFFFFF;
+    padding-left: 60rpx;
+}
+.stop {
+    float: left;
+    padding-left: 68rpx;
+    padding-bottom: 161rpx;
+    font-size: 24rpx;
+    color: #FFFFFF;
+}
+.btn{
+    height: 120rpx;
+}
+.primary {
+   margin: 134rpx auto 0;
+   width:706rpx;
+   height:88rpx;
+   background: #41BEC9;
+   text-align: center;
+   line-height: 88rpx;
+   color: #fff;
+   font-size: 30rpx;
+}
+
