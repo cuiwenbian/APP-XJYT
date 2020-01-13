@@ -15,7 +15,7 @@
                 cont:'',
                 add:'',
                 volume:'',
-        aa:''
+                aa:''
         }
       },
         onLoad(option) {

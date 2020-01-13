@@ -6,7 +6,7 @@
 					<view>个人资料</view>
 					<image src="../../static/images/jj.png" class="si-right"></image>
 				</view>
-				<view class="s-item" @click="mailaddress">
+				<view class="item" @click="mailaddress">
 					<view>邮箱绑定</view>
 					<image src="../../static/images/jj.png" class="si-right"></image>
 				</view>
@@ -184,6 +184,13 @@
 		padding: 30rpx 0;
 		border-bottom: 1px solid #eee;
 	}
+    .item{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        box-sizing: border-box;
+        padding: 30rpx 0;
+    }
     .s-line {
     	width: 100%;
     	height: 20rpx;

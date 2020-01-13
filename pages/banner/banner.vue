@@ -24,15 +24,12 @@ export default {
         };
     },
     onLoad(option) {
-        console.log(option.content)
-        this.ction = decodeURIComponent(option.content);
-        console.log(this.ction)
+        this.ction = uni.getStorageSync('index-banner-content') || '';
+        uni.removeStorageSync('index-banner-content');
         // #ifdef MP-WEIXIN
         let aa = this.ction.replace(/_/g, '=');
         aa = formatRichText(aa);
-        console.log(aa)
         this.aa = aa;
-        console.log(this.ction);
         //#endif
         // #ifndef MP-WEIXIN
         this.aa = this.ction.replace(/_/g, '=').replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');

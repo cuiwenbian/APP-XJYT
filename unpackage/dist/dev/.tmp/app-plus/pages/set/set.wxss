@@ -18,6 +18,18 @@
 		padding: 30rpx 0;
 		border-bottom: 1px solid #eee;
 }
+.item.data-v-027159cf{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+                justify-content: space-between;
+        -webkit-align-content: center;
+                align-content: center;
+        box-sizing: border-box;
+        padding: 30rpx 0;
+}
 .s-line.data-v-027159cf {
     	width: 100%;
     	height: 20rpx;

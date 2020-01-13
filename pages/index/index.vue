@@ -304,8 +304,9 @@ export default {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
 					if (link == '') {
+                        uni.setStorageSync('index-banner-content', text_content);
 						uni.navigateTo({
-							url: '../banner/banner?content=' + encodeURIComponent(text_content)
+							url: '../banner/banner'
 						});
 					} else {
 						uni.navigateTo({
