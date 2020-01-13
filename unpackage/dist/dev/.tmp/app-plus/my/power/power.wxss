@@ -1,0 +1,157 @@
+
+page {
+    background-color: #0f1e2d;
+}
+.img {
+    position: relative;
+    width: 100%;
+    height: 326rpx;
+}
+.box {
+    width: 100%;
+    height: 326rpx;
+}
+.images{
+    width: 16rpx;
+    height: 31rpx;
+    position: absolute;
+    top: 64rpx;
+    left: 32rpx;
+    z-index: 1;
+}
+.cter{
+    width: 80rpx;
+    height: 40rpx;
+}
+.power {
+    width: 100%;
+    position: absolute;
+    top: 60rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color: #ffffff;
+}
+.power2 {
+    position: absolute;
+    top: 190rpx;
+    left: 128rpx;
+    float: left;
+    text-align: center;
+    font-size: 42rpx;
+    color: #ffffff;
+}
+.power3 {
+    font-size: 24rpx;
+    color: #ffffff;
+}
+.x {
+    width: 3rpx;
+    height: 90rpx;
+    position: absolute;
+    top: 190rpx;
+    left: 360rpx;
+    background: rgba(151, 162, 231, 1);
+}
+.usage {
+    position: absolute;
+    top: 190rpx;
+    right: 128rpx;
+    float: right;
+    text-align: center;
+    font-size: 42rpx;
+    color: #ffffff;
+}
+.usage2 {
+    font-size: 24rpx;
+    color: #ffffff;
+}
+.pay {
+    height: 85rpx;
+    background-color: #0f2439;
+    line-height: 85rpx;
+    padding-left: 48rpx;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    font-size: 26rpx;
+    color: #ffffff;
+}
+.box2 {
+    width: 704rpx;
+    height: 222rpx;
+    margin: 0 auto;
+    margin-bottom: 20rpx;
+    background-color: #0f2439;
+}
+.contract {
+    height: 105rpx;
+    border-bottom: 1rpx solid #091926;
+}
+.contract2 {
+    line-height: 105rpx;
+    padding-left: 20rpx;
+    font-size: 24rpx;
+    color: #8796aa;
+}
+.time {
+    padding-left: 30rpx;
+}
+.transfer {
+    width: 110rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-size: 22rpx;
+    margin-top: 30rpx;
+    margin-right: 10rpx;
+    float: right;
+    color: #41bec9;
+    background-color: #0f2439;
+    border: 1rpx solid #41bec9;
+    border-radius: 5px;
+}
+.transfer1 {
+    width: 110rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-size: 22rpx;
+    margin-top: 30rpx;
+    margin-right: 10rpx;
+    float: right;
+    color: #41bec9;
+    border: 1rpx solid #41bec9;
+    border-radius: 5px;
+    background: RGBA(0, 193, 203, 0.5);
+}
+uni-button {
+    text-align: center;
+}
+.mill {
+    position: fixed;
+    width: 704rpx;
+    height: 116rpx;
+}
+.mill2 {
+    position: fixed;
+    line-height: 116rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    padding-left: 20rpx;
+}
+.orepool {
+    padding-right: 20rpx;
+}
+.linga {
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+}
+.no-cunli {
+	width: 231rpx;
+	height: 162rpx;
+	display: block;
+	margin: 152rpx auto 35rpx;
+}
+.nobuys {
+	text-align: center;
+	color: #8796aa;
+	font-size: 26rpx;
+}
+

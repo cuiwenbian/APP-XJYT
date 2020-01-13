@@ -165,6 +165,7 @@
 			        		Authorization:'JWT'+' '+this.global_.token
 			        	},
 			        	success(res) {
+                            
 			        		if(res.statusCode==400){
 								that.numberList.pop();
 								that.numberList.length = 0;

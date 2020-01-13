@@ -121,11 +121,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-  },
-  onShow: function onShow() {
-    console.log('App Show');
-
     var value = uni.getStorageSync('token');
     var value1 = uni.getStorageSync('phone');
     console.log(value);
@@ -137,10 +132,16 @@ __webpack_require__.r(__webpack_exports__);
         url: '/pages/index/index' });
 
     } else {
-      // uni.navigateTo({
-      // 	url: '/pages/login/login'
-      // });		 
+      uni.navigateTo({
+        url: '/pages/login/login' });
+
     }
+
+  },
+  onShow: function onShow() {
+    console.log('App Show');
+
+
 
   },
   onHide: function onHide() {

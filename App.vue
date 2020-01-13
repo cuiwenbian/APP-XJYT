@@ -9,26 +9,27 @@
 				uni.setStorageSync('version',wgtVer)
 		   });
 		   // #endif
+           var value = uni.getStorageSync('token');
+           var value1 = uni.getStorageSync('phone');
+           console.log(value)
+           console.log(value1)
+           if (value && value1){
+           	this.global_.phone = value1;
+           	this.global_.token = value;
+                uni.switchTab({
+                	url: '/pages/index/index'
+                });
+           }else{
+           	uni.navigateTo({
+           		url: '/pages/login/login'
+           	});		 
+           }
 		 
 		},
 		onShow: function () {
 			console.log('App Show')
 			// #ifdef MP-WEIXIN
-			var value = uni.getStorageSync('token');
-			var value1 = uni.getStorageSync('phone');
-			console.log(value)
-			console.log(value1)
-			if (value && value1) {
-				this.global_.phone = value1;
-				this.global_.token = value;
-			     uni.switchTab({
-			     	url: '/pages/index/index'
-			     });
-			}else{
-				// uni.navigateTo({
-				// 	url: '/pages/login/login'
-				// });		 
-			}
+
 			// #endif
 		},
 		onHide: function () {

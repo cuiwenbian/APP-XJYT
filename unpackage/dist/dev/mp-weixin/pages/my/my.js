@@ -333,6 +333,7 @@ var _default =
           Authorization: 'JWT' + ' ' + this.global_.token },
 
         success: function success(res) {
+          console.log(res);
           if (res.statusCode == 400) {
             uni.showToast({
               title: '用户未实名认证',

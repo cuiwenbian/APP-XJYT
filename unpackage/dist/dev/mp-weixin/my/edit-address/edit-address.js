@@ -300,6 +300,7 @@ __webpack_require__.r(__webpack_exports__);
             Authorization: 'JWT' + ' ' + this.global_.token },
 
           success: function success(res) {
+
             if (res.statusCode == 400) {
               that.numberList.pop();
               that.numberList.length = 0;

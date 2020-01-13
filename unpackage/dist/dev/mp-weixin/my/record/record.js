@@ -174,6 +174,7 @@ var _default =
 
       success: function success(res) {
         that.time = res.data.data;
+        that.time = time.reverse();
         console.log(that.time);
         if (that.time.length == 0) {
           that.fll = false;

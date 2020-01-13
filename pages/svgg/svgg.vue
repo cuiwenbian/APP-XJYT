@@ -43,19 +43,18 @@ export default {
                         },
                         success: res => {
                             console.log(res);
+                            uni.reLaunch({
+                                url: '../login/login'
+                            });
                             // uni.setStorageSync('phone', this.phone);
-                            uni.setStorageSync('token', res.data.token);
+                            // uni.setStorageSync('token', res.data.token);
                             // _self.global_.phone = this.phone;
-                            _self.global_.token = res.data.token;
-                            if (res.statusCode == 200) {
-                                console.log(res);
-                                uni.reLaunch({
-                                    url: '../login/login'
-                                });
-                            }
+                            // _self.global_.token = res.data.token;
+                            // if (res.statusCode == 200) {
+                            //     console.log(res);
+                               
+                            // }
                         },
-                        fail: () => {},
-                        complete: () => {}
                     });
                 }
             });

@@ -225,6 +225,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
 {
@@ -245,7 +255,6 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
       r_url: '',
       shade: false };
 
-
   },
   onBackPress: function onBackPress(option) {
     plus.key.hideSoftKeybord();
@@ -263,7 +272,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
       var flag = e.currentTarget.dataset.flag;
       uni.showActionSheet({
         itemList: ['从相册中选择', '拍照'],
-        itemColor: "#00000",
+        itemColor: '#00000',
         success: function success(res) {
           console.log(res);
           if (!res.cancel) {
@@ -330,9 +339,8 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
           }
           obj.reverse = res.tempFilePaths[0];
           that.imgs.push(obj);
-          that.r_url = res.tempFilePaths[0],
-          that.r_flag = false,
-          that.imgs = that.imgs;
+          console.log(that.imgs)(
+          that.r_url = res.tempFilePaths[0]), that.r_flag = false, that.imgs = that.imgs;
           that.rev = imgsPaths[1].reverse;
           that.pos = imgsPaths[0].positive;
         } });
@@ -392,8 +400,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 446);var _default =
               that.upImgs(imgpaths, index);
             }
           },
-          fail: function fail(res) {
-          } });
+          fail: function fail(res) {} });
 
       }
     },
