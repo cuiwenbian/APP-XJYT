@@ -97,7 +97,7 @@ export default {
                     uni.setStorageSync('phone', this.phone);
                     uni.setStorageSync('token', res.data.token);
                     _self.global_.phone = this.phone;
-                    _self.global_.token = res.data.token;
+                    _self.global_.token = uni.getStorageSync('token');
                     if (res.sthatusCode == 401) {
                         this.shade = true;
                     }

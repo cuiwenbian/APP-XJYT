@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "建议反馈",
-  "usingComponents": {
-    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
-  }
-}
