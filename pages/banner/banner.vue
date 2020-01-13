@@ -17,22 +17,25 @@ function formatRichText(html = '') {
 	return newContent;
 }
 export default {
-	data() {
-		return {
-			ction: '',
-			aa: ''
-		};
-	},
-	onLoad(option) {
-		this.ction = uni.getStorageSync('index-banner-content') || '';
-		// uni.removeStorageSync('index-banner-content');
-		// #ifdef MP-WEIXIN
-		let aa = this.ction.replace(/_/g, '=');
-		aa = formatRichText(aa);
-		this.aa = aa;
-		//#endif
-		
-	}
+
+    data() {
+        return {
+            ction: '',
+            aa: ''
+        };
+    },
+    onLoad(option) {
+        this.ction = uni.getStorageSync('index-banner-content') || '';
+        uni.removeStorageSync('index-banner-content');
+        // #ifdef MP-WEIXIN
+        let aa = this.ction.replace(/_/g, '=');
+        aa = formatRichText(aa);
+        this.aa = aa;
+        //#endif
+        // #ifndef MP-WEIXIN
+        this.aa = this.ction.replace(/_/g, '=').replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+        //#endif
+    }
 };
 </script>
 

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "优惠券转让",
-  "usingComponents": {
-    "keyboard-package": "/components/keyboard-package/keyboard-package",
-    "password-input": "/components/password-input/password-input"
-  }
-}

@@ -49,7 +49,7 @@
 		<view class="hotPool">
 			热门资讯
 		</view>
-		
+
 		<view class="bt" @click="information(item.id)" v-for="(item, index) in title" :key="index">
 			<view class="left">
 				<text class="tex">{{ item.title }}</text>
@@ -304,6 +304,7 @@ export default {
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
 					if (link == '') {
+                        uni.setStorageSync('index-banner-content', text_content);
 						uni.navigateTo({
 							url: '../banner/banner'
 						});

@@ -21,9 +21,6 @@ export default {
     data() {
         return {};
     },
-    onLoad() {
-        // console.log(111)
-    },
     methods: {
         autuWXLogin(e) {
             var _self = this;
@@ -43,7 +40,9 @@ export default {
                         },
                         success: res => {
                             console.log(res);
-                            // uni.setStorageSync('phone', this.phone);
+                            uni.reLaunch({
+                                url: '../login/login'
+                            });
                             uni.setStorageSync('wxtoken', res.data.data);
                             // _self.global_.phone = this.phone;
                             //_self.global_.token = res.data.token;
@@ -54,8 +53,6 @@ export default {
                                 });
                             }
                         },
-                        fail: () => {},
-                        complete: () => {}
                     });
                 }
             });
