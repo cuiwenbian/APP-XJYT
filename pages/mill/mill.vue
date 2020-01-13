@@ -102,6 +102,7 @@ export default {
                 Authorization: 'JWT' + ' ' + this.global_.token
             },
             success(res) {
+                console.log(res)
                 that.user_id = res.data.data;
                 if (res.statusCode == 205) {
                     that.flag = true;
@@ -163,6 +164,7 @@ export default {
                     machine_id_list: a
                 },
                 success(res) {
+                    console.log(res)
                     if (res.statusCode == 410) {
                         that.shade = true;
                         that.stus = res.statusCode;

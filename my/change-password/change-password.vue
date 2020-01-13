@@ -5,7 +5,7 @@
         <view class="list"><input class="code" type="number" password :value="password" @input="getPassword" placeholder="请输入现有密码" /></view>
         <view class="set">设置新密码</view>
         <view class="list">
-            <view class="title">交易密码</view>
+            <view class="title">交易密码:</view>
             <input class="code" type="digit" :password="isPassword" :value="newPassword" @input="getNewPassword" placeholder="请输入新的交易密码" />
             <image
                 :class="isPassword ? 'close' : 'cloose'"
@@ -16,7 +16,7 @@
         </view>
         <view class="linee"></view>
         <view class="list">
-            <view class="title">确认密码</view>
+            <view class="title">确认密码:</view>
             <input class="code" type="digit" :password="isPassword1" :value="newPassword1" @input="getNewPassword1" placeholder="请再次输入新密码" />
             <image
                 :class="isPassword1 ? 'close' : 'cloose'"

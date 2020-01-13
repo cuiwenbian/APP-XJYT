@@ -40,7 +40,7 @@ export default {
 				function daoji1() {
 					timer1 = timer1 - 1;
 					if (timer1 == 0) {
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '/pages/leader/guide'
 						});
 						clearInterval(flag1);

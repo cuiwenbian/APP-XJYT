@@ -184,7 +184,7 @@ export default {
                 success: res => {
                     if (res.statusCode == 200) {
                         uni.showToast({
-                            title: '登陆密码设置成功',
+                            title: '登录密码设置成功',
                             icon: 'none',
                             duration: 2000
                         });

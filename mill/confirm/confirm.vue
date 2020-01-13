@@ -167,6 +167,8 @@
                             	that.success=true
                             }
             				if (res.statusCode == 200) {
+                                that.passIn = false;
+                                that.$refs['number'].close();
             					uni.showToast({
             						title: '出售成功，等待买家付款',
             						icon: 'none',
@@ -211,6 +213,7 @@
         background-color: #DCDCDC;
     }
     .loo {
+        width: 160rpx;
         color: #121212;
     }
     .box1 {
@@ -222,7 +225,7 @@
     }
     .name {
         float: left;
-        width: 124rpx;
+        width: 150rpx;
         color: #A0A0A0;
         font-size: 26rpx;
         line-height: 120rpx;

@@ -3,12 +3,12 @@
     <view class="container" style="position:relative;">
         <view class="line"></view>
         <view class="list">
-            <view class="txt">地址昵称</view>
+            <view class="txt">地址昵称:</view>
             <input class="enter" type="text" :value="nickname" @input="getRemark" />
         </view>
         <view class="line"></view>
         <view class="list">
-            <view class="txt">提币地址</view>
+            <view class="txt">提币地址:</view>
             <input class="enter" type="text" :value="address" @input="getAddress" />
         </view>
         <view class="save" @click="save">保存</view>

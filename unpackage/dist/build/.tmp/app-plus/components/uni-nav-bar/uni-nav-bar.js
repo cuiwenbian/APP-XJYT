@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/uni-nav-bar/uni-nav-bar"],{"25e0":function(t,n,e){"use strict";var u=e("35a8"),i=e.n(u);i.a},"34b7":function(t,n,e){"use strict";e.r(n);var u=e("a794"),i=e.n(u);for(var a in u)"default"!==a&&function(t){e.d(n,t,function(){return u[t]})}(a);n["default"]=i.a},"35a8":function(t,n,e){},"73f8":function(t,n,e){"use strict";var u,i=function(){var t=this,n=t.$createElement;t._self._c},a=[];e.d(n,"b",function(){return i}),e.d(n,"c",function(){return a}),e.d(n,"a",function(){return u})},a794:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var u=function(){return e.e("components/uni-status-bar/uni-status-bar").then(e.bind(null,"c1fa"))},i=function(){return e.e("components/uni-icons/uni-icons").then(e.bind(null,"5e36"))},a={name:"UniNavBar",components:{uniStatusBar:u,uniIcons:i},props:{title:{type:String,default:""},leftText:{type:String,default:""},rightText:{type:String,default:""},leftIcon:{type:String,default:""},rightIcon:{type:String,default:""},fixed:{type:[Boolean,String],default:!1},color:{type:String,default:"#000000"},backgroundColor:{type:String,default:"#FFFFFF"},statusBar:{type:[Boolean,String],default:!1},shadow:{type:[String,Boolean],default:!0},border:{type:[String,Boolean],default:!0}},methods:{onClickLeft:function(){this.$emit("click-left")},onClickRight:function(){this.$emit("click-right")}}};n.default=a},cec5:function(t,n,e){"use strict";e.r(n);var u=e("73f8"),i=e("34b7");for(var a in i)"default"!==a&&function(t){e.d(n,t,function(){return i[t]})}(a);e("25e0");var r,o=e("f0c5"),c=Object(o["a"])(i["default"],u["b"],u["c"],!1,null,null,null,!1,u["a"],r);n["default"]=c.exports}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/uni-nav-bar/uni-nav-bar-create-component',
+    {
+        'components/uni-nav-bar/uni-nav-bar-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('6e42')['createComponent'](__webpack_require__("cec5"))
+        })
+    },
+    [['components/uni-nav-bar/uni-nav-bar-create-component']]
+]);

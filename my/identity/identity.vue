@@ -4,13 +4,13 @@
         <view class="line">基本资料</view>
         <view class="enter enters">
             <view>
-                <text class="enter-2">姓名</text>
+                <text class="enter-2">姓名:</text>
                 <input class="weui-input1 input1" placeholder="请输入您的姓名" @input="getName" :value="name" />
             </view>
         </view>
         <view class="enter">
             <view>
-                <text class="enter-2 ">身份证号</text>
+                <text class="enter-2 ">身份证号:</text>
                 <input class="weui-input1" placeholder="请输入您的身份证号码" type="digit" @input="getIdcard" :value="idcard" />
             </view>
         </view>
