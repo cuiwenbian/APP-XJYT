@@ -49,31 +49,8 @@
 		<view class="hotPool">
 			热门资讯
 		</view>
-		<!-- <view class="borx">
-			<view class="price">
-				<text class="bot">今日币价:</text>
-				<text class="Todayprice">{{ Todayprice }}</text>
-			</view>
-			<view class="price1">
-				<text class="bot1">较昨日:</text>
-				<text class="yesterdayprice">
-					<text class="yesterday">{{ yesterdayprice }}</text>
-					{{ yesterday }}
-				</text>
-			</view>
-		</view>
-		<view class="gg">
-			<div class="charts">
-				<view class="qiun-columns">
-					<view class="qiun-charts">
-						<canvas canvas-id="canvasArea" id="canvasArea" class="charts" @touchstart="touchCandle" @touchmove="moveCandle" @touchend="touchEndCandle"></canvas>
-					</view>
-				</view>
-			</div>
-		</view> -->
-		<!-- <view class="Small"><text class="te">热门资讯</text></view> -->
+		
 		<view class="bt" @click="information(item.id)" v-for="(item, index) in title" :key="index">
-			<!-- <view class="b"></view> -->
 			<view class="left">
 				<text class="tex">{{ item.title }}</text>
 				<view class="desc">
@@ -103,10 +80,7 @@
 </template>
 
 <script>
-// import 'swiper/dist/css/swiper.min.css';
 import uCharts from '../../common/u-charts.js';
-// import Swiper from 'swiper';
-// import 'swiper/dist/css/swiper.min.css'
 var _self;
 var canvaArea = null;
 export default {
@@ -114,37 +88,17 @@ export default {
 		return {
 			scr:true,
 			n:true,
-			// Todayprice: '',
-			// yesterdayprice: '',
-			// yesterday: '',
-			//seven_profit: '',
 			title: '',
-			//total_profit: '',
-			//cWidth: '',
-			//cHeight: '',
-			//pixelRatio: 1,
 			notice: '',
 			csgo: '',
-			//time: [],
-			//price: [],
-			//price_all: [],
-			//hure: [],
 			According: false,
 			diro: true,
-			//feck: [],
-			//usd: '',
 			link: '',
-			//suner: '',
-			//weak: '',
 			baner: '',
-			//hige: '',
-			//minn: '',
 			version: '',
 			remark: '',
 			urll: this.urll,
 			pool:'',
-            // categart:''
-			
 		};
 	},
 	onLoad() {
@@ -235,8 +189,6 @@ export default {
 			},
 			success: res => {
 				that.pool=res.data.data
-				console.log(res.data.data);
-                
 			}
 		});
 	},
@@ -348,11 +300,12 @@ export default {
 				},
 				success(res) {
 					console.log(res)
+					 uni.setStorageSync('index-banner-content', text_content);
 					var link = res.data.link;
 					var text_content = res.data.text_content.replace(/=/g, '_');
 					if (link == '') {
 						uni.navigateTo({
-							url: '../banner/banner?content=' + encodeURIComponent(text_content)
+							url: '../banner/banner'
 						});
 					} else {
 						uni.navigateTo({
@@ -371,15 +324,12 @@ export default {
 					Authorization: 'JWT' + ' ' + this.global_.token
 				},   
 				success: res => {
-                    console.log(res)
 					var ingym = res.data.data;
 					var link2 = ingym.link;
 					var read_volume = ingym.read_volume;
 					var text_content2 = ingym.text_content.replace(/=/g, '_');
-					console.log(res)
 					var add_time = ingym.add_time;
 					var title = ingym.title;
-                    console.log()
 
 					if (link2 == '') {
 						uni.navigateTo({
