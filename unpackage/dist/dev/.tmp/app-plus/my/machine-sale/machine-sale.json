@@ -1,0 +1,13 @@
+{
+  "titleNView": {
+    "titleText": "服务器出售",
+    "buttons": [
+      {
+        "text": "记录",
+        "fontSize": "24rpx",
+        "width": "50rpx"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

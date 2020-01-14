@@ -6,7 +6,7 @@
 		<image class="tit animated fadeIn delay-0.5s" src="../../static/images/start1.png" mode=""></image>
 		<image class="tit1 animated fadeIn delay-0.5s" src="../../static/images/start2.png" mode=""></image>
 		<image class="tit2 animated fadeIn delay-0.5s" src="../../static/images/start3.png" mode=""></image>
-	</view>
+	</view> 
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default {
 				function daoji1() {
 					timer1 = timer1 - 1;
 					if (timer1 == 0) {
-						uni.navigateTo({
+						uni.redirectTo({
 							url: '/pages/leader/guide'
 						});
 						clearInterval(flag1);
