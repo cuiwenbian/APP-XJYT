@@ -536,7 +536,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "星际云通",
+		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#102A44",
 		"backgroundColor": "#121212"
 	},
