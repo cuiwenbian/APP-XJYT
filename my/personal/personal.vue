@@ -3,13 +3,13 @@
 	<view class="container">
 		<view class="pass top" >
 			<text class="title title1">头像</text>
-			<image class="more more1" src="../../static/images/jiantou3.png" mode=""></image>
+			<!-- <image class="more more1" src="../../static/images/jiantou3.png" mode=""></image> -->
 			<view class="avator"><image class="pic" src="../../static/images/avator.png" mode=""></image></view>
 		</view>
 		<view class="linee"></view>
 		<view class="pass">
 			<text class="title">昵称</text>
-			<image class="more" src="../../static/images/jiantou3.png" mode=""></image>
+			<!-- <image class="more" src="../../static/images/jiantou3.png" mode=""></image> -->
 			<view class="info">hi</view>
 			<view class="line"></view>
 		</view>
@@ -76,7 +76,7 @@
 		border-radius: 50%;
 		border: 1px solid #F2f2f2;
 		margin-top: 25rpx;
-		margin-right: 20rpx;
+		margin-right: 48rpx;
 	}
 	.pic{
 		display: block;
@@ -86,13 +86,13 @@
 	.info{
 		float: right;
 		line-height: 120rpx;
-		margin-right:20rpx;
+		margin-right:48rpx;
 		font-size:30rpx;
 	}
 	.info1{
 		float: right;
 		line-height: 120rpx;
-		margin-right:93rpx;
+		margin-right:48rpx;
 		font-size:30rpx;
 	}
 	.line{

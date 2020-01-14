@@ -268,7 +268,7 @@ page {
     padding: 29rpx 21rpx;
 }
 .intro {
-    line-height: 40rpx;
+    line-height: 50rpx;
     color: #ffffff;
     font-size: 24rpx;
 }

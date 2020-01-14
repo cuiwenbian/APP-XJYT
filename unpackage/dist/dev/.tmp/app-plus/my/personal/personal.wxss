@@ -41,7 +41,7 @@ page{
 	border-radius: 50%;
 	border: 1px solid #F2f2f2;
 	margin-top: 25rpx;
-	margin-right: 20rpx;
+	margin-right: 48rpx;
 }
 .pic{
 	display: block;
@@ -51,13 +51,13 @@ page{
 .info{
 	float: right;
 	line-height: 120rpx;
-	margin-right:20rpx;
+	margin-right:48rpx;
 	font-size:30rpx;
 }
 .info1{
 	float: right;
 	line-height: 120rpx;
-	margin-right:93rpx;
+	margin-right:48rpx;
 	font-size:30rpx;
 }
 .line{
