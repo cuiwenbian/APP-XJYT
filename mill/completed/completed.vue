@@ -53,7 +53,7 @@
                 </view>
             </view>
 
-           <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:30rpx;height:25rpx;margin-left: 12rpx;" mode=""></image></button>
+           <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}</button>
         </view>
         <view class="box1">
             卖家信息
@@ -114,6 +114,7 @@
         onLoad(option) {
             var that = this
             var bsow = JSON.parse(option.deattr)
+            console.log(bsow)
             that.bsow = bsow
             var geunt = that.bsow[1]
             that.geunt = that.bsow[1]
@@ -142,12 +143,13 @@
 
 <style>
  page {
-     background-color: #DCDCDC;
+     background-color: #152437;
      margin-bottom:40rpx;
  }
  .box {
      width: 100%;
-     background-color: #fff;
+     color: #FFFFFF;
+     background-color: #152437;
      padding-bottom:20rpx;
  }
  .primary {
@@ -155,8 +157,8 @@
      height: 40rpx;
      border-radius: 70rpx; 
      border: 1rpx solid #000000;
-     color: #000000;
-     background-color: #FFFFFF;
+     color: #FFFFFF;
+     background-color: #41BEC9;
      line-height: 40rpx;
       margin-top:20rpx;
      font-size: 16rpx;
@@ -165,9 +167,9 @@
      width: 180rpx;
      height: 40rpx;
      border-radius:70rpx;
-     color: #000000;
+     color: #FFFFFF;
      border: 0.5rpx solid #000000;
-     background-color: #FFFFFF;
+     background-color: #41BEC9;
      line-height: 40rpx;
       margin-top:20rpx;
      font-size: 16rpx;
@@ -189,7 +191,7 @@
      line-height: 110rpx;
      float: left;
      padding-left: 48rpx;
-     border-bottom: 1rpx solid #F2F2F2;
+     border-bottom: 1rpx solid #121E2C;
      font-size: 28rpx;
  }
  .re{
@@ -245,17 +247,18 @@
      padding-left: 48rpx;
      line-height: 78rpx;
      font-size: 32rpx;
-     color: #333333;
-     background-color: #F6F6F6;
+     color: #FFFFFF;
+     background-color:#152437;
  }
  .box2 {
      height: 180rpx;
      width: 100%;
-     background-color: #fff;
+     background-color: #152437;
  }
  .bx {
      height: 90rpx;
      line-height: 90rpx;
+     color: #FFFFFF;
      padding-left: 48rpx;
      font-size: 28rpx;
  }
@@ -265,7 +268,7 @@
  .box3{
      width: 100%;
      height: 260rpx;
-     background-color: #fff;
+     background-color: #152437;
  }
  .img {
      width: 160rpx;
@@ -276,12 +279,14 @@
  }
  .small2 {
      float: left;
+     color: #FFFFFF;
      font-size: 30rpx;
      padding-left: 20rpx;
      padding-top: 40rpx;
  }
  .small3 {
      float: left;
+     color: #FFFFFF;
      padding-top: 20rpx;
      font-size: 32rpx;
  }
@@ -291,7 +296,7 @@
  .smalx {
      padding-left: 34rpx;
      font-size: 26rpx;
-     color: #a1a1a1;
+     color: #FFFFFF;
  }
   .box4 {
       position: fixed;
@@ -299,7 +304,7 @@
       right: 0rpx;
       height: 80rpx;
       width: 100%;
-      background-color: #F6F6F6;
+      background-color: #152437;
       line-height: 80rpx;
   }
  .primary1 {

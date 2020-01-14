@@ -1,11 +1,12 @@
 
 page {
-      background-color: #DCDCDC;
+      background-color: #152437;
       margin-bottom:40rpx;
 }
 .box {
         width: 100%;
-        background-color: #fff;
+        background-color: #152437;
+        color: #FFFFFF;
         padding-bottom:20rpx;
 }
 .primary {
@@ -47,7 +48,7 @@ page {
       line-height: 110rpx;
       float: left;
       padding-left: 48rpx;
-      border-bottom: 1rpx solid #F2F2F2;
+      border-bottom: 1rpx solid #121E2C;
       font-size: 28rpx;
 }
 .sam{
@@ -104,13 +105,14 @@ page {
       padding-left: 48rpx;
       line-height: 78rpx;
       font-size: 32rpx;
-      color: #333333;
-      background-color: #F6F6F6;
+      color: #ffffff;
+      background-color: #152437;
 }
 .box2 {
       height: 180rpx;
       width: 100%;
-      background-color: #fff;
+      color: #ffffff;
+      background-color: #152437;
 }
 .bx {
       height: 90rpx;

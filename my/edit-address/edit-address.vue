@@ -21,6 +21,7 @@
         <!-- #endif -->
         <!-- 数字键盘 -->
         <keyboard-package ref="number" @onChange="onChange" @onInput="onInput" @onDelete="onDelete" @onConfirm="onConfirm" :disableDot="true" />
+        
         <!-- #ifndef H5 -->
         <password-input v-if="delShow" ref="wrong" @tap="openKeyBoard('number')" @clo="cloo" :length="length" :gutter="20" :list="numberList"></password-input>
         <!-- #endif -->

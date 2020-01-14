@@ -66,6 +66,22 @@ page {
 .right {
     padding-left: 20rpx;
 }
+.right1 {
+    color: #3D97D6;
+    padding-left: 20rpx;
+}
+.right2 {
+    color: #FFB931;
+    padding-left: 20rpx;
+}
+.right3 {
+    color: #FF3131;
+    padding-left: 20rpx;
+}
+.right4 {
+    color: #7466FF;
+    padding-left: 20rpx;
+}
 .belongs {
     font-size: 24rpx;
     color: #ffffff;
@@ -102,6 +118,7 @@ page {
 .blank {
     width: 100%;
     height: 20rpx;
+    margin-top: 30rpx;
     background-color: #12122c;
 }
 .longs {
