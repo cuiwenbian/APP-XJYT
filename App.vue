@@ -11,13 +11,13 @@
        // #endif
      
        // #ifdef MP-WEIXIN
-       var value = uni.getStorageSync('wxtoken');
        var value1 = uni.getStorageSync('token');
+	   var value = uni.getStorageSync('phone');
        console.log(value)
        console.log(value1)
        if (value && value1) {
-         this.global_.phone = value1;
-         this.global_.token = value;
+         this.global_.phone = value;
+         this.global_.token = value1;
             uni.switchTab({
               url: '/pages/index/index'
             });

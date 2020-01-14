@@ -14,14 +14,7 @@
 			}
 		},
 		// #endif
-		// #ifdef MP-WEIXIN
-		{
-			"path": "pages/svgg/svgg",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		// #endif
+		
 		{
 			"path": "pages/login/login",
 			"style": {
