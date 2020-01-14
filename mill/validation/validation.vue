@@ -1,10 +1,14 @@
 <template>
     <view class="container">
         <view class="box">
-            <text class="name">姓名:</text><input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
-            <view class="line"></view>
-            <view class="name1">联系方式:
-                <input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="int"/>
+            <view class='name-box'>
+				<text class="name">姓名:</text>
+			  <input type="text" placeholder="请输入买家姓名" :value="name" class="inp" @input="end">
+            </view>
+			<view class="line"></view>
+            <view class="name-box">
+				<text class="name">联系方式:</text>
+                <input type="number" maxlength="11" :value="coloe" @input="ennd" placeholder="请输入手机号" class="inp"/>
             </view>
         </view>
         <view>
@@ -120,45 +124,41 @@
     }
     .box {
         width: 650rpx;
-        height: 300rpx;
+        height: 260rpx;
         border: 2rpx solid #FFFFFF;
         background-color: #FFFFFF;
         margin: 40rpx auto;
         border-radius: 15px;
     }
+	.name-box{
+		width:100%;
+	}
     .name{
         float: left;
-        height: 140rpx;
+        height: 120rpx;
         font-size: 26rpx;
-        line-height: 140rpx;
+        line-height: 120rpx;
         padding-left: 48rpx;
+		width:130rpx;
+		text-align:justify;
+		text-justify:distribute-all-lines;
+		text-align-last:justify;
     }
     .line {
         height: 20rpx;
         width: 100%;
-        padding-top: 128rpx;
+        padding-top: 108rpx;
         border-bottom: 1rpx solid #E4E4E4;
     }
-    .name1 {
-        float: left;
-        font-size: 26rpx;
-        height: 140rpx;
-        line-height: 140rpx;
-        padding-left: 48rpx;
-    }
+    
     .inp {
          width: 300rpx;
-         padding-right: 140rpx;
          font-size: 26rpx;
-         height: 150rpx;
-        float: right;
+         height: 120rpx;
+         float: left;
+		 margin-left:20rpx;
     }
-    .int {
-        font-size: 26rpx;
-        height: 140rpx;
-        float: right;
-        padding-left: 60rpx;
-    }
+   
     .stop {
         float: left;
         padding-left: 96rpx;

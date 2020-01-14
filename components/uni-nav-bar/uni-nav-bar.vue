@@ -172,7 +172,9 @@ export default {
 				}
 
         &-right:last-child{
-          width: 120rpx;
+          width: 180rpx;
+		  padding-right: 20rpx;
+		  box-sizing: border-box;
           text-align: right;
           flex-direction: row-reverse;
         }

@@ -270,7 +270,7 @@ page {
     z-index: 99;
 }
 .line {
-    height: 80rpx;
+    height: 30rpx;
 }
 .list {
     width: 100%;

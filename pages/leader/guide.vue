@@ -63,22 +63,7 @@ export default {
                 url: '/pages/login/login'
             });
         },
-        methods: {
-            change(e) {
-                //判断到最后一张后，自动转向进入首页
-                if (e.detail.current == 2) {
-					this.indicator=false;
-                }else{
-					this.indicator=true;
-				}
-            },
-			go(){
-				uni.redirectTo({
-					url: '/pages/login/login'
-				})
-			}
-
-        }
+        
     }
 };
 </script>

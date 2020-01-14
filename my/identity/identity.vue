@@ -328,6 +328,10 @@ page {
 .enter-2 {
     display: block;
     float: left;
+	width: 150rpx;
+	text-align:justify;
+	text-justify:distribute-all-lines;
+	text-align-last:justify;
     font-size: 32rpx;
     margin-top: 30rpx;
     color: #434343;
@@ -338,12 +342,10 @@ page {
     font-size: 30rpx;
     display: block;
     float: left;
-    margin-top: 24rpx;
+    margin-top: 30rpx;
     margin-left: 30rpx;
 }
-.input1 {
-    margin-left: 97rpx;
-}
+
 .uploadfile {
     width: 100%;
     height: 350rpx;

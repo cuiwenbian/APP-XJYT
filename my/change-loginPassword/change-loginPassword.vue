@@ -12,7 +12,7 @@
         </view>
         <view class="set">设置登录密码</view>
         <view class="list">
-            <view class="title">登录密码</view>
+            <view class="title">登录密码:</view>
             <input class="code" style="width:400rpx;" :password="isPassword" :value="pwd" @input="getLoginPassword" placeholder="6-16位数字,字母" />
             <image
                 :class="isPassword ? 'close' : 'cloose'"
@@ -23,7 +23,7 @@
         </view>
         <view class="linee"></view>
         <view class="list">
-            <view class="title">确认密码</view>
+            <view class="title">确认密码:</view>
             <input class="code" :password="isPassword1" :value="pwd1" @input="getLoginPassword1" placeholder="请再次输入登录密码" />
             <image
                 :class="isPassword1 ? 'close' : 'cloose'"

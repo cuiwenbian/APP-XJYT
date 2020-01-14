@@ -23,8 +23,8 @@
             this.cont = option.cont;
             // this.cont = decodeURIComponent(option.cont);
             this.aa=this.cont.replace(/_/g,"=").replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
-            this.add = option.add
-            this.volume = option.volume
+            this.add = option.add;
+            this.volume = option.volume;
         }
     }
 </script>

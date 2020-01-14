@@ -14,7 +14,7 @@
 		</view>
 		<view class='mill'> 
 			<view class="machine machine-left">
-				<view class="machine-num">0</view>
+				<view class="machine-num">{{num}}</view>
 				<view class="machine-mill">矿机收益</view>
 			</view>
 			<view class="machine">

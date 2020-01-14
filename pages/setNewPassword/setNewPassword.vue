@@ -2,12 +2,12 @@
     <!-- 设置新密码 -->
     <view class="container">
         <view class="pass">
-            <text class="title">新密码</text>
+            <text class="title">新密码:</text>
             <input class="phone" type="text" :password="isPassword" :value="newPwd" @input="newpassword" placeholder="6-16位数字,字母组合" />
             <view class="line"></view>
         </view>
         <view class="pass">
-            <text class="title">确认密码</text>
+            <text class="title">确认密码:</text>
             <input class="phone" type="text" :password="isPassword1" :value="newPwd1" @input="newpassword1" placeholder="请再次输入新密码" />
         </view>
         <view class="next" @click="next">确认</view>
@@ -121,9 +121,12 @@ page {
 }
 .title {
     float: left;
-    width: 140rpx;
+    width: 150rpx;
     height: 120rpx;
     line-height: 120rpx;
+	text-align:justify;
+	text-justify:distribute-all-lines;
+	text-align-last:justify;
     margin-left: 48rpx;
     font-size: 34rpx;
 }

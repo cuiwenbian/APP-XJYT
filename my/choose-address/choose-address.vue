@@ -159,7 +159,8 @@ export default {
     width: 25%;
     line-height: 60rpx;
     font-size: 30rpx;
-}
+	color:#A0A0A0;
+	}
 .nickname {
     float: right;
     width: 75%;
@@ -167,12 +168,14 @@ export default {
     font-size: 30rpx;
     word-break: break-all;
     word-wrap: break-word;
+	color:#121212;
 }
 .addTitle {
     float: left;
     width: 25%;
     line-height: 60rpx;
     font-size: 30rpx;
+	color:#A0A0A0;
 }
 .adr {
     float: right;
@@ -181,6 +184,7 @@ export default {
     font-size: 30rpx;
     word-break: break-all;
     word-wrap: break-word;
+	color:#121212;
 }
 .right {
     float: left;

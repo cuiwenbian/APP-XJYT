@@ -119,7 +119,7 @@
 		background: #EDEEEE;
 	}
 	.line{
-		height:50rpx;
+		height:30rpx;
 	}
 	.list{
 		width:100%;

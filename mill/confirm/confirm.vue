@@ -31,13 +31,16 @@
         </view>
         <view class="boxx">
             <view class="uu">
-                交易数量: <text class="ui">{{san}}台</text>
+				<text class='uuu'>交易数量: </text>
+                 <text class="ui">{{san}}台</text>
             </view>
             <view class="uu">
-                人民币: <text class="ui">{{sun}}</text>
+				<text class='uuu'>人民币: </text>
+                <text class="ui">{{sun}}</text>
             </view>
             <view class="uu">
-                总价: <text class="ui">{{suu}}</text>
+				<text class='uuu'>总价: </text>
+                <text class="ui">{{suu}}</text>
             </view>
         </view>
         <view class="brn">
@@ -220,20 +223,20 @@
         margin-bottom: 40rpx;
         height: 120rpx;
         background-color: #fff;
-        padding-left:18rpx;
+        padding-left:48rpx;
         box-sizing: border-box;
     }
     .name {
         float: left;
-        width: 150rpx;
+        /* width: 150rpx; */
         color: #A0A0A0;
         font-size: 26rpx;
         line-height: 120rpx;
-        margin-left: 20rpx;
     }
     .pag {
         float: left;
         color: #A0A0A0;
+		margin-left:20rpx;
         font-size: 26rpx;
         line-height: 120rpx;
         margin-left: 120rpx;
@@ -282,22 +285,31 @@
         margin: 30rpx auto;
     }
     .boxx {
-        height: 215rpx;
+        height: 240rpx;
         margin-top: 40rpx;
         background-color: #fff;
     }
     .uu {
-        float: left;
         width: 100%;
-        color: #A0A0A0;
-        padding-left: 48rpx;
-        box-sizing: border-box;
-        margin-top: 20rpx;
-        font-size: 30rpx;
+		height:80rpx;
+		line-height:80rpx;
     }
+	.uuu{
+		float: left;
+		display: block;
+		width:24%;
+		color: #A0A0A0;
+		font-size: 30rpx;
+		text-align:justify;
+		text-justify:distribute-all-lines;
+		text-align-last:justify;
+		padding-left: 48rpx;
+		box-sizing: border-box;
+	}
     .ui {
         color: #121212;
-        padding-left: 60rpx;
+        padding-left: 40rpx;
         box-sizing: border-box;
+		font-size: 32rpx;
     }
 </style>

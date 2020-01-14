@@ -17,12 +17,12 @@
         </view>
         <view class="enter" style="position: relative;">
             <text class="title">验 &nbsp;证&nbsp; 码</text>
-            <button class="getcode" @click="getCodeBtn" :disabled="disabled">{{ codename }}</button>
+            <button :class="c ? 'getcode' : 'getcode1'"  @click="getCodeBtn" @touchstart="nextCode" @touchend="backCode" :disabled="disabled">{{ codename }}</button>
             <input class="number" style="width:250rpx;float: left;margin-left:10rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入短信验证码" />
         </view>
-        <view class="btn" @click="register">注册</view>
+        <view :class="n ? 'btn' : 'btn1'" @click="register" @touchstart="next" @touchend="back">注册</view>
 
-        <navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
+        <view  @click='backLogin' class="goback">已有账号，返回登录</view>
         <view class="shade" v-show="shade">
             <view class="pop">
                 <view class="pop-title">注册成功</view>
@@ -36,6 +36,8 @@
 export default {
     data() {
         return {
+			n:true,
+			c:true,
             show: false,
             shade: false,
             phone: '',
@@ -49,6 +51,18 @@ export default {
         };
     },
     methods: {
+		next: function() {
+		    this.n = false;
+		},
+		back: function() {
+		    this.n = true;
+		},
+		nextCode: function() {
+		    this.c = false;
+		},
+		backCode: function() {
+		    this.c = true;
+		},
         getPhoneValue: function(e) {
             this.phone = e.detail.value;
         },
@@ -61,6 +75,11 @@ export default {
         getCodeValue: function(e) {
             this.code = e.detail.value;
         },
+		backLogin:function(){
+			uni.redirectTo({
+				url: '../login/login',
+			});
+		},
         getCode: function() {
             var _this = this;
             //判断手机号格式
@@ -284,6 +303,19 @@ page {
     bottom: 20rpx;
     right: 0;
 }
+.getcode1 {
+    border-radius: 50rpx;
+    width: 180rpx;
+    height: 50rpx;
+    font-size: 22rpx;
+    background: rgba(243, 243, 243, 0.3);
+    color: RGBA(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 50rpx;
+    position: absolute;
+    bottom: 20rpx;
+    right: 0;
+}
 button[disabled] {
     background: rgba(243, 243, 243, 0.5) !important;
     color: #fff !important;
@@ -293,6 +325,16 @@ button[disabled] {
     width: 664rpx;
     height: 88rpx;
     background: #fff;
+    border-radius: 50rpx;
+    margin: 40rpx auto;
+    color: #333;
+    text-align: center;
+    line-height: 88rpx;
+}
+.btn1 {
+    width: 664rpx;
+    height: 88rpx;
+    background: RGBA(255, 255, 255, 0.5);
     border-radius: 50rpx;
     margin: 40rpx auto;
     color: #333;

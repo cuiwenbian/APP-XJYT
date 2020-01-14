@@ -28,7 +28,7 @@
                 title="建议反馈"
                 :fixed="true"
                 :status-bar="true"
-                right-text="提建议"
+                right-text="提交建议"
                 @click-left="back"
                 @click-right="addMessage"
                 background-color="#102A44"
@@ -48,8 +48,8 @@
                         <view class="answer">{{ item.title }}</view>
                     </view>
                     <view class="question">
-                        <view class="tit">描述：</view>
-                        <view class="answer">{{ item.message }}</view>
+                        <view class="tit" style='line-height:50rpx;'>描述：</view>
+                        <view class="answer" style='line-height:50rpx;'>{{ item.message }}</view>
                     </view>
                 </view>
             </view>
