@@ -21,6 +21,23 @@ export default {
     data() {
         return {};
     },
+    onLoad() {
+        var value = uni.getStorageSync('wxtoken');
+        var value1 = uni.getStorageSync('token');
+        console.log(value)
+        console.log(value1)
+        if (value && value1) {
+          this.global_.phone = value1;
+          this.global_.token = value;
+             uni.switchTab({
+               url: '/pages/index/index'
+             });
+        }else if(value){
+          uni.navigateTo({
+            url: '/pages/login/login'
+          });     
+        }
+    },
     methods: {
         autuWXLogin(e) {
             var _self = this;
@@ -45,12 +62,12 @@ export default {
                             uni.setStorageSync('wxtoken', res.data.data);
                             // _self.global_.phone = this.phone;
                             //_self.global_.token = res.data.token;
-                            if (res.statusCode == 200) {
-                                console.log(res);
-                                uni.reLaunch({
-                                    url: '../login/login'
-                                });
-                            }
+                            // if (res.statusCode == 200) {
+                            //     console.log(res);
+                            //     uni.reLaunch({
+                            //         url: '../login/login'
+                            //     });
+                            // }
                         },
                     });
                 }

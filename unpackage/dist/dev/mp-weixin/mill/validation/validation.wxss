@@ -1,0 +1,60 @@
+
+page{
+        background-color: #EDEEEE;
+}
+.box {
+        width: 650rpx;
+        height: 260rpx;
+        border: 2rpx solid #FFFFFF;
+        background-color: #FFFFFF;
+        margin: 40rpx auto;
+        border-radius: 15px;
+}
+.name-box{
+		width:100%;
+}
+.name{
+        float: left;
+        height: 120rpx;
+        font-size: 26rpx;
+        line-height: 120rpx;
+        padding-left: 48rpx;
+		width:130rpx;
+		text-align:justify;
+		text-justify:distribute-all-lines;
+		text-align-last:justify;
+}
+.line {
+        height: 20rpx;
+        width: 100%;
+        padding-top: 108rpx;
+        border-bottom: 1rpx solid #E4E4E4;
+}
+.inp {
+         width: 300rpx;
+         font-size: 26rpx;
+         height: 120rpx;
+         float: left;
+		 margin-left:20rpx;
+}
+.stop {
+        float: left;
+        padding-left: 96rpx;
+        font-size: 26rpx;
+        color: #A0A0A0;
+}
+.btn{
+        height: 120rpx;
+}
+.primary {
+       margin: 134rpx auto 0;
+       width:690rpx;
+       height:88rpx;
+       background: #0A1117;
+       border-radius: 80rpx;
+       text-align: center;
+       line-height: 88rpx;
+       color: #fff;
+       font-size: 30rpx;
+}
+

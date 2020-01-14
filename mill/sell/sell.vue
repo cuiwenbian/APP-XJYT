@@ -75,7 +75,7 @@
                 var app = JSON.stringify(a)
                 if(that.total_price == ''){
                     uni.showToast({
-                        title:'总价不能为空',
+                        title:'请输入总价',
                         icon:'none'
                     })
                 }else{

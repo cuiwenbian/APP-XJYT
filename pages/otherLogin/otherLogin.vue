@@ -9,11 +9,11 @@
         </view>
         <view class="enter" style="position: relative;">
             <image class="icon" src="../../static/images/lock.png" mode=""></image>
-            <button class="getcode" @click="getCodeNumber" :disabled="disabled" hover-class="none">{{ codename }}</button>
+            <button :class="c ? 'getcode' : 'getcode1'" @click="getCodeNumber" @touchstart="nextCode" @touchend="backCode" :disabled="disabled" hover-class="none">{{ codename }}</button>
             <input class="number" style="width:300rpx;float:left;margin-left:30rpx" type="text" @input="getCodeValue" :value="code" placeholder="请输入验证码" />
         </view>
-        <view class="btn" @click="login">立刻登录</view>
-        <navigator url="../login/login" class="goback">已有账号，返回登录</navigator>
+        <view :class="n ? 'btn' : 'btn1'" @click="login" @touchstart="next" @touchend="back">立刻登录</view>
+        <view @click='backLogin' class="goback">已有账号，返回登录</view>
     </view>
 </template>
 
@@ -21,6 +21,8 @@
 export default {
     data() {
         return {
+			n:true,
+			c:true,
             phone: '', //手机号
             code: '', //验证码
             iscode: '', //用于存放验证码接口里获取到的code
@@ -29,6 +31,18 @@ export default {
         };
     },
     methods: {
+		next: function() {
+		    this.n = false;
+		},
+		back: function() {
+		    this.n = true;
+		},
+		nextCode: function() {
+		    this.c = false;
+		},
+		backCode: function() {
+		    this.c = true;
+		},
         getPhoneValue: function(e) {
             if (e.detail.value.length == 11) {
                 this.disabled = false;
@@ -38,6 +52,11 @@ export default {
         getCodeValue: function(e) {
             this.code = e.detail.value;
         },
+		backLogin:function(){
+			uni.redirectTo({
+				url: '../login/login',
+			});
+		},
         getCode: function() {
             var _this = this;
             //判断手机号格式
@@ -224,6 +243,19 @@ page {
     bottom: 20rpx;
     right: 0;
 }
+.getcode1 {
+    border-radius: 50rpx;
+    width: 180rpx;
+    height: 50rpx;
+    font-size: 22rpx;
+    background: rgba(243, 243, 243, 0.3);
+    color: RGBA(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 50rpx;
+    position: absolute;
+    bottom: 20rpx;
+    right: 0;
+}
 button[disabled] {
     background: rgba(243, 243, 243, 0.5) !important;
     color: #fff !important;
@@ -233,6 +265,16 @@ button[disabled] {
     width: 680rpx;
     height: 80rpx;
     background: #fff;
+    border-radius: 50rpx;
+    margin: 80rpx auto;
+    color: #333;
+    text-align: center;
+    line-height: 80rpx;
+}
+.btn1 {
+    width: 680rpx;
+    height: 80rpx;
+    background: RGBA(255, 255, 255, 0.5);
     border-radius: 50rpx;
     margin: 80rpx auto;
     color: #333;

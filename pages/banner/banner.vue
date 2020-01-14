@@ -24,6 +24,8 @@ export default {
     },
     onLoad(option) {
         this.ction = uni.getStorageSync('index-banner-content') || '';
+		console.log(this.ction)
+		this.aa = this.ction.replace(/_/g, '=').replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
         uni.removeStorageSync('index-banner-content');
         // #ifdef MP-WEIXIN
         let aa = this.ction.replace(/_/g, '=');

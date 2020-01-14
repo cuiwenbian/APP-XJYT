@@ -6,7 +6,7 @@
 		<image class="tit animated fadeIn delay-0.5s" src="../../static/images/start1.png" mode=""></image>
 		<image class="tit1 animated fadeIn delay-0.5s" src="../../static/images/start2.png" mode=""></image>
 		<image class="tit2 animated fadeIn delay-0.5s" src="../../static/images/start3.png" mode=""></image>
-	</view>
+	</view> 
 </template>
 
 <script>

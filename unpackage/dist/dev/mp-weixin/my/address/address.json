@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "提币地址",
+  "usingComponents": {
+    "uni-swipe-action": "/components/uni-swipe-action/uni-swipe-action",
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input",
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  }
+}

@@ -285,7 +285,7 @@ export default {
                 success(res) {
                     var link = res.data.link;
                     var text_content = res.data.text_content.replace(/=/g, '_');
-                    if (link == '') {
+                    if (link == null) {
                         uni.setStorageSync('index-banner-content', text_content);
                         uni.navigateTo({
                             url: '../banner/banner'
@@ -313,7 +313,7 @@ export default {
                     var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time;
                     var title = ingym.title;
-                    if (link2 == '') {
+                    if (link2 == null) {
                         uni.navigateTo({
                             url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
                         });

@@ -62,7 +62,8 @@ export default {
             uni.redirectTo({
                 url: '/pages/login/login'
             });
-        }
+        },
+        
     }
 };
 </script>
