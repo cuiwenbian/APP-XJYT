@@ -72,16 +72,7 @@
                 bt:true
             }
         },
-        onLoad() {
-            
-        },
         methods:{
-            ben:function() {
-                
-            },
-            btn:function(){
-               
-            }
         }
     }
 </script>

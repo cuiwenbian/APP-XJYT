@@ -3,12 +3,12 @@
 	<view class="container">
 		<view class="line"></view>
 		<view class="list">
-			<view class="txt">地址昵称</view>
+			<view class="txt">地址昵称:</view>
 			<input class="enter" type="text" :value="remark" @input="getRemark" placeholder="请输入备注名称" />
 		</view>
 		<view class="line"></view>
 		<view class="list">
-			<view class="txt">提币地址</view>
+			<view class="txt">提币地址:</view>
 			<input class="enter" type="text" :value="adr" @input="getAddress" placeholder="请输入提币地址" />
 		</view>
 		<view class="save"  @click="save">保存</view>
@@ -106,9 +106,6 @@
 								icon:'none',
 								duration:1500
 							})
-							// var page = getCurrentPages().pop();
-							// if (page == undefined || page == null) return; 
-							// page.onLoad(); 
 						}
 					}
 				})

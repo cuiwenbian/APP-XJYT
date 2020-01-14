@@ -47,8 +47,8 @@ export default {
             passIn: false,
             days: '',
             shadrate: '',
-            id:'',
-            password:''
+            id: '',
+            password: ''
         };
     },
     components: {
@@ -103,7 +103,7 @@ export default {
                         name: this.name,
                         cloudid: this.id,
                         mobile: this.cool,
-                        password:this.password
+                        password: this.password
                     },
                     header: {
                         Authorization: 'JWT' + ' ' + that.global_.token
@@ -111,9 +111,9 @@ export default {
                     success(res) {
                         if (res.statusCode == 400) {
                             uni.showToast({
-                                icon:'none',
-                                title:'未实名认证通过'
-                            })
+                                icon: 'none',
+                                title: '未实名认证通过'
+                            });
                         }
                         if (res.statusCode == 401) {
                             that.numberList.pop();
@@ -134,11 +134,11 @@ export default {
                                 duration: 3000
                             });
                         }
-                        if(res.statusCode == 303) {
+                        if (res.statusCode == 303) {
                             uni.showToast({
-                                icon:'none',
-                                title:'该用户不存在'
-                            })
+                                icon: 'none',
+                                title: '该用户不存在'
+                            });
                         }
                         var page = getCurrentPages().pop();
                         if (page == undefined || page == null) return;
@@ -153,36 +153,6 @@ export default {
             this.$refs['number'].open();
             this.onInput(val);
         }
-        // btn: function() {
-        //     uni.request({
-        //         url: this.url + 'cloudtransfer/',
-        //         method: 'POST',
-        //         header: {
-        //             Authorization: 'JWT' + ' ' + this.global_.token
-        //         },
-        //         data:{
-        //             name:this.name,
-        //             cool:this.cool,
-        //             days:this.days,
-        //             cloudid:this.id,
-        //             hashrate:this.shadrate,
-        //             mobile:''
-        //         },
-        //         success(res) {
-        //             console.log(res);
-        //             if (res.statusCode == 200) {
-        //                 uni.navigateTo({
-        //                     url: '../successful/successful'
-        //                 });
-        //             }else if (res.statusCode == 303) {
-        //                 uni.showToast({
-        //                     icon:'none',
-        //                     title:'该用户不存在'
-        //                 })
-        //             }
-        //         }
-        //     });
-        // }
     }
 };
 </script>

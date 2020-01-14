@@ -1,5 +1,4 @@
 <template>
-
     <view class="container">
         <!-- 提示 -->
         <view class="tan" @click="prompt" v-if="verify">
@@ -68,19 +67,14 @@ export default {
                 Authorization: 'JWT' + ' ' + this.global_.token
             },
             success(res) {
-                console.log(res);
-                console.log(res.data.data[1]);
                 _this.serverList = res.data.data[1];
                 _this.numb = res.data.data[0];
-                console.log(_this.numb);
                 let lens = 0;
                 for (let i = 0; i < res.data.data[1].length; i++) {
                     let item = res.data.data[1][i];
-                    console.log(item.lens);
                     lens += item.lens;
                 }
                 _this.lens = lens;
-                console.log(_this.serverList.length);
                 if (_this.numb == 0) {
                     _this.verify = true;
                 } else {
@@ -107,9 +101,6 @@ export default {
     methods: {
         prompt: function() {
             this.sha = true;
-            console.log(this.sha);
-            // 先解决bug把  不然没法走流程那个红色的提示 点击出弹框 但是现在不出了也不报错不知道为啥
-            // 上面显示是true但是没显示  上面设置true就谈一下
         },
         validation: function() {
             uni.request({
@@ -119,7 +110,6 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success(res) {
-                    console.log(res);
                     if (res.statusCode == 200) {
                         uni.showToast({
                             title: '已验证'
@@ -139,7 +129,6 @@ export default {
         },
         btn: function(type) {
             if (!this.selected.id) {
-                //没有选中，可以弹框提示
                 uni.showToast({
                     title: '请选中服务器',
                     icon: 'none'
@@ -152,9 +141,7 @@ export default {
                 header: {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
-                success(res) {
-                    console.log(res);
-                }
+                success(res) {}
             });
             uni.navigateTo({
                 url: '../server/server?type=' + type + '&info=' + JSON.stringify(this.selected)

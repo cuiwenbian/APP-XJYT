@@ -4,13 +4,13 @@
         <view class="line">基本资料</view>
         <view class="enter enters">
             <view>
-                <text class="enter-2">姓名</text>
+                <text class="enter-2">姓名:</text>
                 <input class="weui-input1 input1" placeholder="请输入您的姓名" @input="getName" :value="name" />
             </view>
         </view>
         <view class="enter">
             <view>
-                <text class="enter-2 ">身份证号</text>
+                <text class="enter-2 ">身份证号:</text>
                 <input class="weui-input1" placeholder="请输入您的身份证号码" type="digit" @input="getIdcard" :value="idcard" />
             </view>
         </view>
@@ -23,66 +23,69 @@
                     面
                 </text>
                 <image class="up-card" src="../../static/images/shen1.png" mode=""></image>
-                <!-- <view class='shen1-1'  :data-flag='positive'>+</view>
-				<text class="click" >点击上传</text> -->
-			</view>
-			<view class="list"  v-show="!p_flag" @click='chooseImageTap' :data-flag='positive'>
-				<text class='tips'>上传身份证<text style='color:#333333'>人像</text>面</text>
-				<image class='prev' :src="p_url" :data-src="p_url" @click='chooseImageTap' :data-flag='positive' style="width:250rpx;height:150rpx;"></image>
-			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
-			</view>	
-			<view class="list" v-show="r_flag"  @click='chooseImageTap' :data-flag='reverses'>
-				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
-				<image class="up-card" src="../../static/images/shen2.png" mode=""></image>
-				<!-- <view class='shen1-1'  :data-flag='positive'>+</view>
-				<text class="click" >点击上传</text> -->
-			</view>
-			<view class="list" v-show="!r_flag"  @click='chooseImageTap' :data-flag='reverses'>
-				<text class='tips'>上传身份证<text style='color:#333333'>国徽</text>面</text>
-				<image class='prev' :src="r_url" :data-src="r_url" @click='chooseImageTap' :data-flag='reverses' style="width:250rpx;height:150rpx;"></image>
-			    <image class="watermark" src="../../static/images/water.png" mode=""></image>
-			</view>
-		</view>
-		<view class="line2">
-		   <view class="reque">拍摄图片要求</view>
-		</view> 
-		<view class="idcard">
-		  <view class="id1">
-		  <image class="c" src='../../static/images/card.png'></image>
-		  <view class="biaozhun">
-		     <image class="y" src='../../static/images/yes.png'></image>
-		     <view class='pai'>标准拍摄</view>
-		  </view>
-		  </view>
-		   <view class="id1">
-		   <image class="c" src='../../static/images/card2.png'></image>
-		  <view class="biaozhun">
-		     <image class="y" src='../../static/images/no.png'></image>
-		     <view class='pai'>边框缺失</view>
-		  </view>
-		   </view>
-		    <view class="id1">
-		    <image class="c" src='../../static/images/card3.png'></image>
-		  <view class="biaozhun">
-		     <image class="y" src='../../static/images/no.png'></image>
-		     <view class='pai'>照片模糊</view>
-		  </view>
-		    </view>
-		     <view class="id1">
-		     <image class="c" src='../../static/images/card4.png'></image>
-		  <view class="biaozhun">
-		     <image class="y" src='../../static/images/no.png'></image>
-		     <view class='pai'>闪光强烈</view>
-		  </view>
-		     </view>
-		</view>
-		<view class='out2'>
-
-		 <button class='changeBtn2' v-if="idcard && name && imgs.length==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
-		 <button class='changeBtn1' v-if="!idcard || !name || imgs.length!==2" @tap='submitt' hover-class='btn_hover'>提交审核</button>
-		 <!-- <button :class=' idcard && name && imgs.length==2 ?"changeBtn2":"changeBtn1" ' @tap='submitt' hover-class='btn_hover'>提交审核</button> -->
-
-		</view>
+            </view>
+            <view class="list" v-show="!p_flag" @click="chooseImageTap" :data-flag="positive">
+                <text class="tips">
+                    上传身份证
+                    <text style="color:#333333">人像</text>
+                    面
+                </text>
+                <image class="prev" :src="p_url" :data-src="p_url" @click="chooseImageTap" :data-flag="positive" style="width:250rpx;height:150rpx;"></image>
+                <image class="watermark" src="../../static/images/water.png" mode=""></image>
+            </view>
+            <view class="list" v-show="r_flag" @click="chooseImageTap" :data-flag="reverses">
+                <text class="tips">
+                    上传身份证
+                    <text style="color:#333333">国徽</text>
+                    面
+                </text>
+                <image class="up-card" src="../../static/images/shen2.png" mode=""></image>
+            </view>
+            <view class="list" v-show="!r_flag" @click="chooseImageTap" :data-flag="reverses">
+                <text class="tips">
+                    上传身份证
+                    <text style="color:#333333">国徽</text>
+                    面
+                </text>
+                <image class="prev" :src="r_url" :data-src="r_url" @click="chooseImageTap" :data-flag="reverses" style="width:250rpx;height:150rpx;"></image>
+                <image class="watermark" src="../../static/images/water.png" mode=""></image>
+            </view>
+        </view>
+        <view class="line2"><view class="reque">拍摄图片要求</view></view>
+        <view class="idcard">
+            <view class="id1">
+                <image class="c" src="../../static/images/card.png"></image>
+                <view class="biaozhun">
+                    <image class="y" src="../../static/images/yes.png"></image>
+                    <view class="pai">标准拍摄</view>
+                </view>
+            </view>
+            <view class="id1">
+                <image class="c" src="../../static/images/card2.png"></image>
+                <view class="biaozhun">
+                    <image class="y" src="../../static/images/no.png"></image>
+                    <view class="pai">边框缺失</view>
+                </view>
+            </view>
+            <view class="id1">
+                <image class="c" src="../../static/images/card3.png"></image>
+                <view class="biaozhun">
+                    <image class="y" src="../../static/images/no.png"></image>
+                    <view class="pai">照片模糊</view>
+                </view>
+            </view>
+            <view class="id1">
+                <image class="c" src="../../static/images/card4.png"></image>
+                <view class="biaozhun">
+                    <image class="y" src="../../static/images/no.png"></image>
+                    <view class="pai">闪光强烈</view>
+                </view>
+            </view>
+        </view>
+        <view class="out2">
+            <button class="changeBtn2" v-if="idcard && name && imgs.length == 2" @tap="submitt" hover-class="btn_hover">提交审核</button>
+            <button class="changeBtn1" v-if="!idcard || !name || imgs.length !== 2" @tap="submitt" hover-class="btn_hover">提交审核</button>
+        </view>
         <view class="shade" v-show="shade">
             <view class="pop">
                 <view class="pop-title">提交成功，等待审核</view>
@@ -93,222 +96,210 @@
 </template>
 
 <script>
-	var check= require("../../common/utils.js");
-	export default{
-		data(){
-			return{
-				name:'',
-				idcard:'',
-				imgs: [], //本地图片地址数组
-				picPaths: [], //网络路径
-				positive: 'positive',
-				reverses: 'reverses',
-				pos:'',
-				rev:'',
-				type:'',
-				p_flag: true,
-				r_flag: true,
-				p_url:'',
-				r_url:'',
-				shade:false,
-				
-			}
-		},
-        onBackPress(option){
-              plus.key.hideSoftKeybord()    
+var check = require('../../common/utils.js');
+export default {
+    data() {
+        return {
+            name: '',
+            idcard: '',
+            imgs: [], //本地图片地址数组
+            picPaths: [], //网络路径
+            positive: 'positive',
+            reverses: 'reverses',
+            pos: '',
+            rev: '',
+            type: '',
+            p_flag: true,
+            r_flag: true,
+            p_url: '',
+            r_url: '',
+            shade: false
+        };
+    },
+    onBackPress(option) {
+        plus.key.hideSoftKeybord();
+    },
+    methods: {
+        getName: function(e) {
+            this.name = e.detail.value;
         },
-		methods:{
-			getName:function(e){
-				this.name=e.detail.value
-			},
-			getIdcard:function(e){
-				this.idcard=e.detail.value
-			},
-			//添加上传图片
-			chooseImageTap: function(e) {
-			    var that = this;
-			    var flag = e.currentTarget.dataset.flag;
-			    uni.showActionSheet({
-			      itemList: ['从相册中选择', '拍照'],
-			      itemColor: "#00000",
-			      success: function(res) {
-					  console.log(res)
-			        if (!res.cancel) {
-			          if (res.tapIndex == 0) {
-			            if (flag == 'positive') {
-			                that.chooseWxImage1('album')
-			            }
-			            if (flag == 'reverses') {
-			              that.chooseWxImage2('album')
-			            }
-			            } else if (res.tapIndex == 1) {
-			            if (flag == 'positive') {
-			              that.chooseWxImage1('camera')
-			            }
-			            if (flag == 'reverses') {
-			              that.chooseWxImage2('camera')
-			            }
-			          }
-			        }
-			      }
-			    })
-			  },
-			  // 图片本地路径
-			chooseWxImage1: function(type) {
-			    var that = this;
-			    var imgsPaths = that.imgs;
-			    var obj = {};
-			    uni.chooseImage({
-			      count: 1,
-			      sizeType: ['original', 'compressed'],
-			      sourceType: [type],
-			      success: function (res) {
-					console.log(res)
-			        for (var i = imgsPaths.length-1;i>=0;i--){
-			          for (var j in imgsPaths[i]){
-			              if(j=='positive'){
-			                imgsPaths.splice(i,1)
-			              }
-			            }
-			          }
-			          obj.positive=res.tempFilePaths[0];
-			          that.imgs.push(obj);
-					  console.log(that.imgs)
-			          that.p_url=res.tempFilePaths[0];
-			          that.p_flag=false;
-			          that.imgs=that.imgs
-			      },
-				  fail:function(res){
-					  console.log(res)
-				  }
-			    })
-			  },
-			chooseWxImage2: function(type) {
-			    var that = this;
-			    var imgsPaths = that.imgs;
-			    var obj = {};
-			    uni.chooseImage({
-			      count: 1,
-			      sizeType: ['original', 'compressed'],
-			      sourceType: [type],
-			      success: function (res) {
-			        for (var i = imgsPaths.length-1; i >= 0; i--) {
-			          for (var j in imgsPaths[i]) {
-			            if (j == 'reverses') {
-			              imgsPaths.splice(i, 1)
-			            }
-			          }
-			        }
-			        obj.reverses =res.tempFilePaths[0] ;
-			          that.imgs.push(obj);
-			          that.r_url=res.tempFilePaths[0],
-			          that.r_flag=false,
-			          that.imgs=that.imgs
-					  that.rev=imgsPaths[1].reverses;
-					  that.pos=imgsPaths[0].positive;
-			        }
-			      })
-			},
-			 //上传服务器
-			upImgs: function (imgpaths,index) {
-			    var that = this;
-				let token=this.global_.token;
-			    for(var key in imgpaths[index]){
-			      uni.uploadFile({
-			        url: this.url + 'realname/',//上传接口
-			        filePath: imgpaths[index][key],
-			        name: key,
-			        header: {
-			          Authorization:'JWT'+' '+token
-			        },
-			        formData: null,
-			        success: function (res) {
-						console.log(res)
-					 if(res.statusCode==400){
-						 uni.showToast({
-						 	title:'图片太大，请重新上传',
-						 	icon:'none',
-						 	duration:2000
-						 })
-						 return false
-					 }
-					 index++;
-					 if (index == imgpaths.length) {
-					  uni.request({
-					    url: that.url + 'realname/',
-					    method:'POST',
-					    data: {
-					  	  name: that.name, 
-					  	  idcard: that.idcard
-					  	  },
-					    header: {
-					      Authorization:'JWT'+' '+token
-					    },
-					    success: function (res) {
-							console.log(res)
-					 	if(res.statusCode==400){
-					 		uni.showToast({
-					 			title:'身份证号已存在，请重新认证',
-					 			icon:'none',
-					 			duration:2000
-					 		})
-					 		return false				 							 
-					 	}	
-					 	if(res.statusCode==200){
-					 		  that.shade=true
-					 	}					   
-					    }
-					  })
-					 } else {
-					   that.upImgs(imgpaths, index)
-					 }
-			       },
-			       fail: function (res) {
-			       },
-			      })
-			    }
-			  },
-			submitt: function(){
-			   var that = this;
-			   if(!that.name){
-			     uni.showToast({
-			       title: '用户名不能为空',
-			       icon:'none'
-			     });
-			     return false
-			   }
-			   if(!that.idcard){
-			     uni.showToast({
-			       title: '身份证号不能为空',
-			       icon:'none'
-			     });
-			     return  false
-			   }
-			   var flag=check.checkIdcard(that.idcard);
-			   if(!flag){
-			     uni.showToast({
-			       title: '身份证格式不正确', 
-			       icon: 'none',
-			       duration: 2000
-			     })
-			     return false
-			   }
-			   if(that.imgs.length !==2){
-			     uni.showToast({
-			       title: '身份证照不全',
-			       icon:'none'
-			     });
-			     return false
-			   }
-			    that.upImgs(that.imgs,0)
-			},
-			sure:function(){
-				uni.switchTab({
-					url:'../../pages/my/my'
-				})
-			}
-		}
-	}
+        getIdcard: function(e) {
+            this.idcard = e.detail.value;
+        },
+        //添加上传图片
+        chooseImageTap: function(e) {
+            var that = this;
+            var flag = e.currentTarget.dataset.flag;
+            uni.showActionSheet({
+                itemList: ['从相册中选择', '拍照'],
+                itemColor: '#00000',
+                success: function(res) {
+                    if (!res.cancel) {
+                        if (res.tapIndex == 0) {
+                            if (flag == 'positive') {
+                                that.chooseWxImage1('album');
+                            }
+                            if (flag == 'reverses') {
+                                that.chooseWxImage2('album');
+                            }
+                        } else if (res.tapIndex == 1) {
+                            if (flag == 'positive') {
+                                that.chooseWxImage1('camera');
+                            }
+                            if (flag == 'reverses') {
+                                that.chooseWxImage2('camera');
+                            }
+                        }
+                    }
+                }
+            });
+        },
+        // 图片本地路径
+        chooseWxImage1: function(type) {
+            var that = this;
+            var imgsPaths = that.imgs;
+            var obj = {};
+            uni.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: [type],
+                success: function(res) {
+                    for (var i = imgsPaths.length - 1; i >= 0; i--) {
+                        for (var j in imgsPaths[i]) {
+                            if (j == 'positive') {
+                                imgsPaths.splice(i, 1);
+                            }
+                        }
+                    }
+                    obj.positive = res.tempFilePaths[0];
+                    that.imgs.push(obj);
+                    that.p_url = res.tempFilePaths[0];
+                    that.p_flag = false;
+                    that.imgs = that.imgs;
+                }
+            });
+        },
+        chooseWxImage2: function(type) {
+            var that = this;
+            var imgsPaths = that.imgs;
+            var obj = {};
+            uni.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: [type],
+                success: function(res) {
+                    for (var i = imgsPaths.length - 1; i >= 0; i--) {
+                        for (var j in imgsPaths[i]) {
+                            if (j == 'reverses') {
+                                imgsPaths.splice(i, 1);
+                            }
+                        }
+                    }
+                    obj.reverses = res.tempFilePaths[0];
+                    that.imgs.push(obj);
+                    (that.r_url = res.tempFilePaths[0]), (that.r_flag = false), (that.imgs = that.imgs);
+                    that.rev = imgsPaths[1].reverses;
+                    that.pos = imgsPaths[0].positive;
+                }
+            });
+        },
+        //上传服务器
+        upImgs: function(imgpaths, index) {
+            var that = this;
+            let token = this.global_.token;
+            for (var key in imgpaths[index]) {
+                uni.uploadFile({
+                    url: this.url + 'realname/', //上传接口
+                    filePath: imgpaths[index][key],
+                    name: key,
+                    header: {
+                        Authorization: 'JWT' + ' ' + token
+                    },
+                    formData: null,
+                    success: function(res) {
+                        if (res.statusCode == 400) {
+                            uni.showToast({
+                                title: '图片太大，请重新上传',
+                                icon: 'none',
+                                duration: 2000
+                            });
+                            return false;
+                        }
+                        index++;
+                        if (index == imgpaths.length) {
+                            uni.request({
+                                url: that.url + 'realname/',
+                                method: 'POST',
+                                data: {
+                                    name: that.name,
+                                    idcard: that.idcard
+                                },
+                                header: {
+                                    Authorization: 'JWT' + ' ' + token
+                                },
+                                success: function(res) {
+                                    if (res.statusCode == 400) {
+                                        uni.showToast({
+                                            title: '身份证号已存在，请重新认证',
+                                            icon: 'none',
+                                            duration: 2000
+                                        });
+                                        return false;
+                                    }
+                                    if (res.statusCode == 200) {
+                                        that.shade = true;
+                                    }
+                                }
+                            });
+                        } else {
+                            that.upImgs(imgpaths, index);
+                        }
+                    },
+                    fail: function(res) {}
+                });
+            }
+        },
+        submitt: function() {
+            var that = this;
+            if (!that.name) {
+                uni.showToast({
+                    title: '用户名不能为空',
+                    icon: 'none'
+                });
+                return false;
+            }
+            if (!that.idcard) {
+                uni.showToast({
+                    title: '身份证号不能为空',
+                    icon: 'none'
+                });
+                return false;
+            }
+            var flag = check.checkIdcard(that.idcard);
+            if (!flag) {
+                uni.showToast({
+                    title: '身份证格式不正确',
+                    icon: 'none',
+                    duration: 2000
+                });
+                return false;
+            }
+            if (that.imgs.length !== 2) {
+                uni.showToast({
+                    title: '身份证照不全',
+                    icon: 'none'
+                });
+                return false;
+            }
+            that.upImgs(that.imgs, 0);
+        },
+        sure: function() {
+            uni.switchTab({
+                url: '../../pages/my/my'
+            });
+        }
+    }
+};
 </script>
 
 <style>

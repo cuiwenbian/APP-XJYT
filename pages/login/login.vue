@@ -93,7 +93,6 @@ export default {
                     'Content-Type': 'application/json'
                 },
                 success: res => {
-                    console.log(res);
                     uni.setStorageSync('phone', this.phone);
                     uni.setStorageSync('token', res.data.token);
                     _self.global_.phone = this.phone;
@@ -108,7 +107,6 @@ export default {
                         });
                     }
                     if (res.statusCode == 200) {
-                        console.log(res);
                         uni.reLaunch({
                             url: '../index/index'
                         });

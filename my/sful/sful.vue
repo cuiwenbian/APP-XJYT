@@ -23,7 +23,6 @@
             }
         },
         onLoad(option) {
-            console.log(option)
             this.number = option.numb
             this.cool = option.cool
         },
@@ -36,7 +35,6 @@
         }
     }
 </script>
-85295.65 26549
 <style>
     .img{
         display: block;

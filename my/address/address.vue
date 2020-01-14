@@ -1,7 +1,6 @@
 <template>
 	<!-- 提币地址 -->
 	<view class="container" style="position: relative;">
-		
 		<view v-if="flag">
 			<!-- #ifdef APP-PLUS -->
 			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#102A44" color="#fff" ></uni-nav-bar>
