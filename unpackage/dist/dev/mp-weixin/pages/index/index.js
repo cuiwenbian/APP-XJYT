@@ -218,7 +218,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../common/u-charts.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -305,27 +329,26 @@ var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../common/u-cha
 var _self;var canvaArea = null;var _default = { data: function data() {return { scr: true, n: true, title: '', notice: '', csgo: '', According: false, diro: true, link: '', baner: '', version: '', remark: '', urll: this.urll, pool: '' };}, onLoad: function onLoad() {_self = this;_self.global_.token = uni.getStorageSync('token');uni.getSystemInfo({ success: function success(res) {//检测当前平台，如果是安卓则启动安卓更新
       } });uni.request({ url: this.url + 'home/', method: 'GET', header: { Authorization: 'JWT' + ' ' + uni.getStorageSync('token') }, success: function success(res) {// _self.categart = res.data.data.categart
         //字段名字就是categart这里面有三个状态 1  2 4  1是隐藏  24显示 隐藏的是矿机出售
-        _self.csgo = res.data.data.notice;_self.daern = res.data.data.must;if (_self.daern == 1) {_self.diro = false;}_self.version = res.data.data.version;_self.andri = uni.getStorageSync('version'); //这个是当前版本
+        _self.csgo = res.data.data.notice;_self.daern = res.data.data.must;if (_self.daern == 1) {_self.diro = false;}_self.version = res.data.data.version;console.log(_self.version);_self.andri = uni.getStorageSync('version'); //这个是当前版本
         //这是个后台获取的版本
         if (_self.andri != _self.version) {//判断当前版本号
           _self.According = true; //uni.hideTabbar()
-          uni.request({ url: _self.url + 'version/', method: 'GET', header: { Authorization: 'JWT' + ' ' + uni.getStorageSync('token') }, success: function success(res) {_self.remark = res.data[0].remark;} });}} });}, onShow: function onShow() {var that = this;uni.request({ url: this.url + 'home/rotation/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.baner = res.data;} });uni.request({ url: this.url + 'home/news/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.title = res.data;} });uni.request({ url: this.url + 'cloudinfo/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token },
-
-      success: function success(res) {
-        that.pool = res.data.data;
-      } });
-
-  },
-  methods: {
-    next: function next() {
-      this.n = false;
-    },
-    back: function back() {
+          uni.request({ url: _self.url + 'version/', method: 'GET', header: { Authorization: 'JWT' + ' ' + uni.getStorageSync('token') }, success: function success(res) {_self.remark = res.data[0].remark;} });}} });}, onShow: function onShow() {var that = this;uni.request({ url: this.url + 'home/rotation/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.baner = res.data;} });uni.request({ url: this.url + 'home/news/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.title = res.data;} });uni.request({ url: this.url + 'cloudinfo/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.pool = res.data.data;} });}, methods: { next: function next() {this.n = false;}, back: function back() {
       this.n = true;
     },
     buy: function buy(item) {
       uni.navigateTo({
         url: '../poolDetails/poolDetails?cloudid=' + item });
+
+    },
+    wallet: function wallet() {
+      uni.navigateTo({
+        url: '../../my/my-wallet/my-wallet' });
+
+    },
+    mymachine: function mymachine() {
+      uni.navigateTo({
+        url: '../../my/my-machine/my-machine' });
 
     },
     quit: function quit() {
@@ -382,6 +405,7 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
 
                 //设置 最新版本apk的下载链接
                 var downloadApkUrl = that.link;
+                console.log(downloadApkUrl);
                 var dtask = plus.downloader.createDownload(downloadApkUrl, {}, function (d, status) {
                   // 下载完成
                   if (status == 200) {

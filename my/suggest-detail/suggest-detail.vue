@@ -10,8 +10,8 @@
             <view class="suggest-list">
                 <view class="top" style="height:20rpx;"></view>
                 <view style="width:100%;">
-                    <view class="tit" style="width:150rpx;line-height: 60rpx;color:#DCB16E">平台回复：</view>
-                    <view class="answer1">{{ message.reply }}</view>
+                    <view class="tit" style="width:150rpx;line-height: 50rpx;color:#DCB16E">平台回复：</view>
+                    <view class="answer1" >{{ message.reply }}</view>
                 </view>
                 <view class="submit-time">{{ message.updated_time }}</view>
             </view>
@@ -28,8 +28,8 @@
                 <view class="answer">{{ message.title }}</view>
             </view>
             <view class="question">
-                <view class="tit">描述：</view>
-                <view class="answer">{{ message.message }}</view>
+                <view class="tit" style='line-height:50rpx;'>描述：</view>
+                <view class="answer" style='line-height:50rpx;'>{{ message.message }}</view>
             </view>
         </view>
     </view>
@@ -115,7 +115,7 @@ page {
     width: 500rpx;
     float: right;
     font-size: 28rpx;
-    line-height: 60rpx;
+    line-height: 50rpx;
     word-break: break-all;
     word-wrap: break-word;
 }

@@ -82,7 +82,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "星际云通",
     "navigationBarBackgroundColor": "#102A44",
     "backgroundColor": "#121212"
   },
@@ -121,5 +121,6 @@
     "uploadFile": 20000,
     "request": 20000
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap73.json"
 }

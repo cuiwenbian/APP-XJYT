@@ -249,6 +249,7 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var _defaul
   onLoad: function onLoad(option) {
     var that = this;
     var bsow = JSON.parse(option.deattr);
+    console.log(bsow);
     that.bsow = bsow;
     var geunt = that.bsow[1];
     that.geunt = that.bsow[1];

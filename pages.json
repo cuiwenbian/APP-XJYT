@@ -72,7 +72,10 @@
 		{
 			"path": "pages/mill/mill",
 			"style": {
-				"navigationBarBackgroundColor": "#000000"
+				"navigationBarBackgroundColor": "#000000",
+				"titleNView": {
+					"titleText": "  "
+				}
 			}
 		},
 		{
@@ -536,7 +539,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "",
+		"navigationBarTitleText": "星际云通",
 		"navigationBarBackgroundColor": "#102A44",
 		"backgroundColor": "#121212"
 	},

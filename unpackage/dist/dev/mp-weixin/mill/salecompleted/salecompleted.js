@@ -225,6 +225,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var _default =
 {
@@ -242,17 +250,20 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var _defaul
 
   },
   onLoad: function onLoad(option) {
+    console.log(option);
     var that = this;
     //获取上个页面携带的数据，并复制
     var italn = JSON.parse(option.cshug);
     that.italn = italn;
     var nuecv = that.italn[1];
     that.nuecv = that.italn[1];
+    console.log(that.italn);
     that.state = italn[0][0].order_status;
     if (that.state == 104) {
       that.state = '已完成';
     }
     that.coffee = italn[0][0];
+    console.log(that.coffee);
     that.price = italn[0][0].sale_money;
     that.rmb = getRmb.getrmb(that.price);
   },

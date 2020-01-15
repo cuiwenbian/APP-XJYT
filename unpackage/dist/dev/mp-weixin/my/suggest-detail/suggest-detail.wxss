@@ -59,7 +59,7 @@ page {
     width: 500rpx;
     float: right;
     font-size: 28rpx;
-    line-height: 60rpx;
+    line-height: 50rpx;
     word-break: break-all;
     word-wrap: break-word;
 }

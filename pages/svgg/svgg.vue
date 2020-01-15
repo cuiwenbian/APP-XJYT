@@ -18,105 +18,63 @@
 
 <script>
 export default {
-	data() {
-		return {
-			isHide: true
-		};
-	},
-	onLoad() {},
-	methods: {
-		autuWXLogin(e) {
-			uni.getSetting({
-				success: function(res) {
-					if (res.authSetting['scope.userInfo']) {
-						//用户已经授权
-						this.isHide=false;
-						wx.getUserInfo({
-							success: function(res) {
-								// 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
-								// 根据自己的需求有其他操作再补充
-								// 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-								wx.login({
-									success: res => {
-										// 获取到用户的 code 之后：res.code
-										console.log('用户的code:' + res.code);
-										// 可以传给后台，再经过解析获取用户的 openid
-										// 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-											if(res.code){
-												uni.request({
-													url: this.url + 'users/authorization/',
-													method: 'POST',
-													data: {
-														code: res.code
-													},
-													headers: {
-														'Content-Type': 'application/json'
-													},
-													success: res => {
-														console.log(res);
-														uni.redirectTo({
-															url: '../login/login'
-														});
-														uni.setStorageSync('wxtoken', res.data.data);
-														// _self.global_.phone = this.phone;
-														//_self.global_.token = res.data.token;
-														// if (res.statusCode == 200) {
-														// 	console.log(res);
-														// 	uni.reLaunch({
-														// 		url: '../login/login'
-														// 	});
-														// }
-													}
-												});
-											}
-											
-									}
-								});
-							}
-						});
-					} else {
-						// 用户没有授权
-						// 改变 isHide 的值，显示授权页面
-						that.isHide = true;
-					}
-				}
-			});
-		}
-		// autuWXLogin(e) {
-		// 	var _self = this;
-		// 	console.log('用户信息', e.detail);
-		// 	uni.login({
-		// 		success: res => {
-		// 			uni.request({
-		// 				url: this.url + 'users/authorization/',
 
-		// 				method: 'POST',
-		// 				data: {
-		// 					code: res.code
-		// 				},
-		// 				headers: {
-		// 					'Content-Type': 'application/json'
-		// 				},
-		// 				success: res => {
-		// 					console.log(res);
-		// 					uni.reLaunch({
-		// 						url: '../login/login'
-		// 					});
-		// 					uni.setStorageSync('wxtoken', res.data.data);
-		// 					// _self.global_.phone = this.phone;
-		// 					//_self.global_.token = res.data.token;
-		// 					if (res.statusCode == 200) {
-		// 						console.log(res);
-		// 						uni.reLaunch({
-		// 							url: '../login/login'
-		// 						});
-		// 					}
-		// 				}
-		// 			});
-		// 		}
-		// 	});
-		// }
-	}
+    data() {
+        return {};
+    },
+    onLoad() {
+        var value = uni.getStorageSync('wxtoken');
+        var value1 = uni.getStorageSync('token');
+        console.log(value)
+        console.log(value1)
+        if (value && value1) {
+          this.global_.phone = value1;
+          this.global_.token = value;
+             uni.switchTab({
+               url: '/pages/index/index'
+             });
+        }else if(value){
+          uni.navigateTo({
+            url: '/pages/login/login'
+          });     
+        }
+    },
+    methods: {
+        autuWXLogin(e) {
+            var _self = this;
+            console.log('用户信息', e.detail);
+            uni.login({
+                success: res => {
+                    uni.request({
+                        url:this.url+'users/authorization/',
+
+                        method: 'POST',
+                        data: {
+                            code: res.code
+                        },
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        success: res => {
+                            console.log(res);
+                            uni.reLaunch({
+                                url: '../login/login'
+                            });
+                            uni.setStorageSync('wxtoken', res.data.data);
+                            // _self.global_.phone = this.phone;
+                            //_self.global_.token = res.data.token;
+                            // if (res.statusCode == 200) {
+                            //     console.log(res);
+                            //     uni.reLaunch({
+                            //         url: '../login/login'
+                            //     });
+                            // }
+                        },
+                    });
+                }
+            });
+        }
+    }
 };
 </script>
 

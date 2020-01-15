@@ -8,8 +8,14 @@
                 <image class="logout" src="../../static/images/logout.png" mode="" @click="logout"></image>
                 <!-- #endif -->
             </image>
-            <view class="avator" @click="personal"><image class="img" src="../../static/images/avator.png" mode=""></image></view>
-            <view class="nickname">用户昵称</view>
+			<!-- #ifdef APP-PLUS -->
+			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.png" mode=""></image></view>
+			<view class="nickname">用户昵称</view>
+			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="avator" @click="personal"><open-data type="userAvatarUrl" class="img"></open-data></view>
+			<view class="nickname"><open-data type="userNickName" ></open-data></view>
+			<!-- #endif -->
             <view class="phone">{{ phone }}</view>
         </view>
 
@@ -42,34 +48,12 @@
                 <view class="pic"><image src="../../static/images/icon-quan.png" style="width:44rpx;height:42rpx;" mode=""></image></view>
                 <view class="txt">优惠券</view>
             </view>
-            <!-- <view class="listItem" @click="tradePassword">
-				<view class="pic">18895657393
-					<image  src="../../static/images/icon-trade.png" style="width:41rpx;height:49rpx;" mode=""></image>
-				</view>
-				<view class="txt" >交易密码</view>
-			</view>
-			<view class="listItem" @click="loginPassword">
-				<view class="pic">
-					<image  src="../../static/images/icon-login.png" style="width:41rpx;height:49rpx;" mode=""></image>
-				</view>
-				<view class="txt" >登录密码</view>
-			</view>
-			<view class="listItem"  @click="bindEmail" >
-				<view class="pic">
-					<image   src="../../static/images/icon-emails.png" style="width:46rpx;height:36rpx;" mode=""></image>
-				</view>
-				<view class="txt" >邮箱绑定</view>
-			</view> -->
+          
             <view class="listItem" @click="help">
                 <view class="pic"><image src="../../static/images/icon-help.png" style="width:44rpx;height:44rpx;" mode=""></image></view>
                 <view class="txt">帮助中心</view>
             </view>
-            <!-- <view class="listItem" @click="certification">
-				<view class="pic">
-					<image  src="../../static/images/icon-identity.png" style="width:48rpx;height:39rpx;" mode=""></image>
-				</view>
-				<view class="txt" >实名认证</view> 
-			</view> -->
+           
             <view class="listItem" @click="suggest">
                 <view class="pic"><image src="../../static/images/icon-suggest.png" style="width:44rpx;height:46rpx;" mode=""></image></view>
                 <view class="txt">意见反馈</view>
@@ -446,6 +430,7 @@ page {
     display: block;
     margin: 0 auto;
     border-radius: 50%;
+	overflow: hidden;
 }
 .nickname {
     width: 100%;

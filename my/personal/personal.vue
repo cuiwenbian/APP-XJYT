@@ -4,13 +4,23 @@
 		<view class="pass top" >
 			<text class="title title1">头像</text>
 			<!-- <image class="more more1" src="../../static/images/jiantou3.png" mode=""></image> -->
+			<!-- #ifdef APP-PLUS -->
 			<view class="avator"><image class="pic" src="../../static/images/avator.png" mode=""></image></view>
+			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
+			<open-data type="userAvatarUrl" class='avator'></open-data>
+			<!-- #endif -->
 		</view>
 		<view class="linee"></view>
 		<view class="pass">
 			<text class="title">昵称</text>
 			<!-- <image class="more" src="../../static/images/jiantou3.png" mode=""></image> -->
-			<view class="info">hi</view>
+			<!-- #ifdef APP-PLUS -->
+			<view class="info">用户昵称</view>
+			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
+			<open-data type="userNickName" class='info'></open-data>
+			<!-- #endif -->
 			<view class="line"></view>
 		</view>
 		<view class="pass">

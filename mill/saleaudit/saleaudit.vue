@@ -135,20 +135,21 @@
 
 <style>
 page {
-      background-color: #DCDCDC;
+      background-color: #152437;
       margin-bottom:40rpx;
   }
     .box {
         width: 100%;
-        background-color: #fff;
+        background-color:  #152437;
         padding-bottom:20rpx;
+        color: #FFFFFF;
     }
     .primary {
         width: 250rpx;
         height: 40rpx;
         border-radius: 70rpx;
          border: 1rpx solid #000000;
-         color: #000000;
+        color: #FFFFFF;
         background-color: #FFFFFF;
         line-height: 40rpx;
          margin-top:20rpx;
@@ -182,7 +183,7 @@ page {
       line-height: 110rpx;
       float: left;
       padding-left: 48rpx;
-      border-bottom: 1rpx solid #F2F2F2;
+      border-bottom: 1rpx solid #121E2C;
       font-size: 28rpx;
   }
   .sam{
@@ -238,13 +239,14 @@ page {
       padding-left: 48rpx;
       line-height: 78rpx;
       font-size: 32rpx;
-      color: #333333;
-      background-color: #F6F6F6;
+      color: #FFFFFF;
+      background-color: #152437;
   }
   .box2 {
       height: 180rpx;
       width: 100%;
-      background-color: #fff;
+      background-color: #152437;
+      color: #FFFFFF;
   }
   .bx {
       height: 90rpx;
@@ -292,7 +294,7 @@ page {
       right: 0rpx;
       height: 80rpx;
       width: 100%;
-      background-color: #F6F6F6;
+      background-color: #152437;
       line-height: 80rpx;
   }
   .primary1 {

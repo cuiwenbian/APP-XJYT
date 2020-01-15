@@ -331,6 +331,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1919,6 +1943,36 @@ page {
     margin-left: 20rpx;
     font-size: 22rpx;
     line-height: 81rpx;
+}
+.quick-button{
+	width:100%;
+	height:209rpx;
+}
+.mymachine{
+	width:50%;
+	height:100%;
+	float: left;
+	position: relative;
+}
+.right-line{
+	position: absolute;
+	top:74rpx;
+	right:0;
+	width:2rpx;
+	height:70rpx;
+	background-color: #182A42;
+}
+.machine-imgs{
+	width:64rpx;
+	height:62rpx;
+	display: block;
+	margin: 60rpx auto 0;
+}
+.m-machine{
+	text-align: center;
+	font-size: 22rpx;
+	color:#FFFFFF;
+	line-height:80rpx;
 }
 .swiper {
     width: 706rpx;
