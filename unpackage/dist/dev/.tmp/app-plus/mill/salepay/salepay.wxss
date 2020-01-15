@@ -13,9 +13,9 @@ page {
         width: 240rpx;
         height: 40rpx;
          border-radius: 70rpx;
-         border: 1rpx solid #000000;
-         color: #000000;
-        background-color: #FFFFFF;
+         border: 1rpx solid #41BEC9;
+         color: #FFFFFF;
+        background-color: #41BEC9;
         line-height: 40rpx;
          margin-top:20rpx;
         font-size: 22rpx;
@@ -24,9 +24,9 @@ page {
         width: 180rpx;
         height: 40rpx;
         border-radius:70rpx;
-        color: #000000;
-        border: 0.5rpx solid #000000;
-        background-color: #FFFFFF;
+        color: #FFFFFF;
+        border: 0.5rpx solid #41BEC9;
+        background-color: #41BEC9;
         line-height: 40rpx;
          margin-top:20rpx;
         font-size: 16rpx;

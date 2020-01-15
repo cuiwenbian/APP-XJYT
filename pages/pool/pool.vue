@@ -142,13 +142,27 @@ page {
     height: var(--status-bar-height);
     background: #121e2c;
 }
+.container {
+    position: relative;
+}
 .navbar {
     display: flex;
+    width: 100%;
     height: 80rpx;
     color: #ffffff;
-    position: relative;
-    z-index: 10;
-    border-bottom: 1rpx solid #182a42;
+    position: fixed;
+    background: #121e2c;
+    left: 0;
+    /* #ifdef MP-WEIXIN */
+    top: 0;
+    /* #endif */
+    /* #ifndef MP-WEIXIN */
+    top: 0;
+    /* #endif */
+    z-index: 9;
+}
+.list {
+    padding-top: 80rpx;
 }
 .nav-item {
     flex: 1;

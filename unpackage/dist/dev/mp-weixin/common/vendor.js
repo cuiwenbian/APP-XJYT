@@ -1656,9 +1656,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 173:
-/*!***************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/requset.js ***!
-  \***************************************************/
+/*!*************************************!*\
+  !*** D:/APP-XJYT/common/requset.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7937,9 +7937,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!********************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json ***!
-  \********************************************/
+/*!******************************!*\
+  !*** D:/APP-XJYT/pages.json ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7949,9 +7949,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 40:
-/*!****************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/u-charts.js ***!
-  \****************************************************/
+/*!**************************************!*\
+  !*** D:/APP-XJYT/common/u-charts.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13613,9 +13613,9 @@ if ( true && typeof module.exports === "object") {
 /***/ }),
 
 /***/ 438:
-/*!*************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/common/utils.js ***!
-  \*************************************************/
+/*!***********************************!*\
+  !*** D:/APP-XJYT/common/utils.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14593,9 +14593,9 @@ main();
 /***/ }),
 
 /***/ 586:
-/*!************************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mpother.js ***!
-  \************************************************************************/
+/*!**********************************************************!*\
+  !*** D:/APP-XJYT/components/uni-swipe-action/mpother.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14737,9 +14737,9 @@ main();
 /***/ }),
 
 /***/ 587:
-/*!*******************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/components/uni-swipe-action/mp.js ***!
-  \*******************************************************************/
+/*!*****************************************************!*\
+  !*** D:/APP-XJYT/components/uni-swipe-action/mp.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14847,9 +14847,9 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ }),
 
 /***/ 7:
-/*!*************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"style"} ***!
-  \*************************************************************/
+/*!***********************************************!*\
+  !*** D:/APP-XJYT/pages.json?{"type":"style"} ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14859,9 +14859,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 8:
-/*!************************************************************!*\
-  !*** D:/星际云通/APP-XJYT/APP-XJYT/pages.json?{"type":"stat"} ***!
-  \************************************************************/
+/*!**********************************************!*\
+  !*** D:/APP-XJYT/pages.json?{"type":"stat"} ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

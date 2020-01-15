@@ -35,7 +35,7 @@
                             创建时间:<text class="smallxx1">{{labnrv.set_time}}</text>
                         </text>
                 </view>
-            <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}<image :src="frte?'../../static/images/Rectangle1.png':'../../static/images/Rectangle.png'" style="width:30rpx;height:25rpx; margin-left: 12rpx;" mode=""></image></button>
+            <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}</button>
             </view>
             <view class="box1">
                 买家信息
@@ -108,6 +108,9 @@
             
             that.labnrv = that.datn[0][0]
             that.state = that.datn[0][0].order_status
+            if(that.state) {
+                that.state = '等待卖家收款'
+            }
             that.price = that.datn[0][0].sale_money
             if(that.state == 101) {
                 that.state = '待付款'
@@ -143,9 +146,9 @@ page {
         width: 240rpx;
         height: 40rpx;
          border-radius: 70rpx;
-         border: 1rpx solid #000000;
-         color: #000000;
-        background-color: #FFFFFF;
+         border: 1rpx solid #41BEC9;
+         color: #FFFFFF;
+        background-color: #41BEC9;
         line-height: 40rpx;
          margin-top:20rpx;
         font-size: 22rpx;
@@ -154,9 +157,9 @@ page {
         width: 180rpx;
         height: 40rpx;
         border-radius:70rpx;
-        color: #000000;
-        border: 0.5rpx solid #000000;
-        background-color: #FFFFFF;
+        color: #FFFFFF;
+        border: 0.5rpx solid #41BEC9;
+        background-color: #41BEC9;
         line-height: 40rpx;
          margin-top:20rpx;
         font-size: 16rpx;

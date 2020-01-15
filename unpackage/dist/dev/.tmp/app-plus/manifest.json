@@ -28,10 +28,8 @@
       "concatenate": true
     },
     "splashscreen": {
-      "target": "id:1",
-      "autoclose": true,
-      "waiting": false,
-      "delay": 0
+      "autoclose": false,
+      "waiting": false
     },
     "popGesture": "close",
     "launchwebview": {
@@ -55,11 +53,11 @@
         "ios": {
           "appstore": "static/images/appstore.png",
           "iphone": {
-            "app@2x": "static/images/appstore.png",
-            "app@3x": "static/images/appstore.png",
-            "spotlight@2x": "static/images/appstore.png",
-            "spotlight@3x": "static/images/appstore.png",
-            "settings@2x": "static/images/appstore.png"
+            "app@2x": "",
+            "app@3x": "",
+            "spotlight@2x": "",
+            "spotlight@3x": "",
+            "settings@2x": ""
           }
         }
       },
@@ -69,9 +67,9 @@
         "autoclose": true,
         "delay": 0,
         "android": {
-          "hdpi": "static/images/appstore.png",
-          "xhdpi": "static/images/appstore.png",
-          "xxhdpi": "static/images/appstore.png"
+          "hdpi": "",
+          "xhdpi": "",
+          "xxhdpi": ""
         }
       },
       "google": {

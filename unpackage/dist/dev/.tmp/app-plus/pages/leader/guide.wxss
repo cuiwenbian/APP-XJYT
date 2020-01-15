@@ -1,9 +1,25 @@
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+.swiper.data-v-00032ecc {
+    width: 100%;
+    background: #161822;
+}
+.experice.data-v-00032ecc {
+=======
 .swiper.data-v-a177453a {
     width: 100%;
     background: #161822;
 }
 .experice.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
+=======
+.swiper.data-v-a177453a {
+    width: 100%;
+    background: #161822;
+}
+.experice.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
     width: 200px;
     height: 44px;
     position: fixed;
@@ -11,13 +27,29 @@
     bottom: 50px;
     z-index: 999;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+.experices.data-v-00032ecc {
+=======
 .experices.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
+=======
+.experices.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
     width: 200px;
     height: 44px;
     display: block;
     z-index: 999;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+.uni-swiper .uni-swiper-dots-horizontal.data-v-00032ecc {
+=======
 .uni-swiper .uni-swiper-dots-horizontal.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
+=======
+.uni-swiper .uni-swiper-dots-horizontal.data-v-a177453a {
+>>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
     background: #fff;
     bottom: 100px;
 }

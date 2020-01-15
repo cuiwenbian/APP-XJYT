@@ -354,11 +354,10 @@ export default {
                         order_num:order.ordernum
                     },
                     success(res) {
-                       var ksa = JSON.stringify(res.data.data)
-                       console.log(ksa)
-                       uni.navigateTo({
-                           url:'../../mill/salecompleted/salecompleted?cshug=' + ksa
-                       })
+                        var blone = JSON.stringify(res.data.data)
+                        uni.navigateTo({
+                            url:'../../mill/completed/completed?deattr=' + blone
+                        })
                     }
                 })
             }
@@ -373,10 +372,11 @@ export default {
                         order_num:order.ordernum
                     },
                     success(res) {
-                        var blone = JSON.stringify(res.data.data)
-                        uni.navigateTo({
-                            url:'../../mill/completed/completed?deattr=' + blone
-                        })
+                       var ksa = JSON.stringify(res.data.data)
+                       console.log(ksa)
+                       uni.navigateTo({
+                           url:'../../mill/salecompleted/salecompleted?cshug=' + ksa
+                       })
                     }
                 })
             }
