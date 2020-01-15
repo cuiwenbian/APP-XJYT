@@ -206,6 +206,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -258,11 +264,13 @@ var _default =
         url: '../../pages/my/my' });
 
     },
+
     onNavigationBarButtonTap: function onNavigationBarButtonTap() {
       uni.navigateTo({
         url: '../../pages/agreement/agreement' });
 
     },
+
 
     select: function select(item) {
       uni.navigateTo({

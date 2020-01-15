@@ -196,6 +196,7 @@ var _default =
     uni.getSetting({
       success: function success(res) {
         console.log(res);
+        console.log(res.authSetting['scope.userInfo']);
         if (res.authSetting['scope.userInfo']) {
           //用户已经授权
           uni.getUserInfo({
