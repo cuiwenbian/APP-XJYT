@@ -126,9 +126,6 @@ __webpack_require__.r(__webpack_exports__);
     var value1 = uni.getStorageSync('token');
     var value = uni.getStorageSync('phone');
     var openid = uni.getStorageSync('openid');
-    console.log(value);
-    console.log(value1);
-    console.log(openid);
     if (value && value1) {
       this.global_.phone = value;
       this.global_.token = value1;
