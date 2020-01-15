@@ -129,14 +129,11 @@ export default {
 				url: '../../pages/my/my'
 			});
 		},
-		// #ifndef APP-PLUS
 		onNavigationBarButtonTap: function() {
 			uni.navigateTo({
 				url: '../../pages/agreement/agreement'
 			});
 		},
-		// #endif
-		
 		select: function(item) {
 			uni.navigateTo({
 				url: '../machine-detail/machine-detail?machine_id=' + item.machine_id

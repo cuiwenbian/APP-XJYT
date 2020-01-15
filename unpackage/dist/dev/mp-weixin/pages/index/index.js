@@ -434,6 +434,7 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
       this.According = false;
     },
     some: function some(item) {
+      console.log(item);
       var that = this;
       uni.request({
         url: this.url + 'home/rotation/details/' + item + '/',
@@ -442,9 +443,10 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
           Authorization: 'JWT' + ' ' + this.global_.token },
 
         success: function success(res) {
+          console.log(res);
           var link = res.data.link;
           var text_content = res.data.text_content.replace(/=/g, '_');
-          if (link == null) {
+          if (link == null || link == "") {
             uni.setStorageSync('index-banner-content', text_content);
             uni.navigateTo({
               url: '../banner/banner' });
@@ -459,6 +461,7 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
     },
 
     information: function information(item) {
+      console.log(item);
       uni.request({
         url: this.url + 'home/news/details/' + item + '/',
         method: 'PUT',
@@ -472,7 +475,7 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
           var text_content2 = ingym.text_content.replace(/=/g, '_');
           var add_time = ingym.add_time;
           var title = ingym.title;
-          if (link2 == null) {
+          if (link2 == null || link2 == "") {
             uni.navigateTo({
               url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title });
 

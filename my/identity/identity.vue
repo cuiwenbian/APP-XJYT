@@ -210,6 +210,7 @@ export default {
             for (var key in imgpaths[index]) {
                 uni.uploadFile({
                     url: this.url + 'realname/', //上传接口
+                    //url:'http://192.168.1.218:8005/api/v1.1.0/realname/',
                     filePath: imgpaths[index][key],
                     name: key,
                     header: {
@@ -217,7 +218,16 @@ export default {
                     },
                     formData: null,
                     success: function(res) {
-                        if (res.statusCode == 400) {
+                        console.log(res)
+						if (res.statusCode == 400) {
+						    uni.showToast({
+						        title: '数据异常',
+						        icon: 'none',
+						        duration: 2000
+						    });
+						    return false;
+						}
+                        if (res.statusCode == 406) {
                             uni.showToast({
                                 title: '图片太大，请重新上传',
                                 icon: 'none',
@@ -229,6 +239,7 @@ export default {
                         if (index == imgpaths.length) {
                             uni.request({
                                 url: that.url + 'realname/',
+                                // url:th'realname/',
                                 method: 'POST',
                                 data: {
                                     name: that.name,
@@ -238,11 +249,26 @@ export default {
                                     Authorization: 'JWT' + ' ' + token
                                 },
                                 success: function(res) {
-                                    if (res.statusCode == 400) {
+                                    console.log(res)
+                                    if (res.statusCode == 402) {
                                         uni.showToast({
                                             title: '身份证号已存在，请重新认证',
                                             icon: 'none',
                                             duration: 2000
+                                        });
+                                        return false;
+                                    }
+                                    if (res.statusCode == 401) {
+                                        uni.showToast({
+                                            title: '身份证号错误',
+                                            icon: 'none'
+                                        });
+                                        return false;
+                                    }
+                                    if (res.statusCode == 410) {
+                                        uni.showToast({
+                                            title: '图片格式错误',
+                                            icon: 'none'
                                         });
                                         return false;
                                     }

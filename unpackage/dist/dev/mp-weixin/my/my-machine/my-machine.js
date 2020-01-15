@@ -264,14 +264,11 @@ var _default =
         url: '../../pages/my/my' });
 
     },
-
     onNavigationBarButtonTap: function onNavigationBarButtonTap() {
       uni.navigateTo({
         url: '../../pages/agreement/agreement' });
 
     },
-
-
     select: function select(item) {
       uni.navigateTo({
         url: '../machine-detail/machine-detail?machine_id=' + item.machine_id });

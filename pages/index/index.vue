@@ -299,6 +299,7 @@ export default {
             this.According = false;
         },
         some: function(item) {
+			console.log(item)
             var that = this;
             uni.request({
                 url: this.url + 'home/rotation/details/' + item + '/',
@@ -307,9 +308,10 @@ export default {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
                 success(res) {
+					console.log(res)
                     var link = res.data.link;
                     var text_content = res.data.text_content.replace(/=/g, '_');
-                    if (link == null) {
+                    if (link == null||link == "") {
                         uni.setStorageSync('index-banner-content', text_content);
                         uni.navigateTo({
                             url: '../banner/banner'
@@ -324,6 +326,7 @@ export default {
         },
 
         information: function(item) {
+			console.log(item)
             uni.request({
                 url: this.url + 'home/news/details/' + item + '/',
                 method: 'PUT',
@@ -337,7 +340,7 @@ export default {
                     var text_content2 = ingym.text_content.replace(/=/g, '_');
                     var add_time = ingym.add_time;
                     var title = ingym.title;
-                    if (link2 == null) {
+                    if (link2 == null||link2 == "") {
                         uni.navigateTo({
                             url: '../banner2/banner2?volume=' + read_volume + '&cont=' + encodeURIComponent(text_content2) + '&add=' + add_time + '&title=' + title
                         });
