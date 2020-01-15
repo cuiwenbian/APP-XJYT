@@ -59,7 +59,11 @@ page {
     width: 500rpx;
     float: right;
     font-size: 28rpx;
+<<<<<<< HEAD
     line-height: 50rpx;
+=======
+    line-height: 60rpx;
+>>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
     word-break: break-all;
     word-wrap: break-word;
 }

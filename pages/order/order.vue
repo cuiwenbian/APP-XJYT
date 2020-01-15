@@ -4,7 +4,7 @@
         <view class="navbar">
             <view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">{{ item.text }}</view>
         </view>
-        <view class="list">
+        <view  class="list">
             <template v-if="orderList && orderList.length">
                 <view v-for="order in orderList" :key="order.ordernum">
                     <view class="box" @click="handleToDetail(order)">
@@ -116,16 +116,16 @@
                             </view>
                         </template>
                         <view class="a">
-                            <template v-if="order.status === 101">
-                                <button class="payment" @click="handleOrderPay(order)">付款</button>
+                            <template v-if="order.status === 101 && order.type == 9">
+                                <button class="payment" @click.stop="handleOrderPay(order)">付款</button>
                                
-                                <button class="cancel" @click="handleOrderCancel(order)">取消订单</button>
+                                <button class="cancel" @click.stop="handleOrderCancel(order)">取消订单</button>
                             </template>
-                            <template v-else-if="order.status === 102">
-                                <button class="payment" @click="handleOrderAppeal(order)">申诉</button>
+                            <template v-else-if="order.status === 101 && order.type == 10 || order.status === 102 && order.type == 9">
+                                <button class="payment" @click.stop="handleOrderAppeal(order)">申诉</button>
                             </template>
-                            <template v-else-if="order.status === 103">
-                                <button class="payment" @click="handleOrderConfirm(order)">确认收款</button>
+                            <template v-else-if="order.status === 102 && order.type == 10">
+                                <button class="payment" @click.stop="handleOrderConfirm(order)">确认收款</button>
                             </template>
                         </view>
                     </view>
@@ -144,10 +144,6 @@
                 </view>
             </view>
         </view>
-        <!--        <view class="list" v-if="tabCurrentIndex === 4">
-                <image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
-                <view class="info">没有订单～</view>
-            </view> -->
             <!-- #ifndef H5 -->
             <password-input v-if="passIn" @clo="clo" ref='wrong' @tap="openKeyBoard('number')" :length="length" :gutter="20" :list="numberList"></password-input>
             <!-- #endif -->
@@ -188,7 +184,7 @@ export default {
                     text: '待付款'
                 },
                 {
-                    state: '[102,103]',
+                    state: '[102]',
                     text: '待确认'
                 },
                 // {
@@ -249,7 +245,7 @@ export default {
                 },
                 success(res) {
                     console.log(res)
-                    _this.orderList = (res.data.data || []).map(o => {
+                    const orderList = (res.data.data || []).map(o => {
                         switch (o.type) {
                             case 9:
                                 o.type_text = '矿机买入';
@@ -294,7 +290,8 @@ export default {
                         }
                         return o;
                     });
-                    console.log(_this.orderList);
+                    console.log(orderList);
+                    _this.orderList = orderList.reverse();
                     uni.hideLoading();
                     _this.data_loading = false;
                 },
@@ -605,6 +602,7 @@ export default {
         },
         getPhoneValue:function(e){
         	this.phone=e.detail.value
+            console.log(this.phone)
         },
         handleOrderAppeal(order) {
             this.num2 = order.ordernum
@@ -625,6 +623,13 @@ export default {
                     order_num:that.num2
                 },
                 success(res) {
+                    console.log(that.phone)
+                    if(that.phone == ' ') {
+                        uni.showToast({
+                            title:'填写内容不能为空',
+                            icon:'none'
+                        })
+                    }else
                     if(res.statusCode == 200) {
                         that.titl = false
                         uni.showToast({
@@ -639,26 +644,6 @@ export default {
                     }
                 }
             })
-        },
-        //买单详情
-        btb: function() {
-            console.log(1222);
-            // uni.request({
-            //     url:this.url + 'salemessage/',
-            //     method:'GET',
-            //     header:{
-            //         Authorization: 'JWT'+' '+this.global_.token
-            //     },
-            //     data:{
-            //         order_num:item.order_num
-            //     },
-            //     success(res) {
-            //         var order = JSON.stringify(res.data.data)
-            //         uni.navigateTo({
-            //             url:'../../mill/salepay/salepay?aser=' + order
-            //         })
-            //     }
-            // })
         }
     }
 };
@@ -674,12 +659,29 @@ page {
     background: #121e2c;
 }
 
+.container {
+    position: relative;
+}
+
 .navbar {
     display: flex;
+    width: 100%;
     height: 80rpx;
     color: #ffffff;
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    background: #121e2c;
+    left: 0;
+    /* #ifdef MP-WEIXIN */
+    top: 0;
+    /* #endif */
+    /* #ifndef MP-WEIXIN */
+    top: 0;
+    /* #endif */
+    z-index: 9;
+}
+
+.list {
+    padding-top: 80rpx;
 }
 
 .nav-item {

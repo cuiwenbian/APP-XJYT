@@ -85,25 +85,10 @@ export default {
 									    success: res => {
 									        console.log(res);
 									        uni.setStorageSync('openid', res.data.data);
-									        // _self.global_.phone = this.phone;
-									        //_self.global_.token = res.data.token;
-									        // if (res.statusCode == 200) {
-									        //     console.log(res);
-									        //     uni.reLaunch({
-									        //         url: '../login/login'
-									        //     });
-									        // }
+									       
 									    },
 									});
-									// 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
-									// wx.request({
-									//     // 自行补上自己的 APPID 和 SECRET
-									//     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=自己的APPID&secret=自己的SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-									//     success: res => {
-									//         // 获取到用户的 openid
-									//         console.log("用户的openid:" + res.data.openid);
-									//     }
-									// });
+									
 								}
 							});
 						}
@@ -117,7 +102,6 @@ export default {
 		});
 		// #endif
 	},
-	
 
 	methods: {
 		autuWXLogin: function(e) {

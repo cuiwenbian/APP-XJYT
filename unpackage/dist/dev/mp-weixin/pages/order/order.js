@@ -304,10 +304,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
 {
   data: function data() {
     return {
@@ -323,7 +319,7 @@ __webpack_require__.r(__webpack_exports__);
         text: '待付款' },
 
       {
-        state: '[102,103]',
+        state: '[102]',
         text: '待确认' },
 
       // {
@@ -384,7 +380,7 @@ __webpack_require__.r(__webpack_exports__);
 
         success: function success(res) {
           console.log(res);
-          _this.orderList = (res.data.data || []).map(function (o) {
+          var orderList = (res.data.data || []).map(function (o) {
             switch (o.type) {
               case 9:
                 o.type_text = '矿机买入';
@@ -429,7 +425,8 @@ __webpack_require__.r(__webpack_exports__);
 
             return o;
           });
-          console.log(_this.orderList);
+          console.log(orderList);
+          _this.orderList = orderList.reverse();
           uni.hideLoading();
           _this.data_loading = false;
         },
@@ -740,6 +737,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     getPhoneValue: function getPhoneValue(e) {
       this.phone = e.detail.value;
+      console.log(this.phone);
     },
     handleOrderAppeal: function handleOrderAppeal(order) {
       this.num2 = order.ordernum;
@@ -760,6 +758,13 @@ __webpack_require__.r(__webpack_exports__);
           order_num: that.num2 },
 
         success: function success(res) {
+          console.log(that.phone);
+          if (that.phone == ' ') {
+            uni.showToast({
+              title: '填写内容不能为空',
+              icon: 'none' });
+
+          } else
           if (res.statusCode == 200) {
             that.titl = false;
             uni.showToast({
@@ -774,26 +779,6 @@ __webpack_require__.r(__webpack_exports__);
           }
         } });
 
-    },
-    //买单详情
-    btb: function btb() {
-      console.log(1222);
-      // uni.request({
-      //     url:this.url + 'salemessage/',
-      //     method:'GET',
-      //     header:{
-      //         Authorization: 'JWT'+' '+this.global_.token
-      //     },
-      //     data:{
-      //         order_num:item.order_num
-      //     },
-      //     success(res) {
-      //         var order = JSON.stringify(res.data.data)
-      //         uni.navigateTo({
-      //             url:'../../mill/salepay/salepay?aser=' + order
-      //         })
-      //     }
-      // })
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

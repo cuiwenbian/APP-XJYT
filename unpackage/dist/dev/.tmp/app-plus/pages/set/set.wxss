@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 .sets.data-v-48d5ae50 {
 		font-size: 14px;
 }
@@ -6,6 +7,15 @@
 		padding: 0 30rpx;
 }
 .s-item.data-v-48d5ae50 {
+=======
+.sets.data-v-027159cf {
+		font-size: 14px;
+}
+.s-1.data-v-027159cf {
+		padding: 0 30rpx;
+}
+.s-item.data-v-027159cf {
+>>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: flex;
@@ -18,7 +28,11 @@
 		padding: 30rpx 0;
 		border-bottom: 1px solid #eee;
 }
+<<<<<<< HEAD
 .item.data-v-48d5ae50{
+=======
+.item.data-v-027159cf{
+>>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
@@ -30,12 +44,20 @@
         box-sizing: border-box;
         padding: 30rpx 0;
 }
+<<<<<<< HEAD
 .s-line.data-v-48d5ae50 {
+=======
+.s-line.data-v-027159cf {
+>>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
     	width: 100%;
     	height: 20rpx;
     	background: #eee;
 }
+<<<<<<< HEAD
 .si-right.data-v-48d5ae50 {
+=======
+.si-right.data-v-027159cf {
+>>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
 		width: 36rpx;
 		height: 36rpx;
 }

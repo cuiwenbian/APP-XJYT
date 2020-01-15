@@ -21,10 +21,6 @@
             uni.switchTab({
               url: '/pages/index/index'
             });
-       }else if(value){
-         uni.navigateTo({
-           url: '/pages/login/login'
-         });     
        }
        // #endif
 
@@ -33,10 +29,6 @@
     onShow: function () {
       
     },
-    // onHide: function () {
-    //   console.log('App Hide')
-    // },
-  
   }
 </script>
 

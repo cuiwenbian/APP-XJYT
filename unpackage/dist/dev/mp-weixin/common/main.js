@@ -133,10 +133,6 @@ __webpack_require__.r(__webpack_exports__);
       uni.switchTab({
         url: '/pages/index/index' });
 
-    } else if (value) {
-      uni.navigateTo({
-        url: '/pages/login/login' });
-
     }
 
 
@@ -144,11 +140,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   onShow: function onShow() {
 
-  }
-  // onHide: function () {
-  //   console.log('App Hide')
-  // },
-};exports.default = _default;
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
