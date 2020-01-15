@@ -1,6 +1,21 @@
 <template>
 	<!-- 登录 -->
 	<view class="container">
+		<view class="autho" v-if="isHide">
+			<view class="login-icon">
+				<image class="login-img" src="../../static/images/xiao.png"></image>
+				<text class="login-text">欢迎来到星际云通</text>
+			</view>
+			<image class="img" src="../../static/images/hosting.svg"></image>
+			<view class="txt">
+				<text class="item">矿机在线管理</text>
+				<text class="item">|</text>
+				<text class="item">收益实时查询</text>
+			</view>
+			<!-- <view class="iti"></view> -->
+			<!--注册-->
+			<button class="changeBtn" size="default" open-type="getUserInfo" @getuserinfo="autuWXLogin" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+		</view>
 		<image class="logo" src="../../static/images/FIL.png" mode=""></image>
 		<image class="fil" src="../../static/images/filecoin.png" mode=""></image>
 		<view class="enter">
@@ -32,6 +47,7 @@
 export default {
 	data() {
 		return {
+			isHide: false,
 			n: true,
 			show: false,
 			phone: '',
@@ -39,10 +55,81 @@ export default {
 			shade: false
 		};
 	},
-    onLoad(){
-        
-    },
+	onLoad() {
+		 // #ifdef MP-WEIXIN
+		var that = this;
+		uni.getSetting({
+			success: function(res) {
+				console.log(res)
+				if (res.authSetting['scope.userInfo']) {
+					//用户已经授权
+					uni.getUserInfo({
+						success: function(res) {
+							// 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
+							// 根据自己的需求有其他操作再补充
+							// 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
+							uni.login({
+								success: res => {
+									// 获取到用户的 code 之后：res.code
+									console.log('用户的code:' + res.code);
+									// 可以传给后台，再经过解析获取用户的 openid
+									uni.request({
+									    url:that.url+'users/authorization/',
+									    method: 'POST',
+									    data: {
+									        code: res.code
+									    },
+									    headers: {
+									        'Content-Type': 'application/json'
+									    },
+									    success: res => {
+									        console.log(res);
+									        uni.setStorageSync('openid', res.data.data);
+									       
+									    },
+									});
+									
+								}
+							});
+						}
+					});
+				} else {
+					// 用户没有授权
+					// 改变 isHide 的值，显示授权页面
+					that.isHide = true;
+				}
+			}
+		});
+		// #endif
+	},
+
 	methods: {
+		autuWXLogin: function(e) {
+			console.log(e)
+			if (e.detail.userInfo) {
+				//用户按了允许授权按钮
+				var that = this;
+				// 获取到用户的信息了，打印到控制台上看下
+				console.log('用户的信息如下：');
+				console.log(e.detail.userInfo);
+				//授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
+				that.isHide=false
+			} else {
+				//用户按了拒绝按钮
+				uni.showModal({
+					title: '警告',
+					content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+					showCancel: false,
+					confirmText: '返回授权',
+					success: function(res) {
+						// 用户没有授权成功，不需要改变 isHide 的值
+						if (res.confirm) {
+							console.log('用户点击了“返回授权”');
+						}
+					}
+				});
+			}
+		},
 		quickLogin: function() {
 			uni.redirectTo({
 				url: '../otherLogin/otherLogin'
@@ -149,6 +236,67 @@ export default {
 <style>
 page {
 	background: #121212;
+}
+.autho {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	background-color: #121e2c;
+}
+.login-icon {
+	flex: none;
+	margin-top: 120rpx;
+	display: flex;
+	align-items: center;
+}
+.login-img {
+	width: 92rpx;
+	height: 80rpx;
+	margin-top: 120rpx;
+	margin-left: 120rpx;
+}
+.iti {
+	height: 800rpx;
+}
+.login-text {
+	font-weight: bold;
+	font-size: 50rpx;
+	color: #01c0dd;
+	margin-top: 100rpx;
+}
+/* 矿机图片 */
+.img {
+	width: 500rpx;
+	height: 500rpx;
+	display: block;
+	margin: 10px auto;
+}
+
+.txt {
+	height: 100rpx;
+	line-height: 100rpx;
+	color: #01c0dd;
+	display: flex;
+	justify-content: space-around;
+}
+.item {
+	font-size: 30rpx;
+	margin-left: 50rpx;
+}
+/*按钮*/
+.changeBtn {
+	/* 一 */
+	width: 80%;
+	height: 80rpx;
+	background-color: #41bec9;
+	color: #fff;
+	border-radius: 30rpx;
+	margin: 100rpx auto;
+	line-height: 80rpx;
+	font-size: 42rpx;
 }
 .shade {
 	width: 100%;

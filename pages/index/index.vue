@@ -12,6 +12,18 @@
                 </swiper-item>
             </swiper>
         </view>
+		<view class="quick-button">
+			<view class="mymachine " @click="mymachine">
+				<view class="right-line"></view>
+				<image class='machine-imgs' src="../../static/images/kuangji-index.png" mode=""></image>
+				<view class='m-machine'>我的服务器</view>
+			</view>
+			<view class="mymachine" @click="wallet">
+				<image class='machine-imgs' src="../../static/images/qianbao.png" mode=""></image>
+				<view class='m-machine'>我的钱包</view>
+			</view>
+		</view>
+		<view class="line"></view>
         <view class="hotPool">热销矿池</view>
         <scroll-view class="pools" scroll-x="true">
             <view class="listItem" v-for="(item, index) in pool" :key="index">
@@ -127,6 +139,7 @@ export default {
                     _self.diro = false;
                 }
                 _self.version = res.data.data.version;
+				console.log(_self.version)
                 _self.andri = uni.getStorageSync('version');
                 //这个是当前版本
                 //这是个后台获取的版本
@@ -193,6 +206,16 @@ export default {
                 url: '../poolDetails/poolDetails?cloudid=' + item
             });
         },
+		wallet: function() {
+		    uni.navigateTo({
+		        url: '../../my/my-wallet/my-wallet'
+		    });
+		},
+		mymachine: function() {
+		    uni.navigateTo({
+		        url: '../../my/my-machine/my-machine'
+		    });
+		},
         quit() {
             if (this.daern == 1) {
                 plus.runtime.quit(); //退出应用
@@ -247,6 +270,7 @@ export default {
                                 });
                                 //设置 最新版本apk的下载链接
                                 var downloadApkUrl = that.link;
+								console.log(downloadApkUrl)
                                 var dtask = plus.downloader.createDownload(downloadApkUrl, {}, function(d, status) {
                                     // 下载完成
                                     if (status == 200) {
@@ -422,6 +446,37 @@ page {
     font-size: 22rpx;
     line-height: 81rpx;
 }
+.quick-button{
+	width:100%;
+	height:209rpx;
+}
+.mymachine{
+	width:50%;
+	height:100%;
+	float: left;
+	position: relative;
+}
+.right-line{
+	position: absolute;
+	top:74rpx;
+	right:0;
+	width:2rpx;
+	height:70rpx;
+	background-color: #182A42;
+}
+.machine-imgs{
+	width:64rpx;
+	height:62rpx;
+	display: block;
+	margin: 60rpx auto 0;
+}
+.m-machine{
+	text-align: center;
+	font-size: 22rpx;
+	color:#FFFFFF;
+	line-height:80rpx;
+}
+
 .swiper {
     width: 706rpx;
     height: 300rpx;

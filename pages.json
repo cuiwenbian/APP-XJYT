@@ -14,14 +14,7 @@
 			}
 		},
 		// #endif
-		// #ifdef MP-WEIXIN
-		{
-			"path": "pages/svgg/svgg",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		// #endif
+		
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -79,7 +72,10 @@
 		{
 			"path": "pages/mill/mill",
 			"style": {
-				"navigationBarBackgroundColor": "#000000"
+				"navigationBarBackgroundColor": "#000000",
+				"titleNView": {
+					"titleText": "  "
+				}
 			}
 		},
 		{

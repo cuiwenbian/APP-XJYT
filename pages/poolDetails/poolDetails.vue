@@ -74,7 +74,7 @@
         </view>
         <view class="list" v-if="tabCurrentIndex === 1">
 			 <view class="intro">产品名称：Filecoin云存力</view>
-			 <view class="intro">产品售价：每年￥1500/T，1T起售</view>
+			 <view class="intro">产品售价：每年￥{{ poolDetail.price }}/T，1T起售</view>
 			 <view class="intro">收益结算：根据矿池的每日实际挖矿收益及用户购买存力比例计算用户每日挖矿收益，扣除</view>
 			 <view class="intro">矿池收取的技术服务费后即为用户实际获得的挖矿收益。</view>
 			 <view class="intro">北京时间12:00结算前一天的合约收益，最终以矿池的收益结算时间为准。</view>
