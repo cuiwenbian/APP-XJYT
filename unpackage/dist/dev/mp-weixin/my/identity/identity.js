@@ -240,7 +240,7 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
       imgs: [], //本地图片地址数组
       picPaths: [], //网络路径
       positive: 'positive',
-      reverses: 'reverses',
+      reverse: 'reverse',
       pos: '',
       rev: '',
       type: '',
@@ -274,14 +274,14 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
               if (flag == 'positive') {
                 that.chooseWxImage1('album');
               }
-              if (flag == 'reverses') {
+              if (flag == 'reverse') {
                 that.chooseWxImage2('album');
               }
             } else if (res.tapIndex == 1) {
               if (flag == 'positive') {
                 that.chooseWxImage1('camera');
               }
-              if (flag == 'reverses') {
+              if (flag == 'reverse') {
                 that.chooseWxImage2('camera');
               }
             }
@@ -325,15 +325,15 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
         success: function success(res) {
           for (var i = imgsPaths.length - 1; i >= 0; i--) {
             for (var j in imgsPaths[i]) {
-              if (j == 'reverses') {
+              if (j == 'reverse') {
                 imgsPaths.splice(i, 1);
               }
             }
           }
-          obj.reverses = res.tempFilePaths[0];
+          obj.reverse = res.tempFilePaths[0];
           that.imgs.push(obj);
           that.r_url = res.tempFilePaths[0], that.r_flag = false, that.imgs = that.imgs;
-          that.rev = imgsPaths[1].reverses;
+          that.rev = imgsPaths[1].reverse;
           that.pos = imgsPaths[0].positive;
         } });
 
@@ -344,7 +344,8 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
       var token = this.global_.token;
       for (var key in imgpaths[index]) {
         uni.uploadFile({
-          url: this.url + 'realname/', //上传接口
+          // url: this.url + 'realname/', //上传接口
+          url: 'http://192.168.1.218:8005/api/v1.1.0/realname/',
           filePath: imgpaths[index][key],
           name: key,
           header: {
@@ -352,7 +353,8 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
 
           formData: null,
           success: function success(res) {
-            if (res.statusCode == 400) {
+            console.log(res);
+            if (res.statusCode == 406) {
               uni.showToast({
                 title: '图片太大，请重新上传',
                 icon: 'none',
@@ -363,7 +365,8 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
             index++;
             if (index == imgpaths.length) {
               uni.request({
-                url: that.url + 'realname/',
+                // url: that.url + 'realname/',
+                url: 'http://192.168.1.218:8005/api/v1.1.0/realname/',
                 method: 'POST',
                 data: {
                   name: that.name,
@@ -373,11 +376,26 @@ var check = __webpack_require__(/*! ../../common/utils.js */ 438);var _default =
                   Authorization: 'JWT' + ' ' + token },
 
                 success: function success(res) {
-                  if (res.statusCode == 400) {
+                  console.log(res);
+                  if (res.statusCode == 402) {
                     uni.showToast({
                       title: '身份证号已存在，请重新认证',
                       icon: 'none',
                       duration: 2000 });
+
+                    return false;
+                  }
+                  if (res.statusCode == 401) {
+                    uni.showToast({
+                      title: '身份证号错误',
+                      icon: 'none' });
+
+                    return false;
+                  }
+                  if (res.statusCode == 410) {
+                    uni.showToast({
+                      title: '图片格式错误',
+                      icon: 'none' });
 
                     return false;
                   }

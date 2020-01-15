@@ -33,7 +33,7 @@
                 <image class="prev" :src="p_url" :data-src="p_url" @click="chooseImageTap" :data-flag="positive" style="width:250rpx;height:150rpx;"></image>
                 <image class="watermark" src="../../static/images/water.png" mode=""></image>
             </view>
-            <view class="list" v-show="r_flag" @click="chooseImageTap" :data-flag="reverses">
+            <view class="list" v-show="r_flag" @click="chooseImageTap" :data-flag="reverse">
                 <text class="tips">
                     上传身份证
                     <text style="color:#333333">国徽</text>
@@ -41,13 +41,13 @@
                 </text>
                 <image class="up-card" src="../../static/images/shen2.png" mode=""></image>
             </view>
-            <view class="list" v-show="!r_flag" @click="chooseImageTap" :data-flag="reverses">
+            <view class="list" v-show="!r_flag" @click="chooseImageTap" :data-flag="reverse">
                 <text class="tips">
                     上传身份证
                     <text style="color:#333333">国徽</text>
                     面
                 </text>
-                <image class="prev" :src="r_url" :data-src="r_url" @click="chooseImageTap" :data-flag="reverses" style="width:250rpx;height:150rpx;"></image>
+                <image class="prev" :src="r_url" :data-src="r_url" @click="chooseImageTap" :data-flag="reverse" style="width:250rpx;height:150rpx;"></image>
                 <image class="watermark" src="../../static/images/water.png" mode=""></image>
             </view>
         </view>
@@ -105,7 +105,7 @@ export default {
             imgs: [], //本地图片地址数组
             picPaths: [], //网络路径
             positive: 'positive',
-            reverses: 'reverses',
+            reverse: 'reverse',
             pos: '',
             rev: '',
             type: '',
@@ -139,14 +139,14 @@ export default {
                             if (flag == 'positive') {
                                 that.chooseWxImage1('album');
                             }
-                            if (flag == 'reverses') {
+                            if (flag == 'reverse') {
                                 that.chooseWxImage2('album');
                             }
                         } else if (res.tapIndex == 1) {
                             if (flag == 'positive') {
                                 that.chooseWxImage1('camera');
                             }
-                            if (flag == 'reverses') {
+                            if (flag == 'reverse') {
                                 that.chooseWxImage2('camera');
                             }
                         }
@@ -190,15 +190,15 @@ export default {
                 success: function(res) {
                     for (var i = imgsPaths.length - 1; i >= 0; i--) {
                         for (var j in imgsPaths[i]) {
-                            if (j == 'reverses') {
+                            if (j == 'reverse') {
                                 imgsPaths.splice(i, 1);
                             }
                         }
                     }
-                    obj.reverses = res.tempFilePaths[0];
+                    obj.reverse = res.tempFilePaths[0];
                     that.imgs.push(obj);
                     (that.r_url = res.tempFilePaths[0]), (that.r_flag = false), (that.imgs = that.imgs);
-                    that.rev = imgsPaths[1].reverses;
+                    that.rev = imgsPaths[1].reverse;
                     that.pos = imgsPaths[0].positive;
                 }
             });
@@ -209,7 +209,8 @@ export default {
             let token = this.global_.token;
             for (var key in imgpaths[index]) {
                 uni.uploadFile({
-                    url: this.url + 'realname/', //上传接口
+                    // url: this.url + 'realname/', //上传接口
+                    url:'http://192.168.1.218:8005/api/v1.1.0/realname/',
                     filePath: imgpaths[index][key],
                     name: key,
                     header: {
@@ -217,7 +218,8 @@ export default {
                     },
                     formData: null,
                     success: function(res) {
-                        if (res.statusCode == 400) {
+                        console.log(res)
+                        if (res.statusCode == 406) {
                             uni.showToast({
                                 title: '图片太大，请重新上传',
                                 icon: 'none',
@@ -228,7 +230,8 @@ export default {
                         index++;
                         if (index == imgpaths.length) {
                             uni.request({
-                                url: that.url + 'realname/',
+                                // url: that.url + 'realname/',
+                                url:'http://192.168.1.218:8005/api/v1.1.0/realname/',
                                 method: 'POST',
                                 data: {
                                     name: that.name,
@@ -238,11 +241,26 @@ export default {
                                     Authorization: 'JWT' + ' ' + token
                                 },
                                 success: function(res) {
-                                    if (res.statusCode == 400) {
+                                    console.log(res)
+                                    if (res.statusCode == 402) {
                                         uni.showToast({
                                             title: '身份证号已存在，请重新认证',
                                             icon: 'none',
                                             duration: 2000
+                                        });
+                                        return false;
+                                    }
+                                    if (res.statusCode == 401) {
+                                        uni.showToast({
+                                            title: '身份证号错误',
+                                            icon: 'none'
+                                        });
+                                        return false;
+                                    }
+                                    if (res.statusCode == 410) {
+                                        uni.showToast({
+                                            title: '图片格式错误',
+                                            icon: 'none'
                                         });
                                         return false;
                                     }

@@ -15,7 +15,7 @@ _vue.default.config.productionTip = false;
 _vue.default.prototype.global_ = _global.default; //挂载到vue实例上面
 
 _vue.default.prototype.url = 'http://192.168.1.208:8000/api/v1.1.0/';
-//Vue.prototype.urll='http://192.168.1.218/api/v1.1.0/'
+//Vue.prototype.urll='http://192.168.1.218:8005/api/v1.1.0/'
 //Vue.prototype.url = 'https://api.ipcn.xyz/api/v1.1.0/'
 _vue.default.prototype.urll = 'https://api.ipcn.xyz/media/';
 //Vue.prototype.url='http://47.102.112.106/api/v1.1.0/'

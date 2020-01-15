@@ -122,13 +122,5 @@
     "request": 20000
   },
   "usingComponents": {},
-<<<<<<< HEAD
-<<<<<<< HEAD
   "sitemapLocation": "sitemap.json"
-=======
-  "sitemapLocation": "sitemap29.json"
->>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
-=======
-  "sitemapLocation": "sitemap29.json"
->>>>>>> d81b9b7e52da35b8fa5c080def644ddfddbcd7d8
 }
