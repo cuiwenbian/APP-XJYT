@@ -5,7 +5,7 @@
             <view class="desc">
                 <view class="name">{{ poolDetail.name }}</view>
                 <progress class="progress-box" :percent="persent" activeColor="#00C1CB" backgroundColor="#0F1E2D" />
-                <view class="sale">可出售空间：{{ poolDetail.cloud_hard_disk }}T/{{ poolDetail.hardfree }}T</view>
+                <view class="sale">可出售空间：{{ poolDetail.hardfree }}T/{{ poolDetail.cloud_hard_disk  }}T</view>
             </view>
         </image>
         <view class="info">
@@ -149,7 +149,8 @@ export default {
             },
             success: res => {
                 this.poolDetail = res.data.data;
-                this.persent = parseFloat(this.poolDetail.cloud_hard_disk / this.poolDetail.hardfree) * 100;
+                this.persent = parseInt((this.poolDetail.hardfree/this.poolDetail.cloud_hard_disk ) * 100);
+				console.log(this.persent)
             }
         });
         uni.request({

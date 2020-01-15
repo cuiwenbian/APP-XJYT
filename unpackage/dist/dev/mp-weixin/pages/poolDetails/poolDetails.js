@@ -301,7 +301,8 @@ var _default =
 
       success: function success(res) {
         _this.poolDetail = res.data.data;
-        _this.persent = parseFloat(_this.poolDetail.cloud_hard_disk / _this.poolDetail.hardfree) * 100;
+        _this.persent = parseInt(_this.poolDetail.hardfree / _this.poolDetail.cloud_hard_disk * 100);
+        console.log(_this.persent);
       } });
 
     uni.request({
