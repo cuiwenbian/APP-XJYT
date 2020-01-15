@@ -10,23 +10,23 @@
        });
        // #endif
      
-       // // #ifdef MP-WEIXIN
-       // var value = uni.getStorageSync('wxtoken');
-       // var value1 = uni.getStorageSync('token');
-       // console.log(value)
-       // console.log(value1)
-       // if (value && value1) {
-       //   this.global_.phone = value1;
-       //   this.global_.token = value;
-       //      uni.switchTab({
-       //        url: '/pages/index/index'
-       //      });
-       // }else if(value){
-       //   uni.navigateTo({
-       //     url: '/pages/login/login'
-       //   });     
-       // }
-       // // #endif
+       // #ifdef MP-WEIXIN
+       var value = uni.getStorageSync('wxtoken');
+       var value1 = uni.getStorageSync('token');
+       console.log(value)
+       console.log(value1)
+       if (value && value1) {
+         this.global_.phone = value1;
+         this.global_.token = value;
+            uni.switchTab({
+              url: '/pages/index/index'
+            });
+       }else if(value){
+         uni.navigateTo({
+           url: '/pages/login/login'
+         });     
+       }
+       // #endif
      
     },
     onShow: function () {

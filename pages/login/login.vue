@@ -39,7 +39,9 @@ export default {
 			shade: false
 		};
 	},
-    onLoad(){},
+    onLoad(){
+        
+    },
 	methods: {
 		quickLogin: function() {
 			uni.redirectTo({

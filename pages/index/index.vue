@@ -27,21 +27,21 @@
                     </view>
                     <view class="area">
                         <view class="dayTrans">
-                            {{ item.cloud_hard_disk }}
+                            {{ item.harduse }}
                             <text class="fil">T</text>
                         </view>
                         <view class="txx">存储能力</view>
                     </view>
                     <view class="area">
                         <view class="dayTrans">
-                            {{ item.hardfree }}
+                            {{ item.cloud_hard_disk }}
                             <text class="fil">T</text>
                         </view>
                         <view class="txx">矿池总空间</view>
                     </view>
                     <view class="area">
                         <view class="dayTrans">
-                            {{ item.harduse }}
+                            {{ item.hardfree }}
                             <text class="fil">T</text>
                         </view>
                         <view class="txx">可出售空间</view>

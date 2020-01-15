@@ -170,15 +170,15 @@
                             	that.success=true
                             }
             				if (res.statusCode == 200) {
+                                uni.showToast({
+                                	title: '出售成功，等待买家付款',
+                                	icon: 'none',
+                                    duration:2000
+                                });
                                 that.passIn = false;
                                 that.$refs['number'].close();
-            					uni.showToast({
-            						title: '出售成功，等待买家付款',
-            						icon: 'none',
-            						duration: 2000
-            					});
-                                uni.switchTab({
-                                    url:'../../pages/mill/mill'
+                                uni.navigateBack({
+                                    delta:3
                                 })
             				}
                             if(res.statusCode == 302) {

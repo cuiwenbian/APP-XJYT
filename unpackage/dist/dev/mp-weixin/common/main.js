@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
@@ -122,23 +122,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-    //
-    // var value = uni.getStorageSync('wxtoken');
-    // var value1 = uni.getStorageSync('token');
-    // console.log(value)
-    // console.log(value1)
-    // if (value && value1) {
-    //   this.global_.phone = value1;
-    //   this.global_.token = value;
-    //      uni.switchTab({
-    //        url: '/pages/index/index'
-    //      });
-    // }else if(value){
-    //   uni.navigateTo({
-    //     url: '/pages/login/login'
-    //   });     
-    // }
-    //
+
+    var value = uni.getStorageSync('wxtoken');
+    var value1 = uni.getStorageSync('token');
+    console.log(value);
+    console.log(value1);
+    if (value && value1) {
+      this.global_.phone = value1;
+      this.global_.token = value;
+      uni.switchTab({
+        url: '/pages/index/index' });
+
+    } else if (value) {
+      uni.navigateTo({
+        url: '/pages/login/login' });
+
+    }
+
 
   },
   onShow: function onShow() {
@@ -148,6 +148,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //   console.log('App Hide')
   // },
 };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 12 */

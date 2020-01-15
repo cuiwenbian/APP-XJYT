@@ -232,6 +232,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -273,7 +301,7 @@ var _default =
 
       success: function success(res) {
         _this.poolDetail = res.data.data;
-        _this.persent = parseFloat(_this.poolDetail.harduse / _this.poolDetail.hardfree) * 100;
+        _this.persent = parseFloat(_this.poolDetail.cloud_hard_disk / _this.poolDetail.hardfree) * 100;
       } });
 
     uni.request({

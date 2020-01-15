@@ -174,7 +174,9 @@ var _default =
       shade: false };
 
   },
-  onLoad: function onLoad() {},
+  onLoad: function onLoad() {
+
+  },
   methods: {
     quickLogin: function quickLogin() {
       uni.redirectTo({

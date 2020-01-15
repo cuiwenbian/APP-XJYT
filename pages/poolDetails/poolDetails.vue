@@ -5,7 +5,7 @@
             <view class="desc">
                 <view class="name">{{ poolDetail.name }}</view>
                 <progress class="progress-box" :percent="persent" activeColor="#00C1CB" backgroundColor="#0F1E2D" />
-                <view class="sale">可出售空间：{{ poolDetail.harduse }}T/{{ poolDetail.hardfree }}T</view>
+                <view class="sale">可出售空间：{{ poolDetail.cloud_hard_disk }}T/{{ poolDetail.hardfree }}T</view>
             </view>
         </image>
         <view class="info">
@@ -23,7 +23,7 @@
                     <view class="mark">存储能力(t)</view>
                 </view>
                 <view class="every">
-                    <view class="date">{{ poolDetail.covercharge }}</view>
+                    <view class="date">{{ poolDetail.covercharge*100 }}%</view>
                     <view class="mark">技术服务费</view>
                 </view>
             </view>
@@ -72,7 +72,35 @@
         <view class="list" v-if="tabCurrentIndex === 0">
             <view class="intro">{{ poolDetail.remark }}</view>
         </view>
-        <view class="list" v-if="tabCurrentIndex === 1"></view>
+        <view class="list" v-if="tabCurrentIndex === 1">
+			 <view class="intro">产品名称：Filecoin云存力</view>
+			 <view class="intro">产品售价：每年￥1500/T，1T起售</view>
+			 <view class="intro">收益结算：根据矿池的每日实际挖矿收益及用户购买存力比例计算用户每日挖矿收益，扣除</view>
+			 <view class="intro">矿池收取的技术服务费后即为用户实际获得的挖矿收益。</view>
+			 <view class="intro">北京时间12:00结算前一天的合约收益，最终以矿池的收益结算时间为准。</view>
+			 <view class="intro">用户收益=用户持有的存力÷矿池总存力×矿池产币量×（1-技术服务费10%）</view>
+			 <view class="intro">技术服务费：收取挖矿产出Filecoin数量的10%作为技术服务费。技术服务费包括：矿场</view>
+			 <view class="intro">维护、矿机部署、矿机维修、人力资源支出等费用。</view>
+			 <view class="intro">产生收益日期：云存力购买完成到账后，次日产生收益</view>
+			 <view class="intro">电费及带宽费用：用户租赁存储空间即Filecoin云存力服务，服务期限内赠送电费、托管</view>
+			 <view class="intro">费、带宽费等费用。矿池按照约定上线时间上线，并提供全面的专业运维服务。</view>
+			 <view class="intro">合约终止及续费：</view>
+			 <view class="intro">1.服务期限为12个月，即每份订单皆包含12个月的挖矿时间。Filecoin云存力合约到期</view>
+			 <view class="intro">后合约自动终止，矿机归属星际云通矿池所有。</view>
+			 <view class="intro">2.合约到期后，会根据目前的挖矿难度、币价和挖矿成本重新计算合约价格，如需继续续约，</view>
+			 <view class="intro">以目前价格重新购买续约。</view>
+			 <view class="intro">付款方式：支持支付宝和数字货币进行支付</view>
+			 <view class="intro">风险提示：Fil有可能发生价格剧烈波动的情况，且挖矿难度会不定期调整。币价波动或挖</view>
+			 <view class="intro">矿难度调整都可能导致Filecoin云存力合约的收益变动。无论从数字货币还是法币角度，</view>
+			 <view class="intro">本合约不作退款承诺。用户须仔细评估自己的风险承受能力，在可接受的风控范围内投资数</view>
+			 <view class="intro">字货币挖矿。</view>
+			 <view class="intro">本合约不涉及数字资产交易，若用户自行参与第三方的数字资产交易，应当自行承担责任和</view>
+			 <view class="intro">风险。</view>
+			 <view class="intro">用户了解并接受，如因相关国家法律、法规和规范性文件的制定或者修改等客观情况发生变</view>
+			 <view class="intro">化，导致Filecoin挖矿行为被叫停或者禁止的，本协议自动终止，双方不得相互追究责任，</view>
+			 <view class="intro">由此造成的损失须自行承担。</view>
+			 <view class="intro">合约发行方对本合约条款保留所有解释权。</view>
+		</view>
         <view class="list" v-if="tabCurrentIndex === 2" v-for="(item, index) in question" :key="index">
             <view class="intro">{{ item.question }}</view>
             <view class="intro">{{ item.answer }}</view>
@@ -121,7 +149,7 @@ export default {
             },
             success: res => {
                 this.poolDetail = res.data.data;
-                this.persent = parseFloat(this.poolDetail.harduse / this.poolDetail.hardfree) * 100;
+                this.persent = parseFloat(this.poolDetail.cloud_hard_disk / this.poolDetail.hardfree) * 100;
             }
         });
         uni.request({
@@ -430,7 +458,7 @@ page {
     padding: 29rpx 21rpx;
 }
 .intro {
-    line-height: 40rpx;
+    line-height: 50rpx;
     color: #ffffff;
     font-size: 24rpx;
 }
