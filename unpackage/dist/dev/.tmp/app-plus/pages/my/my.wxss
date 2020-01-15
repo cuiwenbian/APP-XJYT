@@ -95,10 +95,7 @@ page {
     display: block;
     margin: 0 auto;
     border-radius: 50%;
-<<<<<<< HEAD
 	overflow: hidden;
-=======
->>>>>>> 74b7f2a05343a25554188d99b314b6272e5dc8c1
 }
 .nickname {
     width: 100%;
