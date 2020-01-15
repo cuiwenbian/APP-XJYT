@@ -1,0 +1,13 @@
+{
+  "titleNView": {
+    "titleText": "我的服务器",
+    "buttons": [
+      {
+        "text": "服务协议",
+        "fontSize": "32rpx",
+        "width": "90px"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

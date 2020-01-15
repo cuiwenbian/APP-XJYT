@@ -1,0 +1,1 @@
+<view class="container"><view><view class="tet">{{"输入"+title+"数量"}}</view><input class="inp" type="number" placeholder="{{'请输入'+title+'数量'}}" data-event-opts="{{[['input',[['end',['$event']]]]]}}" value="{{coloe}}" bindinput="__e"/><view class="ber"></view></view><button data-event-opts="{{[['tap',[['btn',['$event']]]]]}}" class="btn" bindtap="__e">下一步</button></view>
