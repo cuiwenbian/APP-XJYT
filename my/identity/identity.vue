@@ -304,7 +304,7 @@ export default {
             var flag = check.checkIdcard(that.idcard);
             if (!flag) {
                 uni.showToast({
-                    title: '身份证格式不正确',
+                    title: '请输入正确的身份证号',
                     icon: 'none',
                     duration: 2000
                 });

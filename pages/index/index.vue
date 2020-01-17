@@ -2,7 +2,7 @@
     <view class="container">
         <view class="height"></view>
         <swiper indicator-dots autoplay interval="3000" circul ar indicator-color="rgda(255 , 255 , 255 , .6)">
-            <swiper-item v-for="(item, index) in baner" :key="index"><image class="ttt" @click="some(item.id)" :src="urll + item.cover_pic"></image></swiper-item>
+            <swiper-item v-for="(item, index) in baner" :key="index"><image class="ttt" @click="some(item.id)" :src="urll+ item.cover_pic"></image></swiper-item>
         </swiper>
         <view class="uni-swiper-msg">
             <view class="uni-swiper-msg-icon"><image class="g" src="../../static/images/notice.png" mode="widthFix"></image></view>
@@ -18,16 +18,26 @@
 				<image class='machine-imgs' src="../../static/images/kuangji-index.png" mode=""></image>
 				<view class='m-machine'>我的服务器</view>
 			</view>
+			<view class="mymachine" @click="mycunli">
+				<image class='machine-imgs' src="../../static/images/my-cunli.png" mode=""></image>
+				<view class='m-machine'>我的存力</view>
+			</view>
+			<view class="mymachine" @click="machinetrans">
+				<image class='machine-imgs' src="../../static/images/my-trans.png" mode=""></image>
+				<view class='m-machine'>服务器交易</view>
+			</view>
 			<view class="mymachine" @click="wallet">
 				<image class='machine-imgs' src="../../static/images/qianbao.png" mode=""></image>
-				<view class='m-machine'>我的钱包</view>
+				<view class='m-machine'>我的资产</view>
 			</view>
 		</view>
 		<view class="line"></view>
         <view class="hotPool">热销矿池</view>
         <scroll-view class="pools" scroll-x="true">
-            <view class="listItem" v-for="(item, index) in pool" :key="index">
-                <image class="hots" src="../../static/images/hot.png" mode=""></image>
+			<block v-for="(item, index) in pool" :key="index" >
+            <view class="listItem" @click='buy(item.cloudid)'>
+				<view class="hots">测试</view>
+                <!-- <image class="hots" src="../../static/images/hot.png" mode=""></image> -->
                 <view class="poolName">{{ item.name }}</view>
                 <view class="datess">
                     <view class="area">
@@ -58,10 +68,11 @@
                         </view>
                         <view class="txx">可出售空间</view>
                     </view>
-                    <view :class="n ? 'buy' : 'buy1'" @click="buy(item.cloudid)">立即购买</view>
+                    <!-- <view :class="n ? 'buy' : 'buy1'" @click="buy(item.cloudid)">立即购买</view> -->
                 </view>
             </view>
-        </scroll-view>
+            </block>
+		</scroll-view>
         <view class="line"></view>
         <view class="hotPool">热门资讯</view>
         <view class="bt" @click="information(item.id)" v-for="(item, index) in title" :key="index">
@@ -74,7 +85,7 @@
                     <view class="yjj">{{ item.read_volume }}人看过</view>
                 </view>
             </view>
-            <view class="right"><image class="ig" :src="urll + item.cover_pic"></image></view>
+            <view class="right"><image class="ig" :src="urll+item.cover_pic"></image></view>
         </view>
         <!-- #ifdef APP-PLUS -->
 
@@ -214,6 +225,16 @@ export default {
 		mymachine: function() {
 		    uni.navigateTo({
 		        url: '../../my/my-machine/my-machine'
+		    });
+		},
+		mycunli: function() {
+		    uni.navigateTo({
+		        url: '../../my/power/power'
+		    });
+		},
+		machinetrans: function() {
+		    uni.navigateTo({
+		        url: '../mill/mill'
 		    });
 		},
         quit() {
@@ -451,22 +472,24 @@ page {
 }
 .quick-button{
 	width:100%;
-	height:209rpx;
+	height:207rpx;
+	display: flex;
+	justify-content: space-between;
 }
 .mymachine{
-	width:50%;
+	width:25%;
 	height:100%;
-	float: left;
+	/* float: left; */
 	position: relative;
 }
-.right-line{
+/* .right-line{
 	position: absolute;
 	top:74rpx;
 	right:0;
 	width:2rpx;
 	height:70rpx;
 	background-color: #182A42;
-}
+} */
 .machine-imgs{
 	width:64rpx;
 	height:62rpx;
@@ -521,27 +544,35 @@ swiper-item image {
 
 .pools {
     width: auto;
-    height: 438rpx;
+    height: 338rpx;
     overflow: hidden;
-    padding-left: 22rpx;
+    padding: 0 22rpx;
     box-sizing: border-box;
     white-space: nowrap;
 }
 .listItem {
-    width: 342rpx;
-    height: 388rpx;
+    width: 330rpx;
+    height: 282rpx;
     background: #070e17;
     margin-right: 22rpx;
     position: relative;
     display: inline-block;
+	overflow: hidden;
 }
 .hots {
-    width: 68rpx;
-    height: 60rpx;
-    display: block;
+    width: 88rpx;
+    height: 25rpx;
+	text-align: center;
+	line-height: 25rpx;
+	font-size: 10rpx;
+	color:#d31507;
+	background-color: #fab735;
+	transform:rotate(-45deg);
+	overflow: hidden;
+    /* display: block; */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 12rpx;
+    left: -22rpx;
 }
 .poolName {
     text-align: center;
@@ -550,14 +581,14 @@ swiper-item image {
 }
 .datess {
     width: 100%;
-    height: 321rpx;
+    height: 222rpx;
     background: #182a42;
-    padding: 20rpx;
+    padding: 10rpx;
     box-sizing: border-box;
 }
 .area {
     width: 136rpx;
-    height: 120rpx;
+    height: 100rpx;
     margin-right: 15rpx;
     float: left;
     position: relative;

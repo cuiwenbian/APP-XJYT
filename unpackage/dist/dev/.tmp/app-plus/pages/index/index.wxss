@@ -358,6 +358,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1949,22 +1970,28 @@ page {
 }
 .quick-button{
 	width:100%;
-	height:209rpx;
+	height:207rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
 }
 .mymachine{
-	width:50%;
+	width:25%;
 	height:100%;
-	float: left;
+	/* float: left; */
 	position: relative;
 }
-.right-line{
+/* .right-line{
 	position: absolute;
 	top:74rpx;
 	right:0;
 	width:2rpx;
 	height:70rpx;
 	background-color: #182A42;
-}
+} */
 .machine-imgs{
 	width:64rpx;
 	height:62rpx;
@@ -2017,27 +2044,36 @@ swiper-item image {
 }
 .pools {
     width: auto;
-    height: 438rpx;
+    height: 338rpx;
     overflow: hidden;
-    padding-left: 22rpx;
+    padding: 0 22rpx;
     box-sizing: border-box;
     white-space: nowrap;
 }
 .listItem {
-    width: 342rpx;
-    height: 388rpx;
+    width: 330rpx;
+    height: 282rpx;
     background: #070e17;
     margin-right: 22rpx;
     position: relative;
     display: inline-block;
+	overflow: hidden;
 }
 .hots {
-    width: 68rpx;
-    height: 60rpx;
-    display: block;
+    width: 88rpx;
+    height: 25rpx;
+	text-align: center;
+	line-height: 25rpx;
+	font-size: 10rpx;
+	color:#d31507;
+	background-color: #fab735;
+	-webkit-transform:rotate(-45deg);
+	        transform:rotate(-45deg);
+	overflow: hidden;
+    /* display: block; */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 12rpx;
+    left: -22rpx;
 }
 .poolName {
     text-align: center;
@@ -2046,14 +2082,14 @@ swiper-item image {
 }
 .datess {
     width: 100%;
-    height: 321rpx;
+    height: 222rpx;
     background: #182a42;
-    padding: 20rpx;
+    padding: 10rpx;
     box-sizing: border-box;
 }
 .area {
     width: 136rpx;
-    height: 120rpx;
+    height: 100rpx;
     margin-right: 15rpx;
     float: left;
     position: relative;

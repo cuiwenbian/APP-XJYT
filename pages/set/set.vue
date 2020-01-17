@@ -29,7 +29,7 @@
 
 				<view class="s-item">
 					<view>当前版本</view>
-					<view>V1.0</view>
+					<view>{{version}}</view>
 				</view>
 
                  <!-- #endif -->
@@ -42,7 +42,8 @@
 	export default {
 		data() {
 			return {
-                phone:''
+                phone:'',
+				version:uni.getStorageSync('version')
 			}
 		},
         onLoad() {

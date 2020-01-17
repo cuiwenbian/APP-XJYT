@@ -217,25 +217,31 @@ __webpack_require__.r(__webpack_exports__);
     passwordInput: passwordInput,
     uniNavBar: uniNavBar },
 
+  onLoad: function onLoad() {
+    this.getData();
+  },
   onShow: function onShow() {
-    var that = this;
-    uni.request({
-      url: this.url + 'walletaddress/',
-      method: 'GET',
-      header: {
-        Authorization: 'JWT' + ' ' + this.global_.token },
-
-      success: function success(res) {
-        if (res.data.data == '') {
-          that.flag = false;
-        } else {
-          that.flag = true;
-        }
-        that.address_out = res.data.data;
-      } });
-
+    this.getData();
   },
   methods: {
+    getData: function getData() {
+      var that = this;
+      uni.request({
+        url: this.url + 'walletaddress/',
+        method: 'GET',
+        header: {
+          Authorization: 'JWT' + ' ' + this.global_.token },
+
+        success: function success(res) {
+          if (res.data.data == '') {
+            that.flag = false;
+          } else {
+            that.flag = true;
+          }
+          that.address_out = res.data.data;
+        } });
+
+    },
     clo: function clo() {
       this.passIn = false;
       this.$refs['number'].close();
@@ -282,6 +288,7 @@ __webpack_require__.r(__webpack_exports__);
                 title: '删除成功',
                 icon: 'none',
                 duration: 2000 });
+
 
             }
             if (res.statusCode == 400) {

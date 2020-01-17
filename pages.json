@@ -72,10 +72,7 @@
 		{
 			"path": "pages/mill/mill",
 			"style": {
-				"navigationBarBackgroundColor": "#000000",
-				"titleNView": {
-					"titleText": "  "
-				}
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -154,6 +151,12 @@
 					}
 				},
 				{
+					"path": "machine-sale/machine-sale",
+					"style": {
+						"navigationBarTitleText": "待付款订单详情"
+					}
+				},
+				{
 					"path": "stayconfirm/stayconfirm",
 					"style": {
 						"navigationBarTitleText": "待确认订单详情"
@@ -180,7 +183,13 @@
 				{
 					"path": "salepay/salepay",
 					"style": {
-						"navigationBarTitleText": "待付款订单详情"
+						"navigationBarTitleText": "待确认订单详情"
+					}
+				},
+				{
+					"path": "sale-out/sale-out",
+					"style": {
+						"navigationBarTitleText": "待确认订单详情"
 					}
 				},
 				{
@@ -296,6 +305,7 @@
 					}
 				},
 				// #endif
+				
 				{
 					"path": "power/power",
 					"style": {
@@ -478,7 +488,7 @@
 				{
 					"path": "my-wallet/my-wallet",
 					"style": {
-						"navigationBarTitleText": "我的钱包"
+						"navigationBarTitleText": "我的资产"
 					}
 				},
 
@@ -512,7 +522,7 @@
 		}
 	],
 	"tabBar": {
-		"color": "#FFFFFF",
+		"color": "#8796AA",
 		"selectedColor": "#41BEC9",
 		"backgroundColor": "#182A42",
 		"list": [{

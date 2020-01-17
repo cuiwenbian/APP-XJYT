@@ -217,6 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -323,7 +324,7 @@ var _default =
           }
           if (res.statusCode == 302) {
             uni.showToast({
-              title: '用户未设置资金密码',
+              title: '用户未设置交易密码',
               icon: 'none',
               duration: 2000 });
 

@@ -3,6 +3,9 @@
         <!-- <view class="height"></view> -->
         <view class="box1">
             <image src="../../static/images/banner.png" class="banner">
+				<view class="cter" @click="bt">
+				    <image  src="../../static/images/zz.png" class="images"></image>
+				</view>
                 <view class="colo">服务器交易</view>
                 <view class="many">{{ many }}</view>
             </image>
@@ -150,7 +153,11 @@ export default {
                 }
             }
         },
-
+        bt: function() {
+            uni.navigateBack({
+                delta: 1
+            });
+        },
         btn2: function() {
             var that = this;
             var a = that.arr.join(',');
@@ -209,8 +216,8 @@ export default {
         },
         sure: function() {
             if (this.stus == 400) {
-                uni.switchTab({
-                    url: '../my/my'
+                uni.navigateTo({
+                    url: '../set/set'
                 });
             }
             if (this.stus == 410) {
@@ -309,13 +316,29 @@ export default {
     position: relative;
     width: 100%;
 }
+.cter {
+    position: absolute;
+	left:0;
+	top:0;
+    width: 96rpx;
+    height: 124rpx;
+	z-index: 1;
+}
+.images {
+    width: 16rpx;
+    height: 31rpx;
+    position: absolute;
+    top:70rpx;
+    left: 30rpx;
+    
+}
 .colo {
     position: absolute;
-    top: 103rpx;
+    top: 123rpx;
     color: #ffffff;
     font-size: 30rpx;
-    padding-left: 320rpx;
-    box-sizing: border-box;
+    width:100%;
+	text-align: center;
 }
 .many {
     width: 100%;

@@ -13,18 +13,18 @@ page {
 }
 .cter {
     position: absolute;
-    top:50rpx;
-    left: 22rpx;
-    width: 74rpx;
-    height: 74rpx;
+	left:0;
+	top:0;
+    width: 96rpx;
+    height: 124rpx;
+	z-index: 1;
 }
 .images {
     width: 16rpx;
     height: 31rpx;
     position: absolute;
-    top:20rpx;
-    left: 20rpx;
-    z-index: 1;
+    top:70rpx;
+    left: 30rpx;
 }
 .power {
     width: 100%;

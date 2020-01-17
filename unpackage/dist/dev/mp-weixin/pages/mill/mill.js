@@ -200,6 +200,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -285,7 +288,11 @@ var _default =
         }
       }
     },
+    bt: function bt() {
+      uni.navigateBack({
+        delta: 1 });
 
+    },
     btn2: function btn2() {
       var that = this;
       var a = that.arr.join(',');
@@ -344,8 +351,8 @@ var _default =
     },
     sure: function sure() {
       if (this.stus == 400) {
-        uni.switchTab({
-          url: '../my/my' });
+        uni.navigateTo({
+          url: '../set/set' });
 
       }
       if (this.stus == 410) {

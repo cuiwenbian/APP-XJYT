@@ -86,6 +86,7 @@
 	width:25%;
 	line-height: 60rpx;
 	font-size: 30rpx;
+	color:#8f8e8e;
 }
 .nickname {
 	float:right;
@@ -94,12 +95,14 @@
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
+	color:#363636;
 }
 .addTitle{
 	float:left;
 	width:25%;
 	line-height: 60rpx;
 	font-size: 30rpx;
+	color:#8f8e8e;
 }
 .adr {
 	float:right;
@@ -108,6 +111,7 @@
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
+	color:#363636;
 }
 .right {
 	float: left;

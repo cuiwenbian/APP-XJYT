@@ -1,7 +1,4 @@
 {
-  "navigationBarBackgroundColor": "#000000",
-  "titleNView": {
-    "titleText": "  "
-  },
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

@@ -230,7 +230,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
 var _uCharts = _interopRequireDefault(__webpack_require__(/*! ../../common/u-charts.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -333,22 +351,23 @@ var _self;var canvaArea = null;var _default = { data: function data() {return { 
         //这是个后台获取的版本
         if (_self.andri != _self.version) {//判断当前版本号
           _self.According = true; //uni.hideTabbar()
-          uni.request({ url: _self.url + 'version/', method: 'GET', header: { Authorization: 'JWT' + ' ' + uni.getStorageSync('token') }, success: function success(res) {_self.remark = res.data[0].remark;} });}} });}, onShow: function onShow() {var that = this;uni.request({ url: this.url + 'home/rotation/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.baner = res.data;} });uni.request({ url: this.url + 'home/news/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.title = res.data;} });uni.request({ url: this.url + 'cloudinfo/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.pool = res.data.data;} });}, methods: { next: function next() {this.n = false;}, back: function back() {
-      this.n = true;
-    },
-    buy: function buy(item) {
-      uni.navigateTo({
-        url: '../poolDetails/poolDetails?cloudid=' + item });
-
-    },
-    wallet: function wallet() {
-      uni.navigateTo({
+          uni.request({ url: _self.url + 'version/', method: 'GET', header: { Authorization: 'JWT' + ' ' + uni.getStorageSync('token') }, success: function success(res) {_self.remark = res.data[0].remark;} });}} });}, onShow: function onShow() {var that = this;uni.request({ url: this.url + 'home/rotation/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.baner = res.data;} });uni.request({ url: this.url + 'home/news/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.title = res.data;} });uni.request({ url: this.url + 'cloudinfo/', method: 'GET', header: { Authorization: 'JWT' + ' ' + this.global_.token }, success: function success(res) {that.pool = res.data.data;} });}, methods: { next: function next() {this.n = false;}, back: function back() {this.n = true;}, buy: function buy(item) {uni.navigateTo({ url: '../poolDetails/poolDetails?cloudid=' + item });}, wallet: function wallet() {uni.navigateTo({
         url: '../../my/my-wallet/my-wallet' });
 
     },
     mymachine: function mymachine() {
       uni.navigateTo({
         url: '../../my/my-machine/my-machine' });
+
+    },
+    mycunli: function mycunli() {
+      uni.navigateTo({
+        url: '../../my/power/power' });
+
+    },
+    machinetrans: function machinetrans() {
+      uni.navigateTo({
+        url: '../mill/mill' });
 
     },
     quit: function quit() {

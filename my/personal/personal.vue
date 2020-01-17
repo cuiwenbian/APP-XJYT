@@ -12,17 +12,14 @@
 			<!-- #endif -->
 		</view>
 		<view class="linee"></view>
+		<!-- #ifdef MP-WEIXIN -->
 		<view class="pass">
 			<text class="title">昵称</text>
 			<!-- <image class="more" src="../../static/images/jiantou3.png" mode=""></image> -->
-			<!-- #ifdef APP-PLUS -->
-			<view class="info">用户昵称</view>
-			<!-- #endif -->
-			<!-- #ifdef MP-WEIXIN -->
 			<open-data type="userNickName" class='info'></open-data>
-			<!-- #endif -->
 			<view class="line"></view>
 		</view>
+		<!-- #endif -->
 		<view class="pass">
 			<text class="title">手机号</text>
 			<view class="info1">{{phone}}</view>

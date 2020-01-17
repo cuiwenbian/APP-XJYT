@@ -22,11 +22,13 @@
     "pages/banner2/banner2",
     "mill/pay/pay",
     "mill/staypay/staypay",
+    "mill/machine-sale/machine-sale",
     "mill/stayconfirm/stayconfirm",
     "mill/stayaudit/stayaudit",
     "mill/completed/completed",
     "mill/sale/sale",
     "mill/salepay/salepay",
+    "mill/sale-out/sale-out",
     "mill/saleconfirm/saleconfirm",
     "mill/saleaudit/saleaudit",
     "mill/salecompleted/salecompleted",
@@ -77,7 +79,7 @@
     "backgroundColor": "#121212"
   },
   "tabBar": {
-    "color": "#FFFFFF",
+    "color": "#8796AA",
     "selectedColor": "#41BEC9",
     "backgroundColor": "#182A42",
     "list": [

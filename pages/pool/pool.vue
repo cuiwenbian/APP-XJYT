@@ -5,7 +5,8 @@
         </view>
         <view class="list" v-if="tabCurrentIndex === 0">
             <view class="boxx" v-for="(item, index) in pool" :key="index">
-                <image class="tag" src="../../static/images/news.png" mode=""></image>
+				<view class="tag">测试</view>
+                <!-- <image class="tag" src="../../static/images/news.png" mode=""></image> -->
                 <view class="title">{{ item.name }}</view>
                 <view class="opts">
                     <view class="lists">
@@ -197,14 +198,21 @@ page {
     position: relative;
     padding: 36rpx 31rpx;
     box-sizing: border-box;
+	overflow: hidden;
 }
 .tag {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 89rpx;
-    height: 86rpx;
-    display: block;
+    top:8rpx;
+    right: -32rpx;
+    width: 124rpx;
+    height: 38rpx;
+	color:#d31507;
+	font-size: 22rpx;
+	line-height: 38rpx;
+	text-align: center;
+	background-color: #fab735;
+	transform: rotate(45deg);
+    /* display: block; */
     /* opacity: 1; */
 }
 .title {

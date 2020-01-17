@@ -68,14 +68,22 @@ page {
     position: relative;
     padding: 36rpx 31rpx;
     box-sizing: border-box;
+	overflow: hidden;
 }
 .tag {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 89rpx;
-    height: 86rpx;
-    display: block;
+    top:8rpx;
+    right: -32rpx;
+    width: 124rpx;
+    height: 38rpx;
+	color:#fff;
+	font-size: 22rpx;
+	line-height: 38rpx;
+	text-align: center;
+	background-color: #fab735;
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+    /* display: block; */
     /* opacity: 1; */
 }
 .title {

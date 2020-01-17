@@ -14,7 +14,8 @@
        var value1 = uni.getStorageSync('token');
 	   var value = uni.getStorageSync('phone');
 	   var openid = uni.getStorageSync('openid');
-       if (value && value1) {
+	   var scope = uni.getStorageSync('scope');
+       if (value && value1 && scope) {
          this.global_.phone = value;
          this.global_.token = value1;
             uni.switchTab({

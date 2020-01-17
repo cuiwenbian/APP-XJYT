@@ -63,15 +63,15 @@
                 {{ checkall }}
             </button>
         </view>
-        <view class="box1">买家信息</view>
+        <view class="box1">卖家信息</view>
         <view class="box2">
             <view class="bx">
                 姓名:
-                <text class="bxx">{{ coffee.name }}</text>
+                <text class="bxx">{{ coffee.bname }}</text>
             </view>
             <view class="bx">
                 联系方式:
-                <text class="bxx">{{ coffee.mobile }}</text>
+                <text class="bxx">{{ coffee.bmobile }}</text>
             </view>
         </view>
         <view class="box1">商品信息</view>
@@ -103,7 +103,7 @@ var getRmb = require('../../common/requset.js');
 export default {
     data() {
         return {
-            type: '卖出',
+            type: '买入',
             state: '',
             price: '',
             rmb: '',

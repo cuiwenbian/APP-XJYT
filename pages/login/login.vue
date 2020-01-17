@@ -61,6 +61,7 @@ export default {
 		uni.getSetting({
 			success: function(res) {
 				console.log(res)
+				uni.setStorageSync('scope',res.authSetting['scope.userInfo'])
 				console.log(res.authSetting['scope.userInfo'])
 				if (res.authSetting['scope.userInfo']) {
 					//用户已经授权
@@ -205,8 +206,8 @@ export default {
 					uni.setStorageSync('token', res.data.token);
 					_self.global_.phone = this.phone;
 					_self.global_.token = uni.getStorageSync('token');
-					if (res.sthatusCode == 401) {
-						this.shade = true;
+					if (res.statusCode == 401) {
+						_self.shade = true;
 					}
 					if (res.statusCode == 402) {
 						uni.showToast({

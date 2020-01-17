@@ -56,14 +56,14 @@
            <button :class="frte?'primary':'primary2'" @click="btn">{{checkall}}</button>
         </view>
         <view class="box1">
-            卖家信息
+            买家信息
         </view>
         <view class="box2">
             <view class="bx">姓名:
-                <text class="bxx">{{cprop.bname}}</text>
+                <text class="bxx">{{cprop.name}}</text>
             </view>
             <view class="bx">联系方式:
-                <text class="bxx">{{cprop.bmobile}}</text>
+                <text class="bxx">{{cprop.mobile}}</text>
             </view>
         </view>
         <view class="box1">
@@ -101,7 +101,7 @@
         data(){
             return {
                 cprop:'',
-                type:'买入',
+                type:'卖出',
                 state:'',
                 price:'',
                 rmb:'',

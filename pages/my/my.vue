@@ -10,19 +10,20 @@
             </image>
 			<!-- #ifdef APP-PLUS -->
 			<view class="avator" @click="personal"><image class="img" src="../../static/images/avator.png" mode=""></image></view>
-			<view class="nickname">用户昵称</view>
+			<!-- <view class="nickname">用户昵称</view> -->
+			<view class="phone-app">{{ phone }}</view>
 			<!-- #endif -->
 			<!-- #ifdef MP-WEIXIN -->
 			<view class="avator" @click="personal"><open-data type="userAvatarUrl" class="img"></open-data></view>
 			<view class="nickname"><open-data type="userNickName" ></open-data></view>
+			<view class="phone">{{ phone }}</view>
 			<!-- #endif -->
-            <view class="phone">{{ phone }}</view>
         </view>
 
         <view class="list">
             <view class="listItem" @click="wallet">
                 <view class="pic"><image src="../../static/images/icon-wallet.png" style="width:50rpx;height:44rpx;" mode=""></image></view>
-                <view class="txt">我的钱包</view>
+                <view class="txt">我的资产</view>
             </view>
             <view class="listItem" @click="address">
                 <view class="pic"><image src="../../static/images/icon-address.png" style="width:40rpx;height:46rpx; " mode=""></image></view>
@@ -188,7 +189,7 @@ export default {
                     }
                     if (res.statusCode == 302) {
                         uni.showToast({
-                            title: '用户未设置资金密码',
+                            title: '用户未设置交易密码',
                             icon: 'none',
                             duration: 2000
                         });
@@ -451,6 +452,16 @@ page {
     line-height: 30rpx;
     font-size: 24rpx;
     color: #ffffff;
+}
+.phone-app{
+	width: 100%;
+	height: 30rpx;
+	position: absolute;
+	top: 335rpx;
+	text-align: center;
+	line-height: 30rpx;
+	color: #ffffff;
+	font-size: 30rpx;
 }
 .line {
     width: 100%;

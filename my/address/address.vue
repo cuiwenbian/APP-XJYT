@@ -82,25 +82,31 @@ export default {
 		passwordInput,
 		uniNavBar
 	},
+	onLoad() {
+		this.getData()
+	},
 	onShow() {
-		var that = this;
-		uni.request({
-			url: this.url + 'walletaddress/',
-			method: 'GET',
-			header: {
-				Authorization: 'JWT' + ' ' + this.global_.token
-			},
-			success(res) {
-				if (res.data.data == '') {
-					that.flag = false;
-				} else {
-					that.flag = true;
-				}
-				that.address_out = res.data.data;
-			}
-		});
+		this.getData()
 	},
 	methods: {
+		getData(){
+			var that = this;
+			uni.request({
+				url: this.url + 'walletaddress/',
+				method: 'GET',
+				header: {
+					Authorization: 'JWT' + ' ' + this.global_.token
+				},
+				success(res) {
+					if (res.data.data == '') {
+						that.flag = false;
+					} else {
+						that.flag = true;
+					}
+					that.address_out = res.data.data;
+				}
+			});
+		},
 		clo: function() {
 			this.passIn = false;
 			this.$refs['number'].close();
@@ -148,6 +154,7 @@ export default {
 								icon: 'none',
 								duration: 2000
 							});
+							
 						}
 						if(res.statusCode==400){
 							that.$refs.wrong.flag=false;
@@ -294,6 +301,7 @@ export default {
 	width:25%;
 	line-height: 60rpx;
 	font-size: 30rpx;
+	color:#8f8e8e;
 }
 .nickname {
 	float:right;
@@ -302,12 +310,14 @@ export default {
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
+	color:#363636;
 }
 .addTitle{
 	float:left;
 	width:25%;
 	line-height: 60rpx;
 	font-size: 30rpx;
+	color:#8f8e8e;
 }
 .adr {
 	float:right;
@@ -316,6 +326,7 @@ export default {
 	font-size: 30rpx;
 	word-break:break-all;
 	word-wrap:break-word;
+	color:#363636;
 }
 .right {
 	float: left;

@@ -91,7 +91,7 @@
         data(){
             return {
                 remark:'',
-                type:'买入',
+                type:'卖出',
                 state:'',
                 price:'',
                 rmb:'',

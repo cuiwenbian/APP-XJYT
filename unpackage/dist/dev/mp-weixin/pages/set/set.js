@@ -177,7 +177,8 @@ var _default =
 {
   data: function data() {
     return {
-      phone: '' };
+      phone: '',
+      version: uni.getStorageSync('version') };
 
   },
   onLoad: function onLoad() {
