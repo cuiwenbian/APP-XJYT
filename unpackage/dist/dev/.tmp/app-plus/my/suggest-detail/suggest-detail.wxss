@@ -33,27 +33,21 @@ page {
     color: #dcb16e;
     font-size: 28rpx;
 }
-.question {
-    color: #121212;
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    width: 100%;
+.question{
+	color: #121212;
+	font-size: 28rpx;
+	overflow: hidden;
+	line-height: 50rpx;
 }
-.tit {
-    width: 100rpx;
-    height: 90rpx;
-    float: left;
-    line-height: 90rpx;
-    font-size: 28rpx;
+.tit{
+	width:20%;
+	float: left;
+	height:auto;
 }
-.answer {
-    height: auto;
-    width: 554rpx;
-    float: left;
-    line-height: 90rpx;
-    font-size: 28rpx;
-    word-break: break-all;
-    word-wrap: break-word;
+.answer{
+	width:80%;
+	float: left;
+	height:auto;
 }
 .answer1 {
     width: 500rpx;

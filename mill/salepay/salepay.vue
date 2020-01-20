@@ -41,6 +41,10 @@
 						创建时间:
 						<text class="smallxx1">{{ labnrv.set_time }}</text>
 					</text>
+					<view>
+						支付时间:
+						<text class="smallxx1">{{ labnrv.pay_time }}</text>
+					</view>
 				</view>
 				<button :class="frte ? 'primary' : 'primary2'" @click="btn">{{ checkall }}</button>
 			</view>
@@ -55,6 +59,7 @@
 					<text class="bxx">{{ labnrv.mobile }}</text>
 				</view>
 			</view>
+			<view class="jiange" style='width:100%;height:50rpx;'></view>
 			<view class="box1">商品信息</view>
 			<view class="box3" v-for="(item, index) in stw" :key="index">
 				<view><image class="img" src="../../static/images/kuangji.png" mode=""></image></view>
@@ -170,7 +175,7 @@ export default {
 			}
 		},
 		handleOrderConfirm: function(nums) {
-			var that=this;
+			var that = this;
 			this.nums = nums;
 			console.log(this.nums);
 			that.passIn = true;
@@ -218,13 +223,12 @@ export default {
 							that.passIn = false;
 							that.$refs['number'].close();
 							uni.navigateBack({
-							    delta:2
-							})
-							uni.showToast({
-								title: '收款完成', 
-							    duration: 3000,
+								delta: 2
 							});
-							
+							uni.showToast({
+								title: '收款完成',
+								duration: 3000
+							});
 						}
 						var page = getCurrentPages().pop();
 						if (page == undefined || page == null) return;
@@ -251,25 +255,25 @@ page {
 }
 .primary {
 	width: 240rpx;
-	height: 40rpx;
+	height: 50rpx;
 	border-radius: 70rpx;
 	border: 1rpx solid #41bec9;
 	color: #ffffff;
 	background-color: #41bec9;
-	line-height: 40rpx;
+	line-height: 50rpx;
 	margin-top: 20rpx;
-	font-size: 22rpx;
+	font-size: 20rpx;
 }
 .primary2 {
 	width: 180rpx;
-	height: 40rpx;
+	height: 50rpx;
 	border-radius: 70rpx;
 	color: #ffffff;
 	border: 0.5rpx solid #41bec9;
 	background-color: #41bec9;
-	line-height: 40rpx;
+	line-height: 50rpx;
 	margin-top: 20rpx;
-	font-size: 16rpx;
+	font-size: 20rpx;
 }
 .smallss {
 	box-sizing: border-box;

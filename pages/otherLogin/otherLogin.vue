@@ -32,7 +32,7 @@ export default {
     },
     methods: {
 		next: function() {
-		    this.n = false;
+			this.n = false;
 		},
 		back: function() {
 		    this.n = true;
@@ -53,8 +53,8 @@ export default {
             this.code = e.detail.value;
         },
 		backLogin:function(){
-			uni.redirectTo({
-				url: '../login/login',
+			uni.navigateBack({
+				delta:1
 			});
 		},
         getCode: function() {

@@ -23,7 +23,7 @@
         <view :class="n ? 'btn' : 'btn1'" @click="register" @touchstart="next" @touchend="back">注册</view>
 
         <view  @click='backLogin' class="goback">已有账号，返回登录</view>
-        <view class="shade" v-show="shade">
+        <view class="shade" v-show="shade" @touchmove.stop.prevent="moveHandle">
             <view class="pop">
                 <view class="pop-title">注册成功</view>
                 <view class="pop-btn" @click="sure">去登录</view>
@@ -51,6 +51,10 @@ export default {
         };
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
 		next: function() {
 		    this.n = false;
 		},
@@ -76,8 +80,8 @@ export default {
             this.code = e.detail.value;
         },
 		backLogin:function(){
-			uni.redirectTo({
-				url: '../login/login',
+			uni.navigateBack({
+				delta:1
 			});
 		},
         getCode: function() {
@@ -245,8 +249,8 @@ export default {
             });
         },
         sure: function() {
-            uni.navigateTo({
-                url: '../login/login'
+            uni.navigateBack({
+            	delta:1
             });
         }
     }

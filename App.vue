@@ -28,7 +28,8 @@
     },
     onShow: function () {
       
-    },
+    }
+	
   }
 </script>
 

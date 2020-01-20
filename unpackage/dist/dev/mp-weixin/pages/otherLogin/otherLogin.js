@@ -188,8 +188,8 @@ var _default =
       this.code = e.detail.value;
     },
     backLogin: function backLogin() {
-      uni.redirectTo({
-        url: '../login/login' });
+      uni.navigateBack({
+        delta: 1 });
 
     },
     getCode: function getCode() {

@@ -50,7 +50,7 @@
 				<view class="tips">您还没有矿机哦！</view>
 			</view>
 		</view>
-		<view class="shade" v-if="shade">
+		<view class="shade" v-if="shade" @touchmove.stop.prevent="moveHandle">
 			<view class="pop">
 				<view class="pop-title">若不阅读和同意协议,无法使用此功能哦</view>
 				<view class="pops">
@@ -64,7 +64,7 @@
 			<view class="service" @click="sure">服务协议</view>
 			<!-- #endif -->
 		</view>
-		<view class="shade" v-if="sha">
+		<view class="shade" v-if="sha" @touchmove.stop.prevent="moveHandle">
 			<view class="pop">
 				<view class="pop-title">您有新的服务器需要验收</view>
 				<view class="pops">
@@ -119,6 +119,10 @@ export default {
 		});
 	},
 	methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
 		sure: function() {
 			uni.navigateTo({
 				url: '../../pages/agreement/agreement'

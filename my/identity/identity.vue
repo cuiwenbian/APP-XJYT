@@ -86,7 +86,7 @@
             <button class="changeBtn2" v-if="idcard && name && imgs.length == 2" @tap="submitt" hover-class="btn_hover">提交审核</button>
             <button class="changeBtn1" v-if="!idcard || !name || imgs.length !== 2" @tap="submitt" hover-class="btn_hover">提交审核</button>
         </view>
-        <view class="shade" v-show="shade">
+        <view class="shade" v-show="shade" @touchmove.stop.prevent="moveHandle">
             <view class="pop">
                 <view class="pop-title">提交成功，等待审核</view>
                 <view class="pop-btn" @click="sure">确定</view>
@@ -120,6 +120,10 @@ export default {
         plus.key.hideSoftKeybord();
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         getName: function(e) {
             this.name = e.detail.value;
         },

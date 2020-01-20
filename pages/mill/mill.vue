@@ -59,7 +59,7 @@
                 </view>
             </view>
         </view>
-        <view class="shade" v-if="shade1">
+        <view class="shade" v-if="shade1" @touchmove.stop.prevent="moveHandle">
             <view class="pop">
                 <view class="pop-title">实名认证审核中,请耐心等待...</view>
                 <view class="pops"><view class="pop-bbt" @click="sure">确定</view></view>
@@ -123,6 +123,10 @@ export default {
         this.shade = false;
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         pay: function() {
             uni.navigateTo({
                 url: '../../mill/pay/pay'

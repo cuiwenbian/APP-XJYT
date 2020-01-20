@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var keyboardPackage = function keyboardPackage() {return __webpack_require__.e(/*! import() | components/keyboard-package/keyboard-package */ "components/keyboard-package/keyboard-package").then(__webpack_require__.bind(null, /*! ../../components/keyboard-package/keyboard-package.vue */ 553));};var passwordInput = function passwordInput() {return __webpack_require__.e(/*! import() | components/password-input/password-input */ "components/password-input/password-input").then(__webpack_require__.bind(null, /*! ../../components/password-input/password-input.vue */ 560));};var _default =
+var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var keyboardPackage = function keyboardPackage() {return __webpack_require__.e(/*! import() | components/keyboard-package/keyboard-package */ "components/keyboard-package/keyboard-package").then(__webpack_require__.bind(null, /*! ../../components/keyboard-package/keyboard-package.vue */ 569));};var passwordInput = function passwordInput() {return __webpack_require__.e(/*! import() | components/password-input/password-input */ "components/password-input/password-input").then(__webpack_require__.bind(null, /*! ../../components/password-input/password-input.vue */ 576));};var _default =
 
 
 {
@@ -280,7 +280,10 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var keyboar
     that.rmb = getRmb.getrmb(that.price);
   },
   methods: {
-
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
     clo: function clo() {
       this.passIn = false;
       this.$refs['number'].close();
@@ -320,7 +323,6 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var keyboar
             Authorization: 'JWT' + ' ' + that.global_.token },
 
           success: function success(res) {
-
             if (res.statusCode == 400) {
               that.numberList.pop();
               that.numberList.length = 0;
@@ -355,12 +357,10 @@ var getRmb = __webpack_require__(/*! ../../common/requset.js */ 173);var keyboar
                 title: '付款完成',
                 duration: 3000 });
 
-
             }
             var page = getCurrentPages().pop();
             if (page == undefined || page == null) return;
           } });
-
 
         this.numberList.length = 0;
       }

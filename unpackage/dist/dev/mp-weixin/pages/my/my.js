@@ -259,6 +259,10 @@ var _default =
     this.shade = false;
   },
   methods: {
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
     cancel: function cancel() {
       this.shade = false;
     },

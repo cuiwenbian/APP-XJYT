@@ -136,7 +136,7 @@
 				<image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
 				<view class="info">没有订单～</view>
 			</template>
-			<view class="timm" v-if="titl">
+			<view class="timm" v-if="titl" @touchmove.stop.prevent="moveHandle">
 				<view class="fals">
 					<image class="close" src="../../static/images/close.png" mode="" @click="shensu"></image>
 					<text class="tite">提示</text>
@@ -231,6 +231,10 @@ export default {
 		this.orderSource();
 	},
 	methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
 		shensu:function(){
 			this.titl=false;
 		},
@@ -886,26 +890,28 @@ page {
 .timm {
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 99;
 }
 .bn {
-	width: 160rpx;
-	height: 60rpx;
-	margin-top: 60rpx;
+	width: 180rpx;
+	height: 70rpx;
+	margin-top: 40rpx;
 	background-color: #121212;
 	color: #ffffff;
-	font-size: 20rpx;
+	font-size: 26rpx;
+	line-height: 70rpx;
 }
 .fals {
-	width: 400rpx;
+	width: 550rpx;
 	height: 400rpx;
 	position: absolute;
-	left: 175rpx;
-	top: 300rpx;
+	top:300rpx;
+	left:100rpx;
+	border-radius: 10rpx;
 	background-color: #fff;
 	border: 1rpx solid #999999;
 }
@@ -917,24 +923,24 @@ page {
 	right: 20rpx;
 }
 .tite {
-	width: 400rpx;
+	width: 100%;
 	height: 60rpx;
 	display: block;
-	font-size: 24rpx;
-	margin-top: 40rpx;
+	font-size: 30rpx;
+	margin-top: 30rpx;
 	color: #000000;
 	text-align: center;
 	line-height: 60rpx;
 }
 .int {
-	width: 300rpx;
-	height: 80rpx;
-	line-height: 80rpx;
-	font-size: 20rpx;
+	width: 450rpx;
+	height: 130rpx;
+	line-height: 130rpx;
+	font-size: 28rpx;
 	text-align: center;
-	margin-left: 40rpx;
-	margin-top: 60rpx;
-	border: 1rpx solid #999999;
+	margin-left: 50rpx;
+	margin-top: 40rpx;
+	border: 1rpx solid #F2F2F2;
 	color: #999999;
 }
 </style>

@@ -11,7 +11,7 @@ Vue.prototype.urll = 'https://api.ipcn.xyz/media/'
 //Vue.prototype.url='http://47.102.112.106/api/v1.1.0/'
 //Vue.prototype.url = 'http://47.103.215.235:8080/api/v1.1.0/'
 // Vue.prototype.urll = 'http://47.103.215.235:8080/media/'
-
+//Vue.prototype.service = 'https://t.api.ipcn.xyz/api/v1.1.0/'
 App.mpType = 'app'
 
 const app = new Vue({

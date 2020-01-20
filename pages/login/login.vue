@@ -30,9 +30,9 @@
 			<view @click="quickLogin" class="tips">快速登录</view>
 			<view @click="forgetPassword" class="tips">忘记密码</view>
 		</view>
-		<view :class="n ? 'btn' : 'btn1'" @click="login" @touchstart="next" @touchend="back">登录</view>
+		<view :class="n ? 'btn' : 'btn1'"  @click='login' @touchstart="next" @touchend="back">登录</view>
 		<view @click="sure" class="register">注册</view>
-		<view class="shade" v-if="shade">
+		<view class="shade" v-if="shade" @touchmove.stop.prevent="moveHandle">
 			<view class="pop">
 				<view class="pop-title">用户不存在，是否注册？</view>
 				<view class="pops">
@@ -106,6 +106,10 @@ export default {
 	},
 
 	methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
 		autuWXLogin: function(e) {
 			console.log(e)
 			if (e.detail.userInfo) {
@@ -133,22 +137,23 @@ export default {
 			}
 		},
 		quickLogin: function() {
-			uni.redirectTo({
+			uni.navigateTo({
 				url: '../otherLogin/otherLogin'
 			});
 		},
 		forgetPassword: function() {
 			uni.navigateTo({
 				url: '../getBackPassword/getBackPassword',
-				animationType: 'fade-in',
-				animationDuration: 200
+				
 			});
 		},
 		next: function() {
-			this.n = false;
+			var that=this;
+			that.n = false;
 		},
 		back: function() {
-			this.n = true;
+			var that=this;
+			that.n = true;
 		},
 		cancel: function() {
 			this.shade = false;
@@ -160,7 +165,7 @@ export default {
 			this.password = e.detail.value;
 		},
 		sure: function() {
-			uni.redirectTo({
+			uni.navigateTo({
 				url: '../register/register'
 			});
 		},

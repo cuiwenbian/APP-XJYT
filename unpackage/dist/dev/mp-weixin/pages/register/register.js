@@ -186,6 +186,10 @@ var _default =
 
   },
   methods: {
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
     next: function next() {
       this.n = false;
     },
@@ -211,8 +215,8 @@ var _default =
       this.code = e.detail.value;
     },
     backLogin: function backLogin() {
-      uni.redirectTo({
-        url: '../login/login' });
+      uni.navigateBack({
+        delta: 1 });
 
     },
     getCode: function getCode() {
@@ -380,8 +384,8 @@ var _default =
 
     },
     sure: function sure() {
-      uni.navigateTo({
-        url: '../login/login' });
+      uni.navigateBack({
+        delta: 1 });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

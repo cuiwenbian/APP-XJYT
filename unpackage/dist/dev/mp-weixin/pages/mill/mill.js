@@ -258,6 +258,10 @@ var _default =
     this.shade = false;
   },
   methods: {
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
     pay: function pay() {
       uni.navigateTo({
         url: '../../mill/pay/pay' });

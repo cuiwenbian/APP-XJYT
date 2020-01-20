@@ -32,7 +32,7 @@
             ></image>
         </view>
         <view class="save" @click="setPwd">确认</view>
-        <view class="shade" v-show="shade">
+        <view class="shade" v-show="shade" >
             <view class="pop">
                 <view class="pop-title">资金密码设置成功</view>
                 <view class="pop-btn">确定</view>

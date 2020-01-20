@@ -76,7 +76,7 @@ page {
     right: -32rpx;
     width: 124rpx;
     height: 38rpx;
-	color:#fff;
+	color:#d31507;
 	font-size: 22rpx;
 	line-height: 38rpx;
 	text-align: center;

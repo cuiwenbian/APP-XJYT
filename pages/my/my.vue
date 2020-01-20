@@ -70,7 +70,7 @@
             </view>
             <!-- #endif -->
         </view>
-        <view class="shade" v-if="shade">
+        <view class="shade" v-if="shade" @touchmove.stop.prevent="moveHandle">
             <view class="pop">
                 <view class="tips">提示</view>
                 <view class="pop-title">退出登录？</view>
@@ -124,6 +124,10 @@ export default {
         this.shade = false;
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         cancel: function() {
             this.shade = false;
         },

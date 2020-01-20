@@ -36,7 +36,7 @@
             </view>
         </view>
         <!-- 弹框 -->
-        <view class="shade" v-if="sha">
+        <view class="shade" v-if="sha" @touchmove.stop.prevent="moveHandle">
             <view class="pop">
                 <view class="pop-title">您有新的服务器需要验收</view>
                 <view class="pops"><view class="pop-btn" @click="validation">验证</view></view>
@@ -99,6 +99,10 @@ export default {
         });
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         prompt: function() {
             this.sha = true;
         },

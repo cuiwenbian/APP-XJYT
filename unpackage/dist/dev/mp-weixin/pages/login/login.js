@@ -241,6 +241,10 @@ var _default =
   },
 
   methods: {
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
     autuWXLogin: function autuWXLogin(e) {
       console.log(e);
       if (e.detail.userInfo) {
@@ -268,22 +272,23 @@ var _default =
       }
     },
     quickLogin: function quickLogin() {
-      uni.redirectTo({
+      uni.navigateTo({
         url: '../otherLogin/otherLogin' });
 
     },
     forgetPassword: function forgetPassword() {
       uni.navigateTo({
-        url: '../getBackPassword/getBackPassword',
-        animationType: 'fade-in',
-        animationDuration: 200 });
+        url: '../getBackPassword/getBackPassword' });
+
 
     },
     next: function next() {
-      this.n = false;
+      var that = this;
+      that.n = false;
     },
     back: function back() {
-      this.n = true;
+      var that = this;
+      that.n = true;
     },
     cancel: function cancel() {
       this.shade = false;
@@ -295,7 +300,7 @@ var _default =
       this.password = e.detail.value;
     },
     sure: function sure() {
-      uni.redirectTo({
+      uni.navigateTo({
         url: '../register/register' });
 
     },
@@ -341,8 +346,8 @@ var _default =
           uni.setStorageSync('token', res.data.token);
           _self.global_.phone = _this.phone;
           _self.global_.token = uni.getStorageSync('token');
-          if (res.sthatusCode == 401) {
-            _this.shade = true;
+          if (res.statusCode == 401) {
+            _self.shade = true;
           }
           if (res.statusCode == 402) {
             uni.showToast({

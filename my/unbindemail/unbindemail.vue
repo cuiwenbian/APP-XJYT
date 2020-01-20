@@ -8,7 +8,7 @@
         </view>
         <view class="line"></view>
         <view class="list">
-            <view class="icon"><image src="../../static/images/icon-code.png" style="width:36rpx;height:42rpx;" mode=""></image></view>
+            <view class="icon" style='margin-top: 37rpx;'><image src="../../static/images/icon-code.png" style="width:36rpx;height:42rpx;" mode=""></image></view>
             <input class="enter enter1" type="number" :value="emailCode" @input="getEmailCode" placeholder="请输入邮箱验证码" />
             <button class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</button>
         </view>
@@ -147,7 +147,7 @@ page {
     width: 60rpx;
     height: 60rpx;
     margin-right: 20rpx;
-    margin-top: 38rpx;
+    margin-top: 30rpx;
 }
 .enter {
     float: left;

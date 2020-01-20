@@ -133,7 +133,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var keyboardPackage = function keyboardPackage() {return __webpack_require__.e(/*! import() | components/keyboard-package/keyboard-package */ "components/keyboard-package/keyboard-package").then(__webpack_require__.bind(null, /*! ../../components/keyboard-package/keyboard-package.vue */ 553));};var passwordInput = function passwordInput() {return __webpack_require__.e(/*! import() | components/password-input/password-input */ "components/password-input/password-input").then(__webpack_require__.bind(null, /*! ../../components/password-input/password-input.vue */ 560));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var keyboardPackage = function keyboardPackage() {return __webpack_require__.e(/*! import() | components/keyboard-package/keyboard-package */ "components/keyboard-package/keyboard-package").then(__webpack_require__.bind(null, /*! ../../components/keyboard-package/keyboard-package.vue */ 569));};var passwordInput = function passwordInput() {return __webpack_require__.e(/*! import() | components/password-input/password-input */ "components/password-input/password-input").then(__webpack_require__.bind(null, /*! ../../components/password-input/password-input.vue */ 576));};var _default =
+
 
 
 
@@ -357,11 +358,21 @@ __webpack_require__.r(__webpack_exports__);
     keyboardPackage: keyboardPackage,
     passwordInput: passwordInput },
 
-  onShow: function onShow() {},
+  onShow: function onShow() {
+    // this.tabCurrentIndex==0
+    this.orderSource();
+  },
   onLoad: function onLoad() {
     this.orderSource();
   },
   methods: {
+    moveHandle: function moveHandle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    shensu: function shensu() {
+      this.titl = false;
+    },
     orderSource: function orderSource() {
       var _this = this;
       var state = this.navList[this.tabCurrentIndex].state;
@@ -408,7 +419,7 @@ __webpack_require__.r(__webpack_exports__);
                 o.state_text = '待付款';
                 break;
               case 102:
-                o.state_text = '等待卖家收款';
+                o.state_text = '待确认';
                 break;
               case 103:
                 o.state_text = '待确认';
@@ -441,7 +452,7 @@ __webpack_require__.r(__webpack_exports__);
         * @param order
         */
     handleToDetail: function handleToDetail(order) {
-      if (order.status == 101) {
+      if (order.status == 101 && order.type_text == '矿机买入') {
         uni.request({
           url: this.url + 'salemessage/',
           method: 'GET',
@@ -452,15 +463,36 @@ __webpack_require__.r(__webpack_exports__);
             order_num: order.ordernum },
 
           success: function success(res) {
+            console.log(res);
             var ord = JSON.stringify(res.data.data);
             console.log(ord);
             uni.navigateTo({
-              url: "../../mill/staypay/staypay?mvvp=" + ord });
+              url: '../../mill/staypay/staypay?mvvp=' + ord });
 
           } });
 
       }
-      if (order.status == 102) {
+      if (order.status == 101 && order.type_text == '矿机卖出') {
+        uni.request({
+          url: this.url + 'salemessage/',
+          method: 'GET',
+          header: {
+            Authorization: 'JWT' + ' ' + this.global_.token },
+
+          data: {
+            order_num: order.ordernum },
+
+          success: function success(res) {
+            console.log(res);
+            var ord = JSON.stringify(res.data.data);
+            console.log(ord);
+            uni.navigateTo({
+              url: '../../mill/machine-sale/machine-sale?mvvp=' + ord });
+
+          } });
+
+      }
+      if (order.status == 102 && order.type_text == '矿机卖出') {
         uni.request({
           url: this.url + 'salemessage/',
           method: 'GET',
@@ -474,6 +506,24 @@ __webpack_require__.r(__webpack_exports__);
             var order = JSON.stringify(res.data.data);
             uni.navigateTo({
               url: '../../mill/salepay/salepay?aser=' + order });
+
+          } });
+
+      }
+      if (order.status == 102 && order.type_text == '矿机买入') {
+        uni.request({
+          url: this.url + 'salemessage/',
+          method: 'GET',
+          header: {
+            Authorization: 'JWT' + ' ' + this.global_.token },
+
+          data: {
+            order_num: order.ordernum },
+
+          success: function success(res) {
+            var order = JSON.stringify(res.data.data);
+            uni.navigateTo({
+              url: '../../mill/sale-out/sale-out?aser=' + order });
 
           } });
 
@@ -557,6 +607,15 @@ __webpack_require__.r(__webpack_exports__);
 
       }
     },
+    //点击付款按钮
+    handleOrderPay: function handleOrderPay(order) {
+      var that = this;
+      console.log(order.ordernum);
+      that.num = order.ordernum;
+      that.passIn = true;
+      that.$refs['number'].open();
+      that.onInput(val);
+    },
     onInput: function onInput(val) {
       var that = this;
       that.numberList.push(val);
@@ -573,7 +632,7 @@ __webpack_require__.r(__webpack_exports__);
             Authorization: 'JWT' + ' ' + that.global_.token },
 
           success: function success(res) {
-
+            console.log(res);
             if (res.statusCode == 400) {
               that.numberList.pop();
               that.numberList.length = 0;
@@ -583,12 +642,25 @@ __webpack_require__.r(__webpack_exports__);
               that.$refs.wrong.tip = '剩余' + s + '次机会';
             }
             if (res.statusCode == 401) {
+              console.log('未设置资金密码');
               that.passIn = false;
               that.$refs['number'].close();
-              that.shade = true;
-              that.stuse = res.statusCode;
+              uni.showModal({
+                title: '提示',
+                content: '未设置资金密码',
+                showCancel: false,
+                cancelText: '',
+                confirmText: '确定',
+                success: function success(res) {},
+                fail: function fail() {},
+                complete: function complete() {} });
+
+              // that.shade = true
+              // that.stuse = res.statusCode
             }
             if (res.statusCode == 423) {
+              that.passIn = false;
+              that.$refs['number'].close();
               uni.showToast({
                 title: '交易密码已锁定,请在今日24:00后进行交易',
                 icon: 'none',
@@ -605,25 +677,16 @@ __webpack_require__.r(__webpack_exports__);
                 title: '付款完成',
                 duration: 3000 });
 
-
             }
             var page = getCurrentPages().pop();
             if (page == undefined || page == null) return;
+            page.onLoad();
           } });
-
 
         this.numberList.length = 0;
       }
     },
-    //点击删除按钮
-    handleOrderPay: function handleOrderPay(order) {
-      console.log(order.ordernum);
-      this.num = order.ordernum;
-      var that = this;
-      this.passIn = true;
-      this.$refs['number'].open();
-      this.onInput(val);
-    },
+
     /**
         * 取消订单
         * @param orde
@@ -747,6 +810,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     deer: function deer() {
       var that = this;
+      if (that.phone == '') {
+        uni.showToast({
+          title: '填写内容不能为空',
+          icon: 'none' });
+
+        return false;
+      }
       uni.request({
         url: this.url + 'orderappeal/',
         method: 'POST',
@@ -759,12 +829,6 @@ __webpack_require__.r(__webpack_exports__);
 
         success: function success(res) {
           console.log(that.phone);
-          if (that.phone == ' ') {
-            uni.showToast({
-              title: '填写内容不能为空',
-              icon: 'none' });
-
-          } else
           if (res.statusCode == 200) {
             that.titl = false;
             uni.showToast({

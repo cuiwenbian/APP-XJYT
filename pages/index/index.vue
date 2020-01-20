@@ -89,7 +89,7 @@
         </view>
         <!-- #ifdef APP-PLUS -->
 
-        <view class="shade" v-if="According">
+        <view class="shade" v-if="According" @touchmove.stop.prevent="moveHandle">
             <image class="pop" src="../../static/images/update.png" mode="">
                 <view class="desc1">
                     <view class="one">{{ remark }}</view>
@@ -206,6 +206,10 @@ export default {
         });
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         next: function() {
             this.n = false;
         },
@@ -774,7 +778,7 @@ swiper-item image {
 }
 .yu {
     float: left;
-    font-size: 14rpx;
+    font-size: 20rpx;
     color: #8796aa;
     margin-top: 14rpx;
 }
@@ -782,14 +786,14 @@ swiper-item image {
     margin-top: 10rpx;
 }
 .yj {
-    width: 27rpx;
+    width: 29rpx;
     margin-top: 20rpx;
-    height: 15rpx;
+    height: 18rpx;
     float: left;
     margin-left: 40rpx;
 }
 .yjj {
-    font-size: 14rpx;
+    font-size: 20rpx;
     float: left;
     color: #8796aa;
     margin-top: 14rpx;

@@ -44,12 +44,13 @@
                         <view class="status" v-show="item.company_submit == 2">已回复</view>
                     </view>
                     <view class="question">
-                        <view class="tit">标题：</view>
-                        <view class="answer">{{ item.title }}</view>
+                        <view class="tit" >标题：</view>
+                        <view class="answer" >{{ item.title }}</view>
                     </view>
+					<view style='width:100%;height:30rpx;'></view>
                     <view class="question">
-                        <view class="tit" style='line-height:50rpx;'>描述：</view>
-                        <view class="answer" style='line-height:50rpx;'>{{ item.message }}</view>
+                        <view class="tit" >描述：</view>
+                        <view class="answer" >{{ item.message }}</view>
                     </view>
                 </view>
             </view>
@@ -57,8 +58,8 @@
             <view class="newadd" @click="addMessage">提交建议</view>
             <!-- #endif -->
         </view>
-        <view :class="hidden ? 'cover1' : 'cover'">
-            <view class="frame">
+        <view :class="hidden ? 'cover1' : 'cover'" @touchmove.stop.prevent="moveHandle">
+            <view class="frame" >
                 <input class="title" type="text" :value="title" @input="getTitleContent" placeholder="标题" />
                 <textarea class="area" :value="desc" @input="getDescContent" placeholder="问题描述" placeholder-class="plac" />
                 <view class="submit" @click="submit">提交</view>
@@ -119,6 +120,10 @@ export default {
         plus.key.hideSoftKeybord();
     },
     methods: {
+		moveHandle:function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		},
         getTitleContent: function(e) {
             this.title = e.detail.value;
         },
@@ -242,11 +247,28 @@ page {
     color: #dcb16e;
     font-size: 28rpx;
 }
-.question {
+.question{
+	color: #121212;
+	font-size: 28rpx;
+	overflow: hidden;
+	line-height: 50rpx;
+}
+.tit{
+	width:20%;
+	float: left;
+	height:auto;
+}
+.answer{
+	width:80%;
+	float: left;
+	height:auto;
+}
+/* .question {
     color: #121212;
     margin-top: 20rpx;
     margin-bottom: 20rpx;
     width: 100%;
+	background: yellow;
 }
 .tit {
     width: 15%;
@@ -263,7 +285,7 @@ page {
     float: left;
     line-height: 90rpx;
     font-size: 28rpx;
-}
+} */
 .box {
     height: 200rpx;
 }

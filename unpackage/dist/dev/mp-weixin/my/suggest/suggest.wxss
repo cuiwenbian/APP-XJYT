@@ -38,11 +38,28 @@ page {
     color: #dcb16e;
     font-size: 28rpx;
 }
-.question {
+.question{
+	color: #121212;
+	font-size: 28rpx;
+	overflow: hidden;
+	line-height: 50rpx;
+}
+.tit{
+	width:20%;
+	float: left;
+	height:auto;
+}
+.answer{
+	width:80%;
+	float: left;
+	height:auto;
+}
+/* .question {
     color: #121212;
     margin-top: 20rpx;
     margin-bottom: 20rpx;
     width: 100%;
+	background: yellow;
 }
 .tit {
     width: 15%;
@@ -59,7 +76,7 @@ page {
     float: left;
     line-height: 90rpx;
     font-size: 28rpx;
-}
+} */
 .box {
     height: 200rpx;
 }

@@ -61,6 +61,7 @@ export default {
             const downloadTask = uni.downloadFile({
                 url: this.url + 'media/用户服务协议.pdf',
                 success: res => {
+					console.log(res)
                     if (res.statusCode === 200) {
                         uni.showToast({
                             title: '下载成功',

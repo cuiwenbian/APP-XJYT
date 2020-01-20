@@ -377,6 +377,12 @@
 
 
 
+
+
+
+
+
+
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -2063,7 +2069,7 @@ swiper-item image {
 	text-align: center;
 	line-height: 25rpx;
 	font-size: 10rpx;
-	color:#fff;
+	color:#d31507;
 	background-color: #fab735;
 	-webkit-transform:rotate(-45deg);
 	        transform:rotate(-45deg);
@@ -2269,7 +2275,7 @@ swiper-item image {
 }
 .yu {
     float: left;
-    font-size: 14rpx;
+    font-size: 20rpx;
     color: #8796aa;
     margin-top: 14rpx;
 }
@@ -2277,14 +2283,14 @@ swiper-item image {
     margin-top: 10rpx;
 }
 .yj {
-    width: 27rpx;
+    width: 29rpx;
     margin-top: 20rpx;
-    height: 15rpx;
+    height: 18rpx;
     float: left;
     margin-left: 40rpx;
 }
 .yjj {
-    font-size: 14rpx;
+    font-size: 20rpx;
     float: left;
     color: #8796aa;
     margin-top: 14rpx;

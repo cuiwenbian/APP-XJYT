@@ -25,11 +25,13 @@
       "pages": [
         "pay/pay",
         "staypay/staypay",
+        "machine-sale/machine-sale",
         "stayconfirm/stayconfirm",
         "stayaudit/stayaudit",
         "completed/completed",
         "sale/sale",
         "salepay/salepay",
+        "sale-out/sale-out",
         "saleconfirm/saleconfirm",
         "saleaudit/saleaudit",
         "salecompleted/salecompleted",
@@ -121,5 +123,6 @@
     "uploadFile": 20000,
     "request": 20000
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap20.json"
 }
