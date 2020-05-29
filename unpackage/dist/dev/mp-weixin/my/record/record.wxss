@@ -1,41 +1,105 @@
 
+.boxe {
+		width: 100%;
+		height: 200rpx;
+		padding-top: 60rpx;
+		box-sizing: border-box;
+		position: relative;
+		position: fixed;
+		top:0;
+		padding-left: 48rpx;
+		background-color: #f6f6f6;
+}
+.tet {
+		color: #A1A1A1;
+		padding-top: 20rpx;
+		font-size: 28rpx;
+}
+.text {
+		padding-left: 40rpx;
+		padding-right: 40rpx;
+}
+.recordTrade{
+    	width: 100%;
+    	height: calc(100% - 200rpx);
+    	position: fixed;
+    	bottom:0;
+}
+.scroll-view {
+    	width: 100%;
+    	height: 100%;
+}
+.vox {
+		width: 96%;
+		height: 160rpx;
+		padding-top: 28rpx;
+		padding-left: 16rpx;
+		margin-left: 18rpx;
+		border-bottom: 1rpx solid #F2F2F2;
+		/* background-color: #000000; */
+}
+.vox image {
+		width: 90rpx;
+		height: 90rpx;
+		float: left;
+}
 .box {
-    width: 100%;
-    height: 92rpx;
-    background-color: #f6f6f6;
+		float: left;
+		margin-left: 20rpx;
+		line-height: 50rpx;
 }
-.cool {
-    line-height: 92rpx;
-    font-size: 26rpx;
-    color: #333333;
-    padding-left: 157rpx;
+.box1 {
+		float: right;
+		line-height: 120rpx;
+		padding-right: 38rpx;
+		font-size: 40rpx;
+		font-family: DIN;
+		font-weight: bold;
 }
-.cool1 {
-    line-height: 92rpx;
-    font-size: 26rpx;
-    color: #333333;
-    padding-left: 42rpx;
+.solid {
+		width: 78%;
+		margin-left: 144rpx;
 }
-.cool2 {
-    line-height: 92rpx;
-    font-size: 26rpx;
-    color: #333333;
-    padding-left: 140rpx;
+.well {
+		font-size: 30rpx;
+		margin-right: 20rpx;
+		font-family: PingFang SC;
+		font-weight: bold;
 }
-.time1 {
-    font-size: 22rpx;
-    padding-left: 22rpx;
+.wells{
+		font-size: 30rpx;
+		margin-right: 20rpx;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color:#007AFF;
 }
-.time2 {
-    font-size: 22rpx;
-    padding-left: 90rpx;
+.well1 {
+		font-size: 20rpx;
+		font-family: PingFang SC;
+		font-weight: bold;
+		color: rgba(177, 177, 177, 1);
 }
-.time4 {
-    font-size: 22rpx;
-    padding-left: 90rpx;
+.well3 {
+		font-size: 20rpx;
+		font-family: PingFang SC;
+		padding-left: 60rpx;
+		font-weight: bold;
+		color: rgba(177, 177, 177, 1);
 }
-.time3 {
-    font-size: 22rpx;
-    padding-left: 120rpx;
+.weel {
+		margin-left: 20rpx;
+}
+.aaa {
+		padding-top: 400rpx;
+}
+.transfer {
+		display: block;
+		margin: 0 auto;
+		width: 300rpx;
+		height: 260rpx;
+}
+.nomachine {
+		padding-top: 20rpx;
+		text-align: center;
 }
 

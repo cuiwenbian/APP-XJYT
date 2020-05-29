@@ -1,5 +1,7 @@
 {
-  "navigationBarTitleText": "编辑提币地址",
+  "navigationBarTitleText": "编辑我的地址",
+  "navigationBarBackgroundColor": "#FAFBFC",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "keyboard-package": "/components/keyboard-package/keyboard-package",
     "password-input": "/components/password-input/password-input"

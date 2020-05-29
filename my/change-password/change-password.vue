@@ -6,7 +6,7 @@
         <view class="set">设置新密码</view>
         <view class="list">
             <view class="title">交易密码:</view>
-            <input class="code" type="digit" :password="isPassword" :value="newPassword" @input="getNewPassword" placeholder="请输入新的交易密码" />
+            <input class="code" type="digit" :password="isPassword" :value="newPassword" @input="getNewPassword" @blur='checkPwd' placeholder="请输入新的交易密码" />
             <image
                 :class="isPassword ? 'close' : 'cloose'"
                 :src="isPassword ? '../../static/images/password.png' : '../../static/images/openeye.png'"
@@ -25,17 +25,22 @@
                 mode=""
             ></image>
         </view>
-        <view class="save" @click="changePassword">确认修改</view>
+		<view class="submit-btn-wrap">
+			<view class="submit-btn" hover-class="active" @click="changePassword" v-if="allowLogin">确认修改</view>
+			<view class="submit-btn-disable" v-else>确认修改</view>
+		</view>
         <view class="other" @click="other">找回密码</view>
     </view>
 </template>
 
 <script>
+	import { debounce } from '@/common/utils.js';
 export default {
     data() {
         return {
             isPassword: true,
             isPassword1: true,
+			n:true,
             password: '',
             newPassword: '',
             newPassword1: ''
@@ -44,6 +49,11 @@ export default {
     onBackPress(option) {
         plus.key.hideSoftKeybord();
     },
+	computed: {
+		allowLogin () {
+			return !!(this.password && this.newPassword && this.newPassword1)
+		},
+	},
     methods: {
         show: function() {
             this.isPassword = !this.isPassword;
@@ -60,6 +70,26 @@ export default {
         getNewPassword1: function(e) {
             this.newPassword1 = e.detail.value;
         },
+		checkPwd:function(e){
+			this.newPassword = e.detail.value;
+			var f = this.global_.checkPassword(this.newPassword);
+			if (!f) {
+			    uni.showToast({
+			        title: '交易密码为6位数字',
+			        icon: 'none',
+			        duration: 2000
+			    });
+			    return false;
+			}
+		},
+		next: function() {
+			var that=this;
+			that.n = false;
+		},
+		back: function() {
+			var that=this;
+			that.n = true;
+		},
         changePassword: function() {
             if (this.password == '') {
                 uni.showToast({
@@ -77,10 +107,18 @@ export default {
                 });
                 return false;
             }
+			if (this.newPassword && this.newPassword1 && this.newPassword1 !== this.newPassword) {
+			    uni.showToast({
+			        icon: 'none',
+			        title: '两次密码不一致',
+			        duration: 2000
+			    });
+			    return false;
+			}
             var f = this.global_.checkPassword(this.newPassword);
             if (!f) {
                 uni.showToast({
-                    title: '交易密码为六位数字!!',
+                    title: '交易密码为6位数字',
                     icon: 'none',
                     duration: 2000
                 });
@@ -94,16 +132,9 @@ export default {
                 });
                 return false;
             }
-            if (this.newPassword1 !== this.newPassword) {
-                uni.showToast({
-                    icon: 'none',
-                    title: '两次密码不一致',
-                    duration: 2000
-                });
-                return false;
-            }
+           
             uni.request({
-                url: this.url + 'updatapasswod/',
+                url: this.url + 'updatapasswods/',
                 method: 'POST',
                 data: {
                     password1: this.password,
@@ -115,14 +146,15 @@ export default {
                 },
                 success(res) {
                     if (res.statusCode == 200) {
-                        uni.showToast({
-                            title: '资金密码已修改',
-                            icon: 'none',
-                            duration: 2000
-                        });
-                        uni.switchTab({
-                            url: '../../pages/my/my'
-                        });
+                       
+                        uni.navigateBack({
+							dekta:2
+						})
+						uni.showToast({
+						    title: '资金密码修改成功',
+						    icon: 'none',
+						    duration: 1500
+						});
                     }
                     if (res.statusCode == 400) {
                         uni.showToast({
@@ -134,16 +166,19 @@ export default {
                 }
             });
         },
+		linkToTransfer: debounce(function(){
+			uni.navigateTo({
+			    url: '../change-otherPassword/change_otherPassword'
+			});
+		},500, true),
         other: function() {
-            uni.navigateTo({
-                url: '../change-otherPassword/change_otherPassword'
-            });
+			this.linkToTransfer()
         }
     }
 };
 </script>
 
-<style>
+<style lang="scss">
 page {
     background: #edeeee;
 }
@@ -201,17 +236,42 @@ page {
     font-size: 30rpx;
     margin-left: 48rpx;
 }
-.save {
-    margin: 100rpx auto 0;
-    width: 690rpx;
-    height: 88rpx;
-    background: #0a1117;
-    border-radius: 80rpx;
-    text-align: center;
-    line-height: 88rpx;
-    color: #fff;
-    font-size: 30rpx;
-}
+.submit-btn-wrap {
+		padding-top: 110rpx;
+		.submit-btn {
+			width: 511rpx;
+			height: 98rpx;
+			margin: 0 auto;
+			line-height: 98rpx;
+			text-align: center;
+			color: #fff;
+			font-size: 30rpx;
+			border-radius: 50rpx;
+			box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+			background-color: rgb(2,213,151);
+			    transition: all .2s;
+			    &:active {
+			        background-color: rgba(2,213,151, .85);
+			    }
+			// background-image: linear-gradient(to right, #01c774, #01dda9);
+			// &.active {
+			// 	opacity: 0.4;
+			// }
+		}
+		.submit-btn-disable {
+			width: 511rpx;
+			height: 98rpx;
+			margin: 0 auto;
+			line-height: 98rpx;
+			text-align: center;
+			color: #fff;
+			font-size: 30rpx;
+			border-radius: 50rpx;
+			// background-image: linear-gradient(to right, #706f72, #a9a8ab);
+			background-color: rgba(2,213,151, .4);
+		}
+	}
+
 .other {
     line-height: 100rpx;
     float: right;

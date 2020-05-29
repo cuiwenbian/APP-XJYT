@@ -10,13 +10,8 @@ page {
     color: #ffffff;
     position: relative;
     z-index: 10;
-    /* border-bottom: 1rpx solid #182A42; */
 }
 .nav-item {
-    /* flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center; */
     width: 25%;
     height: 100%;
     font-size: 24rpx;

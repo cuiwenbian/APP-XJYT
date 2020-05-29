@@ -1,5 +1,5 @@
 <template>
-    <!-- 编辑提币地址 -->
+    <!-- 编辑我的地址 -->
     <view class="container" style="position:relative;">
         <view class="line"></view>
         <view class="list">
@@ -8,10 +8,14 @@
         </view>
         <view class="line"></view>
         <view class="list">
-            <view class="txt">提币地址:</view>
+            <view class="txt">我的地址:</view>
             <input class="enter" type="text" :value="address" @input="getAddress" />
         </view>
-        <view class="save" @click="save">保存</view>
+		<view class="submit-btn-wrap">
+			<view class="submit-btn" hover-class="active" @click="save" v-if="allowLogin">保存</view>
+			<view class="submit-btn-disable" v-else>保存</view>
+		</view>
+        <!-- <view class="save" @click="save">保存</view> -->
         <!-- #ifndef H5 -->
         <password-input v-if="passIn" ref="wrong" @tap="openKeyBoard('number')" @clo="clo" :length="length" :gutter="20" :list="numberList"></password-input>
         <!-- #endif -->
@@ -65,6 +69,11 @@ export default {
     onBackPress(option) {
         plus.key.hideSoftKeybord();
     },
+	computed: {
+		allowLogin () {
+			return !!(this.address && this.nickname)
+		},
+	},
     methods: {
         //返回
         back: function() {
@@ -115,7 +124,7 @@ export default {
         save: function() {
             if (this.address == '') {
                 uni.showToast({
-                    title: '请输入提币地址',
+                    title: '请输入我的地址',
                     icon: 'none',
                     duration: 2000
                 });
@@ -123,7 +132,7 @@ export default {
             }
             if (this.address.length <= 32) {
                 uni.showToast({
-                    title: '提币地址最少32位',
+                    title: '我的地址最少32位',
                     icon: 'none',
                     duration: 2000
                 });
@@ -147,7 +156,7 @@ export default {
             that.password = that.numberList.join().replace(/,/g, '');
             if (that.numberList.length >= that.length) {
                 uni.request({
-                    url: that.url + 'updatadeleteaddress/', //编辑地址接口
+                    url: that.url + 'updatadeleteaddresss/', //编辑地址接口
                     method: 'PUT',
                     data: {
                         wallet_value: that.address,
@@ -166,7 +175,7 @@ export default {
                             that.$refs.wrong.flag = false;
                             var n = res.data.data.err_num;
                             var s = 5 - n;
-                            that.$refs.wrong.tip = '剩余' + s + '次机会';
+                            that.$refs.wrong.tip = '密码错误，剩余' + s + '次机会';
                         }
                         if (res.statusCode == 423) {
                             that.passIn = false;
@@ -210,7 +219,7 @@ export default {
             that.password = that.numberList.join().replace(/,/g, '');
             if (that.numberList.length >= that.length) {
                 uni.request({
-                    url: that.url + 'updatadeleteaddress/', //删除地址接口
+                    url: that.url + 'updatadeleteaddresss/', //删除地址接口
                     method: 'DELETE',
                     data: {
                         id: this.id,
@@ -261,7 +270,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 page {
     background: #edeeee;
 }
@@ -295,15 +304,33 @@ page {
     font-size: 30rpx;
     color: #333;
 }
-.save {
-    margin: 100rpx auto 0;
-    width: 690rpx;
-    height: 88rpx;
-    background: #0a1117;
-    border-radius: 80rpx;
-    text-align: center;
-    line-height: 88rpx;
-    color: #fff;
-    font-size: 30rpx;
+.submit-btn-wrap {
+	padding-top: 130rpx;
+	.submit-btn {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+		background-image: linear-gradient(to right, #01c774, #01dda9);
+		&.active {
+			opacity: 0.4;
+		}
+	}
+	.submit-btn-disable {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		background-image: linear-gradient(to right, #706f72, #a9a8ab);
+	}
 }
 </style>

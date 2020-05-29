@@ -47,9 +47,9 @@
 				tip:'请输入您的密码'
 			};
 		},
-		computed:{
+/* 		computed:{
 			keyboardPackage
-		},
+		}, */
 		methods:{
 			close: function() {
                this.$emit('clo');
@@ -77,7 +77,7 @@
 	  height: 380rpx;
 	  background: #F5F5F5;
 	  border-radius: 20rpx;
-	  padding: 20rpx 50rpx 0;
+	  padding: 20rpx 40rpx 0;
 	  box-sizing: border-box;
 	  position: fixed;
 	  bottom:550rpx;
@@ -90,7 +90,7 @@
 	  text-align: center;
 	  height: 50rpx;
 	  font-size: 30rpx;
-	  line-height: 50rpx;
+	  line-height: 40rpx;
 	  margin: 80rpx auto 20rpx;
 	}
 	.tip1 {
@@ -99,7 +99,7 @@
 	  height: 50rpx;
 	  font-size: 30rpx;
 	  text-align: center;
-	  line-height: 50rpx;
+	  line-height: 40rpx;
 	  color: red;
 	  margin: 80rpx auto 20rpx;
 	}
@@ -113,6 +113,7 @@
 	.lock {
 	  width: 40rpx;
 	  height: 40rpx;
+	  line-height: 40rpx;
 	  display: block;
 	  float: left;
 	}

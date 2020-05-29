@@ -13,7 +13,7 @@
         </view>
         <view class="set">设置交易密码</view>
         <view class="list">
-            <input class="code" type="number" :password="isPassword" :value="password" @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
+            <input class="code" type="number" :password="isPassword" :value="password" @blur='checkPwd' @input="getPassword" placeholder="请输入交易密码,6位数字组合" />
             <image
                 :class="isPassword ? 'close' : 'cloose'"
                 :src="isPassword ? '../../static/images/password.png' : '../../static/images/openeye.png'"
@@ -31,7 +31,10 @@
                 mode=""
             ></image>
         </view>
-        <view class="save" @click="setPwd">确认</view>
+		<view class="submit-btn-wrap">
+			<view class="submit-btn" hover-class="active" @click="setPwd" v-if="allowLogin">确认</view>
+			<view class="submit-btn-disable" v-else>确认</view>
+		</view>
         <view class="shade" v-show="shade">
             <view class="pop">
                 <view class="pop-title">资金密码设置成功</view>
@@ -42,6 +45,7 @@
 </template>
 
 <script>
+	import { debounce } from '@/common/utils.js';
 export default {
     data() {
         return {
@@ -60,7 +64,7 @@ export default {
     onLoad() {
         var _this = this;
         uni.request({
-            url: this.url + 'delemail/',
+            url: this.url + 'delemails/',
             method: 'GET',
             header: {
                 Authorization: 'JWT' + ' ' + this.global_.token
@@ -75,9 +79,15 @@ export default {
             }
         });
     },
+	
     onBackPress(option) {
         plus.key.hideSoftKeybord();
     },
+	computed: {
+		allowLogin () {
+			return !!(this.password && this.password1 && this.code)
+		},
+	},
     methods: {
         show: function() {
             this.isPassword = !this.isPassword;
@@ -94,6 +104,18 @@ export default {
         getPassword1: function(e) {
             this.password1 = e.detail.value;
         },
+		checkPwd:function(e){
+			this.password = e.detail.value;
+			var f = this.global_.checkPassword(this.password);
+			if (!f) {
+			    uni.showToast({
+			        title: '交易密码为6位数字',
+			        icon: 'none',
+			        duration: 2000
+			    });
+			    return false;
+			}
+		},
         getCode: function() {
             var _this = this;
             uni.request({
@@ -102,7 +124,7 @@ export default {
                     email: this.email1
                 },
                 //邮箱验证码接口
-                url: this.url + 'setemail/',
+                url: this.url + 'setemails/',
                 header: {
                     Authorization: 'JWT' + ' ' + this.global_.token
                 },
@@ -123,9 +145,12 @@ export default {
             });
         },
         //获取验证码
-        getCodeNumber: function(e) {
-            this.getCode();
+		linkToTransfer: debounce(function(e){
+			this.getCode();
             var _this = this;
+		},500, true),
+        getCodeNumber: function(e) {
+			this.linkToTransfer(e)
         },
         setPwd: function() {
             if (this.code == '') {
@@ -144,10 +169,18 @@ export default {
                 });
                 return false;
             }
+			if (this.password && this.password1 && this.password1 !== this.password) {
+			    uni.showToast({
+			        icon: 'none',
+			        title: '两次密码不一致',
+			        duration: 2000
+			    });
+			    return false;
+			}
             var f = this.global_.checkPassword(this.password);
             if (!f) {
                 uni.showToast({
-                    title: '交易密码为六位数字',
+                    title: '交易密码为6位数字',
                     icon: 'none',
                     duration: 2000
                 });
@@ -161,16 +194,8 @@ export default {
                 });
                 return false;
             }
-            if (this.password1 !== this.password) {
-                uni.showToast({
-                    icon: 'none',
-                    title: '两次密码不一致',
-                    duration: 2000
-                });
-                return false;
-            }
             uni.request({
-                url: this.url + 'setmoney/',
+                url: this.url + 'setmoneys/',
                 method: 'POST',
                 data: {
                     email: this.email1,
@@ -183,14 +208,15 @@ export default {
                 },
                 success(res) {
                     if (res.statusCode == 200) {
-                        uni.showToast({
-                            title: '资金密码已修改',
-                            icon: 'none',
-                            duration: 2000
-                        });
-                        uni.switchTab({
-                            url: '../../pages/my/my'
-                        });
+                       
+                        uni.navigateBack({
+							delta:3
+						})
+						uni.showToast({
+						    title: '资金密码修改成功',
+						    icon: 'none',
+						    duration: 1500
+						});
                     }
                     if (res.statusCode == 400) {
                         uni.showToast({
@@ -206,7 +232,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 page {
     background: #edeeee;
 }
@@ -274,16 +300,40 @@ button[disabled] {
     font-size: 30rpx;
     margin-left: 48rpx;
 }
-.save {
-    margin: 100rpx auto 0;
-    width: 690rpx;
-    height: 88rpx;
-    background: #0a1117;
-    border-radius: 80rpx;
-    text-align: center;
-    line-height: 88rpx;
-    color: #fff;
-    font-size: 30rpx;
+.submit-btn-wrap {
+	padding-top: 130rpx;
+	.submit-btn {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+		// background-image: linear-gradient(to right, #01c774, #01dda9);
+		// &.active {
+		// 	opacity: 0.4;
+		// }
+		background-color: rgb(2,213,151);
+		transition: all .2s;
+		&:active {
+			background-color: rgba(2,213,151, .85);
+		}
+	}
+	.submit-btn-disable {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		// background-image: linear-gradient(to right, #706f72, #a9a8ab);
+		background-color: rgba(2,213,151, .4);
+	}
 }
 .shade {
     position: absolute;

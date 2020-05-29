@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "新增提币地址",
+  "navigationBarTitleText": "新增我的地址",
+  "navigationBarBackgroundColor": "#FAFBFC",
+  "navigationBarTextStyle": "black",
   "usingComponents": {}
 }

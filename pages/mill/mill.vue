@@ -22,7 +22,7 @@
         </view>
         <view v-if="flag">
             <image class="transfer" src="../../static/images/add.png" mode=""></image>
-            <view class="infoo">没有可售矿机</view>
+            <view class="infoo">没有可售服务器</view>
         </view>
         <block v-else>
             <checkbox-group class="block" @change="CheckboxChange">
@@ -99,13 +99,13 @@ export default {
     onShow(options) {
         var that = this;
         uni.request({
-            url: this.url + 'mainmachine/',
+            url: this.url + 'mainmachines/',
             method: 'GET',
             header: {
                 Authorization: 'JWT' + ' ' + this.global_.token
             },
             success(res) {
-                console.log(res)
+                console.log(res) 
                 that.user_id = res.data.data;
                 if (res.statusCode == 205) {
                     that.flag = true;
@@ -137,7 +137,7 @@ export default {
                 url: '../../mill/sale/sale'
             });
         },
-        // 点击选中矿机
+        // 点击选中服务器
         CheckboxChange(e) {
             var that = this;
             that.arr.length = 0;
@@ -181,7 +181,7 @@ export default {
                         that.stus = res.statusCode;
                     } else if (that.arr.length == 0) {
                         uni.showToast({
-                            title: '请选择矿机',
+                            title: '请选择服务器',
                             icon: 'none'
                         });
                         return false;

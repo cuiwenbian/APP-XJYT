@@ -3,7 +3,7 @@
   <view class="uni-navbar">
     <view
       :class="{'uni-navbar--fixed': fixed,'uni-navbar--shadow':border,'uni-navbar--border':border}"
-      :style="{'background-color':backgroundColor}"
+      :style="{'background-color':backgroundColor,'background-image':backgroundImage}"
       class="uni-navbar__content">
       <uni-status-bar v-if="statusBar"/>
       <view
@@ -105,9 +105,13 @@ export default {
       type: String,
       default: '#FFFFFF'
     },
+	backgroundImage: {
+	  type: String,
+	  default: ''
+	},
     statusBar: {
       type: [Boolean, String],
-      default: false
+      default: true
     },
     shadow: {
       type: [String, Boolean],
@@ -115,7 +119,7 @@ export default {
     },
     border: {
       type: [String, Boolean],
-      default: true
+      default: false
     }
   },
   methods: {
@@ -139,7 +143,7 @@ export default {
 			width: 100%;
 			background-color: $uni-bg-color;
 			overflow: hidden;
-
+            background-size: 100% 100%;
 			.uni-navbar__content_view {
 				// line-height: $nav-height;
 				display: flex;
@@ -160,7 +164,7 @@ export default {
 				display: inline-flex;
 				flex-wrap: nowrap;
 				flex-shrink: 0;
-				width: 120upx;
+				width: 180upx;
 				padding: 0 12upx;
 
 				&:first-child {

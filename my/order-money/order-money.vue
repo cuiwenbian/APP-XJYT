@@ -20,12 +20,12 @@
 			</view>
 			<view class="x"></view>
 			<view class="box2">
-				<view class="item">矿池名称
-					<text class="line2">韭菜矿池</text>
+				<view class="item">存储中心名称
+					<text class="line2">韭菜存储中心</text>
 				</view>
 				<view class="xx"></view>
 				<view class="item">产品名称
-					<text class="line2">Filecoin云存力</text>
+					<text class="line2">Fil云存力</text>
 				</view>
 				<view class="xx"></view>
 				<view class="item">购买数量

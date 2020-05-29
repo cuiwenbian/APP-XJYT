@@ -12,7 +12,7 @@
             </view>
             <view class="small">
                 <text class="ser">
-                     矿机数量:<text class="smallxx1">{{instant.sale_num}}台</text>
+                     服务器数量:<text class="smallxx1">{{instant.sale_num}}台</text>
                 </text>
                 <text>交易总价:
                     <text class="smallxx1">{{instant.sale_money}}</text>

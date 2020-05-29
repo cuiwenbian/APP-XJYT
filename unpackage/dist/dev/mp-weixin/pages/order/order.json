@@ -1,7 +1,8 @@
 {
-  "navigationBarTitleText": "订单",
+  "navigationStyle": "custom",
   "usingComponents": {
     "keyboard-package": "/components/keyboard-package/keyboard-package",
-    "password-input": "/components/password-input/password-input"
+    "password-input": "/components/password-input/password-input",
+    "wyg-bottom-tab": "/components/wyg-bottom-tab"
   }
 }

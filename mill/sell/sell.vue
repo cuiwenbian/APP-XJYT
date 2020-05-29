@@ -1,24 +1,27 @@
 <template>
     <view class="container">
-       <view  class="pagex" v-for="(item , index) in data" :key="index">
-           <view class="page1" >
-                <view class="img">
-                    <image class="por" src="../../static/images/kuangji.png"></image>
-                </view>
-                <view class="info">
-                    <view class="obg">
-                        {{item.name}} {{item.number}}
-                    </view>
-                    <view class="obg_one">
-                        <text class="days">已运行{{item.usedays}}天</text> | 剩余{{item.residuedays}}天
-                    </view>
+		<scroll-view class='machine-lists' scroll-y="true" >
+			<view  class="pagex" v-for="(item , index) in data" :key="index" >
+			    <view class="page1" >
+			         <view class="img">
+			             <image class="por" src="../../static/images/kuangji.png"></image>
+			         </view>
+			         <view class="info">
+			             <view class="obg">
+			                 {{item.name}} {{item.number}}
+			             </view>
+			             <view class="obg_one">
+			                 <text class="days">已运行{{item.usedays}}天</text> | 剩余{{item.residuedays}}天
+			             </view>
+			
+			             <view class="obg_one">
+			                 <text class="days">储存{{item.usedisk}}T | 总容量{{item.data_hard_disk}}</text>
+			             </view>                    
+			         </view>
+			     </view>
+			 </view>
+		</scroll-view>
        
-                    <view class="obg_one">
-                        <text class="days">储存{{item.usedisk}}T | 总容量{{item.data_hard_disk}}</text>
-                    </view>                    
-                </view>
-            </view>
-        </view>
         <view class="box1">
             <view class="hide">
                 <text class="adr">数量：{{san}}台</text>
@@ -34,6 +37,7 @@
 </template>
 
 <script>
+	import {debounce} from '@/common/utils.js'
     var getRmb=require('../../common/requset.js')
     export default {
         data() {
@@ -67,8 +71,8 @@
                 this.total_price = e.detail.value
                 this.sun = getRmb.getrmb(e.detail.value)
             },
-            btn:function () {
-                var that = this
+			linkToTransfer: debounce(function(){
+				                var that = this
                 var sunt = JSON.stringify(that.san) 
                 var tilo = JSON.stringify(that.total_price) 
                 var a = that.arr.join(',')
@@ -83,16 +87,24 @@
                         url:"../validation/validation?app=" + app + '&sunt='+ sunt + '&tilo='+tilo
                     })
                 }
-               
+			},500, true),
+            btn:function () {
+				this.linkToTransfer()
             },
         }
     }
 </script>
 
 <style>
-.pagex {
+	.machine-lists{
+		width:100%;
+		height:83%;
+		overflow: hidden;
+	}
+    .pagex {
         display: block;
         width: 100%;
+		height:auto;
     }
     .page1 {
         height: 180rpx;
@@ -154,8 +166,9 @@
         margin: 0 auto;
     }
     .box1 {
-        height: 226rpx;
-        margin-top: 420rpx;
+		height:17%;
+        /* height: 226rpx; */
+        /* margin-top: 420rpx; */
         position: fixed;
         bottom: 0;
         left:0;

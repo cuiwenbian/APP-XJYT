@@ -1,0 +1,16 @@
+
+page.data-v-33a3172a {
+	background-color: #ededed;
+}
+uni-rich-text ._img.data-v-33a3172a {
+	max-width: 100% !important;
+}
+.con.data-v-33a3172a {
+	width: 100%;
+	padding: 36rpx;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+
+

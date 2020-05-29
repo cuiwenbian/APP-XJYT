@@ -3,7 +3,7 @@
         <swiper
             :indicator-dots="indicator"
             :autoplay="false"
-            indicator-color="#fff"
+            indicator-color="rgba(0,0,0,0.5)"
             indicator-active-color="#3891ef"
             :duration="150"
             class="swiper"
@@ -12,18 +12,18 @@
         >
             <swiper-item>
                 <view class="swiper-item" :style="{ height: windowHeight, width: windowWidth }">
-                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page1.jpg" mode=""></image>
+                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page4.jpg" mode=""></image>
                 </view>
             </swiper-item>
             <swiper-item>
                 <view class="swiper-item" :style="{ height: windowHeight, width: windowWidth }">
-                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page2.jpg" mode=""></image>
+                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page5.jpg" mode=""></image>
                 </view>
             </swiper-item>
             <swiper-item>
                 <view class="swiper-item" :style="{ height: windowHeight, width: windowWidth }">
-                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page3.1.jpg" mode="">
-                        <view class="experice" @click="go"><image class="experices" src="../../static/images/ty.png" mode=""></image></view>
+                    <image :style="{ height: windowHeight, width: windowWidth }" src="../../static/images/page6.jpg" mode="">
+                        <view class="experice" @click="go"><image class="experices" src="../../static/images/ty.png"></image></view>
                     </image>
                 </view>
             </swiper-item>
@@ -70,7 +70,7 @@ export default {
 <style scoped>
 .swiper {
     width: 100%;
-    background: #161822;
+    background: #FFFFFF;
 }
 .experice {
     width: 200px;
@@ -84,7 +84,7 @@ export default {
     width: 200px;
     height: 44px;
     display: block;
-    z-index: 999;
+    z-index: 1000;
 }
 .uni-swiper .uni-swiper-dots-horizontal {
     background: #fff;

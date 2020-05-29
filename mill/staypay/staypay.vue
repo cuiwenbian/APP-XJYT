@@ -18,7 +18,7 @@
 					<text class="smallxx1">{{ laiqi.sale_money }}</text>
 				</text>
 				<text class="sam">
-					矿机数量:
+					服务器数量:
 					<text class="smallxx1">{{ laiqi.sale_num }}台</text>
 				</text>
 			</view>
@@ -241,7 +241,7 @@ export default {
 		},
 		sure: function() {
 			if (this.stuse == 401) {
-				uni.switchTab({
+				uni.redirectTo({
 					url: '../../pages/my/my'
 				});
 			}

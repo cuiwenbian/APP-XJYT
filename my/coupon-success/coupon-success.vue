@@ -1,6 +1,6 @@
 <template>
     <view class="container">
-        <image src="../../static/images/tubiao.png" class="img"></image>
+        <image src="../static/images/tubiao.png" class="img"></image>
         <view class="transfer">转让成功</view>
         <button :class="n ? 'btn' : 'btn1'" @touchstart="next" @touchend="back" @click="already">完成</button>
     </view>

@@ -19,7 +19,7 @@
 						<text class="lop">{{ labnrv.sale_money }}</text>
 					</text>
 					<text class="ser">
-						矿机数量:
+						服务器数量:
 						<text class="lop">{{ labnrv.sale_num }}</text>
 						台
 					</text>

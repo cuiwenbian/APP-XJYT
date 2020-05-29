@@ -1,430 +1,747 @@
 <template>
-	<!-- 登录 -->
-	<view class="container">
-		<view class="autho" v-if="isHide">
-			<view class="login-icon">
-				<image class="login-img" src="../../static/images/xiao.png"></image>
-				<text class="login-text">欢迎来到星际云通</text>
+	<view class="login-page">
+		<image class="pb-img" src="../../static/images/loginbg.jpg" mode="" @click="nofocusbox">
+			<view class='back-page' @click='backFront'>
+				<image src="../../static/images/zuo.png" mode=""></image>
 			</view>
-			<image class="img" src="../../static/images/hosting.svg"></image>
-			<view class="txt">
-				<text class="item">矿机在线管理</text>
-				<text class="item">|</text>
-				<text class="item">收益实时查询</text>
-			</view>
-			<!-- <view class="iti"></view> -->
-			<!--注册-->
-			<button class="changeBtn" size="default" open-type="getUserInfo" @getuserinfo="autuWXLogin" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-		</view>
-		<image class="logo" src="../../static/images/FIL.png" mode=""></image>
-		<image class="fil" src="../../static/images/filecoin.png" mode=""></image>
-		<view class="enter">
-			<image class="icon" src="../../static/images/phone.png" mode=""></image>
-			<input class="number" maxlength="11" type="number" :value="phone" placeholder="请输入手机号码" @input="getPhoneValue" />
-		</view>
-		<view class="enter">
-			<image class="icon" src="../../static/images/lock.png" mode=""></image>
-			<input class="number" type="password" :value="password" placeholder="请输入密码" @input="getPasswordValue" />
-		</view>
-		<view class="tip">
-			<view @click="quickLogin" class="tips">快速登录</view>
-			<view @click="forgetPassword" class="tips">忘记密码</view>
-		</view>
-		<view :class="n ? 'btn' : 'btn1'"  @click='login' @touchstart="next" @touchend="back">登录</view>
-		<view @click="sure" class="register">注册</view>
-		<view class="shade" v-if="shade" @touchmove.stop.prevent="moveHandle">
-			<view class="pop">
-				<view class="pop-title">用户不存在，是否注册？</view>
-				<view class="pops">
-					<view class="pop-btn quxiao" @click="cancel">暂不</view>
-					<view class="pop-btn yess" @click="sure">前往注册</view>
+			<view class="mains">
+				<view class="np-logo">
+					<image src="../../static/images/logo.png" class="pl-img"></image>
+					<view class="pl-title">
+						<view class="pl-firsttitle">星际矿机</view>
+						<view class="pl-secondtitle">全球FIL存储节点与检索节点管理平台</view>
+					</view>
+					<view :style="{ height: title_height}"></view>
+				</view>
+				<view class="np-body" :class="item ? 'np-body' : 'np-bodyy'" style="position: relative;z-index:9;">
+					<view class="pb-tabs" :class="item ? 'pb-tabs' : 'pb-tabs-focu'">
+						<view :class="['bt-tab', sel_tab === '1' ? 'bt-tab-active' : '']" @click="handleSelectTab('1')">快速登录</view>
+						<view :class="['bt-tab', sel_tab === '2' ? 'bt-tab-active' : '']" @click="handleSelectTab('2')">密码登录</view>
+					</view>
+					<view class="pb-form">
+						<view class="bf-item">
+							<view class="fi-icon">手机号：</view>
+							<!-- <image src="../../static/images/php.png" mode="aspectFit" class="fi-icon"></image> -->
+							<input v-model="mobile" type="number" :adjust-position='noadjust' @keyboardheightchange='changekyboard'
+							 placeholder="请输入手机号码" class="fi-input" @focus="mobile_focus = true" @blur="mobile_focus = false" />
+						</view>
+						<view :class="item ? 'bf-item-code' : 'bf-item-codes'" v-if="sel_tab === '1'">
+							<view class="fi-icon fi-code">验证码：</view>
+							<!-- <image src="../../static/images/cooder.png" mode="aspectFit" class="fi-icon"></image> -->
+							<input v-model="code" type="number" :adjust-position='noadjust' placeholder="请输入验证码" @keyboardheightchange='changekyboard'
+							 class="fi-input" @focus="code_focus = true" @blur="code_focus = false" />
+							<view class="fi-sendCode" @click="getCodeBtn">{{ sendBtnText }}</view>
+						</view>
+						<view :class="item ? 'bf-item' : 'bf-itemm'" v-else>
+							<view class="fi-icon">密码：</view>
+							<!-- <image src="../../static/images/pswd.png" mode="aspectFit" class="fi-icon"></image> -->
+							<input v-model="password" type="password" :password="isPwd" :adjust-position='noadjust' placeholder="请输入密码"
+							 @keyboardheightchange='changekyboard' class="fi-input" @focus="password_focus = true" @blur="password_focus = false" />
+						</view>
+						<!-- <view class='fi-input' @click='passwordfocus'></view> -->
+					</view>
+					<view :class="item ? 'submit-btn' : 'submit-btns'" @click="handleSubmit">
+						<view :class="['tb-mask', submitBtnStatus ? 'disable-btn' : '']"></view>
+						<text>立即登录</text>
+					</view>
+					<view class="pb-bottom"><text v-if="sel_tab === '2'" @click="handleToWJMA" class="pb-wjma">忘记密码？</text></view>
 				</view>
 			</view>
-		</view>
+		</image>
 	</view>
 </template>
+
 <script>
-export default {
-	data() {
-		return {
-			isHide: false,
-			n: true,
-			show: false,
-			phone: '',
-			password: '',
-			shade: false
-		};
-	},
-	onLoad() {
-		 // #ifdef MP-WEIXIN
-		var that = this;
-		uni.getSetting({
-			success: function(res) {
-				console.log(res)
-				uni.setStorageSync('scope',res.authSetting['scope.userInfo'])
-				console.log(res.authSetting['scope.userInfo'])
-				if (res.authSetting['scope.userInfo']) {
-					//用户已经授权
-					uni.getUserInfo({
-						success: function(res) {
-							// 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
-							// 根据自己的需求有其他操作再补充
-							// 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-							uni.login({
-								success: res => {
-									// 获取到用户的 code 之后：res.code
-									console.log('用户的code:' + res.code);
-									// 可以传给后台，再经过解析获取用户的 openid
-									uni.request({
-									    url:that.url+'users/authorization/',
-									    method: 'POST',
-									    data: {
-									        code: res.code
-									    },
-									    headers: {
-									        'Content-Type': 'application/json'
-									    },
-									    success: res => {
-									        console.log(res);
-									        uni.setStorageSync('openid', res.data.data);
-									       
-									    },
-									});
-									
+	//import vKeyboard from '@/components/VKeyboard/VKeyboard.vue
+	const cutdownTime = 60;
+	export default {
+		data() {
+			return {
+			
+				ispwd: false,
+				mobile: '',
+				noadjust: false,
+				code: '',
+				keybord: 0,
+				mobile_focus: false,
+				password_focus: false,
+				code_focus: false,
+				
+				lol: '',
+				password: '',
+				item: true,
+				sel_tab: '1',
+				sendCodeLoading: false, // 正在发送短信
+				cutdownIng: false, // 正在倒计时中，
+				cutDownTiemr: '', // 倒计时定时器
+				sendBtnText: '获取验证码',
+				disabled: false,
+				text: '150',
+				ktxStatusHeight: '',
+				navigationHeight: ''
+
+			}
+		},
+		onLoad() {
+
+			// #ifdef MP-WEIXIN
+			let systemInfo = uni.getSystemInfoSync()
+			// px转换到rpx的比例
+			let pxToRpxScale = 750 / systemInfo.windowWidth;
+			// 状态栏的高度
+			let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
+			// 导航栏的高度
+			let navigationHeight = 44 * pxToRpxScale
+			this.navigationHeight = navigationHeight + 'rpx';
+			console.log(ktxStatusHeight)
+			console.log(navigationHeight)
+			// #endif
+
+		},
+
+		computed: {
+			style() {
+				let _style = `height: ${this.navigationHeight}px;`
+				return _style
+			},
+			submitBtnStatus() {
+				if (this.sel_tab === '1') {
+					if (this.mobile && this.code) return true;
+				} else {
+					if (this.mobile && this.password) return true;
+				}
+				return false;
+			},
+			title_height() {
+				var that = this;
+				//console.log(this.text)
+				if (this.mobile_focus || this.code_focus || this.password_focus) {
+					that.item = false;
+				}
+				if (this.mobile_focus == false && this.code_focus == false && this.password_focus == false) {
+					that.item = true;
+				}
+			},
+
+		},
+
+		/* onShow() {
+			var that=this;
+			console.log('onsho34334w')
+			uni.onKeyboardHeightChange(res => {
+				console.log('onshow')
+				that.lol = res.height
+				console.log(res.height,that.phonefocus,that.passwordfocus)
+				if (that.item==false && res.height== 0  && that.phonefocus==true && that.passwordfocus==false ) {
+					console.log('0')
+					
+					that.item=true
+					}
+				else if ( res.height!= 0  && that.phonefocus==true && that.passwordfocus==false ) {
+					 console.log('1')
+					that.item=false
+				}
+				else if ( res.height!= 0 && that.phonefocus==false && that.passwordfocus==true ) {
+					console.log('2')
+					that.item=false
+				}
+				else{
+					that.item=true
+				}
+			});
+			
+		}, */
+		onShow() {
+			var that = this;
+			uni.onKeyboardHeightChange(res => {
+				console.log(res.height)
+				if (res.height == 0) {
+					that.itme = true
+				} else {
+					that.itme = false
+				}
+			})
+		},
+		methods: {
+			
+		
+			// 返回
+			backFront() {
+				uni.navigateBack({
+					delta: 1
+				})
+			},
+			nofocusbox() {
+				this.item = true
+				this.lol = 0
+			},
+			
+			getCodeBtn() {
+				if (this.sendCodeLoading || this.cutdownIng) return;
+				// if (this.disabled) return false;
+				if (!this.mobile) {
+					uni.showToast({
+						title: '请输入手机号',
+						icon: 'none',
+						mask: true,
+						duration: 2000
+					});
+					return false;
+				}
+				const myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+				if (!myreg.test(this.mobile)) {
+					uni.showToast({
+						title: '请输入正确的手机号',
+						icon: 'none',
+						mask: true,
+						duration: 2000
+					});
+					return false;
+				}
+				const _this = this;
+				uni.request({
+					method: 'POST',
+					data: {
+						mobile: _this.mobile
+					},
+					//短信接口
+					url: _this.url + 'users/login/sms/',
+					header: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					success(res) {
+						//根据code判断
+						console.log(res);
+						var ocode = res.statusCode;
+						if (ocode == 200) {
+							_this.iscode = res.data.data || _this.codess;
+							_this.disabled = true;
+							let surTime = cutdownTime;
+							_this.cutdownIng = true;
+							_this.sendBtnText = `${surTime}s`;
+							_this.cutDownTiemr = setInterval(() => {
+								surTime--;
+								_this.sendBtnText = `${surTime}s`;
+								if (surTime <= 0) {
+									clearInterval(_this.cutDownTiemr);
+									_this.disabled = false;
+									_this.cutdownIng = false;
+									_this.sendBtnText = '重新获取';
+									_this.cutDownTiemr = '';
 								}
+							}, 1000);
+							/* var num = 61;
+							var timer = setInterval(function() {
+								num--;
+								if (num <= 0) {
+									clearInterval(timer);
+									_this.codename = '重新发送';
+									_this.disabled = false;
+								} else {
+									_this.codename = num + 's';
+									_this.disabled = true;
+								}
+							}, 1000); */
+						} else if (ocode == 400) {
+							uni.showToast({
+								title: '用户不存在',
+								icon: 'none',
+								duration: 2000
 							});
+							return false;
+						} else if (ocode == 411) {
+							uni.showToast({
+								title: '操作太频繁，请稍候重试',
+								icon: 'none',
+								duration: 2000
+							});
+							return false;
+						}
+					}
+				});
+			},
+			/**
+			 * 选择tab
+			 * @param {Object} tab
+			 */
+			handleSelectTab(tab) {
+				this.sel_tab = tab;
+				this.item = true
+			},
+
+			/**
+			 * 跳转忘记密码页面
+			 */
+			handleToWJMA() {
+				uni.navigateTo({
+					url: '../getBackPassword/getBackPassword'
+				});
+			},
+			inot() {
+				this.fonter = false;
+			},
+			/**
+			 * 提交
+			 */
+			handleSubmit() {
+				const _this = this;
+				if (this.mobile == '') {
+					uni.showToast({
+						icon: 'none',
+						title: '您还没有输入手机号码'
+					});
+					return;
+				}
+				// if (this.submitBtnStatus) {
+
+				const myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
+				if (!myreg.test(this.mobile)) {
+					uni.showToast({
+						title: '请输入正确的手机号',
+						icon: 'none',
+						mask: true,
+						duration: 2000
+					});
+					return false;
+				}
+				//const params = { mobile: this.mobile };
+				if (this.sel_tab === '1') {
+					// 快速登录
+					if (!this.code) {
+						uni.showToast({
+							title: '请输入验证码',
+							icon: 'none',
+							duration: 2000
+						});
+						return false;
+					}
+					//params.code = this.code;
+				} else {
+					// 密码登录
+					if (this.password == "") {
+						console.log(this.password)
+						uni.showToast({
+							title: '请输入密码',
+							icon: 'none',
+							duration: 2000
+						});
+						return false;
+					}
+					//params.password = this.password;
+				}
+				if (this.sel_tab === '1') {
+					uni.request({
+						url: this.url + 'users/login/',
+						method: 'POST',
+						data: {
+							mobile: _this.mobile,
+							code: _this.code
+						},
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						success: res => {
+							console.log(res);
+							
+							if (res.statusCode == 400) {
+								uni.showToast({
+									title: '验证码不正确',
+									icon: 'none'
+								});
+							}
+							if (res.statusCode == 401) {
+								uni.showToast({
+									title: '请用手机短信快速登录,并设置密码',
+									icon: 'none',
+									duration: 3000
+								});
+							}
+							if (res.statusCode == 402) {
+								uni.showToast({
+									title: '用户名或密码错误',
+									icon: 'none',
+									duration: 3000
+								});
+							}
+							if (res.statusCode == 412) {
+								uni.showToast({
+									title: '请用手机短信快速登录,并设置密码',
+									icon: 'none'
+								});
+							}
+							if (res.statusCode == 200) {
+								let setTime = new Date().getTime();
+								uni.setStorageSync('nowtime', setTime);
+								uni.setStorageSync('phone', _this.mobile);
+								uni.setStorageSync('token', res.data.data);
+								console.log(res.data.data);
+								console.log(_this.mobile);
+								_this.global_.phone = uni.getStorageSync('phone');
+								_this.global_.token = uni.getStorageSync('token');
+								uni.reLaunch({
+									url: '../index/index'
+								});
+							}
 						}
 					});
-				} else {
-					// 用户没有授权
-					// 改变 isHide 的值，显示授权页面
-					that.isHide = true;
-				}
-			}
-		});
-		// #endif
-	},
-
-	methods: {
-		moveHandle:function(e){
-			e.preventDefault();
-			e.stopPropagation();
-		},
-		autuWXLogin: function(e) {
-			console.log(e)
-			if (e.detail.userInfo) {
-				//用户按了允许授权按钮
-				var that = this;
-				// 获取到用户的信息了，打印到控制台上看下
-				console.log('用户的信息如下：');
-				console.log(e.detail.userInfo);
-				//授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
-				that.isHide=false
-			} else {
-				//用户按了拒绝按钮
-				uni.showModal({
-					title: '警告',
-					content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
-					showCancel: false,
-					confirmText: '返回授权',
-					success: function(res) {
-						// 用户没有授权成功，不需要改变 isHide 的值
-						if (res.confirm) {
-							console.log('用户点击了“返回授权”');
+				} else if (this.sel_tab === '2') {
+					uni.request({
+						url: this.url + 'users/login/',
+						method: 'POST',
+						data: {
+							mobile: _this.mobile,
+							password: _this.password
+						},
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						success: res => {
+							console.log(res);
+							
+							if (res.statusCode == 401) {
+								uni.showToast({
+									title: '请用手机短信快速登录,并设置密码',
+									icon: 'none',
+									duration: 3000
+								});
+							}
+							if (res.statusCode == 402) {
+								uni.showToast({
+									title: '用户名或密码错误',
+									icon: 'none',
+									duration: 3000
+								});
+							}
+							if (res.statusCode == 200) {
+								let setTime = new Date().getTime();
+								uni.setStorageSync('nowtime', setTime);
+								uni.setStorageSync('phone', _this.mobile);
+								uni.setStorageSync('token', res.data.token);
+								console.log(res.data.token);
+								console.log(_this.mobile);
+								_this.global_.phone = _this.mobile;
+								_this.global_.token = uni.getStorageSync('token');
+								uni.reLaunch({
+									url: '../index/index'
+								});
+							}
+							if (res.statusCode == 412) {
+								uni.showToast({
+									title: '请用手机短信快速登录,并设置密码',
+									icon: 'none'
+								});
+							}
 						}
-					}
-				});
+					});
+				}
+				// }
 			}
-		},
-		quickLogin: function() {
-			uni.navigateTo({
-				url: '../otherLogin/otherLogin'
-			});
-		},
-		forgetPassword: function() {
-			uni.navigateTo({
-				url: '../getBackPassword/getBackPassword',
-				
-			});
-		},
-		next: function() {
-			var that=this;
-			that.n = false;
-		},
-		back: function() {
-			var that=this;
-			that.n = true;
-		},
-		cancel: function() {
-			this.shade = false;
-		},
-		getPhoneValue: function(e) {
-			this.phone = e.detail.value;
-		},
-		getPasswordValue: function(e) {
-			this.password = e.detail.value;
-		},
-		sure: function() {
-			uni.navigateTo({
-				url: '../register/register'
-			});
-		},
-		login() {
-			var _self = this;
-			if (this.phone == '') {
-				uni.showToast({
-					icon: 'none',
-					title: '请输入手机号'
-				});
-				return false;
-			}
-			var myreg = /^(16[0-9]|14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9]|19[0-9])\d{8}$$/;
-			if (!myreg.test(this.phone)) {
-				uni.showToast({
-					title: '请输入正确的手机号',
-					icon: 'none',
-					mask: true,
-					duration: 2000
-				});
-				return false;
-			}
-			if (!this.password) {
-				uni.showToast({
-					title: '请输入密码',
-					icon: 'none',
-					duration: 2000
-				});
-				return false;
-			}
-			uni.request({
-				url: this.url + 'users/login/',
-				method: 'POST',
-				data: {
-					mobile: this.phone,
-					password: this.password
-				},
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				success: res => {
-					uni.setStorageSync('phone', this.phone);
-					uni.setStorageSync('token', res.data.token);
-					_self.global_.phone = this.phone;
-					_self.global_.token = uni.getStorageSync('token');
-					if (res.statusCode == 401) {
-						_self.shade = true;
-					}
-					if (res.statusCode == 402) {
-						uni.showToast({
-							title: '密码错误',
-							icon: 'none'
-						});
-					}
-					if (res.statusCode == 200) {
-						uni.reLaunch({
-							url: '../index/index'
-						});
-					}
-					if (res.statusCode == 412) {
-						uni.showToast({
-							title: '请用手机短信快速登录,并设置密码',
-							icon: 'none'
-						});
-					}
-				},
-				fail: () => {},
-				complete: () => {}
-			});
 		}
-	}
-};
+	};
 </script>
 
 <style>
-page {
-	background: #121212;
-}
-.autho {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 9;
-	background-color: #121e2c;
-}
-.login-icon {
-	flex: none;
-	margin-top: 120rpx;
-	display: flex;
-	align-items: center;
-}
-.login-img {
-	width: 92rpx;
-	height: 80rpx;
-	margin-top: 120rpx;
-	margin-left: 120rpx;
-}
-.iti {
-	height: 800rpx;
-}
-.login-text {
-	font-weight: bold;
-	font-size: 50rpx;
-	color: #01c0dd;
-	margin-top: 100rpx;
-}
-/* 矿机图片 */
-.img {
-	width: 500rpx;
-	height: 500rpx;
-	display: block;
-	margin: 10px auto;
-}
+	page {
+		width: 100%;
+		height: 100%;
+	}
 
-.txt {
-	height: 100rpx;
-	line-height: 100rpx;
-	color: #01c0dd;
-	display: flex;
-	justify-content: space-around;
-}
-.item {
-	font-size: 30rpx;
-	margin-left: 50rpx;
-}
-/*按钮*/
-.changeBtn {
-	/* 一 */
-	width: 80%;
-	height: 80rpx;
-	background-color: #41bec9;
-	color: #fff;
-	border-radius: 30rpx;
-	margin: 100rpx auto;
-	line-height: 80rpx;
-	font-size: 42rpx;
-}
-.shade {
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.4);
-	position: fixed;
-	left: 0;
-	top: 0;
-	z-index: 99;
-}
-.pop {
-	width: 550rpx;
-	height: 300rpx;
-	margin: 500rpx auto;
-	padding: 0 60rpx;
-	box-sizing: border-box;
-	background: #fff;
-	border-radius: 10rpx;
-}
-.pop-title {
-	height: 180rpx;
-	line-height: 180rpx;
-	text-align: center;
-	font-size: 34rpx;
-}
-.pops {
-	height: 100rpx;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
-.pop-btn {
-	width: 158rpx;
-	height: 66rpx;
-	border-radius: 10rpx;
-	line-height: 66rpx;
-	font-size: 30rpx;
-	color: #fff;
-	text-align: center;
-}
-.yess {
-	background: #121212;
-}
-.quxiao {
-	color: rgba(137, 137, 137, 1);
-}
-.logo {
-	display: block;
-	width: 185rpx;
-	height: 185rpx;
-	margin: 150rpx auto 0;
-}
-.fil {
-	width: 250rpx;
-	height: 100rpx;
-	display: block;
-	margin: 30rpx auto 100rpx;
-}
-.enter {
-	width: 600rpx;
-	height: 100rpx;
-	margin: 30rpx auto;
-	border-bottom: 1px solid #555555;
-}
-.icon {
-	float: left;
-	display: block;
-	width: 40rpx;
-	height: 40rpx;
+	.login-page {
+		width: 100%;
+		height: 100%;
+	}
+
+	.pb-img {
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: fixed;
+		top: 0;
+	}
+
+	.back-page {
+		width: 54rpx;
+		height: 52rpx;
+		position: fixed;
+		top: 74rpx;
+		left: 24rpx;
+		z-index: 99;
+	}
+
+	.back-page image {
+		width: 54rpx;
+		height: 52rpx;
+		display: block;
+	}
+
+	.mains {
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0;
+	}
+
+	/* .back {
+		background-color: #0081FF;
+		position: fixed;
+		top: var(--status-bar-height);
+		z-index: 99;
+	}
+
+	.back-bg {
+		width: 24rpx;
+		height: 24rpx;
+		border-top: 3rpx solid #FFFFFF;
+		border-left: 3rpx solid #FFFFFF;
+		transform: rotate(-45deg);
+		margin: 15rpx 0 0 26rpx;
+		position: absolute;
+		z-index: 1;
+	} */
+
+
+	.np-logo {
+		width: 75%;
+		height: 138rpx;
+		z-index: 9;
+		position: fixed;
+		top: 161rpx;
+		left: calc(25% / 2);
+		/* overflow: hidden; */
+	}
+
+	.pl-img {
+		width: 149rpx;
+		height: 138rpx;
+		float: left;
+		/* border-radius: 50%; */
+		/* background-color: #ffffff; */
+	}
+
+	.pl-title {
+		width: 410rpx;
+		height: 100%;
+		text-align: left;
+		padding: 20rpx 0 0 20rpx;
+		box-sizing: border-box;
+		/* font-size: 64rpx;
+	color: #ffffff;
+	display: inline-block;
 	margin-top: 30rpx;
-	margin-left: 10rpx;
-}
-.number {
-	float: right;
-	width: 520rpx;
-	height: 100rpx;
-	/* color:#646464; */
-	color: #fff;
-	font-size: 30rpx;
-}
-.tip {
-	width: 600rpx;
-	margin: 0 auto;
-	height: 20rpx;
-	display: flex;
-	font-size: 28rpx;
-	justify-content: space-between;
-}
-.tips {
-	line-height: 20rpx;
-	color: #646464;
-}
-.btn {
-	width: 680rpx;
-	height: 80rpx;
-	background: #fff;
-	border-radius: 50rpx;
-	margin: 80rpx auto;
-	color: #333;
-	text-align: center;
-	line-height: 80rpx;
-}
-.btn1 {
-	width: 680rpx;
-	height: 80rpx;
-	background: RGBA(255, 255, 255, 0.5);
-	border-radius: 50rpx;
-	margin: 80rpx auto;
-	color: #333;
-	text-align: center;
-	line-height: 80rpx;
-}
-.register {
-	width: 150rpx;
-	height: 57rpx;
-	border-radius: 30rpx;
-	border: 1px solid #fff;
-	margin: 0 auto;
-	color: #fff;
-	font-size: 26rpx;
-	line-height: 57rpx;
-	text-align: center;
-}
+	height: 130rpx;
+	transition: height 0.2s ease; */
+		overflow: hidden;
+		float: left;
+	}
+
+	.pl-firsttitle {
+		font-size: 29px;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.pl-secondtitle {
+		font-size: 20rpx;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 1);
+		opacity: 0.7;
+	}
+
+	.np-body {
+		width: 95%;
+		height: auto;
+		margin: 408rpx auto 0 auto;
+		/* box-shadow: 0 2rpx 14rpx #01c97b; */
+		padding: 60rpx 40rpx;
+		background-color: #ffffff;
+		border-radius: 20rpx;
+		overflow: hidden;
+	}
+
+	.np-bodyy {
+		width: 95%;
+		height: auto;
+		overflow: hidden;
+		margin: 160rpx auto 0 auto;
+		/* box-shadow: 0 2rpx 14rpx #01c97b; */
+		padding: 30rpx 40rpx;
+		background-color: #ffffff;
+		border-radius: 20rpx;
+	}
+
+	.pb-tabs {
+		margin-bottom: 108rpx;
+		overflow: hidden;
+		display: flex;
+		text-align: center;
+	}
+
+	.pb-tabs-focu {
+		margin-bottom: 48rpx;
+		overflow: hidden;
+	}
+
+	.bt-tab {
+		/* float: left; */
+		/* line-height:40rpx; */
+		/* margin-right: 64rpx; */
+		border-bottom: 2rpx solid #ebebeb;
+		padding: 20rpx 30rpx;
+		flex: 1;
+		transition: all 0.2s ease;
+		position: relative;
+	}
+
+	.bt-tab-active {
+		color: #01c777;
+		font-weight: bolder;
+	}
+
+	.bt-tab-active::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -2rpx;
+		z-index: 1;
+		height: 8rpx;
+		background-color: #01c777;
+	}
+
+	.bf-item {
+		width: 98%;
+		background-color: #f3f3f3;
+		border-radius: 49rpx;
+		display: flex;
+		padding: 30rpx 0;
+		margin: 40rpx 0;
+		align-items: center;
+		border-bottom: 2rpx solid #ebebeb;
+		position: relative;
+	}
+
+	.bf-item-code {
+		width: 98%;
+		background-color: #f3f3f3;
+		border-radius: 49rpx;
+		display: flex;
+		margin: 40rpx 0;
+		align-items: center;
+		border-bottom: 2rpx solid #ebebeb;
+		position: relative;
+	}
+
+	.bf-item-codes {
+		width: 98%;
+		background-color: #f3f3f3;
+		border-radius: 49rpx;
+		display: flex;
+		margin: 10rpx auto;
+		align-items: center;
+		border-bottom: 2rpx solid #ebebeb;
+		position: relative;
+	}
+
+	.bf-itemm {
+		width: 98%;
+		background-color: #f3f3f3;
+		border-radius: 49rpx;
+		display: flex;
+		padding: 30rpx 0;
+		margin: 10rpx auto;
+		align-items: center;
+		border-bottom: 2rpx solid #ebebeb;
+		position: relative;
+	}
+
+	.fi-icon {
+		width: 30%;
+		font-family: PingFang SC;
+		text-align: right;
+		font-weight: 800;
+		font-size: 28rpx;
+		color: rgba(51, 51, 51, 1);
+	}
+
+	.fi-input {
+		width: 100%;
+		padding-left: 20rpx;
+	}
+
+	.pb-bottom {
+		text-align: right;
+		padding: 15rpx 0;
+		font-size: 26rpx;
+		font-weight: 800;
+		color: rgba(51, 51, 51, 1);
+	}
+
+	.pb-wjma {
+		color: #888888;
+	}
+
+	.submit-btn {
+		margin-top: 135rpx;
+		width: 100%;
+		color: #ffffff;
+		height: 99rpx;
+		line-height: 99rpx;
+		text-align: center;
+		border-radius: 49rpx;
+		position: relative;
+		background: linear-gradient(55deg, rgba(1, 199, 116, 1), rgba(1, 221, 171, 1));
+		overflow: hidden;
+	}
+
+	.submit-btns {
+		margin-top: 40rpx;
+		width: 100%;
+		color: #ffffff;
+		height: 99rpx;
+		line-height: 99rpx;
+		text-align: center;
+		border-radius: 49rpx;
+		position: relative;
+		background: linear-gradient(55deg, rgba(1, 199, 116, 1), rgba(1, 221, 171, 1));
+		overflow: hidden;
+	}
+
+	.tb-mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background-color: rgba(255, 255, 255, 0.3);
+		transition: all 0.1s ease;
+	}
+
+	.disable-btn {
+		background-color: rgba(255, 255, 255, 0);
+	}
+
+	.disable-btn:active {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.fi-code {
+		width: 65%;
+	}
+
+	.fi-sendCode {
+		width: 229rpx;
+		height: 104.6rpx;
+		line-height: 104.6rpx;
+		background: linear-gradient(55deg, rgba(1, 199, 116, 1), rgba(1, 221, 171, 1));
+		border-radius: 49px;
+		text-align: center;
+		color: #ffffff;
+		font-size: 28rpx;
+		flex-shrink: 0;
+	}
+
+	.fi-sendCode:active {
+		opacity: 0.8;
+	}
 </style>

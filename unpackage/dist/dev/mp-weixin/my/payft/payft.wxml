@@ -1,0 +1,1 @@
+<view><view class="add"><image class="img" src="../../static/images/loijd.png" mode></image><view class="size">出售成功</view><view class="loder">{{"手机号:"+number}}</view><view class="loderw">{{"数量:"+number2+" T"}}</view></view><view data-event-opts="{{[['tap',[['btn',['$event']]]]]}}" class="btn" bindtap="__e">完成</view></view>

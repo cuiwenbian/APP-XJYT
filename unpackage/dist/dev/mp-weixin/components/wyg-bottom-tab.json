@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index1": "/pages/index/index",
+    "pool": "/pages/pool/pool",
+    "order": "/pages/order/order",
+    "my": "/pages/my/my"
+  }
+}

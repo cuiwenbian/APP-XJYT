@@ -18,7 +18,7 @@
 					<text class="smallxx1">{{ laiqi.sale_money }}</text>
 				</text>
 				<text class="sam">
-					矿机数量:
+					服务器数量:
 					<text class="smallxx1">{{ laiqi.sale_num }}台</text>
 				</text>
 			</view>
@@ -178,7 +178,7 @@ export default {
 			that.password = that.numberList.join().replace(/,/g, '');
 			if (that.numberList.length >= that.length) {
 				uni.request({
-					url: that.url + 'buyaffirm/',
+					url: that.url + 'buyaffirms/',
 					method: 'POST',
 					data: {
 						order_num: that.x,
@@ -241,7 +241,7 @@ export default {
 		},
 		sure: function() {
 			if (this.stuse == 401) {
-				uni.switchTab({
+				uni.redirectTo({
 					url: '../../pages/my/my'
 				});
 			}

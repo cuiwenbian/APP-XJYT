@@ -70,6 +70,30 @@ function renderTime(date) {
   var dateee = new Date(date).toJSON();
   return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
 }
+//防抖
+function debounce(fn, wait = 500, isImmediate = false) {
+	let timerId = null;
+	let flag = true;
+	if (isImmediate) {
+		return function() {
+			clearTimeout(timerId);
+			if (flag) {
+				fn.apply(this, arguments);
+				flag = false
+			}
+			timerId = setTimeout(() => {
+				flag = true
+			}, wait)
+		}
+	}
+	return function() {
+		clearTimeout(timerId);
+		timerId = setTimeout(() => {
+			fn.apply(this, arguments)
+		}, wait)
+	}
+}
+
 
 module.exports = {
   checkEmail: checkEmail,
@@ -79,5 +103,6 @@ module.exports = {
   timer:timer,
   formatTime: formatTime,
   formatMonth:formatMonth,
-  renderTime:renderTime
+  renderTime:renderTime,
+  debounce
 }

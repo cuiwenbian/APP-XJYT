@@ -1,9 +1,9 @@
 <template>
-  <view
-    v-if="showPopup"
-    class="uni-popup">
+  <view v-if="showPopup" class="uni-popup">
+  <!-- <view class="uni-popup"> -->
     <view
       :class="[ani, animation ? 'ani' : '', !custom ? 'uni-custom' : '']"
+	  :style='{opacity:isOpacity}'
       class="uni-popup__mask"
       @click="close(true)" />
     <view
@@ -46,7 +46,11 @@ export default {
     show: {
       type: Boolean,
       default: true
-    }
+    },
+	isOpacity:{
+		type: Number,
+		default: 1
+	}
   },
   data () {
     return {

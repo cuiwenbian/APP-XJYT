@@ -10,8 +10,8 @@
                 :status-bar="true"
                 @click-left="back"
                 @click-right="add_address"
-                background-color="#102A44"
-                color="#fff"
+                background-color="#ffffff"
+                color="black"
             ></uni-nav-bar>
             <!-- #endif -->
             <view class="box"></view>
@@ -31,8 +31,8 @@
                 right-text="提交建议"
                 @click-left="back"
                 @click-right="addMessage"
-                background-color="#102A44"
-                color="#fff"
+               background-color="#ffffff"
+               color="black"
             ></uni-nav-bar>
             <!-- #endif -->
             <view v-for="item in messages" :key="item.id" @click="detail(item)">
@@ -71,6 +71,7 @@
 
 <script>
 import uniNavBar from '../../components/uni-nav-bar/uni-nav-bar.vue';
+	import {debounce} from '@/common/utils.js'
 export default {
     data() {
         return {
@@ -89,7 +90,7 @@ export default {
     onLoad() {
         var _this = this;
         uni.request({
-            url: this.url + 'advicefeedback/',
+            url: this.url + 'advicefeedbacks/',
             method: 'GET',
             data: {
                 title: this.title,
@@ -160,7 +161,7 @@ export default {
                 return false;
             }
             uni.request({
-                url: this.url + 'advicefeedback/',
+                url: this.url + 'advicefeedbacks/',
                 method: 'POST',
                 data: {
                     title: this.title,
@@ -192,11 +193,14 @@ export default {
                 }
             });
         },
-        detail: function(item) {
+		linkToTransfer: debounce(function(item){
             var mes = JSON.stringify(item);
             uni.navigateTo({
                 url: '../suggest-detail/suggest-detail?message=' + mes
             });
+		},500, true),
+        detail: function(item) {
+			this.linkToTransfer(item)
         },
         identity: function() {
             uni.navigateTo({
@@ -263,29 +267,6 @@ page {
 	float: left;
 	height:auto;
 }
-/* .question {
-    color: #121212;
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    width: 100%;
-	background: yellow;
-}
-.tit {
-    width: 15%;
-    height: 90rpx;
-    float: left;
-    line-height: 90rpx;
-    font-size: 28rpx;
-}
-.answer {
-    height: auto;
-    width: 85%;
-    word-break: break-all;
-    word-wrap: break-word;
-    float: left;
-    line-height: 90rpx;
-    font-size: 28rpx;
-} */
 .box {
     height: 200rpx;
 }
@@ -304,7 +285,8 @@ page {
 .newadd {
     width: 200rpx;
     height: 70rpx;
-    background: #0a1117;
+	box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+	background-image: linear-gradient(to right, #01c774, #01dda9);
     border-radius: 50rpx;
     color: #fff;
     text-align: center;

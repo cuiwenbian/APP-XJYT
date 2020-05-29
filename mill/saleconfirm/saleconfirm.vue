@@ -15,7 +15,7 @@ that. <template>
                     <text class="smallxx1">{{taste.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1smallxx1">{{taste.sale_num}}</text>台
+                    服务器数量:<text class="smallxx1smallxx1">{{taste.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">
@@ -183,7 +183,7 @@ that. <template>
                                 that.$refs.wrong.flag=false;
                                 var n=res.data.data.err_num;
                                 var s=5-n;
-                                that.$refs.wrong.tip='剩余'+ s +'次机会';
+                                that.$refs.wrong.tip='密码错误，剩余'+ s +'次机会';
                             }
                             if(res.statusCode==423){
                             	uni.showToast({

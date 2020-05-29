@@ -18,7 +18,7 @@
 					<text class="smallxx1">{{ cprop.sale_money }}</text>
 				</text>
 				<text class="re">
-					矿机数量:
+					服务器数量:
 					<text class="smallxx1">{{ cprop.sale_num }}台</text>
 				</text>
 			</view>

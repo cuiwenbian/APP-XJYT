@@ -157,7 +157,7 @@
                                 that.$refs.wrong.flag=false;
                                 var n=res.data.data.err_num;
                                 var s=5-n;
-                                that.$refs.wrong.tip='剩余'+ s +'次机会';
+                                that.$refs.wrong.tip='密码错误，剩余'+ s +'次机会';
                             }
                             if(res.statusCode==423){
                             	uni.showToast({

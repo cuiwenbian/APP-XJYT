@@ -29,7 +29,7 @@
                 </view>
             </view>
             <view v-else>
-                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <image class="transfer" src="../static/images/no-coupon.png" mode=""></image>
                 <view class="nobuys">暂无优惠券～</view>
             </view>
         </view>
@@ -48,7 +48,7 @@
                 </view>
             </view>
             <view v-else>
-                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <image class="transfer" src="../static/images/no-coupon.png" mode=""></image>
                 <view class="nobuys">暂无优惠券～</view>
             </view>
         </view>
@@ -66,13 +66,13 @@
                 </view>
             </view>
             <view v-else>
-                <image class="transfer" src="../../static/images/no-coupon.png" mode=""></image>
+                <image class="transfer" src="../static/images/no-coupon.png" mode=""></image>
                 <view class="nobuys">暂无优惠券～</view>
             </view>
         </view>
         <view class="list" v-if="tabCurrentIndex === 3">
             <view v-if="flag">
-                <image class="transfer" src="../../static/images/no-transfer.png" mode=""></image>
+                <image class="transfer" src="../../static/images/no-machine.png" mode=""></image>
                 <view class="nobuys">暂无优惠券转让记录～</view>
             </view>
             <view v-else>
@@ -266,13 +266,8 @@ page {
     color: #ffffff;
     position: relative;
     z-index: 10;
-    /* border-bottom: 1rpx solid #182A42; */
 }
 .nav-item {
-    /* flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center; */
     width: 25%;
     height: 100%;
     font-size: 24rpx;

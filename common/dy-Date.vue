@@ -1,10 +1,13 @@
 <template>
 	<view>
-		<picker :title="index" @change="bindTimeChange" @columnchange="columnchange" mode="multiSelector" :disabled="disabled" :class="{disabled:disabled}"
-		 :value="index" :range="array">
+		<picker :title="index" @change="bindTimeChange" @columnchange="columnchange" mode="multiSelector" :disabled="disabled"
+		 :class="{disabled:disabled}" :value="index" :range="array">
 			<view class="uni-input" v-if="showTime">{{showTime}}
+				<view class='bot' ></view>
 			</view>
-			<view v-else class="placeholder">{{placeholder}}</view>
+			<view v-else class="placeholder">{{placeholder}}
+				<view class='bott' ></view>
+			</view>
 		</picker>
 	</view>
 	<!-- 只读 -->
@@ -141,7 +144,7 @@
 				}
 
 				this.array[0] = this.yearArr
-				
+
 				if (type === 'month' || type === 'day') {
 					this.array[1] = this.monthArr.length && this.monthArr[0]
 				}
@@ -324,10 +327,10 @@
 						this.array[0].findIndex(
 							item => parseInt(item) === parseInt(value[0])
 						) || 0
-						index = index === -1 ? 0 : index
+					index = index === -1 ? 0 : index
 					this.index[0] = index
 					this.yearIndex = index
-					
+
 					let type = this.timeType
 					if (type === 'month' || type === 'day') {
 						this.array[1] = this.monthArr.length && this.monthArr[index]
@@ -394,35 +397,72 @@
 	}
 </script>
 
-<style lang="less">
+<style lang="scss">
 	.tx_r {
 		line-height: 48px;
 		font-size: 30rpx;
 		font-weight: normal;
-		color: #848b9a;
+		color: #333333;
 	}
 
 	.placeholder {
-		color: #FFFFFF;
-        width: 18%;
-        height: 48rpx;
-        line-height: 48rpx;
-        text-align: center;
-        border-radius: 60rpx;
-        background-color: #182A42;
+		color: #333333;
+		width: 20%;
+		height: 60rpx;
+		line-height: 60rpx;
+		// padding-left:20rpx;
+		border-radius: 60rpx;
+		background-color: #ECECEC;
 		font-size: 24rpx;
+		padding-left: 35rpx;
+		box-sizing: border-box;
+		position: relative;
+
+		.bott {
+			// width: 16rpx;
+			// height: 10rpx;
+			//display: block;
+			width: 0;
+			height: 0;
+			border-right: 4px solid transparent;
+			border-left: 4px solid transparent;
+			border-top: 4px solid #616063;
+			position: absolute;
+			top: 25rpx;
+			left: 100rpx;
+			z-index: 9;
+		}
+
 	}
-    .uni-input{
-        color: #FFFFFF;
-        width: 18%;
-        height: 48rpx;
-        line-height: 48rpx;
-        text-align: center;
-        border-radius: 60rpx;
-        // border: 2rpx solid #E2E2E2;
-        background-color: #182A42;
-        font-size: 24rpx;
-    }
+
+
+
+	.uni-input {
+		color: #333333;
+		width: 24%;
+		height: 60rpx;
+		line-height: 60rpx;
+		border-radius: 60rpx;
+		background-color: #ECECEC;
+		font-size: 24rpx;
+		padding-left: 24rpx;
+		box-sizing: border-box;
+		position: relative;
+
+		.bot {
+			width: 0;
+			height: 0;
+			border-right: 4px solid transparent;
+			border-left: 4px solid transparent;
+			border-top: 4px solid #616063;
+			position: absolute;
+			top: 25rpx;
+			left: 130rpx;
+			z-index: 9;
+		}
+	}
+
+
 	.fa-angle-right {
 		font-size: 36rpx;
 		padding-left: 12rpx;

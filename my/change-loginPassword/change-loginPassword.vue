@@ -13,7 +13,7 @@
         <view class="set">设置登录密码</view>
         <view class="list">
             <view class="title">登录密码:</view>
-            <input class="code" style="width:400rpx;" :password="isPassword" :value="pwd" @input="getLoginPassword" placeholder="6-16位数字,字母" />
+            <input class="code" style="width:400rpx;" :password="isPassword" :value="pwd" @input="getLoginPassword" @blur='checkPwd' placeholder="6-16位数字或字母" />
             <image
                 :class="isPassword ? 'close' : 'cloose'"
                 :src="isPassword ? '../../static/images/password.png' : '../../static/images/openeye.png'"
@@ -32,18 +32,23 @@
                 mode=""
             ></image>
         </view>
-        <view class="save" @click="save">确认</view>
+		<view class="submit-btn-wrap">
+			<view class="submit-btn" hover-class="active" @click="save" v-if="allowLogin">确认</view>
+			<view class="submit-btn-disable" v-else>确认</view>
+		</view>
     </view>
 </template>
 
 <script>
+	import { debounce } from '@/common/utils.js';
 export default {
     data() {
         return {
             isPassword: true,
             isPassword1: true,
-            phone: this.global_.phone,
+            phone: uni.getStorageSync('phone'),
             codename: ' 获取验证码 ',
+			n:true,
             pwd: '',
             pwd1: '',
             iscode: '',
@@ -54,6 +59,11 @@ export default {
     onBackPress(option) {
         plus.key.hideSoftKeybord();
     },
+	computed: {
+		allowLogin () {
+			return !!(this.pwd && this.pwd1 && this.code)
+		},
+	},
     methods: {
         getLoginPassword: function(e) {
             this.pwd = e.detail.value;
@@ -64,6 +74,18 @@ export default {
         getCodeValue: function(e) {
             this.code = e.detail.value;
         },
+		checkPwd:function(e){
+			this.pwd = e.detail.value;
+			var str = /^[a-z0-9]{6,16}$/;
+			if (!str.test(this.pwd)) {
+			    uni.showToast({
+			        title: '密码格式为6到16位字母或数字',
+			        icon: 'none',
+			        duration: 2000
+			    });
+			    return false;
+			}
+		},
         show: function() {
             this.isPassword = !this.isPassword;
         },
@@ -75,6 +97,14 @@ export default {
                 url: '../change-pass/change-pass'
             });
         },
+		next: function() {
+			var that=this;
+			that.n = false;
+		},
+		back: function() {
+			var that=this;
+			that.n = true;
+		},
         getCode: function() {
             var _this = this;
             uni.request({
@@ -115,8 +145,11 @@ export default {
             });
         },
         //获取验证码
+		linkToTransfer: debounce(function(e){
+			this.getCode();
+		},500, true),
         getCodeBtn: function(e) {
-            this.getCode();
+          this.linkToTransfer(e)
         },
         save() {
             var _self = this;
@@ -128,10 +161,10 @@ export default {
                 });
                 return false;
             }
-            var str = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+            var str = /^[a-z0-9]{6,16}$/;
             if (!str.test(this.pwd)) {
                 uni.showToast({
-                    title: '密码格式不正确',
+                    title: '密码格式为6到16位字母或数字',
                     icon: 'none',
                     duration: 2000
                 });
@@ -145,7 +178,7 @@ export default {
                 });
                 return false;
             }
-            if (this.pwd1 !== this.pwd) {
+            if (this.pwd1 && this.pwd && this.pwd1 !== this.pwd) {
                 uni.showToast({
                     title: '两次密码不一致',
                     icon: 'none',
@@ -170,7 +203,7 @@ export default {
                 return false;
             }
             uni.request({
-                url: this.url + 'updataloginpassword/',
+                url: this.url + 'updataLoginpwdcode/',
                 method: 'POST',
                 data: {
                     mobile: this.phone,
@@ -183,16 +216,18 @@ export default {
                 },
                 success: res => {
                     if (res.statusCode == 200) {
-                        uni.showToast({
-                            title: '登录密码设置成功',
-                            icon: 'none',
-                            duration: 2000
-                        });
+                       
                         uni.removeStorageSync('phone');
                         uni.removeStorageSync('token');
+						uni.removeStorageSync('nowtime');
                         uni.reLaunch({
                             url: '../../pages/login/login'
                         });
+						uni.showToast({
+						    title: '登录密码设置成功',
+						    icon: 'none',
+						    duration: 1500
+						});
                     }
                     if (res.statusCode == 400) {
                         uni.showToast({
@@ -207,7 +242,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 page {
     background: #edeeee;
 }
@@ -291,5 +326,41 @@ button[disabled] {
     line-height: 88rpx;
     color: #fff;
     font-size: 30rpx;
+}
+
+.submit-btn-wrap {
+	padding-top: 130rpx;
+	.submit-btn {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+		// background-image: linear-gradient(to right, #01c774, #01dda9);
+		// &.active {
+		// 	opacity: 0.4;
+		// }
+		background-color: rgb(2,213,151);
+		transition: all .2s;
+		&:active {
+			background-color: rgba(2,213,151, .85);
+		}
+	}
+	.submit-btn-disable {
+		width: 511rpx;
+		height: 98rpx;
+		margin: 0 auto;
+		line-height: 98rpx;
+		text-align: center;
+		color: #fff;
+		font-size: 30rpx;
+		border-radius: 50rpx;
+		// background-image: linear-gradient(to right, #706f72, #a9a8ab);
+		background-color: rgba(2,213,151, .4);
+	}
 }
 </style>

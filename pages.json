@@ -14,7 +14,26 @@
 			}
 		},
 		// #endif
-		
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		/* {
+			"path": "pages/otherLogin/otherLogin",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/otherlogin_code/otherlogin_code",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTextStyle":"black"
+			}
+		}, */
 		{
 			"path": "pages/login/login",
 			"style": {
@@ -22,19 +41,12 @@
 			}
 		},
 		{
-			"path": "pages/register/register",
+			"path": "pages/index/home",
 			"style": {
 				"navigationStyle": "custom"
 			}
 		},
-		{
-			"path": "pages/index/index",
-			"style": {
-				"style": {
-					"navigationStyle": "custom"
-				}
-			}
-		},
+		
 		{
 			"path": "pages/my/my",
 			"style": {
@@ -44,14 +56,14 @@
 		{
 			"path": "pages/set/set",
 			"style": {
-				"navigationBarTitleText": "设置"
+			    // "navigationBarTitleText": "设置"
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/pool/pool",
-
 			"style": {
-				"navigationBarTitleText": "矿池"
+				"navigationStyle": "custom"
 			}
 
 		},
@@ -59,14 +71,14 @@
 			"path": "pages/poolDetails/poolDetails",
 
 			"style": {
-				"navigationBarTitleText": "矿池详情"
+				"navigationBarTitleText": "存储中心详情"
 			}
 
 		},
 		{
 			"path": "pages/order/order",
 			"style": {
-				"navigationBarTitleText": "订单"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -75,23 +87,19 @@
 				"navigationStyle": "custom"
 			}
 		},
-		{
-			"path": "pages/assets/assets",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
 
 		{
 			"path": "pages/getBackPassword/getBackPassword",
 			"style": {
-				"navigationBarTitleText": "找回密码"
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#FFFFFF"
 			}
 		},
 		{
 			"path": "pages/setNewPassword/setNewPassword",
 			"style": {
-				"navigationBarTitleText": "设置新密码"
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor":"#FFFFFF"
 			}
 		},
 		{
@@ -101,11 +109,12 @@
 			}
 		},
 		{
-			"path": "pages/otherLogin/otherLogin",
+			"path": "pages/moreNews/moreNews",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "资讯列表"
 			}
 		},
+		
 		{
 			"path": "pages/web1/web1",
 			"style": {
@@ -121,29 +130,35 @@
 		{
 			"path": "pages/banner/banner",
 			"style": {
-				"titleNView": {
-					"titleText": "文章详情"
-				}
+				"navigationBarTitleText": "文章详情"
+				
 			}
 		},
 		{
 			"path": "pages/banner2/banner2",
 			"style": {
-				"titleNView": {
-					"titleText": "文章详情"
-				}
+				"navigationBarTitleText": "文章详情"
+				
+			}
+		},
+		{
+			"path": "pages/banner3/banner3",
+			"style": {
+				"navigationBarTitleText": "文章详情"
+				
+			}
+		},
+		{
+			"path": "pages/malse/malse",
+			"style": {
+				"navigationStyle":"custom"
 			}
 		}
 
 	],
 	"subPackages": [{
 			"root": "mill",
-			"pages": [{
-					"path": "pay/pay",
-					"style": {
-						"navigationBarTitleText": "买单"
-					}
-				},
+			"pages": [
 				{
 					"path": "staypay/staypay",
 					"style": {
@@ -172,12 +187,6 @@
 					"path": "completed/completed",
 					"style": {
 						"navigationBarTitleText": "已完成订单详情"
-					}
-				},
-				{
-					"path": "sale/sale",
-					"style": {
-						"navigationBarTitleText": "卖单"
 					}
 				},
 				{
@@ -242,22 +251,31 @@
 				{
 					"path": "add-address/add-address",
 					"style": {
-						"navigationBarTitleText": "新增提币地址"
+						"navigationBarTitleText": "新增我的地址",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
 					}
 				},
 				{
 					"path": "machine-sale/machine-sale",
 					"style": {
-						"titleNView": {
-							"titleText": "服务器出售",
-							"buttons": [ //原生标题栏按钮配置,
-								{
-									"text": "记录", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-									"fontSize": "24rpx",
-									"width": "60rpx"
-								}
-							]
-						}
+						"navigationStyle":"custom"
+						// "titleNView": {
+						// 	"titleText": "服务器出售",
+						// 	"buttons": [ //原生标题栏按钮配置,
+						// 		{
+						// 			"text": "记录", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+						// 			"fontSize": "24rpx",
+						// 			"width": "60rpx"
+						// 		}
+						// 	]
+						// }
+					}
+				},
+				{
+					"path": "my-machine/my-machine",
+					"style": {
+						"navigationStyle": "custom"
 					}
 				},
 				// #ifdef APP-PLUS
@@ -271,8 +289,10 @@
 				{
 					"path": "edit-address/edit-address",
 					"style": {
+						"navigationStyle": "custom",
 						"titleNView": {
-							"titleText": "编辑提币地址",
+							"titleText": "编辑我的地址",
+							"titleColor":"#000000",
 							"buttons": [ //原生标题栏按钮配置,
 								{
 									"text": "删除", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
@@ -283,21 +303,21 @@
 						}
 					}
 				},
-				{
-					"path": "my-machine/my-machine",
-					"style": {
-						"titleNView": {
-							"titleText": "我的服务器",
-							"buttons": [ //原生标题栏按钮配置,
-								{
-									"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
-									"fontSize": "32rpx",
-									"width": "90px"
-								}
-							]
-						}
-					}
-				},
+				// {
+				// 	"path": "my-machine/my-machine",
+				// 	"style": {
+				// 		"titleNView": {
+				// 			"titleText": "我的服务器",
+				// 			"buttons": [ //原生标题栏按钮配置,
+				// 				{
+				// 					"text": "服务协议", //原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+				// 					"fontSize": "32rpx",
+				// 					"width": "90px"
+				// 				}
+				// 			]
+				// 		}
+				// 	}
+				// },
 				{
 					"path": "suggest/suggest",
 					"style": {
@@ -309,11 +329,33 @@
 				{
 					"path": "power/power",
 					"style": {
+						"navigationStyle":"custom"
+					}
+				},
+				{
+					"path": "powerAgreement/powerAgreement",
+					"style": {
+						"navigationBarTitleText": "用户存力服务协议"
+					}
+				},
+				{
+					"path": "save-record/save-record",
+					"style": {
+						"navigationBarTitleText": "记录"
+					}
+				},
+				{
+					"path": "payft/payft",
+					"style": {
 						"navigationStyle": "custom"
 					}
 				},
-
-
+                {
+                	"path": "payftz/payftz",
+                	"style": {
+                		"navigationStyle": "custom"
+                	}
+                },
 				{
 					"path": "order-money/order-money",
 					"style": {
@@ -321,17 +363,18 @@
 					}
 				},
 				{
-					"path": "submit/submit",
+					"path": "posjfig/posjfig",
 					"style": {
-						"navigationBarTitleText": "提交订单"
+						"navigationBarTitleText": "存力转让"
 					}
 				},
 				{
-					"path": "server-sale/server-sale",
+					"path": "poder/poder",
 					"style": {
-						"navigationBarTitleText": "服务器出售"
+						"navigationBarTitleText": "存力出售"
 					}
 				},
+				
 				{
 					"path": "server/server",
 					"style": {
@@ -341,13 +384,25 @@
 				{
 					"path": "record/record",
 					"style": {
-						"navigationBarTitleText": "记录"
+						"navigationBarTitleText": "记录",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
+						
+					}
+				},
+				{
+					"path": "cunli_record/cunli_record",
+					"style": {
+						"navigationBarTitleText": "记录",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
+						
 					}
 				},
 				{
 					"path": "sful/sful",
 					"style": {
-						"navigationBarTitleText": "服务器出售"
+						"navigationStyle": "custom"
 					}
 				},
 				{
@@ -357,24 +412,7 @@
 					}
 				},
 
-				{
-					"path": "power-transfer/power-transfer",
-					"style": {
-						"navigationBarTitleText": "算力转让"
-					}
-				},
-				{
-					"path": "confirm-order/confirm-order",
-					"style": {
-						"navigationBarTitleText": "确认订单"
-					}
-				},
-				{
-					"path": "successful/successful",
-					"style": {
-						"navigationStyle": "custom"
-					}
-				},
+				
 				{
 					"path": "coupon/coupon",
 					"style": {
@@ -400,22 +438,18 @@
 				{
 					"path": "address/address",
 					"style": {
-						"navigationBarTitleText": "提币地址"
+						"navigationBarTitleText": "我的地址"
 					}
 				},
 				{
 					"path": "edit-address/edit-address",
 					"style": {
-						"navigationBarTitleText": "编辑提币地址"
+						"navigationBarTitleText": "编辑我的地址",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
 					}
 				},
-				{
-					"path": "my-machine/my-machine",
-					"style": {
-						"navigationBarTitleText": "我的服务器"
-
-					}
-				},
+				
 				{
 					"path": "suggest/suggest",
 					"style": {
@@ -482,13 +516,15 @@
 				{
 					"path": "machine-detail/machine-detail",
 					"style": {
-						"navigationBarTitleText": "服务器详情"
+						"navigationStyle":"custom"
 					}
 				},
 				{
 					"path": "my-wallet/my-wallet",
 					"style": {
-						"navigationBarTitleText": "我的资产"
+						"navigationBarTitleText": "我的资产",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
 					}
 				},
 
@@ -502,7 +538,9 @@
 				{
 					"path": "transfer/transfer",
 					"style": {
-						"navigationBarTitleText": "转账"
+						"navigationBarTitleText": "转账",
+						"navigationBarBackgroundColor":"#FAFBFC",
+						"navigationBarTextStyle":"black"
 					}
 				},
 				{
@@ -521,37 +559,11 @@
 			]
 		}
 	],
-	"tabBar": {
-		"color": "#8796AA",
-		"selectedColor": "#41BEC9",
-		"backgroundColor": "#182A42",
-		"list": [{
-			"pagePath": "pages/index/index",
-			"text": "首页",
-			"iconPath": "static/images/tab1.png",
-			"selectedIconPath": "static/images/tab-index.png"
-		}, {
-			"pagePath": "pages/pool/pool",
-			"text": "矿池",
-			"iconPath": "static/images/tab2.png",
-			"selectedIconPath": "static/images/tab-machine.png"
-		}, {
-			"pagePath": "pages/order/order",
-			"text": "订单",
-			"iconPath": "static/images/tab3.png",
-			"selectedIconPath": "static/images/tab-captial.png"
-		}, {
-			"pagePath": "pages/my/my",
-			"text": "我的",
-			"iconPath": "static/images/tab4.png",
-			"selectedIconPath": "static/images/tab-mine.png"
-		}]
-	},
+	
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "星际云通",
-		"navigationBarBackgroundColor": "#102A44",
-		"backgroundColor": "#121212"
+		"navigationBarBackgroundColor":"#FAFBFC",
+		"navigationBarTextStyle":"black",
+		"navigationBarTitleText": ""
 	},
 	"style": {
 		"statusbar": { //沉浸式状态栏下禁用系统状态栏  
@@ -564,7 +576,7 @@
 				//空的不设值也会有问题  
 			},
 			"animationType": "fade-in",
-			"animationDuration": 300
+			"animationDuration": 1000
 		}
 	}
 }

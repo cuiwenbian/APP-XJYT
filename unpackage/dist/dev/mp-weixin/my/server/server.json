@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "服务器出售",
-  "usingComponents": {}
+  "usingComponents": {
+    "keyboard-package": "/components/keyboard-package/keyboard-package",
+    "password-input": "/components/password-input/password-input"
+  }
 }

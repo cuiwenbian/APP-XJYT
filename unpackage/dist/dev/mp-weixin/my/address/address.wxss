@@ -62,7 +62,8 @@
 .newadd {
 	width: 200rpx;
 	height: 70rpx;
-	background: #0A1117;
+	background-image: -webkit-linear-gradient(left, #01c774, #01dda9);
+	background-image: linear-gradient(to right, #01c774, #01dda9);
 	border-radius: 50rpx;
 	color: #fff;
 	text-align: center;

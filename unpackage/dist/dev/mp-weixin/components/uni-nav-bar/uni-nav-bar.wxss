@@ -30,6 +30,7 @@
   width: 100%;
   background-color: #ffffff;
   overflow: hidden;
+  background-size: 100% 100%;
 }
 .uni-navbar__content .uni-navbar__content_view {
     display: -webkit-box;
@@ -61,7 +62,7 @@
             flex-wrap: nowrap;
     -webkit-flex-shrink: 0;
             flex-shrink: 0;
-    width: 120rpx;
+    width: 180rpx;
     padding: 0 12rpx;
 }
 .uni-navbar__header-btns:first-child {

@@ -22,6 +22,7 @@
 </template>
 
 <script>
+	import {debounce} from '@/common/utils.js'
     export default {
         data() {
             return {
@@ -47,7 +48,7 @@
                 var that = this
                 this.coloe = e.detail.value
             },
-            end1:function () {
+			linkToTransfer: debounce(function(){
                 var that = this
                 if(this.coloe==""){
                 	uni.showToast({
@@ -103,7 +104,7 @@
                             })
                         }else if (res.statusCode == 401){
                             uni.showToast({
-                                title:'矿机不能卖给自己',
+                                title:'服务器不能卖给自己',
                                 icon:'none'
                             })
                         }else if(res.statusCode == 400) {
@@ -113,6 +114,9 @@
                         }
                     }
                 })
+			},500, true),
+            end1:function () {
+				this.linkToTransfer()
             },
         }
     }

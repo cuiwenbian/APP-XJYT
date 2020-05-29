@@ -1,4 +1,4 @@
 {
-  "navigationBarTitleText": "我的服务器",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

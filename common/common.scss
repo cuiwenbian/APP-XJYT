@@ -1,0 +1,33 @@
+page,
+view,
+text,
+image,
+scroll-view,
+swiper,
+swiper-item,
+navigator,
+textarea,
+movable-view,
+cover-view,
+cover-image,
+icon,
+rich-text,
+button,
+checkbox-group,
+checkbox,
+label,
+picker,
+textarea,
+input {
+	box-sizing: border-box;
+}
+
+.am-flex-row-center {
+	display: flex;
+	align-items: center;
+}
+.am-flex-rc-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

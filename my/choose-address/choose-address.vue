@@ -1,5 +1,5 @@
 <template>
-    <!-- 提币地址 -->
+    <!-- 我的地址 -->
     <view class="container" style="position: relative;">
         <view v-if="flag">
             <block v-for="item in address_out" :key="item.id">
@@ -8,7 +8,7 @@
                         <view class="left">
                             <view class="nickTitle">地址昵称:</view>
                             <view class="nickname" :value="nickname">{{ item.wallet_key }}</view>
-                            <view class="addTitle">提币地址:</view>
+                            <view class="addTitle">我的地址:</view>
                             <view class="adr" :value="address">{{ item.wallet_value }}</view>
                         </view>
                     </view>
@@ -19,7 +19,7 @@
             <view class="box"></view>
             <view>
                 <image class="none" src="../../static/images/no-add.png" mode=""></image>
-                <view class="tips">您还没有提币地址哦！</view>
+                <view class="tips">您还没有地址哦！</view>
             </view>
         </view>
     </view>
@@ -47,7 +47,7 @@ export default {
         that.bar = options.bar;
         that.fee = options.fee;
         uni.request({
-            url: this.url + 'walletaddress/',
+            url: this.url + 'walletaddresss/',
             method: 'GET',
             header: {
                 Authorization: 'JWT' + ' ' + this.global_.token

@@ -1,4 +1,6 @@
 {
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "usingComponents": {
+    "wyg-bottom-tab": "/components/wyg-bottom-tab"
+  }
 }

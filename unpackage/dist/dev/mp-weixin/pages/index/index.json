@@ -1,6 +1,9 @@
 {
-  "style": {
-    "navigationStyle": "custom"
-  },
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "home": "/pages/index/home1",
+    "pool": "/pages/pool/pool",
+    "order": "/pages/order/order",
+    "mine": "/pages/my/my"
+  }
 }

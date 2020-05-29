@@ -12,17 +12,22 @@
             <input class="enter enter1" type="number" :value="emailCode" @input="getEmailCode" placeholder="请输入邮箱验证码" />
             <button class="getcode" @click="sendcode" :disabled="disabled">{{ codename }}</button>
         </view>
-        <view class="save" @click="unbind">确认</view>
+		<view class="submit-btn-wrap">
+			<view class="submit-btn" hover-class="active" @click="unbind" v-if="allowLogin">确认</view>
+			<view class="submit-btn-disable" v-else>确认</view>
+		</view>
     </view>
 </template>
 
 <script>
 var check = require('../../common/utils.js');
+	import {debounce} from '@/common/utils.js'
 export default {
     data() {
         return {
             email: '',
             email1: '',
+			n:true,
             emailCode: '',
             codename: ' 获取验证码',
             disabled: false
@@ -31,7 +36,7 @@ export default {
     onShow() {
         var _this = this;
         uni.request({
-            url: this.url + 'delemail/',
+            url: this.url + 'delemails/',
             method: 'GET',
             header: {
                 Authorization: 'JWT' + ' ' + this.global_.token
@@ -49,38 +54,54 @@ export default {
     onBackPress(option) {
         plus.key.hideSoftKeybord();
     },
+	computed: {
+		allowLogin () {
+			return !!(this.emailCode)
+		},
+	},
     methods: {
+		next: function() {
+			var that = this;
+			that.n = false;
+		},
+		back: function() {
+			var that = this;
+			that.n = true;
+		},
         getEmailCode: function(e) {
             this.emailCode = e.detail.value;
         },
+		linkToTransfer: debounce(function(){
+			var that = this;
+			uni.request({
+			    //解除绑定邮箱验证码
+			    url: this.url + 'deleteemails/',
+			    method: 'POST',
+			    data: {
+			        email: that.email,
+			        email_msg: that.emailCode
+			    },
+			    header: {
+			        Authorization: 'JWT' + ' ' + this.global_.token
+			    },
+			    success: function(res) {
+			        var num = 121;
+			        var timer = setInterval(function() {
+			            num--;
+			            if (num <= 0) {
+			                clearInterval(timer);
+			                (that.codename = '重新发送'), (that.disabled = false);
+			            } else {
+			                that.disabled = true;
+			                that.codename = num + 's';
+			            }
+			        }, 1000);
+			    },
+			    fail: function(err) {}
+			});
+		},500, true),
         sendcode: function() {
-            var that = this;
-            uni.request({
-                //解除绑定邮箱验证码
-                url: this.url + 'deleteemail/',
-                method: 'POST',
-                data: {
-                    email: that.email,
-                    email_msg: that.emailCode
-                },
-                header: {
-                    Authorization: 'JWT' + ' ' + this.global_.token
-                },
-                success: function(res) {
-                    var num = 121;
-                    var timer = setInterval(function() {
-                        num--;
-                        if (num <= 0) {
-                            clearInterval(timer);
-                            (that.codename = '重新发送'), (that.disabled = false);
-                        } else {
-                            that.disabled = true;
-                            that.codename = num + 's';
-                        }
-                    }, 1000);
-                },
-                fail: function(err) {}
-            });
+			this.linkToTransfer()
         },
         unbind: function() {
             if (this.emailCode == '') {
@@ -92,7 +113,7 @@ export default {
                 return false;
             }
             uni.request({
-                url: this.url + 'delemail/', //解除绑定接口
+                url: this.url + 'delemails/', //解除绑定接口
                 method: 'POST',
                 data: {
                     email: this.email1,
@@ -111,14 +132,15 @@ export default {
                         return false;
                     }
                     if (res.statusCode == 200) {
+						uni.navigateBack({
+							delta:2
+						});
                         uni.showToast({
-                            title: '邮箱已解绑',
+                            title: '邮箱解绑成功',
                             icon: 'none',
-                            duration: 2000
+                            duration: 1500
                         });
-                        uni.switchTab({
-                            url: '../../pages/my/my'
-                        });
+                        
                     }
                 }
             });
@@ -127,7 +149,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 page {
     background: #edeeee;
 }
@@ -147,7 +169,7 @@ page {
     width: 60rpx;
     height: 60rpx;
     margin-right: 20rpx;
-    margin-top: 30rpx;
+    margin-top: 45rpx;
 }
 .enter {
     float: left;
@@ -176,15 +198,39 @@ button[disabled] {
     background: #797979 !important;
     color: #fff !important;
 }
-.save {
-    margin: 100rpx auto;
-    width: 690rpx;
-    height: 88rpx;
-    background: #0a1117;
-    border-radius: 80rpx;
-    text-align: center;
-    line-height: 90rpx;
-    color: #fff;
-    font-size: 30rpx;
-}
+.submit-btn-wrap {
+		padding-top: 130rpx;
+		.submit-btn {
+			width: 511rpx;
+			height: 98rpx;
+			margin: 0 auto;
+			line-height: 98rpx;
+			text-align: center;
+			color: #fff;
+			font-size: 30rpx;
+			border-radius: 50rpx;
+			box-shadow: 0 0 15rpx 15rpx rgba(#cdf7eb, 0.3);
+			background-color: rgb(2,213,151);
+			    transition: all .2s;
+			    &:active {
+			        background-color: rgba(2,213,151, .85);
+			    }
+			// background-image: linear-gradient(to right, #01c774, #01dda9);
+			// &.active {
+			// 	opacity: 0.4;
+			// }
+		}
+		.submit-btn-disable {
+			width: 511rpx;
+			height: 98rpx;
+			margin: 0 auto;
+			line-height: 98rpx;
+			text-align: center;
+			color: #fff;
+			font-size: 30rpx;
+			border-radius: 50rpx;
+			background-color: rgba(2,213,151, .4);
+			// background-image: linear-gradient(to right, #706f72, #a9a8ab);
+		}
+	}
 </style>

@@ -3,19 +3,12 @@
 	<view class="container">
 		<view class="pass top" >
 			<text class="title title1">头像</text>
-			<!-- <image class="more more1" src="../../static/images/jiantou3.png" mode=""></image> -->
-			<!-- #ifdef APP-PLUS -->
 			<view class="avator"><image class="pic" src="../../static/images/avator.png" mode=""></image></view>
-			<!-- #endif -->
-			<!-- #ifdef MP-WEIXIN -->
-			<open-data type="userAvatarUrl" class='avator'></open-data>
-			<!-- #endif -->
 		</view>
 		<view class="linee"></view>
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="pass">
 			<text class="title">昵称</text>
-			<!-- <image class="more" src="../../static/images/jiantou3.png" mode=""></image> -->
 			<open-data type="userNickName" class='info'></open-data>
 			<view class="line"></view>
 		</view>
@@ -35,7 +28,7 @@
 			}
 		},
 		onLoad(option) {
-			this.phone=option.phone
+			this.phone=uni.getStorageSync('phone')
 		}
 	}
 </script>
@@ -79,9 +72,8 @@
 	.avator{
 		float: right;
 		width:100rpx;
-		height:100rpx;
+		height:112rpx;
 		border-radius: 50%;
-		border: 1px solid #F2f2f2;
 		margin-top: 25rpx;
 		margin-right: 48rpx;
 	}
@@ -101,6 +93,7 @@
 		line-height: 120rpx;
 		margin-right:48rpx;
 		font-size:30rpx;
+		font-family: 'myface';
 	}
 	.line{
 		width:650rpx;

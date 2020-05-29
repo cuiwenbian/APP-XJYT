@@ -1,16 +1,16 @@
 <template>
-	<!-- 提币地址 -->
+	<!-- 我的地址 -->
 	<view class="container" style="position: relative;">
 		<view v-if="flag">
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back"  title="提币地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#102A44" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back"  title="我的地址" :fixed="true" :status-bar="true" right-text="添加" @click-left="back" @click-right='add_address' background-color="#FAFBFC" color="#000000" ></uni-nav-bar>
 			<!-- #endif -->
 			<block v-for="item in address_out" :key="item.id">
 				<uniSwipeAction :options="options" @click="click(item)">
 					<view class="list">
 						<view class="left">
 							<view class='nickTitle'>地址昵称:</view><view class="nickname" :value="nickname">{{ item.wallet_key }}</view>
-							<view class='addTitle'>提币地址:</view><view class="adr" :value="address">{{ item.wallet_value }}</view>
+							<view class='addTitle'>我的地址:</view><view class="adr" :value="address">{{ item.wallet_value }}</view>
 						</view>
 						<view class="right" @click="edit(item)" :data-item="item"><image class="edit" src="../../static/images/edit.png" mode=""></image></view>
 					</view>
@@ -22,12 +22,12 @@
 		</view>
 		<view v-else>
 			<!-- #ifdef APP-PLUS -->
-			<uni-nav-bar left-icon="back" title="提币地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#102A44" color="#fff" ></uni-nav-bar>
+			<uni-nav-bar left-icon="back" title="我的地址" :fixed="true" :status-bar="true"  @click-left="back" background-color="#FAFBFC" color="#000000" ></uni-nav-bar>
 			<!-- #endif -->
 			<view class="box"></view>
 			<view>
 				<image class="none" src="../../static/images/no-add.png" mode=""></image>
-				<view class="tips">您还没有提币地址哦！</view>
+				<view class="tips">您还没有我的地址哦！</view>
 			</view>
 			<view class="newadd" @click="add_address">新建地址</view>
 		</view>
@@ -50,6 +50,7 @@ import uniSwipeAction from '../../components/uni-swipe-action/uni-swipe-action.v
 import keyboardPackage from '../../components/keyboard-package/keyboard-package.vue';
 import passwordInput from '../../components/password-input/password-input.vue';
 import uniNavBar from '../../components/uni-nav-bar/uni-nav-bar.vue';
+import { debounce } from '@/common/utils.js';
 export default {
 	data() {
 		return {
@@ -92,7 +93,7 @@ export default {
 		getData(){
 			var that = this;
 			uni.request({
-				url: this.url + 'walletaddress/',
+				url: this.url + 'walletaddresss/',
 				method: 'GET',
 				header: {
 					Authorization: 'JWT' + ' ' + this.global_.token
@@ -136,7 +137,7 @@ export default {
 			that.password = that.numberList.join().replace(/,/g, '');
 			if (that.numberList.length >= that.length) {
 				uni.request({
-					url: that.url + 'updatadeleteaddress/',
+					url: that.url + 'updatadeleteaddresss/',
 					method: 'DELETE',
 					data: {
 						id: that.id,
@@ -160,7 +161,7 @@ export default {
 							that.$refs.wrong.flag=false;
 							var n=res.data.data.err_num;
 							var s=5-n;
-							that.$refs.wrong.tip='剩余'+ s +'次机会';
+							that.$refs.wrong.tip='密码错误，剩余'+ s +'次机会';
 						}
 						if(res.statusCode==423){
 							that.passIn = false;
@@ -188,11 +189,13 @@ export default {
 			this.onInput(val);
 		},
 		//点击添加按钮
-		add_address: function() {
+		linkToTransfer: debounce(function(){
 			uni.navigateTo({
 				url: '../add-address/add-address?flag=' + this.flag,
-				
 			});
+		},500, true),
+		add_address: function() {
+			this.linkToTransfer()
 		},
 		//返回 
 		back: function() {
@@ -277,7 +280,7 @@ export default {
 .newadd {
 	width: 200rpx;
 	height: 70rpx;
-	background: #0A1117;
+	background-image: linear-gradient(to right, #01c774, #01dda9);
 	border-radius: 50rpx;
 	color: #fff;
 	text-align: center;

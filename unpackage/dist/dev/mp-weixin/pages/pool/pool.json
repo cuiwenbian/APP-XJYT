@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "矿池",
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wyg-bottom-tab": "/components/wyg-bottom-tab"
+  }
 }

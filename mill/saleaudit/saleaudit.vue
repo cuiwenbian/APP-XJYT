@@ -15,7 +15,7 @@
                     <text class="smallxx1">{{information.sale_money}}</text>
                 </text>
                 <text class="ser">
-                    矿机数量:<text class="smallxx1">{{information.sale_num}}</text>台
+                    服务器数量:<text class="smallxx1">{{information.sale_num}}</text>台
                 </text>
             </view>
             <view class="small">

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "转账",
+  "navigationBarBackgroundColor": "#FAFBFC",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "keyboard-package": "/components/keyboard-package/keyboard-package",
     "password-input": "/components/password-input/password-input"
